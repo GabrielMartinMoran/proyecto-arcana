@@ -1,0 +1,115 @@
+.arcana-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+}
+
+.arcana-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--accent, var(--pokemon-blue)), transparent 60%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.arcana-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in oklab, var(--accent, var(--pokemon-blue)) 35%, var(--border-color));
+}
+
+.arcana-card .card-inner {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    height: 100%;
+}
+.arcana-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.arcana-card .card-name {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+}
+.arcana-card .card-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.arcana-card .level-badge,
+.arcana-card .type-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    background: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    height: 1.5rem;
+    min-width: 3rem;
+}
+.arcana-card .type-badge {
+    border-color: color-mix(in oklab, var(--accent, var(--pokemon-blue)) 40%, var(--border-color));
+    color: var(--text-primary);
+    background: #fafaf9;
+}
+
+.arcana-card .card-body { display: grid; gap: var(--spacing-md); }
+.arcana-card .card-description {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    height: max-content;
+}
+
+.arcana-card .card-footer { display: flex; flex-direction: column; gap: var(--spacing-md); margin-top: auto; }
+
+.arcana-card .card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: end;
+}
+.arcana-card .chip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    height: 1.5rem;
+}
+.arcana-card .card-reqs {
+    border-top: 1px dashed var(--border-color);
+    padding-top: var(--spacing-xs);
+}
+.arcana-card .req-title {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.arcana-card .req-list {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    opacity: 0.9;
+}

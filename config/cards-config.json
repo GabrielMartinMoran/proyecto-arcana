@@ -1,0 +1,474 @@
+{
+    "cards": [
+        {
+            "name": "Sintonía con el Acero",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["Combatiente"],
+            "requirements": ["Cuerpo 2"],
+            "description": "Tu entrenamiento con armas es superior. Tu presencia en la Colección te permite aprender y utilizar cartas de Maestro de Armas.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Embate Poderoso",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["Combatiente"],
+            "requirements": ["Sintonía con el Acero"],
+            "description": "Antes de realizar un ataque cuerpo a cuerpo, puedes decidir sufrir un -2 a tu tirada de ataque. Si aciertas, infliges +2 al daño.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía con la Furia",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["Barbaro"],
+            "requirements": ["Cuerpo 2"],
+            "description": "Canalizas una rabia primigenia en combate. Tu presencia en la Colección te permite aprender y utilizar cartas de Furia.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Furia",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Cuerpo",
+            "tags": ["Barbaro"],
+            "requirements": ["Sintonía con la Furia"],
+            "description": "Entras en un estado de furia durante 3 rondas. Mientras dure, todos tus ataques cuerpo a cuerpo infligen +1 de daño.",
+            "cooldown": "1 vez por escena"
+        },
+        {
+            "name": "Sintonía con las Sombras",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Agilidad",
+            "tags": ["Infiltrador"],
+            "requirements": ["Agilidad 2"],
+            "description": "Te mueves con sigilo y golpeas con precisión letal. Tu presencia en la Colección te permite aprender y utilizar cartas de Infiltrador.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Ataque Furtivo",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Agilidad",
+            "tags": ["Infiltrador"],
+            "requirements": ["Sintonía con las Sombras"],
+            "description": "Una vez por turno, si atacas a un enemigo que está desprevenido o junto a uno de tus aliados, infliges +2 al daño.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía con la Naturaleza",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["Druida"],
+            "requirements": ["Instinto 2"],
+            "description": "Posees un vínculo con el mundo salvaje. Tu presencia en la Colección te permite aprender y utilizar cartas de Rastreador.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Rastreador Experto",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["Druida"],
+            "requirements": ["Sintonía con la Naturaleza"],
+            "description": "Añades tu dado de ayuda (1d4) a cualquier prueba de Instinto que realices para seguir un rastro o sobrevivir en la naturaleza.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Toque Sanador",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Instinto",
+            "tags": ["Sacerdote"],
+            "requirements": ["Consagración 1"],
+            "description": "Tocas a una criatura y canalizas energía divina. Recupera 2 puntos de Salud.",
+            "cooldown": "2 Rondas"
+        },
+        {
+            "name": "Escudo Arcano",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Mente",
+            "tags": ["Arcanista"],
+            "requirements": ["Mente 2", "Afinidad Arcana 1"],
+            "description": "Como Reacción cuando eres impactado por un ataque, obtienes **+3 a tu Esquiva** contra ese ataque. Puede convertir el impacto en fallo.",
+            "cooldown": "1 vez por escena"
+        },
+        {
+            "name": "Piel de Roble",
+            "level": 2,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["Druida"],
+            "requirements": ["Sintonía con la Naturaleza", "Cuerpo 3"],
+            "description": "Tu piel se endurece como la corteza de un árbol. Obtienes **Mitigación +1** mientras esta carta esté activa.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Discurso Inspirador",
+            "level": 2,
+            "type": "Accionable",
+            "attribute": "Presencia",
+            "tags": ["Combatiente"],
+            "requirements": ["Presencia 3"],
+            "description": "Das un discurso motivador. Tú y hasta 3 aliados a tu elección ganan 1d4 para añadir a su próxima tirada de ataque o salvación.",
+            "cooldown": "1 vez por escena"
+        },
+        {
+            "name": "Bola de Fuego",
+            "level": 3,
+            "type": "Accionable",
+            "attribute": "Mente",
+            "tags": ["Arcanista", "conjuro", "fuego"],
+            "requirements": ["Afinidad Arcana 3"],
+            "description": "Una esfera ígnea explota en un punto visible, infligiendo gran daño de fuego en un área amplia.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Misil Mágico",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Mente",
+            "tags": ["Arcanista", "conjuro", "fuerza"],
+            "requirements": ["Afinidad Arcana 1"],
+            "description": "Proyectiles de energía impactan automáticamente al objetivo, repartiendo daño de forma fiable.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Armadura de Mago",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Mente",
+            "tags": ["Arcanista", "conjuro"],
+            "requirements": ["Afinidad Arcana 1"],
+            "description": "Refuerza tu silueta con energía arcana, mejorando tu protección durante varias horas.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Paso Brumoso",
+            "level": 2,
+            "type": "Accionable",
+            "attribute": "Mente",
+            "tags": ["Arcanista", "conjuro"],
+            "requirements": ["Afinidad Arcana 2"],
+            "description": "Te envuelves en niebla plateada y te teletransportas a un punto cercano que puedas ver.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Manos Ardientes",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Mente",
+            "tags": ["Arcanista", "conjuro", "fuego"],
+            "requirements": ["Afinidad Arcana 1"],
+            "description": "Un cono de llamas emerge de tus manos, abrasando a las criaturas frente a ti.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Bendecir",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Presencia",
+            "tags": ["Sacerdote", "conjuro"],
+            "requirements": ["Consagración 1"],
+            "description": "Concedes una bendición que mejora las tiradas de ataque y salvación de tus aliados.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Golpe Divino",
+            "level": 2,
+            "type": "Accionable",
+            "attribute": "Presencia",
+            "tags": ["Sacerdote", "conjuro", "radiante"],
+            "requirements": ["Consagración 2"],
+            "description": "Imbuyes tu arma con poder sagrado para infligir daño radiante adicional al impactar.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Disparo Preciso",
+            "level": 2,
+            "type": "Efecto",
+            "attribute": "Agilidad",
+            "tags": ["Druida"],
+            "requirements": ["Agilidad 2"],
+            "description": "Refinas tu puntería para ignorar cobertura ligera y maximizar impacto a distancia.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Marca del Cazador",
+            "level": 1,
+            "type": "Accionable",
+            "attribute": "Instinto",
+            "tags": ["Druida", "conjuro"],
+            "requirements": ["Sintonía Primordial 1"],
+            "description": "Marcas a un objetivo para seguirlo mejor e infligir daño adicional cuando lo golpeas.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Surto de Acción",
+            "level": 2,
+            "type": "Accionable",
+            "attribute": "Cuerpo",
+            "tags": ["Combatiente"],
+            "requirements": ["Cuerpo 2"],
+            "description": "Una reserva de esfuerzo te permite realizar una acción adicional en tu turno.",
+            "cooldown": "1 por descanso corto"
+        },
+        {
+            "name": "Golpe Remolino",
+            "level": 3,
+            "type": "Accionable",
+            "attribute": "Cuerpo",
+            "tags": ["Combatiente"],
+            "requirements": ["Cuerpo 3"],
+            "description": "Describes un arco amplio con tu arma, golpeando a múltiples enemigos cercanos.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Visión en la Oscuridad",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["linaje"],
+            "requirements": ["Solo Creación de Personaje"],
+            "description": "Ves en penumbra como luz tenue y en oscuridad como sombras grises hasta distancia Cercana. No funciona en oscuridad mágica.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sangre Resistente",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["linaje"],
+            "requirements": ["Solo Creación de Personaje"],
+            "description": "Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos y enfermedades.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Pisada Ligera",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Reflejos",
+            "tags": ["linaje"],
+            "requirements": ["Solo Creación de Personaje"],
+            "description": "Reduces en 1 (mínimo 0) las penalizaciones de armadura a Sigilo.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Piel Gruesa",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["linaje"],
+            "requirements": ["Solo Creación de Personaje"],
+            "description": "Mientras no lleves armadura, tienes Mitigación 1 contra daño de armas y del entorno.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sangre Feérica",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Presencia",
+            "tags": ["linaje"],
+            "requirements": ["Solo Creación de Personaje"],
+            "description": "Obtienes Ventaja (+1d4) en Tiradas de Salvación contra el estado Encantado.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Vigor",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Cuerpo",
+            "tags": ["dotes"],
+            "requirements": ["Cuerpo 2"],
+            "description": "Aumentas tu Salud máxima en +4.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Atleta",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Reflejos",
+            "tags": ["dotes"],
+            "requirements": ["Reflejos 2"],
+            "description": "Tu Velocidad aumenta en +2 metros.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Disciplina de Hierro",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["dotes"],
+            "requirements": ["Instinto 2"],
+            "description": "Tu Límite de Suerte aumenta en +1 (máximo 6).",
+            "cooldown": "—"
+        },
+        {
+            "name": "Defensa sin Armadura",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Reflejos",
+            "tags": ["dotes"],
+            "requirements": ["Reflejos 2"],
+            "description": "Obtienes +1 a Esquiva mientras no lleves armadura ni escudo.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Afinidad Arcana 1",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Mente",
+            "tags": ["magia", "arcana"],
+            "requirements": ["Mente 2"],
+            "description": "Puedes aprender y usar cartas de Magia Arcana de Nivel 1.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Afinidad Arcana 2",
+            "level": 2,
+            "type": "Efecto",
+            "attribute": "Mente",
+            "tags": ["magia", "arcana"],
+            "requirements": ["Mente 3", "Afinidad Arcana 1"],
+            "description": "Puedes aprender y usar cartas de Magia Arcana de Nivel 2 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Afinidad Arcana 3",
+            "level": 3,
+            "type": "Efecto",
+            "attribute": "Mente",
+            "tags": ["magia", "arcana"],
+            "requirements": ["Mente 3", "Afinidad Arcana 2"],
+            "description": "Puedes aprender y usar cartas de Magia Arcana de Nivel 3 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Afinidad Arcana 4",
+            "level": 4,
+            "type": "Efecto",
+            "attribute": "Mente",
+            "tags": ["magia", "arcana"],
+            "requirements": ["Mente 4", "Afinidad Arcana 3"],
+            "description": "Puedes aprender y usar cartas de Magia Arcana de Nivel 4 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Afinidad Arcana 5",
+            "level": 5,
+            "type": "Efecto",
+            "attribute": "Mente",
+            "tags": ["magia", "arcana"],
+            "requirements": ["Mente 5", "Afinidad Arcana 4"],
+            "description": "Puedes aprender y usar cartas de Magia Arcana de Nivel 5 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Consagración 1",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "sacerdotal"],
+            "requirements": ["Instinto 2"],
+            "description": "Puedes aprender y usar cartas de Magia Sacerdotal de Nivel 1.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Consagración 2",
+            "level": 2,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "sacerdotal"],
+            "requirements": ["Instinto 3", "Consagración 1"],
+            "description": "Puedes aprender y usar cartas de Magia Sacerdotal de Nivel 2 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Consagración 3",
+            "level": 3,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "sacerdotal"],
+            "requirements": ["Instinto 3", "Consagración 2"],
+            "description": "Puedes aprender y usar cartas de Magia Sacerdotal de Nivel 3 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Consagración 4",
+            "level": 4,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "sacerdotal"],
+            "requirements": ["Instinto 4", "Consagración 3"],
+            "description": "Puedes aprender y usar cartas de Magia Sacerdotal de Nivel 4 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Consagración 5",
+            "level": 5,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "sacerdotal"],
+            "requirements": ["Instinto 5", "Consagración 4"],
+            "description": "Puedes aprender y usar cartas de Magia Sacerdotal de Nivel 5 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía Primordial 1",
+            "level": 1,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "primordial"],
+            "requirements": ["Instinto 2"],
+            "description": "Puedes aprender y usar cartas de Magia Primordial de Nivel 1.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía Primordial 2",
+            "level": 2,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "primordial"],
+            "requirements": ["Instinto 3", "Sintonía Primordial 1"],
+            "description": "Puedes aprender y usar cartas de Magia Primordial de Nivel 2 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía Primordial 3",
+            "level": 3,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "primordial"],
+            "requirements": ["Instinto 3", "Sintonía Primordial 2"],
+            "description": "Puedes aprender y usar cartas de Magia Primordial de Nivel 3 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía Primordial 4",
+            "level": 4,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "primordial"],
+            "requirements": ["Instinto 4", "Sintonía Primordial 3"],
+            "description": "Puedes aprender y usar cartas de Magia Primordial de Nivel 4 o inferior.",
+            "cooldown": "—"
+        },
+        {
+            "name": "Sintonía Primordial 5",
+            "level": 5,
+            "type": "Efecto",
+            "attribute": "Instinto",
+            "tags": ["magia", "primordial"],
+            "requirements": ["Instinto 5", "Sintonía Primordial 4"],
+            "description": "Puedes aprender y usar cartas de Magia Primordial de Nivel 5 o inferior.",
+            "cooldown": "—"
+        }
+    ]
+}

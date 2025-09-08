@@ -1,0 +1,277 @@
+.layout-with-sidebar {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    align-items: start;
+    align-content: start;
+}
+.characters {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-lg);
+}
+.characters-list {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+.characters-list .list-header {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.characters-list .items {
+    list-style: none;
+    margin: 0;
+    padding: var(--spacing-md);
+    display: grid;
+    gap: 0.5rem;
+    overflow: auto;
+}
+.characters-list .item {
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+}
+.characters-list .item.active {
+    border-color: #fbbf24;
+    background: #fff7ed;
+}
+
+.characters-editor {
+    min-width: 0;
+    display: grid;
+    gap: var(--spacing-md);
+}
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+.tab {
+    border: 1px solid var(--border-color);
+    background: #fff;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.tab.active {
+    background: #fff7ed;
+    border-color: #fbbf24;
+}
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+.name-input {
+    font-size: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    width: 100%;
+}
+
+.editor-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--spacing-lg);
+}
+.editor-grid.one-col {
+    grid-template-columns: 1fr;
+}
+.editor-grid.play {
+    grid-template-columns: 1fr;
+}
+.panel {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+.attrs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1rem;
+}
+.attrs-deriv {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+.attr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding-right: 1rem;
+}
+.attr input[type='number'] {
+    text-align: center;
+}
+
+.attr span {
+    width: 4rem;
+}
+
+.attr input {
+    text-align: center;
+    width: 2.5rem;
+}
+
+.hp-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.25rem 0.5rem;
+}
+.hp-wrap input {
+    width: 2.5rem;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.hp-wrap strong {
+    width: 2.5rem;
+    text-align: center;
+}
+
+.attr > .button {
+    white-space: nowrap;
+}
+
+.roll-modal .field {
+    display: grid;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+.roll-modal label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.roll-modal input[type='text'],
+.roll-modal input[type='number'],
+.roll-modal select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+.roll-modal .actions {
+    display: flex;
+    justify-content: flex-end;
+}
+.roll-modal .result {
+    display: flex;
+    justify-content: center;
+}
+.roll-modal .result .total {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+    background: #fff7ed;
+    border: 1px solid #fbbf24;
+}
+.cards-picker {
+    display: grid;
+    gap: 0.5rem;
+}
+.picked {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.25rem;
+}
+.picked li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
+}
+.card-slot {
+    display: grid;
+    gap: 0.5rem;
+}
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+.card-actions-inline {
+    display: flex;
+    justify-content: flex-end;
+}
+.muted {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 0.875rem; /* mimic .button */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: #f3f4f6; /* light gray */
+}
+.cards-search {
+    margin-bottom: var(--spacing-sm);
+}
+.cards-search input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+/* Textareas stack label above */
+.panel > label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.panel textarea {
+    width: 100%;
+}
+
+.mods {
+    display: grid;
+    gap: 0.5rem;
+}
+.mod-row {
+    display: grid;
+    grid-template-columns: 140px 80px 1fr 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+}
+.mod-row input[type='text'],
+.mod-row select {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: #fff;
+}
