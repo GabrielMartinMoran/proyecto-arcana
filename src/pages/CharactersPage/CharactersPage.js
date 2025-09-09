@@ -209,6 +209,7 @@ const CharactersPage = (container) => {
                     </div>
                 </div>
             </div>
+            <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
         </div>
     `;
 

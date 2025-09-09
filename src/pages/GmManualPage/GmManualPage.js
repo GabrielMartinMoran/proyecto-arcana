@@ -22,6 +22,7 @@ const GmManualPage = (container) => {
                 <div class="main-panel">
                     <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Manual del director de juego</h1></div>
                     <article id="md" class="doc"></article>
+                    <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
                 </div>
             </div>
         </div>

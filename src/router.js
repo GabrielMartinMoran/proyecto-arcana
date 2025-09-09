@@ -23,6 +23,14 @@ const Router = (() => {
         if (!handler) return;
         try {
             await handler(outlet);
+            // Reset scroll to top after each route navigation
+            // Use rAF to ensure DOM is painted before scrolling
+            requestAnimationFrame(() => {
+                window.scrollTo({ top: 0, behavior: 'auto' });
+                // If a main panel container exists and has its own scroll, reset it too
+                const main = document.querySelector('.main-panel');
+                if (main) main.scrollTop = 0;
+            });
         } catch (error) {
             console.error("Router navigation error:", error);
         }

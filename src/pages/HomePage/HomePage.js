@@ -32,6 +32,7 @@ const HomePage = (container) => {
                     <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Galería de cartas</h1></div>
                     <div id="filters"></div>
                     <div id="gallery"></div>
+                    <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
                 </div>
             </div>
         </div>

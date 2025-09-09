@@ -95,6 +95,19 @@ const SidebarComponent = (container) => {
 
     const bindEvents = () => {
         window.addEventListener('hashchange', onHashChange);
+        // Intercept TOC anchor clicks to avoid changing the hash and breaking SPA route reload
+        container.addEventListener('click', (e) => {
+            const a = e.target && e.target.closest && e.target.closest('a[data-toc]');
+            if (!a) return;
+            const href = a.getAttribute('href') || '';
+            if (!href.startsWith('#')) return;
+            e.preventDefault();
+            const id = decodeURIComponent(href.slice(1));
+            // Prefer searching inside the markdown article if present
+            const md = document.querySelector('#md');
+            const target = (md && md.querySelector(`#${CSS.escape(id)}`)) || document.getElementById(id);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     };
 
     const unbind = () => {

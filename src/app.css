@@ -237,3 +237,12 @@ label {
     color: var(--text-secondary);
     text-align: center;
 }
+
+/* Site footer */
+.site-footer {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+}
+.site-footer a { color: var(--brand-link); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
