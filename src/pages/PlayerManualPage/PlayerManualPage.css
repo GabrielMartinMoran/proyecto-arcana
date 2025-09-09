@@ -54,6 +54,7 @@
     .layout-with-sidebar {
         grid-template-columns: 1fr;
     }
+    .layout-with-sidebar #sidebar { display: none; }
 }
 
 .main-panel {

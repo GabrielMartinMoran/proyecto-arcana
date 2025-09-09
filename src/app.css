@@ -75,6 +75,9 @@ body {
     letter-spacing: 0.02em;
     font-family: 'Cinzel', serif;
 }
+/* Mobile nav toggle */
+.nav-toggle { display: none; border: 1px solid var(--border-color); background: #fff; color: var(--text-primary); padding: .4rem .6rem; border-radius: var(--radius-md); cursor: pointer; }
+@media (max-width: 1000px) { .nav-toggle { display: inline-flex; align-items: center; justify-content: center; } }
 
 /* Removed old two-column layout; pages will define their own layout */
 

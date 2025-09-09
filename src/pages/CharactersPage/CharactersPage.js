@@ -104,7 +104,7 @@ const CharactersPage = (container) => {
             <div class="layout-with-sidebar">
                 <div id="sidebar"></div>
                 <div class="main-panel">
-                    <div class="page-header"><h1 class="page-title">Personajes</h1></div>
+                    <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Personajes</h1></div>
                     <div class="characters">
                         <aside class="characters-list">
                             <div class="list-header">
@@ -281,6 +281,17 @@ const CharactersPage = (container) => {
     const bindEvents = () => {
         const sidebar = SidebarComponent(container.querySelector('#sidebar'));
         sidebar.init();
+        const openDrawerBtn = container.querySelector('#open-drawer');
+        if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
+            const backdrop = document.createElement('div');
+            backdrop.className = 'drawer-backdrop open';
+            backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
+            document.body.appendChild(backdrop);
+            const drawerContainer = document.getElementById('drawer-sidebar');
+            const drawerSidebar = SidebarComponent(drawerContainer);
+            drawerSidebar.init();
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+        });
 
         container.querySelector('[data-action="create"]').addEventListener('click', () => {
             const c = defaultCharacter();

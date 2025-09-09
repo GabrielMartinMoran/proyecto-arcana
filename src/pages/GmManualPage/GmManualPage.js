@@ -19,7 +19,7 @@ const GmManualPage = (container) => {
             <div class="layout-with-sidebar">
                 <div id="sidebar"></div>
                 <div class="main-panel">
-                    <div class="page-header"><h1 class="page-title">Manual del director de juego</h1></div>
+                    <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Manual del director de juego</h1></div>
                     <article id="md" class="doc"></article>
                 </div>
             </div>
@@ -30,6 +30,17 @@ const GmManualPage = (container) => {
         const sidebarEl = container.querySelector('#sidebar');
         const sidebar = SidebarComponent(sidebarEl);
         sidebar.init();
+        const openDrawerBtn = container.querySelector('#open-drawer');
+        if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
+            const backdrop = document.createElement('div');
+            backdrop.className = 'drawer-backdrop open';
+            backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
+            document.body.appendChild(backdrop);
+            const drawerContainer = document.getElementById('drawer-sidebar');
+            const drawerSidebar = SidebarComponent(drawerContainer);
+            drawerSidebar.init();
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+        });
 
         const mdEl = container.querySelector('#md');
         try {

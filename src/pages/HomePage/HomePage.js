@@ -29,7 +29,7 @@ const HomePage = (container) => {
             <div class="layout-with-sidebar">
                 <div id="sidebar"></div>
                 <div class="main-panel">
-                    <div class="page-header"><h1 class="page-title">Galería de cartas</h1></div>
+                    <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Galería de cartas</h1></div>
                     <div id="filters"></div>
                     <div id="gallery"></div>
                 </div>
@@ -72,9 +72,20 @@ const HomePage = (container) => {
         const filtersEl = container.querySelector('#filters');
         const galleryEl = container.querySelector('#gallery');
         const sidebarEl = container.querySelector('#sidebar');
+        const openDrawerBtn = container.querySelector('#open-drawer');
         // Sidebar
         const sidebar = SidebarComponent(sidebarEl);
         sidebar.init();
+        if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
+            const backdrop = document.createElement('div');
+            backdrop.className = 'drawer-backdrop open';
+            backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
+            document.body.appendChild(backdrop);
+            const drawerContainer = document.getElementById('drawer-sidebar');
+            const drawerSidebar = SidebarComponent(drawerContainer);
+            drawerSidebar.init();
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+        });
 
         // Filters
         const filters = FiltersComponent(filtersEl, {

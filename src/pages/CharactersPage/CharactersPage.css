@@ -6,10 +6,17 @@
     align-items: start;
     align-content: start;
 }
+@media (max-width: 1000px) {
+    .layout-with-sidebar { grid-template-columns: 1fr; }
+    .layout-with-sidebar #sidebar { display: none; }
+}
 .characters {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: var(--spacing-lg);
+}
+@media (max-width: 1000px) {
+    .characters { grid-template-columns: 1fr; }
 }
 .characters-list {
     background: var(--secondary-bg);
@@ -215,6 +222,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--spacing-md);
 }
+@media (max-width: 1000px) { .cards-grid { grid-template-columns: 1fr; } }
 .card-slot {
     display: grid;
     gap: 0.5rem;

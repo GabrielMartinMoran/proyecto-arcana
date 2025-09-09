@@ -9,7 +9,10 @@
     padding-top: var(--spacing-md);
 }
 
-@media (max-width: 1000px) { .layout-with-sidebar { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) {
+    .layout-with-sidebar { grid-template-columns: 1fr; }
+    .layout-with-sidebar #sidebar { display: none; }
+}
 
 .main-panel { min-width: 0; }
 
