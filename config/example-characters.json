@@ -1,0 +1,31 @@
+[
+    {
+        "id": "dc4b7987-11df-4f83-8080-f05fe28856e0",
+        "name": "Dartz",
+        "attributes": {
+            "Cuerpo": 2,
+            "Agilidad": 3,
+            "Mente": 2,
+            "Instinto": 1,
+            "Presencia": 2
+        },
+        "cards": ["visión-en-la-oscuridad-1", "gracia-silvana-1", "senda-del-bribón-1", "ataque-furtivo-1", "vigor-1"],
+        "activeCards": [],
+        "activeSlots": 3,
+        "pp": 0,
+        "gold": 100,
+        "equipment": "",
+        "modifiers": [
+            {
+                "field": "salud",
+                "mode": "add",
+                "expr": "cuerpo",
+                "label": "Vigor"
+            }
+        ],
+        "suerte": 2,
+        "hp": 10,
+        "notes": "",
+        "tempHp": 0
+    }
+]

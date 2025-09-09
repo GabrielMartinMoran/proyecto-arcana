@@ -78,6 +78,12 @@ async function bootstrap() {
             const page = CharactersPage(outlet);
             page.init();
         })
+        .register("/characters/examples", async (outlet) => {
+            const module = await import("./pages/CharactersExamplesPage/CharactersExamplesPage.js");
+            const CharactersExamplesPage = module.default;
+            const page = CharactersExamplesPage(outlet);
+            page.init();
+        })
         .setNotFound((outlet) => {
             outlet.innerHTML = html`
                 <div class="container" style="padding: var(--spacing-xl) 0;">

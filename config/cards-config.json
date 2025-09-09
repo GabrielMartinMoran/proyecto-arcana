@@ -425,9 +425,10 @@
             "level": 2,
             "type": "Accionable",
             "attribute": "Mente",
-            "tags": ["Arcanista", "Conjuro", "Ilusión"],
+            "tags": ["Arcanista", "Conjuro", "Ilusión", "Concentración"],
             "requirements": ["Afinidad Arcana Mejorada"],
-            "description": "Tocas a una criatura y se vuelve invisible durante 1 minuto o hasta que ataque o lance un conjuro.",
+            "resistencia": "Instinto",
+            "description": "Tocas a una criatura y se vuelve invisible. El efecto dura hasta 10 minutos o hasta que pierdas la concentración, ataque o lance un conjuro.",
             "cooldown": "1 vez por combate"
         },
         {
@@ -447,7 +448,8 @@
             "attribute": "Mente",
             "tags": ["Arcanista", "Conjuro", "Fuego"],
             "requirements": ["Maestría Arcana"],
-            "description": "Explosión de fuego en un radio de 5m a distancia Larga. Toda criatura en el área debe hacer una Tirada de Salvación de Reflejos. Si falla, 4d6 de daño; si tiene éxito, la mitad. Tu tirada es 1d6+Mente.",
+            "resistencia": "Reflejos",
+            "description": "Explosión de fuego en un radio de 5m a distancia Larga. Toda criatura en el área debe hacer una Tirada de Salvación de Reflejos contra tu ND de conjuros (5+Mente). Si falla, 4d6 de daño; si tiene éxito, la mitad.",
             "cooldown": "1 vez cada 10 minutos"
         },
         {
@@ -465,9 +467,9 @@
             "level": 3,
             "type": "Accionable",
             "attribute": "Mente",
-            "tags": ["Arcanista", "Conjuro", "Transmutación"],
+            "tags": ["Arcanista", "Conjuro", "Transmutación", "Concentración"],
             "requirements": ["Maestría Arcana"],
-            "description": "Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual a su Velocidad normal durante 10 minutos.",
+            "description": "Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.",
             "cooldown": "1 vez por día de descanso"
         },
         {
@@ -505,9 +507,9 @@
             "level": 1,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Sacerdote", "Conjuro"],
+            "tags": ["Sacerdote", "Conjuro", "Concentración"],
             "requirements": ["Consagración"],
-            "description": "Eliges una criatura a distancia Cercana. Obtiene un +1 a su ESQ durante 1 minuto.",
+            "description": "Eliges una criatura a distancia Cercana. Obtiene un +1 a su ESQ durante 1 minuto o hasta que pierdas la concentración.",
             "cooldown": "1 vez por combate"
         },
         {
@@ -535,9 +537,10 @@
             "level": 2,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Sacerdote", "Conjuro"],
+            "tags": ["Sacerdote", "Conjuro", "Concentración"],
             "requirements": ["Consagración Mejorada"],
-            "description": "Creas una zona de 5m de radio a distancia Cercana por 10 minutos. Cualquier criatura dentro debe superar una Tirada de Salvación de Instinto contra tu Instinto para poder decir una mentira deliberada.",
+            "resistencia": "Instinto",
+            "description": "Creas una zona de 5m de radio a distancia Cercana por 10 minutos. Quien esté dentro debe superar una Tirada de Salvación de Instinto contra tu ND de conjuros (5+Instinto) para poder decir una mentira deliberada.",
             "cooldown": "1 vez por día de descanso"
         },
         {
@@ -575,9 +578,10 @@
             "level": 3,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Sacerdote", "Conjuro", "Radiante"],
+            "tags": ["Sacerdote", "Conjuro", "Radiante", "Concentración"],
             "requirements": ["Maestría Sacerdotal"],
-            "description": "Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que entre o empiece su turno ahí debe superar una Salvación de Instinto o sufrir 2d6 daño Radiante. Tu tirada es 1d6+Instinto.",
+            "resistencia": "Instinto",
+            "description": "Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que entre o empiece su turno ahí debe superar una Salvación de Instinto contra tu ND de conjuros (5+Instinto) o sufrir 2d6 daño Radiante.",
             "cooldown": "1 vez por combate"
         },
         {
@@ -625,9 +629,10 @@
             "level": 1,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Druida", "Conjuro"],
+            "tags": ["Druida", "Conjuro", "Concentración"],
             "requirements": ["Sintonía Primordial"],
-            "description": "En un área de 5 metros a distancia Cercana, brotan enredaderas. Cada criatura en el área debe superar una Tirada de Salvación de Reflejos o quedar Inmovilizada. Tu tirada es 1d6+Instinto. Una criatura puede usar una acción para intentar liberarse.",
+            "resistencia": "Reflejos",
+            "description": "En un área de 5m a distancia Cercana, brotan enredaderas. El área es terreno difícil. Quien entre o empiece su turno ahí debe superar una Tirada de Salvación de Reflejos contra tu ND de conjuros (5+Instinto) o quedar Inmovilizado.",
             "cooldown": "1 vez por combate"
         },
         {
@@ -665,9 +670,9 @@
             "level": 2,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Druida", "Conjuro"],
+            "tags": ["Druida", "Conjuro", "Concentración"],
             "requirements": ["Sintonía Primordial Mejorada"],
-            "description": "Tú y hasta 5 aliados a distancia Cercana no dejáis huellas ni rastro de vuestro paso durante 1 hora. Las pruebas para rastrearos tienen Desventaja.",
+            "description": "Tú y hasta 5 aliados a distancia Cercana no dejáis huellas ni rastro de vuestro paso durante 1 hora o hasta que pierdas la concentración. Las pruebas para rastrearos tienen Desventaja.",
             "cooldown": "1 vez por hora"
         },
         {
@@ -715,9 +720,9 @@
             "level": 3,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Druida", "Conjuro"],
+            "tags": ["Druida", "Conjuro", "Concentración"],
             "requirements": ["Maestría Primordial"],
-            "description": "Invocas 2 bestias (lobos, jabalíes). Aparecen a distancia Cercana y te obedecen durante 1 minuto. El DJ tiene sus estadísticas.",
+            "description": "Invocas 2 bestias (lobos, jabalíes). Aparecen a distancia Cercana y te obedecen durante 10 minutos o hasta que pierdas la concentración. El DJ tiene sus estadísticas.",
             "cooldown": "1 vez por día de descanso"
         },
         {
@@ -725,9 +730,10 @@
             "level": 3,
             "type": "Accionable",
             "attribute": "Instinto",
-            "tags": ["Druida", "Conjuro"],
+            "tags": ["Druida", "Conjuro", "Concentración"],
             "requirements": ["Maestría Primordial"],
-            "description": "Creas un muro de zarzas de hasta 10 metros de largo. Cualquiera que intente cruzarlo sufre 2d6 de daño Perforante, y solo podra atravesarlo si supera una tirada enfrentada de su Cuerpo contra tu Instinto. Dura 1 minuto.",
+            "resistencia": "Cuerpo",
+            "description": "Creas un muro de zarzas de 10m de largo. Quien intente cruzarlo sufre 2d6 daño Perforante y debe superar una tirada enfrentada de su Cuerpo contra tu Instinto. Dura 1 minuto o hasta que pierdas la concentración.",
             "cooldown": "1 vez cada 10 minutos"
         },
         {
@@ -767,7 +773,8 @@
             "attribute": "Presencia",
             "tags": ["Bardo", "Conjuro"],
             "requirements": ["Inspiración de Bardo", "Presencia 3"],
-            "description": "Insultas psíquicamente a una criatura. Realiza una Tirada Enfrentada de tu Presencia contra su Instinto. Si ganas, sufre 1d8 de daño Psíquico y tiene Desventaja en su próximo ataque.",
+            "resistencia": "Instinto",
+            "description": "Insultas psíquicamente a una criatura, que debe hacer una Tirada de Salvación de Instinto contra tu ND de conjuros (5+Presencia). Si falla, sufre 1d8 de daño Psíquico y tiene Desventaja en su próximo ataque.",
             "cooldown": "2 Rondas"
         },
         {
@@ -785,7 +792,7 @@
             "level": 2,
             "type": "Accionable",
             "attribute": "Presencia",
-            "tags": ["Bardo"],
+            "tags": ["Bardo", "Concentración"],
             "requirements": ["Inspiración de Bardo", "Presencia 3"],
             "description": "Durante 1 minuto, tienes Ventaja en todas las Pruebas de Habilidad de Presencia dirigidas a un grupo de personas (persuadir a una multitud, calmar una turba, etc.).",
             "cooldown": "1 vez por día de descanso"
@@ -795,9 +802,10 @@
             "level": 3,
             "type": "Accionable",
             "attribute": "Presencia",
-            "tags": ["Bardo", "Conjuro"],
+            "tags": ["Bardo", "Conjuro", "Concentración"],
             "requirements": ["Inspiración Mejorada", "Presencia 4"],
-            "description": "Intentas encantar a un humanoide. Haz una Tirada Enfrentada de tu Presencia contra su Instinto. Si ganas, queda bajo el estado Encantado por ti durante 1 hora.",
+            "resistencia": "Instinto",
+            "description": "Intentas encantar a un humanoide. Debe superar una Tirada de Salvación de Instinto contra tu ND de conjuros (5+Presencia) o quedar Encantado por ti durante 1 hora.",
             "cooldown": "1 vez por día de descanso"
         },
         {

@@ -19,30 +19,30 @@ const FiltersComponent = (container, props = {}) => {
     const render = () => html`
         <div class="filters-panel">
             <div class="filters-block filters-block--search">
-                <input id="search" class="filters-input" type="text" placeholder="Search by name" value="${state.value.text || ''}" />
+                <input id="search" class="filters-input" type="text" placeholder="Buscar por nombre" value="${state.value.text || ''}" />
             </div>
             <div class="filters-block filters-block--levels">
-                <div class="filters-label">Levels</div>
+                <div class="filters-label">Niveles</div>
                 <div class="filters-list">
                     ${state.facets.levels.map(l => html`<label class="filters-check"><input type="checkbox" name="level" value="${l}" ${state.value.levels?.includes(l) ? 'checked' : ''}/> ${l}</label>`).join('')}
                 </div>
             </div>
             <div class="filters-block filters-block--type">
-                <div class="filters-label">Type</div>
+                <div class="filters-label">Tipo</div>
                 <div class="filters-list">
                     ${state.facets.types.map(t => html`<label class="filters-check"><input type="checkbox" name="type" value="${t}" ${state.value.types?.includes(t) ? 'checked' : ''}/> ${t}</label>`).join('')}
                 </div>
             </div>
             <div class="filters-block filters-block--attr">
-                <label class="filters-label" for="attr">Attribute</label>
+                <label class="filters-label" for="attr">Attributo</label>
                 <select id="attr" class="filters-input">
-                    ${renderOptions(state.facets.attributes, 'Any attribute')}
+                    ${renderOptions(state.facets.attributes, 'Cualquiera')}
                 </select>
             </div>
             <div class="filters-block filters-block--sint">
-                <label class="filters-label">Tags</label>
+                <label class="filters-label">Etiquetas</label>
                 <div class="dropdown">
-                    <button class="button" data-tags-toggle>${state.tagsOpen ? 'Cerrar' : 'Seleccionar tags'}</button>
+                    <button class="button" data-tags-toggle>${state.tagsOpen ? 'Cerrar' : 'Seleccionar etiquetas'}</button>
                     <div class="dropdown-panel ${state.tagsOpen ? 'open' : ''}">
                         <div class="filters-list">
                             ${state.facets.tags.map(t => html`<label class="filters-check"><input type="checkbox" name="tag" value="${t}" ${state.value.tags?.includes(t) ? 'checked' : ''}/> ${t}</label>`).join('')}
@@ -56,7 +56,7 @@ const FiltersComponent = (container, props = {}) => {
                 ${state.value.tags && state.value.tags.length ? html`<div class="selected-tags">${state.value.tags.map(t => html`<span class="chip">#${t}</span>`).join('')}</div>` : ''}
             </div>
             <div class="filters-block filters-block--clear">
-                <button class="button" data-action="clear">Clear</button>
+                <button class="button" data-action="clear">Limpiar filtros</button>
             </div>
         </div>
     `;

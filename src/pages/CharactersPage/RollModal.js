@@ -28,7 +28,7 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
                 <input type="number" id="luck" min="0" max="${maxSuerte}" step="1" value="0" />
             </div>
             <div class="actions">
-                <button class="button primary" id="do-roll">Tirar</button>
+                <button class="button primary" id="do-roll" title="Tirar">🎲 Tirar</button>
             </div>
             <div id="roll-result" class="result" style="margin-top: .5rem;"></div>
         </div>

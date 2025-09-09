@@ -64,6 +64,7 @@
     display: grid;
     gap: 0.5rem;
 }
+.sidebar-sublist { list-style:none; margin: .25rem 0 .5rem; padding-left: .5rem; display: grid; gap: .35rem; }
 .sidebar-link {
     display: block;
     color: var(--text-secondary);

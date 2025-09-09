@@ -70,7 +70,10 @@
     background: #fafaf9;
 }
 
-.arcana-card .card-body { display: grid; gap: var(--spacing-md); }
+.arcana-card .card-body {
+    display: grid;
+    gap: var(--spacing-md);
+}
 .arcana-card .card-description {
     color: var(--text-secondary);
     font-size: 0.92rem;
@@ -78,7 +81,12 @@
     height: max-content;
 }
 
-.arcana-card .card-footer { display: flex; flex-direction: column; gap: var(--spacing-md); margin-top: auto; }
+.arcana-card .card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: auto;
+}
 
 .arcana-card .card-badges {
     display: flex;
