@@ -29,7 +29,7 @@
     left: 0;
     top: 0;
     height: 100vh;
-    width: 280px;
+    width: 100%;
     background: var(--secondary-bg);
     border-right: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
@@ -37,6 +37,25 @@
     transition: transform .2s ease;
 }
 .drawer-backdrop.open .drawer-panel { transform: translateX(0); }
+
+/* In mobile, offset the drawer below the fixed app bar */
+@media (max-width: 1000px) {
+    .drawer-panel {
+        top: 56px;
+        height: calc(100vh - 56px);
+        left: 0;
+        width: 280px;
+        border-radius: 0;
+    }
+    .drawer-panel .sidebar-nav {
+        position: relative;
+        margin-top: 0;
+        width: 100%;
+        overflow: auto;
+        border: none;
+        box-shadow: none;
+    }
+}
 
 .sidebar-list {
     list-style: none;

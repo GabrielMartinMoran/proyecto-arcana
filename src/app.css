@@ -1,10 +1,15 @@
 /* Global CSS variables and base styles (light theme) */
 :root {
-    /* Accent palette */
-    --pokemon-blue: #1d4ed8;
-    --pokemon-yellow: #d97706;
-    --pokemon-red: #b91c1c;
-    --pokemon-green: #059669;
+    /* Accent palette (Arcana) */
+    --accent-mente: #1d4ed8;    /* blue */
+    --accent-agilidad: #d97706; /* amber */
+    --accent-cuerpo: #b91c1c;   /* red */
+    --accent-instinto: #059669; /* emerald */
+    --accent-presencia: #7c3aed;/* violet */
+    --accent-default: var(--accent-mente);
+
+    /* Brand */
+    --brand-link: #1d4ed8;
 
     /* UI colors (light) */
     --primary-bg: #f5f5f4; /* stone-100 */
@@ -79,6 +84,33 @@ body {
 .nav-toggle { display: none; border: 1px solid var(--border-color); background: #fff; color: var(--text-primary); padding: .4rem .6rem; border-radius: var(--radius-md); cursor: pointer; }
 @media (max-width: 1000px) { .nav-toggle { display: inline-flex; align-items: center; justify-content: center; } }
 
+/* Prevent body scroll when drawer is open */
+body.no-scroll { overflow: hidden; }
+
+/* Global mobile app bar */
+.mobile-appbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: none;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-md);
+    z-index: 1100;
+}
+.mobile-appbar .brand { font-family: 'Cinzel', serif; font-weight: 700; }
+@media (max-width: 1000px) {
+    .mobile-appbar { display: flex; }
+    /* Hide per-page toggle when appbar is visible */
+    .page-header .nav-toggle { display: none !important; }
+    /* Avoid content under the bar */
+    body { padding-top: 56px; }
+}
+
 /* Removed old two-column layout; pages will define their own layout */
 
 /* Buttons */
@@ -103,12 +135,13 @@ body {
 }
 
 .button.primary {
-    background: var(--pokemon-blue);
+    background: #f59e0b; /* warm amber to match UI accents */
     border-color: transparent;
+    color: #fff;
 }
 
 .button.primary:hover {
-    background: var(--pokemon-blue-dark);
+    background: #d97706;
 }
 
 /* Inputs */

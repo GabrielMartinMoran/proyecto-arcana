@@ -13,12 +13,12 @@ const CardComponent = (container, props = {}) => {
 
     const getAccentForAttribute = (attr) => {
         switch ((attr || "").toLowerCase()) {
-            case "mente": return "var(--pokemon-blue)";
-            case "cuerpo": return "var(--pokemon-red)";
-            case "agilidad": return "var(--pokemon-yellow)";
-            case "instinto": return "var(--pokemon-green)";
-            case "presencia": return "var(--pokemon-purple, var(--pokemon-blue))";
-            default: return "var(--pokemon-blue)";
+            case "mente": return "var(--accent-mente)";
+            case "cuerpo": return "var(--accent-cuerpo)";
+            case "agilidad": return "var(--accent-agilidad)";
+            case "instinto": return "var(--accent-instinto)";
+            case "presencia": return "var(--accent-presencia)";
+            default: return "var(--accent-default)";
         }
     };
 

@@ -1,7 +1,7 @@
 const html = window.html || String.raw;
 
 import ModalComponent from "../../components/ModalComponent/ModalComponent.js";
-import { evalFormula, rollWithAdvantage } from "../../utils/dice-utils.js";
+import { evalFormula, rollDice } from "../../utils/dice-utils.js";
 
 export function openRollModal(container, { attributeName, attributeValue, maxSuerte }, onResult) {
     const host = document.createElement('div');
@@ -45,12 +45,17 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
         const advantage = advSel.value;
         const luck = Math.max(0, Math.min(Number(luckInp.value)||0, Number(maxSuerte)||0));
         const base = Number(attributeValue)||0;
-        const d20 = rollWithAdvantage(base, advantage);
+        const d6 = rollDice('1d6');
+        let advMod = 0;
+        if (advantage === 'ventaja') advMod = rollDice('1d4');
+        else if (advantage === 'desventaja') advMod = -rollDice('1d4');
         const extras = evalFormula(modsInp.value || '0', { cuerpo:0, agilidad:0, mente:0, instinto:0, presencia:0 });
-        const total = d20 + base + extras + luck;
-        const breakdown = `d20=${d20}  |  atributo=${base}  |  mods=${extras}  |  suerte=${luck}`;
+        const die = d6 + (advMod||0);
+        const total = die + base + extras + luck;
+        const advDesc = advantage === 'normal' ? '±0' : `${advantage}=${advMod>=0?'+':''}${advMod} (1d4)`;
+        const breakdown = `1d6=${d6}  |  ${advDesc}  |  atributo=${base}  |  mods=${extras}  |  suerte=${luck}`;
         resultEl.innerHTML = `<div class="total" title="${breakdown}">${total}</div>`;
-        if (typeof onResult === 'function') onResult({ d20, base, extras, luck, total });
+        if (typeof onResult === 'function') onResult({ d6, advMod, base, extras, luck, total });
     });
 }
 

@@ -4,6 +4,7 @@ import SidebarComponent from "../../components/SidebarComponent/SidebarComponent
 import { fetchMarkdown, renderMarkdown, buildTocFromContainer, renderTocHtml, bindMarkdownLinks, applyPendingAnchor } from "../../utils/markdown-utils.js";
 
 const GmManualPage = (container) => {
+    let lastTocHtml = '';
     const loadStyles = () => {
         const href = './src/pages/GmManualPage/GmManualPage.css';
         if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(l => l.getAttribute('href') === href)) {
@@ -32,14 +33,24 @@ const GmManualPage = (container) => {
         sidebar.init();
         const openDrawerBtn = container.querySelector('#open-drawer');
         if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
+            const existing = document.querySelector('.drawer-backdrop');
+            if (existing) { existing.remove(); document.body.classList.remove('no-scroll'); return; }
             const backdrop = document.createElement('div');
             backdrop.className = 'drawer-backdrop open';
             backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
             document.body.appendChild(backdrop);
+            document.body.classList.add('no-scroll');
             const drawerContainer = document.getElementById('drawer-sidebar');
             const drawerSidebar = SidebarComponent(drawerContainer);
             drawerSidebar.init();
-            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+            if (lastTocHtml) drawerSidebar.setExtra('Indice', lastTocHtml);
+            const closeAll = () => { backdrop.remove(); document.body.classList.remove('no-scroll'); };
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeAll(); });
+            const panel = backdrop.querySelector('.drawer-panel');
+            if (panel) panel.addEventListener('click', (e) => {
+                const link = e.target && e.target.closest && e.target.closest('a');
+                if (link) setTimeout(closeAll, 0);
+            });
         });
 
         const mdEl = container.querySelector('#md');
@@ -48,6 +59,7 @@ const GmManualPage = (container) => {
             mdEl.innerHTML = renderMarkdown(text);
             const items = buildTocFromContainer(mdEl);
             const tocHtml = renderTocHtml(items);
+            lastTocHtml = tocHtml;
             sidebar.setExtra('Indice', tocHtml);
             bindMarkdownLinks(mdEl, '/gm');
             applyPendingAnchor(mdEl);

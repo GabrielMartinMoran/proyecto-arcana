@@ -112,6 +112,7 @@ const CharactersPage = (container) => {
                                 <div style="display:flex; gap:.5rem; align-items:center;">
                                     <button class="button" data-action="export-current">Exportar</button>
                                     <button class="button" data-action="import-current">Importar</button>
+                                    <button class="button" data-action="delete-current">Eliminar</button>
                                     <input id="import-one-file" type="file" accept="application/json" style="display:none" />
                                 </div>
                             </div>
@@ -151,9 +152,6 @@ const CharactersPage = (container) => {
         return html`
             <div class="editor-header">
                 <input id="name" class="name-input" type="text" value="${c.name}" />
-                <div class="actions">
-                    <button class="button" data-action="delete">Eliminar</button>
-                </div>
             </div>
             <div class="tabs">
                 <button class="tab ${state.tab==='sheet'?'active':''}" data-tab="sheet">Hoja</button>
@@ -215,28 +213,34 @@ const CharactersPage = (container) => {
                     </div>
                     <label>Colección</label>
                     <div class="cards-grid">
-                        ${c.cards.map(id => {
-                            const card = state.allCards.find(x=>x.id===id);
-                            if (!card) return '';
-                            return html`<div class="card-slot" data-id="${card.id}" data-actions="toggle"></div>`;
-                        }).join('')}
+                        ${c.cards
+                            .map(id => state.allCards.find(x=>x.id===id))
+                            .filter(Boolean)
+                            .sort((a,b)=> (Number(a.level)-Number(b.level)) || String(a.name).localeCompare(String(b.name)))
+                            .map(card => html`<div class="card-slot" data-id="${card.id}" data-actions="toggle"></div>`)
+                            .join('')}
                     </div>
                 </div>
                 <div class="panel">
                     <label>Activas (${(c.activeCards||[]).length}/${c.activeSlots||0})</label>
                     <div class="cards-grid">
-                        ${(c.activeCards||[]).map(id => {
-                            const card = state.allCards.find(x=>x.id===id);
-                            return card ? html`<div class="card-slot" data-id="${card.id}" data-actions="deactivate"></div>` : '';
-                        }).join('')}
+                        ${(c.activeCards||[])
+                            .map(id => state.allCards.find(x=>x.id===id))
+                            .filter(Boolean)
+                            .sort((a,b)=> (Number(a.level)-Number(b.level)) || String(a.name).localeCompare(String(b.name)))
+                            .map(card => html`<div class="card-slot" data-id="${card.id}" data-actions="deactivate"></div>`)
+                            .join('')}
                     </div>
                 </div>
                 <div class="panel">
                     <label>Añadir a colección</label>
                     <div class="cards-grid">
-                        ${availableCards.filter(x => !c.cards.includes(x.id) && (!state.cardSearch || String(x.name||'').toLowerCase().includes(state.cardSearch.toLowerCase()))).slice(0,12).map(card => html`
-                            <div class="card-slot" data-id="${card.id}" data-actions="add"></div>
-                        `).join('')}
+                        ${availableCards
+                            .filter(x => !c.cards.includes(x.id) && (!state.cardSearch || String(x.name||'').toLowerCase().includes(state.cardSearch.toLowerCase())))
+                            .sort((a,b)=> (Number(a.level)-Number(b.level)) || String(a.name).localeCompare(String(b.name)))
+                            .slice(0,12)
+                            .map(card => html`<div class="card-slot" data-id="${card.id}" data-actions="add"></div>`)
+                            .join('')}
                     </div>
                 </div>
             </div>
@@ -283,14 +287,23 @@ const CharactersPage = (container) => {
         sidebar.init();
         const openDrawerBtn = container.querySelector('#open-drawer');
         if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
+            const existing = document.querySelector('.drawer-backdrop');
+            if (existing) { existing.remove(); document.body.classList.remove('no-scroll'); return; }
             const backdrop = document.createElement('div');
             backdrop.className = 'drawer-backdrop open';
             backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
             document.body.appendChild(backdrop);
+            document.body.classList.add('no-scroll');
             const drawerContainer = document.getElementById('drawer-sidebar');
             const drawerSidebar = SidebarComponent(drawerContainer);
             drawerSidebar.init();
-            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+            const closeAll = () => { backdrop.remove(); document.body.classList.remove('no-scroll'); };
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeAll(); });
+            const panel = backdrop.querySelector('.drawer-panel');
+            if (panel) panel.addEventListener('click', (e) => {
+                const link = e.target && e.target.closest && e.target.closest('a');
+                if (link) setTimeout(closeAll, 0);
+            });
         });
 
         container.querySelector('[data-action="create"]').addEventListener('click', () => {
@@ -303,6 +316,7 @@ const CharactersPage = (container) => {
         // Export/import current from list toolbar
         const exportCurrent = container.querySelector('[data-action="export-current"]');
         const importCurrent = container.querySelector('[data-action="import-current"]');
+        const deleteCurrent = container.querySelector('[data-action="delete-current"]');
         const importOneFile = container.querySelector('#import-one-file');
         if (exportCurrent) exportCurrent.addEventListener('click', () => {
             const current = getSelected();
@@ -313,6 +327,15 @@ const CharactersPage = (container) => {
             a.href = url; a.download = `${(current.name||'character').replace(/\s+/g,'_')}.json`; a.click(); URL.revokeObjectURL(url);
         });
         if (importCurrent) importCurrent.addEventListener('click', () => importOneFile && importOneFile.click());
+        if (deleteCurrent) deleteCurrent.addEventListener('click', () => {
+            const current = getSelected();
+            if (!current) return;
+            const ok = window.confirm(`¿Seguro que quieres eliminar "${current.name}"?`);
+            if (!ok) return;
+            state.list = state.list.filter(x => x.id !== current.id);
+            state.selectedId = state.list[0]?.id || null;
+            save(); update();
+        });
         if (importOneFile) importOneFile.addEventListener('change', async (e) => {
             const file = e.target.files && e.target.files[0]; if (!file) return;
             try {
@@ -341,7 +364,7 @@ const CharactersPage = (container) => {
 
         const name = editor.querySelector('#name');
         const notes = editor.querySelector('#notes');
-        const del = editor.querySelector('[data-action="delete"]');
+        const del = null;
         const cardAdd = editor.querySelector('#card-add');
         const pp = editor.querySelector('#pp');
         const activeSlots = editor.querySelector('#active-slots');
@@ -362,11 +385,7 @@ const CharactersPage = (container) => {
         if (equipment) equipment.addEventListener('input', (e) => { c.equipment = e.target.value; save(); });
         if (cardSearch) cardSearch.addEventListener('input', (e) => { state.cardSearch = e.target.value; update(); });
         if (activeSlots) activeSlots.addEventListener('change', (e) => { c.activeSlots = Math.max(0, Number(e.target.value)||0); if (c.activeCards.length > c.activeSlots) c.activeCards = c.activeCards.slice(0, c.activeSlots); save(); update(); });
-        if (del) del.addEventListener('click', () => {
-            state.list = state.list.filter(x => x.id !== c.id);
-            state.selectedId = state.list[0]?.id || null;
-            save(); update();
-        });
+        // delete handled from list toolbar
         // Removed per-editor export/import (moved to list toolbar)
         editor.querySelectorAll('input[data-attr]').forEach(inp => inp.addEventListener('change', (e) => {
             const key = e.target.getAttribute('data-attr');

@@ -9,6 +9,9 @@
 @media (max-width: 1000px) {
     .layout-with-sidebar { grid-template-columns: 1fr; }
     .layout-with-sidebar #sidebar { display: none; }
+    .editor-grid { grid-template-columns: 1fr; }
+    .attrs { grid-template-columns: 1fr; }
+    .attrs-deriv { grid-template-columns: 1fr; }
 }
 .characters {
     display: grid;
@@ -282,4 +285,11 @@
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     background: #fff;
+}
+
+/* Ensure single-column sheet on mobile, placed after base rules to win cascade */
+@media (max-width: 1000px) {
+    .editor-grid { grid-template-columns: 1fr; }
+    .attrs { grid-template-columns: 1fr; }
+    .attrs-deriv { grid-template-columns: 1fr; }
 }

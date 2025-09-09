@@ -59,7 +59,7 @@ const HomePage = (container) => {
             const cards = await CardService.loadAll();
             state.allCards = cards;
             state.filtered = CardService.filter(cards, state.criteria)
-                .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+                .sort((a, b) => (Number(a.level)-Number(b.level)) || String(a.name).localeCompare(String(b.name)));
             state.facets = CardService.getFacets(cards);
             state.loading = false;
         } catch (error) {
@@ -77,14 +77,23 @@ const HomePage = (container) => {
         const sidebar = SidebarComponent(sidebarEl);
         sidebar.init();
         if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
+            const existing = document.querySelector('.drawer-backdrop');
+            if (existing) { existing.remove(); document.body.classList.remove('no-scroll'); return; }
             const backdrop = document.createElement('div');
             backdrop.className = 'drawer-backdrop open';
             backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
             document.body.appendChild(backdrop);
+            document.body.classList.add('no-scroll');
             const drawerContainer = document.getElementById('drawer-sidebar');
             const drawerSidebar = SidebarComponent(drawerContainer);
             drawerSidebar.init();
-            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) backdrop.remove(); });
+            const closeAll = () => { backdrop.remove(); document.body.classList.remove('no-scroll'); };
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeAll(); });
+            const panel = backdrop.querySelector('.drawer-panel');
+            if (panel) panel.addEventListener('click', (e) => {
+                const link = e.target && e.target.closest && e.target.closest('a');
+                if (link) setTimeout(closeAll, 0);
+            });
         });
 
         // Filters
@@ -94,14 +103,14 @@ const HomePage = (container) => {
             onChange: (value) => {
                 state.criteria = value;
                 const filtered = CardService.filter(state.allCards, state.criteria)
-                    .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+                    .sort((a, b) => (Number(a.level)-Number(b.level)) || String(a.name).localeCompare(String(b.name)));
                 gallery.setState({ cards: filtered });
             },
             onClear: () => {
                 state.criteria = { text: '', levels: [], types: [], attributes: [], tags: [] };
                 filters.setState({ value: state.criteria });
                 const filtered = CardService.filter(state.allCards, state.criteria)
-                    .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+                    .sort((a, b) => (Number(a.level)-Number(b.level)) || String(a.name).localeCompare(String(b.name)));
                 gallery.setState({ cards: filtered });
             }
         });

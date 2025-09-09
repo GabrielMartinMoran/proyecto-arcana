@@ -12,9 +12,11 @@
     color: var(--text-secondary);
     line-height: 1.7;
 }
-.doc a {
-    color: var(--pokemon-blue);
-}
+.doc, .doc * { word-break: break-word; overflow-wrap: anywhere; }
+.doc pre { white-space: pre-wrap; }
+.doc table { display: block; max-width: 100%; overflow-x: auto; }
+.doc img { max-width: 100%; height: auto; }
+.doc a { color: var(--brand-link); }
 
 .doc-toc {
     margin-bottom: var(--spacing-xs);
@@ -55,6 +57,7 @@
         grid-template-columns: 1fr;
     }
     .layout-with-sidebar #sidebar { display: none; }
+    .main-panel { overflow-x: hidden; }
 }
 
 .main-panel {
