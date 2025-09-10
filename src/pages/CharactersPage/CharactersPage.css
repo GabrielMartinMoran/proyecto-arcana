@@ -180,23 +180,21 @@
 }
 
 .attrs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    grid-gap: 0.75rem 2rem;
 }
 .attrs-deriv {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
 }
 .attr {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     gap: 1rem;
     padding-right: 1rem;
 
@@ -215,6 +213,10 @@
     input {
         text-align: center;
         width: 3rem;
+    }
+    .languages-input {
+        width: 100%;
+        text-align: left;
     }
     > .button {
         white-space: nowrap;

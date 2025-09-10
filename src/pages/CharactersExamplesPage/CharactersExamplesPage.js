@@ -5,6 +5,7 @@ import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSide
 import { RULES, computeDerivedStats, applyModifiersToDerived } from '../../models/rules.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import CardService from '../../services/card-service.js';
+import { openRollModal } from '../CharactersPage/RollModal.js';
 import { ensureStyles } from '../../utils/style-utils.js';
 
 const STORAGE_KEY = 'arcana:characters';
@@ -72,7 +73,7 @@ const CharactersExamplesPage = (container) => {
                                                       value="${v}"
                                                       disabled
                                                   />
-                                                  <button class="button" disabled>🎲</button>
+                                                  <button class="button" data-roll-attr="${k}">🎲</button>
                                               </div>`
                                       )
                                       .join('')}
@@ -147,6 +148,10 @@ const CharactersExamplesPage = (container) => {
                                       ><input type="number" min="0" step="1" value="${Number(c.gold) || 0}" disabled />
                                   </div>
                               </div>
+                          </div>
+                          <div class="panel">
+                              <label>Lenguas</label>
+                              <div class="bio-content">${String(c.languages || '')}</div>
                           </div>
                           <div class="panel">
                               <label>Equipo</label>
@@ -293,6 +298,36 @@ const CharactersExamplesPage = (container) => {
             t.addEventListener('click', () => {
                 state.tab = t.getAttribute('data-tab');
                 update();
+            })
+        );
+
+        // Attribute roll buttons (read-only data, but allow rolling and consuming luck)
+        mainRoot.querySelectorAll('[data-roll-attr]').forEach((btn) =>
+            btn.addEventListener('click', () => {
+                const c = getSelected();
+                if (!c) return;
+                const key = btn.getAttribute('data-roll-attr');
+                const val = Number((c.attributes || {})[key]) || 0;
+                const base = computeDerivedStats(c.attributes || {});
+                const ndBase = {
+                    ndMente: 5 + (Number((c.attributes || {}).Mente) || 0),
+                    ndInstinto: 5 + (Number((c.attributes || {}).Instinto) || 0),
+                };
+                const luckBase = { suerteMax: 5 };
+                const derivedNow = applyModifiersToDerived(
+                    { ...base, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
+                    c
+                );
+                openRollModal(
+                    document.body,
+                    { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 },
+                    (res) => {
+                        if (res && res.luck) {
+                            c.suerte = Math.max(0, (Number(c.suerte) || 0) - res.luck);
+                            update();
+                        }
+                    }
+                );
             })
         );
 

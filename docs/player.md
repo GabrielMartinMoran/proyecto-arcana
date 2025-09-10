@@ -39,6 +39,41 @@ Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empeza
 
 Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#8 Equipo y Economía** encontrarás una lista de precios y objetos.
 
+## Paso 5: Lenguas
+
+Las lenguas determinan con quién puedes comunicarte y qué textos puedes comprender.
+
+- **Conocimiento inicial:** Al crear tu personaje, eliges **2 lenguas** de las listas siguientes. El DJ puede definir cuál es la lengua franca de la ambientación (a menudo llamada "Común").
+- **Alcance:** Salvo que se indique lo contrario, conocer una lengua implica poder **hablarla, leerla y escribirla**.
+- **Fuentes adicionales:** Tu linaje, trasfondo o ciertas cartas pueden otorgarte lenguas adicionales a discreción del DJ.
+
+### Lenguas Convencionales
+
+Lenguas ampliamente usadas por pueblos civilizados y comunes en mercaderías, rutas y asentamientos.
+
+- **Común**: Lengua franca del comercio, ciudades y diplomacia. Predomina entre humanos.
+- **Élfico**: Hablado por elfos y comunidades afines; común en bosques antiguos, arte y magia.
+- **Enano**: Lengua de clanes enanos; usada en forjas, minas y ciudades subterráneas.
+- **Gnomo**: Idioma de gnomos; presente en talleres, laboratorios y barrios artesanos.
+- **Mediano**: Propio de aldeas medianas; extendido en rutas de caravanas y vida rural.
+- **Orco**: Hablado por tribus orcas y pueblos fronterizos; frecuente en campamentos guerreros.
+- **Goblin**: Común entre goblins y pandillas marginales; se oye en ruinas y mercados negros.
+- **Gigante**: Idioma de gigantes y algunos ogros instruidos; propio de montañas y tundras.
+
+### Lenguas Raras
+
+Lenguas de planos, lo salvaje o tradiciones arcanas. Suelen requerir estudio, guía o exposición especial.
+
+- **Dracónico**: Lengua de dragones y grimorios arcanos; usada por magos eruditos.
+- **Silvano**: Hablado por hadas, dríadas y espíritus; común en santuarios del bosque.
+- **Infernal**: Idioma de diablos y pactos; aparece en contratos y círculos infernales.
+- **Celestial**: Lengua de seres alados y liturgias antiguas; preservada en templos y reliquias.
+- **Primordial**: Idioma de elementales y druidas; dialectos Auran (aire), Ignan (fuego), Aquan (agua) y Terran (tierra) son mutuamente inteligibles. Frecuente en ruinas elementales.
+- **Abisal**: Hablado por demonios del caos y cultos prohibidos; asociado a maldiciones.
+- **Habla Profunda**: Usado por pueblos subterráneos (drow, duergar) y aberraciones; típico de cavernas sin sol.
+- **Umbral**: Lengua de sombras y espectros; vinculada al Plano de la Penumbra y a la necromancia.
+- **Arcaico**: Antigua lengua erudita de reinos perdidos; frecuente en inscripciones y crónicas.
+
 # 3. Mecánicas de Juego
 
 Este capítulo detalla las reglas fundamentales para resolver acciones y situaciones en ARCANA.
@@ -149,11 +184,11 @@ La acción de **Correr** te permite usar tu Acción para moverte una distancia a
 
 ## Realizar un Ataque
 
-Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva (ESQ)** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.
+Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.
 
 - **Tirada de Ataque:** 1d6 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
-- **Esquiva (ESQ):** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
-    - **ESQ = (2 × Reflejos) − Penalización de Armadura + Bonificador de Escudo**
+- **Esquiva:** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
+    - **Esquiva = (2 × Reflejos) − Penalización de Armadura + Bonificador de Escudo**
 
 ## Concentración
 
@@ -279,7 +314,7 @@ La armadura proporciona **Mitigación**, que reduce el daño físico recibido. S
 
 ### Escudos
 
-- **Beneficio:** Un escudo añade un **+1 a tu Esquiva (ESQ)**.
+- **Beneficio:** Un escudo añade un **+1 a tu Esquiva**.
 - **Requisito:** Requiere **Cuerpo 2** para usarse sin penalización. Si no lo cumples, sufres **Desventaja (-1d4)** a tus tiradas de ataque.
 - **Limitación:** Requiere una mano libre, por lo que no puede usarse con armas a dos manos.
 - **Precio:** 10 o.

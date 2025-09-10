@@ -71,8 +71,9 @@ Un bloque de estadísticas (statblock) se compone de:
 - **[NOMBRE DE LA CRIATURA]**
 - **Nivel de Amenaza (NA):** Un número que representa su poder general.
 - **Salud:** La cantidad de daño que puede soportar.
-- **Esquiva (ESQ):** El número a superar en una tirada de ataque.
+- **Esquiva:** El número a superar en una tirada de ataque.
 - **Mitigación:** La cantidad de daño físico que la criatura ignora de cada golpe.
+- **Lenguas:** Idiomas que la criatura comprende y/o puede hablar.
 - **Ataque:** `[Nombre] +[Modificador] ([Daño] [Tipo])`
 - **Habilidades Especiales:** Rasgos pasivos y Acciones activas.
 - **Comportamiento:** Una frase corta que resume su actitud en combate.

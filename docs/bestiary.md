@@ -32,11 +32,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 4
 
-**Esquiva (ESQ):** 7 (Escudo)
+**Esquiva:** 7 (Escudo)
 
 **Mitigación:** 0
 
 </stats>
+
+**Lenguas:** Goblin, Común (jerga rudimentaria)
 
 **Ataques:**
 
@@ -84,11 +86,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 15
 
-**Esquiva (ESQ):** 6
+**Esquiva:** 6
 
 **Mitigación:** 0
 
 </stats>
+
+**Lenguas:** Orco, Común (rudimentario)
 
 **Ataques:**
 
@@ -136,11 +140,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 20
 
-**Esquiva (ESQ):** 8
+**Esquiva:** 8
 
 **Mitigación:** 0
 
 </stats>
+
+**Lenguas:** Umbral, Común (comprende)
 
 **Ataques:**
 
@@ -189,11 +195,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 30
 
-**Esquiva (ESQ):** 2
+**Esquiva:** 2
 
 **Mitigación:** 1
 
 </stats>
+
+**Lenguas:** Gigante, Común (comprende)
 
 **Ataques:**
 
@@ -241,11 +249,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 75
 
-**Esquiva (ESQ):** 4
+**Esquiva:** 4
 
 **Mitigación:** 4
 
 </stats>
+
+**Lenguas:** Dracónico, Común
 
 **Ataques:**
 
@@ -296,11 +306,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 8
 
-**Esquiva (ESQ):** 7 (Escudo)
+**Esquiva:** 7 (Escudo)
 
 **Mitigación:** 0
 
 </stats>
+
+**Lenguas:** Común
 
 **Ataques:**
 
@@ -349,11 +361,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 30
 
-**Esquiva (ESQ):** 10
+**Esquiva:** 10
 
 **Mitigación:** 1
 
 </stats>
+
+**Lenguas:** Común, Goblin (a menudo multilingüe por trato con bandas)
 
 **Ataques:**
 
@@ -402,11 +416,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 7
 
-**Esquiva (ESQ):** 6
+**Esquiva:** 6
 
 **Mitigación:** 0
 
 </stats>
+
+**Lenguas:** Común (gruñidos toscos), Gigante (comprende)
 
 **Ataques:**
 
@@ -454,7 +470,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 100
 
-**Esquiva (ESQ):** 4
+**Esquiva:** 4
 
 **Mitigación:** 2
 
@@ -509,7 +525,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 25
 
-**Esquiva (ESQ):** 4
+**Esquiva:** 4
 
 **Mitigación:** 1
 
@@ -566,7 +582,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 8
 
-**Esquiva (ESQ):** 9 (Escudo)
+**Esquiva:** 9 (Escudo)
 
 **Mitigación:** 1
 
@@ -620,11 +636,13 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 20
 
-**Esquiva (ESQ):** 6
+**Esquiva:** 6
 
 **Mitigación:** 0
 
 </stats>
+
+**Lenguas:** Umbral (comprende órdenes simples)
 
 **Ataques:**
 
@@ -673,7 +691,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 50
 
-**Esquiva (ESQ):** 6
+**Esquiva:** 6
 
 **Mitigación:** 2
 
@@ -726,7 +744,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Salud:** 12
 
-**Esquiva (ESQ):** 2
+**Esquiva:** 2
 
 **Mitigación:** 0
 

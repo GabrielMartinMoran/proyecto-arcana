@@ -33,6 +33,7 @@ const defaultCharacter = () => ({
     notes: '',
     portraitUrl: '',
     bio: '',
+    languages: '',
     mitigacion: 0,
     tempHp: 0,
 });
@@ -104,8 +105,8 @@ const CharactersPage = (container) => {
                 <div class="list-header">
                     <div class="buttons-container">
                         <button class="button" data-action="create" title="Crear">➕</button>
-                        <button class="button" data-action="export-current" title="Exportar">📤</button>
                         <button class="button" data-action="import-current" title="Importar">📥</button>
+                        <button class="button" data-action="export-current" title="Exportar">📤</button>
                         <button class="button" data-action="delete-current" title="Eliminar">🗑️</button>
                         <input id="import-one-file" type="file" accept="application/json" style="display:none" />
                     </div>
@@ -153,6 +154,7 @@ const CharactersPage = (container) => {
             c.equipmentList = trimmed ? [{ qty: 1, name: trimmed, notes: '' }] : [];
         }
         if (typeof c.suerte !== 'number') c.suerte = 0;
+        if (typeof c.languages !== 'string') c.languages = '';
         if (typeof c.mitigacion !== 'number') c.mitigacion = 0;
         if (!Array.isArray(c.modifiers)) c.modifiers = [];
         if (typeof c.tempHp !== 'number') c.tempHp = 0;
@@ -274,6 +276,10 @@ const CharactersPage = (container) => {
                                       />
                                   </div>
                               </div>
+                          </div>
+                          <div class="panel">
+                              <label>Lenguas</label>
+                              <input id="languages" type="text" class="languages-input" value="${c.languages || ''}" />
                           </div>
                           <div class="panel">
                               <label>Equipo</label>
@@ -712,6 +718,7 @@ const CharactersPage = (container) => {
         const tempHp = editor.querySelector('#temp-hp');
         const portraitUrl = editor.querySelector('#portrait-url');
         const bioText = editor.querySelector('#bio-text');
+        const languages = editor.querySelector('#languages');
 
         editor.querySelectorAll('.tab').forEach((t) =>
             t.addEventListener('click', () => {
@@ -738,6 +745,11 @@ const CharactersPage = (container) => {
         if (bioText)
             bioText.addEventListener('input', (e) => {
                 c.bio = e.target.value;
+                save();
+            });
+        if (languages)
+            languages.addEventListener('input', (e) => {
+                c.languages = e.target.value;
                 save();
             });
         if (pp)
