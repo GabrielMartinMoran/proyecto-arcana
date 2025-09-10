@@ -60,17 +60,29 @@ async function bootstrap() {
     };
     ensureMobileAppBar();
 
-    // Lazy-load HomePage when navigating to '/'
+    // Welcome default home
     Router.register('/', async (outlet) => {
-        const module = await import('./pages/HomePage/HomePage.js');
-        const HomePage = module.default;
-        const page = HomePage(outlet);
+        const module = await import('./pages/WelcomePage/WelcomePage.js');
+        const WelcomePage = module.default;
+        const page = WelcomePage(outlet);
         page.init();
     })
+        .register('/welcome', async (outlet) => {
+            const module = await import('./pages/WelcomePage/WelcomePage.js');
+            const WelcomePage = module.default;
+            const page = WelcomePage(outlet);
+            page.init();
+        })
         .register('/cards', async (outlet) => {
             const module = await import('./pages/HomePage/HomePage.js');
             const HomePage = module.default;
             const page = HomePage(outlet);
+            page.init();
+        })
+        .register('/bestiary', async (outlet) => {
+            const module = await import('./pages/BestiaryPage/BestiaryPage.js');
+            const BestiaryPage = module.default;
+            const page = BestiaryPage(outlet);
             page.init();
         })
         .register('/player', async (outlet) => {

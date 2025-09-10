@@ -9,11 +9,16 @@ const SidebarComponent = (container) => {
     let state = {
         items: [
             {
-                label: 'Guías',
+                label: 'Proyecto Arcana',
+                children: [{ path: '/', label: 'Inicio' }],
+            },
+            {
+                label: 'Referencias',
                 children: [
                     { path: '/player', label: 'Manual del jugador' },
-                    { path: '/gm', label: 'Manual del director de juego' },
                     { path: '/cards', label: 'Galería de cartas' },
+                    { path: '/gm', label: 'Manual del DJ' },
+                    { path: '/bestiary', label: 'Bestiario' },
                 ],
             },
             {
@@ -28,7 +33,7 @@ const SidebarComponent = (container) => {
         extraHtml: '',
     };
 
-    const currentPath = () => (location.hash || '#/cards').replace(/^#/, '');
+    const currentPath = () => (location.hash || '#/').replace(/^#/, '');
 
     const render = () => html`
         <aside class="sidebar-nav">
