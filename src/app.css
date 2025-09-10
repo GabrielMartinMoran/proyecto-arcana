@@ -69,6 +69,23 @@ body {
     background: var(--primary-bg);
 }
 
+/* Typography consistency */
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+h1,
+h2,
+h3,
+.page-title {
+    font-family: 'Cinzel', serif;
+}
+
 #app {
     min-height: 100%;
     display: grid;
@@ -154,6 +171,7 @@ body.no-scroll {
     border: 1px solid var(--border-color);
     background: var(--secondary-bg);
     color: var(--text-primary);
+    font-family: inherit;
     padding: 0.625rem 0.875rem;
     border-radius: var(--radius-md);
     cursor: pointer;

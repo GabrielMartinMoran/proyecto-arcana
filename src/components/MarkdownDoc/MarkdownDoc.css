@@ -2,13 +2,32 @@
     display: flex;
     flex-direction: column;
 
+    /* Inherit base typography; override headings with brand font */
+    font-family: inherit;
+
     h1,
     h2,
     h3 {
         margin: 1rem 0 0 0;
+        font-family: 'Cinzel', serif;
     }
 
     p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-family: inherit;
+    }
+
+    ul,
+    ol {
+        font-family: inherit;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        padding-left: 1.25rem;
+        margin: 0.5rem 0 0.75rem 0;
+    }
+    li {
+        font-family: inherit;
         color: var(--text-secondary);
         line-height: 1.7;
     }
@@ -21,16 +40,62 @@
     * {
         word-break: break-word;
         overflow-wrap: anywhere;
+        font-family: inherit;
     }
 
     pre {
         white-space: pre-wrap;
     }
 
+    /* Tables: centered, integrated look */
     table {
         display: block;
+        width: max-content;
         max-width: 100%;
+        margin: 0.75rem auto; /* center in the content */
         overflow-x: auto;
+        font-family: inherit;
+        color: var(--text-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        border-collapse: separate;
+        border-spacing: 0; /* enable radius without double borders */
+        box-shadow: var(--shadow-sm);
+        background: var(--secondary-bg);
+    }
+    thead th {
+        font-family: inherit;
+        color: var(--text-primary);
+        background: #fff7ed; /* subtle highlight */
+        font-weight: 700;
+        border-bottom: 1px solid var(--border-color);
+        text-align: center;
+    }
+    th,
+    td {
+        font-family: inherit;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+        vertical-align: top;
+        background: #fff;
+    }
+    /* Center all columns */
+    thead th,
+    tbody td {
+        text-align: center;
+    }
+    /* Column separators */
+    th + th,
+    td + td {
+        border-left: 1px solid var(--border-color);
+    }
+    /* Row separators */
+    tbody tr + tr td {
+        border-top: 1px solid var(--border-color);
+    }
+    /* Zebra for readability */
+    tbody tr:nth-child(even) td {
+        background: #fafaf9;
     }
 
     img {
