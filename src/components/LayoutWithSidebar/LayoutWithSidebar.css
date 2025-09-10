@@ -8,9 +8,23 @@
 }
 
 @media (max-width: 1000px) {
-    .layout-with-sidebar { grid-template-columns: 1fr; }
-    .layout-with-sidebar #sidebar { display: none; }
-    .main-panel { overflow-x: hidden; }
+    .layout-with-sidebar {
+        grid-template-columns: 1fr;
+    }
+    .layout-with-sidebar #sidebar {
+        display: none;
+    }
+    .main-panel {
+        overflow-x: hidden;
+    }
 }
 
-.main-panel { min-width: 0; }
+.main-panel {
+    min-width: 0;
+
+    .layout-slot {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+}

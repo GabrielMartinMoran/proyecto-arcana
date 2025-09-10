@@ -8,13 +8,19 @@ function notifyKeyChanged(key, value) {
     const set = subscribersByKey.get(key);
     if (!set) return;
     for (const listener of set) {
-        try { listener(value, key); } catch (error) { console.error("StateService listener error", error); }
+        try {
+            listener(value, key);
+        } catch (error) {
+            console.error('StateService listener error', error);
+        }
     }
 }
 
 const StateService = {
     /** Get full state snapshot */
-    getState() { return { ...globalState }; },
+    getState() {
+        return { ...globalState };
+    },
 
     /** Get a state key with optional fallback */
     get(key, fallback = undefined) {
@@ -30,7 +36,7 @@ const StateService = {
 
     /** Merge partial state and notify per-key changes */
     setState(partial) {
-        if (partial == null || typeof partial !== "object") return;
+        if (partial == null || typeof partial !== 'object') return;
         const entries = Object.entries(partial);
         for (const [key, value] of entries) {
             const same = Object.is(globalState[key], value);
@@ -58,11 +64,7 @@ const StateService = {
     clear() {
         globalState = Object.create(null);
         subscribersByKey.clear();
-    }
+    },
 };
 
 export default StateService;
-
-
-
-

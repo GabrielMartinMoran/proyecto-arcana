@@ -1,6 +1,6 @@
 const html = window.html || String.raw;
 import { ensureStyle } from '../../utils/style-utils.js';
-import CardComponent from "../CardComponent/CardComponent.js";
+import CardComponent from '../CardComponent/CardComponent.js';
 
 /**
  * GalleryComponent - Grid of cards
@@ -8,16 +8,18 @@ import CardComponent from "../CardComponent/CardComponent.js";
  * @param {{ cards: any[], onCardClick?: (card:any)=>void }} props
  */
 const GalleryComponent = (container, props = {}) => {
-    const loadStyles = () => { ensureStyle('./src/components/GalleryComponent/GalleryComponent.css'); };
+    const loadStyles = () => {
+        ensureStyle('./src/components/GalleryComponent/GalleryComponent.css');
+    };
 
     let state = {
         cards: Array.isArray(props.cards) ? props.cards : [],
-        onCardClick: typeof props.onCardClick === "function" ? props.onCardClick : () => {}
+        onCardClick: typeof props.onCardClick === 'function' ? props.onCardClick : () => {},
     };
 
     const render = () => html`
         <div class="grid" data-testid="gallery-grid">
-            ${state.cards.map((c) => html`<div class="grid-item" data-id="${c.id}"></div>`).join("")}
+            ${state.cards.map((c) => html`<div class="grid-item" data-id="${c.id}"></div>`).join('')}
         </div>
     `;
 
@@ -36,9 +38,13 @@ const GalleryComponent = (container, props = {}) => {
         mountCards();
     };
 
-    return { init: () => { loadStyles(); setState({}); }, setState };
+    return {
+        init: () => {
+            loadStyles();
+            setState({});
+        },
+        setState,
+    };
 };
 
 export default GalleryComponent;
-
-

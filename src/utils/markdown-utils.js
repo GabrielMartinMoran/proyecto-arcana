@@ -2,11 +2,7 @@
  * MarkdownUtils - fetch and render markdown with Marked
  */
 export async function fetchMarkdown(path) {
-    const candidates = [
-        path,
-        `./${path.replace(/^\.\/?/, '')}`,
-        `/${path.replace(/^\/?/, '')}`
-    ];
+    const candidates = [path, `./${path.replace(/^\.\/?/, '')}`, `/${path.replace(/^\/?/, '')}`];
     let lastError = null;
     for (const url of candidates) {
         try {
@@ -110,8 +106,8 @@ export function bindMarkdownLinks(container, currentRoute) {
             const route = href.toLowerCase().includes('gm')
                 ? '/gm'
                 : href.toLowerCase().includes('player')
-                ? '/player'
-                : currentRoute;
+                  ? '/player'
+                  : currentRoute;
             location.hash = route; // let router render the page
             return;
         }

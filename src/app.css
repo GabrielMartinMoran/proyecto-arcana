@@ -1,11 +1,11 @@
 /* Global CSS variables and base styles (light theme) */
 :root {
     /* Accent palette (Arcana) */
-    --accent-mente: #1d4ed8;    /* blue */
+    --accent-mente: #1d4ed8; /* blue */
     --accent-agilidad: #d97706; /* amber */
-    --accent-cuerpo: #b91c1c;   /* red */
+    --accent-cuerpo: #b91c1c; /* red */
     --accent-instinto: #059669; /* emerald */
-    --accent-presencia: #7c3aed;/* violet */
+    --accent-presencia: #7c3aed; /* violet */
     --accent-default: var(--accent-mente);
 
     /* Brand */
@@ -53,8 +53,18 @@ body {
     padding: 0;
 }
 body {
-    font-family: 'Lato', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
-        Helvetica Neue, Arial;
+    font-family:
+        'Lato',
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        Noto Sans,
+        Helvetica Neue,
+        Arial;
     color: var(--text-primary);
     background: var(--primary-bg);
 }
@@ -81,11 +91,27 @@ body {
     font-family: 'Cinzel', serif;
 }
 /* Mobile nav toggle */
-.nav-toggle { display: none; border: 1px solid var(--border-color); background: #fff; color: var(--text-primary); padding: .4rem .6rem; border-radius: var(--radius-md); cursor: pointer; }
-@media (max-width: 1000px) { .nav-toggle { display: inline-flex; align-items: center; justify-content: center; } }
+.nav-toggle {
+    display: none;
+    border: 1px solid var(--border-color);
+    background: #fff;
+    color: var(--text-primary);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+@media (max-width: 1000px) {
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 
 /* Prevent body scroll when drawer is open */
-body.no-scroll { overflow: hidden; }
+body.no-scroll {
+    overflow: hidden;
+}
 
 /* Global mobile app bar */
 .mobile-appbar {
@@ -101,14 +127,23 @@ body.no-scroll { overflow: hidden; }
     gap: var(--spacing-sm);
     padding: 0 var(--spacing-md);
     z-index: 1100;
+    .brand {
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+    }
 }
-.mobile-appbar .brand { font-family: 'Cinzel', serif; font-weight: 700; }
 @media (max-width: 1000px) {
-    .mobile-appbar { display: flex; }
+    .mobile-appbar {
+        display: flex;
+    }
     /* Hide per-page toggle when appbar is visible */
-    .page-header .nav-toggle { display: none !important; }
+    .page-header .nav-toggle {
+        display: none !important;
+    }
     /* Avoid content under the bar */
-    body { padding-top: 56px; }
+    body {
+        padding-top: 56px;
+    }
 }
 
 /* Removed old two-column layout; pages will define their own layout */
@@ -122,26 +157,26 @@ body.no-scroll { overflow: hidden; }
     padding: 0.625rem 0.875rem;
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease,
+        box-shadow 0.15s ease;
     box-shadow: var(--shadow-sm);
-}
-
-.button:hover {
-    background: #fafaf9;
-    box-shadow: var(--shadow-md);
-}
-.button:active {
-    transform: translateY(1px);
-}
-
-.button.primary {
-    background: #f59e0b; /* warm amber to match UI accents */
-    border-color: transparent;
-    color: #fff;
-}
-
-.button.primary:hover {
-    background: #d97706;
+    &:hover {
+        background: #fafaf9;
+        box-shadow: var(--shadow-md);
+    }
+    &:active {
+        transform: translateY(1px);
+    }
+    &.primary {
+        background: #f59e0b;
+        border-color: transparent;
+        color: #fff;
+    }
+    &.primary:hover {
+        background: #d97706;
+    }
 }
 
 /* Inputs */
@@ -192,10 +227,9 @@ label {
     justify-content: center;
     padding: var(--spacing-xl);
     z-index: 50;
-}
-
-.modal-backdrop.open {
-    display: flex;
+    &.open {
+        display: flex;
+    }
 }
 
 .modal-panel {
@@ -243,6 +277,11 @@ label {
     text-align: center;
     color: var(--text-secondary);
     padding: var(--spacing-lg) 0 var(--spacing-xl);
+    a {
+        color: var(--brand-link);
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
 }
-.site-footer a { color: var(--brand-link); text-decoration: none; }
-.site-footer a:hover { text-decoration: underline; }

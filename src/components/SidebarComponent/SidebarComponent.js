@@ -42,15 +42,16 @@ const SidebarComponent = (container) => {
                                     <ul class="sidebar-sublist">
                                         ${it.children
                                             .map(
-                                                (ch) => html`<li>
-                                                    <a
-                                                        href="#${ch.path}"
-                                                        class="sidebar-link ${currentPath() === ch.path
-                                                            ? 'active'
-                                                            : ''}"
-                                                        >${ch.label}</a
-                                                    >
-                                                </li>`
+                                                (ch) =>
+                                                    html`<li>
+                                                        <a
+                                                            href="#${ch.path}"
+                                                            class="sidebar-link ${currentPath() === ch.path
+                                                                ? 'active'
+                                                                : ''}"
+                                                            >${ch.label}</a
+                                                        >
+                                                    </li>`
                                             )
                                             .join('')}
                                     </ul>
@@ -74,7 +75,9 @@ const SidebarComponent = (container) => {
         </aside>
     `;
 
-    const loadStyles = () => { ensureStyle('./src/components/SidebarComponent/SidebarComponent.css'); };
+    const loadStyles = () => {
+        ensureStyle('./src/components/SidebarComponent/SidebarComponent.css');
+    };
 
     const onHashChange = () => {
         const links = container.querySelectorAll('.sidebar-link');

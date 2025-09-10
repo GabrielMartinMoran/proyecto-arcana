@@ -1,47 +1,57 @@
 /**
  * CardService - Load and query ARCANA cards from config and cache
  */
-import StorageUtils from "../utils/storage-utils.js";
+import StorageUtils from '../utils/storage-utils.js';
 
-const STORAGE_KEY = "cards-cache";
-const CONFIG_PATH = "config/cards-config.json";
+const STORAGE_KEY = 'cards-cache';
+const CONFIG_PATH = 'config/cards-config.json';
 
 let cachedCards = null;
 
 function normalizeCard(raw) {
     const card = { ...raw };
-    card.id = card.id || `${(card.name || "").toLowerCase().replace(/\s+/g, "-")}-${card.level || "n"}`;
-    card.name = card.name || "Unknown";
+    card.id = card.id || `${(card.name || '').toLowerCase().replace(/\s+/g, '-')}-${card.level || 'n'}`;
+    card.name = card.name || 'Unknown';
     card.level = Number(card.level) || 1;
-    card.type = card.type || "Accionable"; // or "De Efecto"
+    card.type = card.type || 'Accionable'; // or "De Efecto"
     card.attribute = card.attribute || null; // Cuerpo, Agilidad, etc
     // Backward compatibility: map legacy fields
     // if legacy arquetipo exists, push into tags
     const legacyArquetipo = card.arquetipo || card.sintonia || null;
-    const rawTags = Array.isArray(card.tags) ? card.tags : (card.tags ? [card.tags] : []);
+    const rawTags = Array.isArray(card.tags) ? card.tags : card.tags ? [card.tags] : [];
     card.tags = rawTags.concat(legacyArquetipo ? [legacyArquetipo] : []).filter(Boolean);
-    card.requirements = Array.isArray(card.requirements) ? card.requirements : (card.requirements ? [card.requirements] : []);
-    card.description = card.description || "No description";
+    card.requirements = Array.isArray(card.requirements)
+        ? card.requirements
+        : card.requirements
+          ? [card.requirements]
+          : [];
+    card.description = card.description || 'No description';
     card.cooldown = card.cooldown || null;
     return card;
 }
 
 function applyFilters(cards, criteria) {
     if (!criteria) return cards;
-    const text = (criteria.text || "").trim().toLowerCase();
+    const text = (criteria.text || '').trim().toLowerCase();
     const levels = new Set(criteria.levels || []);
     const types = new Set(criteria.types || []);
     const attributes = new Set(criteria.attributes || []);
     const tags = new Set(criteria.tags || []);
 
     return cards.filter((card) => {
-        if (text && !String(card.name || "").toLowerCase().includes(text)) return false;
+        if (
+            text &&
+            !String(card.name || '')
+                .toLowerCase()
+                .includes(text)
+        )
+            return false;
         if (levels.size && !levels.has(Number(card.level))) return false;
         if (types.size && !types.has(card.type)) return false;
         if (attributes.size && !attributes.has(card.attribute)) return false;
         if (tags.size) {
             const cardTags = Array.isArray(card.tags) ? card.tags : [];
-            if (!cardTags.some(t => tags.has(t))) return false;
+            if (!cardTags.some((t) => tags.has(t))) return false;
         }
         return true;
     });
@@ -53,7 +63,7 @@ const CardService = {
         if (!force && Array.isArray(cachedCards)) return cachedCards;
 
         try {
-            const response = await fetch(CONFIG_PATH, { cache: "no-store" });
+            const response = await fetch(CONFIG_PATH, { cache: 'no-store' });
             if (!response.ok) throw new Error(`Failed to fetch cards config: ${response.status}`);
             const json = await response.json();
             const fromConfig = Array.isArray(json?.cards) ? json.cards : [];
@@ -64,14 +74,16 @@ const CardService = {
             cachedCards = merged;
             return cachedCards;
         } catch (error) {
-            console.error("CardService.loadAll error:", error);
+            console.error('CardService.loadAll error:', error);
             cachedCards = [];
             return cachedCards;
         }
     },
 
     /** Get cached cards (may be null before load) */
-    getCached() { return cachedCards; },
+    getCached() {
+        return cachedCards;
+    },
 
     /** Add a custom card and persist */
     addCard(card) {
@@ -84,7 +96,9 @@ const CardService = {
     },
 
     /** Filter cards using criteria */
-    filter(cards, criteria) { return applyFilters(cards, criteria); },
+    filter(cards, criteria) {
+        return applyFilters(cards, criteria);
+    },
 
     /** Get unique values for facets (attributes, sintonias, types, levels) */
     getFacets(cards) {
@@ -94,7 +108,7 @@ const CardService = {
         const levels = new Set();
         for (const c of cards) {
             if (c.attribute) attr.add(c.attribute);
-            if (Array.isArray(c.tags)) c.tags.forEach(t => tagSet.add(t));
+            if (Array.isArray(c.tags)) c.tags.forEach((t) => tagSet.add(t));
             if (c.type) types.add(c.type);
             if (c.level) levels.add(Number(c.level));
         }
@@ -102,11 +116,9 @@ const CardService = {
             attributes: Array.from(attr).sort(),
             tags: Array.from(tagSet).sort(),
             types: Array.from(types).sort(),
-            levels: Array.from(levels).sort((a, b) => a - b)
+            levels: Array.from(levels).sort((a, b) => a - b),
         };
-    }
+    },
 };
 
 export default CardService;
-
-

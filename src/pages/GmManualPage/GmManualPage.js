@@ -1,15 +1,15 @@
 const html = window.html || String.raw;
 
-import SidebarComponent from "../../components/SidebarComponent/SidebarComponent.js";
-import { renderTocHtml } from "../../utils/markdown-utils.js";
-import MarkdownDoc from "../../components/MarkdownDoc/MarkdownDoc.js";
-import LayoutWithSidebar from "../../components/LayoutWithSidebar/LayoutWithSidebar.js";
+import SidebarComponent from '../../components/SidebarComponent/SidebarComponent.js';
+import { renderTocHtml } from '../../utils/markdown-utils.js';
+import MarkdownDoc from '../../components/MarkdownDoc/MarkdownDoc.js';
+import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
 
 const GmManualPage = (container) => {
     let lastTocHtml = '';
     const loadStyles = () => {
         const href = './src/pages/GmManualPage/GmManualPage.css';
-        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(l => l.getAttribute('href') === href)) {
+        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some((l) => l.getAttribute('href') === href)) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = href;
@@ -25,18 +25,30 @@ const GmManualPage = (container) => {
         layout.init();
         layout.setMainHtml(html`
             <article id="md" class="doc"></article>
-            <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
+            <footer class="site-footer">
+                © Gabriel Martín Moran. Todos los derechos reservados —
+                <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.
+            </footer>
         `);
         const mdEl = layout.getMainEl().querySelector('#md');
-        const doc = MarkdownDoc(mdEl, { mdPath: 'docs/gm.md', route: '/gm', onToc: (tocHtml) => { lastTocHtml = tocHtml; layout.setSidebarExtra('Indice', tocHtml); } });
+        const doc = MarkdownDoc(mdEl, {
+            mdPath: 'docs/gm.md',
+            route: '/gm',
+            onToc: (tocHtml) => {
+                lastTocHtml = tocHtml;
+                layout.setSidebarExtra('Indice', tocHtml);
+            },
+        });
         doc.init();
     };
 
     return {
-        init() { loadStyles(); container.innerHTML = render(); mount(); }
+        init() {
+            loadStyles();
+            container.innerHTML = render();
+            mount();
+        },
     };
 };
 
 export default GmManualPage;
-
-

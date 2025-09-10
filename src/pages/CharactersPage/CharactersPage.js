@@ -178,18 +178,22 @@ const CharactersPage = (container) => {
                 <ul class="items">
                     ${state.list
                         .map(
-                            (p) => html`<li>
-                                <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
-                                    ${p.name}
-                                </button>
-                            </li>`
+                            (p) =>
+                                html`<li>
+                                    <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
+                                        ${p.name}
+                                    </button>
+                                </li>`
                         )
                         .join('')}
                 </ul>
             </aside>
             <section class="characters-editor">${renderEditor()}</section>
         </div>
-        <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
+        <footer class="site-footer">
+            © Gabriel Martín Moran. Todos los derechos reservados —
+            <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.
+        </footer>
     `;
 
     const renderEditor = () => {
@@ -233,18 +237,19 @@ const CharactersPage = (container) => {
                               <div class="attrs">
                                   ${Object.entries(c.attributes)
                                       .map(
-                                          ([k, v]) => html`<div class="attr">
-                                              <span>${k}</span>
-                                              <input
-                                                  type="number"
-                                                  min="${RULES.attributeMin}"
-                                                  max="${RULES.attributeMax}"
-                                                  step="1"
-                                                  data-attr="${k}"
-                                                  value="${v}"
-                                              />
-                                              <button class="button" data-roll-attr="${k}" title="Tirar">🎲</button>
-                                          </div>`
+                                          ([k, v]) =>
+                                              html`<div class="attr">
+                                                  <span>${k}</span>
+                                                  <input
+                                                      type="number"
+                                                      min="${RULES.attributeMin}"
+                                                      max="${RULES.attributeMax}"
+                                                      step="1"
+                                                      data-attr="${k}"
+                                                      value="${v}"
+                                                  />
+                                                  <button class="button" data-roll-attr="${k}" title="Tirar">🎲</button>
+                                              </div>`
                                       )
                                       .join('')}
                               </div>
@@ -328,274 +333,278 @@ const CharactersPage = (container) => {
                       </div>
                   `
                 : state.tab === 'cards'
-                ? html`
-                      <div class="editor-grid one-col">
-                          <div class="panel">
-                              <label>Ranuras activas</label>
-                              <input type="number" id="active-slots" min="0" step="1" value="${c.activeSlots || 0}" />
-                          </div>
+                  ? html`
+                        <div class="editor-grid one-col">
+                            <div class="panel">
+                                <label>Ranuras activas</label>
+                                <input type="number" id="active-slots" min="0" step="1" value="${c.activeSlots || 0}" />
+                            </div>
 
-                          <div class="panel">
-                              <label>Activas (${(c.activeCards || []).length}/${c.activeSlots || 0})</label>
-                              <div class="cards-grid">
-                                  ${(c.activeCards || [])
-                                      .map((id) => state.allCards.find((x) => x.id === id))
-                                      .filter(Boolean)
-                                      .sort(
-                                          (a, b) =>
-                                              Number(a.level) - Number(b.level) ||
-                                              String(a.name).localeCompare(String(b.name))
-                                      )
-                                      .map(
-                                          (card) =>
-                                              html`<div
-                                                  class="card-slot"
-                                                  data-id="${card.id}"
-                                                  data-actions="deactivate"
-                                              ></div>`
-                                      )
-                                      .join('')}
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <div class="panel-header">
-                                  <label style="margin:0;">Tu colección (${c.cards.length})</label>
-                              </div>
-                              <div class="cards-grid">
-                                  ${c.cards
-                                      .map((id) => state.allCards.find((x) => x.id === id))
-                                      .filter(Boolean)
-                                      .sort(
-                                          (a, b) =>
-                                              Number(a.level) - Number(b.level) ||
-                                              String(a.name).localeCompare(String(b.name))
-                                      )
-                                      .map(
-                                          (card) =>
-                                              html`<div
-                                                  class="card-slot"
-                                                  data-id="${card.id}"
-                                                  data-actions="toggle"
-                                              ></div>`
-                                      )
-                                      .join('')}
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <div class="panel-header">
-                                  <label style="margin:0;">Añadir a tu colección</label>
-                                  <button class="button" id="toggle-add-filters">
-                                      ${state.filtersOpenAdd ? 'Ocultar filtros' : 'Mostrar filtros'}
-                                  </button>
-                              </div>
-                              <div class="filters-collapsible ${state.filtersOpenAdd ? '' : 'closed'}">
-                                  <div class="cards-search">
-                                      <input
-                                          id="card-search"
-                                          type="text"
-                                          placeholder="Buscar carta..."
-                                          value="${state.cardSearch || ''}"
-                                      />
-                                  </div>
-                                  <label
-                                      class="inline-filter"
-                                      style="display:inline-flex; align-items:center; gap:.35rem; font-weight: normal; margin-bottom:.5rem;"
-                                  >
-                                      <input
-                                          type="checkbox"
-                                          id="add-eligible-only"
-                                          ${state.addOnlyEligible ? 'checked' : ''}
-                                      />
-                                      Solo elegibles
-                                  </label>
-                                  <div class="cards-filters">
-                                      <div class="filter-group">
-                                          <strong>Nivel</strong>
-                                          <div class="options">
-                                              ${(state.facets.levels || [])
-                                                  .map(
-                                                      (l) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-level
-                                                                  value="${l}"
-                                                                  ${state.cardFilters.levels.includes(l)
-                                                                      ? 'checked'
-                                                                      : ''}
-                                                              />
-                                                              ${l}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div class="filter-group">
-                                          <strong>Tipo</strong>
-                                          <div class="options">
-                                              ${(state.facets.types || [])
-                                                  .map(
-                                                      (t) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-type
-                                                                  value="${t}"
-                                                                  ${state.cardFilters.types.includes(t)
-                                                                      ? 'checked'
-                                                                      : ''}
-                                                              />
-                                                              ${t}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div class="filter-group">
-                                          <strong>Atributo</strong>
-                                          <div class="options">
-                                              ${(state.facets.attributes || [])
-                                                  .map(
-                                                      (a) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-attr
-                                                                  value="${a}"
-                                                                  ${state.cardFilters.attributes.includes(a)
-                                                                      ? 'checked'
-                                                                      : ''}
-                                                              />
-                                                              ${a}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div class="filter-group">
-                                          <strong>Etiquetas</strong>
-                                          <div class="options">
-                                              ${(state.facets.tags || [])
-                                                  .map(
-                                                      (t) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-tag
-                                                                  value="${t}"
-                                                                  ${state.cardFilters.tags.includes(t) ? 'checked' : ''}
-                                                              />
-                                                              ${t}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div style="grid-column: 1 / -1; display:flex; justify-content:flex-end;">
-                                          <button class="button" id="cards-clear-filters">Limpiar</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="cards-grid">
-                                  ${CardService.filter(availableCards, {
-                                      text: state.cardSearch,
-                                      levels: state.cardFilters.levels,
-                                      types: state.cardFilters.types,
-                                      attributes: state.cardFilters.attributes,
-                                      tags: state.cardFilters.tags,
-                                  })
-                                      .filter((card) => !state.addOnlyEligible || meetsRequirements(c, card))
-                                      .filter((x) => !c.cards.includes(x.id))
-                                      .sort(
-                                          (a, b) =>
-                                              Number(a.level) - Number(b.level) ||
-                                              String(a.name).localeCompare(String(b.name))
-                                      )
-                                      .slice(0, 12)
-                                      .map(
-                                          (card) =>
-                                              html`<div
-                                                  class="card-slot"
-                                                  data-id="${card.id}"
-                                                  data-actions="add"
-                                              ></div>`
-                                      )
-                                      .join('')}
-                              </div>
-                          </div>
-                      </div>
-                  `
-                : html`
-                      <div class="editor-grid one-col">
-                          <div class="panel">
-                              <label>Listado de modificadores</label>
-                              <div class="mods">
-                                  ${(c.modifiers || [])
-                                      .map(
-                                          (m, idx) => html`
-                                              <div class="mod-row" data-idx="${idx}">
-                                                  <select data-mod-field>
-                                                      ${allowedFields
-                                                          .map(
-                                                              (f) =>
-                                                                  html`<option
-                                                                      value="${f}"
-                                                                      ${m.field === f ? 'selected' : ''}
-                                                                  >
-                                                                      ${f}
-                                                                  </option>`
-                                                          )
-                                                          .join('')}
-                                                  </select>
-                                                  <select data-mod-mode>
-                                                      <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>
-                                                          +
-                                                      </option>
-                                                      <option value="set" ${m.mode === 'set' ? 'selected' : ''}>
-                                                          =
-                                                      </option>
-                                                  </select>
-                                                  <input
-                                                      type="text"
-                                                      data-mod-expr
-                                                      placeholder="expresion (e.g., 2, cuerpo*2)"
-                                                      value="${m.expr || ''}"
-                                                  />
-                                                  <input
-                                                      type="text"
-                                                      data-mod-label
-                                                      placeholder="Etiqueta (opcional)"
-                                                      value="${m.label || ''}"
-                                                  />
-                                                  <button class="button" data-mod-remove>Eliminar</button>
-                                              </div>
-                                          `
-                                      )
-                                      .join('')}
-                                  <div>
-                                      <button class="button" data-mod-add>Agregar modificador</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <label>Resumen</label>
-                              <div class="attrs">
-                                  <div class="attr"><span>Salud</span><strong>${derived.salud}</strong></div>
-                                  <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
-                                  <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
-                                  <div class="attr"><span>ND (Mente)</span><strong>${derived.ndMente}</strong></div>
-                                  <div class="attr">
-                                      <span>ND (Instinto)</span><strong>${derived.ndInstinto}</strong>
-                                  </div>
-                                  <div class="attr"><span>Suerte máx.</span><strong>${derived.suerteMax}</strong></div>
-                              </div>
-                              <small
-                                  >Variables disponibles: cuerpo, agilidad, mente, instinto, presencia, salud,
-                                  velocidad, esquiva, ndMente, ndInstinto, suerteMax, pp, gold.</small
-                              >
-                          </div>
-                      </div>
-                  `}
+                            <div class="panel">
+                                <label>Activas (${(c.activeCards || []).length}/${c.activeSlots || 0})</label>
+                                <div class="cards-grid">
+                                    ${(c.activeCards || [])
+                                        .map((id) => state.allCards.find((x) => x.id === id))
+                                        .filter(Boolean)
+                                        .sort(
+                                            (a, b) =>
+                                                Number(a.level) - Number(b.level) ||
+                                                String(a.name).localeCompare(String(b.name))
+                                        )
+                                        .map(
+                                            (card) =>
+                                                html`<div
+                                                    class="card-slot"
+                                                    data-id="${card.id}"
+                                                    data-actions="deactivate"
+                                                ></div>`
+                                        )
+                                        .join('')}
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <label style="margin:0;">Tu colección (${c.cards.length})</label>
+                                </div>
+                                <div class="cards-grid">
+                                    ${c.cards
+                                        .map((id) => state.allCards.find((x) => x.id === id))
+                                        .filter(Boolean)
+                                        .sort(
+                                            (a, b) =>
+                                                Number(a.level) - Number(b.level) ||
+                                                String(a.name).localeCompare(String(b.name))
+                                        )
+                                        .map(
+                                            (card) =>
+                                                html`<div
+                                                    class="card-slot"
+                                                    data-id="${card.id}"
+                                                    data-actions="toggle"
+                                                ></div>`
+                                        )
+                                        .join('')}
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <label style="margin:0;">Añadir a tu colección</label>
+                                    <button class="button" id="toggle-add-filters">
+                                        ${state.filtersOpenAdd ? 'Ocultar filtros' : 'Mostrar filtros'}
+                                    </button>
+                                </div>
+                                <div class="filters-collapsible ${state.filtersOpenAdd ? '' : 'closed'}">
+                                    <div class="cards-search">
+                                        <input
+                                            id="card-search"
+                                            type="text"
+                                            placeholder="Buscar carta..."
+                                            value="${state.cardSearch || ''}"
+                                        />
+                                    </div>
+                                    <label
+                                        class="inline-filter"
+                                        style="display:inline-flex; align-items:center; gap:.35rem; font-weight: normal; margin-bottom:.5rem;"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            id="add-eligible-only"
+                                            ${state.addOnlyEligible ? 'checked' : ''}
+                                        />
+                                        Solo elegibles
+                                    </label>
+                                    <div class="cards-filters">
+                                        <div class="filter-group">
+                                            <strong>Nivel</strong>
+                                            <div class="options">
+                                                ${(state.facets.levels || [])
+                                                    .map(
+                                                        (l) =>
+                                                            html`<label
+                                                                ><input
+                                                                    type="checkbox"
+                                                                    data-filter-level
+                                                                    value="${l}"
+                                                                    ${state.cardFilters.levels.includes(l)
+                                                                        ? 'checked'
+                                                                        : ''}
+                                                                />
+                                                                ${l}</label
+                                                            >`
+                                                    )
+                                                    .join('')}
+                                            </div>
+                                        </div>
+                                        <div class="filter-group">
+                                            <strong>Tipo</strong>
+                                            <div class="options">
+                                                ${(state.facets.types || [])
+                                                    .map(
+                                                        (t) =>
+                                                            html`<label
+                                                                ><input
+                                                                    type="checkbox"
+                                                                    data-filter-type
+                                                                    value="${t}"
+                                                                    ${state.cardFilters.types.includes(t)
+                                                                        ? 'checked'
+                                                                        : ''}
+                                                                />
+                                                                ${t}</label
+                                                            >`
+                                                    )
+                                                    .join('')}
+                                            </div>
+                                        </div>
+                                        <div class="filter-group">
+                                            <strong>Atributo</strong>
+                                            <div class="options">
+                                                ${(state.facets.attributes || [])
+                                                    .map(
+                                                        (a) =>
+                                                            html`<label
+                                                                ><input
+                                                                    type="checkbox"
+                                                                    data-filter-attr
+                                                                    value="${a}"
+                                                                    ${state.cardFilters.attributes.includes(a)
+                                                                        ? 'checked'
+                                                                        : ''}
+                                                                />
+                                                                ${a}</label
+                                                            >`
+                                                    )
+                                                    .join('')}
+                                            </div>
+                                        </div>
+                                        <div class="filter-group">
+                                            <strong>Etiquetas</strong>
+                                            <div class="options">
+                                                ${(state.facets.tags || [])
+                                                    .map(
+                                                        (t) =>
+                                                            html`<label
+                                                                ><input
+                                                                    type="checkbox"
+                                                                    data-filter-tag
+                                                                    value="${t}"
+                                                                    ${state.cardFilters.tags.includes(t)
+                                                                        ? 'checked'
+                                                                        : ''}
+                                                                />
+                                                                ${t}</label
+                                                            >`
+                                                    )
+                                                    .join('')}
+                                            </div>
+                                        </div>
+                                        <div style="grid-column: 1 / -1; display:flex; justify-content:flex-end;">
+                                            <button class="button" id="cards-clear-filters">Limpiar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cards-grid">
+                                    ${CardService.filter(availableCards, {
+                                        text: state.cardSearch,
+                                        levels: state.cardFilters.levels,
+                                        types: state.cardFilters.types,
+                                        attributes: state.cardFilters.attributes,
+                                        tags: state.cardFilters.tags,
+                                    })
+                                        .filter((card) => !state.addOnlyEligible || meetsRequirements(c, card))
+                                        .filter((x) => !c.cards.includes(x.id))
+                                        .sort(
+                                            (a, b) =>
+                                                Number(a.level) - Number(b.level) ||
+                                                String(a.name).localeCompare(String(b.name))
+                                        )
+                                        .slice(0, 12)
+                                        .map(
+                                            (card) =>
+                                                html`<div
+                                                    class="card-slot"
+                                                    data-id="${card.id}"
+                                                    data-actions="add"
+                                                ></div>`
+                                        )
+                                        .join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `
+                  : html`
+                        <div class="editor-grid one-col">
+                            <div class="panel">
+                                <label>Listado de modificadores</label>
+                                <div class="mods">
+                                    ${(c.modifiers || [])
+                                        .map(
+                                            (m, idx) => html`
+                                                <div class="mod-row" data-idx="${idx}">
+                                                    <select data-mod-field>
+                                                        ${allowedFields
+                                                            .map(
+                                                                (f) =>
+                                                                    html`<option
+                                                                        value="${f}"
+                                                                        ${m.field === f ? 'selected' : ''}
+                                                                    >
+                                                                        ${f}
+                                                                    </option>`
+                                                            )
+                                                            .join('')}
+                                                    </select>
+                                                    <select data-mod-mode>
+                                                        <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>
+                                                            +
+                                                        </option>
+                                                        <option value="set" ${m.mode === 'set' ? 'selected' : ''}>
+                                                            =
+                                                        </option>
+                                                    </select>
+                                                    <input
+                                                        type="text"
+                                                        data-mod-expr
+                                                        placeholder="expresion (e.g., 2, cuerpo*2)"
+                                                        value="${m.expr || ''}"
+                                                    />
+                                                    <input
+                                                        type="text"
+                                                        data-mod-label
+                                                        placeholder="Etiqueta (opcional)"
+                                                        value="${m.label || ''}"
+                                                    />
+                                                    <button class="button" data-mod-remove>Eliminar</button>
+                                                </div>
+                                            `
+                                        )
+                                        .join('')}
+                                    <div>
+                                        <button class="button" data-mod-add>Agregar modificador</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <label>Resumen</label>
+                                <div class="attrs">
+                                    <div class="attr"><span>Salud</span><strong>${derived.salud}</strong></div>
+                                    <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
+                                    <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
+                                    <div class="attr"><span>ND (Mente)</span><strong>${derived.ndMente}</strong></div>
+                                    <div class="attr">
+                                        <span>ND (Instinto)</span><strong>${derived.ndInstinto}</strong>
+                                    </div>
+                                    <div class="attr">
+                                        <span>Suerte máx.</span><strong>${derived.suerteMax}</strong>
+                                    </div>
+                                </div>
+                                <small
+                                    >Variables disponibles: cuerpo, agilidad, mente, instinto, presencia, salud,
+                                    velocidad, esquiva, ndMente, ndInstinto, suerteMax, pp, gold.</small
+                                >
+                            </div>
+                        </div>
+                    `}
         `;
     };
 

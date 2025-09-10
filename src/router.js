@@ -10,10 +10,10 @@ const Router = (() => {
     let notFoundHandler = null;
 
     function getPath() {
-        const hash = location.hash || "#/";
+        const hash = location.hash || '#/';
         if (!hash.startsWith('#/')) return null; // ignore non-route hashes (e.g., in-page anchors)
-        const clean = hash.replace(/^#/, "");
-        return clean.startsWith("/") ? clean : `/${clean}`;
+        const clean = hash.replace(/^#/, '');
+        return clean.startsWith('/') ? clean : `/${clean}`;
     }
 
     async function handleRouteChange() {
@@ -32,7 +32,7 @@ const Router = (() => {
                 if (main) main.scrollTop = 0;
             });
         } catch (error) {
-            console.error("Router navigation error:", error);
+            console.error('Router navigation error:', error);
         }
     }
 
@@ -48,21 +48,24 @@ const Router = (() => {
         },
 
         /** Set not found handler */
-        setNotFound(handler) { notFoundHandler = handler; return this; },
+        setNotFound(handler) {
+            notFoundHandler = handler;
+            return this;
+        },
 
         /** Start listening and render initial route */
         start(rootElement) {
             outlet = rootElement;
-            window.addEventListener("hashchange", handleRouteChange);
-            window.addEventListener("popstate", handleRouteChange);
+            window.addEventListener('hashchange', handleRouteChange);
+            window.addEventListener('popstate', handleRouteChange);
             handleRouteChange();
         },
 
         /** Navigate to a path */
-        navigate(path) { location.hash = path.startsWith("#") ? path : `#${path}`; }
+        navigate(path) {
+            location.hash = path.startsWith('#') ? path : `#${path}`;
+        },
     };
 })();
 
 export default Router;
-
-

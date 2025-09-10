@@ -1,6 +1,13 @@
 const html = window.html || String.raw;
 
-import { fetchMarkdown, renderMarkdown, buildTocFromContainer, renderTocHtml, bindMarkdownLinks, applyPendingAnchor } from '../../utils/markdown-utils.js';
+import {
+    fetchMarkdown,
+    renderMarkdown,
+    buildTocFromContainer,
+    renderTocHtml,
+    bindMarkdownLinks,
+    applyPendingAnchor,
+} from '../../utils/markdown-utils.js';
 import { ensureStyle } from '../../utils/style-utils.js';
 
 /**
@@ -15,7 +22,9 @@ const MarkdownDoc = (container, props = {}) => {
         onToc: typeof props.onToc === 'function' ? props.onToc : () => {},
     };
 
-    const loadStyles = () => { ensureStyle('./src/components/MarkdownDoc/MarkdownDoc.css'); };
+    const loadStyles = () => {
+        ensureStyle('./src/components/MarkdownDoc/MarkdownDoc.css');
+    };
 
     const render = () => html`<article class="doc"></article>`;
 
@@ -43,7 +52,10 @@ const MarkdownDoc = (container, props = {}) => {
     };
 
     return {
-        init() { loadStyles(); setState({}); },
+        init() {
+            loadStyles();
+            setState({});
+        },
         setState,
     };
 };

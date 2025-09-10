@@ -1,7 +1,7 @@
 /**
  * StorageUtils - LocalStorage helpers for JSON data with error safety
  */
-const STORAGE_PREFIX = "arcana:";
+const STORAGE_PREFIX = 'arcana:';
 
 const getKey = (key) => `${STORAGE_PREFIX}${key}`;
 
@@ -17,7 +17,7 @@ const StorageUtils = {
             localStorage.setItem(getKey(key), stringified);
             return true;
         } catch (error) {
-            console.error("StorageUtils.save error:", error);
+            console.error('StorageUtils.save error:', error);
             return false;
         }
     },
@@ -33,7 +33,7 @@ const StorageUtils = {
             if (raw == null) return fallback;
             return JSON.parse(raw);
         } catch (error) {
-            console.error("StorageUtils.load error:", error);
+            console.error('StorageUtils.load error:', error);
             return fallback;
         }
     },
@@ -45,7 +45,7 @@ const StorageUtils = {
      */
     merge(key, partial) {
         const current = this.load(key, {});
-        if (typeof current !== "object" || current === null) {
+        if (typeof current !== 'object' || current === null) {
             return this.save(key, partial);
         }
         return this.save(key, { ...current, ...partial });
@@ -53,17 +53,19 @@ const StorageUtils = {
 
     /** Remove a stored key */
     remove(key) {
-        try { localStorage.removeItem(getKey(key)); } catch (_) {}
+        try {
+            localStorage.removeItem(getKey(key));
+        } catch (_) {}
     },
 
     /** Check if key exists */
     exists(key) {
-        try { return localStorage.getItem(getKey(key)) != null; } catch (_) { return false; }
-    }
+        try {
+            return localStorage.getItem(getKey(key)) != null;
+        } catch (_) {
+            return false;
+        }
+    },
 };
 
 export default StorageUtils;
-
-
-
-

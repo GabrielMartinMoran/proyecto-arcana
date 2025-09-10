@@ -19,11 +19,13 @@
 .drawer-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 1000;
 }
-.drawer-backdrop.open { display: block; }
+.drawer-backdrop.open {
+    display: block;
+}
 .drawer-panel {
     position: fixed;
     left: 0;
@@ -34,9 +36,11 @@
     border-right: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
     transform: translateX(-100%);
-    transition: transform .2s ease;
+    transition: transform 0.2s ease;
 }
-.drawer-backdrop.open .drawer-panel { transform: translateX(0); }
+.drawer-backdrop.open .drawer-panel {
+    transform: translateX(0);
+}
 
 /* In mobile, offset the drawer below the fixed app bar */
 @media (max-width: 1000px) {
@@ -64,7 +68,13 @@
     display: grid;
     gap: 0.5rem;
 }
-.sidebar-sublist { list-style:none; margin: .25rem 0 .5rem; padding-left: .5rem; display: grid; gap: .35rem; }
+.sidebar-sublist {
+    list-style: none;
+    margin: 0.25rem 0 0.5rem;
+    padding-left: 0.5rem;
+    display: grid;
+    gap: 0.35rem;
+}
 .sidebar-link {
     display: block;
     color: var(--text-secondary);
@@ -73,14 +83,16 @@
     border-radius: 0.5rem;
     border: 1px solid transparent;
 }
-.sidebar-link:hover {
-    background: #fafaf9;
-    color: var(--text-primary);
-}
-.sidebar-link.active {
-    background: #fff7ed; /* amber-50 */
-    color: var(--text-primary);
-    border-color: #fbbf24;
+.sidebar-link {
+    &:hover {
+        background: #fafaf9;
+        color: var(--text-primary);
+    }
+    &.active {
+        background: #fff7ed;
+        color: var(--text-primary);
+        border-color: #fbbf24;
+    }
 }
 
 .sidebar-extra {
@@ -100,14 +112,22 @@
     flex: 0 0 auto;
 }
 
-.sidebar-section-content { flex: 1 1 auto; overflow: auto; min-height: 0; }
+.sidebar-section-content {
+    flex: 1 1 auto;
+    overflow: auto;
+    min-height: 0;
+}
 .sidebar-section-content .toc-list {
     display: grid;
     gap: 0.35rem;
     padding-left: 0;
     list-style: none;
 }
-.sidebar-section-content .toc-sub { padding-left: .75rem; display: grid; gap: .25rem; }
+.sidebar-section-content .toc-sub {
+    padding-left: 0.75rem;
+    display: grid;
+    gap: 0.25rem;
+}
 .sidebar-section-content .toc-list a {
     text-decoration: none;
     color: var(--text-secondary);
@@ -115,7 +135,9 @@
     border-radius: 0.5rem;
     border: 1px solid transparent;
 }
-.sidebar-section-content .toc-list a:hover {
-    background: #fafaf9;
-    color: var(--text-primary);
+.sidebar-section-content .toc-list a {
+    &:hover {
+        background: #fafaf9;
+        color: var(--text-primary);
+    }
 }

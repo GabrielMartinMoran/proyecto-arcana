@@ -6,10 +6,10 @@ const html = window.html || String.raw;
  */
 const ModalComponent = (container, props = {}) => {
     let state = {
-        title: props.title || "",
-        content: props.content || "",
+        title: props.title || '',
+        content: props.content || '',
         open: false,
-        onClose: typeof props.onClose === "function" ? props.onClose : () => {}
+        onClose: typeof props.onClose === 'function' ? props.onClose : () => {},
     };
 
     const render = () => html`
@@ -57,14 +57,17 @@ const ModalComponent = (container, props = {}) => {
             container.innerHTML = render();
             bindEvents();
         },
-        open(content, title = state.title) { setState({ content, title, open: true }); },
-        close() { setState({ open: false }); state.onClose(); },
-        setState
+        open(content, title = state.title) {
+            setState({ content, title, open: true });
+        },
+        close() {
+            setState({ open: false });
+            state.onClose();
+        },
+        setState,
     };
 
     return api;
 };
 
 export default ModalComponent;
-
-

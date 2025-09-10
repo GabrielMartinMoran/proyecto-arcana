@@ -28,7 +28,16 @@ const CharacterList = (container, props = {}) => {
                 </div>
             </div>
             <ul class="items">
-                ${state.list.map(p => html`<li><button class="item ${state.selectedId===p.id?'active':''}" data-id="${p.id}">${p.name}</button></li>`).join('')}
+                ${state.list
+                    .map(
+                        (p) =>
+                            html`<li>
+                                <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
+                                    ${p.name}
+                                </button>
+                            </li>`
+                    )
+                    .join('')}
             </ul>
         </aside>
     `;
@@ -43,16 +52,24 @@ const CharacterList = (container, props = {}) => {
         if (exportBtn) exportBtn.addEventListener('click', () => state.onExport());
         if (deleteBtn) deleteBtn.addEventListener('click', () => state.onDelete());
         if (importBtn) importBtn.addEventListener('click', () => fileInput && fileInput.click());
-        if (fileInput) fileInput.addEventListener('change', async (e) => {
-            const file = e.target.files && e.target.files[0]; if (!file) return;
-            try { const text = await file.text(); const obj = JSON.parse(text); state.onImport(obj); } catch (_) {}
-            e.target.value = '';
-        });
-        container.querySelectorAll('.items .item').forEach(btn => btn.addEventListener('click', () => {
-            const id = btn.getAttribute('data-id');
-            state.selectedId = id;
-            state.onSelect(id);
-        }));
+        if (fileInput)
+            fileInput.addEventListener('change', async (e) => {
+                const file = e.target.files && e.target.files[0];
+                if (!file) return;
+                try {
+                    const text = await file.text();
+                    const obj = JSON.parse(text);
+                    state.onImport(obj);
+                } catch (_) {}
+                e.target.value = '';
+            });
+        container.querySelectorAll('.items .item').forEach((btn) =>
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                state.selectedId = id;
+                state.onSelect(id);
+            })
+        );
     };
 
     const setState = (partial) => {
