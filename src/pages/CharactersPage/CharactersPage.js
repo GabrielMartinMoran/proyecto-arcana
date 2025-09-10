@@ -4,7 +4,13 @@ import StorageUtils from '../../utils/storage-utils.js';
 import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
 import { ensureStyles } from '../../utils/style-utils.js';
 import CardService from '../../services/card-service.js';
-import { RULES, computeDerivedStats } from '../../models/rules.js';
+import {
+    RULES,
+    computeDerivedStats,
+    applyModifiersToDerived,
+    ALLOWED_MODIFIER_FIELDS,
+    evaluateModifierExpression,
+} from '../../models/rules.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import { openRollModal } from './RollModal.js';
 
@@ -20,10 +26,14 @@ const defaultCharacter = () => ({
     pp: 0,
     gold: 0,
     equipment: '',
+    equipmentList: [],
     modifiers: [],
     suerte: 0,
     hp: 0,
     notes: '',
+    portraitUrl: '',
+    bio: '',
+    mitigacion: 0,
     tempHp: 0,
 });
 
@@ -41,84 +51,9 @@ const CharactersPage = (container) => {
         filtersOpenAdd: false,
     };
 
-    // --- Helpers for modifiers ---
-    const allowedFields = ['salud', 'velocidad', 'esquiva', 'ndMente', 'ndInstinto', 'suerteMax'];
-    function evaluateExpression(expression, context) {
-        if (!expression && expression !== 0) return 0;
-        const expr = String(expression).trim();
-        try {
-            const fn = new Function(
-                'cuerpo',
-                'agilidad',
-                'mente',
-                'instinto',
-                'presencia',
-                'salud',
-                'velocidad',
-                'esquiva',
-                'ndMente',
-                'ndInstinto',
-                'suerteMax',
-                'pp',
-                'gold',
-                'Math',
-                `return (${expr});`
-            );
-            return (
-                Number(
-                    fn(
-                        Number(context.cuerpo) || 0,
-                        Number(context.agilidad) || 0,
-                        Number(context.mente) || 0,
-                        Number(context.instinto) || 0,
-                        Number(context.presencia) || 0,
-                        Number(context.salud) || 0,
-                        Number(context.velocidad) || 0,
-                        Number(context.esquiva) || 0,
-                        Number(context.ndMente) || 0,
-                        Number(context.ndInstinto) || 0,
-                        Number(context.suerteMax) || 0,
-                        Number(context.pp) || 0,
-                        Number(context.gold) || 0,
-                        Math
-                    )
-                ) || 0
-            );
-        } catch (_) {
-            return 0;
-        }
-    }
-
-    function applyModifiers(base, character) {
-        const attrs = character.attributes || {};
-        const ctx = {
-            cuerpo: attrs.Cuerpo || 0,
-            agilidad: attrs.Agilidad || 0,
-            mente: attrs.Mente || 0,
-            instinto: attrs.Instinto || 0,
-            presencia: attrs.Presencia || 0,
-            salud: base.salud,
-            velocidad: base.velocidad,
-            esquiva: base.esquiva,
-            ndMente: base.ndMente,
-            ndInstinto: base.ndInstinto,
-            suerteMax: base.suerteMax,
-            pp: character.pp || 0,
-            gold: character.gold || 0,
-        };
-        const out = { ...base };
-        const mods = Array.isArray(character.modifiers) ? character.modifiers : [];
-        for (const m of mods) {
-            if (!m || !allowedFields.includes(m.field)) continue;
-            const mode = m.mode === 'set' ? 'set' : 'add';
-            const delta = evaluateExpression(m.expr ?? 0, ctx);
-            if (mode === 'set') out[m.field] = delta;
-            else out[m.field] = (Number(out[m.field]) || 0) + delta;
-            // Update context for chained expressions
-            ctx[m.field] = out[m.field];
-        }
-        return out;
-    }
+    // --- Helpers for modifiers (shared) ---
+    const allowedFields = ALLOWED_MODIFIER_FIELDS;
+    const evaluateExpression = evaluateModifierExpression;
 
     // Map requirement attribute aliases to character attributes
     const REQUIREMENT_ATTR_MAP = {
@@ -177,14 +112,20 @@ const CharactersPage = (container) => {
                 </div>
                 <ul class="items">
                     ${state.list
-                        .map(
-                            (p) =>
-                                html`<li>
-                                    <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
-                                        ${p.name}
-                                    </button>
-                                </li>`
-                        )
+                        .map((p) => {
+                            const initial = (p.name || '?').trim().charAt(0).toUpperCase();
+                            return html`<li>
+                                <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
+                                    <span class="avatar ${p.portraitUrl ? '' : 'placeholder'}" aria-hidden="true">
+                                        ${p.portraitUrl
+                                            ? `<img src="${p.portraitUrl}" alt="" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');" />`
+                                            : ''}
+                                        <span class="initial">${initial}</span>
+                                    </span>
+                                    <span class="item-name">${p.name}</span>
+                                </button>
+                            </li>`;
+                        })
                         .join('')}
                 </ul>
             </aside>
@@ -207,7 +148,12 @@ const CharactersPage = (container) => {
         if (typeof c.pp !== 'number') c.pp = 0;
         if (typeof c.gold !== 'number') c.gold = 0;
         if (typeof c.equipment !== 'string') c.equipment = '';
+        if (!Array.isArray(c.equipmentList)) {
+            const trimmed = String(c.equipment || '').trim();
+            c.equipmentList = trimmed ? [{ qty: 1, name: trimmed, notes: '' }] : [];
+        }
         if (typeof c.suerte !== 'number') c.suerte = 0;
+        if (typeof c.mitigacion !== 'number') c.mitigacion = 0;
         if (!Array.isArray(c.modifiers)) c.modifiers = [];
         if (typeof c.tempHp !== 'number') c.tempHp = 0;
         const derivedBase = computeDerivedStats(c.attributes);
@@ -216,7 +162,10 @@ const CharactersPage = (container) => {
             ndInstinto: 5 + (Number(c.attributes.Instinto) || 0),
         };
         const luckBase = { suerteMax: 5 };
-        const derived = applyModifiers({ ...derivedBase, ...ndBase, ...luckBase }, c);
+        const derived = applyModifiersToDerived(
+            { ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
+            c
+        );
         // Ensure current health exists and is within [0, max]
         if (typeof c.hp !== 'number' || Number.isNaN(c.hp)) c.hp = derived.salud;
         c.hp = Math.max(0, Math.min(c.hp, derived.salud));
@@ -227,7 +176,10 @@ const CharactersPage = (container) => {
             <div class="tabs">
                 <button class="tab ${state.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
                 <button class="tab ${state.tab === 'cards' ? 'active' : ''}" data-tab="cards">Cartas</button>
-                <button class="tab ${state.tab === 'mods' ? 'active' : ''}" data-tab="mods">Modificadores</button>
+
+                <button class="tab ${state.tab === 'bio' ? 'active' : ''}" data-tab="bio">Bio</button>
+                <button class="tab ${state.tab === 'notes' ? 'active' : ''}" data-tab="notes">Notas</button>
+                <button class="tab ${state.tab === 'config' ? 'active' : ''}" data-tab="config">Configuración</button>
             </div>
             ${state.tab === 'sheet'
                 ? html`
@@ -270,6 +222,7 @@ const CharactersPage = (container) => {
                                   </div>
                                   <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
                                   <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
+                                  <div class="attr"><span>Mitigación</span><strong>${derived.mitigacion}</strong></div>
                                   <div class="nd-spells">
                                       <div class="attr" style="grid-column:1 / -1; padding-top:.25rem;">
                                           <strong>ND de Conjuro</strong>
@@ -324,287 +277,356 @@ const CharactersPage = (container) => {
                           </div>
                           <div class="panel">
                               <label>Equipo</label>
-                              <textarea id="equipment" rows="6">${c.equipment || ''}</textarea>
-                          </div>
-                          <div class="panel">
-                              <label>Notas</label>
-                              <textarea id="notes" rows="6">${c.notes || ''}</textarea>
+                              <div class="equip-list">
+                                  ${(c.equipmentList || [])
+                                      .map(
+                                          (it, idx) => html` <div class="equip-row" data-eq-idx="${idx}">
+                                              <input
+                                                  type="number"
+                                                  min="0"
+                                                  step="1"
+                                                  data-eq-qty
+                                                  value="${Number(it.qty) || 0}"
+                                              />
+                                              <input
+                                                  type="text"
+                                                  data-eq-name
+                                                  placeholder="Nombre"
+                                                  value="${it.name || ''}"
+                                              />
+                                              <input
+                                                  type="text"
+                                                  data-eq-notes
+                                                  placeholder="Notas"
+                                                  value="${it.notes || ''}"
+                                              />
+                                              <button class="button" data-eq-remove title="Eliminar">🗑️</button>
+                                          </div>`
+                                      )
+                                      .join('')}
+                                  <div style="display:flex; justify-content:flex-end;">
+                                      <button class="button" data-eq-add>Añadir ítem</button>
+                                  </div>
+                              </div>
                           </div>
                       </div>
                   `
                 : state.tab === 'cards'
-                  ? html`
-                        <div class="editor-grid one-col">
-                            <div class="panel">
-                                <label>Ranuras activas</label>
-                                <input type="number" id="active-slots" min="0" step="1" value="${c.activeSlots || 0}" />
-                            </div>
+                ? html`
+                      <div class="editor-grid one-col">
+                          <div class="panel">
+                              <label>Ranuras activas</label>
+                              <input type="number" id="active-slots" min="0" step="1" value="${c.activeSlots || 0}" />
+                          </div>
 
-                            <div class="panel">
-                                <label>Activas (${(c.activeCards || []).length}/${c.activeSlots || 0})</label>
-                                <div class="cards-grid">
-                                    ${(c.activeCards || [])
-                                        .map((id) => state.allCards.find((x) => x.id === id))
-                                        .filter(Boolean)
-                                        .sort(
-                                            (a, b) =>
-                                                Number(a.level) - Number(b.level) ||
-                                                String(a.name).localeCompare(String(b.name))
-                                        )
-                                        .map(
-                                            (card) =>
-                                                html`<div
-                                                    class="card-slot"
-                                                    data-id="${card.id}"
-                                                    data-actions="deactivate"
-                                                ></div>`
-                                        )
-                                        .join('')}
-                                </div>
-                            </div>
-                            <div class="panel">
-                                <div class="panel-header">
-                                    <label style="margin:0;">Tu colección (${c.cards.length})</label>
-                                </div>
-                                <div class="cards-grid">
-                                    ${c.cards
-                                        .map((id) => state.allCards.find((x) => x.id === id))
-                                        .filter(Boolean)
-                                        .sort(
-                                            (a, b) =>
-                                                Number(a.level) - Number(b.level) ||
-                                                String(a.name).localeCompare(String(b.name))
-                                        )
-                                        .map(
-                                            (card) =>
-                                                html`<div
-                                                    class="card-slot"
-                                                    data-id="${card.id}"
-                                                    data-actions="toggle"
-                                                ></div>`
-                                        )
-                                        .join('')}
-                                </div>
-                            </div>
-                            <div class="panel">
-                                <div class="panel-header">
-                                    <label style="margin:0;">Añadir a tu colección</label>
-                                    <button class="button" id="toggle-add-filters">
-                                        ${state.filtersOpenAdd ? 'Ocultar filtros' : 'Mostrar filtros'}
-                                    </button>
-                                </div>
-                                <div class="filters-collapsible ${state.filtersOpenAdd ? '' : 'closed'}">
-                                    <div class="cards-search">
-                                        <input
-                                            id="card-search"
-                                            type="text"
-                                            placeholder="Buscar carta..."
-                                            value="${state.cardSearch || ''}"
-                                        />
-                                    </div>
-                                    <label
-                                        class="inline-filter"
-                                        style="display:inline-flex; align-items:center; gap:.35rem; font-weight: normal; margin-bottom:.5rem;"
-                                    >
-                                        <input
-                                            type="checkbox"
-                                            id="add-eligible-only"
-                                            ${state.addOnlyEligible ? 'checked' : ''}
-                                        />
-                                        Solo elegibles
-                                    </label>
-                                    <div class="cards-filters">
-                                        <div class="filter-group">
-                                            <strong>Nivel</strong>
-                                            <div class="options">
-                                                ${(state.facets.levels || [])
-                                                    .map(
-                                                        (l) =>
-                                                            html`<label
-                                                                ><input
-                                                                    type="checkbox"
-                                                                    data-filter-level
-                                                                    value="${l}"
-                                                                    ${state.cardFilters.levels.includes(l)
-                                                                        ? 'checked'
-                                                                        : ''}
-                                                                />
-                                                                ${l}</label
-                                                            >`
-                                                    )
-                                                    .join('')}
-                                            </div>
-                                        </div>
-                                        <div class="filter-group">
-                                            <strong>Tipo</strong>
-                                            <div class="options">
-                                                ${(state.facets.types || [])
-                                                    .map(
-                                                        (t) =>
-                                                            html`<label
-                                                                ><input
-                                                                    type="checkbox"
-                                                                    data-filter-type
-                                                                    value="${t}"
-                                                                    ${state.cardFilters.types.includes(t)
-                                                                        ? 'checked'
-                                                                        : ''}
-                                                                />
-                                                                ${t}</label
-                                                            >`
-                                                    )
-                                                    .join('')}
-                                            </div>
-                                        </div>
-                                        <div class="filter-group">
-                                            <strong>Atributo</strong>
-                                            <div class="options">
-                                                ${(state.facets.attributes || [])
-                                                    .map(
-                                                        (a) =>
-                                                            html`<label
-                                                                ><input
-                                                                    type="checkbox"
-                                                                    data-filter-attr
-                                                                    value="${a}"
-                                                                    ${state.cardFilters.attributes.includes(a)
-                                                                        ? 'checked'
-                                                                        : ''}
-                                                                />
-                                                                ${a}</label
-                                                            >`
-                                                    )
-                                                    .join('')}
-                                            </div>
-                                        </div>
-                                        <div class="filter-group">
-                                            <strong>Etiquetas</strong>
-                                            <div class="options">
-                                                ${(state.facets.tags || [])
-                                                    .map(
-                                                        (t) =>
-                                                            html`<label
-                                                                ><input
-                                                                    type="checkbox"
-                                                                    data-filter-tag
-                                                                    value="${t}"
-                                                                    ${state.cardFilters.tags.includes(t)
-                                                                        ? 'checked'
-                                                                        : ''}
-                                                                />
-                                                                ${t}</label
-                                                            >`
-                                                    )
-                                                    .join('')}
-                                            </div>
-                                        </div>
-                                        <div style="grid-column: 1 / -1; display:flex; justify-content:flex-end;">
-                                            <button class="button" id="cards-clear-filters">Limpiar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cards-grid">
-                                    ${CardService.filter(availableCards, {
-                                        text: state.cardSearch,
-                                        levels: state.cardFilters.levels,
-                                        types: state.cardFilters.types,
-                                        attributes: state.cardFilters.attributes,
-                                        tags: state.cardFilters.tags,
-                                    })
-                                        .filter((card) => !state.addOnlyEligible || meetsRequirements(c, card))
-                                        .filter((x) => !c.cards.includes(x.id))
-                                        .sort(
-                                            (a, b) =>
-                                                Number(a.level) - Number(b.level) ||
-                                                String(a.name).localeCompare(String(b.name))
-                                        )
-                                        .slice(0, 12)
-                                        .map(
-                                            (card) =>
-                                                html`<div
-                                                    class="card-slot"
-                                                    data-id="${card.id}"
-                                                    data-actions="add"
-                                                ></div>`
-                                        )
-                                        .join('')}
-                                </div>
-                            </div>
-                        </div>
-                    `
-                  : html`
-                        <div class="editor-grid one-col">
-                            <div class="panel">
-                                <label>Listado de modificadores</label>
-                                <div class="mods">
-                                    ${(c.modifiers || [])
-                                        .map(
-                                            (m, idx) => html`
-                                                <div class="mod-row" data-idx="${idx}">
-                                                    <select data-mod-field>
-                                                        ${allowedFields
-                                                            .map(
-                                                                (f) =>
-                                                                    html`<option
-                                                                        value="${f}"
-                                                                        ${m.field === f ? 'selected' : ''}
-                                                                    >
-                                                                        ${f}
-                                                                    </option>`
-                                                            )
-                                                            .join('')}
-                                                    </select>
-                                                    <select data-mod-mode>
-                                                        <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>
-                                                            +
-                                                        </option>
-                                                        <option value="set" ${m.mode === 'set' ? 'selected' : ''}>
-                                                            =
-                                                        </option>
-                                                    </select>
-                                                    <input
-                                                        type="text"
-                                                        data-mod-expr
-                                                        placeholder="expresion (e.g., 2, cuerpo*2)"
-                                                        value="${m.expr || ''}"
-                                                    />
-                                                    <input
-                                                        type="text"
-                                                        data-mod-label
-                                                        placeholder="Etiqueta (opcional)"
-                                                        value="${m.label || ''}"
-                                                    />
-                                                    <button class="button" data-mod-remove>Eliminar</button>
-                                                </div>
-                                            `
-                                        )
-                                        .join('')}
-                                    <div>
-                                        <button class="button" data-mod-add>Agregar modificador</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel">
-                                <label>Resumen</label>
-                                <div class="attrs">
-                                    <div class="attr"><span>Salud</span><strong>${derived.salud}</strong></div>
-                                    <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
-                                    <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
-                                    <div class="attr"><span>ND (Mente)</span><strong>${derived.ndMente}</strong></div>
-                                    <div class="attr">
-                                        <span>ND (Instinto)</span><strong>${derived.ndInstinto}</strong>
-                                    </div>
-                                    <div class="attr">
-                                        <span>Suerte máx.</span><strong>${derived.suerteMax}</strong>
-                                    </div>
-                                </div>
-                                <small
-                                    >Variables disponibles: cuerpo, agilidad, mente, instinto, presencia, salud,
-                                    velocidad, esquiva, ndMente, ndInstinto, suerteMax, pp, gold.</small
-                                >
-                            </div>
-                        </div>
-                    `}
+                          <div class="panel">
+                              <label>Activas (${(c.activeCards || []).length}/${c.activeSlots || 0})</label>
+                              <div class="cards-grid">
+                                  ${(c.activeCards || [])
+                                      .map((id) => state.allCards.find((x) => x.id === id))
+                                      .filter(Boolean)
+                                      .sort(
+                                          (a, b) =>
+                                              Number(a.level) - Number(b.level) ||
+                                              String(a.name).localeCompare(String(b.name))
+                                      )
+                                      .map(
+                                          (card) =>
+                                              html`<div
+                                                  class="card-slot"
+                                                  data-id="${card.id}"
+                                                  data-actions="deactivate"
+                                              ></div>`
+                                      )
+                                      .join('')}
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <div class="panel-header">
+                                  <label style="margin:0;">Tu colección (${c.cards.length})</label>
+                              </div>
+                              <div class="cards-grid">
+                                  ${c.cards
+                                      .map((id) => state.allCards.find((x) => x.id === id))
+                                      .filter(Boolean)
+                                      .sort(
+                                          (a, b) =>
+                                              Number(a.level) - Number(b.level) ||
+                                              String(a.name).localeCompare(String(b.name))
+                                      )
+                                      .map(
+                                          (card) =>
+                                              html`<div
+                                                  class="card-slot"
+                                                  data-id="${card.id}"
+                                                  data-actions="toggle"
+                                              ></div>`
+                                      )
+                                      .join('')}
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <div class="panel-header">
+                                  <label style="margin:0;">Añadir a tu colección</label>
+                                  <button class="button" id="toggle-add-filters">
+                                      ${state.filtersOpenAdd ? 'Ocultar filtros' : 'Mostrar filtros'}
+                                  </button>
+                              </div>
+                              <div class="filters-collapsible ${state.filtersOpenAdd ? '' : 'closed'}">
+                                  <div class="cards-search">
+                                      <input
+                                          id="card-search"
+                                          type="text"
+                                          placeholder="Buscar carta..."
+                                          value="${state.cardSearch || ''}"
+                                      />
+                                  </div>
+                                  <label
+                                      class="inline-filter"
+                                      style="display:inline-flex; align-items:center; gap:.35rem; font-weight: normal; margin-bottom:.5rem;"
+                                  >
+                                      <input
+                                          type="checkbox"
+                                          id="add-eligible-only"
+                                          ${state.addOnlyEligible ? 'checked' : ''}
+                                      />
+                                      Solo elegibles
+                                  </label>
+                                  <div class="cards-filters">
+                                      <div class="filter-group">
+                                          <strong>Nivel</strong>
+                                          <div class="options">
+                                              ${(state.facets.levels || [])
+                                                  .map(
+                                                      (l) =>
+                                                          html`<label
+                                                              ><input
+                                                                  type="checkbox"
+                                                                  data-filter-level
+                                                                  value="${l}"
+                                                                  ${state.cardFilters.levels.includes(l)
+                                                                      ? 'checked'
+                                                                      : ''}
+                                                              />
+                                                              ${l}</label
+                                                          >`
+                                                  )
+                                                  .join('')}
+                                          </div>
+                                      </div>
+                                      <div class="filter-group">
+                                          <strong>Tipo</strong>
+                                          <div class="options">
+                                              ${(state.facets.types || [])
+                                                  .map(
+                                                      (t) =>
+                                                          html`<label
+                                                              ><input
+                                                                  type="checkbox"
+                                                                  data-filter-type
+                                                                  value="${t}"
+                                                                  ${state.cardFilters.types.includes(t)
+                                                                      ? 'checked'
+                                                                      : ''}
+                                                              />
+                                                              ${t}</label
+                                                          >`
+                                                  )
+                                                  .join('')}
+                                          </div>
+                                      </div>
+                                      <div class="filter-group">
+                                          <strong>Atributo</strong>
+                                          <div class="options">
+                                              ${(state.facets.attributes || [])
+                                                  .map(
+                                                      (a) =>
+                                                          html`<label
+                                                              ><input
+                                                                  type="checkbox"
+                                                                  data-filter-attr
+                                                                  value="${a}"
+                                                                  ${state.cardFilters.attributes.includes(a)
+                                                                      ? 'checked'
+                                                                      : ''}
+                                                              />
+                                                              ${a}</label
+                                                          >`
+                                                  )
+                                                  .join('')}
+                                          </div>
+                                      </div>
+                                      <div class="filter-group">
+                                          <strong>Etiquetas</strong>
+                                          <div class="options">
+                                              ${(state.facets.tags || [])
+                                                  .map(
+                                                      (t) =>
+                                                          html`<label
+                                                              ><input
+                                                                  type="checkbox"
+                                                                  data-filter-tag
+                                                                  value="${t}"
+                                                                  ${state.cardFilters.tags.includes(t) ? 'checked' : ''}
+                                                              />
+                                                              ${t}</label
+                                                          >`
+                                                  )
+                                                  .join('')}
+                                          </div>
+                                      </div>
+                                      <div style="grid-column: 1 / -1; display:flex; justify-content:flex-end;">
+                                          <button class="button" id="cards-clear-filters">Limpiar</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="cards-grid">
+                                  ${CardService.filter(availableCards, {
+                                      text: state.cardSearch,
+                                      levels: state.cardFilters.levels,
+                                      types: state.cardFilters.types,
+                                      attributes: state.cardFilters.attributes,
+                                      tags: state.cardFilters.tags,
+                                  })
+                                      .filter((card) => !state.addOnlyEligible || meetsRequirements(c, card))
+                                      .filter((x) => !c.cards.includes(x.id))
+                                      .sort(
+                                          (a, b) =>
+                                              Number(a.level) - Number(b.level) ||
+                                              String(a.name).localeCompare(String(b.name))
+                                      )
+                                      .slice(0, 12)
+                                      .map(
+                                          (card) =>
+                                              html`<div
+                                                  class="card-slot"
+                                                  data-id="${card.id}"
+                                                  data-actions="add"
+                                              ></div>`
+                                      )
+                                      .join('')}
+                              </div>
+                          </div>
+                      </div>
+                  `
+                : state.tab === 'config'
+                ? html`
+                      <div class="editor-grid one-col">
+                          <div class="panel">
+                              <label>Retrato</label>
+                              <div class="attrs">
+                                  <div class="attr">
+                                      <span>URL</span>
+                                      <input
+                                          type="text"
+                                          id="portrait-url"
+                                          class="portrait-url-input"
+                                          value="${c.portraitUrl || ''}"
+                                      />
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <label>Listado de modificadores</label>
+                              <div class="mods">
+                                  ${(c.modifiers || [])
+                                      .map(
+                                          (m, idx) => html`
+                                              <div class="mod-row" data-idx="${idx}">
+                                                  <select data-mod-field>
+                                                      ${allowedFields
+                                                          .map(
+                                                              (f) =>
+                                                                  html`<option
+                                                                      value="${f}"
+                                                                      ${m.field === f ? 'selected' : ''}
+                                                                  >
+                                                                      ${f}
+                                                                  </option>`
+                                                          )
+                                                          .join('')}
+                                                  </select>
+                                                  <select data-mod-mode>
+                                                      <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>
+                                                          +
+                                                      </option>
+                                                      <option value="set" ${m.mode === 'set' ? 'selected' : ''}>
+                                                          =
+                                                      </option>
+                                                  </select>
+                                                  <input
+                                                      type="text"
+                                                      data-mod-expr
+                                                      placeholder="expresion (e.g., 2, cuerpo*2)"
+                                                      value="${m.expr || ''}"
+                                                  />
+                                                  <input
+                                                      type="text"
+                                                      data-mod-label
+                                                      placeholder="Etiqueta (opcional)"
+                                                      value="${m.label || ''}"
+                                                  />
+                                                  <button class="button" data-mod-remove>Eliminar</button>
+                                              </div>
+                                          `
+                                      )
+                                      .join('')}
+                                  <div>
+                                      <button class="button" data-mod-add>Agregar modificador</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <label>Resumen</label>
+                              <div class="attrs">
+                                  <div class="attr"><span>Salud</span><strong>${derived.salud}</strong></div>
+                                  <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
+                                  <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
+                                  <div class="attr"><span>Mitigación</span><strong>${derived.mitigacion}</strong></div>
+                                  <div class="attr"><span>ND (Mente)</span><strong>${derived.ndMente}</strong></div>
+                                  <div class="attr">
+                                      <span>ND (Instinto)</span><strong>${derived.ndInstinto}</strong>
+                                  </div>
+                                  <div class="attr"><span>Suerte máx.</span><strong>${derived.suerteMax}</strong></div>
+                              </div>
+                              <small
+                                  >Variables disponibles: cuerpo, agilidad, mente, instinto, presencia, salud,
+                                  velocidad, esquiva, mitigacion, ndMente, ndInstinto, suerteMax, pp, gold.</small
+                              >
+                          </div>
+                      </div>
+                  `
+                : state.tab === 'bio'
+                ? html`
+                      <div class="editor-grid one-col">
+                          <div class="panel">
+                              <label>Retrato</label>
+                              <div class="portrait-wrap">
+                                  ${c.portraitUrl
+                                      ? html`<img
+                                            class="portrait-img"
+                                            src="${c.portraitUrl}"
+                                            alt="Retrato de ${c.name}"
+                                            referrerpolicy="no-referrer"
+                                            onerror="(function(img){img.style.display='none';var p=img.parentElement;var d=document.createElement('div');d.className='portrait-placeholder';d.textContent='Sin retrato';p.appendChild(d);})(this)"
+                                        />`
+                                      : html`<div class="portrait-placeholder">Sin retrato</div>`}
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <label>Historia</label>
+                              <textarea id="bio-text" rows="10">${c.bio || ''}</textarea>
+                          </div>
+                      </div>
+                  `
+                : html`
+                      <div class="editor-grid one-col">
+                          <div class="panel">
+                              <label>Notas</label>
+                              <textarea id="notes" rows="10">${c.notes || ''}</textarea>
+                          </div>
+                      </div>
+                  `}
         `;
     };
 
@@ -688,6 +710,8 @@ const CharactersPage = (container) => {
         const suerte = editor.querySelector('#suerte');
         const hp = editor.querySelector('#hp');
         const tempHp = editor.querySelector('#temp-hp');
+        const portraitUrl = editor.querySelector('#portrait-url');
+        const bioText = editor.querySelector('#bio-text');
 
         editor.querySelectorAll('.tab').forEach((t) =>
             t.addEventListener('click', () => {
@@ -704,6 +728,16 @@ const CharactersPage = (container) => {
         if (notes)
             notes.addEventListener('input', (e) => {
                 c.notes = e.target.value;
+                save();
+            });
+        if (portraitUrl)
+            portraitUrl.addEventListener('input', (e) => {
+                c.portraitUrl = e.target.value;
+                save();
+            });
+        if (bioText)
+            bioText.addEventListener('input', (e) => {
+                c.bio = e.target.value;
                 save();
             });
         if (pp)
@@ -734,11 +768,48 @@ const CharactersPage = (container) => {
                 c.gold = Math.max(0, Number(e.target.value) || 0);
                 save();
             });
-        if (equipment)
-            equipment.addEventListener('input', (e) => {
-                c.equipment = e.target.value;
+        // Equipment list events
+        const eqAdd = editor.querySelector('[data-eq-add]');
+        if (eqAdd)
+            eqAdd.addEventListener('click', () => {
+                c.equipmentList = Array.isArray(c.equipmentList) ? c.equipmentList : [];
+                c.equipmentList.push({ qty: 1, name: '', notes: '' });
                 save();
+                update();
             });
+        editor.querySelectorAll('.equip-row').forEach((row) => {
+            const idx = Number(row.getAttribute('data-eq-idx'));
+            const qty = row.querySelector('[data-eq-qty]');
+            const name = row.querySelector('[data-eq-name]');
+            const notes = row.querySelector('[data-eq-notes]');
+            const remove = row.querySelector('[data-eq-remove]');
+            if (qty)
+                qty.addEventListener('change', (e) => {
+                    const v = Math.max(0, Number(e.target.value) || 0);
+                    if (c.equipmentList[idx]) c.equipmentList[idx].qty = v;
+                    save();
+                });
+            if (name)
+                name.addEventListener('input', (e) => {
+                    if (c.equipmentList[idx]) c.equipmentList[idx].name = e.target.value;
+                    save();
+                });
+            if (notes)
+                notes.addEventListener('input', (e) => {
+                    if (c.equipmentList[idx]) c.equipmentList[idx].notes = e.target.value;
+                    save();
+                });
+            if (remove)
+                remove.addEventListener('click', () => {
+                    const item = c.equipmentList[idx];
+                    const label = item && item.name ? `"${item.name}"` : 'este ítem';
+                    const ok = window.confirm(`¿Eliminar ${label}?`);
+                    if (!ok) return;
+                    c.equipmentList.splice(idx, 1);
+                    save();
+                    update();
+                });
+        });
         if (cardSearch)
             cardSearch.addEventListener('input', (e) => {
                 state.cardSearch = e.target.value;
@@ -831,7 +902,10 @@ const CharactersPage = (container) => {
                     ndInstinto: 5 + (Number(c.attributes.Instinto) || 0),
                 };
                 const luckBase2 = { suerteMax: 5 };
-                const derivedNow = applyModifiers({ ...base, ...ndBase2, ...luckBase2 }, c);
+                const derivedNow = applyModifiersToDerived(
+                    { ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 },
+                    c
+                );
                 openRollModal(
                     document.body,
                     { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 },

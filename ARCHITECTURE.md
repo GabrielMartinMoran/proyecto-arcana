@@ -100,8 +100,8 @@ export default MyComponent;
 - Links `.md` relativos deben rutear dentro de la SPA; anchors in-page con smooth scroll sin cambiar `location.hash` (para permitir recarga).
 
 ### Gestión de personajes
-- Componentes: `CharacterList` (lado izquierdo) y `CharacterEditor` (derecha) con props claras.
-- Pestañas: “Hoja” (atributos, derivados, PP, oro, equipo, notas, salud/temporal, suerte), “Cartas” (colección, ranuras activas, buscador con filtros), “Modificadores”.
+- Página `CharactersPage` renderiza la lista y el editor (sin componentes separados), reduciendo duplicación.
+- Pestañas: “Hoja” (atributos, derivados, PP, oro, equipo, salud/temporal, suerte), “Cartas”, “Configuración” (modificadores, retrato), “Bio”, “Notas”.
 - Derived: Salud, Velocidad, Esquiva, ND de Conjuro (Mente/Instinto = 5 + atributo) y Suerte máx con modificadores.
 - UI de cartas: usar `CardComponent` de forma consistente y ordenar por nivel y nombre.
 - Reglas de elegibilidad y activación en el editor; cartas de tipo “Efecto” no son activables.

@@ -1,31 +1,69 @@
 [
     {
-        "id": "dc4b7987-11df-4f83-8080-f05fe28856e0",
-        "name": "Dartz",
+        "id": "ee46344a-55ee-4afa-a316-66a65aa9c927",
+        "name": "Mhünir, martillo sacro",
         "attributes": {
-            "Cuerpo": 2,
-            "Agilidad": 3,
+            "Cuerpo": 3,
+            "Agilidad": 1,
             "Mente": 2,
-            "Instinto": 1,
-            "Presencia": 2
+            "Instinto": 3,
+            "Presencia": 1
         },
-        "cards": ["visión-en-la-oscuridad-1", "gracia-silvana-1", "senda-del-bribón-1", "ataque-furtivo-1", "vigor-1"],
-        "activeCards": [],
+        "cards": [
+            "visión-en-la-oscuridad-1",
+            "fortaleza-rocosa-1",
+            "consagración-1",
+            "toque-sanador-1",
+            "taumaturgia-divina-1"
+        ],
+        "activeCards": ["toque-sanador-1", "taumaturgia-divina-1"],
         "activeSlots": 3,
         "pp": 0,
-        "gold": 100,
+        "gold": 60,
         "equipment": "",
         "modifiers": [
             {
+                "field": "esquiva",
+                "mode": "add",
+                "expr": "1",
+                "label": "Escudo"
+            },
+            {
                 "field": "salud",
                 "mode": "add",
-                "expr": "cuerpo",
-                "label": "Vigor"
+                "expr": "2",
+                "label": "Fortaleza Rocosa"
+            },
+            {
+                "field": "mitigacion",
+                "mode": "add",
+                "expr": "1",
+                "label": "Armadura"
             }
         ],
         "suerte": 2,
-        "hp": 10,
+        "hp": 14,
         "notes": "",
-        "tempHp": 0
+        "tempHp": 0,
+        "portraitUrl": "https://i.imgur.com/63JyinF.png",
+        "equipmentList": [
+            {
+                "qty": 1,
+                "name": "Armadura de Cuero",
+                "notes": "Mitigación +1"
+            },
+            {
+                "qty": 1,
+                "name": "Maza ligera",
+                "notes": "1d6 contundente, arrojadiza"
+            },
+            {
+                "qty": 1,
+                "name": "Escudo",
+                "notes": "Esquiva +1"
+            }
+        ],
+        "bio": "Desde su nacimiento en la ciudadela de Kraggather, bajo el pico más alto de las Montañas del Espinazo del Dragón, el destino de Mhünir parecía estar forjado en acero divino. No era un nombre común entre los enanos; se decía que era una antigua palabra enana para \"Juramento de Piedra\", un nombre reservado para aquellos que se esperaba que cumplieran un gran propósito.\n\nDesde joven, Mhünir no solo aprendió el arte de la forja, sino que también escuchaba los ecos de los martillos divinos en el resonar del metal. Sentía la presencia de su dios, no solo en los templos tallados en la roca, sino en el corazón mismo de la montaña. Fue esta devoción lo que lo llevó al clero, donde su fe se convirtió en un arma tan poderosa como cualquier martillo de guerra.\n\nSe ganó el título de \"Martillo Sagrado\" durante el asedio de la Grieta Oscura, cuando una horda de criaturas profanas emergió de las profundidades. Mientras las líneas enanas flaqueaban, Mhünir se plantó en la brecha, su maza brillando con una luz sagrada que hacía retroceder a las sombras. Cada golpe no solo quebraba huesos, sino que también purificaba la tierra corrupta. Con cada enemigo caído y cada aliado sanado, su leyenda crecía.\n\nMhünir no es solo un clérigo; es la encarnación de la furia justa de su dios y la resistencia inquebrantable de su pueblo. Su maza, llamada Quebrantadora de Sombras, y su escudo, el Baluarte del Amanecer, son tanto herramientas de guerra como símbolos de su fe inquebrantable. Ahora, viaja más allá de las montañas, llevando la luz de su martillo a los rincones más oscuros del mundo, un juramento de piedra hecho carne.",
+        "mitigacion": 0
     }
 ]

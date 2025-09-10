@@ -2,9 +2,10 @@ const html = window.html || String.raw;
 
 import StorageUtils from '../../utils/storage-utils.js';
 import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
-import { RULES, computeDerivedStats } from '../../models/rules.js';
+import { RULES, computeDerivedStats, applyModifiersToDerived } from '../../models/rules.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import CardService from '../../services/card-service.js';
+import { ensureStyles } from '../../utils/style-utils.js';
 
 const STORAGE_KEY = 'arcana:characters';
 const EXAMPLES_CONFIG = 'config/example-characters.json';
@@ -18,14 +19,10 @@ const CharactersExamplesPage = (container) => {
     };
 
     const loadStyles = () => {
-        const href = './src/pages/CharactersPage/CharactersPage.css';
-        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some((l) => l.getAttribute('href') === href)) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href; // reuse characters page styles
-            document.head.appendChild(link);
-        }
-        // Card styles are loaded atomically by CardComponent via style-utils
+        ensureStyles([
+            './src/pages/CharactersPage/CharactersPage.css',
+            './src/components/CardComponent/CardComponent.css',
+        ]);
     };
 
     const getSelected = () => state.list[state.selectedIdx] || null;
@@ -40,7 +37,10 @@ const CharactersExamplesPage = (container) => {
         const derivedBase = computeDerivedStats(attrs);
         const ndBase = { ndMente: 5 + (Number(attrs.Mente) || 0), ndInstinto: 5 + (Number(attrs.Instinto) || 0) };
         const luckBase = { suerteMax: 5 };
-        const derived = { ...derivedBase, ...ndBase, ...luckBase };
+        const derived = applyModifiersToDerived(
+            { ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
+            c
+        );
         const cards = Array.isArray(c.cards) ? c.cards : [];
         const activeCards = Array.isArray(c.activeCards) ? c.activeCards : [];
         const activeSlots = typeof c.activeSlots === 'number' ? c.activeSlots : 3;
@@ -51,6 +51,7 @@ const CharactersExamplesPage = (container) => {
             <div class="tabs">
                 <button class="tab ${state.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
                 <button class="tab ${state.tab === 'cards' ? 'active' : ''}" data-tab="cards">Cartas</button>
+                <button class="tab ${state.tab === 'bio' ? 'active' : ''}" data-tab="bio">Bio</button>
             </div>
             ${state.tab === 'sheet'
                 ? html`
@@ -106,6 +107,7 @@ const CharactersExamplesPage = (container) => {
                                   </div>
                                   <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
                                   <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
+                                  <div class="attr"><span>Mitigación</span><strong>${derived.mitigacion}</strong></div>
                                   <div class="attr" style="grid-column:1 / -1; padding-top:.25rem;">
                                       <strong>ND de Conjuro</strong>
                                   </div>
@@ -148,15 +150,24 @@ const CharactersExamplesPage = (container) => {
                           </div>
                           <div class="panel">
                               <label>Equipo</label>
-                              <textarea rows="6" disabled>${String(c.equipment || '')}</textarea>
-                          </div>
-                          <div class="panel">
-                              <label>Notas</label>
-                              <textarea rows="6" disabled>${String(c.notes || '')}</textarea>
+                              <div class="equip-list readonly">
+                                  ${Array.isArray(c.equipmentList) && c.equipmentList.length
+                                      ? c.equipmentList
+                                            .map(
+                                                (it) => html`<div class="equip-row readonly">
+                                                    <span class="qty">${Number(it.qty) || 0}×</span>
+                                                    <span class="name">${String(it.name || '')}</span>
+                                                    <span class="notes">${String(it.notes || '')}</span>
+                                                </div>`
+                                            )
+                                            .join('')
+                                      : html`<div class="muted">Sin equipo</div>`}
+                              </div>
                           </div>
                       </div>
                   `
-                : html`
+                : state.tab === 'cards'
+                ? html`
                       <div class="editor-grid one-col">
                           <div class="panel">
                               <label>Activas (${activeCards.length}/${activeSlots})</label>
@@ -205,6 +216,28 @@ const CharactersExamplesPage = (container) => {
                               </div>
                           </div>
                       </div>
+                  `
+                : html`
+                      <div class="editor-grid one-col">
+                          <div class="panel">
+                              <label>Retrato</label>
+                              <div class="portrait-wrap">
+                                  ${c.portraitUrl
+                                      ? html`<img
+                                            class="portrait-img"
+                                            src="${c.portraitUrl}"
+                                            alt="Retrato de ${c.name}"
+                                            referrerpolicy="no-referrer"
+                                            onerror="(function(img){img.style.display='none';var p=img.parentElement;var d=document.createElement('div');d.className='portrait-placeholder';d.textContent='Sin retrato';p.appendChild(d);})(this)"
+                                        />`
+                                      : html`<div class="portrait-placeholder">Sin retrato</div>`}
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <label>Historia</label>
+                              <div class="bio-content">${String(c.bio || '')}</div>
+                          </div>
+                      </div>
                   `}
         `;
     };
@@ -221,14 +254,20 @@ const CharactersExamplesPage = (container) => {
                     </div>
                     <ul class="items">
                         ${state.list
-                            .map(
-                                (p, i) =>
-                                    html`<li>
-                                        <button class="item ${state.selectedIdx === i ? 'active' : ''}" data-idx="${i}">
-                                            ${p.name || 'Personaje'}
-                                        </button>
-                                    </li>`
-                            )
+                            .map((p, i) => {
+                                const initial = (p.name || '?').trim().charAt(0).toUpperCase();
+                                return html`<li>
+                                    <button class="item ${state.selectedIdx === i ? 'active' : ''}" data-idx="${i}">
+                                        <span class="avatar ${p.portraitUrl ? '' : 'placeholder'}" aria-hidden="true">
+                                            ${p.portraitUrl
+                                                ? `<img src="${p.portraitUrl}" alt="" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');" />`
+                                                : ''}
+                                            <span class="initial">${initial}</span>
+                                        </span>
+                                        <span class="item-name">${p.name || 'Personaje'}</span>
+                                    </button>
+                                </li>`;
+                            })
                             .join('')}
                     </ul>
                 </aside>
@@ -286,6 +325,8 @@ const CharactersExamplesPage = (container) => {
                     hp: Number(src.hp) || 0,
                     tempHp: Number(src.tempHp) || 0,
                     notes: String(src.notes || ''),
+                    portraitUrl: String(src.portraitUrl || ''),
+                    bio: String(src.bio || ''),
                 };
                 const current = StorageUtils.load(STORAGE_KEY, []);
                 current.push(clone);
