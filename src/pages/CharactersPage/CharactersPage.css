@@ -1,28 +1,4 @@
-.layout-with-sidebar {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: var(--spacing-lg);
-    padding-top: var(--spacing-md);
-    align-items: start;
-    align-content: start;
-}
-@media (max-width: 1000px) {
-    .layout-with-sidebar {
-        grid-template-columns: 1fr;
-    }
-    .layout-with-sidebar #sidebar {
-        display: none;
-    }
-    .editor-grid {
-        grid-template-columns: 1fr;
-    }
-    .attrs {
-        grid-template-columns: 1fr;
-    }
-    .attrs-deriv {
-        grid-template-columns: 1fr;
-    }
-}
+/* Layout moved to components/LayoutWithSidebar/LayoutWithSidebar.css */
 .characters {
     display: grid;
     grid-template-columns: 280px 1fr;

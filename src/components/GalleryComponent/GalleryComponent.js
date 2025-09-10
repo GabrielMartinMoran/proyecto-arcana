@@ -1,4 +1,5 @@
 const html = window.html || String.raw;
+import { ensureStyle } from '../../utils/style-utils.js';
 import CardComponent from "../CardComponent/CardComponent.js";
 
 /**
@@ -7,15 +8,7 @@ import CardComponent from "../CardComponent/CardComponent.js";
  * @param {{ cards: any[], onCardClick?: (card:any)=>void }} props
  */
 const GalleryComponent = (container, props = {}) => {
-    const loadStyles = () => {
-        const href = './src/components/GalleryComponent/GalleryComponent.css';
-        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(l => l.getAttribute('href') === href)) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
-        }
-    };
+    const loadStyles = () => { ensureStyle('./src/components/GalleryComponent/GalleryComponent.css'); };
 
     let state = {
         cards: Array.isArray(props.cards) ? props.cards : [],

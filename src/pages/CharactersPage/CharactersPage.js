@@ -1,7 +1,8 @@
 const html = window.html || String.raw;
 
 import StorageUtils from '../../utils/storage-utils.js';
-import SidebarComponent from '../../components/SidebarComponent/SidebarComponent.js';
+import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
+import { ensureStyles } from '../../utils/style-utils.js';
 import CardService from '../../services/card-service.js';
 import { RULES, computeDerivedStats } from '../../models/rules.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
@@ -152,65 +153,43 @@ const CharactersPage = (container) => {
     }
 
     const loadStyles = () => {
-        const href = './src/pages/CharactersPage/CharactersPage.css';
-        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some((l) => l.getAttribute('href') === href)) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
-        }
+        ensureStyles([
+            './src/pages/CharactersPage/CharactersPage.css',
+            './src/components/CardComponent/CardComponent.css',
+        ]);
     };
 
     const save = () => StorageUtils.save(STORAGE_KEY, state.list);
 
     const getSelected = () => state.list.find((c) => c.id === state.selectedId) || null;
 
-    const render = () => html`
-        <div class="container">
-            <div class="layout-with-sidebar">
-                <div id="sidebar"></div>
-                <div class="main-panel">
-                    <div class="page-header">
-                        <button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button>
-                        <h1 class="page-title">Mis personajes</h1>
-                    </div>
-                    <div class="characters">
-                        <aside class="characters-list">
-                            <div class="list-header">
-                                <div class="buttons-container">
-                                    <button class="button" data-action="create" title="Crear">➕</button>
-                                    <button class="button" data-action="export-current" title="Exportar">📤</button>
-                                    <button class="button" data-action="import-current" title="Importar">📥</button>
-                                    <button class="button" data-action="delete-current" title="Eliminar">🗑️</button>
-                                    <input
-                                        id="import-one-file"
-                                        type="file"
-                                        accept="application/json"
-                                        style="display:none"
-                                    />
-                                </div>
-                            </div>
-                            <ul class="items">
-                                ${state.list
-                                    .map(
-                                        (p) => html`<li>
-                                            <button
-                                                class="item ${state.selectedId === p.id ? 'active' : ''}"
-                                                data-id="${p.id}"
-                                            >
-                                                ${p.name}
-                                            </button>
-                                        </li>`
-                                    )
-                                    .join('')}
-                            </ul>
-                        </aside>
-                        <section class="characters-editor">${renderEditor()}</section>
+    const renderInner = () => html`
+        <div class="characters">
+            <aside class="characters-list">
+                <div class="list-header">
+                    <div class="buttons-container">
+                        <button class="button" data-action="create" title="Crear">➕</button>
+                        <button class="button" data-action="export-current" title="Exportar">📤</button>
+                        <button class="button" data-action="import-current" title="Importar">📥</button>
+                        <button class="button" data-action="delete-current" title="Eliminar">🗑️</button>
+                        <input id="import-one-file" type="file" accept="application/json" style="display:none" />
                     </div>
                 </div>
-            </div>
-            <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
+                <ul class="items">
+                    ${state.list
+                        .map(
+                            (p) => html`<li>
+                                <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
+                                    ${p.name}
+                                </button>
+                            </li>`
+                        )
+                        .join('')}
+                </ul>
+            </aside>
+            <section class="characters-editor">${renderEditor()}</section>
         </div>
+        <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
     `;
 
     const renderEditor = () => {
@@ -620,42 +599,8 @@ const CharactersPage = (container) => {
         `;
     };
 
-    const bindEvents = () => {
-        const sidebar = SidebarComponent(container.querySelector('#sidebar'));
-        sidebar.init();
-        const openDrawerBtn = container.querySelector('#open-drawer');
-        if (openDrawerBtn)
-            openDrawerBtn.addEventListener('click', () => {
-                const existing = document.querySelector('.drawer-backdrop');
-                if (existing) {
-                    existing.remove();
-                    document.body.classList.remove('no-scroll');
-                    return;
-                }
-                const backdrop = document.createElement('div');
-                backdrop.className = 'drawer-backdrop open';
-                backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
-                document.body.appendChild(backdrop);
-                document.body.classList.add('no-scroll');
-                const drawerContainer = document.getElementById('drawer-sidebar');
-                const drawerSidebar = SidebarComponent(drawerContainer);
-                drawerSidebar.init();
-                const closeAll = () => {
-                    backdrop.remove();
-                    document.body.classList.remove('no-scroll');
-                };
-                backdrop.addEventListener('click', (e) => {
-                    if (e.target === backdrop) closeAll();
-                });
-                const panel = backdrop.querySelector('.drawer-panel');
-                if (panel)
-                    panel.addEventListener('click', (e) => {
-                        const link = e.target && e.target.closest && e.target.closest('a');
-                        if (link) setTimeout(closeAll, 0);
-                    });
-            });
-
-        container.querySelector('[data-action="create"]').addEventListener('click', () => {
+    const bindEvents = (root) => {
+        root.querySelector('[data-action="create"]').addEventListener('click', () => {
             const c = defaultCharacter();
             state.list.push(c);
             state.selectedId = c.id;
@@ -663,10 +608,10 @@ const CharactersPage = (container) => {
             update();
         });
         // Export/import current from list toolbar
-        const exportCurrent = container.querySelector('[data-action="export-current"]');
-        const importCurrent = container.querySelector('[data-action="import-current"]');
-        const deleteCurrent = container.querySelector('[data-action="delete-current"]');
-        const importOneFile = container.querySelector('#import-one-file');
+        const exportCurrent = root.querySelector('[data-action="export-current"]');
+        const importCurrent = root.querySelector('[data-action="import-current"]');
+        const deleteCurrent = root.querySelector('[data-action="delete-current"]');
+        const importOneFile = root.querySelector('#import-one-file');
         if (exportCurrent)
             exportCurrent.addEventListener('click', () => {
                 const current = getSelected();
@@ -710,14 +655,14 @@ const CharactersPage = (container) => {
                 } catch (_) {}
                 e.target.value = '';
             });
-        container.querySelectorAll('.items .item').forEach((btn) =>
+        root.querySelectorAll('.items .item').forEach((btn) =>
             btn.addEventListener('click', () => {
                 state.selectedId = btn.getAttribute('data-id');
                 update();
             })
         );
 
-        const editor = container.querySelector('.characters-editor');
+        const editor = root.querySelector('.characters-editor');
         if (!editor) return;
         const c = getSelected();
         if (!c) return;
@@ -1003,9 +948,17 @@ const CharactersPage = (container) => {
         });
     };
 
+    let layoutInstance = null;
     const update = () => {
-        container.innerHTML = render();
-        bindEvents();
+        if (!layoutInstance) {
+            container.innerHTML = '<div id="layout"></div>';
+            const layoutRoot = container.querySelector('#layout');
+            layoutInstance = LayoutWithSidebar(layoutRoot, { title: 'Mis personajes' });
+            layoutInstance.init();
+        }
+        const mainEl = layoutInstance.getMainEl();
+        mainEl.innerHTML = renderInner();
+        bindEvents(mainEl);
     };
 
     const init = async () => {

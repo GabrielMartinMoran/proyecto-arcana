@@ -1,4 +1,5 @@
 const html = window.html || String.raw;
+import { ensureStyle } from '../../utils/style-utils.js';
 
 /**
  * SidebarComponent - Lateral navigation
@@ -73,15 +74,7 @@ const SidebarComponent = (container) => {
         </aside>
     `;
 
-    const loadStyles = () => {
-        const href = './src/components/SidebarComponent/SidebarComponent.css';
-        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some((l) => l.getAttribute('href') === href)) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
-        }
-    };
+    const loadStyles = () => { ensureStyle('./src/components/SidebarComponent/SidebarComponent.css'); };
 
     const onHashChange = () => {
         const links = container.querySelectorAll('.sidebar-link');

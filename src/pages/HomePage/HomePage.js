@@ -2,7 +2,7 @@ const html = window.html || String.raw;
 import CardService from "../../services/card-service.js";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent.js";
 import FiltersComponent from "../../components/FiltersComponent/FiltersComponent.js";
-import SidebarComponent from "../../components/SidebarComponent/SidebarComponent.js";
+import LayoutWithSidebar from "../../components/LayoutWithSidebar/LayoutWithSidebar.js";
 
 /**
  * HomePage - Main gallery and filters page
@@ -24,19 +24,7 @@ const HomePage = (container) => {
         </div>
     `;
 
-    const renderContent = () => html`
-        <div class="container">
-            <div class="layout-with-sidebar">
-                <div id="sidebar"></div>
-                <div class="main-panel">
-                    <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Galería de cartas</h1></div>
-                    <div id="filters"></div>
-                    <div id="gallery"></div>
-                    <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
-                </div>
-            </div>
-        </div>
-    `;
+    const renderContent = () => html`<div id="layout"></div>`;
 
     const render = () => state.loading ? renderLoading() : renderContent();
 
@@ -70,32 +58,17 @@ const HomePage = (container) => {
     };
 
     const mountChildren = () => {
-        const filtersEl = container.querySelector('#filters');
-        const galleryEl = container.querySelector('#gallery');
-        const sidebarEl = container.querySelector('#sidebar');
-        const openDrawerBtn = container.querySelector('#open-drawer');
-        // Sidebar
-        const sidebar = SidebarComponent(sidebarEl);
-        sidebar.init();
-        if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
-            const existing = document.querySelector('.drawer-backdrop');
-            if (existing) { existing.remove(); document.body.classList.remove('no-scroll'); return; }
-            const backdrop = document.createElement('div');
-            backdrop.className = 'drawer-backdrop open';
-            backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
-            document.body.appendChild(backdrop);
-            document.body.classList.add('no-scroll');
-            const drawerContainer = document.getElementById('drawer-sidebar');
-            const drawerSidebar = SidebarComponent(drawerContainer);
-            drawerSidebar.init();
-            const closeAll = () => { backdrop.remove(); document.body.classList.remove('no-scroll'); };
-            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeAll(); });
-            const panel = backdrop.querySelector('.drawer-panel');
-            if (panel) panel.addEventListener('click', (e) => {
-                const link = e.target && e.target.closest && e.target.closest('a');
-                if (link) setTimeout(closeAll, 0);
-            });
-        });
+        const layoutRoot = container.querySelector('#layout');
+        const layout = LayoutWithSidebar(layoutRoot, { title: 'Galería de cartas' });
+        layout.init();
+        layout.setMainHtml(html`
+            <div id="filters"></div>
+            <div id="gallery"></div>
+            <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
+        `);
+        const mainEl = layout.getMainEl();
+        const filtersEl = mainEl.querySelector('#filters');
+        const galleryEl = mainEl.querySelector('#gallery');
 
         // Filters
         const filters = FiltersComponent(filtersEl, {

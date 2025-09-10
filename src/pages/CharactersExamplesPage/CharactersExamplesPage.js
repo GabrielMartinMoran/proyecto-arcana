@@ -1,7 +1,7 @@
 const html = window.html || String.raw;
 
 import StorageUtils from '../../utils/storage-utils.js';
-import SidebarComponent from '../../components/SidebarComponent/SidebarComponent.js';
+import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
 import { RULES, computeDerivedStats } from '../../models/rules.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import CardService from '../../services/card-service.js';
@@ -25,36 +25,12 @@ const CharactersExamplesPage = (container) => {
             link.href = href; // reuse characters page styles
             document.head.appendChild(link);
         }
+        // Card styles are loaded atomically by CardComponent via style-utils
     };
 
     const getSelected = () => state.list[state.selectedIdx] || null;
 
-    const render = () => html`
-        <div class="container">
-            <div class="layout-with-sidebar">
-                <div id="sidebar"></div>
-                <div class="main-panel">
-                    <div class="page-header"><button class="nav-toggle" id="open-drawer" aria-label="Abrir menú">☰</button> <h1 class="page-title">Personajes de ejemplo</h1></div>
-                    <div class="characters">
-                        <aside class="characters-list">
-                            <div class="list-header">
-                                <button class="button" data-action="add-selected">Añadir a mis personajes</button>
-                            </div>
-                            <ul class="items">
-                                ${state.list.map((p, i) => html`<li>
-                                    <button class="item ${state.selectedIdx===i?'active':''}" data-idx="${i}">${p.name||'Personaje'}</button>
-                                </li>`).join('')}
-                            </ul>
-                        </aside>
-                        <section class="characters-editor">
-                            ${renderEditor()}
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
-        </div>
-    `;
+    const render = () => html`<div id="layout"></div>`;
 
     const renderEditor = () => {
         const c = getSelected();
@@ -153,40 +129,38 @@ const CharactersExamplesPage = (container) => {
     };
 
     const bindEvents = () => {
-        const sidebar = SidebarComponent(container.querySelector('#sidebar'));
-        sidebar.init();
-        const openDrawerBtn = container.querySelector('#open-drawer');
-        if (openDrawerBtn) openDrawerBtn.addEventListener('click', () => {
-            const existing = document.querySelector('.drawer-backdrop');
-            if (existing) { existing.remove(); document.body.classList.remove('no-scroll'); return; }
-            const backdrop = document.createElement('div');
-            backdrop.className = 'drawer-backdrop open';
-            backdrop.innerHTML = '<div class="drawer-panel"><div id="drawer-sidebar"></div></div>';
-            document.body.appendChild(backdrop);
-            document.body.classList.add('no-scroll');
-            const drawerContainer = document.getElementById('drawer-sidebar');
-            const drawerSidebar = SidebarComponent(drawerContainer);
-            drawerSidebar.init();
-            const closeAll = () => { backdrop.remove(); document.body.classList.remove('no-scroll'); };
-            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeAll(); });
-            const panel = backdrop.querySelector('.drawer-panel');
-            if (panel) panel.addEventListener('click', (e) => {
-                const link = e.target && e.target.closest && e.target.closest('a');
-                if (link) setTimeout(closeAll, 0);
-            });
-        });
+        const layoutRoot = container.querySelector('#layout');
+        const layout = LayoutWithSidebar(layoutRoot, { title: 'Personajes de ejemplo' });
+        layout.init();
+        layout.setMainHtml(html`
+            <div class="characters">
+                <aside class="characters-list">
+                    <div class="list-header">
+                        <button class="button" data-action="add-selected">Añadir a mis personajes</button>
+                    </div>
+                    <ul class="items">
+                        ${state.list.map((p, i) => html`<li>
+                            <button class="item ${state.selectedIdx===i?'active':''}" data-idx="${i}">${p.name||'Personaje'}</button>
+                        </li>`).join('')}
+                    </ul>
+                </aside>
+                <section class="characters-editor">${renderEditor()}</section>
+            </div>
+            <footer class="site-footer">© Gabriel Martín Moran. Todos los derechos reservados — <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.</footer>
+        `);
+        const mainRoot = layout.getMainEl();
 
         // List selection
-        container.querySelectorAll('.items .item').forEach(btn => btn.addEventListener('click', () => {
+        mainRoot.querySelectorAll('.items .item').forEach(btn => btn.addEventListener('click', () => {
             state.selectedIdx = Number(btn.getAttribute('data-idx')) || 0;
             update();
         }));
 
         // Tabs
-        container.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => { state.tab = t.getAttribute('data-tab'); update(); }));
+        mainRoot.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => { state.tab = t.getAttribute('data-tab'); update(); }));
 
         // Add current example into user's characters
-        const addBtn = container.querySelector('[data-action="add-selected"]');
+        const addBtn = mainRoot.querySelector('[data-action="add-selected"]');
         if (addBtn) addBtn.addEventListener('click', () => {
             const src = getSelected(); if (!src) return;
             const makeId = () => (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
@@ -213,7 +187,7 @@ const CharactersExamplesPage = (container) => {
         });
 
         // Mount visual cards using CardComponent, read-only (no actions)
-        container.querySelectorAll('.card-slot').forEach(slot => {
+        mainRoot.querySelectorAll('.card-slot').forEach(slot => {
             const id = slot.getAttribute('data-id');
             const card = state.allCards.find(x=>x.id===id);
             if (!card) return;

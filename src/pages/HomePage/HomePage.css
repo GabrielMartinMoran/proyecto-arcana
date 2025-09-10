@@ -2,19 +2,7 @@
     padding-top: var(--spacing-lg);
 }
 
-.layout-with-sidebar {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: var(--spacing-lg);
-    padding-top: var(--spacing-md);
-}
-
-@media (max-width: 1000px) {
-    .layout-with-sidebar { grid-template-columns: 1fr; }
-    .layout-with-sidebar #sidebar { display: none; }
-}
-
-.main-panel { min-width: 0; }
+/* Layout moved to components/LayoutWithSidebar/LayoutWithSidebar.css */
 
 .main-panel > #filters { margin-bottom: var(--spacing-lg); }
 

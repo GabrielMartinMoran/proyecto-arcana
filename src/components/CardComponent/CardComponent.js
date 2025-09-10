@@ -1,4 +1,5 @@
 const html = window.html || String.raw;
+import { ensureStyle } from '../../utils/style-utils.js';
 /**
  * CardComponent - Compact card preview item
  * @param {HTMLElement} container
@@ -22,15 +23,7 @@ const CardComponent = (container, props = {}) => {
         }
     };
 
-    const loadStyles = () => {
-        const href = './src/components/CardComponent/CardComponent.css';
-        if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(l => l.getAttribute('href') === href)) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = href;
-            document.head.appendChild(link);
-        }
-    };
+    const loadStyles = () => { ensureStyle('./src/components/CardComponent/CardComponent.css'); };
 
     const render = () => {
         const c = state.card;
