@@ -26,7 +26,32 @@ function normalizeCard(raw) {
           ? [card.requirements]
           : [];
     card.description = card.description || 'No description';
-    card.cooldown = card.cooldown || null;
+    // Normalize cooldown to object { display, type, qty }
+    (function normalizeCooldown() {
+        const src = card.cooldown;
+        if (src == null) {
+            card.cooldown = null;
+            return;
+        }
+        const toUpperSafe = (s) => String(s || '').trim().toUpperCase();
+        const parseQty = (v) => {
+            const n = Number(v);
+            return Number.isFinite(n) ? Math.trunc(n) : null;
+        };
+        if (typeof src === 'string') {
+            card.cooldown = { display: src, type: null, qty: null };
+            return;
+        }
+        if (src && typeof src === 'object') {
+            const type = toUpperSafe(src.type);
+            const validType = type === 'ROUND' || type === 'LONG_REST' ? type : null;
+            const qty = parseQty(src.qty);
+            const display = String(src.display || src.text || '').trim() || null;
+            card.cooldown = display || validType || qty != null ? { display, type: validType, qty } : null;
+            return;
+        }
+        card.cooldown = null;
+    })();
     return card;
 }
 

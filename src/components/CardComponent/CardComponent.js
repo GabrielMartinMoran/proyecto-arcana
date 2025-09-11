@@ -62,7 +62,11 @@ const CardComponent = (container, props = {}) => {
                             ${(Array.isArray(c.tags) ? c.tags : [])
                                 .map((t) => html`<span class="chip">${t}</span>`)
                                 .join('')}
-                            ${c.cooldown ? html`<span class="chip">Recarga: ${c.cooldown}</span>` : ''}
+                            ${c.cooldown && (c.cooldown.display || typeof c.cooldown === 'string')
+                                ? html`<span class="chip">Recarga: ${
+                                      typeof c.cooldown === 'string' ? c.cooldown : c.cooldown.display
+                                  }</span>`
+                                : ''}
                         </div>
                         ${c.requirements && c.requirements.length
                             ? html`

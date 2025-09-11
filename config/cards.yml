@@ -10,7 +10,10 @@ cards:
       description: >-
           Ves en penumbra como si fuera luz tenue y en oscuridad como si fuera
           penumbra (sombras grises) hasta distancia Cercana.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Sangre Resistente
       level: 1
       type: Efecto
@@ -22,7 +25,10 @@ cards:
       description: >-
           Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos
           y enfermedades.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Sangre Feérica
       level: 1
       type: Efecto
@@ -34,7 +40,10 @@ cards:
       description: >-
           Obtienes Ventaja (+1d4) en Tiradas de Salvación para resistir el estado
           Encantado.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Fortaleza Rocosa
       level: 1
       type: Efecto
@@ -47,7 +56,10 @@ cards:
           Tu linaje te hace excepcionalmente robusto. Tu Salud máxima aumenta
           permanentemente en +2. Además, tienes Ventaja para resistir ser derribado o movido
           contra tu voluntad.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Gracia Silvana
       level: 1
       type: Efecto
@@ -59,7 +71,10 @@ cards:
       description: >-
           Tu Velocidad base aumenta en 1 metro. Además, obtienes Ventaja en Pruebas
           de Instinto para percibir amenazas.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Fortuna del Pequeño
       level: 1
       type: Efecto
@@ -71,7 +86,10 @@ cards:
       description: >-
           Cuando sacas un 1 natural en una tirada, puedes repetir la tirada.
           Debes usar el nuevo resultado.
-      cooldown: 1 vez por hora
+      cooldown:
+        display: 1 vez por hora
+        type: HOUR
+        qty: 1
     - name: Ingenio Humano
       level: 1
       type: Efecto
@@ -83,7 +101,10 @@ cards:
       description: >-
           'Elige una habilidad (ej: Atletismo, Sigilo, Persuasión). Obtienes
           Ventaja (+1d4) en todas las Pruebas de Habilidad que realices con ella.'
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Vigor
       level: 1
       type: Efecto
@@ -95,7 +116,10 @@ cards:
       description: >-
           Tu vitalidad es excepcional. Tu Salud máxima aumenta permanentemente
           en una cantidad igual a tu puntuación de Cuerpo.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Atleta
       level: 1
       type: Efecto
@@ -106,7 +130,10 @@ cards:
           - Reflejos 2
       description: >-
           Tu Velocidad base aumenta permanentemente en +2 metros.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Reserva de Suerte
       level: 1
       type: Efecto
@@ -118,7 +145,10 @@ cards:
       description: >-
           Tu Límite de Suerte máximo aumenta permanentemente en +1 (a un total
           de 6).
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Polímata
       level: 1
       type: Efecto
@@ -131,7 +161,10 @@ cards:
           'Elige una habilidad (ej: Atletismo, Sigilo, etc.). Obtienes Ventaja
           (+1d4) en las Pruebas de Habilidad que realices con ella. Debes tener al menos
           un valor de 2 en el Atributo asociado a la habilidad elegida.'
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Lingüista
       level: 1
       type: Efecto
@@ -142,7 +175,10 @@ cards:
           - Mente 2
       description: >-
           Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Sanador
       level: 2
       type: Efecto
@@ -154,7 +190,10 @@ cards:
       description: >-
           Cuando usas una carta o un botiquín para restaurar Puntos de Salud
           a una criatura, esta recupera 1d4 Puntos de Salud adicionales.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Mago de Guerra
       level: 2
       type: Efecto
@@ -166,7 +205,10 @@ cards:
       description: >-
           En cualquier turno en el que uses una carta de 'Conjuro' Accionable,
           obtienes un +2 a tu ESQ hasta el comienzo de tu próximo turno.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Resistente
       level: 2
       type: Accionable
@@ -178,7 +220,10 @@ cards:
       description: >-
           Como Reacción cuando recibes daño, obtienes Mitigación +2 contra ese
           único golpe.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Experto en Ballestas
       level: 2
       type: Efecto
@@ -191,7 +236,10 @@ cards:
           Ignoras la propiedad 'Recarga' de las ballestas. Además, cuando realizas
           un crítico con una ballesta, el objetivo debe superar una Tirada de Salvación
           de Reflejos (ND 9) o soltar un objeto que sostenga.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Senda del Bribón
       level: 1
       type: Efecto
@@ -203,7 +251,10 @@ cards:
       description: >-
           Obtienes Ventaja (+1d4) en Pruebas de Habilidad relacionadas con Sigilo
           y juegos de manos.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Ataque Furtivo
       level: 1
       type: Efecto
@@ -216,7 +267,10 @@ cards:
           Una vez por turno, cuando impactas a un enemigo con un arma 'Precisa'
           o a distancia, infliges +1d4 de daño adicional si tenías Ventaja en la tirada
           de ataque o si un aliado está adyacente al objetivo.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Jugar Sucio
       level: 1
       type: Accionable
@@ -229,7 +283,10 @@ cards:
           Usas tu Interacción para arrojar arena o hacer una finta. Elige un
           enemigo a distancia Inmediata. Tiene Desventaja (-1d4) en su próxima tirada de
           ataque contra ti.
-      cooldown: 1 Ronda
+      cooldown:
+        display: 1 Ronda
+        type: ROUND
+        qty: 1
     - name: Acción Astuta
       level: 2
       type: Efecto
@@ -242,7 +299,10 @@ cards:
       description: >-
           Puedes usar tu Interacción de cada turno para realizar las acciones
           de Correr o Esconderse.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Acróbata Esquivo
       level: 2
       type: Efecto
@@ -255,7 +315,10 @@ cards:
           Obtienes Ventaja en Pruebas de Reflejos para mantener el equilibrio,
           realizar acrobacias o escapar de ataduras. Levantarte del suelo solo cuesta 1
           metro de movimiento.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Experto en Trampas
       level: 2
       type: Efecto
@@ -268,7 +331,10 @@ cards:
       description: >-
           Tienes Ventaja en las Pruebas de Habilidad para detectar y desarmar
           trampas. Si fallas al desarmar una trampa por 4 o menos, evitas que se active.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Castigaconjuros
       level: 2
       type: Accionable
@@ -282,7 +348,10 @@ cards:
       description: >-
           Cuando ves a una criatura intentando lanzar un conjuro, puedes gastar
           tu reacción para realizar un ataque arrojadizo o a distancia contra ella.
-      cooldown: 2 Rondas
+      cooldown:
+        display: 2 Rondas
+        type: ROUND
+        qty: 2
     - name: Evasión
       level: 3
       type: Efecto
@@ -296,7 +365,10 @@ cards:
           Cuando un efecto te obliga a realizar una Tirada de Salvación de Reflejos
           para recibir la mitad de daño, si tienes éxito no recibes daño alguno, y si fallas,
           recibes solo la mitad.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Ataque Furtivo Mejorado
       level: 3
       type: Efecto
@@ -308,7 +380,10 @@ cards:
           - Reflejos 3
       description: >-
           El daño de tu Ataque Furtivo aumenta a +2d4.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Golpe Aturdidor
       level: 3
       type: Efecto
@@ -322,7 +397,10 @@ cards:
           Cuando infliges daño con tu Ataque Furtivo, puedes elegir no tirar
           los dados de daño adicional. En su lugar, el objetivo debe superar una Tirada
           de Salvación de Cuerpo (ND 9) o quedar Aturdido hasta el final de su próximo turno.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Sintonía con el Acero
       level: 1
       type: Efecto
@@ -333,7 +411,10 @@ cards:
           - Cuerpo 2
       description: >-
           Obtienes Ventaja (+1d4) en Pruebas de Habilidad de Atletismo.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Segundo Aliento
       level: 1
       type: Accionable
@@ -345,7 +426,10 @@ cards:
       description: >-
           Usas tu Interacción para recuperar una cantidad de Salud igual a 1d6
           + tu valor de Cuerpo.
-      cooldown: 1 vez cada 10 minutos
+      cooldown:
+        display: 1 vez cada 10 minutos
+        type: MINUTES
+        qty: 10
     - name: Furia de Batalla
       level: 1
       type: Accionable
@@ -359,7 +443,10 @@ cards:
           Entras en furia por 1 minuto. Ganas Mitigación +1 contra daño Físico
           y Ventaja en Pruebas de Habilidad de Cuerpo. No puedes usar cartas de Magia mientras
           dure.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Ataque de Oportunidad
       level: 2
       type: Accionable
@@ -372,7 +459,10 @@ cards:
       description: >-
           Como Reacción, cuando un enemigo a tu alcance Inmediato intenta moverse
           fuera de él, puedes realizar un único ataque cuerpo a cuerpo contra él.
-      cooldown: 1 Ronda
+      cooldown:
+        display: 1 Ronda
+        type: ROUND
+        qty: 1
     - name: Ataque Temerario
       level: 2
       type: Efecto
@@ -386,7 +476,10 @@ cards:
           Mientras estás en Furia de Batalla, puedes elegir obtener Ventaja en
           tus ataques cuerpo a cuerpo. Si lo haces, los ataques contra ti también tienen
           Ventaja hasta tu próximo turno.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Atacante Dual
       level: 2
       type: Accionable
@@ -400,7 +493,10 @@ cards:
       description: >-
           Cuando atacas con un arma de una mano, puedes usar tu Interacción para
           realizar un ataque adicional con otra arma de una mano que empuñes.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Ataque y Empuje
       type: Accionable
       attribute: Cuerpo
@@ -414,7 +510,10 @@ cards:
           Si estas sosteniendo un escudo y realizas un ataque con arma, puedes
           utilizar tu interacción para tratar de empujar a tu objetivo en caso de que no
           supere una tirada de salvación de Cuerpo ND (5 + Cuerpo).
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Castigo a Dos Manos
       level: 2
       type: Accionable
@@ -428,7 +527,10 @@ cards:
       description: >-
           Si atacas con un arma a dos manos que utilice Cuerpo, obtiener un +2
           al daño del ataque.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Parada Defensiva
       level: 2
       type: Accionable
@@ -443,7 +545,10 @@ cards:
       description: >-
           Cuando un ataque esta por impactarte y estas empuñando un arma, puede
           gastar tu reacción para obtener un +1 a tu Esquiva.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Escudero
       level: 2
       type: Accionable
@@ -459,7 +564,10 @@ cards:
           Cuando una criatura ataque al a alguien adyacente a ti y estas sosteniendo
           u escudo, puedes gastar tu reacción para otorgarle un +1 a la Esquiva del objetivo
           del ataque.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Rompeguardia
       level: 2
       type: Accionable
@@ -473,7 +581,10 @@ cards:
           Realizas una ataque con un arma, en caso de impactar, el objetivo debe
           superar una tirada de salvación de Cuerpo ND (5 + Cuerpo) o recibir un penalizador
           de -2 a su Esquiva hasta el inicio de su próximo turno.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Embate Poderoso
       level: 2
       type: Efecto
@@ -486,7 +597,10 @@ cards:
       description: >-
           Antes de realizar un ataque cuerpo a cuerpo, puedes sufrir un penalizador
           de -2 en tu tirada. Si aciertas, infliges +1d6 de daño adicional.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Surto de Acción
       level: 2
       type: Accionable
@@ -497,7 +611,10 @@ cards:
           - Sintonía con el Acero
       description: >-
           Ganas una Acción extra en este turno.
-      cooldown: 1 vez cada 10 minutos
+      cooldown:
+        display: 1 vez cada 10 minutos
+        type: MINUTES
+        qty: 10
     - name: Ataque Adicional
       level: 3
       type: Efecto
@@ -510,7 +627,10 @@ cards:
       description: >-
           Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar
           de uno.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Indomable
       level: 3
       type: Efecto
@@ -522,7 +642,10 @@ cards:
           - Instinto 3
       description: >-
           Puedes repetir una Tirada de Salvación fallida.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Afinidad Arcana
       level: 1
       type: Efecto
@@ -534,7 +657,10 @@ cards:
           - Mente 2
       description: >-
           Obtienes Ventaja (+1d4) en pruebas sobre conocimiento mágico.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Prestidigitación Arcana
       level: 1
       type: Accionable
@@ -548,7 +674,10 @@ cards:
           'Realizas un efecto mágico menor: creas una baratija, limpias un objeto,
           enciendes una vela, creas un símbolo, etc. El efecto no puede infligir daño ni
           imponer un estado.'
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Rayo Elemental
       level: 1
       type: Accionable
@@ -562,7 +691,10 @@ cards:
           'Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
           de conjuro a distancia (1d6+Mente) contra un objetivo a distancia Cercana. Si
           impactas, infliges 1d8 de daño del tipo elegido.'
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Misil Mágico
       level: 1
       type: Accionable
@@ -578,7 +710,10 @@ cards:
           a distancia Cercana. Cada proyectil inflige 1d4 de daño. Puedes gastar 1 Punto
           de Suerte para crear un proyectil adicional. La cantidad de proyectiles totales
           no puede superar tu puntuación de Mente.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Armadura de Mago
       level: 1
       type: Accionable
@@ -591,7 +726,10 @@ cards:
       description: >-
           Una barrera de energía te protege. Obtienes un +2 a tu ESQ mientras
           no lleves armadura. El efecto dura 1 día.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Afinidad Arcana Mejorada
       level: 2
       type: Efecto
@@ -605,7 +743,10 @@ cards:
       description: >-
           Tu dominio sobre la magia se profundiza. Ganas Ventaja en Tiradas de
           Salvación de Mente contra conjuros y efectos mágicos.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Paso Brumoso
       level: 2
       type: Accionable
@@ -618,7 +759,10 @@ cards:
       description: >-
           Usas tu Interacción para teletransportarte a un espacio desocupado
           que puedas ver a distancia Cercana.
-      cooldown: 2 Rondas
+      cooldown:
+        display: 2 Rondas
+        type: ROUND
+        qty: 2
     - name: Invisibilidad
       level: 2
       type: Accionable
@@ -634,7 +778,10 @@ cards:
       description: >-
           Tocas a una criatura y se vuelve invisible. El efecto dura hasta 10
           minutos o hasta que pierdas la concentración, ataque o lance un conjuro.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Maestría Arcana
       level: 3
       type: Efecto
@@ -648,7 +795,10 @@ cards:
       description: >-
           Cuando gastas Suerte en un conjuro, puedes tirar 1d4. Con un 4, recuperas
           el Punto de Suerte.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Bola de Fuego
       level: 3
       type: Accionable
@@ -664,7 +814,10 @@ cards:
           Explosión de fuego en un radio de 5m a distancia Larga. Toda criatura
           en el área debe hacer una Tirada de Salvación de Reflejos contra tu ND de conjuros
           (5+Mente). Si falla, 4d6 de daño; si tiene éxito, la mitad.
-      cooldown: 1 vez cada 10 minutos
+      cooldown:
+        display: 1 vez cada 10 minutos
+        type: MINUTES
+        qty: 10
     - name: Contraconjuro
       level: 3
       type: Accionable
@@ -677,7 +830,10 @@ cards:
       description: >-
           Como Reacción cuando ves a otro lanzar un conjuro, haz una Tirada Enfrentada
           de Mente. Si ganas, su conjuro falla.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Volar
       level: 3
       type: Accionable
@@ -692,7 +848,10 @@ cards:
       description: >-
           Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual
           a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Consagración
       level: 1
       type: Efecto
@@ -704,7 +863,10 @@ cards:
           - Instinto 2
       description: >-
           Obtienes Ventaja (+1d4) en pruebas sobre conocimiento religioso.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Taumaturgia Divina
       level: 1
       type: Accionable
@@ -718,7 +880,10 @@ cards:
           'Manifiestas una prueba menor de poder divino: tu voz retumba, abres
           una puerta cerrada sin seguro, creas temblores inofensivos o alteras la apariencia
           de tus ojos.'
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Toque Sanador
       level: 1
       type: Accionable
@@ -730,7 +895,10 @@ cards:
           - Consagración
       description: >-
           Tocas a una criatura. Recupera 1d6 puntos de Salud.
-      cooldown: 2 Rondas
+      cooldown:
+        display: 2 Rondas
+        type: ROUND
+        qty: 2
     - name: Escudo de Fe
       level: 1
       type: Accionable
@@ -744,7 +912,10 @@ cards:
       description: >-
           Eliges una criatura a distancia Cercana. Obtiene un +1 a su ESQ durante
           1 minuto o hasta que pierdas la concentración.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Consagración Mejorada
       level: 2
       type: Efecto
@@ -757,7 +928,10 @@ cards:
           - Instinto 3
       description: >-
           Añades tu puntuación de Instinto al resultado de tus curaciones.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Golpe Divino
       level: 2
       type: Efecto
@@ -770,7 +944,10 @@ cards:
       description: >-
           Una vez por turno, al impactar con un arma, puedes gastar 1 Punto de
           Suerte para infligir 1d6 de daño Radiante adicional.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Zona de Verdad
       level: 2
       type: Accionable
@@ -786,7 +963,10 @@ cards:
           Creas una zona de 5m de radio a distancia Cercana por 10 minutos. Quien
           esté dentro debe superar una Tirada de Salvación de Instinto contra tu ND de conjuros
           (5+Instinto) para poder decir una mentira deliberada.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Restablecimiento Menor
       level: 2
       type: Accionable
@@ -799,7 +979,10 @@ cards:
       description: >-
           Tocas a una criatura y eliminas un estado a tu elección que la esté
           afectando (Cegado, Ensordecido o Envenenado).
-      cooldown: 3 Rondas
+      cooldown:
+        display: 3 Rondas
+        type: ROUND
+        qty: 3
     - name: Maestría Sacerdotal
       level: 3
       type: Efecto
@@ -813,7 +996,10 @@ cards:
       description: >-
           Cuando tiras dados para recuperar Salud con una de tus cartas, puedes
           volver a tirar cualquier resultado de 1.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Plegaria de Curación
       level: 3
       type: Accionable
@@ -825,7 +1011,10 @@ cards:
           - Maestría Sacerdotal
       description: >-
           Tú y hasta 5 aliados a distancia Cercana recuperáis 1d6 Puntos de Salud.
-      cooldown: 1 vez por hora
+      cooldown:
+        display: 1 vez por hora
+        type: HOUR
+        qty: 1
     - name: Espíritus Guardianes
       level: 3
       type: Accionable
@@ -842,7 +1031,10 @@ cards:
           Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que
           entre o empiece su turno ahí debe superar una Salvación de Instinto contra tu
           ND de conjuros (5+Instinto) o sufrir 2d6 daño Radiante.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Faro de Esperanza
       level: 3
       type: Accionable
@@ -855,7 +1047,10 @@ cards:
       description: >-
           Tú y tus aliados en un radio de 10m obtenéis Ventaja en Tiradas de
           Salvación contra miedo y desesperación por 1 minuto.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Revivir
       level: 3
       type: Accionable
@@ -868,7 +1063,10 @@ cards:
       description: >-
           Tocas a una criatura que haya muerto en el último minuto. Vuelve a
           la vida con 1 Punto de Salud.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Sintonía Primordial
       level: 1
       type: Efecto
@@ -881,7 +1079,10 @@ cards:
       description: >-
           Obtienes Ventaja (+1d4) en pruebas para tratar con animales o sobrevivir
           en la naturaleza.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Látigo de Espinas
       level: 1
       type: Accionable
@@ -895,7 +1096,10 @@ cards:
           Realizas un ataque de conjuro (1d6+Instinto) con alcance Cercano. Si
           impactas, infliges 1d6 daño Perforante y puedes tirar del objetivo hasta 3 metros
           hacia ti.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Zarzas
       level: 1
       type: Accionable
@@ -911,7 +1115,10 @@ cards:
           En un área de 5m a distancia Cercana, brotan enredaderas. El área es
           terreno difícil. Quien entre o empiece su turno ahí debe superar una Tirada de
           Salvación de Reflejos contra tu ND de conjuros (5+Instinto) o quedar Inmovilizado.
-      cooldown: 1 vez por combate
+      cooldown:
+        display: 1 vez por combate
+        type: COMBAT
+        qty: 1
     - name: Crear o Destruir Agua
       level: 1
       type: Accionable
@@ -924,7 +1131,10 @@ cards:
       description: >-
           Creas hasta 10 litros de agua potable en un recipiente o destruyes
           una cantidad igual de agua estancada, extinguiendo fuegos no mágicos.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Forma Salvaje (Menor)
       level: 1
       type: Accionable
@@ -937,7 +1147,10 @@ cards:
           Te transformas en una bestia pequeña (gato, rata, cuervo) durante 1
           hora. No puedes atacar, pero adoptas sus sentidos y formas de movimiento (trepar,
           volar). Mientras estés transformado, no puedes usar cartas de Magia.
-      cooldown: 2 veces por día de descanso
+      cooldown:
+        display: 2 veces por día de descanso
+        type: LONG_REST
+        qty: 2
     - name: Sintonía Primordial Mejorada
       level: 2
       type: Efecto
@@ -950,7 +1163,10 @@ cards:
           - Instinto 3
       description: >-
           Ganas la habilidad de hablar con los animales a voluntad.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Pasar sin Rastro
       level: 2
       type: Accionable
@@ -965,7 +1181,10 @@ cards:
           Tú y hasta 5 aliados a distancia Cercana no dejáis huellas ni rastro
           de vuestro paso durante 1 hora o hasta que pierdas la concentración. Las pruebas
           para rastrearos tienen Desventaja.
-      cooldown: 1 vez por hora
+      cooldown:
+        display: 1 vez por hora
+        type: HOUR
+        qty: 1
     - name: Localizar Animal o Planta
       level: 2
       type: Accionable
@@ -978,7 +1197,10 @@ cards:
       description: >-
           Elige un tipo de animal o planta. Sientes la dirección y distancia
           del más cercano en un radio de 1 kilómetro.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Piel de Roble
       level: 2
       type: Efecto
@@ -990,7 +1212,10 @@ cards:
       description: >-
           Tu piel adquiere la dureza de la corteza. Mientras no lleves armadura
           pesada, obtienes Mitigación +1.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Forma Salvaje (Combatiente)
       level: 2
       type: Accionable
@@ -1005,7 +1230,10 @@ cards:
           elegir duplicar tu puntuación de Cuerpo o de Reflejos. Tus ataques sin arma usan
           tu Cuerpo e infligen 1d8 de daño. Mientras estés transformado, no puedes usar
           cartas de Magia.
-      cooldown: 2 veces por día de descanso
+      cooldown:
+        display: 2 veces por día de descanso
+        type: LONG_REST
+        qty: 2
     - name: Maestría Primordial
       level: 3
       type: Efecto
@@ -1019,7 +1247,10 @@ cards:
       description: >-
           No te ves afectado por el terreno difícil de origen natural y obtienes
           Ventaja en Pruebas de Habilidad para no perderte.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Convocar Animales
       level: 3
       type: Accionable
@@ -1034,7 +1265,10 @@ cards:
           Invocas 2 bestias (lobos, jabalíes). Aparecen a distancia Cercana y
           te obedecen durante 10 minutos o hasta que pierdas la concentración. El DJ tiene
           sus estadísticas.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Muro de Espinas
       level: 3
       type: Accionable
@@ -1050,7 +1284,10 @@ cards:
           Creas un muro de zarzas de 10m de largo. Quien intente cruzarlo sufre
           2d6 daño Perforante y debe superar una tirada enfrentada de su Cuerpo contra tu
           Instinto. Dura 1 minuto o hasta que pierdas la concentración.
-      cooldown: 1 vez cada 10 minutos
+      cooldown:
+        display: 1 vez cada 10 minutos
+        type: MINUTES
+        qty: 10
     - name: Inspiración de Bardo
       level: 1
       type: Efecto
@@ -1063,7 +1300,10 @@ cards:
       description: >-
           Obtienes Ventaja (+1d4) en Pruebas de Habilidad relacionadas con la
           actuación (cantar, tocar un instrumento, etc.).
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Canto de Inspiración
       level: 1
       type: Accionable
@@ -1077,7 +1317,10 @@ cards:
           El aliado obtiene un dado de 1d4 que puede añadir a una Prueba de Habilidad, tirada
           de ataque o Tirada de Salvación de su elección en los próximos 10 minutos. Solo
           puedes tener una inspiración activa a la vez.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Engaño Taimado
       level: 1
       type: Efecto
@@ -1089,7 +1332,10 @@ cards:
       description: >-
           Obtienes Ventaja (+1d4) en Pruebas de Habilidad para mentir, disfrazarte
           o crear engaños.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Palabras Hirientes
       level: 2
       type: Accionable
@@ -1105,7 +1351,10 @@ cards:
           Insultas psíquicamente a una criatura, que debe hacer una Tirada de
           Salvación de Instinto contra tu ND de conjuros (5+Presencia). Si falla, sufre
           1d8 de daño Psíquico y tiene Desventaja en su próximo ataque.
-      cooldown: 2 Rondas
+      cooldown:
+        display: 2 Rondas
+        type: ROUND
+        qty: 2
     - name: Inspiración Mejorada
       level: 2
       type: Efecto
@@ -1118,7 +1367,10 @@ cards:
       description: >-
           El dado de tu Canto de Inspiración aumenta a 1d6. Además, puedes usar
           tu Canto de Inspiración como Reacción cuando un aliado falla una tirada.
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Discurso Cautivador
       level: 2
       type: Accionable
@@ -1133,7 +1385,10 @@ cards:
           Durante 1 minuto, tienes Ventaja en todas las Pruebas de Habilidad
           de Presencia dirigidas a un grupo de personas (persuadir a una multitud, calmar
           una turba, etc.).
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Hechizar Persona
       level: 3
       type: Accionable
@@ -1150,7 +1405,10 @@ cards:
           Intentas encantar a un humanoide. Debe superar una Tirada de Salvación
           de Instinto contra tu ND de conjuros (5+Presencia) o quedar Encantado por ti durante
           1 hora.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
     - name: Maestría de Bardo
       level: 3
       type: Efecto
@@ -1162,7 +1420,10 @@ cards:
       description: >-
           Puedes mantener activas un número de Inspiraciones igual a la mitad
           de tu puntuación de Presencia (redondeado hacia arriba).
-      cooldown: '—'
+      cooldown:
+        display: '—'
+        type: null
+        qty: 0
     - name: Disfraz Mágico
       level: 3
       type: Accionable
@@ -1178,4 +1439,7 @@ cards:
           Te cubres con una ilusión que te hace ver como otra persona de tamaño
           y forma similar. Dura 1 hora. Una criatura que sospeche puede hacer una Tirada
           de Instinto enfrentada a tu Presencia para descubrir el engaño.
-      cooldown: 1 vez por día de descanso
+      cooldown:
+        display: 1 vez por día de descanso
+        type: LONG_REST
+        qty: 1
