@@ -51,7 +51,10 @@ const CharactersPage = (container) => {
         cardFilters: { levels: [], types: [], attributes: [], tags: [] },
         addOnlyEligible: true,
         filtersOpenAdd: false,
+        focusCardSearch: false,
     };
+
+    let cardSearchDebounceTimer = null;
 
     // --- Helpers for modifiers (shared) ---
     const allowedFields = ALLOWED_MODIFIER_FIELDS;
@@ -899,7 +902,11 @@ const CharactersPage = (container) => {
         if (cardSearch)
             cardSearch.addEventListener('input', (e) => {
                 state.cardSearch = e.target.value;
-                update();
+                state.focusCardSearch = true;
+                clearTimeout(cardSearchDebounceTimer);
+                cardSearchDebounceTimer = setTimeout(() => {
+                    update();
+                }, 220);
             });
         // Cards tab filters
         const levelChecks = editor.querySelectorAll('input[data-filter-level]');
@@ -1244,6 +1251,16 @@ const CharactersPage = (container) => {
         const mainEl = layoutInstance.getMainEl();
         mainEl.innerHTML = renderInner();
         bindEvents(mainEl);
+        // Restore focus on card search if user was typing
+        if (state.focusCardSearch) {
+            const search = mainEl.querySelector('#card-search');
+            if (search) {
+                const val = search.value;
+                search.focus();
+                search.setSelectionRange(val.length, val.length);
+            }
+            state.focusCardSearch = false;
+        }
     };
 
     const init = async () => {
