@@ -79,13 +79,13 @@ export default MyComponent;
 - Constantes y reglas en `src/models/rules.js` (cálculo de derivados, ND de conjuro, límites de suerte, etc.).
 
 ### Routing
-- Hash-based en `src/router.js` con rutas `#/...`.
+- Hash-based en `src/router.js` con rutas `#/`.
 - Ignorar hashes que no empiecen con `#/` para permitir anchors in-page sin romper el router.
 - Scroll to top tras navegar; restaurar scroll interno del panel principal.
 - Agregar rutas con carga perezosa de páginas y sus componentes.
 
 ### Datos y persistencia
-- `config/cards-config.json` y `config/example-characters.json` sin comentarios (JSON válido).
+- `config/cards.yml` y `config/example-characters.json` sin comentarios (YAML/JSON válidos).
 - Campos de cartas: `name`, `level`, `type`, `attribute`, `tags[]`, `requirements`, `cooldown`, `description`...
 - Guardar personajes en `localStorage` por colección del usuario; soportar export/import JSON individual.
 

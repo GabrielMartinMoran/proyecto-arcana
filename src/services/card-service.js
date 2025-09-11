@@ -4,7 +4,7 @@
 import StorageUtils from '../utils/storage-utils.js';
 
 const STORAGE_KEY = 'cards-cache';
-const CONFIG_PATH = 'config/cards-config.json';
+const CONFIG_PATH = 'config/cards.yml';
 
 let cachedCards = null;
 
@@ -65,8 +65,19 @@ const CardService = {
         try {
             const response = await fetch(CONFIG_PATH, { cache: 'no-store' });
             if (!response.ok) throw new Error(`Failed to fetch cards config: ${response.status}`);
-            const json = await response.json();
-            const fromConfig = Array.isArray(json?.cards) ? json.cards : [];
+            const text = await response.text();
+            let parsed = null;
+            try {
+                if (typeof window.jsyaml !== 'undefined') parsed = window.jsyaml.load(text);
+            } catch (_) {}
+            if (!parsed) {
+                try {
+                    parsed = JSON.parse(text);
+                } catch (_) {
+                    parsed = {};
+                }
+            }
+            const fromConfig = Array.isArray(parsed?.cards) ? parsed.cards : [];
 
             const fromLocal = StorageUtils.load(STORAGE_KEY, []);
             const merged = [...fromConfig, ...fromLocal].map(normalizeCard);
