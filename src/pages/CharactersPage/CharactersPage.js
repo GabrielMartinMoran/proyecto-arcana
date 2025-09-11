@@ -459,27 +459,6 @@ const CharactersPage = (container) => {
                                           </div>
                                       </div>
                                       <div class="filter-group">
-                                          <strong>Atributo</strong>
-                                          <div class="options">
-                                              ${(state.facets.attributes || [])
-                                                  .map(
-                                                      (a) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-attr
-                                                                  value="${a}"
-                                                                  ${state.cardFilters.attributes.includes(a)
-                                                                      ? 'checked'
-                                                                      : ''}
-                                                              />
-                                                              ${a}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div class="filter-group">
                                           <strong>Etiquetas</strong>
                                           <div class="options">
                                               ${(state.facets.tags || [])
@@ -847,7 +826,6 @@ const CharactersPage = (container) => {
         // Cards tab filters
         const levelChecks = editor.querySelectorAll('input[data-filter-level]');
         const typeChecks = editor.querySelectorAll('input[data-filter-type]');
-        const attrChecks = editor.querySelectorAll('input[data-filter-attr]');
         const tagChecks = editor.querySelectorAll('input[data-filter-tag]');
         const clearFilters = editor.querySelector('#cards-clear-filters');
         const toggleAddFilters = editor.querySelector('#toggle-add-filters');
@@ -874,15 +852,6 @@ const CharactersPage = (container) => {
                 const v = e.target.value;
                 if (e.target.checked && !state.cardFilters.types.includes(v)) state.cardFilters.types.push(v);
                 if (!e.target.checked) state.cardFilters.types = state.cardFilters.types.filter((x) => x !== v);
-                update();
-            })
-        );
-        attrChecks.forEach((ch) =>
-            ch.addEventListener('change', (e) => {
-                const v = e.target.value;
-                if (e.target.checked && !state.cardFilters.attributes.includes(v)) state.cardFilters.attributes.push(v);
-                if (!e.target.checked)
-                    state.cardFilters.attributes = state.cardFilters.attributes.filter((x) => x !== v);
                 update();
             })
         );

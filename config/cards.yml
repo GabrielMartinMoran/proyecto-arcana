@@ -2,7 +2,6 @@ cards:
     - name: Visión en la Oscuridad
       level: 1
       type: Efecto
-      attribute: Instinto
       tags:
           - Linaje
       requirements:
@@ -16,7 +15,6 @@ cards:
     - name: Sangre Resistente
       level: 1
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Linaje
       requirements:
@@ -30,7 +28,6 @@ cards:
     - name: Sangre Feérica
       level: 1
       type: Efecto
-      attribute: Presencia
       tags:
           - Linaje
       requirements:
@@ -44,7 +41,6 @@ cards:
     - name: Fortaleza Rocosa
       level: 1
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Linaje
       requirements:
@@ -59,7 +55,6 @@ cards:
     - name: Gracia Silvana
       level: 1
       type: Efecto
-      attribute: Reflejos
       tags:
           - Linaje
       requirements:
@@ -73,7 +68,6 @@ cards:
     - name: Fortuna del Pequeño
       level: 1
       type: Efecto
-      attribute: Reflejos
       tags:
           - Linaje
       requirements:
@@ -86,7 +80,6 @@ cards:
     - name: Ingenio Humano
       level: 1
       type: Efecto
-      attribute: Mente
       tags:
           - Linaje
       requirements:
@@ -100,7 +93,6 @@ cards:
     - name: Vigor
       level: 1
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Dote
       requirements:
@@ -114,7 +106,6 @@ cards:
     - name: Atleta
       level: 1
       type: Efecto
-      attribute: Reflejos
       tags:
           - Dote
       requirements:
@@ -127,7 +118,6 @@ cards:
     - name: Reserva de Suerte
       level: 1
       type: Efecto
-      attribute: Instinto
       tags:
           - Dote
       requirements:
@@ -140,7 +130,6 @@ cards:
     - name: Polímata
       level: 1
       type: Efecto
-      attribute: Mente
       tags:
           - Dote
       requirements:
@@ -155,7 +144,6 @@ cards:
     - name: Lingüista
       level: 1
       type: Efecto
-      attribute: Mente
       tags:
           - Dote
       requirements:
@@ -168,7 +156,6 @@ cards:
     - name: Sanador
       level: 2
       type: Efecto
-      attribute: Instinto
       tags:
           - Dote
       requirements:
@@ -182,7 +169,6 @@ cards:
     - name: Mago de Guerra
       level: 2
       type: Efecto
-      attribute: Mente
       tags:
           - Dote
       requirements:
@@ -195,7 +181,6 @@ cards:
     - name: Resistente
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Dote
       requirements:
@@ -208,7 +193,6 @@ cards:
     - name: Experto en Ballestas
       level: 2
       type: Efecto
-      attribute: Reflejos
       tags:
           - Dote
       requirements:
@@ -221,7 +205,6 @@ cards:
     - name: Senda del Bribón
       level: 1
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -235,7 +218,6 @@ cards:
     - name: Ataque Furtivo
       level: 1
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -250,7 +232,6 @@ cards:
     - name: Jugar Sucio
       level: 1
       type: Activable
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -265,7 +246,6 @@ cards:
     - name: Acción Astuta
       level: 2
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -280,7 +260,6 @@ cards:
     - name: Acróbata Esquivo
       level: 2
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -295,7 +274,6 @@ cards:
     - name: Experto en Trampas
       level: 2
       type: Efecto
-      attribute: Mente
       tags:
           - Pícaro
       requirements:
@@ -310,7 +288,6 @@ cards:
     - name: Castigaconjuros
       level: 2
       type: Activable
-      attribute: Reflejos
       tags:
           - Pícaro
           - Reacción
@@ -326,7 +303,6 @@ cards:
     - name: Evasión
       level: 3
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -342,7 +318,6 @@ cards:
     - name: Ataque Furtivo Mejorado
       level: 3
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -356,7 +331,6 @@ cards:
     - name: Golpe Aturdidor
       level: 3
       type: Efecto
-      attribute: Reflejos
       tags:
           - Pícaro
       requirements:
@@ -372,7 +346,6 @@ cards:
     - name: Sintonía con el Acero
       level: 1
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -385,7 +358,6 @@ cards:
     - name: Segundo Aliento
       level: 1
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -399,7 +371,6 @@ cards:
     - name: Furia de Batalla
       level: 1
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
           - Bárbaro
@@ -415,7 +386,6 @@ cards:
     - name: Ataque de Oportunidad
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -430,7 +400,6 @@ cards:
     - name: Ataque Temerario
       level: 2
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Combatiente
           - Bárbaro
@@ -446,7 +415,6 @@ cards:
     - name: Atacante Dual
       level: 2
       type: Activable
-      attribute: Reflejos
       tags:
           - Combatiente
           - Estilo de Combate
@@ -461,7 +429,6 @@ cards:
           qty: 0
     - name: Ataque y Empuje
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
           - Estilo de Combate
@@ -478,7 +445,6 @@ cards:
     - name: Castigo a Dos Manos
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
           - Estilo de Combate
@@ -494,7 +460,6 @@ cards:
     - name: Parada Defensiva
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
           - Estilo de Combate
@@ -511,7 +476,6 @@ cards:
     - name: Escudero
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
           - Estilo de Combate
@@ -529,7 +493,6 @@ cards:
     - name: Rompeguardia
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -545,7 +508,6 @@ cards:
     - name: Embate Poderoso
       level: 2
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -560,7 +522,6 @@ cards:
     - name: Surto de Acción
       level: 2
       type: Activable
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -573,7 +534,6 @@ cards:
     - name: Ataque Adicional
       level: 3
       type: Efecto
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -588,7 +548,6 @@ cards:
     - name: Indomable
       level: 3
       type: Accionable
-      attribute: Cuerpo
       tags:
           - Combatiente
       requirements:
@@ -602,7 +561,6 @@ cards:
     - name: Afinidad Arcana
       level: 1
       type: Efecto
-      attribute: Mente
       tags:
           - Arcanista
           - Magia
@@ -616,7 +574,6 @@ cards:
     - name: Prestidigitación Arcana
       level: 1
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -632,7 +589,6 @@ cards:
     - name: Rayo Elemental
       level: 1
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -648,7 +604,6 @@ cards:
     - name: Misil Mágico
       level: 1
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -666,7 +621,6 @@ cards:
     - name: Armadura de Mago
       level: 1
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -681,7 +635,6 @@ cards:
     - name: Afinidad Arcana Mejorada
       level: 2
       type: Efecto
-      attribute: Mente
       tags:
           - Arcanista
           - Magia
@@ -697,7 +650,6 @@ cards:
     - name: Paso Brumoso
       level: 2
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -712,7 +664,6 @@ cards:
     - name: Invisibilidad
       level: 2
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -730,7 +681,6 @@ cards:
     - name: Maestría Arcana
       level: 3
       type: Efecto
-      attribute: Mente
       tags:
           - Arcanista
           - Magia
@@ -746,7 +696,6 @@ cards:
     - name: Bola de Fuego
       level: 3
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -764,7 +713,6 @@ cards:
     - name: Contraconjuro
       level: 3
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -779,7 +727,6 @@ cards:
     - name: Volar
       level: 3
       type: Activable
-      attribute: Mente
       tags:
           - Arcanista
           - Conjuro
@@ -796,7 +743,6 @@ cards:
     - name: Consagración
       level: 1
       type: Efecto
-      attribute: Instinto
       tags:
           - Sacerdote
           - Magia
@@ -810,7 +756,6 @@ cards:
     - name: Taumaturgia Divina
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -826,7 +771,6 @@ cards:
     - name: Toque Sanador
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -840,7 +784,6 @@ cards:
     - name: Escudo de Fe
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -856,7 +799,6 @@ cards:
     - name: Consagración Mejorada
       level: 2
       type: Efecto
-      attribute: Instinto
       tags:
           - Sacerdote
           - Magia
@@ -871,7 +813,6 @@ cards:
     - name: Golpe Divino
       level: 2
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Radiante
@@ -885,7 +826,6 @@ cards:
     - name: Zona de Verdad
       level: 2
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -903,7 +843,6 @@ cards:
     - name: Restablecimiento Menor
       level: 2
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -918,7 +857,6 @@ cards:
     - name: Maestría Sacerdotal
       level: 3
       type: Efecto
-      attribute: Instinto
       tags:
           - Sacerdote
           - Magia
@@ -934,7 +872,6 @@ cards:
     - name: Plegaria de Curación
       level: 3
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -948,7 +885,6 @@ cards:
     - name: Espíritus Guardianes
       level: 3
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -967,7 +903,6 @@ cards:
     - name: Faro de Esperanza
       level: 3
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -982,7 +917,6 @@ cards:
     - name: Revivir
       level: 3
       type: Activable
-      attribute: Instinto
       tags:
           - Sacerdote
           - Conjuro
@@ -997,7 +931,6 @@ cards:
     - name: Sintonía Primordial
       level: 1
       type: Efecto
-      attribute: Instinto
       tags:
           - Druida
           - Magia
@@ -1012,7 +945,6 @@ cards:
     - name: Látigo de Espinas
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1028,7 +960,6 @@ cards:
     - name: Zarzas
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1046,7 +977,6 @@ cards:
     - name: Crear o Destruir Agua
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1061,7 +991,6 @@ cards:
     - name: Forma Salvaje (Menor)
       level: 1
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
       requirements:
@@ -1076,7 +1005,6 @@ cards:
     - name: Sintonía Primordial Mejorada
       level: 2
       type: Efecto
-      attribute: Instinto
       tags:
           - Druida
           - Magia
@@ -1091,7 +1019,6 @@ cards:
     - name: Pasar sin Rastro
       level: 2
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1108,7 +1035,6 @@ cards:
     - name: Localizar Animal o Planta
       level: 2
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1123,7 +1049,6 @@ cards:
     - name: Piel de Roble
       level: 2
       type: Efecto
-      attribute: Instinto
       tags:
           - Druida
       requirements:
@@ -1137,7 +1062,6 @@ cards:
     - name: Forma Salvaje (Combatiente)
       level: 2
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
       requirements:
@@ -1154,7 +1078,6 @@ cards:
     - name: Maestría Primordial
       level: 3
       type: Efecto
-      attribute: Instinto
       tags:
           - Druida
           - Magia
@@ -1170,7 +1093,6 @@ cards:
     - name: Convocar Animales
       level: 3
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1187,7 +1109,6 @@ cards:
     - name: Muro de Espinas
       level: 3
       type: Activable
-      attribute: Instinto
       tags:
           - Druida
           - Conjuro
@@ -1205,7 +1126,6 @@ cards:
     - name: Inspiración de Bardo
       level: 1
       type: Efecto
-      attribute: Presencia
       tags:
           - Bardo
           - Magia
@@ -1220,7 +1140,6 @@ cards:
     - name: Canto de Inspiración
       level: 1
       type: Activable
-      attribute: Presencia
       tags:
           - Bardo
       requirements:
@@ -1237,7 +1156,6 @@ cards:
     - name: Engaño Taimado
       level: 1
       type: Efecto
-      attribute: Presencia
       tags:
           - Bardo
       requirements:
@@ -1251,7 +1169,6 @@ cards:
     - name: Palabras Hirientes
       level: 2
       type: Activable
-      attribute: Presencia
       tags:
           - Bardo
           - Conjuro
@@ -1269,7 +1186,6 @@ cards:
     - name: Inspiración Mejorada
       level: 2
       type: Efecto
-      attribute: Presencia
       tags:
           - Bardo
       requirements:
@@ -1284,7 +1200,6 @@ cards:
     - name: Discurso Cautivador
       level: 2
       type: Activable
-      attribute: Presencia
       tags:
           - Bardo
           - Concentración
@@ -1301,7 +1216,6 @@ cards:
     - name: Hechizar Persona
       level: 3
       type: Activable
-      attribute: Presencia
       tags:
           - Bardo
           - Conjuro
@@ -1320,7 +1234,6 @@ cards:
     - name: Maestría de Bardo
       level: 3
       type: Efecto
-      attribute: Presencia
       tags:
           - Bardo
       requirements:
@@ -1334,7 +1247,6 @@ cards:
     - name: Disfraz Mágico
       level: 3
       type: Activable
-      attribute: Presencia
       tags:
           - Bardo
           - Conjuro

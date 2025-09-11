@@ -1,11 +1,14 @@
 /* Global CSS variables and base styles (light theme) */
 :root {
     /* Accent palette (Arcana) */
-    --accent-mente: #1d4ed8; /* blue */
-    --accent-agilidad: #d97706; /* amber */
-    --accent-cuerpo: #b91c1c; /* red */
-    --accent-instinto: #059669; /* emerald */
-    --accent-presencia: #7c3aed; /* violet */
+    --accent-arcanista: #1d4ed8;
+    --accent-picaro: #531f1f;
+    --accent-combatiente: #b91c1c;
+    --accent-druida: #059669;
+    --accent-sacerdote: #ffcf2f;
+    --accent-bardo: #7c3aed;
+    --accent-dote: #130075;
+    --accent-linaje: #014d0a;
     --accent-default: var(--accent-mente);
 
     /* Brand */
@@ -53,18 +56,8 @@ body {
     padding: 0;
 }
 body {
-    font-family:
-        'Lato',
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        Segoe UI,
-        Roboto,
-        Ubuntu,
-        Cantarell,
-        Noto Sans,
-        Helvetica Neue,
-        Arial;
+    font-family: 'Lato', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+        Helvetica Neue, Arial;
     color: var(--text-primary);
     background: var(--primary-bg);
 }
@@ -175,10 +168,7 @@ body.no-scroll {
     padding: 0.625rem 0.875rem;
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition:
-        background 0.15s ease,
-        transform 0.1s ease,
-        box-shadow 0.15s ease;
+    transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     box-shadow: var(--shadow-sm);
     &:hover {
         background: #fafaf9;

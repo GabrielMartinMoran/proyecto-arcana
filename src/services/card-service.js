@@ -14,7 +14,7 @@ function normalizeCard(raw) {
     card.name = card.name || 'Unknown';
     card.level = Number(card.level) || 1;
     card.type = card.type || 'Activable'; // or "Efecto"
-    card.attribute = card.attribute || null; // Cuerpo, Agilidad, etc
+    // attribute deprecated
     // Backward compatibility: map legacy fields
     // if legacy arquetipo exists, push into tags
     const legacyArquetipo = card.arquetipo || card.sintonia || null;
@@ -35,7 +35,7 @@ function applyFilters(cards, criteria) {
     const text = (criteria.text || '').trim().toLowerCase();
     const levels = new Set(criteria.levels || []);
     const types = new Set(criteria.types || []);
-    const attributes = new Set(criteria.attributes || []);
+    // attribute filter removed
     const tags = new Set(criteria.tags || []);
 
     return cards.filter((card) => {
@@ -48,7 +48,7 @@ function applyFilters(cards, criteria) {
             return false;
         if (levels.size && !levels.has(Number(card.level))) return false;
         if (types.size && !types.has(card.type)) return false;
-        if (attributes.size && !attributes.has(card.attribute)) return false;
+        // attribute filter removed
         if (tags.size) {
             const cardTags = Array.isArray(card.tags) ? card.tags : [];
             if (!cardTags.some((t) => tags.has(t))) return false;
@@ -121,13 +121,13 @@ const CardService = {
         const types = new Set();
         const levels = new Set();
         for (const c of cards) {
-            if (c.attribute) attr.add(c.attribute);
+            // attribute removed
             if (Array.isArray(c.tags)) c.tags.forEach((t) => tagSet.add(t));
             if (c.type) types.add(c.type);
             if (c.level) levels.add(Number(c.level));
         }
         return {
-            attributes: Array.from(attr).sort(),
+            attributes: [],
             tags: Array.from(tagSet).sort(),
             types: Array.from(types).sort(),
             levels: Array.from(levels).sort((a, b) => a - b),

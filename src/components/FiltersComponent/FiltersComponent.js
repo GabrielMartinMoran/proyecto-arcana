@@ -73,12 +73,7 @@ const FiltersComponent = (container, props = {}) => {
                         .join('')}
                 </div>
             </div>
-            <div class="filters-block filters-block--attr">
-                <label class="filters-label" for="attr">Attributo</label>
-                <select id="attr" class="filters-input">
-                    ${renderOptions(state.facets.attributes, 'Cualquiera')}
-                </select>
-            </div>
+            
             <div class="filters-block filters-block--sint">
                 <label class="filters-label">Etiquetas</label>
                 <div class="dropdown">
@@ -122,7 +117,7 @@ const FiltersComponent = (container, props = {}) => {
 
     const bindEvents = () => {
         const search = container.querySelector('#search');
-        const attr = container.querySelector('#attr');
+        const attr = null;
         const clear = container.querySelector('[data-action="clear"]');
         const levelChecks = container.querySelectorAll('input[name="level"]');
         const typeChecks = container.querySelectorAll('input[name="type"]');
@@ -144,12 +139,7 @@ const FiltersComponent = (container, props = {}) => {
                 state.value.text = e.target.value;
                 debounced(emit);
             });
-        if (attr)
-            attr.addEventListener('change', (e) => {
-                const v = e.target.value;
-                state.value.attributes = v ? [v] : [];
-                emit();
-            });
+        
         if (clear)
             clear.addEventListener('click', () => {
                 state.value = { text: '', levels: [], types: [], attributes: [], tags: [] };

@@ -13,18 +13,27 @@ const CardComponent = (container, props = {}) => {
         usesRenderer: typeof props.usesRenderer === 'function' ? props.usesRenderer : null,
     };
 
-    const getAccentForAttribute = (attr) => {
-        switch ((attr || '').toLowerCase()) {
-            case 'mente':
-                return 'var(--accent-mente)';
-            case 'cuerpo':
-                return 'var(--accent-cuerpo)';
-            case 'agilidad':
-                return 'var(--accent-agilidad)';
-            case 'instinto':
-                return 'var(--accent-instinto)';
-            case 'presencia':
-                return 'var(--accent-presencia)';
+    const getAccentForTags = (tags) => {
+        let first = Array.isArray(tags) && tags.length ? String(tags[0]).toLowerCase() : '';
+        first = first.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+
+        switch (first) {
+            case 'arcanista':
+                return 'var(--accent-arcanista)';
+            case 'combatiente':
+                return 'var(--accent-combatiente)';
+            case 'picaro':
+                return 'var(--accent-picaro)';
+            case 'druida':
+                return 'var(--accent-druida)';
+            case 'sacerdote':
+                return 'var(--accent-sacerdote)';
+            case 'bardo':
+                return 'var(--accent-bardo)';
+            case 'dote':
+                return 'var(--accent-dote)';
+            case 'linaje':
+                return 'var(--accent-linaje)';
             default:
                 return 'var(--accent-default)';
         }
@@ -36,9 +45,7 @@ const CardComponent = (container, props = {}) => {
 
     const renderReload = (reload) => {
         if (reload.type === 'LONG_REST') {
-            return html`<span class="chip"
-                >Usos: ${reload.qty} por día de descanso</span
-            >`;
+            return html`<span class="chip">Usos: ${reload.qty} por día de descanso</span>`;
         }
         if (reload.type === 'ROLL') {
             return html`<span class="chip">Usos: 1 (Recarga ${reload.qty}+)</span>`;
@@ -49,12 +56,12 @@ const CardComponent = (container, props = {}) => {
     const render = () => {
         const c = state.card;
         if (!c) return html`<div class="empty-state">No card</div>`;
-        const accent = getAccentForAttribute(c.attribute);
+        const accent = getAccentForTags(c.tags);
         return html`
             <div
                 class="arcana-card"
                 data-id="${c.id}"
-                data-attr="${c.attribute || ''}"
+                data-attr=""
                 data-type="${c.type || ''}"
                 style="--accent: ${accent}"
             >
@@ -71,7 +78,6 @@ const CardComponent = (container, props = {}) => {
                     </div>
                     <div class="card-footer">
                         <div class="card-badges">
-                            ${c.attribute ? html`<span class="chip">Atributo: ${c.attribute}</span>` : ''}
                             ${(Array.isArray(c.tags) ? c.tags : [])
                                 .map((t) => html`<span class="chip">${t}</span>`)
                                 .join('')}
