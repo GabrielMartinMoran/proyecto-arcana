@@ -56,6 +56,15 @@ const CharactersPage = (container) => {
 
     let cardSearchDebounceTimer = null;
 
+    const setCharQuery = (id) => {
+        try {
+            const url = new URL(window.location.href);
+            if (id) url.searchParams.set('char', id);
+            else url.searchParams.delete('char');
+            window.history.replaceState(null, '', url.toString());
+        } catch (_) {}
+    };
+
     // --- Helpers for modifiers (shared) ---
     const allowedFields = ALLOWED_MODIFIER_FIELDS;
     const evaluateExpression = evaluateModifierExpression;
@@ -374,11 +383,11 @@ const CharactersPage = (container) => {
                                           };
                                           const cd =
                                               card.reload && typeof card.reload === 'object' ? card.reload : null;
+                                          const reloadType = String(cd.type || '').toUpperCase();
                                           const showUses =
-                                              cd &&
-                                              Number.isFinite(Number(cd.qty)) &&
-                                              String(cd.type || '').toUpperCase() !== 'ROUND';
-                                          const total = Number(uses.total ?? cd?.qty ?? 0) || 0;
+                                              cd && Number.isFinite(Number(cd.qty)) && reloadType !== 'ROUND';
+                                          const total =
+                                              reloadType === 'ROLL' ? 1 : Number(uses.total ?? cd?.qty ?? 0) || 0;
                                           const left = Math.min(Number(uses.left ?? total) || 0, total);
                                           const usesRenderer = (cardObj) => {
                                               if (!showUses) return '';
@@ -718,6 +727,7 @@ const CharactersPage = (container) => {
             const c = defaultCharacter();
             state.list.push(c);
             state.selectedId = c.id;
+            setCharQuery(c.id);
             save();
             update();
         });
@@ -747,6 +757,7 @@ const CharactersPage = (container) => {
                 if (!ok) return;
                 state.list = state.list.filter((x) => x.id !== current.id);
                 state.selectedId = state.list[0]?.id || null;
+                setCharQuery(state.selectedId);
                 save();
                 update();
             });
@@ -763,6 +774,7 @@ const CharactersPage = (container) => {
                         const merged = { ...defaultCharacter(), ...obj, id: newId };
                         state.list.push(merged);
                         state.selectedId = merged.id;
+                        setCharQuery(state.selectedId);
                         save();
                         update();
                     }
@@ -772,6 +784,7 @@ const CharactersPage = (container) => {
         root.querySelectorAll('.items .item').forEach((btn) =>
             btn.addEventListener('click', () => {
                 state.selectedId = btn.getAttribute('data-id');
+                setCharQuery(state.selectedId);
                 update();
             })
         );
@@ -1068,18 +1081,20 @@ const CharactersPage = (container) => {
                 if (mode === 'deactivate') {
                     const reload = c.reload && typeof c.reload === 'object' ? c.reload : null;
                     const qtyNum = reload && Number.isFinite(Number(reload.qty)) ? Number(reload.qty) : null;
+                    const reloadType = String(reload && reload.type ? reload.type : '').toUpperCase();
+                    const isRoll = reloadType === 'ROLL';
                     const showUses = !!reload && (reload.type != null || qtyNum > 0);
                     const uses = (getSelected().cardUses && getSelected().cardUses[c.id]) || {
                         left: null,
                         total: null,
                     };
-                    const total = Number(uses.total ?? (qtyNum != null ? qtyNum : 0)) || 0;
-                    const left = Math.min(Number(uses.left ?? total) || 0, total);
+                    const total = isRoll ? 1 : Number(uses.total ?? (qtyNum != null ? qtyNum : 0)) || 0;
+                    const left = isRoll ? 1 : Math.min(Number(uses.left ?? total) || 0, total);
                     const leftControl = showUses
                         ? html`<div style="display:flex; align-items:center; gap:.5rem;">
                               <span>Usos</span>
                               <div class="hp-wrap">
-                                  <input type="number" data-card-use-left="${c.id}" min="0" step="1" value="${left}" />
+                                  <input type="number" data-card-use-left="${c.id}" ${isRoll ? 'disabled' : ''} min="0" step="1" value="${left}" />
                                   / <strong>${total}</strong>
                               </div>
                           </div>`
@@ -1159,8 +1174,9 @@ const CharactersPage = (container) => {
                 if (!current.cardUses || typeof current.cardUses !== 'object') current.cardUses = {};
                 const card = state.allCards.find((x) => x.id === cardId);
                 const cd = card && card.reload && typeof card.reload === 'object' ? card.reload : null;
-                const total = Number(current.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0;
-                const left = Math.max(0, Math.min(Number(inp.value) || 0, total));
+                const reloadType = String(cd?.type || '').toUpperCase();
+                const total = reloadType === 'ROLL' ? 1 : Number(current.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0;
+                const left = reloadType === 'ROLL' ? 1 : Math.max(0, Math.min(Number(inp.value) || 0, total));
                 current.cardUses[cardId] = { left, total };
                 save();
             }
@@ -1269,7 +1285,14 @@ const CharactersPage = (container) => {
             state.allCards = await CardService.loadAll();
             state.facets = CardService.getFacets(state.allCards);
         } catch (_) {}
+        // Restore selection from query param if present
+        try {
+            const url = new URL(window.location.href);
+            const qid = url.searchParams.get('char');
+            if (qid && state.list.some((x) => x.id === qid)) state.selectedId = qid;
+        } catch (_) {}
         if (!state.selectedId && state.list[0]) state.selectedId = state.list[0].id;
+        setCharQuery(state.selectedId);
         update();
     };
 

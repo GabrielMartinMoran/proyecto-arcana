@@ -499,8 +499,10 @@
         margin-bottom: 0.35rem;
     }
     .options {
-        display: grid;
-        gap: 0.25rem 0.5rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
     }
     label {
         display: inline-flex;
