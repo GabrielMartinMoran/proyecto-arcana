@@ -61,6 +61,6 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
         const advDesc = advantage === 'normal' ? '±0' : `${advantage}=${advMod >= 0 ? '+' : ''}${advMod} (1d4)`;
         const breakdown = `1d6=${d6}  |  ${advDesc}  |  atributo=${base}  |  mods=${extras}  |  suerte=${luck}`;
         resultEl.innerHTML = `<div class="total" title="${breakdown}">${total}</div>`;
-        if (typeof onResult === 'function') onResult({ d6, advMod, base, extras, luck, total });
+        if (typeof onResult === 'function') onResult({ d6, advMod, advantage, base, extras, luck, total });
     });
 }

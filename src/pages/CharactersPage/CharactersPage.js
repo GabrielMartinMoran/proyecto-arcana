@@ -13,6 +13,7 @@ import {
 } from '../../models/rules.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import { openRollModal } from './RollModal.js';
+import { rollDice } from '../../utils/dice-utils.js';
 
 const STORAGE_KEY = 'arcana:characters';
 
@@ -99,6 +100,29 @@ const CharactersPage = (container) => {
 
     const getSelected = () => state.list.find((c) => c.id === state.selectedId) || null;
 
+    const renderDice = () => html`
+        <div class="dice-panel">
+            <div class="dice-section">
+                <label>Rápido</label>
+                <div class="dice-quick">
+                    <button class="button" data-dice="1d4">d4</button>
+                    <button class="button" data-dice="1d6">d6</button>
+                    <button class="button" data-dice="1d8">d8</button>
+                </div>
+            </div>
+            <div class="dice-section">
+                <label>Custom</label>
+                <div class="dice-custom">
+                    <input type="number" id="dice-n" min="1" step="1" placeholder="N" />
+                    <span>d</span>
+                    <input type="number" id="dice-f" min="2" step="1" placeholder="M" />
+                    <button class="button" id="dice-roll">Tirar</button>
+                </div>
+            </div>
+            <div class="dice-log" id="dice-log"></div>
+        </div>
+    `;
+
     const renderInner = () => html`
         <div class="characters">
             <aside class="characters-list">
@@ -159,6 +183,7 @@ const CharactersPage = (container) => {
         if (typeof c.mitigacion !== 'number') c.mitigacion = 0;
         if (!Array.isArray(c.modifiers)) c.modifiers = [];
         if (typeof c.tempHp !== 'number') c.tempHp = 0;
+        if (!Array.isArray(c.rollLog)) c.rollLog = [];
         const derivedBase = computeDerivedStats(c.attributes);
         const ndBase = {
             ndMente: 5 + (Number(c.attributes.Mente) || 0),
@@ -183,6 +208,8 @@ const CharactersPage = (container) => {
                 <button class="tab ${state.tab === 'bio' ? 'active' : ''}" data-tab="bio">Bio</button>
                 <button class="tab ${state.tab === 'notes' ? 'active' : ''}" data-tab="notes">Notas</button>
                 <button class="tab ${state.tab === 'config' ? 'active' : ''}" data-tab="config">Configuración</button>
+                <span class="tab-spacer"></span>
+                <button class="tab ${state.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
             </div>
             ${state.tab === 'sheet'
                 ? html`
@@ -621,6 +648,57 @@ const CharactersPage = (container) => {
                           </div>
                       </div>
                   `
+                : state.tab === 'dice'
+                ? html`
+                      <div class="editor-grid one-col dice-tab">
+                          <div class="panel">
+                              <label>Tirar dados</label>
+                              <div class="dice-section">
+                                  <label>Rápido</label>
+                                  <div class="dice-quick">
+                                      <button class="button" data-dice="1d4">d4</button>
+                                      <button class="button" data-dice="1d6">d6</button>
+                                      <button class="button" data-dice="1d8">d8</button>
+                                      <button class="button" data-dice="1d10">d10</button>
+                                      <button class="button" data-dice="1d20">d20</button>
+                                      <button class="button" data-dice="1d100">d100</button>
+                                  </div>
+                              </div>
+                              <div class="dice-section">
+                                  <label>Personalizado</label>
+                                  <div class="dice-custom">
+                                      <input type="number" id="dice-n" min="1" step="1" placeholder="N" />
+                                      <span>d</span>
+                                      <input type="number" id="dice-f" min="2" step="1" placeholder="M" />
+                                      <button class="button" id="dice-roll">Tirar</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <div class="panel-header">
+                                  <label style="margin:0;">Historial</label>
+                                  <button class="button" data-dice-clear>Limpiar historial</button>
+                              </div>
+                              <div class="dice-log" id="dice-log">
+                                  ${(c.rollLog || [])
+                                      .slice(0, 100)
+                                      .map((r) => {
+                                          if (r.type === 'attr') {
+                                              const d = r.details || {};
+                                              const advLabel =
+                                                  d.advantage && d.advantage !== 'normal'
+                                                      ? `, ${d.advantage}=${d.advMod}`
+                                                      : '';
+                                              return `<div class=\"dice-line\" data-ts=\"${r.ts}\"><span class=\"dice-entry\">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class=\"button\" data-dice-del=\"${r.ts}\" title=\"Eliminar\">🗑️</button></div>`;
+                                          }
+                                          const rolls = Array.isArray(r.rolls) ? ` [${r.rolls.join(', ')}]` : '';
+                                          return `<div class=\"dice-line\" data-ts=\"${r.ts}\"><span class=\"dice-entry\">[Dados] ${r.notation} = ${r.total}${rolls}</span><button class=\"button\" data-dice-del=\"${r.ts}\" title=\"Eliminar\">🗑️</button></div>`;
+                                      })
+                                      .join('')}
+                              </div>
+                          </div>
+                      </div>
+                  `
                 : html`
                       <div class="editor-grid one-col">
                           <div class="panel">
@@ -910,9 +988,28 @@ const CharactersPage = (container) => {
                     (res) => {
                         if (res && res.luck) {
                             c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
-                            save();
-                            update();
                         }
+                        if (res) {
+                            const entry = {
+                                type: 'attr',
+                                ts: Date.now(),
+                                attr: key,
+                                total: res.total,
+                                details: {
+                                    d6: res.d6,
+                                    advMod: res.advMod,
+                                    advantage: res.advantage,
+                                    base: val,
+                                    extras: res.extras,
+                                    luck: res.luck,
+                                },
+                            };
+                            c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                            c.rollLog.unshift(entry);
+                            if (c.rollLog.length > 200) c.rollLog.length = 200;
+                        }
+                        save();
+                        update();
                     }
                 );
             })
@@ -1061,6 +1158,79 @@ const CharactersPage = (container) => {
                 save();
             }
         });
+
+        // Dice tab events
+        if (state.tab === 'dice') {
+            const diceTab = editor.querySelector('.dice-tab');
+            if (diceTab) {
+                diceTab.addEventListener('click', (e) => {
+                    const btn = e.target && e.target.closest && e.target.closest('[data-dice]');
+                    const delBtn = e.target && e.target.closest && e.target.closest('[data-dice-del]');
+                    const clearBtn = e.target && e.target.closest && e.target.closest('[data-dice-clear]');
+                    if (clearBtn) {
+                        c.rollLog = [];
+                        save();
+                        update();
+                        return;
+                    }
+                    if (delBtn) {
+                        const ts = Number(delBtn.getAttribute('data-dice-del'));
+                        c.rollLog = (c.rollLog || []).filter((x) => x.ts !== ts);
+                        save();
+                        update();
+                        return;
+                    }
+                    if (btn) {
+                        const notation = btn.getAttribute('data-dice');
+                        const m = notation.match(/^(\d*)d(\d+)$/i);
+                        if (!m) return;
+                        const n = Math.max(1, Number(m[1] || 1));
+                        const faces = Number(m[2] || 0);
+                        if (!faces) return;
+                        const rolls = [];
+                        let sum = 0;
+                        for (let i = 0; i < n; i++) {
+                            const r = 1 + Math.floor(Math.random() * faces);
+                            rolls.push(r);
+                            sum += r;
+                        }
+                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                        c.rollLog.unshift({
+                            type: 'dice',
+                            ts: Date.now(),
+                            notation: notation.toLowerCase(),
+                            rolls,
+                            total: sum,
+                        });
+                        if (c.rollLog.length > 200) c.rollLog.length = 200;
+                        save();
+                        update();
+                    }
+                });
+                const rollBtn = diceTab.querySelector('#dice-roll');
+                if (rollBtn)
+                    rollBtn.addEventListener('click', () => {
+                        const nInp = diceTab.querySelector('#dice-n');
+                        const fInp = diceTab.querySelector('#dice-f');
+                        const n = Math.max(1, Number(nInp.value) || 1);
+                        const f = Math.max(2, Number(fInp.value) || 0);
+                        if (!f) return;
+                        const notation = `${n}d${f}`;
+                        const rolls = [];
+                        let sum = 0;
+                        for (let i = 0; i < n; i++) {
+                            const r = 1 + Math.floor(Math.random() * f);
+                            rolls.push(r);
+                            sum += r;
+                        }
+                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                        c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation, rolls, total: sum });
+                        if (c.rollLog.length > 200) c.rollLog.length = 200;
+                        save();
+                        update();
+                    });
+            }
+        }
     };
 
     let layoutInstance = null;

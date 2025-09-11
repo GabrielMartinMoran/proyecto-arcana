@@ -113,8 +113,7 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 - **Nivel:** De 1 a 5. Indica su poder y afecta a su coste de aprendizaje.
 - **Requerimiento:** Atributo y valor mínimo necesario para poder añadirla a tu Colección (ej. "Mente 3").
 - **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración").
-- **Tipo:** **Activable** (requiere usar una Acción en combate) o **Efecto** (proporciona un beneficio constante o pasivo).
-- **Resistencia (si aplica):** Indica **qué atributo** usa el objetivo para realizar su Tirada de Salvación contra el ND del efecto.
+- **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
 - **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible.
 
