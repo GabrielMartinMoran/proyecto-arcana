@@ -13,7 +13,7 @@ function normalizeCard(raw) {
     card.id = card.id || `${(card.name || '').toLowerCase().replace(/\s+/g, '-')}-${card.level || 'n'}`;
     card.name = card.name || 'Unknown';
     card.level = Number(card.level) || 1;
-    card.type = card.type || 'Accionable'; // or "De Efecto"
+    card.type = card.type || 'Activable'; // or "Efecto"
     card.attribute = card.attribute || null; // Cuerpo, Agilidad, etc
     // Backward compatibility: map legacy fields
     // if legacy arquetipo exists, push into tags
@@ -26,32 +26,7 @@ function normalizeCard(raw) {
           ? [card.requirements]
           : [];
     card.description = card.description || 'No description';
-    // Normalize cooldown to object { display, type, qty }
-    (function normalizeCooldown() {
-        const src = card.cooldown;
-        if (src == null) {
-            card.cooldown = null;
-            return;
-        }
-        const toUpperSafe = (s) => String(s || '').trim().toUpperCase();
-        const parseQty = (v) => {
-            const n = Number(v);
-            return Number.isFinite(n) ? Math.trunc(n) : null;
-        };
-        if (typeof src === 'string') {
-            card.cooldown = { display: src, type: null, qty: null };
-            return;
-        }
-        if (src && typeof src === 'object') {
-            const type = toUpperSafe(src.type);
-            const validType = type === 'ROUND' || type === 'LONG_REST' ? type : null;
-            const qty = parseQty(src.qty);
-            const display = String(src.display || src.text || '').trim() || null;
-            card.cooldown = display || validType || qty != null ? { display, type: validType, qty } : null;
-            return;
-        }
-        card.cooldown = null;
-    })();
+    card.reload = Object.prototype.hasOwnProperty.call(raw, 'reload') ? raw.reload : null;
     return card;
 }
 
@@ -93,7 +68,9 @@ const CardService = {
             const text = await response.text();
             let parsed = null;
             try {
-                if (typeof window.jsyaml !== 'undefined') parsed = window.jsyaml.load(text);
+                const y = (typeof globalThis !== 'undefined' && globalThis.jsyaml) || (typeof window !== 'undefined' && window.jsyaml) || null;
+                if (y && typeof y.load === 'function') parsed = y.load(text);
+                else if (y && typeof y.safeLoad === 'function') parsed = y.safeLoad(text);
             } catch (_) {}
             if (!parsed) {
                 try {
@@ -102,12 +79,13 @@ const CardService = {
                     parsed = {};
                 }
             }
-            const fromConfig = Array.isArray(parsed?.cards) ? parsed.cards : [];
+            const fromConfig = Array.isArray(parsed?.cards) ? parsed.cards : Array.isArray(parsed) ? parsed : [];
 
             const fromLocal = StorageUtils.load(STORAGE_KEY, []);
             const merged = [...fromConfig, ...fromLocal].map(normalizeCard);
 
             cachedCards = merged;
+            try { console.info('[CardService] loaded cards:', cachedCards.length); } catch (_) {}
             return cachedCards;
         } catch (error) {
             console.error('CardService.loadAll error:', error);

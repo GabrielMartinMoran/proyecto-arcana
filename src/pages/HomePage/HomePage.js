@@ -12,7 +12,7 @@ const HomePage = (container) => {
     let state = {
         allCards: [],
         filtered: [],
-        facets: { attributes: [], tags: [], types: ['Accionable', 'De Efecto'], levels: [1, 2, 3, 4, 5] },
+        facets: { attributes: [], tags: [], types: ['Activable', 'Efecto'], levels: [1, 2, 3, 4, 5] },
         loading: true,
         error: null,
         criteria: { text: '', levels: [], types: [], attributes: [], tags: [] },

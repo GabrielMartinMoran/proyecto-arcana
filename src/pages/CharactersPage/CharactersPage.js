@@ -154,6 +154,7 @@ const CharactersPage = (container) => {
             c.equipmentList = trimmed ? [{ qty: 1, name: trimmed, notes: '' }] : [];
         }
         if (typeof c.suerte !== 'number') c.suerte = 0;
+        if (!c.cardUses || typeof c.cardUses !== 'object') c.cardUses = {};
         if (typeof c.languages !== 'string') c.languages = '';
         if (typeof c.mitigacion !== 'number') c.mitigacion = 0;
         if (!Array.isArray(c.modifiers)) c.modifiers = [];
@@ -336,14 +337,30 @@ const CharactersPage = (container) => {
                                               Number(a.level) - Number(b.level) ||
                                               String(a.name).localeCompare(String(b.name))
                                       )
-                                      .map(
-                                          (card) =>
-                                              html`<div
-                                                  class="card-slot"
-                                                  data-id="${card.id}"
-                                                  data-actions="deactivate"
-                                              ></div>`
-                                      )
+                                      .map((card) => {
+                                          const uses = (c.cardUses && c.cardUses[card.id]) || {
+                                              left: null,
+                                              total: null,
+                                          };
+                                          const cd =
+                                              card.reload && typeof card.reload === 'object' ? card.reload : null;
+                                          const showUses =
+                                              cd &&
+                                              Number.isFinite(Number(cd.qty)) &&
+                                              String(cd.type || '').toUpperCase() !== 'ROUND';
+                                          const total = Number(uses.total ?? cd?.qty ?? 0) || 0;
+                                          const left = Math.min(Number(uses.left ?? total) || 0, total);
+                                          const usesRenderer = (cardObj) => {
+                                              if (!showUses) return '';
+                                              return `<label>Usos <input type="number" data-card-use-left="${cardObj.id}" min="0" step="1" value="${left}" /> / <strong>${total}</strong></label>`;
+                                          };
+                                          return html`<div
+                                              class="card-slot"
+                                              data-id="${card.id}"
+                                              data-actions="deactivate"
+                                              data-uses="${showUses ? '1' : '0'}"
+                                          ></div>`;
+                                      })
                                       .join('')}
                               </div>
                           </div>
@@ -963,7 +980,7 @@ const CharactersPage = (container) => {
             if (!card) return;
             const actionsRenderer = (c) => {
                 const typeLower = String(c.type || '').toLowerCase();
-                const canActivate = !(typeLower === 'efecto' || typeLower === 'de efecto');
+                const canActivate = typeLower === 'activable';
                 if (mode === 'toggle') {
                     const active = (getSelected().activeCards || []).includes(c.id);
                     const removeBtn = `<button class="button" data-remove="${c.id}">Quitar</button>`;
@@ -976,7 +993,26 @@ const CharactersPage = (container) => {
                     return `<div class="card-buttons">${removeBtn} ${toggleBtn}</div>`;
                 }
                 if (mode === 'deactivate') {
-                    return `<button class="button" data-toggle-active="${c.id}">Desactivar</button>`;
+                    const reload = c.reload && typeof c.reload === 'object' ? c.reload : null;
+                    const qtyNum = reload && Number.isFinite(Number(reload.qty)) ? Number(reload.qty) : null;
+                    const showUses = !!reload && (reload.type != null || qtyNum > 0);
+                    const uses = (getSelected().cardUses && getSelected().cardUses[c.id]) || {
+                        left: null,
+                        total: null,
+                    };
+                    const total = Number(uses.total ?? (qtyNum != null ? qtyNum : 0)) || 0;
+                    const left = Math.min(Number(uses.left ?? total) || 0, total);
+                    const leftControl = showUses
+                        ? html`<div style="display:flex; align-items:center; gap:.5rem;">
+                              <span>Usos</span>
+                              <div class="hp-wrap">
+                                  <input type="number" data-card-use-left="${c.id}" min="0" step="1" value="${left}" />
+                                  / <strong>${total}</strong>
+                              </div>
+                          </div>`
+                        : `<span></span>`;
+                    const rightBtn = `<button class="button" data-toggle-active="${c.id}">Desactivar</button>`;
+                    return `<div class="card-buttons">${leftControl} ${rightBtn}</div>`;
                 }
                 if (mode === 'add') {
                     return `<button class="button" data-add-card="${c.id}">Añadir</button>`;
@@ -1040,6 +1076,21 @@ const CharactersPage = (container) => {
                     save();
                     update();
                 });
+        });
+        editor.addEventListener('input', (e) => {
+            const inp = e.target && e.target.closest && e.target.closest('input[data-card-use-left]');
+            if (inp) {
+                const cardId = inp.getAttribute('data-card-use-left');
+                const current = getSelected();
+                if (!current) return;
+                if (!current.cardUses || typeof current.cardUses !== 'object') current.cardUses = {};
+                const card = state.allCards.find((x) => x.id === cardId);
+                const cd = card && card.reload && typeof card.reload === 'object' ? card.reload : null;
+                const total = Number(current.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0;
+                const left = Math.max(0, Math.min(Number(inp.value) || 0, total));
+                current.cardUses[cardId] = { left, total };
+                save();
+            }
         });
     };
 

@@ -10,7 +10,7 @@ const FiltersComponent = (container, props = {}) => {
         facets: props.facets || {
             attributes: [],
             tags: [],
-            types: ['Accionable', 'De Efecto'],
+            types: ['Activable', 'Efecto'],
             levels: [1, 2, 3, 4, 5],
         },
         value: props.value || { text: '', levels: [], types: [], attributes: [], tags: [] },

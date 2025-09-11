@@ -3,13 +3,14 @@ import { ensureStyle } from '../../utils/style-utils.js';
 /**
  * CardComponent - Compact card preview item
  * @param {HTMLElement} container
- * @param {{ card: any, onClick?: (card:any)=>void, actionsRenderer?: (card:any)=>string }} props
+ * @param {{ card: any, onClick?: (card:any)=>void, actionsRenderer?: (card:any)=>string, usesRenderer?: (card:any)=>string }} props
  */
 const CardComponent = (container, props = {}) => {
     let state = {
         card: props.card || null,
         onClick: typeof props.onClick === 'function' ? props.onClick : () => {},
         actionsRenderer: typeof props.actionsRenderer === 'function' ? props.actionsRenderer : null,
+        usesRenderer: typeof props.usesRenderer === 'function' ? props.usesRenderer : null,
     };
 
     const getAccentForAttribute = (attr) => {
@@ -31,6 +32,18 @@ const CardComponent = (container, props = {}) => {
 
     const loadStyles = () => {
         ensureStyle('./src/components/CardComponent/CardComponent.css');
+    };
+
+    const renderReload = (reload) => {
+        if (reload.type === 'LONG_REST') {
+            return html`<span class="chip"
+                >Usos: ${reload.qty} por día de descanso</span
+            >`;
+        }
+        if (reload.type === 'ROLL') {
+            return html`<span class="chip">Usos: 1 (Recarga ${reload.qty}+)</span>`;
+        }
+        return '';
     };
 
     const render = () => {
@@ -62,12 +75,9 @@ const CardComponent = (container, props = {}) => {
                             ${(Array.isArray(c.tags) ? c.tags : [])
                                 .map((t) => html`<span class="chip">${t}</span>`)
                                 .join('')}
-                            ${c.cooldown && (c.cooldown.display || typeof c.cooldown === 'string')
-                                ? html`<span class="chip">Recarga: ${
-                                      typeof c.cooldown === 'string' ? c.cooldown : c.cooldown.display
-                                  }</span>`
-                                : ''}
+                            ${c.reload ? renderReload(c.reload) : ''}
                         </div>
+                        ${state.usesRenderer ? html`<div class="card-uses">${state.usesRenderer(c)}</div>` : ''}
                         ${c.requirements && c.requirements.length
                             ? html`
                                   <div class="card-reqs">

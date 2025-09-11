@@ -101,22 +101,22 @@ El funcionamiento de las cartas se divide en dos conceptos clave:
 > **Regla de Oro:**
 >
 > - Las cartas de **Efecto** funcionan de forma pasiva mientras estén en tu **Colección**.
-> - Las cartas **Accionables** requieren estar en una **Ranura de Carta Activa** para poder usarse.
+> - Las cartas **Activables** requieren estar en una **Ranura de Carta Activa** para poder usarse.
 
 ## Activar y Cambiar Cartas
 
-Puedes cambiar qué **Cartas Accionables** tienes activas durante un **día de descanso** (aproximadamente 8 horas de sueño y actividades ligeras).
+Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de descanso** (aproximadamente 8 horas de sueño y actividades ligeras).
 
 ## Anatomía de una Carta
 
 - **[NOMBRE]**
 - **Nivel:** De 1 a 5. Indica su poder y afecta a su coste de aprendizaje.
 - **Requerimiento:** Atributo y valor mínimo necesario para poder añadirla a tu Colección (ej. "Mente 3").
-- **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dotes", "Combatiente", "Concentración").
-- **Tipo:** **Accionable** (requiere usar una Acción en combate) o **Efecto** (proporciona un beneficio constante o pasivo).
+- **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración").
+- **Tipo:** **Activable** (requiere usar una Acción en combate) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Resistencia (si aplica):** Indica **qué atributo** usa el objetivo para realizar su Tirada de Salvación contra el ND del efecto.
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
-- **Cooldown:** Tiempo que debe pasar antes de poder volver a usarla.
+- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible.
 
 ## Tipos de Cartas Especiales
 
