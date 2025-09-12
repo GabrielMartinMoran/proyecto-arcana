@@ -1,0 +1,95 @@
+.bestiary-filters-panel {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md);
+
+    .filters-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 0.75rem 1rem;
+    }
+    .filter-group {
+        padding: 0.5rem;
+    }
+    .filters-label {
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        font-family: 'Cinzel', serif;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: var(--spacing-md);
+    }
+    .filters-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        justify-content: space-between;
+    }
+    .filters-check {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        gap: var(--spacing-sm);
+    }
+
+    .filter-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: var(--spacing-md);
+
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.bestiary-root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+
+    .statblock {
+        background: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-sm);
+        display: grid;
+        gap: 0.5rem;
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            h3 {
+                margin: 0;
+            }
+        }
+
+        .attributes {
+            display: flex;
+            flex-direction: row;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-sm);
+        }
+
+        .derived-attributes {
+            display: flex;
+            flex-direction: row;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: var(--spacing-sm);
+        }
+    }
+}

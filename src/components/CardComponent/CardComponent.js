@@ -1,4 +1,5 @@
 const html = window.html || String.raw;
+import { removeDiacritics } from '../../utils/formatting-utils.js';
 import { ensureStyle } from '../../utils/style-utils.js';
 /**
  * CardComponent - Compact card preview item
@@ -14,8 +15,7 @@ const CardComponent = (container, props = {}) => {
     };
 
     const getAccentForTags = (tags) => {
-        let first = Array.isArray(tags) && tags.length ? String(tags[0]).toLowerCase() : '';
-        first = first.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+        let first = removeDiacritics(Array.isArray(tags) && tags.length ? String(tags[0]).toLowerCase() : '');
 
         switch (first) {
             case 'arcanista':

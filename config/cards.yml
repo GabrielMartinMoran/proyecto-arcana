@@ -1,4 +1,5 @@
 cards:
+    # ------------------------------ LINAJES ------------------------------
     - name: Visión en la Oscuridad
       level: 1
       type: Efecto
@@ -90,6 +91,7 @@ cards:
       reload:
           type: null
           qty: 0
+    # ------------------------------ DOTES ------------------------------
     - name: Vigor
       level: 1
       type: Efecto
@@ -202,6 +204,7 @@ cards:
       reload:
           type: null
           qty: 0
+    # ------------------------------ PÍCARO ------------------------------
     - name: Senda del Bribón
       level: 1
       type: Efecto
@@ -343,6 +346,7 @@ cards:
       reload:
           type: ROLL
           qty: 3
+    # ------------------------------ COMBATIENTE ------------------------------
     - name: Sintonía con el Acero
       level: 1
       type: Efecto
@@ -558,6 +562,7 @@ cards:
       reload:
           type: LONG_REST
           qty: 1
+    # ------------------------------ ARCANISTA ------------------------------
     - name: Afinidad Arcana
       level: 1
       type: Efecto
@@ -741,6 +746,7 @@ cards:
       reload:
           type: ROLL
           qty: 3
+    # ------------------------------ SACERDOTE ------------------------------
     - name: Consagración
       level: 1
       type: Efecto
@@ -929,6 +935,7 @@ cards:
       reload:
           type: ROLL
           qty: 6
+    # ------------------------------ DRUIDA ------------------------------
     - name: Sintonía Primordial
       level: 1
       type: Efecto
@@ -1124,6 +1131,7 @@ cards:
       reload:
           type: ROLL
           qty: 4
+    # ------------------------------ BARDO ------------------------------
     - name: Inspiración de Bardo
       level: 1
       type: Efecto

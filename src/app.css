@@ -79,6 +79,10 @@ h3,
     font-family: 'Cinzel', serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 #app {
     min-height: 100%;
     display: grid;
@@ -96,7 +100,7 @@ h3,
 
 .page-title {
     margin: 0;
-    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+    font-size: 2rem;
     letter-spacing: 0.02em;
     font-family: 'Cinzel', serif;
 }
