@@ -25,7 +25,7 @@ Un personaje se define por cinco **Atributos** principales, que representan sus 
 A partir de tus atributos, se calculan otros valores esenciales para tu personaje:
 
 - **Salud:** Es la cantidad de daño que puedes soportar antes de quedar inconsciente.
-    - **Salud = Cuerpo × 4**
+    - **Salud = Cuerpo × 5**
 - **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.
     - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
@@ -148,11 +148,11 @@ La acción de **Correr** te permite usar tu Acción para moverte una distancia a
 
 ## Realizar un Ataque
 
-Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva (ESQ)** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.
+Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.
 
 - **Tirada de Ataque:** 1d6 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
-- **Esquiva (ESQ):** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
-    - **ESQ = (2 × Reflejos) − Penalización de Armadura + Bonificador de Escudo**
+- **Esquiva:** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
+    - **Esquiva = 4 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
 
 ## Concentración
 
@@ -170,7 +170,7 @@ Cuando un efecto (como un conjuro o una trampa) requiere que un personaje resist
 
 - El **objetivo** del efecto realiza la tirada: **1d6 + Atributo Defensivo** (indicado por la carta o el DJ).
 - La **Dificultad (ND)** a superar la establece el creador del efecto. Para los conjuros de los jugadores, se calcula así:
-    - **ND de Conjuros = 5 + Atributo de Magia del Lanzador**
+    - **ND de Conjuros = 4 + Atributo de Magia del Lanzador**
 
 Si el resultado de la tirada de salvación **iguala o supera** el ND, el personaje resiste el efecto con éxito.
 
@@ -277,7 +277,7 @@ La armadura proporciona **Mitigación**, que reduce el daño físico recibido. S
 
 ### Escudos
 
-- **Beneficio:** Un escudo añade un **+1 a tu Esquiva (ESQ)**.
+- **Beneficio:** Un escudo añade un **+1 a tu Esquiva**.
 - **Requisito:** Requiere **Cuerpo 2** para usarse sin penalización. Si no lo cumples, sufres **Desventaja (-1d4)** a tus tiradas de ataque.
 - **Limitación:** Requiere una mano libre, por lo que no puede usarse con armas a dos manos.
 - **Precio:** 10 o.

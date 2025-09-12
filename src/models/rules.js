@@ -6,26 +6,31 @@
 export const RULES = {
     arquetipos: ['Infiltrador', 'Combatiente', 'Arcanista', 'Sacerdote', 'Druida', 'Barbaro'],
 
-    attributesOrder: ['Cuerpo', 'Agilidad', 'Mente', 'Instinto', 'Presencia'],
+    attributesOrder: ['Cuerpo', 'Reflejos', 'Mente', 'Instinto', 'Presencia'],
     attributeMin: 1,
     attributeMax: 5,
 
     // Derived stats coefficients (editable)
     derived: {
-        salud: { perCuerpo: 4 },
-        velocidad: { base: 6, perAgilidad: 1 },
-        esquiva: { perAgilidad: 2 },
+        salud: { perCuerpo: 5 },
+        velocidad: { base: 6, perReflejos: 1 },
+        esquiva: { plusReflejos: 4 },
     },
+
+    ndBase: 4,
+    maxLuck: 5,
+
+    startingActiveCards: 3
 };
 
 export function computeDerivedStats(attributes) {
     const a = attributes || {};
     const cuerpo = Number(a.Cuerpo) || 0;
-    const agilidad = Number(a.Agilidad) || 0;
+    const reflejos = Number(a.Reflejos) || 0;
     const d = RULES.derived;
     const salud = d.salud.perCuerpo * cuerpo;
-    const velocidad = d.velocidad.base + d.velocidad.perAgilidad * agilidad;
-    const esquiva = d.esquiva.perAgilidad * agilidad;
+    const velocidad = d.velocidad.base + d.velocidad.perReflejos * reflejos;
+    const esquiva = d.esquiva.plusReflejos + reflejos;
     return { salud, velocidad, esquiva };
 }
 
@@ -47,7 +52,7 @@ export function evaluateModifierExpression(expression, context) {
         // Expose a safe, limited context
         const fn = new Function(
             'cuerpo',
-            'agilidad',
+            'reflejos',
             'mente',
             'instinto',
             'presencia',
@@ -67,7 +72,7 @@ export function evaluateModifierExpression(expression, context) {
             Number(
                 fn(
                     Number(context.cuerpo) || 0,
-                    Number(context.agilidad) || 0,
+                    Number(context.reflejos) || 0,
                     Number(context.mente) || 0,
                     Number(context.instinto) || 0,
                     Number(context.presencia) || 0,
@@ -93,7 +98,7 @@ export function applyModifiersToDerived(baseDerived, character) {
     const attrs = (character && character.attributes) || {};
     const ctx = {
         cuerpo: attrs.Cuerpo || 0,
-        agilidad: attrs.Agilidad || 0,
+        reflejos: attrs.Reflejos || 0,
         mente: attrs.Mente || 0,
         instinto: attrs.Instinto || 0,
         presencia: attrs.Presencia || 0,

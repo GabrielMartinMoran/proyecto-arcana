@@ -47,7 +47,7 @@ cards:
           - Solo Creación de Personaje
       description: >-
           Tu linaje te hace excepcionalmente robusto. Tu Salud máxima aumenta
-          permanentemente en +2. Además, tienes Ventaja para resistir ser derribado o movido
+          permanentemente en +3. Además, tienes Ventaja para resistir ser derribado o movido
           contra tu voluntad.
       reload:
           type: null
@@ -580,7 +580,8 @@ cards:
       requirements:
           - Afinidad Arcana
       description: >-
-          Realizas un efecto mágico menor: creas una baratija, limpias un objeto,
+          Realizas un efecto mágico menor: creas una fuente de luz similar a una antorcha,
+          creas una baratija, limpias un objeto,
           enciendes una vela, creas un símbolo, etc. El efecto no puede infligir daño ni
           imponer un estado.
       reload:
@@ -627,7 +628,7 @@ cards:
       requirements:
           - Afinidad Arcana
       description: >-
-          Una barrera de energía te protege. Obtienes un +2 a tu ESQ mientras
+          Una barrera de energía te protege. Obtienes un +2 a tu Esquiva mientras
           no lleves armadura. El efecto dura 1 día.
       reload:
           type: LONG_REST
@@ -791,7 +792,7 @@ cards:
       requirements:
           - Consagración
       description: >-
-          Eliges una criatura a distancia Cercana. Obtiene un +1 a su ESQ durante
+          Eliges una criatura a distancia Cercana. Obtiene un +1 a su Esquiva durante
           1 minuto o hasta que pierdas la concentración.
       reload:
           type: ROLL

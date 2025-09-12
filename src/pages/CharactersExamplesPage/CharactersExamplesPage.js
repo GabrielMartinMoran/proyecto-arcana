@@ -34,17 +34,20 @@ const CharactersExamplesPage = (container) => {
         const c = getSelected();
         if (!c) return html`<div class="empty-state">No hay personajes de ejemplo</div>`;
         // Normalize minimal fields to avoid errors
-        const attrs = { Cuerpo: 1, Agilidad: 1, Mente: 1, Instinto: 1, Presencia: 1, ...(c.attributes || {}) };
+        const attrs = { Cuerpo: 1, Reflejos: 1, Mente: 1, Instinto: 1, Presencia: 1, ...(c.attributes || {}) };
         const derivedBase = computeDerivedStats(attrs);
-        const ndBase = { ndMente: 5 + (Number(attrs.Mente) || 0), ndInstinto: 5 + (Number(attrs.Instinto) || 0) };
-        const luckBase = { suerteMax: 5 };
+        const ndBase = {
+            ndMente: RULES.ndBase + (Number(attrs.Mente) || 0),
+            ndInstinto: RULES.ndBase + (Number(attrs.Instinto) || 0),
+        };
+        const luckBase = { suerteMax: RULES.maxLuck };
         const derived = applyModifiersToDerived(
             { ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
             c
         );
         const cards = Array.isArray(c.cards) ? c.cards : [];
         const activeCards = Array.isArray(c.activeCards) ? c.activeCards : [];
-        const activeSlots = typeof c.activeSlots === 'number' ? c.activeSlots : 3;
+        const activeSlots = typeof c.activeSlots === 'number' ? c.activeSlots : RULES.startingActiveCards;
         return html`
             <div class="editor-header">
                 <input id="name" class="name-input" type="text" value="${c.name || 'Personaje'}" disabled />
@@ -343,7 +346,7 @@ const CharactersExamplesPage = (container) => {
                     name: src.name || 'Personaje',
                     attributes: {
                         Cuerpo: 1,
-                        Agilidad: 1,
+                        Reflejos: 1,
                         Mente: 1,
                         Instinto: 1,
                         Presencia: 1,

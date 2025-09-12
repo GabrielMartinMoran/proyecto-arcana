@@ -20,10 +20,10 @@ const STORAGE_KEY = 'arcana:characters';
 const defaultCharacter = () => ({
     id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
     name: 'Nuevo personaje',
-    attributes: { Cuerpo: 1, Agilidad: 1, Mente: 1, Instinto: 1, Presencia: 1 },
+    attributes: { Cuerpo: 1, Reflejos: 1, Mente: 1, Instinto: 1, Presencia: 1 },
     cards: [],
     activeCards: [],
-    activeSlots: 3,
+    activeSlots: RULES.startingActiveCards,
     pp: 0,
     gold: 0,
     equipment: '',
@@ -71,7 +71,7 @@ const CharactersPage = (container) => {
 
     // Map requirement attribute aliases to character attributes
     const REQUIREMENT_ATTR_MAP = {
-        Reflejos: 'Agilidad',
+        Reflejos: 'Reflejos',
     };
     function meetsRequirements(character, card) {
         const reqs = Array.isArray(card.requirements) ? card.requirements : [];
@@ -198,10 +198,10 @@ const CharactersPage = (container) => {
         if (!Array.isArray(c.rollLog)) c.rollLog = [];
         const derivedBase = computeDerivedStats(c.attributes);
         const ndBase = {
-            ndMente: 5 + (Number(c.attributes.Mente) || 0),
-            ndInstinto: 5 + (Number(c.attributes.Instinto) || 0),
+            ndMente: RULES.ndBase + (Number(c.attributes.Mente) || 0),
+            ndInstinto: RULES.ndBase + (Number(c.attributes.Instinto) || 0),
         };
-        const luckBase = { suerteMax: 5 };
+        const luckBase = { suerteMax: RULES.maxLuck };
         const derived = applyModifiersToDerived(
             { ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
             c
@@ -631,7 +631,7 @@ const CharactersPage = (container) => {
                                   <div class="attr"><span>Suerte máx.</span><strong>${derived.suerteMax}</strong></div>
                               </div>
                               <small
-                                  >Variables disponibles: cuerpo, agilidad, mente, instinto, presencia, salud,
+                                  >Variables disponibles: cuerpo, reflejos, mente, instinto, presencia, salud,
                                   velocidad, esquiva, mitigacion, ndMente, ndInstinto, suerteMax, pp, gold.</small
                               >
                           </div>
@@ -1089,12 +1089,12 @@ const CharactersPage = (container) => {
                         total: null,
                     };
                     const total = isRoll ? 1 : Number(uses.total ?? (qtyNum != null ? qtyNum : 0)) || 0;
-                    const left = isRoll ? 1 : Math.min(Number(uses.left ?? total) || 0, total);
+                    const left = Math.min(Number(uses.left ?? total) || 0, total);
                     const leftControl = showUses
                         ? html`<div style="display:flex; align-items:center; gap:.5rem;">
                               <span>Usos</span>
                               <div class="hp-wrap">
-                                  <input type="number" data-card-use-left="${c.id}" ${isRoll ? 'disabled' : ''} min="0" step="1" value="${left}" />
+                                  <input type="number" data-card-use-left="${c.id}" min="0" step="1" value="${left}" />
                                   / <strong>${total}</strong>
                               </div>
                           </div>`
@@ -1176,7 +1176,10 @@ const CharactersPage = (container) => {
                 const cd = card && card.reload && typeof card.reload === 'object' ? card.reload : null;
                 const reloadType = String(cd?.type || '').toUpperCase();
                 const total = reloadType === 'ROLL' ? 1 : Number(current.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0;
-                const left = reloadType === 'ROLL' ? 1 : Math.max(0, Math.min(Number(inp.value) || 0, total));
+                const left =
+                    reloadType === 'ROLL'
+                        ? Math.max(0, Math.min(Number(inp.value) || 0, 1))
+                        : Math.max(0, Math.min(Number(inp.value) || 0, total));
                 current.cardUses[cardId] = { left, total };
                 save();
             }

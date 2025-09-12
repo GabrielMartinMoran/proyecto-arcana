@@ -51,7 +51,7 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
         else if (advantage === 'desventaja') advMod = -rollDice('1d4');
         const extras = evalFormula(modsInp.value || '0', {
             cuerpo: 0,
-            agilidad: 0,
+            reflejos: 0,
             mente: 0,
             instinto: 0,
             presencia: 0,

@@ -8,7 +8,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 <header>
 
-## GOBLIN MERODEADOR
+## GOBLIN
 
 **Nivel de Amenaza (NA):** 1
 
@@ -20,7 +20,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Reflejos:** 3
 
-**Mente:** 2
+**Mente:** 1
 
 **Instinto:** 2
 
@@ -30,9 +30,9 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 <stats>
 
-**Salud:** 4
+**Salud:** 5
 
-**Esquiva:** 7 (Escudo)
+**Esquiva:** 7
 
 **Mitigación:** 0
 
@@ -42,7 +42,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Ataques:**
 
--   Cimitarra oxidada +2 (1d4 Cortante)
+-   Cimitarra oxidada +3 (1d4 Cortante)
 
 **Rasgos:**
 
@@ -62,15 +62,15 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 <header>
 
-## ORCO FURIOSO
+## ORCO
 
-**Nivel de Amenaza (NA):** 3
+**Nivel de Amenaza (NA):** 2
 
 </header>
 
 <attributes>
 
-**Cuerpo:** 4
+**Cuerpo:** 3
 
 **Reflejos:** 3
 
@@ -78,7 +78,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Instinto:** 2
 
-**Presencia:** 2
+**Presencia:** 1
 
 </attributes>
 
@@ -96,7 +96,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Ataques:**
 
--   Gran Hacha +4 (1d8+1 Cortante)
+-   Hacha de mano +3 (1d6 Cortante)
 
 **Rasgos:**
 
@@ -116,7 +116,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 <header>
 
-## ESPECTRO ATERRADOR
+## ESPECTRO
 
 **Nivel de Amenaza (NA):** 5
 
@@ -380,7 +380,7 @@ Una compilación de criaturas, monstruos y adversarios para Proyecto Arcana. Usa
 
 **Reacciones:**
 
--   **Parada:** Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el capitán añade +2 a su ESQ contra ese ataque, pudiendo hacer que falle.
+-   **Parada:** Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el capitán añade +2 a su Esquiva contra ese ataque, pudiendo hacer que falle.
 
 **Comportamiento:**
 
