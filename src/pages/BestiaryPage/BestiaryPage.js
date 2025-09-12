@@ -165,6 +165,7 @@ const BestiaryPage = (container) => {
     const renderCreature = (c) => {
         const esquivaNote = c.stats?.esquiva?.note ? ` (${escapeHtml(c.stats.esquiva.note)})` : '';
         const mitigNote = c.stats?.mitigacion?.note ? ` (${escapeHtml(c.stats.mitigacion.note)})` : '';
+        const velocNote = c.stats?.velocidad?.note ? ` (${escapeHtml(c.stats.velocidad.note)})` : '';
         return html` <article class="statblock" id="${slugify(c.name)}">
             <div class="header">
                 <h3>${escapeHtml(c.name)}</h3>
@@ -179,6 +180,7 @@ const BestiaryPage = (container) => {
                 ${renderKV('Salud', c.stats?.salud)}
                 ${renderKV('Esquiva', `${c.stats?.esquiva?.value ?? ''}${esquivaNote}`)}
                 ${renderKV('Mitigación', `${c.stats?.mitigacion?.value ?? ''}${mitigNote}`)}
+                ${renderKV('Velocidad', `${c.stats?.velocidad?.value ?? ''}${velocNote}`)}
             </div>
             <div class="section">
                 <strong>Lenguas:</strong>

@@ -1,6 +1,7 @@
 /**
  * CardService - Load and query ARCANA cards from config and cache
  */
+import { removeDiacritics } from '../utils/formatting-utils.js';
 import StorageUtils from '../utils/storage-utils.js';
 
 const STORAGE_KEY = 'cards-cache';
@@ -23,8 +24,8 @@ function normalizeCard(raw) {
     card.requirements = Array.isArray(card.requirements)
         ? card.requirements
         : card.requirements
-          ? [card.requirements]
-          : [];
+        ? [card.requirements]
+        : [];
     card.description = card.description || 'No description';
     card.reload = Object.prototype.hasOwnProperty.call(raw, 'reload') ? raw.reload : null;
     return card;
@@ -41,9 +42,9 @@ function applyFilters(cards, criteria) {
     return cards.filter((card) => {
         if (
             text &&
-            !String(card.name || '')
+            !removeDiacritics(String(card.name || ''))
                 .toLowerCase()
-                .includes(text)
+                .includes(removeDiacritics(text))
         )
             return false;
         if (levels.size && !levels.has(Number(card.level))) return false;
@@ -68,7 +69,10 @@ const CardService = {
             const text = await response.text();
             let parsed = null;
             try {
-                const y = (typeof globalThis !== 'undefined' && globalThis.jsyaml) || (typeof window !== 'undefined' && window.jsyaml) || null;
+                const y =
+                    (typeof globalThis !== 'undefined' && globalThis.jsyaml) ||
+                    (typeof window !== 'undefined' && window.jsyaml) ||
+                    null;
                 if (y && typeof y.load === 'function') parsed = y.load(text);
                 else if (y && typeof y.safeLoad === 'function') parsed = y.safeLoad(text);
             } catch (_) {}
@@ -85,7 +89,9 @@ const CardService = {
             const merged = [...fromConfig, ...fromLocal].map(normalizeCard);
 
             cachedCards = merged;
-            try { console.info('[CardService] loaded cards:', cachedCards.length); } catch (_) {}
+            try {
+                console.info('[CardService] loaded cards:', cachedCards.length);
+            } catch (_) {}
             return cachedCards;
         } catch (error) {
             console.error('CardService.loadAll error:', error);

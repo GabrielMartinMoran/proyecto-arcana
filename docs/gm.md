@@ -90,9 +90,15 @@ Para diseñar un encuentro equilibrado, primero calcula el **Poder del Grupo (PG
 
 ### Poder de un personaje
 
-El poder de un personaje es igual a 1 + el nivel de la carta más alta que posea en su colección.
+El poder de un personaje depende del nivel de la carta más alta que posea en su colección, comparando el nivel con la siguiente tabla:
 
-Es decir, que el poder de un personaje puede estar entre 2 y 6.
+| Nivel de la carta más alta | Poder del personaje |
+| :------------------------- | :------------------ |
+| 1                          | 2                   |
+| 2                          | 4                   |
+| 3                          | 6                   |
+| 4                          | Pendiente           |
+| 5                          | Pendiente           |
 
 ### Paso 2: Aplica el Modificador de Progreso
 
@@ -146,10 +152,11 @@ A continuación se presenta una tabla que facilita la creación de criaturas.
 
 ### Calculo del Impacto de Habilidades
 
+-   **Ninguno**: No hay impacto de habilidades o no tiene habilidades.
 -   **Mínimo**: Bufos al ataque (ya calculados en **DPT**)
--   **Bajo**: Reducción de mobilidad.
--   **Medio**: Mermado de un miembro del grupo
--   **Alto**: Mermado de multiples miembros del grupo
+-   **Bajo**: Reducción de mobilidad, recuperación de salud leve, bufos a la defensa.
+-   **Medio**: Mermado de un miembro del grupo. Recuperación de salud moderada.
+-   **Alto**: Mermado de multiples miembros del grupo. Recuperación de salud alta.
 -   **Muy Alto**: Inhabilitacion de un miembro del grupo
 -   **Desmedido**: Inhabilitacion de multiples miembros del grupo
 
@@ -157,23 +164,22 @@ A continuación se presenta una tabla que facilita la creación de criaturas.
 
 La manera de obtener el valor correcto de NA consta en sacar un promedio del NA resultante para cada columna de la tabla. El resultado del promedio, en caso de no ser un numero entero, se redondea hacia el entero más cercano.
 
-Si una columna no aplica, se saltea.
-
 Si un valor se repite para una columna, se toma el NA más bajo con ese valor.
 
 ### Tabla de Criaturas
 
-| NA  | STA | VAM | PS  | ESQ | MIT | DPT | IH        |
-| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-------- |
-| 1   | 8   | 3   | 5   | 6   | 0   | 2   | Mínimo    |
-| 2   | 10  | 3   | 10  | 6   | 1   | 3   | Mínimo    |
-| 3   | 12  | 4   | 15  | 7   | 2   | 4   | Bajo      |
-| 4   | 14  | 4   | 20  | 7   | 3   | 6   | Bajo      |
-| 5   | 16  | 5   | 25  | 8   | 3   | 8   | Medio     |
-| 6   | 18  | 5   | 30  | 8   | 4   | 10  | Medio     |
-| 7   | 20  | 6   | 35  | 9   | 4   | 12  | Alto      |
-| 8   | 22  | 6   | 40  | 9   | 5   | 14  | Alto      |
-| 9   | 24  | 7   | 45  | 10  | 5   | 16  | Muy Alto  |
-| 10  | 26  | 8   | 50  | 10  | 6   | 18  | Muy Alto  |
-| 11  | 28  | 9   | 55  | 11  | 6   | 20  | Desmedido |
-| 12  | 30  | 10  | 60  | 11  | 7   | 22  | Desmedido |
+| NA  | STA   | VAM | PS    | ESQ | MIT | DPT   | IH        |
+| :-- | :---- | :-- | :---- | :-- | :-- | :---- | :-------- |
+| 0.5 | 5-7   | 1   | 1-4   | 1-4 | 0   | 1     | Ninguno   |
+| 1   | 8-9   | 2   | 5-9   | 5   | 0   | 2     | Ninguno   |
+| 2   | 10-11 | 3   | 10-14 | 6   | 1   | 3     | Mínimo    |
+| 3   | 12-13 | 4   | 15-19 | 7   | 2   | 4-5   | Mínimo    |
+| 4   | 14-15 | 4   | 20-24 | 7   | 3   | 6-7   | Bajo      |
+| 5   | 16-17 | 5   | 25-29 | 8   | 3   | 8-9   | Bajo      |
+| 6   | 18-19 | 5   | 30-34 | 8   | 4   | 10-11 | Medio     |
+| 7   | 20-21 | 6   | 35-39 | 9   | 4   | 12-13 | Medio     |
+| 8   | 22-23 | 6   | 40-44 | 9   | 5   | 14-15 | Alto      |
+| 9   | 24-25 | 7   | 45-49 | 10  | 5   | 16-17 | Alto      |
+| 10  | 26-27 | 8   | 50-54 | 10  | 6   | 18-19 | Muy Alto  |
+| 11  | 28-29 | 9   | 55-59 | 11  | 6   | 20-21 | Muy Alto  |
+| 12  | 30-31 | 10  | 60-64 | 11  | 7   | 22-23 | Desmedido |

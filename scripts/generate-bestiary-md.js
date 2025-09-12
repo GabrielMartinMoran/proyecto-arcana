@@ -41,9 +41,12 @@ function formatAttributes(attrs = {}) {
 function formatStats(stats = {}) {
     const esquivaNote = stats.esquiva && stats.esquiva.note ? ` (${safeStr(stats.esquiva.note)})` : '';
     const mitigNote = stats.mitigacion && stats.mitigacion.note ? ` (${safeStr(stats.mitigacion.note)})` : '';
-    return `**Salud:** ${stats.salud ?? ''} | **Esquiva:** ${stats.esquiva ? stats.esquiva.value ?? '' : ''}${esquivaNote} | **Mitigación:** ${
-        stats.mitigacion ? stats.mitigacion.value ?? '' : ''
-    }${mitigNote}`;
+    const velocNote = stats.velocidad && stats.velocidad.note ? ` (${safeStr(stats.velocidad.note)})` : '';
+    return `**Salud:** ${stats.salud ?? ''} | **Esquiva:** ${
+        stats.esquiva ? stats.esquiva.value ?? '' : ''
+    }${esquivaNote} | **Mitigación:** ${stats.mitigacion ? stats.mitigacion.value ?? '' : ''}${mitigNote} | **Velocidad:** ${
+        stats.velocidad ? stats.velocidad.value ?? '' : ''
+    }${velocNote}`;
 }
 
 function formatLanguages(langs) {

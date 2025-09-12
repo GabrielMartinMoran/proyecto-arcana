@@ -903,7 +903,8 @@ cards:
       description: >-
           Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que
           entre o empiece su turno ahí debe superar una Salvación de Instinto contra tu
-          ND de conjuros (5+Instinto) o sufrir 2d6 daño Radiante.
+          ND de conjuros (5+Instinto) o sufrir 2d6 daño Radiante en caso de fallo, o la 
+          mitad en caso de éxito.
       reload:
           type: ROLL
           qty: 5
