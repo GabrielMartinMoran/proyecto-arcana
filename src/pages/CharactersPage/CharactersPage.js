@@ -249,6 +249,20 @@ const CharactersPage = (container) => {
                                               </div>`
                                       )
                                       .join('')}
+                                  <div class="attr">
+                                      <span>Suerte</span>
+                                      <div class="hp-wrap">
+                                          <input
+                                              type="number"
+                                              id="suerte"
+                                              data-max="${derived.suerteMax}"
+                                              min="0"
+                                              step="1"
+                                              value="${c.suerte || 0}"
+                                          />
+                                          / <strong>${derived.suerteMax}</strong>
+                                      </div>
+                                  </div>
                               </div>
                           </div>
                           <div class="panel">
@@ -281,41 +295,7 @@ const CharactersPage = (container) => {
                                   </div>
                               </div>
                           </div>
-                          <div class="panel">
-                              <label>Progreso</label>
-                              <div class="attrs">
-                                  <div class="pp-inline">
-                                      <div class="attr">
-                                          <span>PP actuales</span
-                                          ><strong class="${(Number(c.pp) || 0) < 0 ? 'pp-negative' : ''}"
-                                              >${c.pp || 0}</strong
-                                          >
-                                      </div>
-                                      <div class="attr">
-                                          <span>PP gastados</span
-                                          ><strong
-                                              >${(c.ppHistory || [])
-                                                  .filter((x) => x && x.type === 'spend')
-                                                  .reduce((sum, x) => sum + (Number(x.amount) || 0), 0)}</strong
-                                          >
-                                      </div>
-                                  </div>
-                                  <div class="attr">
-                                      <span>Suerte</span>
-                                      <div class="hp-wrap">
-                                          <input
-                                              type="number"
-                                              id="suerte"
-                                              data-max="${derived.suerteMax}"
-                                              min="0"
-                                              step="1"
-                                              value="${c.suerte || 0}"
-                                          />
-                                          / <strong>${derived.suerteMax}</strong>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                          
                           <div class="panel">
                               <label>Economía</label>
                               <div class="attrs">
@@ -332,6 +312,7 @@ const CharactersPage = (container) => {
                                   </div>
                               </div>
                           </div>
+                          
                           <div class="panel">
                               <label>Lenguas</label>
                               <input id="languages" type="text" class="languages-input" value="${c.languages || ''}" />
@@ -1375,6 +1356,12 @@ const CharactersPage = (container) => {
                         const entry = hist.find((x) => x.ts === ts);
                         if (entry) {
                             const amount = Math.max(0, Number(entry.amount) || 0);
+                            const reason = String(entry.reason || '').trim();
+                            const delta = entry.type === 'spend' ? `+${amount}` : `-${amount}`;
+                            const ok = window.confirm(
+                                `¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`
+                            );
+                            if (!ok) return;
                             if (entry.type === 'spend') {
                                 // Revert the spend: give PP back
                                 c.pp = (Number(c.pp) || 0) + amount;

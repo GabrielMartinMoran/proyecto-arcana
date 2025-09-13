@@ -256,7 +256,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 -   **Envenenado:** Sufres **Desventaja (-1d4)** en todas tus Tiradas de Ataque y Pruebas de Habilidad.
 -   **Inconsciente:** No puedes moverte ni hablar. Sueltas lo que sostengas. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 -   **Inmovilizado:** No puedes usar tu **Movimiento**.
--   **Moribundo:** Estás **Inconsciente** y con 0 puntos de salud. Los ataques contra ti obtienen **Ventaja (+1d4)**.
+-   **Moribundo:** Estás **Inconsciente** y con 0 puntos de salud. Los ataques contra ti obtienen **Ventaja (+1d4)**. No puedes hacer tiradas para recargar cartas.
 
 # 7. Progresión del Personaje
 
