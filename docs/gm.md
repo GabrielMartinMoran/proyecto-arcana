@@ -82,37 +82,41 @@ Un bloque de estadísticas (statblock) se compone de:
 
 Algunas **Acciones** potentes tienen una nota de **Recarga (X+)**. Tras usarla, al comienzo de cada turno de la criatura, tira **1d6**. Si el resultado es X o más, la habilidad se recarga y puede volver a usarse.
 
-## Medir la Dificultad del Combate: El Poder del Grupo
+## Medir la Dificultad del Combate
 
-Para diseñar un encuentro equilibrado, primero calcula el **Poder del Grupo (PG)**. Esta métrica evoluciona a medida que los personajes progresan.
+Para medir de forma balanceada la dificultad de un combate, se deben seguir una serie de pasos descritos a continuación.
+
+### Paso 1: Calcula el poder de los personajes
+
+Para medir el poder de un personaje de forma más precisa, su valor se calcula combinando su pico de poder
+(el nivel de su carta más alta) con su experiencia acumulada (los Puntos de Progreso que ha gastado en total).
+
+La fórmula es la siguiente:
+
+**Poder del Personaje = (Nivel de la Carta más Alta) + (Total de PP Gastados / 10)**
+
+_El resultado final se redondea al entero más cercano._
+
+Este método proporciona una medida más gradual del poder, reflejando tanto la adquisición de habilidades de
+alto nivel como la experiencia general y la optimización del personaje a través de la compra de nuevas cartas
+o la mejora de atributos.
+
+> **Ejemplo de Progresión:**
+>
+> Imaginemos a un personaje en diferentes etapas de su carrera:
+>
+> -   **Recién Creado:** Su carta más alta es de Nivel 1 y ha gastado 0 PP.
+>     -   Su Poder es `1 + (0 / 10) = 1`.
+> -   **Tras algunas aventuras:** Compra su primera carta de Nivel 2 y ha gastado un total de 12 PP en su progreso.
+>     -   Su Poder es `2 + (12 / 10) = 3.2`, que se redondea a **3**.
+> -   **Un Héroe Veterano:** Adquiere una carta de Nivel 3 y ha gastado un total de 40 PP a lo largo de sus aventuras.
+>     -   Su Poder es `3 + (40 / 10) = 7`.
+
+### Paso 2: Calcula el poder del grupo
+
+El **Poder del Grupo (PG)** se calcula de la siguiente manera:
 
 -   **Poder de Grupo = Suma del poder de cada personaje del grupo**
-
-### Poder de un personaje
-
-El poder de un personaje depende del nivel de la carta más alta que posea en su colección, comparando el nivel con la siguiente tabla:
-
-| Nivel de la carta más alta | Poder del personaje |
-| :------------------------- | :------------------ |
-| 1                          | 2                   |
-| 2                          | 4                   |
-| 3                          | 6                   |
-| 4                          | Pendiente           |
-| 5                          | Pendiente           |
-
-### Paso 2: Aplica el Modificador de Progreso
-
-Este valor representa el poder que los personajes han adquirido desde su creación.
-
--   El grupo **comienza con un Modificador de Progreso de +0**.
--   Como DJ, lleva una cuenta aproximada de cuántos PP totales has entregado al grupo. **Cada vez que el grupo, en su conjunto, haya gastado entre 15 y 20 PP, aumenta el Modificador de Progreso en +1.**
-
-Este método te permite ajustar la dificultad sin necesidad de revisar las hojas de personaje de cada jugador.
-
-**Ejemplo de Progresión:**
-
-> Imaginemos un grupo de 4 jugadores, donde 3 tienen su carta más alta a nivel 2 y uno a nivel 3.
-> Esto resultaría en un Poder de Grupo igual a 9.
 
 ### Paso 3: Construye el Encuentro con tu Presupuesto de NA
 
@@ -132,7 +136,9 @@ criaturas de **NA** muy alto (aunque el **PG** lo permita) puede resultar un com
 personajes podrían recibir demasiado daño con cada ataque, no llegar a poder golpear a la criatura dada
 la diferencia de Evasión comparada con sus tiradas, o incluso la mitigación de daño podría ser demasiado alta.
 
-Es preferible, enfrentar al grupo a más enemigos pero con un **NA** menor por criatura.
+Es preferible, enfrentar al grupo a más enemigos pero con un **NA** menor por criatura. Sin embargo, se debe tener en cuenta
+la economía de acciones del grupo comparado con la de los enemigos. Una diferencia significativa puede hacer que el combate se desequilibre,
+provocando un efecto bola de nieve.
 
 ## Creación de Criaturas
 
@@ -149,6 +155,30 @@ A continuación se presenta una tabla que facilita la creación de criaturas.
 -   **DPT**: Daño por turno (promedio del daño medio por turno durante 3 turnos)
 -   **IH**: Impacto de habilidades (si la criatura posee habilidades que no realicen daño pero generen efectos negativos al grupo,
     se debe tener en cuenta la criticidad de esos efectos)
+
+### Calculo de los Puntos de Salud de una criatura
+
+Para calcular los Puntos de Salud de una criatura, se debe considerar el propósito de la criatura en el combate. Algunos ejemplos de propósitos son:
+
+-   **Masilla**: Diseñada para resistir muy pocos golpes.
+-   **Balanceado**: Su salud se asemeja a la que tendría un personaje con los mismos atributos.
+-   **Tanque**: Esta diseñado para resistir muchos golpes.
+
+Dependiendo del propósito, la salud se calcula de la siguiente manera:
+
+| Propósito  | Puntos de Salud |
+| :--------- | :-------------- |
+| Masilla    | 2 + Cuerpo x 3  |
+| Balanceado | 5 + Cuerpo x 3  |
+| Tanque     | 10 + Cuerpo x 3 |
+
+También es posible que enemigos que no tengan un valor de Cuerpo alto, tengan valores de salud mayores a los calculados.
+Este caso no es tan común, pero es posible. Un ejemplo de esto es el _Espectro_, que tiene 20 puntos de salud a pesar
+de tener un valor de Cuerpo de 1. A este tipo de enemigos, se los denomina como **Excepcional**.
+
+### Calculo de los Puntos de Salud de una criatura
+
+Para calcular los Puntos de Salud de una criatura, se debe considerar el propósito de la criatura en el combate. Algunos ejemplos de propósitos son:
 
 ### Calculo del Impacto de Habilidades
 
@@ -170,8 +200,8 @@ Si un valor se repite para una columna, se toma el NA más bajo con ese valor.
 
 | NA  | STA   | VAM | PS    | ESQ | MIT | DPT   | IH        |
 | :-- | :---- | :-- | :---- | :-- | :-- | :---- | :-------- |
-| 0.5 | 5-7   | 1   | 1-4   | 1-4 | 0   | 1     | Ninguno   |
-| 1   | 8-9   | 2   | 5-9   | 5   | 0   | 2     | Ninguno   |
+| 0.5 | 5-7   | 1   | 1-5   | 1-4 | 0   | 1     | Ninguno   |
+| 1   | 8-9   | 2   | 6-9   | 5   | 0   | 2     | Ninguno   |
 | 2   | 10-11 | 3   | 10-14 | 6   | 1   | 3     | Mínimo    |
 | 3   | 12-13 | 4   | 15-19 | 7   | 2   | 4-5   | Mínimo    |
 | 4   | 14-15 | 4   | 20-24 | 7   | 3   | 6-7   | Bajo      |

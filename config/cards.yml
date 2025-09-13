@@ -66,7 +66,7 @@ cards:
       reload:
           type: null
           qty: 0
-    - name: Fortuna del Pequeño
+    - name: Afortunado
       level: 1
       type: Efecto
       tags:
@@ -78,7 +78,7 @@ cards:
       reload:
           type: null
           qty: 0
-    - name: Ingenio Humano
+    - name: Talento de Familia
       level: 1
       type: Efecto
       tags:
@@ -88,6 +88,18 @@ cards:
       description: >-
           Elige una habilidad (ej: Atletismo, Sigilo, Persuasión). Obtienes
           Ventaja (+1d4) en todas las Pruebas de Habilidad que realices con ella.
+      reload:
+          type: null
+          qty: 0
+    - name: Sangre Guardiana
+      level: 1
+      type: Efecto
+      tags:
+          - Linaje
+      requirements:
+          - Solo Creación de Personaje
+      description: >-
+          Elige un tipo de daño mágico, obtienes Mitigación contra ese tipo de daño igual a tu puntuación de Cuerpo.
       reload:
           type: null
           qty: 0
@@ -113,7 +125,7 @@ cards:
       requirements:
           - Reflejos 2
       description: >-
-          Tu Velocidad base aumenta permanentemente en +2 metros.
+          Tu Velocidad base aumenta permanentemente en 2 metros.
       reload:
           type: null
           qty: 0
@@ -139,7 +151,7 @@ cards:
       description: >-
           Elige una habilidad (ej: Atletismo, Sigilo, etc.). Obtienes Ventaja
           (+1d4) en las Pruebas de Habilidad que realices con ella. Debes tener al menos
-          un valor de 2 en el Atributo asociado a la habilidad elegida.
+          un valor de 2 en el Atributo asociado a la habilidad elegida. Puedes elegir esta carta más de una vez.
       reload:
           type: null
           qty: 0
@@ -241,8 +253,9 @@ cards:
           - Senda del Bribón
       description: >-
           Usas tu Interacción para arrojar arena o hacer una finta. Elige un
-          enemigo a distancia Inmediata. Tiene Desventaja (-1d4) en su próxima tirada de
-          ataque contra ti.
+          enemigo a distancia Inmediata. Este debe superar una tirada de salvación de Reflejos ND (4 + Reflejos) o
+          tener Desventaja (-1d4) en el siguiente ataque que realice hasta el final de su próximo turno.
+          ataque.
       reload:
           type: ROLL
           qty: 2
@@ -442,7 +455,7 @@ cards:
       description: >-
           Si estas sosteniendo un escudo y realizas un ataque con arma, puedes
           utilizar tu interacción para tratar de empujar a tu objetivo en caso de que no
-          supere una tirada de salvación de Cuerpo ND (5 + Cuerpo).
+          supere una tirada de salvación de Cuerpo ND (4 + Cuerpo).
       reload:
           type: null
           qty: 0
@@ -504,7 +517,7 @@ cards:
           - Cuerpo 2
       description: >-
           Realizas una ataque con un arma, en caso de impactar, el objetivo debe
-          superar una tirada de salvación de Cuerpo ND (5 + Cuerpo) o recibir un penalizador
+          superar una tirada de salvación de Cuerpo ND (4 + Cuerpo) o recibir un penalizador
           de -2 a su Esquiva hasta el inicio de su próximo turno.
       reload:
           type: ROLL

@@ -12,7 +12,7 @@ export const RULES = {
 
     // Derived stats coefficients (editable)
     derived: {
-        salud: { perCuerpo: 5 },
+        salud: { plusCuerpo: 5, perCuerpo: 3 },
         velocidad: { base: 6, perReflejos: 1 },
         esquiva: { plusReflejos: 4 },
     },
@@ -20,7 +20,7 @@ export const RULES = {
     ndBase: 4,
     maxLuck: 5,
 
-    startingActiveCards: 3
+    startingActiveCards: 3,
 };
 
 export function computeDerivedStats(attributes) {
@@ -28,7 +28,7 @@ export function computeDerivedStats(attributes) {
     const cuerpo = Number(a.Cuerpo) || 0;
     const reflejos = Number(a.Reflejos) || 0;
     const d = RULES.derived;
-    const salud = d.salud.perCuerpo * cuerpo;
+    const salud = d.salud.plusCuerpo + d.salud.perCuerpo * cuerpo;
     const velocidad = d.velocidad.base + d.velocidad.perReflejos * reflejos;
     const esquiva = d.esquiva.plusReflejos + reflejos;
     return { salud, velocidad, esquiva };

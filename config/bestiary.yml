@@ -8,7 +8,7 @@ creatures:
           instinto: 2
           presencia: 1
       stats:
-          salud: 5
+          salud: 5 # Masilla
           esquiva:
               value: 7
               note: null
@@ -41,7 +41,7 @@ creatures:
           instinto: 1
           presencia: 1
       stats:
-          salud: 10
+          salud: 11 # Balanceado
           esquiva:
               value: 7
               note: null
@@ -77,7 +77,7 @@ creatures:
           instinto: 2
           presencia: 1
       stats:
-          salud: 15
+          salud: 14 # Balanceado
           esquiva:
               value: 6
               note: null
@@ -112,7 +112,7 @@ creatures:
           instinto: 5
           presencia: 4
       stats:
-          salud: 20
+          salud: 20 # Excepcional
           esquiva:
               value: 8
               note: null
@@ -152,7 +152,7 @@ creatures:
           instinto: 2
           presencia: 2
       stats:
-          salud: 30
+          salud: 28 # Tanque
           esquiva:
               value: 5
               note: null
@@ -189,7 +189,7 @@ creatures:
           instinto: 2
           presencia: 3
       stats:
-          salud: 15
+          salud: 14 # Balanceado
           esquiva:
               value: 8
               note: null
@@ -229,7 +229,7 @@ creatures:
           instinto: 3
           presencia: 2
       stats:
-          salud: 10
+          salud: 11 # Balanceado
           esquiva:
               value: 7
               note: null
@@ -263,7 +263,7 @@ creatures:
           instinto: 5
           presencia: 2
       stats:
-          salud: 20
+          salud: 17 # Balanceado
           esquiva:
               value: 5
               note: null
@@ -273,7 +273,9 @@ creatures:
           velocidad:
               value: 8
               note: null
-      languages: []
+      languages:
+          - Común
+          - Celestial
       attacks:
           - name: Maza
             bonus: 4
@@ -315,7 +317,7 @@ creatures:
           instinto: 1
           presencia: 1
       stats:
-          salud: 10
+          salud: 8 # Masilla
           esquiva:
               value: 8
               note: Escudo
@@ -355,7 +357,7 @@ creatures:
           instinto: 2
           presencia: 2
       stats:
-          salud: 20
+          salud: 17 # Balanceado
           esquiva:
               value: 7
               note: null
@@ -366,7 +368,7 @@ creatures:
               value: 9
               note: null
       languages:
-          - 'Umbral (comprende órdenes simples)'
+          - Común
       attacks:
           - name: Maza
             bonus: 4
@@ -393,7 +395,7 @@ creatures:
           instinto: 2
           presencia: 1
       stats:
-          salud: 35
+          salud: 31 # Tanque
           esquiva:
               value: 7
               note: null
@@ -429,7 +431,7 @@ creatures:
           instinto: 2
           presencia: 1
       stats:
-          salud: 10
+          salud: 8 # Masilla
           esquiva:
               value: 6
               note: null
