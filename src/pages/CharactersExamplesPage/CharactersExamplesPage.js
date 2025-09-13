@@ -124,10 +124,7 @@ const CharactersExamplesPage = (container) => {
                           <div class="panel">
                               <label>Progreso</label>
                               <div class="attrs">
-                                  <div class="attr">
-                                      <span>PP</span
-                                      ><input type="number" min="0" step="1" value="${Number(c.pp) || 0}" disabled />
-                                  </div>
+                                  <div class="attr"><span>PP</span><strong>${Number(c.pp) || 0}</strong></div>
                                   <div class="attr">
                                       <span>Suerte</span>
                                       <div class="hp-wrap">

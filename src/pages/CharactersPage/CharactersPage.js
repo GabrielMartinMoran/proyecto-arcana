@@ -37,6 +37,7 @@ const defaultCharacter = () => ({
     languages: '',
     mitigacion: 0,
     tempHp: 0,
+    ppHistory: [],
 });
 
 const CharactersPage = (container) => {
@@ -196,6 +197,7 @@ const CharactersPage = (container) => {
         if (!Array.isArray(c.modifiers)) c.modifiers = [];
         if (typeof c.tempHp !== 'number') c.tempHp = 0;
         if (!Array.isArray(c.rollLog)) c.rollLog = [];
+        if (!Array.isArray(c.ppHistory)) c.ppHistory = [];
         const derivedBase = computeDerivedStats(c.attributes);
         const ndBase = {
             ndMente: RULES.ndBase + (Number(c.attributes.Mente) || 0),
@@ -220,6 +222,7 @@ const CharactersPage = (container) => {
                 <button class="tab ${state.tab === 'bio' ? 'active' : ''}" data-tab="bio">Bio</button>
                 <button class="tab ${state.tab === 'notes' ? 'active' : ''}" data-tab="notes">Notas</button>
                 <button class="tab ${state.tab === 'config' ? 'active' : ''}" data-tab="config">Configuración</button>
+                <button class="tab ${state.tab === 'progress' ? 'active' : ''}" data-tab="progress">Progreso</button>
                 <span class="tab-spacer"></span>
                 <button class="tab ${state.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
             </div>
@@ -281,9 +284,21 @@ const CharactersPage = (container) => {
                           <div class="panel">
                               <label>Progreso</label>
                               <div class="attrs">
-                                  <div class="attr">
-                                      <span>PP</span
-                                      ><input type="number" id="pp" min="0" step="1" value="${c.pp || 0}" />
+                                  <div class="pp-inline">
+                                      <div class="attr">
+                                          <span>PP actuales</span
+                                          ><strong class="${(Number(c.pp) || 0) < 0 ? 'pp-negative' : ''}"
+                                              >${c.pp || 0}</strong
+                                          >
+                                      </div>
+                                      <div class="attr">
+                                          <span>PP gastados</span
+                                          ><strong
+                                              >${(c.ppHistory || [])
+                                                  .filter((x) => x && x.type === 'spend')
+                                                  .reduce((sum, x) => sum + (Number(x.amount) || 0), 0)}</strong
+                                          >
+                                      </div>
                                   </div>
                                   <div class="attr">
                                       <span>Suerte</span>
@@ -660,6 +675,66 @@ const CharactersPage = (container) => {
                           </div>
                       </div>
                   `
+                : state.tab === 'progress'
+                ? html`
+                      <div class="editor-grid one-col pp-tab">
+                          <div class="panel">
+                              <label>Estado</label>
+                              <div class="attrs">
+                                  <div class="pp-inline">
+                                      <div class="attr">
+                                          <span>PP actuales</span
+                                          ><strong class="${(Number(c.pp) || 0) < 0 ? 'pp-negative' : ''}"
+                                              >${c.pp || 0}</strong
+                                          >
+                                      </div>
+                                      <div class="attr">
+                                          <span>PP gastados</span
+                                          ><strong
+                                              >${(c.ppHistory || [])
+                                                  .filter((x) => x && x.type === 'spend')
+                                                  .reduce((sum, x) => sum + (Number(x.amount) || 0), 0)}</strong
+                                          >
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <label>Actualizar progreso</label>
+                              <div class="pp-inputs">
+                                  <div class="pp-qty">
+                                      <span>Cantidad</span>
+                                      <input type="number" id="pp-delta" min="1" step="1" value="1" />
+                                  </div>
+                                  <div class="pp-reason">
+                                      <span>Razón</span>
+                                      <input type="text" id="pp-reason" placeholder="Describe el motivo" />
+                                  </div>
+                                  <div class="pp-buttons">
+                                      <button class="button" id="pp-spend" title="Gastar">➖</button>
+                                      <button class="button" id="pp-add" title="Adquirir">➕</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel">
+                              <div class="panel-header">
+                                  <label style="margin:0;">Historial</label>
+                              </div>
+                              <div class="dice-log pp-log" id="pp-log">
+                                  ${(c.ppHistory || [])
+                                      .slice(0, 200)
+                                      .sort((a, b) => Number(b.ts || 0) - Number(a.ts || 0))
+                                      .map((h) => {
+                                          const sign = h.type === 'spend' ? '-' : '+';
+                                          const amt = Number(h.amount) || 0;
+                                          const reason = (h.reason || '').toString();
+                                          return `<div class=\"dice-line\" data-ts=\"${h.ts}\"><span class=\"dice-entry\">[PP] ${sign}${amt} — ${reason}</span><button class=\"button\" data-pp-del=\"${h.ts}\" title=\"Deshacer\">↩️</button></div>`;
+                                      })
+                                      .join('')}
+                              </div>
+                          </div>
+                      </div>
+                  `
                 : state.tab === 'dice'
                 ? html`
                       <div class="editor-grid one-col dice-tab">
@@ -799,6 +874,11 @@ const CharactersPage = (container) => {
         const del = null;
         const cardAdd = editor.querySelector('#card-add');
         const pp = editor.querySelector('#pp');
+        const ppAddBtn = editor.querySelector('#pp-add');
+        const ppSpendBtn = editor.querySelector('#pp-spend');
+        const ppClearBtn = null;
+        const ppDeltaInp = editor.querySelector('#pp-delta');
+        const ppReasonInp = editor.querySelector('#pp-reason');
         const activeSlots = editor.querySelector('#active-slots');
         const gold = editor.querySelector('#gold');
         const equipment = editor.querySelector('#equipment');
@@ -842,11 +922,38 @@ const CharactersPage = (container) => {
                 c.languages = e.target.value;
                 save();
             });
-        if (pp)
-            pp.addEventListener('change', (e) => {
-                c.pp = Math.max(0, Number(e.target.value) || 0);
+        // PP now managed via Progress tab
+        if (pp) pp.setAttribute('disabled', 'disabled');
+        if (ppAddBtn)
+            ppAddBtn.addEventListener('click', () => {
+                const amount = Math.max(1, Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0);
+                const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
+                if (!reason) {
+                    window.alert('Por favor, indica la razón del cambio de PP.');
+                    return;
+                }
+                c.pp = (Number(c.pp) || 0) + amount;
+                c.ppHistory = Array.isArray(c.ppHistory) ? c.ppHistory : [];
+                c.ppHistory.push({ ts: Date.now(), type: 'add', amount, reason });
                 save();
+                update();
             });
+        if (ppSpendBtn)
+            ppSpendBtn.addEventListener('click', () => {
+                const amount = Math.max(1, Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0);
+                const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
+                if (!reason) {
+                    window.alert('Por favor, indica la razón del gasto de PP.');
+                    return;
+                }
+                const current = Number(c.pp) || 0;
+                c.pp = current - amount;
+                c.ppHistory = Array.isArray(c.ppHistory) ? c.ppHistory : [];
+                c.ppHistory.push({ ts: Date.now(), type: 'spend', amount, reason });
+                save();
+                update();
+            });
+        // limpiar historial eliminado por diseño
         if (suerte)
             suerte.addEventListener('change', (e) => {
                 const max = Number(e.target.getAttribute('data-max')) || Infinity;
@@ -1185,7 +1292,7 @@ const CharactersPage = (container) => {
             }
         });
 
-        // Dice tab events
+        // Dice tab events and Progress tab events
         if (state.tab === 'dice') {
             const diceTab = editor.querySelector('.dice-tab');
             if (diceTab) {
@@ -1255,6 +1362,33 @@ const CharactersPage = (container) => {
                         save();
                         update();
                     });
+            }
+        }
+        if (state.tab === 'progress') {
+            const ppTab = editor.querySelector('.pp-tab');
+            if (ppTab) {
+                ppTab.addEventListener('click', (e) => {
+                    const delBtn = e.target && e.target.closest && e.target.closest('[data-pp-del]');
+                    if (delBtn) {
+                        const ts = Number(delBtn.getAttribute('data-pp-del'));
+                        const hist = Array.isArray(c.ppHistory) ? c.ppHistory : [];
+                        const entry = hist.find((x) => x.ts === ts);
+                        if (entry) {
+                            const amount = Math.max(0, Number(entry.amount) || 0);
+                            if (entry.type === 'spend') {
+                                // Revert the spend: give PP back
+                                c.pp = (Number(c.pp) || 0) + amount;
+                            } else if (entry.type === 'add') {
+                                // Revert the add: remove PP granted by mistake
+                                c.pp = (Number(c.pp) || 0) - amount;
+                            }
+                        }
+                        c.ppHistory = hist.filter((x) => x.ts !== ts);
+                        save();
+                        update();
+                        return;
+                    }
+                });
             }
         }
     };

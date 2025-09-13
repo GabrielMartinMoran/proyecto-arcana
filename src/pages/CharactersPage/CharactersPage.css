@@ -126,7 +126,7 @@
 .dice-log {
     display: grid;
     gap: 0.25rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 .dice-line {
     background: #fff;
@@ -311,6 +311,10 @@
         width: 2.5rem;
         text-align: center;
     }
+}
+
+.pp-negative {
+    color: #b91c1c; /* red-700 */
 }
 
 .roll-modal {
@@ -567,4 +571,57 @@
         flex-direction: row;
         justify-content: space-evenly;
     }
+}
+.pp-tab label {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+.pp-log {
+    display: grid;
+    gap: 0.25rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.pp-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .pp-qty {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+
+        input {
+            max-width: 5rem;
+        }
+    }
+    .pp-reason {
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        min-width: 12rem;
+    }
+
+    .pp-buttons {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+        gap: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        height: 100%;
+    }
+}
+.pp-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
 }
