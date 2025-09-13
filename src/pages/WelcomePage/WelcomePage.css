@@ -1,6 +1,6 @@
 .welcome {
     display: grid;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
 
     .hero {
         background: linear-gradient(135deg, #fef3c7, #e0e7ff);

@@ -121,7 +121,7 @@ La Suerte es un recurso que permite a los jugadores influir en el resultado de s
 
 -   **Ganar Suerte:** Cada vez que un dado explota (un 6 natural en el d6), el personaje gana **1 Punto de Suerte**.
 -   **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.
--   **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada para añadir un **+1 al resultado final por cada punto gastado**.
+-   **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir un **+1 al resultado final por cada punto gastado**.
 -   **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 2.
 
 # 4. El Sistema de Cartas
@@ -173,7 +173,7 @@ Una vez llegado tu turno, puedes realizar lo siguiente:
 -   **1 Acción:** Atacar, usar una carta accionable, realizar una maniobra compleja o **Correr**.
 -   **1 Interacción:** Abrir una puerta, desenvainar un arma, pasar un objeto a un aliado.
 -   **Movimiento:** Puedes desplazarte una distancia en metros igual a tu valor de **Velocidad**. Puedes dividir este movimiento como quieras, antes y después de tu Acción.
--   **Reacciones:** Se puede utilizar para disparar una acción preparada o actuar frente a un evento. Ciertas cartas se activan de esta manera.
+-   **Reaccion:** Se puede utilizar para disparar una acción preparada o actuar frente a un evento (esto podría ocurrir incluso fuera de tu turno).
 
 La acción de **Correr** te permite usar tu Acción para moverte una distancia adicional igual a tu Velocidad.
 
@@ -183,8 +183,8 @@ La acción de **Correr** te permite usar tu Acción para moverte una distancia a
 
 ## Alcance y Distancias
 
--   **Inmediata:** A tu alcance o a unos pocos pasos (~1,5 metros).
--   **Cercana:** En la misma habitación o a una distancia de lanzamiento corta (~10 metros).
+-   **Inmediata:** A tu alcance o a unos pocos pasos (aproximadamente 1 metro).
+-   **Cercana:** En la misma habitación o a una distancia de lanzamiento corta (aproximadamente 10 metros).
 -   **Larga:** Tan lejos como puedas ver con claridad.
 
 ## Realizar un Ataque
@@ -232,15 +232,16 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 ### Tipos de Daño
 
 -   **Físicos (mitigados por armadura):** Contundente, Cortante, Perforante.
--   **Elementales y Mágicos:** Fuego, Frío, Eléctrico, Sónico, Psíquico, Veneno, Ácido, Necrótico, Radiante, Fuerza.
+-   **Elementales:** Fuego, Frío, Eléctrico.
+-   **Mágicos:** Sónico, Psíquico, Veneno, Ácido, Necrótico, Radiante, Fuerza.
 
 ## Heridas y Recuperación
 
--   **Llegar a 0 de Salud:** Quedas **Inconsciente** y moribundo. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
+-   **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
     de Cuerpo (ND 7). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas
-    1 punto de salud y ya no estas inconsciente.
+    1 punto de salud y ya no estas **Inconsciente**.
     Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 7) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
-    Si recuperas salud por un medio mágico, el estado de inconsciencia termina.
+    Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.
     Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
 -   **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a su valor de **Cuerpo**.
 
@@ -255,6 +256,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 -   **Envenenado:** Sufres **Desventaja (-1d4)** en todas tus Tiradas de Ataque y Pruebas de Habilidad.
 -   **Inconsciente:** No puedes moverte ni hablar. Sueltas lo que sostengas. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 -   **Inmovilizado:** No puedes usar tu **Movimiento**.
+-   **Moribundo:** Estás **Inconsciente** y con 0 puntos de salud. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 
 # 7. Progresión del Personaje
 
@@ -284,21 +286,24 @@ La moneda estándar es el **Oro (o)**. La siguiente tabla sirve como guía de pr
 
 Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 
-| Arma               | Daño    | Tipo        | Requisito  | Precio | Propiedades                         |
-| :----------------- | :------ | :---------- | :--------- | :----- | :---------------------------------- |
-| Daga               | 1d4     | Perforante  | Reflejos 1 | 5 o    | Precisa, Arrojadiza (Cercana)       |
-| Maza ligera        | 1d6     | Contundente | Cuerpo 1   | 10 o   | Arrojadiza (Cercana)                |
-| Espada corta       | 1d6     | Cortante    | Reflejos 2 | 25 o   | Precisa                             |
-| Hacha de mano      | 1d6     | Cortante    | Cuerpo 2   | 15 o   | Arrojadiza (Cercana)                |
-| Lanza              | 1d6     | Perforante  | Cuerpo 2   | 10 o   | Arrojadiza (Cercana)                |
-| Bastón             | 1d4/1d6 | Contundente | Cuerpo 1   | 2 o    | Versátil                            |
-| Espada larga       | 1d6/1d8 | Cortante    | Cuerpo 2   | 50 o   | Versátil                            |
-| Martillo de guerra | 1d8     | Contundente | Cuerpo 3   | 75 o   | A dos manos                         |
-| Mandoble           | 1d8     | Cortante    | Cuerpo 3   | 100 o  | A dos manos                         |
-| Arco corto         | 1d4     | Perforante  | Reflejos 2 | 20 o   | A dos manos, Rango (Larga)          |
-| Arco largo         | 1d8     | Perforante  | Reflejos 3 | 75 o   | A dos manos, Rango (Larga)          |
-| Ballesta ligera    | 1d6     | Perforante  | Reflejos 2 | 35 o   | A dos manos, Rango (Larga), Recarga |
-| Ballesta pesada    | 1d8     | Perforante  | Reflejos 3 | 150 o  | A dos manos, Rango (Larga), Recarga |
+| Arma               | Daño     | Tipo        | Requisito             | Precio | Propiedades                         |
+| :----------------- | :------- | :---------- | :-------------------- | :----- | :---------------------------------- |
+| Porra              | 1d4      | Contundente | -                     | 2 o    | -                                   |
+| Jabalina           | 1d4      | Perforante  | Cuerpo 2              | 3 o    | Arrojadiza (Cercana)                |
+| Daga               | 1d4      | Perforante  | -                     | 5 o    | Precisa, Arrojadiza (Cercana)       |
+| Arco corto         | 1d4      | Perforante  | Reflejos 2            | 20 o   | A dos manos, Rango (Larga)          |
+| Bastón             | 1d4/1d6  | Contundente | -                     | 2 o    | Versátil                            |
+| Maza               | 1d6      | Contundente | Cuerpo 2              | 10 o   | -                                   |
+| Lanza              | 1d6      | Perforante  | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
+| Hacha de mano      | 1d6      | Cortante    | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
+| Espada corta       | 1d6      | Cortante    | Cuerpo 2 o Reflejos 2 | 25 o   | Precisa                             |
+| Ballesta ligera    | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Larga), Recarga |
+| Espada larga       | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
+| Arco largo         | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
+| Martillo de guerra | 1d8/1d10 | Contundente | Cuerpo 3              | 100 o  | Versátil                            |
+| Hacha de guerra    | 1d8/1d10 | Cortante    | Cuerpo 3              | 100 o  | Versátil                            |
+| Ballesta pesada    | 1d10     | Perforante  | Reflejos 3            | 150 o  | A dos manos, Rango (Larga), Recarga |
+| Mandoble           | 1d12     | Cortante    | Cuerpo 3              | 150 o  | A dos manos                         |
 
 ### Propiedades de Armas
 
@@ -313,17 +318,11 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 
 La armadura proporciona **Mitigación**, que reduce el daño físico recibido. Sin embargo, también impone una **Penalización a la Esquiva** y al **Sigilo**. Si no cumples el **Requisito**, sufres **Desventaja (-1d4)** en todas las tiradas que requieran movilidad (ataques, pruebas de Reflejos y Cuerpo).
 
-| Armadura        | Mitigación | Penalización Esquiva | Penalización Sigilo | Requisito | Precio |
-| :-------------- | :--------- | :------------------- | :------------------ | :-------- | :----- |
-| Cuero           | 1          | 0                    | 0                   | Cuerpo 1  | 20 o   |
-| Cota de mallas  | 2          | -1                   | -2 (Muy ruidosa)    | Cuerpo 2  | 75 o   |
-| Brigantina      | 2          | -1                   | -1 (Ruidosa)        | Cuerpo 2  | 150 o  |
-| Placas parcial  | 3          | -1                   | -2 (Muy ruidosa)    | Cuerpo 3  | 400 o  |
-| Placas completa | 4          | -2                   | -2 (Muy ruidosa)    | Cuerpo 4  | 1000 o |
-
-### Escudos
-
--   **Beneficio:** Un escudo añade un **+1 a tu Esquiva**.
--   **Requisito:** Requiere **Cuerpo 2** para usarse sin penalización. Si no lo cumples, sufres **Desventaja (-1d4)** a tus tiradas de ataque.
--   **Limitación:** Requiere una mano libre, por lo que no puede usarse con armas a dos manos.
--   **Precio:** 10 o.
+| Armadura        | Mitigación | Esquiva | Penalización Sigilo | Requisito             | Precio |
+| :-------------- | :--------- | :------ | :------------------ | :-------------------- | :----- |
+| Cuero           | 1          | 0       | 0                   | Cuerpo 1              | 20 o   |
+| Cota de mallas  | 2          | -1      | -2 (Muy ruidosa)    | Cuerpo 2              | 75 o   |
+| Brigantina      | 2          | -1      | -1 (Ruidosa)        | Cuerpo 2              | 150 o  |
+| Placas parcial  | 3          | -1      | -2 (Muy ruidosa)    | Cuerpo 3              | 400 o  |
+| Placas completa | 4          | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
+| Escudo          | 0          | +1      | 0                   | Cuerpo 2 y Mano libre | 10 o   |

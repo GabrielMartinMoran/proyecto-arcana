@@ -244,7 +244,11 @@ creatures:
       attacks:
           - name: Daga ritual
             bonus: 2
-            damage: 1d4 Cortante + 1 Necrótico
+            damage: 1d4 Cortante + 1 Necrótico o Radiante
+            note: null
+          - name: Ballesta ligera
+            bonus: 2
+            damage: 1d6 Perforante
             note: null
       traits:
           - name: Fanático
@@ -374,9 +378,9 @@ creatures:
             bonus: 4
             damage: 1d6 Contundente
             note: null
-          - name: Ballesta Pesada
+          - name: Ballesta ligera
             bonus: 3
-            damage: 1d8 Perforante
+            damage: 1d6 Perforante
             note: null
       traits:
           - name: Ataque en Grupo

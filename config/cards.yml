@@ -99,7 +99,7 @@ cards:
       requirements:
           - Solo Creación de Personaje
       description: >-
-          Elige un tipo de daño mágico, obtienes Mitigación contra ese tipo de daño igual a tu puntuación de Cuerpo.
+          Elige un tipo de daño elemental o mágico, obtienes Mitigación contra ese tipo de daño igual a tu puntuación de Cuerpo.
       reload:
           type: null
           qty: 0
@@ -454,7 +454,7 @@ cards:
           - Cuerpo 3
       description: >-
           Si estas sosteniendo un escudo y realizas un ataque con arma, puedes
-          utilizar tu interacción para tratar de empujar a tu objetivo en caso de que no
+          utilizar tu interacción para tratar de empujar a tu objetivo 1 metro en caso de que no
           supere una tirada de salvación de Cuerpo ND (4 + Cuerpo).
       reload:
           type: null
