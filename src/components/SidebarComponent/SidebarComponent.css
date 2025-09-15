@@ -13,6 +13,7 @@
     flex-direction: column;
     height: calc(100vh - var(--spacing-lg) * 2);
     overflow: hidden;
+    z-index: 100;
 
     .sidebar-list {
         list-style: none;
