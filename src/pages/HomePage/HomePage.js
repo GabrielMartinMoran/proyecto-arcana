@@ -3,6 +3,7 @@ import CardService from '../../services/card-service.js';
 import GalleryComponent from '../../components/GalleryComponent/GalleryComponent.js';
 import FiltersComponent from '../../components/FiltersComponent/FiltersComponent.js';
 import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
+import Footer from '../../components/Footer/Footer.js';
 
 /**
  * HomePage - Main gallery and filters page
@@ -65,10 +66,7 @@ const HomePage = (container) => {
         layout.setMainHtml(html`
             <div id="filters"></div>
             <div id="gallery"></div>
-            <footer class="site-footer">
-                © Gabriel Martín Moran. Todos los derechos reservados —
-                <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.
-            </footer>
+            ${Footer()}
         `);
         const mainEl = layout.getMainEl();
         const filtersEl = mainEl.querySelector('#filters');

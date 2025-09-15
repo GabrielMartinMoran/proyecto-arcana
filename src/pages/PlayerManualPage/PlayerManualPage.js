@@ -4,6 +4,7 @@ import SidebarComponent from '../../components/SidebarComponent/SidebarComponent
 import { renderTocHtml } from '../../utils/markdown-utils.js';
 import MarkdownDoc from '../../components/MarkdownDoc/MarkdownDoc.js';
 import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
+import Footer from '../../components/Footer/Footer.js';
 
 const PlayerManualPage = (container) => {
     let lastTocHtml = '';
@@ -25,10 +26,7 @@ const PlayerManualPage = (container) => {
         layout.init();
         layout.setMainHtml(html`
             <article id="md" class="doc"></article>
-            <footer class="site-footer">
-                © Gabriel Martín Moran. Todos los derechos reservados —
-                <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.
-            </footer>
+            ${Footer()}
         `);
         const mdEl = layout.getMainEl().querySelector('#md');
         const doc = MarkdownDoc(mdEl, {

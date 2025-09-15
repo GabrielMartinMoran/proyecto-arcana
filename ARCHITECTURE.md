@@ -86,7 +86,8 @@ export default MyComponent;
 
 ### Datos y persistencia
 - `config/cards.yml` y `config/example-characters.json` sin comentarios (YAML/JSON válidos).
-- Campos de cartas: `name`, `level`, `type`, `attribute`, `tags[]`, `requirements`, `cooldown`, `description`...
+- Cartas: `attribute` y `cooldown` eliminados. `reload` es `{ display, type: 'ROUND'|'LONG_REST'|'ROLL'|null, qty: number|null }`.
+- Bestiario en `config/bestiary.yml` con estructura normalizada (ver código y script de export a Markdown).
 - Guardar personajes en `localStorage` por colección del usuario; soportar export/import JSON individual.
 
 ### Utilidades clave
@@ -100,16 +101,17 @@ export default MyComponent;
 - Links `.md` relativos deben rutear dentro de la SPA; anchors in-page con smooth scroll sin cambiar `location.hash` (para permitir recarga).
 
 ### Gestión de personajes
-- Página `CharactersPage` renderiza la lista y el editor (sin componentes separados), reduciendo duplicación.
+- Página `CharactersPage` renderiza la lista y el editor, pero apoyándose en helpers y servicios.
 - Pestañas: “Hoja” (atributos, derivados, PP, oro, equipo, salud/temporal, suerte), “Cartas”, “Configuración” (modificadores, retrato), “Bio”, “Notas”.
 - Derived: Salud, Velocidad, Esquiva, ND de Conjuro (Mente/Instinto = 5 + atributo) y Suerte máx con modificadores.
 - UI de cartas: usar `CardComponent` de forma consistente y ordenar por nivel y nombre.
 - Reglas de elegibilidad y activación en el editor; cartas de tipo “Efecto” no son activables.
 
 ### Cartas y filtros
-- `CardComponent` define todo el contenido visible (sin modal), setea `--accent` según atributo.
+- `CardComponent` define todo el contenido visible (sin modal), setea `--accent` según primer tag.
 - `actionsRenderer` permite inyectar acciones contextuales (Activar/Desactivar/Añadir/Quitar/No activable).
-- `FiltersComponent` ofrece búsqueda, nivel, tipo, atributo y `tags` con dropdown de checkboxes y “Limpiar”.
+- `FiltersComponent` ofrece búsqueda, nivel, tipo y `tags` con dropdown de checkboxes y “Limpiar”.
+- Filtros de Bestiario se renderizan con `BestiaryFilters` pero comparten estilos.
 - En la hoja de personaje, filtros colapsables y “Solo elegibles” activado por defecto en “Añadir a colección”.
 
 ### Accesibilidad y UX

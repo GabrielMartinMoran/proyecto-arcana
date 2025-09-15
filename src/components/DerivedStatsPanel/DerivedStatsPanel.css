@@ -1,0 +1,43 @@
+.derived-stats-panel .attrs-deriv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+}
+.derived-stats-panel .attr {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    padding-right: 1rem;
+}
+.derived-stats-panel .hp-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.25rem 0.5rem;
+}
+.derived-stats-panel .hp-wrap input {
+    width: 3rem;    
+    border: none !important;
+    outline: none;
+    text-align: center;
+    background: transparent;
+    box-shadow: none;
+    padding-right: 0.2rem;
+}
+
+.derived-stats-panel .hp-wrap strong {
+    width: 2.5rem;
+    text-align: center;
+}
+@media (max-width: 1000px) {
+    .derived-stats-panel .attrs-deriv {
+        grid-template-columns: 1fr;
+    }
+}
+

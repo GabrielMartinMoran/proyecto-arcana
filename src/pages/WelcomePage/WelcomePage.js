@@ -2,6 +2,7 @@ const html = window.html || String.raw;
 
 import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
 import { ensureStyle } from '../../utils/style-utils.js';
+import Footer from '../../components/Footer/Footer.js';
 
 const WelcomePage = (container) => {
     const loadStyles = () => ensureStyle('./src/pages/WelcomePage/WelcomePage.css');
@@ -91,10 +92,7 @@ const WelcomePage = (container) => {
                     </p>
                 </div>
 
-                <footer class="site-footer">
-                    © Gabriel Martín Moran. Todos los derechos reservados —
-                    <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.
-                </footer>
+                ${Footer()}
             </section>
         `);
     };

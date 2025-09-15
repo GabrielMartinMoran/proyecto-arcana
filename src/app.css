@@ -34,6 +34,8 @@
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 0.875rem;
+    /* Unified surface radius for cards, panels, lists, etc. */
+    --radius-surface: var(--radius-lg);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
@@ -216,7 +218,7 @@ label {
     align-self: start;
     background: var(--secondary-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-surface);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-md);
 }
@@ -250,7 +252,7 @@ label {
     width: min(720px, 100%);
     background: var(--secondary-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-surface);
     box-shadow: var(--shadow-lg);
     overflow: hidden;
 }
@@ -280,7 +282,7 @@ label {
 /* Empty states */
 .empty-state {
     border: 1px dashed var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-surface);
     padding: var(--spacing-xl);
     color: var(--text-secondary);
     text-align: center;

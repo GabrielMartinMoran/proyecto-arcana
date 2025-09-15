@@ -29,6 +29,76 @@ En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupu
 -   **4 PP (Sesión Memorable):** Ocurrió algo épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o tuvo un momento de interpretación brillante que definió la sesión.
 -   **+1 PP (Bono Individual):** Siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
 
+# Guía de Recompensas: Tesoro y Equipo
+
+Además de los Puntos de Progreso, las recompensas materiales son un motor clave de la aventura. El tesoro no solo permite a los personajes comprar mejor equipo, sino que también puede ser un objetivo narrativo en sí mismo. Las siguientes directrices te ayudarán a distribuir la riqueza de manera consistente.
+
+## Recompensas Monetarias
+
+La forma más sencilla de balancear el tesoro es basar la recompensa total de un encuentro o misión en el **Poder del Grupo (PG)** (explicado más adelante) y la dificultad del desafío que han superado. La siguiente tabla ofrece un presupuesto de Oro sugerido.
+
+| Dificultad del Encuentro | Presupuesto de Oro Sugerido (por el total del encuentro) |
+| :----------------------- | :------------------------------------------------------- |
+| **Fácil**                | `Poder del Grupo × 5` de Oro                             |
+| **Normal**               | `Poder del Grupo × 10` de Oro                            |
+| **Difícil**              | `Poder del Grupo × 15` de Oro                            |
+| **Épico**                | `Poder del Grupo × 25` de Oro                            |
+
+**Nota Importante:** Este valor es un **presupuesto total**, no una cantidad que los monstruos llevan en sus bolsillos. El "tesoro" puede ser el pago de un noble, un cofre escondido en la guarida del villano, el valor de las gemas encontradas en una mina o una combinación de todo ello.
+
+> **Ejemplo:** Un grupo de 4 personajes cuyo Poder de Grupo suma **12** completa un desafío de dificultad **Normal**. El presupuesto total de recompensa para esa misión sería de `12 × 10 = 120` de Oro. Podrías repartirlo como 50 de Oro que les paga el alcalde y 70 de Oro en monedas y objetos de arte que encuentran en la guarida de los bandidos.
+
+## Recompensas de Equipo y Objetos Especiales
+
+El mejor tesoro a menudo no viene en una bolsa de monedas, sino en la forma de un objeto único que define a un personaje. En ARCANA, los objetos especiales se integran en el juego utilizando el mismo lenguaje que las habilidades del personaje: el formato de carta.
+
+Esto evita las bonificaciones numéricas genéricas y, en su lugar, otorga capacidades nuevas y narrativamente interesantes.
+
+### Creando Objetos Únicos como Cartas
+
+Cuando diseñes un objeto especial, trátalo como si estuvieras creando una nueva carta exclusiva de ese objeto. La distinción entre un objeto "menor" y uno "poderoso" radica en si su carta necesita ocupar una de tus **Ranuras de Cartas Activas** para funcionar.
+
+-   **Objetos de Efecto Pasivo (Menores):** Otorgan beneficios constantes sin necesidad de ocupar una ranura activa. Son "siempre activos" mientras el personaje los porte.
+-   **Objetos de Poder Activo (Mayores):** Requieren que el jugador dedique una de sus Ranuras de Cartas Activas a la carta del objeto. Esto representa el esfuerzo mental y la concentración necesarios para canalizar el poder del objeto, y crea una decisión estratégica interesante para el jugador.
+
+Utiliza la siguiente plantilla:
+
+-   **[NOMBRE DEL OBJETO]**
+-   **Tipo:** Objeto (Puede ser de **Efecto** o **Activable**).
+-   **Descripción:** Explica el efecto mecánico y narrativo del objeto.
+-   **Usos:** Si es **Activable**, detalla cuántas veces se puede usar (ej. `1 por día de descanso`, `Recarga 5+`, etc.).
+-   **Requerimientos:** Listado de requerimientos para poder usar el objeto.
+
+### Ejemplos de Objetos-Carta
+
+Aquí tienes dos ejemplos que ilustran la diferencia:
+
+> **Amuleto del Guardián Vigilante**
+>
+> **Tipo:** Objeto (Efecto)
+>
+> **Descripción:** Mientras lleves este amuleto de plata con forma de ojo abierto, tu percepción del peligro se agudiza. Obtienes **Ventaja (+1d4)** en todas tus tiradas de **Iniciativa** y en las Pruebas de Habilidad de **Instinto (Percepción)**.
+>
+> **Requerimientos:** -
+
+> **Hacha de Batalla Rúnica**
+>
+> **Tipo:** Objeto (Activable)
+>
+> **Descripción:** Como una **Acción**, puedes golpear el suelo con esta hacha para liberar una onda de choque. Todo enemigo a distancia **Inmediata** debe superar una **Tirada de Salvación de Cuerpo (ND 9)** o quedar en el estado **Derribado**.
+>
+> **Usos:** 1 (Recarga 5+)
+>
+> **Requerimientos:** Cuerpo 3
+
+### Objetos como Llaves para Cartas Existentes
+
+La idea de que un objeto desbloquee una carta de la biblioteca sigue siendo una excelente opción. Encontrar el "Manual del Duelista Experto" podría ser el catalizador narrativo que le permita a un personaje comprar la carta `Parada Defensiva` con sus Puntos de Progreso. Este método es ideal para integrar el aprendizaje de nuevas habilidades directamente en la exploración y el descubrimiento.
+
+El mejor tesoro a menudo no viene en una bolsa de monedas, sino en la forma de un objeto único que define a un personaje. En ARCANA, los objetos especiales y mágicos se integran en el juego utilizando el mismo lenguaje que las habilidades del personaje: el formato de carta.
+
+Esto evita las bonificaciones numéricas genéricas (como "+1 a los ataques") y, en su lugar, otorga capacidades nuevas y narrativamente interesantes.
+
 # Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad
 
 Establecer el **Nivel de Dificultad (ND)** para las acciones de los jugadores es tu herramienta principal para modelar el mundo. Es más un arte que una ciencia.

@@ -20,7 +20,41 @@ Un personaje se define por cinco **Atributos** principales, que representan sus 
 -   **Instinto:** Simboliza la percepción, la intuición y la fuerza de voluntad.
 -   **Presencia:** Define la fuerza de la personalidad, la elocuencia y la capacidad de influir en otros.
 
-## Paso 2: Recursos Derivados
+## Paso 2: Habilidades
+
+Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguientes representan las aptitudes más comunes que los aventureros utilizan. Esta lista sirve como una guía para que los jugadores y el Director de Juego tengan un lenguaje en común, especialmente al elegir cartas como `Talento de Familia` o `Polímata`. No dudes en proponer o crear habilidades que se ajusten mejor a la historia de tu personaje.
+
+**Cuerpo:**
+
+-   **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias, nadar en aguas turbulentas o forzar un obstáculo físico.
+
+**Reflejos:**
+
+-   **Acrobacias:** Mide tu capacidad para mantener el equilibrio, realizar piruetas, caer de pie y escapar de ataduras.
+-   **Juego de Manos:** Para acciones que requieren destreza manual fina y discreta, como robar bolsillos, plantar un objeto en alguien o realizar trucos de prestidigitación.
+-   **Sigilo:** Determina tu éxito al moverte en silencio y evitar ser visto.
+
+**Mente:**
+
+-   **Arcano:** Mide tu conocimiento sobre conjuros, objetos mágicos, tradiciones arcanas, planos de existencia y las criaturas que los habitan.
+-   **Historia:** Refleja tu conocimiento sobre eventos pasados, reinos legendarios, dinastías antiguas y personajes históricos.
+-   **Investigación:** Representa tu capacidad para deducir, encontrar pistas ocultas, descifrar códigos y conectar información a partir de la evidencia.
+
+**Instinto:**
+
+-   **Percepción:** Tu capacidad para ver, oír u oler detalles sutiles en tu entorno, como detectar una emboscada, encontrar una puerta secreta o notar que alguien está mintiendo.
+-   **Perspicacia:** Se usa para leer las intenciones de una criatura, discernir si está diciendo la verdad o sentir sus verdaderas emociones.
+-   **Supervivencia:** Mide tu habilidad para seguir rastros, cazar, orientarte en la naturaleza, predecir el clima y evitar peligros naturales.
+-   **Trato con Animales:** Tu aptitud para calmar, entender y hacerte amigo de los animales.
+
+**Presencia:**
+
+-   **Engaño:** Tu habilidad para mentir de forma convincente, ya sea ocultando la verdad, diciendo una mentira flagrante o adoptando un disfraz.
+-   **Intimidación:** Se utiliza para influir en otros a través de amenazas, una conducta hostil o la fuerza de tu presencia.
+-   **Interpretación:** Refleja tu capacidad para cautivar a una audiencia a través de la música, el baile, la actuación, la oratoria o el relato de historias.
+-   **Persuasión:** Tu aptitud para convencer a otros a través del tacto, la elocuencia, la buena fe y los argumentos lógicos.
+
+## Paso 3: Recursos Derivados
 
 A partir de tus atributos, se calculan otros valores esenciales para tu personaje:
 
@@ -31,15 +65,15 @@ A partir de tus atributos, se calculan otros valores esenciales para tu personaj
 -   **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
 -   **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
 
-## Paso 3: Cartas Iniciales
+## Paso 4: Cartas Iniciales
 
 Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empezar, elige o recibe del DJ **5 cartas iniciales de Nivel 1**. Estas 5 cartas forman tu **Colección** inicial. Al crear el personaje, solo se pueden adquirir cartas de Nivel 1.
 
-## Paso 4: Equipo Inicial
+## Paso 5: Equipo Inicial
 
 Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#8 Equipo y Economía** encontrarás una lista de precios y objetos.
 
-## Paso 5: Lenguas
+## Paso 6: Lenguas
 
 Las lenguas determinan con quién puedes comunicarte y qué textos puedes comprender.
 
@@ -126,7 +160,17 @@ La Suerte es un recurso que permite a los jugadores influir en el resultado de s
 
 # 4. El Sistema de Cartas
 
-Las cartas son el corazón de la personalización y las habilidades especiales en ARCANA. Representan talentos, poderes mágicos, técnicas de combate y rasgos innatos.
+### ¿Qué es una Carta en el Mundo?
+
+Las cartas son el corazón mecánico de la progresión en ARCANA, pero también son una oportunidad para enriquecer la historia. Antes de empezar a jugar, el Director de Juego puede decidir qué representa "aprender una nueva carta" en el mundo de la campaña. No hay una única respuesta correcta, y la elección puede dar un sabor muy diferente a la aventura. Aquí hay algunas ideas:
+
+-   **Manifestación del Talento:** Las cartas no son objetos físicos, sino una representación del crecimiento y potencial del personaje. "Añadir una carta a tu Colección" es el resultado de la práctica, la experiencia y los momentos de revelación. Un guerrero pasa semanas entrenando para dominar un `Ataque Adicional`; un mago finalmente comprende la teoría detrás de una `Bola de Fuego` tras sobrevivir a un encuentro peligroso.
+
+-   **Conocimiento Adquirido:** Las cartas pueden representar técnicas secretas, fórmulas arcanas o bendiciones divinas que se deben aprender de una fuente externa. Bajo esta interpretación, los personajes podrían encontrar nuevas cartas como parte de un tesoro (un antiguo pergamino con el diagrama de `Evasión`), comprarlas a un tutor experto, o recibirlas como una recompensa de una entidad poderosa. Gastar los Puntos de Progreso representa el tiempo y esfuerzo dedicados a integrar ese conocimiento.
+
+-   **Fragmentos del Destino:** En un escenario más místico, las cartas podrían ser manifestaciones literales del destino de un personaje o de un poder cósmico. Aprender una nueva carta podría ser el resultado de un sueño profético, el cumplimiento de una parte de una profecía, o el despertar de un poder latente ligado a un linaje ancestral.
+
+Elegir una de estas interpretaciones (o mezclar elementos de varias) ayuda a que la progresión del personaje sea un evento narrativo emocionante, en lugar de solo una actualización en la hoja de personaje.
 
 ## Colección vs. Cartas Activas
 
@@ -158,7 +202,79 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 
 -   **Cartas de Linaje:** Representan rasgos innatos. Solo pueden **adquirirse durante la Creación de Personaje**, y cada personaje esta limitado a un máximo de 2 **cartas de linaje**.
 
-# 5. Combate
+# 5. Exploración
+
+La exploración es el tejido que conecta los momentos de la aventura. Es el viaje a través de un bosque ancestral, la tensa infiltración en la guarida de un villano, la meticulosa investigación de una ruina olvidada o el descubrimiento de un secreto que cambia el curso de la historia. En ARCANA, estos desafíos son tan cruciales y emocionantes como el combate.
+
+Este capítulo te guiará sobre cómo usar las habilidades y atributos de tu personaje para enfrentarte al mundo y desvelar sus misterios.
+
+## Las Herramientas del Explorador: Usando tus Atributos
+
+Cada atributo tiene un papel fundamental a la hora de superar los obstáculos que el mundo te presenta. La herramienta principal siempre será la **Prueba de Habilidad** (`1d6 + Atributo` vs. ND), pero saber qué atributo aplicar es la clave del éxito.
+
+-   **Mente (Análisis y Conocimiento):** Tu Mente te permite procesar información y entender el mundo que te rodea.
+
+    -   **Investigar:** Al examinar una escena del crimen, podrías hacer una prueba de Mente para conectar pistas que otros han pasado por alto.
+    -   **Recordar:** Frente a un símbolo antiguo, una prueba de Mente podría permitirte recordar su significado a partir de tus estudios.
+    -   **Descifrar:** Al encontrar un mensaje en clave, tu Mente es la herramienta para desentrañar su contenido.
+
+-   **Instinto (Percepción y Supervivencia):** Tu Instinto es tu conexión con el entorno, tus sentidos y tu capacidad para anticipar el peligro.
+
+    -   **Detectar:** Una prueba de Instinto es lo que te permite notar el sonido de una rama al romperse en una emboscada, descubrir una trampa de foso oculta bajo la hojarasca o sentir que un PNJ oculta algo.
+    -   **Rastrear:** Seguir las huellas de una criatura a través de un terreno difícil es un desafío clásico de Instinto.
+    -   **Orientarse:** En mitad de una tormenta de nieve o un laberinto de callejones, tu Instinto te ayuda a encontrar el camino correcto.
+
+-   **Reflejos (Agilidad y Precisión):** Tus Reflejos determinan tu capacidad para moverte con gracia, velocidad y cuidado.
+
+    -   **Sigilo:** Moverte sin ser visto ni oído es una prueba de Reflejos.
+    -   **Desarmar Trampas:** Un mecanismo de presión delicado o un cable tenso requieren una mano firme y una prueba de Reflejos para ser neutralizados.
+    -   **Acrobacias:** Saltar entre tejados, mantener el equilibrio en una cuerda floja o realizar juegos de manos son todas acciones que dependen de tus Reflejos.
+
+-   **Cuerpo (Fuerza y Resistencia):** Tu Cuerpo es tu capacidad para superar los obstáculos físicos mediante la fuerza bruta.
+    -   **Escalar:** Trepar por un muro escarpado o el costado de un acantilado es una prueba de Cuerpo.
+    -   **Forzar:** Echar abajo una puerta, levantar un pesado portón o doblar los barrotes de una celda son desafíos de Cuerpo.
+    -   **Nadar y Aguantar:** Cruzar un río embravecido o bucear en busca de un objeto hundido pone a prueba tu resistencia física.
+
+## Herramientas y Equipo
+
+Tener el equipo adecuado puede marcar la diferencia entre el éxito y el fracaso. El DJ puede determinar que tener las herramientas correctas (como un juego de ganzúas para abrir una cerradura o una cuerda de escalada para un muro) te otorga **Ventaja (+1d4)** en tu tirada, o incluso te permite superar el obstáculo sin necesidad de una tirada si no hay presión.
+
+# 6. Interacción Social
+
+La interacción social es el campo de batalla de las palabras, las ideas y las voluntades. Es el arte de convencer a un rey para que te preste su ejército, engañar a un guardia para que abandone su puesto, inspirar a un pueblo a rebelarse o intimidar a un mercader para que te dé un precio justo. En muchas aventuras, una conversación en el momento adecuado puede ser más poderosa que cualquier espada.
+
+Este capítulo te enseña a usar tus atributos para navegar las complejas redes de las relaciones sociales.
+
+## Las Armas del Diplomático: Usando tus Atributos
+
+-   **Presencia (Carisma e Influencia):** Tu Presencia es tu capacidad para proyectar tu personalidad e influir en los demás. Es el atributo social por excelencia.
+
+    -   **Persuadir:** Convencer a alguien a través del encanto, la buena fe o la elocuencia.
+    -   **Intimidar:** Forzar a alguien a hacer lo que quieres a través del miedo y las amenazas.
+    -   **Actuar:** Adoptar un disfraz o realizar una realizar una actuación para simular o generar una emoción en otro.
+    -   **Engañar:** Mentir de forma convincente o alterar la realidad para engañar a alguien o manipularlo.
+    -   **Inspirar:** Dar un discurso que levante la moral de tus aliados o de una multitud.
+
+-   **Mente (Lógica y Razón):** No todas las interacciones se basan en la emoción. A veces, el mejor argumento es el más lógico.
+
+    -   **Argumentar:** Usar la lógica, los hechos y la retórica para ganar un debate o convencer a un escéptico.
+    -   **Investigar Socialmente:** Al hablar con varios testigos, una prueba de Mente puede ayudarte a detectar inconsistencias en sus historias para descubrir la verdad.
+    -   **Recordar Protocolo:** En la corte de un noble, una prueba de Mente te ayuda a recordar las complejas reglas de etiqueta para no ofender a nadie.
+
+-   **Instinto (Empatía y Percepción):** Tu Instinto te permite leer entre líneas y entender las emociones y motivaciones ocultas de los demás.
+    -   **Saber Intenciones:** Una prueba de Instinto te permite discernir si un PNJ está siendo sincero, si tiene miedo o si oculta intenciones hostiles.
+    -   **Consolar / Calmar:** Usar la empatía para calmar a alguien que está en pánico o para ofrecer las palabras de consuelo adecuadas a alguien que está sufriendo.
+
+## La Regla de Oro Social: Las Tiradas no son Control Mental
+
+Es fundamental recordar que una Prueba de Habilidad exitosa en una situación social no obliga a un PNJ a actuar en contra de su naturaleza, sus creencias o sus objetivos fundamentales. Las tiradas sociales **influyen**, no controlan.
+
+-   Un éxito en una tirada de **Persuasión** no convencerá a un rey de que te entregue su corona, pero podría convencerlo de que tu causa es justa y te preste un escuadrón de sus soldados. Un fallo podría hacer que te expulse de su corte por tu insolencia.
+-   Un éxito en una tirada de **Intimidación** no hará que un fanático religioso abandone a su dios, pero podría hacer que tema por su vida y te revele la entrada secreta a su templo.
+
+El resultado de una tirada social debe ser siempre un paso favorable en la dirección que quiere el jugador, pero sin romper la coherencia de la historia y de los personajes que la habitan.
+
+# 7. Combate
 
 Esta sección cubre las reglas para resolver enfrentamientos de forma estructurada.
 
@@ -245,7 +361,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
     Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
 -   **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a su valor de **Cuerpo**.
 
-# 6. Estados y Condiciones
+# 8. Estados y Condiciones
 
 -   **Aturdido:** No puedes realizar **Acciones** ni **Reacciones**. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 -   **Cegado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y fallas las pruebas que dependan de la vista.
@@ -258,7 +374,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 -   **Inmovilizado:** No puedes usar tu **Movimiento**.
 -   **Moribundo:** Estás **Inconsciente** y con 0 puntos de salud. Los ataques contra ti obtienen **Ventaja (+1d4)**. No puedes hacer tiradas para recargar cartas.
 
-# 7. Progresión del Personaje
+# 9. Progresión del Personaje
 
 Los personajes mejoran gastando **Puntos de Progreso (PP)**.
 
@@ -268,7 +384,7 @@ Los personajes mejoran gastando **Puntos de Progreso (PP)**.
 | **Nueva Ranura de Carta Activa** | 2 × Ranuras Actuales          | Aumenta el número de cartas que puedes tener **activas**.              |
 | **+1 a un Atributo**             | 5 × Valor Actual del Atributo | Para subir un atributo de 3 a 4, el coste es de 15 PP. El máximo es 5. |
 
-# 8. Equipo y Economía
+# 10. Equipo y Economía
 
 ## Moneda y Riqueza
 
@@ -326,3 +442,43 @@ La armadura proporciona **Mitigación**, que reduce el daño físico recibido. S
 | Placas parcial  | 3          | -1      | -2 (Muy ruidosa)    | Cuerpo 3              | 400 o  |
 | Placas completa | 4          | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
 | Escudo          | 0          | +1      | 0                   | Cuerpo 2 y Mano libre | 10 o   |
+
+# 11. Reglas Narrativas Avanzadas
+
+Este capítulo presenta mecánicas opcionales diseñadas para dar a los jugadores un mayor grado de control sobre la narrativa, permitiéndoles contribuir a la historia de maneras creativas y sorprendentes.
+
+## Comprar Eventos con Suerte
+
+A veces, la preparación, una coincidencia afortunada o un detalle del pasado de tu personaje pueden cambiar drásticamente el curso de la historia. Esta regla permite a los jugadores usar **Puntos de Suerte** para introducir hechos en la narrativa a través de _flashbacks_, representando momentos de ingenio o eventos que ocurrieron "fuera de cámara".
+
+**¿Cómo Funciona?**
+
+1.  El jugador interrumpe la narración en cualquier momento (incluso en combate) y propone un evento que su personaje realizó en el pasado y que es relevante para la situación actual.
+2.  El Director de Juego (DJ) considera la propuesta. Si es plausible y encaja con el personaje, establece un coste en Puntos de Suerte.
+3.  Si el jugador acepta y gasta los puntos, el evento se convierte en parte de la historia.
+
+**Guía de Costes para el DJ:**
+
+| Coste de Suerte | Tipo de Evento                                                                  | Ejemplos                                                                                                                                                                  |
+| :-------------- | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1 Punto**     | **Pequeña Coincidencia o Preparación Menor:** Un objeto común.                  | "Antes de salir de la ciudad, **compré una cuerda extra** por si acaso." / "Recuerdo haber **oído un rumor** sobre este símbolo en una taberna."                          |
+| **2-3 Puntos**  | **Preparación Lógica o Vínculo Social:** Un objeto específico o una relación.   | "Anoche, **estudié los planos de esta mansión**; sé que hay una entrada de servicio." / "**Conozco a uno de los guardias** de vista, puede que sea más flexible conmigo." |
+| **4-5 Puntos**  | **Giro Argumental Significativo:** Un hecho que altera drásticamente la escena. | "El capitán de la guardia me debe un favor de vida o muerte desde la guerra." / "**Ya había cambiado el vial de veneno por uno inofensivo** esta mañana."                 |
+
+**Límites de la Mecánica:** El DJ tiene la última palabra. Un evento no puede contradecir hechos ya establecidos en la partida (por ejemplo, no puedes "comprar" un antídoto si ya se ha establecido que no llevabas ninguno) ni invalidar las acciones de otros jugadores. Debe ser siempre algo que enriquezca la historia y encaje con el concepto del personaje.
+
+> **Ejemplo de Uso:**
+>
+> **Situación:** _El grupo está explorando unas ruinas antiguas. Al entrar en una gran cámara, el DJ describe cómo un portón de piedra maciza cae del techo, sellando la salida y atrapándolos. Al otro lado de la sala, varias estatuas de piedra comienzan a moverse: son gólems guardianes y el combate es inminente._
+>
+> **Jugador (controlando a Roric, el Pícaro):** "¡Un momento! Antes de que tiremos la iniciativa, quiero comprar un evento."
+>
+> **DJ:** "Adelante, ¿qué tienes en mente?"
+>
+> **Jugador:** "Roric es un explorador de ruinas veterano. Es cauteloso. Propongo que, mientras entrábamos en la cámara, mi personaje notó que el dintel de la puerta parecía inestable y sospechó que podría ser una trampa. **Dejó una cuña de hierro en el mecanismo del portón** para evitar que se cerrara del todo."
+>
+> **DJ:** "Me gusta. Es totalmente coherente con tu personaje. Es una preparación lógica que tiene un impacto significativo en la escena, pero no la resuelve por completo. Te costará **3 Puntos de Suerte**."
+>
+> **Jugador:** "Hecho. Gasto 3 de mis 4 Puntos de Suerte."
+>
+> **DJ (narrando el resultado):** "Bien. Entonces, la escena cambia. El portón de piedra cae con un estruendo ensordecedor, pero justo antes de sellar la salida, se detiene con un chirrido metálico. La cuña de hierro que Roric colocó ha aguantado, dejando una pequeña abertura de apenas un palmo en la base. No es suficiente para escapar ahora mismo, pero os da una esperanza y una posible vía de escape si lográis sobrevivir a los gólems."

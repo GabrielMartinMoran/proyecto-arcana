@@ -1,0 +1,24 @@
+.modifiers-list .mods {
+    display: grid;
+    gap: 0.5rem;
+}
+.modifiers-list .mods-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.25rem;
+}
+.modifiers-list .mod-row {
+    display: grid;
+    grid-template-columns: 140px 80px 1fr 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+}
+.modifiers-list .mod-row input[type='text'],
+.modifiers-list .mod-row select {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: #fff;
+}
+

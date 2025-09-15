@@ -3,6 +3,7 @@
  */
 import { removeDiacritics } from '../utils/formatting-utils.js';
 import StorageUtils from '../utils/storage-utils.js';
+import { validateCards } from './yaml-validate.js';
 
 const STORAGE_KEY = 'cards-cache';
 const CONFIG_PATH = 'config/cards.yml';
@@ -83,7 +84,8 @@ const CardService = {
                     parsed = {};
                 }
             }
-            const fromConfig = Array.isArray(parsed?.cards) ? parsed.cards : Array.isArray(parsed) ? parsed : [];
+            const parsedArray = Array.isArray(parsed?.cards) ? parsed.cards : Array.isArray(parsed) ? parsed : [];
+            const fromConfig = validateCards(parsedArray);
 
             const fromLocal = StorageUtils.load(STORAGE_KEY, []);
             const merged = [...fromConfig, ...fromLocal].map(normalizeCard);

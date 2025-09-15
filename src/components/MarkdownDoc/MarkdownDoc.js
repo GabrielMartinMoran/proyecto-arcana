@@ -41,7 +41,7 @@ const MarkdownDoc = (container, props = {}) => {
             applyPendingAnchor(mdEl);
         } catch (error) {
             console.error('MarkdownDoc error:', error);
-            mdEl.innerHTML = `<p style="color:#f88">Failed to load markdown</p>`;
+            mdEl.innerHTML = html`<p style="color:#f88">Failed to load markdown</p>`;
         }
     };
 

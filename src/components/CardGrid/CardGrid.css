@@ -1,0 +1,10 @@
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+}
+@media (max-width: 640px) {
+    .cards-grid { grid-template-columns: 1fr; }
+}
+.card-slot { display: grid; gap: 0.5rem; }
+

@@ -2,8 +2,10 @@ const html = window.html || String.raw;
 
 import StorageUtils from '../../utils/storage-utils.js';
 import LayoutWithSidebar from '../../components/LayoutWithSidebar/LayoutWithSidebar.js';
+import Footer from '../../components/Footer/Footer.js';
 import { ensureStyles } from '../../utils/style-utils.js';
 import CardService from '../../services/card-service.js';
+import CharacterService from '../../services/character-service.js';
 import {
     RULES,
     computeDerivedStats,
@@ -14,6 +16,21 @@ import {
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import { openRollModal } from './RollModal.js';
 import { rollDice } from '../../utils/dice-utils.js';
+import { mountImageWithFallback } from '../../utils/image-utils.js';
+import HistoryList from '../../components/HistoryList/HistoryList.js';
+import { renderSheetTab } from './tabs/SheetTab.js';
+import { renderCardsTab } from './tabs/CardsTab.js';
+import { renderConfigTab } from './tabs/ConfigTab.js';
+import { renderBioTab } from './tabs/BioTab.js';
+import { renderProgressTab } from './tabs/ProgressTab.js';
+import { renderDiceTab } from './tabs/DiceTab.js';
+import { renderNotesTab } from './tabs/NotesTab.js';
+import EquipmentList from '../../components/EquipmentList/EquipmentList.js';
+import ModifiersList from '../../components/ModifiersList/ModifiersList.js';
+import AttributesPanel from '../../components/AttributesPanel/AttributesPanel.js';
+import DerivedStatsPanel from '../../components/DerivedStatsPanel/DerivedStatsPanel.js';
+import CharacterList from '../../components/CharacterList/CharacterList.js';
+import CharacterSheet from '../../components/CharacterSheet/CharacterSheet.js';
 
 const STORAGE_KEY = 'arcana:characters';
 
@@ -121,8 +138,8 @@ const CharactersPage = (container) => {
                     <button class="button" data-dice="1d4">d4</button>
                     <button class="button" data-dice="1d6">d6</button>
                     <button class="button" data-dice="1d8">d8</button>
+                    </div>
                 </div>
-            </div>
             <div class="dice-section">
                 <label>Custom</label>
                 <div class="dice-custom">
@@ -138,647 +155,46 @@ const CharactersPage = (container) => {
 
     const renderInner = () => html`
         <div class="characters">
-            <aside class="characters-list">
-                <div class="list-header">
-                    <div class="buttons-container">
-                        <button class="button" data-action="create" title="Crear">➕</button>
-                        <button class="button" data-action="import-current" title="Importar">📥</button>
-                        <button class="button" data-action="export-current" title="Exportar">📤</button>
-                        <button class="button" data-action="delete-current" title="Eliminar">🗑️</button>
-                        <input id="import-one-file" type="file" accept="application/json" style="display:none" />
-                    </div>
-                </div>
-                <ul class="items">
-                    ${state.list
-                        .map((p) => {
-                            const initial = (p.name || '?').trim().charAt(0).toUpperCase();
-                            return html`<li>
-                                <button class="item ${state.selectedId === p.id ? 'active' : ''}" data-id="${p.id}">
-                                    <span class="avatar ${p.portraitUrl ? '' : 'placeholder'}" aria-hidden="true">
-                                        ${p.portraitUrl
-                                            ? `<img src="${p.portraitUrl}" alt="" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');" />`
-                                            : ''}
-                                        <span class="initial">${initial}</span>
-                                    </span>
-                                    <span class="item-name">${p.name}</span>
-                                </button>
-                            </li>`;
-                        })
-                        .join('')}
-                </ul>
-            </aside>
+            <div id="char-list"></div>
             <section class="characters-editor">${renderEditor()}</section>
         </div>
-        <footer class="site-footer">
-            © Gabriel Martín Moran. Todos los derechos reservados —
-            <a href="LICENSE" target="_blank" rel="noopener">Licencia MIT</a>.
-        </footer>
+        ${Footer()}
     `;
 
     const renderEditor = () => {
         const c = getSelected();
-        if (!c) return html`<div class="empty-state">Selecciona o crea un personaje</div>`;
-        const availableCards = state.allCards;
-        // Guard against older saved characters without new fields
-        if (!Array.isArray(c.cards)) c.cards = [];
-        if (!Array.isArray(c.activeCards)) c.activeCards = [];
-        if (typeof c.activeSlots !== 'number') c.activeSlots = 0;
-        if (typeof c.pp !== 'number') c.pp = 0;
-        if (typeof c.gold !== 'number') c.gold = 0;
-        if (typeof c.equipment !== 'string') c.equipment = '';
-        if (!Array.isArray(c.equipmentList)) {
-            const trimmed = String(c.equipment || '').trim();
-            c.equipmentList = trimmed ? [{ qty: 1, name: trimmed, notes: '' }] : [];
+        if (!c) {
+            return html`<div class="empty-state">Selecciona o crea un personaje</div>`;
         }
-        if (typeof c.suerte !== 'number') c.suerte = 0;
-        if (!c.cardUses || typeof c.cardUses !== 'object') c.cardUses = {};
-        if (typeof c.languages !== 'string') c.languages = '';
-        if (typeof c.mitigacion !== 'number') c.mitigacion = 0;
-        if (!Array.isArray(c.modifiers)) c.modifiers = [];
-        if (typeof c.tempHp !== 'number') c.tempHp = 0;
-        if (!Array.isArray(c.rollLog)) c.rollLog = [];
-        if (!Array.isArray(c.ppHistory)) c.ppHistory = [];
-        const derivedBase = computeDerivedStats(c.attributes);
-        const ndBase = {
-            ndMente: RULES.ndBase + (Number(c.attributes.Mente) || 0),
-            ndInstinto: RULES.ndBase + (Number(c.attributes.Instinto) || 0),
-        };
-        const luckBase = { suerteMax: RULES.maxLuck };
-        const derived = applyModifiersToDerived(
-            { ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
-            c
-        );
-        // Ensure current health exists and is within [0, max]
-        if (typeof c.hp !== 'number' || Number.isNaN(c.hp)) c.hp = derived.salud;
-        c.hp = Math.max(0, Math.min(c.hp, derived.salud));
-        return html`
-            <div class="editor-header">
-                <input id="name" class="name-input" type="text" value="${c.name}" />
-            </div>
-            <div class="tabs">
-                <button class="tab ${state.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
-                <button class="tab ${state.tab === 'cards' ? 'active' : ''}" data-tab="cards">Cartas</button>
-
-                <button class="tab ${state.tab === 'bio' ? 'active' : ''}" data-tab="bio">Bio</button>
-                <button class="tab ${state.tab === 'notes' ? 'active' : ''}" data-tab="notes">Notas</button>
-                <button class="tab ${state.tab === 'config' ? 'active' : ''}" data-tab="config">Configuración</button>
-                <button class="tab ${state.tab === 'progress' ? 'active' : ''}" data-tab="progress">Progreso</button>
-                <span class="tab-spacer"></span>
-                <button class="tab ${state.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
-            </div>
-            ${state.tab === 'sheet'
-                ? html`
-                      <div class="editor-grid">
-                          <div class="panel">
-                              <label>Atributos</label>
-                              <div class="attrs">
-                                  ${Object.entries(c.attributes)
-                                      .map(
-                                          ([k, v]) =>
-                                              html`<div class="attr">
-                                                  <span>${k}</span>
-                                                  <input
-                                                      type="number"
-                                                      min="${RULES.attributeMin}"
-                                                      max="${RULES.attributeMax}"
-                                                      step="1"
-                                                      data-attr="${k}"
-                                                      value="${v}"
-                                                  />
-                                                  <button class="button" data-roll-attr="${k}" title="Tirar">🎲</button>
-                                              </div>`
-                                      )
-                                      .join('')}
-                                  <div class="attr">
-                                      <span>Suerte</span>
-                                      <div class="hp-wrap">
-                                          <input
-                                              type="number"
-                                              id="suerte"
-                                              data-max="${derived.suerteMax}"
-                                              min="0"
-                                              step="1"
-                                              value="${c.suerte || 0}"
-                                          />
-                                          / <strong>${derived.suerteMax}</strong>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <label>Derivados</label>
-                              <div class="attrs attrs-deriv">
-                                  <div class="attr">
-                                      <span>Salud</span>
-                                      <div class="hp-wrap">
-                                          <input type="number" id="hp" min="0" step="1" value="${c.hp}" /> /
-                                          <strong>${derived.salud}</strong>
-                                      </div>
-                                  </div>
-                                  <div class="attr">
-                                      <span>Salud temporal</span
-                                      ><input type="number" id="temp-hp" min="0" step="1" value="${c.tempHp || 0}" />
-                                  </div>
-                                  <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
-                                  <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
-                                  <div class="attr"><span>Mitigación</span><strong>${derived.mitigacion}</strong></div>
-                                  <div class="nd-spells">
-                                      <div class="attr" style="grid-column:1 / -1; padding-top:.25rem;">
-                                          <strong>ND de Conjuro</strong>
-                                      </div>
-                                      <div class="attr child">
-                                          <span>ND (Mente)</span><strong>${derived.ndMente}</strong>
-                                      </div>
-                                      <div class="attr child">
-                                          <span>ND (Instinto)</span><strong>${derived.ndInstinto}</strong>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <div class="panel">
-                              <label>Economía</label>
-                              <div class="attrs">
-                                  <div class="attr">
-                                      <span>Oro</span
-                                      ><input
-                                          class="long-input"
-                                          type="number"
-                                          id="gold"
-                                          min="0"
-                                          step="1"
-                                          value="${c.gold || 0}"
-                                      />
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <div class="panel">
-                              <label>Lenguas</label>
-                              <input id="languages" type="text" class="languages-input" value="${c.languages || ''}" />
-                          </div>
-                          <div class="panel">
-                              <label>Equipo</label>
-                              <div class="equip-list">
-                                  ${(c.equipmentList || [])
-                                      .map(
-                                          (it, idx) => html` <div class="equip-row" data-eq-idx="${idx}">
-                                              <input
-                                                  type="number"
-                                                  min="0"
-                                                  step="1"
-                                                  data-eq-qty
-                                                  value="${Number(it.qty) || 0}"
-                                              />
-                                              <input
-                                                  type="text"
-                                                  data-eq-name
-                                                  placeholder="Nombre"
-                                                  value="${it.name || ''}"
-                                              />
-                                              <input
-                                                  type="text"
-                                                  data-eq-notes
-                                                  placeholder="Notas"
-                                                  value="${it.notes || ''}"
-                                              />
-                                              <button class="button" data-eq-remove title="Eliminar">🗑️</button>
-                                          </div>`
-                                      )
-                                      .join('')}
-                                  <div style="display:flex; justify-content:flex-end;">
-                                      <button class="button" data-eq-add>Añadir ítem</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  `
-                : state.tab === 'cards'
-                ? html`
-                      <div class="editor-grid one-col">
-                          <div class="panel">
-                              <label>Ranuras activas</label>
-                              <input type="number" id="active-slots" min="0" step="1" value="${c.activeSlots || 0}" />
-                          </div>
-
-                          <div class="panel">
-                              <label>Activas (${(c.activeCards || []).length}/${c.activeSlots || 0})</label>
-                              <div class="cards-grid">
-                                  ${(c.activeCards || [])
-                                      .map((id) => state.allCards.find((x) => x.id === id))
-                                      .filter(Boolean)
-                                      .sort(
-                                          (a, b) =>
-                                              Number(a.level) - Number(b.level) ||
-                                              String(a.name).localeCompare(String(b.name))
-                                      )
-                                      .map((card) => {
-                                          const uses = (c.cardUses && c.cardUses[card.id]) || {
-                                              left: null,
-                                              total: null,
-                                          };
-                                          const cd =
-                                              card.reload && typeof card.reload === 'object' ? card.reload : null;
-                                          const reloadType = String(cd.type || '').toUpperCase();
-                                          const showUses =
-                                              cd && Number.isFinite(Number(cd.qty)) && reloadType !== 'ROUND';
-                                          const total =
-                                              reloadType === 'ROLL' ? 1 : Number(uses.total ?? cd?.qty ?? 0) || 0;
-                                          const left = Math.min(Number(uses.left ?? total) || 0, total);
-                                          const usesRenderer = (cardObj) => {
-                                              if (!showUses) return '';
-                                              return `<label>Usos <input type="number" data-card-use-left="${cardObj.id}" min="0" step="1" value="${left}" /> / <strong>${total}</strong></label>`;
-                                          };
-                                          return html`<div
-                                              class="card-slot"
-                                              data-id="${card.id}"
-                                              data-actions="deactivate"
-                                              data-uses="${showUses ? '1' : '0'}"
-                                          ></div>`;
-                                      })
-                                      .join('')}
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <div class="panel-header">
-                                  <label style="margin:0;">Tu colección (${c.cards.length})</label>
-                              </div>
-                              <div class="cards-grid">
-                                  ${c.cards
-                                      .map((id) => state.allCards.find((x) => x.id === id))
-                                      .filter(Boolean)
-                                      .sort(
-                                          (a, b) =>
-                                              Number(a.level) - Number(b.level) ||
-                                              String(a.name).localeCompare(String(b.name))
-                                      )
-                                      .map(
-                                          (card) =>
-                                              html`<div
-                                                  class="card-slot"
-                                                  data-id="${card.id}"
-                                                  data-actions="toggle"
-                                              ></div>`
-                                      )
-                                      .join('')}
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <div class="panel-header">
-                                  <label style="margin:0;">Añadir a tu colección</label>
-                                  <button class="button" id="toggle-add-filters">
-                                      ${state.filtersOpenAdd ? 'Ocultar filtros' : 'Mostrar filtros'}
-                                  </button>
-                              </div>
-                              <div class="filters-collapsible ${state.filtersOpenAdd ? '' : 'closed'}">
-                                  <div class="cards-search">
-                                      <input
-                                          id="card-search"
-                                          type="text"
-                                          placeholder="Buscar carta..."
-                                          value="${state.cardSearch || ''}"
-                                      />
-                                  </div>
-                                  <label
-                                      class="inline-filter"
-                                      style="display:inline-flex; align-items:center; gap:.35rem; font-weight: normal; margin-bottom:.5rem;"
-                                  >
-                                      <input
-                                          type="checkbox"
-                                          id="add-eligible-only"
-                                          ${state.addOnlyEligible ? 'checked' : ''}
-                                      />
-                                      Solo elegibles
-                                  </label>
-                                  <div class="cards-filters">
-                                      <div class="filter-group">
-                                          <strong>Nivel</strong>
-                                          <div class="options">
-                                              ${(state.facets.levels || [])
-                                                  .map(
-                                                      (l) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-level
-                                                                  value="${l}"
-                                                                  ${state.cardFilters.levels.includes(l)
-                                                                      ? 'checked'
-                                                                      : ''}
-                                                              />
-                                                              ${l}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div class="filter-group">
-                                          <strong>Tipo</strong>
-                                          <div class="options">
-                                              ${(state.facets.types || [])
-                                                  .map(
-                                                      (t) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-type
-                                                                  value="${t}"
-                                                                  ${state.cardFilters.types.includes(t)
-                                                                      ? 'checked'
-                                                                      : ''}
-                                                              />
-                                                              ${t}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div class="filter-group">
-                                          <strong>Etiquetas</strong>
-                                          <div class="options">
-                                              ${(state.facets.tags || [])
-                                                  .map(
-                                                      (t) =>
-                                                          html`<label
-                                                              ><input
-                                                                  type="checkbox"
-                                                                  data-filter-tag
-                                                                  value="${t}"
-                                                                  ${state.cardFilters.tags.includes(t) ? 'checked' : ''}
-                                                              />
-                                                              ${t}</label
-                                                          >`
-                                                  )
-                                                  .join('')}
-                                          </div>
-                                      </div>
-                                      <div style="grid-column: 1 / -1; display:flex; justify-content:flex-end;">
-                                          <button class="button" id="cards-clear-filters">Limpiar</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="cards-grid">
-                                  ${CardService.filter(availableCards, {
-                                      text: state.cardSearch,
-                                      levels: state.cardFilters.levels,
-                                      types: state.cardFilters.types,
-                                      attributes: state.cardFilters.attributes,
-                                      tags: state.cardFilters.tags,
-                                  })
-                                      .filter((card) => !state.addOnlyEligible || meetsRequirements(c, card))
-                                      .filter((x) => !c.cards.includes(x.id))
-                                      .sort(
-                                          (a, b) =>
-                                              Number(a.level) - Number(b.level) ||
-                                              String(a.name).localeCompare(String(b.name))
-                                      )
-                                      .slice(0, 12)
-                                      .map(
-                                          (card) =>
-                                              html`<div
-                                                  class="card-slot"
-                                                  data-id="${card.id}"
-                                                  data-actions="add"
-                                              ></div>`
-                                      )
-                                      .join('')}
-                              </div>
-                          </div>
-                      </div>
-                  `
-                : state.tab === 'config'
-                ? html`
-                      <div class="editor-grid one-col">
-                          <div class="panel">
-                              <label>Retrato</label>
-                              <div class="attrs">
-                                  <div class="attr">
-                                      <span>URL</span>
-                                      <input
-                                          type="text"
-                                          id="portrait-url"
-                                          class="portrait-url-input"
-                                          value="${c.portraitUrl || ''}"
-                                      />
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <label>Listado de modificadores</label>
-                              <div class="mods">
-                                  ${(c.modifiers || [])
-                                      .map(
-                                          (m, idx) => html`
-                                              <div class="mod-row" data-idx="${idx}">
-                                                  <select data-mod-field>
-                                                      ${allowedFields
-                                                          .map(
-                                                              (f) =>
-                                                                  html`<option
-                                                                      value="${f}"
-                                                                      ${m.field === f ? 'selected' : ''}
-                                                                  >
-                                                                      ${f}
-                                                                  </option>`
-                                                          )
-                                                          .join('')}
-                                                  </select>
-                                                  <select data-mod-mode>
-                                                      <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>
-                                                          +
-                                                      </option>
-                                                      <option value="set" ${m.mode === 'set' ? 'selected' : ''}>
-                                                          =
-                                                      </option>
-                                                  </select>
-                                                  <input
-                                                      type="text"
-                                                      data-mod-expr
-                                                      placeholder="expresion (e.g., 2, cuerpo*2)"
-                                                      value="${m.expr || ''}"
-                                                  />
-                                                  <input
-                                                      type="text"
-                                                      data-mod-label
-                                                      placeholder="Etiqueta (opcional)"
-                                                      value="${m.label || ''}"
-                                                  />
-                                                  <button class="button" data-mod-remove>Eliminar</button>
-                                              </div>
-                                          `
-                                      )
-                                      .join('')}
-                                  <div>
-                                      <button class="button" data-mod-add>Agregar modificador</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <label>Resumen</label>
-                              <div class="attrs">
-                                  <div class="attr"><span>Salud</span><strong>${derived.salud}</strong></div>
-                                  <div class="attr"><span>Velocidad</span><strong>${derived.velocidad}</strong></div>
-                                  <div class="attr"><span>Esquiva</span><strong>${derived.esquiva}</strong></div>
-                                  <div class="attr"><span>Mitigación</span><strong>${derived.mitigacion}</strong></div>
-                                  <div class="attr"><span>ND (Mente)</span><strong>${derived.ndMente}</strong></div>
-                                  <div class="attr">
-                                      <span>ND (Instinto)</span><strong>${derived.ndInstinto}</strong>
-                                  </div>
-                                  <div class="attr"><span>Suerte máx.</span><strong>${derived.suerteMax}</strong></div>
-                              </div>
-                              <small
-                                  >Variables disponibles: cuerpo, reflejos, mente, instinto, presencia, salud,
-                                  velocidad, esquiva, mitigacion, ndMente, ndInstinto, suerteMax, pp, gold.</small
-                              >
-                          </div>
-                      </div>
-                  `
-                : state.tab === 'bio'
-                ? html`
-                      <div class="editor-grid one-col">
-                          <div class="panel">
-                              <label>Retrato</label>
-                              <div class="portrait-wrap">
-                                  ${c.portraitUrl
-                                      ? html`<img
-                                            class="portrait-img"
-                                            src="${c.portraitUrl}"
-                                            alt="Retrato de ${c.name}"
-                                            referrerpolicy="no-referrer"
-                                            onerror="(function(img){img.style.display='none';var p=img.parentElement;var d=document.createElement('div');d.className='portrait-placeholder';d.textContent='Sin retrato';p.appendChild(d);})(this)"
-                                        />`
-                                      : html`<div class="portrait-placeholder">Sin retrato</div>`}
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <label>Historia</label>
-                              <textarea id="bio-text" rows="10">${c.bio || ''}</textarea>
-                          </div>
-                      </div>
-                  `
-                : state.tab === 'progress'
-                ? html`
-                      <div class="editor-grid one-col pp-tab">
-                          <div class="panel">
-                              <label>Estado</label>
-                              <div class="attrs">
-                                  <div class="pp-inline">
-                                      <div class="attr">
-                                          <span>PP actuales</span
-                                          ><strong class="${(Number(c.pp) || 0) < 0 ? 'pp-negative' : ''}"
-                                              >${c.pp || 0}</strong
-                                          >
-                                      </div>
-                                      <div class="attr">
-                                          <span>PP gastados</span
-                                          ><strong
-                                              >${(c.ppHistory || [])
-                                                  .filter((x) => x && x.type === 'spend')
-                                                  .reduce((sum, x) => sum + (Number(x.amount) || 0), 0)}</strong
-                                          >
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <label>Actualizar progreso</label>
-                              <div class="pp-inputs">
-                                  <div class="pp-qty">
-                                      <span>Cantidad</span>
-                                      <input type="number" id="pp-delta" min="1" step="1" value="1" />
-                                  </div>
-                                  <div class="pp-reason">
-                                      <span>Razón</span>
-                                      <input type="text" id="pp-reason" placeholder="Describe el motivo" />
-                                  </div>
-                                  <div class="pp-buttons">
-                                      <button class="button" id="pp-spend" title="Gastar">➖</button>
-                                      <button class="button" id="pp-add" title="Adquirir">➕</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <div class="panel-header">
-                                  <label style="margin:0;">Historial</label>
-                              </div>
-                              <div class="dice-log pp-log" id="pp-log">
-                                  ${(c.ppHistory || [])
-                                      .slice(0, 200)
-                                      .sort((a, b) => Number(b.ts || 0) - Number(a.ts || 0))
-                                      .map((h) => {
-                                          const sign = h.type === 'spend' ? '-' : '+';
-                                          const amt = Number(h.amount) || 0;
-                                          const reason = (h.reason || '').toString();
-                                          return `<div class=\"dice-line\" data-ts=\"${h.ts}\"><span class=\"dice-entry\">[PP] ${sign}${amt} — ${reason}</span><button class=\"button\" data-pp-del=\"${h.ts}\" title=\"Deshacer\">↩️</button></div>`;
-                                      })
-                                      .join('')}
-                              </div>
-                          </div>
-                      </div>
-                  `
-                : state.tab === 'dice'
-                ? html`
-                      <div class="editor-grid one-col dice-tab">
-                          <div class="panel">
-                              <label>Tirar dados</label>
-                              <div class="dice-section">
-                                  <label>Rápido</label>
-                                  <div class="dice-quick">
-                                      <button class="button" data-dice="1d4">d4</button>
-                                      <button class="button" data-dice="1d6">d6</button>
-                                      <button class="button" data-dice="1d8">d8</button>
-                                      <button class="button" data-dice="1d10">d10</button>
-                                      <button class="button" data-dice="1d20">d20</button>
-                                      <button class="button" data-dice="1d100">d100</button>
-                                  </div>
-                              </div>
-                              <div class="dice-section">
-                                  <label>Personalizado</label>
-                                  <div class="dice-custom">
-                                      <input type="number" id="dice-n" min="1" step="1" placeholder="N" />
-                                      <span>d</span>
-                                      <input type="number" id="dice-f" min="2" step="1" placeholder="M" />
-                                      <button class="button" id="dice-roll">Tirar</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel">
-                              <div class="panel-header">
-                                  <label style="margin:0;">Historial</label>
-                                  <button class="button" data-dice-clear>Limpiar historial</button>
-                              </div>
-                              <div class="dice-log" id="dice-log">
-                                  ${(c.rollLog || [])
-                                      .slice(0, 100)
-                                      .map((r) => {
-                                          if (r.type === 'attr') {
-                                              const d = r.details || {};
-                                              const advLabel =
-                                                  d.advantage && d.advantage !== 'normal'
-                                                      ? `, ${d.advantage}=${d.advMod}`
-                                                      : '';
-                                              return `<div class=\"dice-line\" data-ts=\"${r.ts}\"><span class=\"dice-entry\">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class=\"button\" data-dice-del=\"${r.ts}\" title=\"Eliminar\">🗑️</button></div>`;
-                                          }
-                                          const rolls = Array.isArray(r.rolls) ? ` [${r.rolls.join(', ')}]` : '';
-                                          return `<div class=\"dice-line\" data-ts=\"${r.ts}\"><span class=\"dice-entry\">[Dados] ${r.notation} = ${r.total}${rolls}</span><button class=\"button\" data-dice-del=\"${r.ts}\" title=\"Eliminar\">🗑️</button></div>`;
-                                      })
-                                      .join('')}
-                              </div>
-                          </div>
-                      </div>
-                  `
-                : html`
-                      <div class="editor-grid one-col">
-                          <div class="panel">
-                              <label>Notas</label>
-                              <textarea id="notes" rows="10">${c.notes || ''}</textarea>
-                          </div>
-                      </div>
-                  `}
-        `;
+        return html`<div id="sheet-root"></div>`;
     };
 
     const bindEvents = (root) => {
+        // Mount reusable CharacterList in the sidebar
+        const listRoot = root.querySelector('#char-list');
+        const headerHtml = html`<div class="buttons-container">
+            <button class="button" data-action="create" title="Crear">➕</button>
+            <button class="button" data-action="import-current" title="Importar">📥</button>
+            <button class="button" data-action="export-current" title="Exportar">📤</button>
+            <button class="button" data-action="delete-current" title="Eliminar">🗑️</button>
+            <input id="import-one-file" type="file" accept="application/json" style="display:none" />
+        </div>`;
+        const list = CharacterList(listRoot, {
+            items: state.list,
+            selectedId: state.selectedId,
+            getId: (it) => it.id,
+            getName: (it) => it.name || 'Personaje',
+            getPortraitUrl: (it) => it.portraitUrl || '',
+            headerHtml,
+            onSelect: (_idx, item) => {
+                if (!item) return;
+                state.selectedId = item.id;
+                setCharQuery(state.selectedId);
+                update();
+            },
+        });
+        list.init();
+
         root.querySelector('[data-action="create"]').addEventListener('click', () => {
             const c = defaultCharacter();
             state.list.push(c);
@@ -837,18 +253,333 @@ const CharactersPage = (container) => {
                 } catch (_) {}
                 e.target.value = '';
             });
-        root.querySelectorAll('.items .item').forEach((btn) =>
-            btn.addEventListener('click', () => {
-                state.selectedId = btn.getAttribute('data-id');
-                setCharQuery(state.selectedId);
-                update();
-            })
-        );
+        // Selection handled by CharacterList
 
         const editor = root.querySelector('.characters-editor');
         if (!editor) return;
         const c = getSelected();
         if (!c) return;
+
+        // Compute derived and mount CharacterSheet
+        Object.assign(c, CharacterService.normalize(c));
+        const derivedBase_bind = computeDerivedStats(c.attributes);
+        const ndBase_bind = {
+            ndMente: RULES.ndBase + (Number(c.attributes.Mente) || 0),
+            ndInstinto: RULES.ndBase + (Number(c.attributes.Instinto) || 0),
+        };
+        const luckBase_bind = { suerteMax: RULES.maxLuck };
+        const derived_bind = applyModifiersToDerived(
+            { ...derivedBase_bind, ...ndBase_bind, ...luckBase_bind, mitigacion: Number(c.mitigacion) || 0 },
+            c
+        );
+        if (typeof c.hp !== 'number' || Number.isNaN(c.hp)) c.hp = derived_bind.salud;
+        c.hp = Math.max(0, Math.min(c.hp, derived_bind.salud));
+        const sheetRoot = editor.querySelector('#sheet-root');
+        if (sheetRoot) {
+            const sheet = CharacterSheet(sheetRoot, {
+                state,
+                character: c,
+                services: { CardService, meetsRequirements, RULES },
+                options: { readOnly: false },
+                derived: derived_bind,
+                allowedFields,
+                hooks: {
+                    onBind: (ed) => {
+                        ed.querySelectorAll('.tab').forEach((t) =>
+                            t.addEventListener('click', () => {
+                                state.tab = t.getAttribute('data-tab');
+                                update();
+                            })
+                        );
+                        const name = ed.querySelector('#name');
+                        const notes = ed.querySelector('#notes');
+                        const portraitUrl = ed.querySelector('#portrait-url');
+                        const bioText = ed.querySelector('#bio-text');
+                        const languages = ed.querySelector('#languages');
+                        if (name) name.addEventListener('input', (e) => { c.name = e.target.value; save(); });
+                        if (notes) notes.addEventListener('input', (e) => { c.notes = e.target.value; save(); });
+                        if (portraitUrl) portraitUrl.addEventListener('input', (e) => { c.portraitUrl = e.target.value; save(); });
+                        if (bioText) bioText.addEventListener('input', (e) => { c.bio = e.target.value; save(); });
+                        if (languages) languages.addEventListener('input', (e) => { c.languages = e.target.value; save(); });
+                        // Mount EquipmentList
+                        try {
+                            const equipHost = ed.querySelector('#equip-list');
+                            if (equipHost) {
+                                const comp = EquipmentList(equipHost, {
+                                    items: Array.isArray(c.equipmentList) ? c.equipmentList : [],
+                                    onChange: (items) => { c.equipmentList = items; save(); },
+                                });
+                                comp.init();
+                            }
+                        } catch (_) {}
+                        // PP events
+                        const pp = ed.querySelector('#pp');
+                        const ppAddBtn = ed.querySelector('#pp-add');
+                        const ppSpendBtn = ed.querySelector('#pp-spend');
+                        const ppDeltaInp = ed.querySelector('#pp-delta');
+                        const ppReasonInp = ed.querySelector('#pp-reason');
+                        if (pp) pp.setAttribute('disabled', 'disabled');
+                        if (ppAddBtn) ppAddBtn.addEventListener('click', () => {
+                            const amount = Math.max(1, Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0);
+                            const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
+                            if (!reason) { window.alert('Por favor, indica la razón del cambio de PP.'); return; }
+                            CharacterService.addPP(c, amount, reason); save(); update();
+                        });
+                        if (ppSpendBtn) ppSpendBtn.addEventListener('click', () => {
+                            const amount = Math.max(1, Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0);
+                            const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
+                            if (!reason) { window.alert('Por favor, indica la razón del gasto de PP.'); return; }
+                            CharacterService.spendPP(c, amount, reason); save(); update();
+                        });
+                        // Attributes panel
+                        try {
+                            const host = ed.querySelector('#attributes-host');
+                            if (host) {
+                                const comp = AttributesPanel(host, {
+                                    attributes: { ...c.attributes },
+                                    rules: RULES,
+                                    suerte: Number(c.suerte) || 0,
+                                    suerteMax: Number(derived_bind.suerteMax) || 0,
+                                    onChange: (key, val) => { c.attributes[key] = val; save(); update(); },
+                                    onRoll: (key) => {
+                                        const val = Number(c.attributes[key]) || 0;
+                                        const base = computeDerivedStats(c.attributes);
+                                        const ndBase2 = { ndMente: 5 + (Number(c.attributes.Mente) || 0), ndInstinto: 5 + (Number(c.attributes.Instinto) || 0) };
+                                        const luckBase2 = { suerteMax: 5 };
+                                        const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 }, c);
+                                        openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, (res) => {
+                                            if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
+                                            if (res) {
+                                                const entry = { type: 'attr', ts: Date.now(), attr: key, total: res.total, details: { d6: res.d6, advMod: res.advMod, advantage: res.advantage, base: val, extras: res.extras, luck: res.luck } };
+                                                c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                                                c.rollLog.unshift(entry);
+                                                if (c.rollLog.length > 200) c.rollLog.length = 200;
+                                            }
+                                            save(); update();
+                                        });
+                                    },
+                                    onLuckChange: (val) => { c.suerte = val; save(); update(); },
+                                });
+                                comp.init();
+                            }
+                        } catch (_) {}
+                        // Derived panel
+                        try {
+                            const host = ed.querySelector('#derived-host');
+                            if (host) {
+                                const comp = DerivedStatsPanel(host, {
+                                    derived: derived_bind,
+                                    hp: Number(c.hp) || 0,
+                                    tempHp: Number(c.tempHp) || 0,
+                                    onHpChange: (hpVal) => { c.hp = hpVal; save(); update(); },
+                                    onTempHpChange: (tempVal) => { c.tempHp = tempVal; save(); },
+                                });
+                                comp.init();
+                            }
+                        } catch (_) {}
+                        // Modifiers list (Configuración)
+                        try {
+                            if (state.tab === 'config') {
+                                const modsHost = ed.querySelector('#mods-host');
+                                if (modsHost) {
+                                    const comp = ModifiersList(modsHost, {
+                                        items: Array.isArray(c.modifiers) ? c.modifiers : [],
+                                        allowedFields,
+                                        onChange: (items) => { c.modifiers = items; save(); },
+                                    });
+                                    comp.init();
+                                }
+                            }
+                        } catch (_) {}
+                        // Cards filters & search
+                        const gold = ed.querySelector('#gold');
+                        const cardSearch = ed.querySelector('#card-search');
+                        if (gold) gold.addEventListener('change', (e) => { c.gold = Math.max(0, Number(e.target.value) || 0); save(); });
+                        if (cardSearch)
+                            cardSearch.addEventListener('input', (e) => {
+                                state.cardSearch = e.target.value;
+                                state.focusCardSearch = true;
+                                clearTimeout(cardSearchDebounceTimer);
+                                cardSearchDebounceTimer = setTimeout(() => { update(); }, 220);
+                            });
+                        const levelChecks = ed.querySelectorAll('input[data-filter-level]');
+                        const typeChecks = ed.querySelectorAll('input[data-filter-type]');
+                        const tagChecks = ed.querySelectorAll('input[data-filter-tag]');
+                        const clearFilters = ed.querySelector('#cards-clear-filters');
+                        const toggleAddFilters = ed.querySelector('#toggle-add-filters');
+                        if (toggleAddFilters) toggleAddFilters.addEventListener('click', () => { state.filtersOpenAdd = !state.filtersOpenAdd; update(); });
+                        if (clearFilters) clearFilters.addEventListener('click', () => { state.cardFilters = { levels: [], types: [], attributes: [], tags: [] }; update(); });
+                        levelChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = Number(e.target.value); if (e.target.checked && !state.cardFilters.levels.includes(v)) state.cardFilters.levels.push(v); if (!e.target.checked) state.cardFilters.levels = state.cardFilters.levels.filter((x) => x !== v); update(); }));
+                        typeChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = e.target.value; if (e.target.checked && !state.cardFilters.types.includes(v)) state.cardFilters.types.push(v); if (!e.target.checked) state.cardFilters.types = state.cardFilters.types.filter((x) => x !== v); update(); }));
+                        tagChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = e.target.value; if (e.target.checked && !state.cardFilters.tags.includes(v)) state.cardFilters.tags.push(v); if (!e.target.checked) state.cardFilters.tags = state.cardFilters.tags.filter((x) => x !== v); update(); }));
+                        const activeSlots = ed.querySelector('#active-slots');
+                        if (activeSlots) activeSlots.addEventListener('change', (e) => { c.activeSlots = Math.max(0, Number(e.target.value) || 0); if (c.activeCards.length > c.activeSlots) c.activeCards = c.activeCards.slice(0, c.activeSlots); save(); update(); });
+                        const addEligibleToggle = ed.querySelector('#add-eligible-only');
+                        if (addEligibleToggle) addEligibleToggle.addEventListener('change', (e) => { state.addOnlyEligible = !!e.target.checked; update(); });
+                        // Cards visuals and actions
+                        ed.querySelectorAll('.card-slot').forEach((slot) => {
+                            const id = slot.getAttribute('data-id');
+                            const mode = slot.getAttribute('data-actions');
+                            const card = state.allCards.find((x) => x.id === id);
+                            if (!card) return;
+                            const actionsRenderer = (cc) => {
+                                const typeLower = String(cc.type || '').toLowerCase();
+                                const canActivate = typeLower === 'activable';
+                                if (mode === 'toggle') {
+                                    const active = (getSelected().activeCards || []).includes(cc.id);
+                                    const removeBtn = html`<button class="button" data-remove="${cc.id}">Quitar</button>`;
+                                    const toggleBtn = canActivate ? html`<button class="button" data-toggle-active="${cc.id}">${active ? 'Desactivar' : 'Activar'}</button>` : html`<span class="muted">No activable</span>`;
+                                    return html`<div class="card-buttons">${removeBtn} ${toggleBtn}</div>`;
+                                }
+                                if (mode === 'deactivate') {
+                                    const reload = cc.reload && typeof cc.reload === 'object' ? cc.reload : null;
+                                    const qtyNum = reload && Number.isFinite(Number(reload.qty)) ? Number(reload.qty) : null;
+                                    const reloadType = String(reload && reload.type ? reload.type : '').toUpperCase();
+                                    const isRoll = reloadType === 'ROLL';
+                                    const showUses = !!reload && (reload.type != null || qtyNum > 0);
+                                    const uses = (getSelected().cardUses && getSelected().cardUses[cc.id]) || { left: null, total: null };
+                                    const total = isRoll ? 1 : Number(uses.total ?? (qtyNum != null ? qtyNum : 0)) || 0;
+                                    const left = Math.min(Number(uses.left ?? total) || 0, total);
+                                    const leftControl = showUses
+                                        ? html`<div style="display:flex; align-items:center; gap:.5rem;"><span>Usos</span><div class="hp-wrap"><input type="number" data-card-use-left="${cc.id}" min="0" step="1" value="${left}" /> / <strong>${total}</strong></div></div>`
+                                        : html`<span></span>`;
+                                    const rightBtn = html`<button class="button" data-toggle-active="${cc.id}">Desactivar</button>`;
+                                    return html`<div class="card-buttons">${leftControl} ${rightBtn}</div>`;
+                                }
+                                if (mode === 'add') {
+                                    return html`<button class="button" data-add-card="${cc.id}">Añadir</button>`;
+                                }
+                                return '';
+                            };
+                            const comp = CardComponent(slot, { card, actionsRenderer });
+                            comp.init();
+                        });
+                        ed.querySelectorAll('[data-remove]').forEach((btn) => btn.addEventListener('click', () => { const id = btn.getAttribute('data-remove'); const idx = c.cards.indexOf(id); if (idx >= 0) c.cards.splice(idx, 1); c.activeCards = Array.isArray(c.activeCards) ? c.activeCards.filter((x) => x !== id) : []; save(); update(); }));
+                        ed.addEventListener('click', (e) => {
+                            const addBtn = e.target && e.target.closest && e.target.closest('[data-add-card]');
+                            if (addBtn) { const id = addBtn.getAttribute('data-add-card'); if (id && !c.cards.includes(id)) { c.cards.push(id); save(); update(); } return; }
+                            const toggleBtn = e.target && e.target.closest && e.target.closest('[data-toggle-active]');
+                            if (toggleBtn) { const id = toggleBtn.getAttribute('data-toggle-active'); const idx = c.activeCards.indexOf(id); if (idx >= 0) c.activeCards.splice(idx, 1); else if (c.activeCards.length < (c.activeSlots || 0)) c.activeCards.push(id); save(); update(); return; }
+                        });
+                        ed.addEventListener('input', (e) => {
+                            const inp = e.target && e.target.closest && e.target.closest('input[data-card-use-left]');
+                            if (inp) { const cardId = inp.getAttribute('data-card-use-left'); if (!c.cardUses || typeof c.cardUses !== 'object') c.cardUses = {}; const card = state.allCards.find((x) => x.id === cardId); const cd = card && card.reload && typeof card.reload === 'object' ? card.reload : null; const reloadType = String(cd?.type || '').toUpperCase(); const total = reloadType === 'ROLL' ? 1 : Number(c.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0; const left = reloadType === 'ROLL' ? Math.max(0, Math.min(Number(inp.value) || 0, 1)) : Math.max(0, Math.min(Number(inp.value) || 0, total)); c.cardUses[cardId] = { left, total }; save(); }
+                        });
+                        // Dice tab
+                        if (state.tab === 'dice') {
+                            const diceTab = ed.querySelector('.dice-tab');
+                            if (diceTab) {
+                                diceTab.addEventListener('click', (e) => {
+                                    const btn = e.target && e.target.closest && e.target.closest('[data-dice]');
+                                    const delBtn = e.target && e.target.closest && e.target.closest('[data-dice-del]');
+                                    const clearBtn = e.target && e.target.closest && e.target.closest('[data-dice-clear]');
+                                    if (clearBtn) { c.rollLog = []; save(); update(); return; }
+                                    if (delBtn) { const ts = Number(delBtn.getAttribute('data-dice-del')); c.rollLog = (c.rollLog || []).filter((x) => x.ts !== ts); save(); update(); return; }
+                                    if (btn) {
+                                        const notation = btn.getAttribute('data-dice');
+                                        const m = notation.match(/^(\d*)d(\d+)$/i);
+                                        if (!m) return;
+                                        const n = Math.max(1, Number(m[1] || 1));
+                                        const faces = Number(m[2] || 0);
+                                        if (!faces) return;
+                                        const rolls = []; let sum = 0;
+                                        for (let i = 0; i < n; i++) { const r = 1 + Math.floor(Math.random() * faces); rolls.push(r); sum += r; }
+                                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                                        c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation: notation.toLowerCase(), rolls, total: sum });
+                                        if (c.rollLog.length > 200) c.rollLog.length = 200; save(); update();
+                                    }
+                                });
+                                const rollBtn = diceTab.querySelector('#dice-roll');
+                                if (rollBtn)
+                                    rollBtn.addEventListener('click', () => {
+                                        const nInp = diceTab.querySelector('#dice-n');
+                                        const fInp = diceTab.querySelector('#dice-f');
+                                        const n = Math.max(1, Number(nInp.value) || 1);
+                                        const f = Math.max(2, Number(fInp.value) || 0);
+                                        if (!f) return;
+                                        const notation = `${n}d${f}`;
+                                        const rolls = [];
+                                        let sum = 0;
+                                        for (let i = 0; i < n; i++) {
+                                            const r = 1 + Math.floor(Math.random() * f);
+                                            rolls.push(r);
+                                            sum += r;
+                                        }
+                                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                                        c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation, rolls, total: sum });
+                                        if (c.rollLog.length > 200) c.rollLog.length = 200;
+                                        save();
+                                        update();
+                                    });
+                            }
+                            // Dice history
+                            try {
+                                const host = ed.querySelector('#dice-history');
+                                if (host) {
+                                    const items = (c.rollLog || []).slice(0, 100);
+                                    const renderItem = (r) => {
+                                        if (r.type === 'attr') {
+                                            const d = r.details || {};
+                                            const advLabel = d.advantage && d.advantage !== 'normal' ? `, ${d.advantage}=${d.advMod}` : '';
+                                            return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                                        }
+                                        const rolls = Array.isArray(r.rolls) ? ` [${r.rolls.join(', ')}]` : '';
+                                        return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Dados] ${r.notation} = ${r.total}${rolls}</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                                    };
+                                    const list = HistoryList(host, { items, renderItem, wrap: false }); list.init();
+                                }
+                            } catch (_) {}
+                        }
+                        if (state.tab === 'progress') {
+                            const ppTab = ed.querySelector('.pp-tab');
+                            if (ppTab) {
+                                ppTab.addEventListener('click', (e) => {
+                                    const delBtn = e.target && e.target.closest && e.target.closest('[data-pp-del]');
+                                    if (delBtn) {
+                                        const ts = Number(delBtn.getAttribute('data-pp-del'));
+                                        const hist = Array.isArray(c.ppHistory) ? c.ppHistory : [];
+                                        const entry = hist.find((x) => x.ts === ts);
+                                        if (entry) {
+                                            const amount = Math.max(0, Number(entry.amount) || 0);
+                                            const reason = String(entry.reason || '').trim();
+                                            const delta = entry.type === 'spend' ? `+${amount}` : `-${amount}`;
+                                            const ok = window.confirm(`¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`);
+                                            if (!ok) return;
+                                            CharacterService.undoPP(c, ts);
+                                        }
+                                        save();
+                                        update();
+                                        return;
+                                    }
+                                });
+                            }
+                            try {
+                                const host = ed.querySelector('#pp-history');
+                                if (host) {
+                                    const items = (c.ppHistory || []).slice(0, 200).sort((a, b) => Number(b.ts || 0) - Number(a.ts || 0));
+                                    const renderItem = (h) => {
+                                        const sign = h.type === 'spend' ? '-' : '+';
+                                        const amt = Number(h.amount) || 0;
+                                        const reason = (h.reason || '').toString();
+                                        return html`<div class="dice-line" data-ts="${h.ts}"><span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button></div>`;
+                                    };
+                                    const list = HistoryList(host, { items, renderItem, wrap: false }); list.init();
+                                }
+                            } catch (_) {}
+                        }
+                        // Portrait image mount
+                        try {
+                            const pm = ed.querySelector('#portrait-mount');
+                            if (pm) { mountImageWithFallback(pm, { src: c && c.portraitUrl ? String(c.portraitUrl) : '', alt: c ? `Retrato de ${c.name}` : 'Retrato', className: 'portrait-img', placeholderText: 'Sin retrato' }); }
+                        } catch (_) {}
+                        // Restore focus on card search
+                        if (state.focusCardSearch) { const search = ed.querySelector('#card-search'); if (search) { const val = search.value; search.focus(); search.setSelectionRange(val.length, val.length); } state.focusCardSearch = false; }
+                    },
+                },
+            });
+            sheet.init();
+            return;
+        }
 
         const name = editor.querySelector('#name');
         const notes = editor.querySelector('#notes');
@@ -903,6 +634,20 @@ const CharactersPage = (container) => {
                 c.languages = e.target.value;
                 save();
             });
+        // Mount EquipmentList component
+        try {
+            const equipHost = editor.querySelector('#equip-list');
+            if (equipHost) {
+                const comp = EquipmentList(equipHost, {
+                    items: Array.isArray(c.equipmentList) ? c.equipmentList : [],
+                    onChange: (items) => {
+                        c.equipmentList = items;
+                        save();
+                    },
+                });
+                comp.init();
+            }
+        } catch (_) {}
         // PP now managed via Progress tab
         if (pp) pp.setAttribute('disabled', 'disabled');
         if (ppAddBtn)
@@ -913,9 +658,7 @@ const CharactersPage = (container) => {
                     window.alert('Por favor, indica la razón del cambio de PP.');
                     return;
                 }
-                c.pp = (Number(c.pp) || 0) + amount;
-                c.ppHistory = Array.isArray(c.ppHistory) ? c.ppHistory : [];
-                c.ppHistory.push({ ts: Date.now(), type: 'add', amount, reason });
+                CharacterService.addPP(c, amount, reason);
                 save();
                 update();
             });
@@ -927,86 +670,86 @@ const CharactersPage = (container) => {
                     window.alert('Por favor, indica la razón del gasto de PP.');
                     return;
                 }
-                const current = Number(c.pp) || 0;
-                c.pp = current - amount;
-                c.ppHistory = Array.isArray(c.ppHistory) ? c.ppHistory : [];
-                c.ppHistory.push({ ts: Date.now(), type: 'spend', amount, reason });
+                CharacterService.spendPP(c, amount, reason);
                 save();
                 update();
             });
         // limpiar historial eliminado por diseño
-        if (suerte)
-            suerte.addEventListener('change', (e) => {
-                const max = Number(e.target.getAttribute('data-max')) || Infinity;
-                c.suerte = Math.max(0, Math.min(Number(e.target.value) || 0, max));
+        // Mount AttributesPanel
+        try {
+            const host = editor.querySelector('#attributes-host');
+            if (host) {
+                const comp = AttributesPanel(host, {
+                    attributes: { ...c.attributes },
+                    rules: RULES,
+                    suerte: Number(c.suerte) || 0,
+                    suerteMax: Number(derived_bind.suerteMax) || 0,
+                    onChange: (key, val) => {
+                        c.attributes[key] = val;
                 save();
-                update();
-            });
-        if (hp)
-            hp.addEventListener('change', (e) => {
-                c.hp = Math.max(0, Number(e.target.value) || 0);
-                save();
-                update();
-            });
-        if (tempHp)
-            tempHp.addEventListener('change', (e) => {
-                c.tempHp = Math.max(0, Number(e.target.value) || 0);
-                save();
-            });
+                        update();
+                    },
+                    onRoll: (key) => {
+                        const val = Number(c.attributes[key]) || 0;
+                        const base = computeDerivedStats(c.attributes);
+                        const ndBase2 = { ndMente: 5 + (Number(c.attributes.Mente) || 0), ndInstinto: 5 + (Number(c.attributes.Instinto) || 0) };
+                        const luckBase2 = { suerteMax: 5 };
+                        const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 }, c);
+                        openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, (res) => {
+                            if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
+                            if (res) {
+                                const entry = { type: 'attr', ts: Date.now(), attr: key, total: res.total, details: { d6: res.d6, advMod: res.advMod, advantage: res.advantage, base: val, extras: res.extras, luck: res.luck } };
+                                c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                                c.rollLog.unshift(entry);
+                                if (c.rollLog.length > 200) c.rollLog.length = 200;
+                            }
+                            save();
+                            update();
+                        });
+                    },
+                    onLuckChange: (val) => {
+                        c.suerte = val;
+                        save();
+                        update();
+                    },
+                });
+                comp.init();
+            }
+        } catch (_) {}
+        // Mount DerivedStatsPanel
+        try {
+            const host = editor.querySelector('#derived-host');
+            if (host) {
+                const comp = DerivedStatsPanel(host, {
+                    derived: derived_bind,
+                    hp: Number(c.hp) || 0,
+                    tempHp: Number(c.tempHp) || 0,
+                    onHpChange: (hpVal) => {
+                        c.hp = hpVal;
+                        save();
+                        update();
+                    },
+                    onTempHpChange: (tempVal) => {
+                        c.tempHp = tempVal;
+                        save();
+                    },
+                });
+                comp.init();
+            }
+        } catch (_) {}
         if (gold)
             gold.addEventListener('change', (e) => {
                 c.gold = Math.max(0, Number(e.target.value) || 0);
                 save();
             });
-        // Equipment list events
-        const eqAdd = editor.querySelector('[data-eq-add]');
-        if (eqAdd)
-            eqAdd.addEventListener('click', () => {
-                c.equipmentList = Array.isArray(c.equipmentList) ? c.equipmentList : [];
-                c.equipmentList.push({ qty: 1, name: '', notes: '' });
-                save();
-                update();
-            });
-        editor.querySelectorAll('.equip-row').forEach((row) => {
-            const idx = Number(row.getAttribute('data-eq-idx'));
-            const qty = row.querySelector('[data-eq-qty]');
-            const name = row.querySelector('[data-eq-name]');
-            const notes = row.querySelector('[data-eq-notes]');
-            const remove = row.querySelector('[data-eq-remove]');
-            if (qty)
-                qty.addEventListener('change', (e) => {
-                    const v = Math.max(0, Number(e.target.value) || 0);
-                    if (c.equipmentList[idx]) c.equipmentList[idx].qty = v;
-                    save();
-                });
-            if (name)
-                name.addEventListener('input', (e) => {
-                    if (c.equipmentList[idx]) c.equipmentList[idx].name = e.target.value;
-                    save();
-                });
-            if (notes)
-                notes.addEventListener('input', (e) => {
-                    if (c.equipmentList[idx]) c.equipmentList[idx].notes = e.target.value;
-                    save();
-                });
-            if (remove)
-                remove.addEventListener('click', () => {
-                    const item = c.equipmentList[idx];
-                    const label = item && item.name ? `"${item.name}"` : 'este ítem';
-                    const ok = window.confirm(`¿Eliminar ${label}?`);
-                    if (!ok) return;
-                    c.equipmentList.splice(idx, 1);
-                    save();
-                    update();
-                });
-        });
+        // EquipmentList uses its own handlers via onChange
         if (cardSearch)
             cardSearch.addEventListener('input', (e) => {
                 state.cardSearch = e.target.value;
                 state.focusCardSearch = true;
                 clearTimeout(cardSearchDebounceTimer);
                 cardSearchDebounceTimer = setTimeout(() => {
-                    update();
+                update();
                 }, 220);
             });
         // Cards tab filters
@@ -1116,8 +859,8 @@ const CharactersPage = (container) => {
                             c.rollLog.unshift(entry);
                             if (c.rollLog.length > 200) c.rollLog.length = 200;
                         }
-                        save();
-                        update();
+                            save();
+                            update();
                     }
                 );
             })
@@ -1157,14 +900,14 @@ const CharactersPage = (container) => {
                 const canActivate = typeLower === 'activable';
                 if (mode === 'toggle') {
                     const active = (getSelected().activeCards || []).includes(c.id);
-                    const removeBtn = `<button class="button" data-remove="${c.id}">Quitar</button>`;
+                    const removeBtn = html`<button class="button" data-remove="${c.id}">Quitar</button>`;
                     const toggleBtn = canActivate
-                        ? `<button class="button" data-toggle-active="${c.id}">${
+                        ? html`<button class="button" data-toggle-active="${c.id}">${
                               active ? 'Desactivar' : 'Activar'
                           }</button>`
-                        : `<span class="muted">No activable</span>`;
+                        : html`<span class="muted">No activable</span>`;
 
-                    return `<div class="card-buttons">${removeBtn} ${toggleBtn}</div>`;
+                    return html`<div class="card-buttons">${removeBtn} ${toggleBtn}</div>`;
                 }
                 if (mode === 'deactivate') {
                     const reload = c.reload && typeof c.reload === 'object' ? c.reload : null;
@@ -1186,12 +929,12 @@ const CharactersPage = (container) => {
                                   / <strong>${total}</strong>
                               </div>
                           </div>`
-                        : `<span></span>`;
-                    const rightBtn = `<button class="button" data-toggle-active="${c.id}">Desactivar</button>`;
-                    return `<div class="card-buttons">${leftControl} ${rightBtn}</div>`;
+                        : html`<span></span>`;
+                    const rightBtn = html`<button class="button" data-toggle-active="${c.id}">Desactivar</button>`;
+                    return html`<div class="card-buttons">${leftControl} ${rightBtn}</div>`;
                 }
                 if (mode === 'add') {
-                    return `<button class="button" data-add-card="${c.id}">Añadir</button>`;
+                    return html`<button class="button" data-add-card="${c.id}">Añadir</button>`;
                 }
                 return '';
             };
@@ -1209,50 +952,22 @@ const CharactersPage = (container) => {
             })
         );
 
-        // Modifiers events
-        const addMod = editor.querySelector('[data-mod-add]');
-        if (addMod)
-            addMod.addEventListener('click', () => {
-                c.modifiers.push({ field: 'salud', mode: 'add', expr: '0', label: '' });
+        // Mount ModifiersList
+        try {
+            const host = editor.querySelector('#mods-host');
+            if (host) {
+                const comp = ModifiersList(host, {
+                    items: Array.isArray(c.modifiers) ? c.modifiers : [],
+                    allowedFields,
+                    onChange: (items) => {
+                        c.modifiers = items;
                 save();
-                update();
-            });
-        editor.querySelectorAll('.mod-row').forEach((row) => {
-            const idx = Number(row.getAttribute('data-idx'));
-            const m = c.modifiers[idx];
-            if (!m) return;
-            const fieldSel = row.querySelector('[data-mod-field]');
-            const modeSel = row.querySelector('[data-mod-mode]');
-            const exprInp = row.querySelector('[data-mod-expr]');
-            const labelInp = row.querySelector('[data-mod-label]');
-            const rmBtn = row.querySelector('[data-mod-remove]');
-            if (fieldSel)
-                fieldSel.addEventListener('change', (e) => {
-                    m.field = e.target.value;
-                    save();
+                        // No update() inmediato para evitar perder foco al escribir
+                    },
                 });
-            if (modeSel)
-                modeSel.addEventListener('change', (e) => {
-                    m.mode = e.target.value;
-                    save();
-                });
-            if (exprInp)
-                exprInp.addEventListener('input', (e) => {
-                    m.expr = e.target.value;
-                    save();
-                });
-            if (labelInp)
-                labelInp.addEventListener('input', (e) => {
-                    m.label = e.target.value;
-                    save();
-                });
-            if (rmBtn)
-                rmBtn.addEventListener('click', () => {
-                    c.modifiers.splice(idx, 1);
-                    save();
-                    update();
-                });
-        });
+                comp.init();
+            }
+        } catch (_) {}
         editor.addEventListener('input', (e) => {
             const inp = e.target && e.target.closest && e.target.closest('input[data-card-use-left]');
             if (inp) {
@@ -1269,7 +984,7 @@ const CharactersPage = (container) => {
                         ? Math.max(0, Math.min(Number(inp.value) || 0, 1))
                         : Math.max(0, Math.min(Number(inp.value) || 0, total));
                 current.cardUses[cardId] = { left, total };
-                save();
+                    save();
             }
         });
 
@@ -1283,7 +998,7 @@ const CharactersPage = (container) => {
                     const clearBtn = e.target && e.target.closest && e.target.closest('[data-dice-clear]');
                     if (clearBtn) {
                         c.rollLog = [];
-                        save();
+                    save();
                         update();
                         return;
                     }
@@ -1317,7 +1032,7 @@ const CharactersPage = (container) => {
                             total: sum,
                         });
                         if (c.rollLog.length > 200) c.rollLog.length = 200;
-                        save();
+                    save();
                         update();
                     }
                 });
@@ -1340,10 +1055,29 @@ const CharactersPage = (container) => {
                         c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
                         c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation, rolls, total: sum });
                         if (c.rollLog.length > 200) c.rollLog.length = 200;
-                        save();
+                    save();
                         update();
                     });
             }
+            // Mount dice history using HistoryList
+            try {
+                const c2 = getSelected();
+                const host = editor.querySelector('#dice-history');
+                if (host) {
+                    const items = (c2.rollLog || []).slice(0, 100);
+                    const renderItem = (r) => {
+                        if (r.type === 'attr') {
+                            const d = r.details || {};
+                            const advLabel = d.advantage && d.advantage !== 'normal' ? `, ${d.advantage}=${d.advMod}` : '';
+                            return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                        }
+                        const rolls = Array.isArray(r.rolls) ? ` [${r.rolls.join(', ')}]` : '';
+                        return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Dados] ${r.notation} = ${r.total}${rolls}</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                    };
+                    const list = HistoryList(host, { items, renderItem, wrap: false });
+                    list.init();
+                }
+            } catch (_) {}
         }
         if (state.tab === 'progress') {
             const ppTab = editor.querySelector('.pp-tab');
@@ -1362,21 +1096,32 @@ const CharactersPage = (container) => {
                                 `¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`
                             );
                             if (!ok) return;
-                            if (entry.type === 'spend') {
-                                // Revert the spend: give PP back
-                                c.pp = (Number(c.pp) || 0) + amount;
-                            } else if (entry.type === 'add') {
-                                // Revert the add: remove PP granted by mistake
-                                c.pp = (Number(c.pp) || 0) - amount;
-                            }
+                            CharacterService.undoPP(c, ts);
                         }
-                        c.ppHistory = hist.filter((x) => x.ts !== ts);
-                        save();
-                        update();
+                    save();
+                    update();
                         return;
                     }
                 });
             }
+            // Mount PP history using HistoryList
+            try {
+                const c2 = getSelected();
+                const host = editor.querySelector('#pp-history');
+                if (host) {
+                    const items = (c2.ppHistory || [])
+                        .slice(0, 200)
+                        .sort((a, b) => Number(b.ts || 0) - Number(a.ts || 0));
+                    const renderItem = (h) => {
+                        const sign = h.type === 'spend' ? '-' : '+';
+                        const amt = Number(h.amount) || 0;
+                        const reason = (h.reason || '').toString();
+                        return html`<div class="dice-line" data-ts="${h.ts}"><span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button></div>`;
+                    };
+                    const list = HistoryList(host, { items, renderItem, wrap: false });
+                    list.init();
+                }
+            } catch (_) {}
         }
     };
 
@@ -1391,6 +1136,19 @@ const CharactersPage = (container) => {
         const mainEl = layoutInstance.getMainEl();
         mainEl.innerHTML = renderInner();
         bindEvents(mainEl);
+        // Mount portrait image with safe fallback in Bio tab
+        try {
+            const c = getSelected();
+            const pm = mainEl.querySelector('#portrait-mount');
+            if (pm) {
+                mountImageWithFallback(pm, {
+                    src: c && c.portraitUrl ? String(c.portraitUrl) : '',
+                    alt: c ? `Retrato de ${c.name}` : 'Retrato',
+                    className: 'portrait-img',
+                    placeholderText: 'Sin retrato',
+                });
+            }
+        } catch (_) {}
         // Restore focus on card search if user was typing
         if (state.focusCardSearch) {
             const search = mainEl.querySelector('#card-search');

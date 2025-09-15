@@ -151,7 +151,7 @@ cards:
       description: >-
           Elige una habilidad (ej: Atletismo, Sigilo, etc.). Obtienes Ventaja
           (+1d4) en las Pruebas de Habilidad que realices con ella. Debes tener al menos
-          un valor de 2 en el Atributo asociado a la habilidad elegida. Puedes elegir esta carta más de una vez.
+          un valor de 2 en el Atributo asociado a la habilidad elegida. Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.
       reload:
           type: null
           qty: 0
@@ -445,6 +445,7 @@ cards:
           type: null
           qty: 0
     - name: Ataque y Empuje
+      level: 2
       type: Activable
       tags:
           - Combatiente
@@ -564,7 +565,7 @@ cards:
           qty: 0
     - name: Indomable
       level: 3
-      type: Accionable
+      type: Activable
       tags:
           - Combatiente
       requirements:
@@ -797,7 +798,7 @@ cards:
       requirements:
           - Consagración
       description: >-
-          Tocas a una criatura. Recupera 1d6 puntos de Salud.
+          Tocas a una criatura y esta recupera 1d6 puntos de Salud.
       reload:
           type: ROLL
           qty: 3
