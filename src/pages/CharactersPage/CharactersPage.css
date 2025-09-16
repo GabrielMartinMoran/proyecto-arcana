@@ -41,6 +41,11 @@
     gap: 0.25rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
+.dice-log {
+    max-height: 120px; /* alto para ~3 filas visibles según padding */
+    overflow-y: auto;
+    padding-right: .25rem;
+}
 .dice-line {
     background: #fff;
     border: 1px solid var(--border-color);

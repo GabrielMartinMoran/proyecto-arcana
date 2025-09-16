@@ -1,0 +1,72 @@
+.dice-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dice-tab .dice-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dice-tab .dice-quick {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.5rem;
+}
+
+.dice-tab .dice-custom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.dice-tab .dice-vars {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.dice-tab #dice-history {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
+}
+
+.dice-tab .log-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dice-tab .log-row:last-child {
+    border-bottom: none;
+}
+
+.dice-tab .log-text {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-size: 0.9rem;
+    flex: 1;
+    margin-right: 0.5rem;
+}
+
+.dice-tab .icon-only {
+    padding: 0.25rem;
+    min-width: auto;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.dice-tab .empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 1rem;
+}

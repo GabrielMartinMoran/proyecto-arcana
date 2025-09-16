@@ -197,6 +197,7 @@ body.no-scroll {
 
 /* Inputs */
 input[type='text'],
+input[type='number'],
 select {
     width: 100%;
     padding: 0.625rem 0.75rem;
@@ -237,7 +238,7 @@ label {
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.0);
     display: none;
     align-items: center;
     justify-content: center;
@@ -246,6 +247,9 @@ label {
     &.open {
         display: flex;
     }
+}
+.modal-backdrop.light {
+    background: rgba(0,0,0,0.06);
 }
 
 .modal-panel {

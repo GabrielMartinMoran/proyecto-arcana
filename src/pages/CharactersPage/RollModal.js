@@ -2,8 +2,12 @@ const html = window.html || String.raw;
 
 import ModalComponent from '../../components/ModalComponent/ModalComponent.js';
 import { evalFormula, rollDice } from '../../utils/dice-utils.js';
+import { ensureStyle } from '../../utils/style-utils.js';
 
-export function openRollModal(container, { attributeName, attributeValue, maxSuerte }, onResult) {
+export function openRollModal(container, { attributeName, attributeValue, maxSuerte, currentSuerte }, onResult) {
+    // Load modal styles
+    ensureStyle('./src/pages/CharactersPage/RollModal.css');
+    
     const host = document.createElement('div');
     container.appendChild(host);
     const modal = ModalComponent(host, { title: `Tirada: ${attributeName}` });
@@ -24,11 +28,11 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
                 <input type="text" id="mods" placeholder="e.g., +2, 1d4, cuerpo*2" />
             </div>
             <div class="field">
-                <label>Usar suerte (máx ${maxSuerte})</label>
-                <input type="number" id="luck" min="0" max="${maxSuerte}" step="1" value="0" />
+                <label>Tienes ${currentSuerte || 0} puntos de suerte</label>
+                <input type="number" id="luck" min="0" max="${currentSuerte || 0}" step="1" value="0" />
             </div>
             <div class="actions">
-                <button class="button primary" id="do-roll" title="Tirar">🎲 Tirar</button>
+                <button class="button primary full-width" id="do-roll" title="Tirar">🎲 Tirar</button>
             </div>
             <div id="roll-result" class="result" style="margin-top: .5rem;"></div>
         </div>
@@ -43,7 +47,7 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
 
     rollBtn.addEventListener('click', () => {
         const advantage = advSel.value;
-        const luck = Math.max(0, Math.min(Number(luckInp.value) || 0, Number(maxSuerte) || 0));
+        const luck = Math.max(0, Math.min(Number(luckInp.value) || 0, Number(currentSuerte) || 0));
         const base = Number(attributeValue) || 0;
         const d6 = rollDice('1d6');
         let advMod = 0;
@@ -58,9 +62,11 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
         });
         const die = d6 + (advMod || 0);
         const total = die + base + extras + luck;
-        const advDesc = advantage === 'normal' ? '±0' : `${advantage}=${advMod >= 0 ? '+' : ''}${advMod} (1d4)`;
-        const breakdown = `1d6=${d6}  |  ${advDesc}  |  atributo=${base}  |  mods=${extras}  |  suerte=${luck}`;
-        resultEl.innerHTML = html`<div class="total" title="${breakdown}">${total}</div>`;
+        
+        // Call result callback immediately
         if (typeof onResult === 'function') onResult({ d6, advMod, advantage, base, extras, luck, total });
+        
+        // Close modal automatically
+        modal.close();
     });
 }

@@ -15,6 +15,13 @@ import CharacterSheet from '../../components/CharacterSheet/CharacterSheet.js';
 import AttributesPanel from '../../components/AttributesPanel/AttributesPanel.js';
 import DerivedStatsPanel from '../../components/DerivedStatsPanel/DerivedStatsPanel.js';
 import EquipmentList from '../../components/EquipmentList/EquipmentList.js';
+import SheetTab from '../../components/SheetTab/SheetTab.js';
+import CardsTab from '../../components/CardsTab/CardsTab.js';
+import ConfigTab from '../../components/ConfigTab/ConfigTab.js';
+import BioTab from '../../components/BioTab/BioTab.js';
+import ProgressTab from '../../components/ProgressTab/ProgressTab.js';
+import DiceTab from '../../components/DiceTab/DiceTab.js';
+import NotesTab from '../../components/NotesTab/NotesTab.js';
 
 const STORAGE_KEY = 'arcana:characters';
 const EXAMPLES_CONFIG = 'config/example-characters.json';
@@ -88,8 +95,12 @@ const CharactersExamplesPage = (container) => {
             services: { CardService, meetsRequirements: () => true, RULES },
             options: { readOnly: true },
             derived,
+            state: state,
+            rules: RULES,
+            onUpdate: () => {}, // No-op for read-only
+            onRoll: () => {}, // No-op for read-only
             hooks: {
-                onBind: (root) => {
+                onBind: async (root) => {
                     // Tabs
                     root.querySelectorAll('.tab').forEach((t) =>
                         t.addEventListener('click', () => {
@@ -162,6 +173,8 @@ const CharactersExamplesPage = (container) => {
                             comp.init();
                         });
                     }
+                    
+                    // CharacterSheet now handles all tab mounting internally
                 },
             },
         });

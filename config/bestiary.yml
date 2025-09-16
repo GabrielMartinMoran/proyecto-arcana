@@ -31,6 +31,7 @@ creatures:
       reactions: []
       behavior: |
           Atacar en grandes grupos al enemigo más cercano. Huir si se ve superado en número.
+      img: https://i.imgur.com/I3zy9zB.png
 
     - name: Bandido
       na: 2
@@ -67,6 +68,7 @@ creatures:
       reactions: []
       behavior: |
           Atacar en grandes grupos al enemigo más cercano. Huir si se ve superado en número.
+      img: https://i.imgur.com/ParBKHT.png
 
     - name: Orco
       na: 2
@@ -102,6 +104,7 @@ creatures:
       reactions: []
       behavior: |
           Cargar contra el enemigo que parezca más fuerte y luchar hasta la muerte sin retroceder.
+      img: https://i.imgur.com/vwS87Yq.png
 
     - name: Espectro
       na: 5
@@ -142,6 +145,7 @@ creatures:
       reactions: []
       behavior: |
           Flotar a través de los muros para aterrorizar y aislar a sus víctimas, enfocándose en los personajes con menor puntuación de Instinto.
+      img: https://i.imgur.com/3LAtxZ4.png
 
     - name: Ogro
       na: 8
@@ -179,6 +183,7 @@ creatures:
       reactions: []
       behavior: |
           Aplastar primero lo que sea más pequeño y ruidoso, luego comer.
+      img: https://i.imgur.com/bZ1hNkv.png
 
     - name: Capitán de los Bandidos
       na: 5
@@ -219,6 +224,7 @@ creatures:
             detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, añade +2 a su Esquiva contra ese ataque, pudiendo hacer que falle.
       behavior: |
           Se mantiene a distancia con su ballesta, usando a sus bandidos como escudo. Usa Parada contra los atacantes más fuertes que logren acercarse.
+      img: https://i.imgur.com/k3QVNis.png
 
     - name: Cultista
       na: 2
@@ -257,6 +263,7 @@ creatures:
       reactions: []
       behavior: |
           Protege a su líder a toda costa y lucha fanáticamente hasta la muerte, creyendo que su sacrificio será recompensado.
+      img: https://i.imgur.com/VBT0h7Z.png
 
     - name: Sacerdote
       na: 4
@@ -311,6 +318,7 @@ creatures:
       reactions: []
       behavior: |
           Se mantiene detrás de sus aliados, usando Llama Radiante y ayudando a los heridos. Usa Espíritus Guardianes si se ve rodeado por múltiples enemigos.
+      img: https://i.imgur.com/w5QQCP6.png
 
     - name: Esqueleto
       na: 2
@@ -351,6 +359,7 @@ creatures:
       reactions: []
       behavior: |
           Sigue las últimas órdenes recibidas sin pensar. Usa su arco contra enemigos lejanos y su espada contra cercanos. No tiene instinto de autopreservación.
+      img: https://i.imgur.com/QElMAiy.png
 
     - name: Matón
       na: 3
@@ -389,6 +398,7 @@ creatures:
       reactions: []
       behavior: |
           Busca superar en número a sus oponentes para usar sus tácticas. Se enfoca en enemigos derribados o que parezcan débiles.
+      img: https://i.imgur.com/yw8RtuI.png
 
     - name: Troll
       na: 7
@@ -425,6 +435,7 @@ creatures:
       reactions: []
       behavior: |
           Ataca sin pensar al enemigo más cercano, confiando en su regeneración. Evita el fuego o ácido cuando aprende su debilidad.
+      img: https://i.imgur.com/5MAnITP.png
 
     - name: Zombi
       na: 1
@@ -459,3 +470,4 @@ creatures:
       reactions: []
       behavior: |
           Avanza lentamente hacia el ser vivo más cercano para golpearlo sin cesar hasta que deje de moverse. No reacciona a peligros del entorno.
+      img: https://i.imgur.com/ZVpBSZ6.png

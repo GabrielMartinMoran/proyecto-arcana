@@ -10,10 +10,11 @@ const ModalComponent = (container, props = {}) => {
         content: props.content || '',
         open: false,
         onClose: typeof props.onClose === 'function' ? props.onClose : () => {},
+        backdropClass: props.backdropClass || '',
     };
 
     const render = () => html`
-        <div class="modal-backdrop ${state.open ? 'open' : ''}" role="dialog" aria-modal="true">
+        <div class="modal-backdrop ${state.open ? 'open' : ''} ${state.backdropClass}" role="dialog" aria-modal="true">
             <div class="modal-panel">
                 <div class="modal-header">
                     <h3 class="modal-title">${state.title}</h3>
@@ -36,14 +37,21 @@ const ModalComponent = (container, props = {}) => {
             closeBtn.addEventListener('click', () => api.close());
         }
         document.addEventListener('keydown', onKeyDown);
+        window.addEventListener('hashchange', onRouteChange);
+        window.addEventListener('popstate', onRouteChange);
     };
 
     const onKeyDown = (e) => {
         if (state.open && e.key === 'Escape') api.close();
     };
+    const onRouteChange = () => {
+        if (state.open) api.close();
+    };
 
     const unbindEvents = () => {
         document.removeEventListener('keydown', onKeyDown);
+        window.removeEventListener('hashchange', onRouteChange);
+        window.removeEventListener('popstate', onRouteChange);
     };
 
     const setState = (partial) => {
@@ -57,8 +65,8 @@ const ModalComponent = (container, props = {}) => {
             container.innerHTML = render();
             bindEvents();
         },
-        open(content, title = state.title) {
-            setState({ content, title, open: true });
+        open(content, title = state.title, backdropClass = state.backdropClass) {
+            setState({ content, title, open: true, backdropClass });
         },
         close() {
             setState({ open: false });

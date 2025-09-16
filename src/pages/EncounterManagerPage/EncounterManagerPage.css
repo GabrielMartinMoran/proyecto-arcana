@@ -1,0 +1,31 @@
+.encounter-toolbar {
+    display: flex;
+    gap: .5rem;
+}
+.encounter-empty {
+    display: grid;
+    place-items: center;
+    color: var(--text-secondary);
+}
+
+.encounter-log-section {
+    margin-top: var(--spacing-lg);
+}
+.encounter-log-section .log-row {
+    padding: .35rem .5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+.encounter-log-section .log-row:last-child {
+    border-bottom: 0;
+}
+.encounter-log-section .log-row .button.icon-only {
+    padding: .25rem .45rem;
+}
+
+.encounter-log-section .global-log {
+    max-height: 120px;
+    overflow-y: auto;
+}

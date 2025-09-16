@@ -1,11 +1,11 @@
 const html = window.html || String.raw;
-import { renderSheetTab } from './tabs/SheetTab.js';
-import { renderCardsTab } from './tabs/CardsTab.js';
-import { renderConfigTab } from './tabs/ConfigTab.js';
-import { renderBioTab } from './tabs/BioTab.js';
-import { renderProgressTab } from './tabs/ProgressTab.js';
-import { renderDiceTab } from './tabs/DiceTab.js';
-import { renderNotesTab } from './tabs/NotesTab.js';
+import SheetTab from '../SheetTab/SheetTab.js';
+import CardsTab from '../CardsTab/CardsTab.js';
+import ConfigTab from '../ConfigTab/ConfigTab.js';
+import BioTab from '../BioTab/BioTab.js';
+import ProgressTab from '../ProgressTab/ProgressTab.js';
+import DiceTab from '../DiceTab/DiceTab.js';
+import NotesTab from '../NotesTab/NotesTab.js';
 
 /**
  * CharacterSheet component: renders and binds the character tabs UI.
@@ -23,11 +23,17 @@ export default function CharacterSheet(container, props = {}) {
     const meetsRequirements = props.services?.meetsRequirements || (() => true);
     const RULES = props.services?.RULES || {};
     const readOnly = !!(props.options && props.options.readOnly);
+    const lockName = !!(props.options && props.options.lockName);
+    
+    // Initialize state.character with the passed character
+    state.character = character;
 
     const render = () => {
         return html`
             <div class="editor-header">
-                <input id="name" class="name-input" type="text" value="${character.name || ''}" ${readOnly ? 'disabled' : ''} />
+                ${readOnly || lockName
+                    ? html`<div class="name-input" style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;">${character.name || ''}</div>`
+                    : html`<input id="name" class="name-input" type="text" value="${character.name || ''}" />`}
             </div>
             <div class="tabs">
                 <button class="tab ${state.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
@@ -40,25 +46,129 @@ export default function CharacterSheet(container, props = {}) {
                 <button class="tab ${state.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
             </div>
             ${state.tab === 'sheet'
-                ? renderSheetTab(character, props.derived, RULES, { readOnly })
+                ? html`<div id="sheet-tab-container"></div>`
                 : state.tab === 'cards'
-                ? renderCardsTab(character, state, CardService, meetsRequirements, { readOnly })
+                ? html`<div id="cards-tab-container"></div>`
                 : state.tab === 'config'
-                ? renderConfigTab(character, props.derived, props.allowedFields)
+                ? html`<div id="config-tab-container"></div>`
                 : state.tab === 'bio'
-                ? renderBioTab(character, { readOnly })
+                ? html`<div id="bio-tab-container"></div>`
                 : state.tab === 'progress'
-                ? renderProgressTab(character)
+                ? html`<div id="progress-tab-container"></div>`
                 : state.tab === 'dice'
-                ? renderDiceTab()
-                : renderNotesTab(character)}
+                ? html`<div id="dice-tab-container"></div>`
+                : html`<div id="notes-tab-container"></div>`}
         `;
     };
 
-    const setState = (partial) => {
+    const mountTabComponents = async () => {
+        try {
+            if (state.tab === 'sheet') {
+                const tabContainer = container.querySelector('#sheet-tab-container');
+                if (tabContainer) {
+                    const comp = SheetTab(tabContainer, {
+                        character: state.character,
+                        derived: props.derived,
+                        rules: props.rules,
+                        readOnly: readOnly,
+                        onUpdate: (updatedCharacter) => {
+                            state.character = updatedCharacter;
+                            if (props.onUpdate) props.onUpdate(updatedCharacter);
+                        }
+                    });
+                    await comp.init();
+                }
+            } else if (state.tab === 'cards') {
+                const tabContainer = container.querySelector('#cards-tab-container');
+                if (tabContainer) {
+                    const comp = CardsTab(tabContainer, {
+                        character: state.character,
+                        state: props.state,
+                        cardService: CardService,
+                        meetsRequirements: meetsRequirements,
+                        readOnly: readOnly,
+                        onUpdate: (updatedCharacter) => {
+                            state.character = updatedCharacter;
+                            if (props.onUpdate) props.onUpdate(updatedCharacter);
+                        }
+                    });
+                    await comp.init();
+                }
+            } else if (state.tab === 'config') {
+                const tabContainer = container.querySelector('#config-tab-container');
+                if (tabContainer) {
+                    const comp = ConfigTab(tabContainer, {
+                        character: state.character,
+                        derived: props.derived,
+                        allowedFields: props.allowedFields,
+                        onUpdate: (updatedCharacter) => {
+                            state.character = updatedCharacter;
+                            if (props.onUpdate) props.onUpdate(updatedCharacter);
+                        }
+                    });
+                    await comp.init();
+                }
+            } else if (state.tab === 'bio') {
+                const tabContainer = container.querySelector('#bio-tab-container');
+                if (tabContainer) {
+                    const comp = BioTab(tabContainer, {
+                        character: state.character,
+                        readOnly: props.readOnly,
+                        onUpdate: (updatedCharacter) => {
+                            state.character = updatedCharacter;
+                            if (props.onUpdate) props.onUpdate(updatedCharacter);
+                        }
+                    });
+                    await comp.init();
+                }
+            } else if (state.tab === 'progress') {
+                const tabContainer = container.querySelector('#progress-tab-container');
+                if (tabContainer) {
+                    const comp = ProgressTab(tabContainer, {
+                        character: state.character,
+                        onUpdate: (updatedCharacter) => {
+                            state.character = updatedCharacter;
+                            if (props.onUpdate) props.onUpdate(updatedCharacter);
+                        }
+                    });
+                    await comp.init();
+                }
+            } else if (state.tab === 'dice') {
+                const tabContainer = container.querySelector('#dice-tab-container');
+                if (tabContainer) {
+                    const comp = DiceTab(tabContainer, {
+                        character: state.character,
+                        onRoll: (rollData) => {
+                            if (props.onRoll) props.onRoll(rollData);
+                        }
+                    });
+                    await comp.init();
+                }
+            } else if (state.tab === 'notes') {
+                const tabContainer = container.querySelector('#notes-tab-container');
+                if (tabContainer) {
+                    const comp = NotesTab(tabContainer, {
+                        character: state.character,
+                        onUpdate: (updatedCharacter) => {
+                            state.character = updatedCharacter;
+                            if (props.onUpdate) props.onUpdate(updatedCharacter);
+                        }
+                    });
+                    await comp.init();
+                }
+            }
+        } catch (error) {
+            console.error('Error mounting tab component:', error);
+        }
+    };
+
+    const setState = async (partial) => {
         state = { ...state, ...partial };
         container.innerHTML = render();
         if (props.hooks && typeof props.hooks.onBind === 'function') props.hooks.onBind(container);
+        // Wait for DOM to be ready before mounting components
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        await mountTabComponents();
     };
 
     return { init: () => setState({}), setState };

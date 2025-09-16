@@ -18,19 +18,20 @@ import { openRollModal } from './RollModal.js';
 import { rollDice } from '../../utils/dice-utils.js';
 import { mountImageWithFallback } from '../../utils/image-utils.js';
 import HistoryList from '../../components/HistoryList/HistoryList.js';
-import { renderSheetTab } from './tabs/SheetTab.js';
-import { renderCardsTab } from './tabs/CardsTab.js';
-import { renderConfigTab } from './tabs/ConfigTab.js';
-import { renderBioTab } from './tabs/BioTab.js';
-import { renderProgressTab } from './tabs/ProgressTab.js';
-import { renderDiceTab } from './tabs/DiceTab.js';
-import { renderNotesTab } from './tabs/NotesTab.js';
+import SheetTab from '../../components/SheetTab/SheetTab.js';
+import CardsTab from '../../components/CardsTab/CardsTab.js';
+import ConfigTab from '../../components/ConfigTab/ConfigTab.js';
+import BioTab from '../../components/BioTab/BioTab.js';
+import ProgressTab from '../../components/ProgressTab/ProgressTab.js';
+import DiceTab from '../../components/DiceTab/DiceTab.js';
+import NotesTab from '../../components/NotesTab/NotesTab.js';
 import EquipmentList from '../../components/EquipmentList/EquipmentList.js';
 import ModifiersList from '../../components/ModifiersList/ModifiersList.js';
 import AttributesPanel from '../../components/AttributesPanel/AttributesPanel.js';
 import DerivedStatsPanel from '../../components/DerivedStatsPanel/DerivedStatsPanel.js';
 import CharacterList from '../../components/CharacterList/CharacterList.js';
 import CharacterSheet from '../../components/CharacterSheet/CharacterSheet.js';
+import DiceTabController from '../../components/DiceTab/DiceTabController.js';
 
 const STORAGE_KEY = 'arcana:characters';
 
@@ -277,14 +278,39 @@ const CharactersPage = (container) => {
         const sheetRoot = editor.querySelector('#sheet-root');
         if (sheetRoot) {
             const sheet = CharacterSheet(sheetRoot, {
-                state,
                 character: c,
+                state: state,
                 services: { CardService, meetsRequirements, RULES },
                 options: { readOnly: false },
                 derived: derived_bind,
                 allowedFields,
+                rules: RULES,
+            onUpdate: (updatedCharacter) => {
+                Object.assign(c, updatedCharacter);
+                save();
+                // Only update if it's not just a rollLog change
+                if (updatedCharacter.rollLog && updatedCharacter.rollLog.length > 0) {
+                    // For dice rolls, just save without full re-render
+                    return;
+                }
+                update();
+            },
+            onRoll: (rollData) => {
+                const entry = {
+                    type: 'dice',
+                    ts: Date.now(),
+                    expression: rollData.expression,
+                    total: rollData.total,
+                    details: rollData.details
+                };
+                c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                c.rollLog.unshift(entry);
+                if (c.rollLog.length > 200) c.rollLog.length = 200;
+                save();
+                update();
+            },
                 hooks: {
-                    onBind: (ed) => {
+                    onBind: async (ed) => {
                         ed.querySelectorAll('.tab').forEach((t) =>
                             t.addEventListener('click', () => {
                                 state.tab = t.getAttribute('data-tab');
@@ -391,6 +417,9 @@ const CharactersPage = (container) => {
                                 }
                             }
                         } catch (_) {}
+                        
+                        // CharacterSheet now handles all tab mounting internally
+                        
                         // Cards filters & search
                         const gold = ed.querySelector('#gold');
                         const cardSearch = ed.querySelector('#card-search');
@@ -467,68 +496,7 @@ const CharactersPage = (container) => {
                         });
                         // Dice tab
                         if (state.tab === 'dice') {
-                            const diceTab = ed.querySelector('.dice-tab');
-                            if (diceTab) {
-                                diceTab.addEventListener('click', (e) => {
-                                    const btn = e.target && e.target.closest && e.target.closest('[data-dice]');
-                                    const delBtn = e.target && e.target.closest && e.target.closest('[data-dice-del]');
-                                    const clearBtn = e.target && e.target.closest && e.target.closest('[data-dice-clear]');
-                                    if (clearBtn) { c.rollLog = []; save(); update(); return; }
-                                    if (delBtn) { const ts = Number(delBtn.getAttribute('data-dice-del')); c.rollLog = (c.rollLog || []).filter((x) => x.ts !== ts); save(); update(); return; }
-                                    if (btn) {
-                                        const notation = btn.getAttribute('data-dice');
-                                        const m = notation.match(/^(\d*)d(\d+)$/i);
-                                        if (!m) return;
-                                        const n = Math.max(1, Number(m[1] || 1));
-                                        const faces = Number(m[2] || 0);
-                                        if (!faces) return;
-                                        const rolls = []; let sum = 0;
-                                        for (let i = 0; i < n; i++) { const r = 1 + Math.floor(Math.random() * faces); rolls.push(r); sum += r; }
-                                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
-                                        c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation: notation.toLowerCase(), rolls, total: sum });
-                                        if (c.rollLog.length > 200) c.rollLog.length = 200; save(); update();
-                                    }
-                                });
-                                const rollBtn = diceTab.querySelector('#dice-roll');
-                                if (rollBtn)
-                                    rollBtn.addEventListener('click', () => {
-                                        const nInp = diceTab.querySelector('#dice-n');
-                                        const fInp = diceTab.querySelector('#dice-f');
-                                        const n = Math.max(1, Number(nInp.value) || 1);
-                                        const f = Math.max(2, Number(fInp.value) || 0);
-                                        if (!f) return;
-                                        const notation = `${n}d${f}`;
-                                        const rolls = [];
-                                        let sum = 0;
-                                        for (let i = 0; i < n; i++) {
-                                            const r = 1 + Math.floor(Math.random() * f);
-                                            rolls.push(r);
-                                            sum += r;
-                                        }
-                                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
-                                        c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation, rolls, total: sum });
-                                        if (c.rollLog.length > 200) c.rollLog.length = 200;
-                                        save();
-                                        update();
-                                    });
-                            }
-                            // Dice history
-                            try {
-                                const host = ed.querySelector('#dice-history');
-                                if (host) {
-                                    const items = (c.rollLog || []).slice(0, 100);
-                                    const renderItem = (r) => {
-                                        if (r.type === 'attr') {
-                                            const d = r.details || {};
-                                            const advLabel = d.advantage && d.advantage !== 'normal' ? `, ${d.advantage}=${d.advMod}` : '';
-                                            return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
-                                        }
-                                        const rolls = Array.isArray(r.rolls) ? ` [${r.rolls.join(', ')}]` : '';
-                                        return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Dados] ${r.notation} = ${r.total}${rolls}</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
-                                    };
-                                    const list = HistoryList(host, { items, renderItem, wrap: false }); list.init();
-                                }
-                            } catch (_) {}
+                            try { const ctrl = DiceTabController(ed, { character: c, onRoll: () => { save(); } }); ctrl.init(); } catch (_) {}
                         }
                         if (state.tab === 'progress') {
                             const ppTab = ed.querySelector('.pp-tab');

@@ -109,6 +109,12 @@ async function bootstrap() {
             const page = CharactersExamplesPage(outlet);
             page.init();
         })
+        .register('/encounters', async (outlet) => {
+            const module = await import('./pages/EncounterManagerPage/EncounterManagerPage.js');
+            const EncounterManagerPage = module.default;
+            const page = EncounterManagerPage(outlet);
+            page.init();
+        })
         .setNotFound((outlet) => {
             outlet.innerHTML = html`
                 <div class="container" style="padding: var(--spacing-xl) 0;">

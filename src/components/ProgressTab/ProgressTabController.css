@@ -1,0 +1,18 @@
+/* ProgressTabController styles - minimal since it's a controller, not a full component */
+.progress-tab-controller {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.progress-tab-controller .pp-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-tab-controller .pp-history {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}

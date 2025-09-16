@@ -1,0 +1,78 @@
+.config-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.config-tab .editor-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.config-tab .panel {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-surface);
+    padding: 1rem;
+}
+
+.config-tab .attrs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.config-tab .attr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.config-tab .attr span {
+    font-weight: 500;
+    color: var(--text-primary);
+    min-width: 80px;
+}
+
+.config-tab .portrait-url-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.config-tab .portrait-url-input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-color: var(--primary-color);
+}
+
+.config-tab .config-vars-help {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: var(--info-bg);
+    border: 1px solid var(--info-color);
+    border-radius: var(--radius-md);
+}
+
+.config-tab .config-vars-help small {
+    color: var(--info-color);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.config-tab .config-summary {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+}
+
+.config-tab #mods-host {
+    margin-top: 0.5rem;
+}

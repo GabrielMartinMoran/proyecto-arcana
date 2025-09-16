@@ -380,9 +380,9 @@ Los personajes mejoran gastando **Puntos de Progreso (PP)**.
 
 | Mejora                           | Coste en PP                   | Notas                                                                  |
 | :------------------------------- | :---------------------------- | :--------------------------------------------------------------------- |
-| **Nueva Carta**                  | 3 × Nivel de la Carta         | Añade una nueva carta a tu **Colección**.                              |
 | **Nueva Ranura de Carta Activa** | 2 × Ranuras Actuales          | Aumenta el número de cartas que puedes tener **activas**.              |
-| **+1 a un Atributo**             | 5 × Valor Actual del Atributo | Para subir un atributo de 3 a 4, el coste es de 15 PP. El máximo es 5. |
+| **Nueva Carta**                  | 3 × Nivel de la Carta         | Añade una nueva carta a tu **Colección**.                              |
+| **+1 a un Atributo**             | 4 × Valor Actual del Atributo | Para subir un atributo de 3 a 4, el coste es de 12 PP. El máximo es 5. |
 
 # 10. Equipo y Economía
 
