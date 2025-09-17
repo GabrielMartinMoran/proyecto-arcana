@@ -6,10 +6,12 @@ import CharacterList from '../../components/CharacterList/CharacterList.js';
 import StorageUtils from '../../utils/storage-utils.js';
 import CardService from '../../services/card-service.js';
 import { renderBestiaryStatblock } from '../../components/BestiaryStatblock/BestiaryStatblock.js';
+import { renderBestiaryStatblockWithRolls, bindBestiaryRollEvents } from '../../components/BestiaryStatblock/BestiaryStatblockWithRolls.js';
 import CharacterSheet from '../../components/CharacterSheet/CharacterSheet.js';
 import AttributesPanel from '../../components/AttributesPanel/AttributesPanel.js';
 import DerivedStatsPanel from '../../components/DerivedStatsPanel/DerivedStatsPanel.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
+import rollStore from '../../services/roll-store.js';
 import { RULES, computeDerivedStats, applyModifiersToDerived } from '../../models/rules.js';
 import EquipmentList from '../../components/EquipmentList/EquipmentList.js';
 import EncounterParticipantPicker from '../../components/EncounterParticipantPicker/EncounterParticipantPicker.js';
@@ -85,7 +87,7 @@ const EncounterManagerPage = (container) => {
         const listRoot = root.querySelector('#tracker-list');
         const headerHtml = html`<div class="buttons-container encounter-toolbar">
             <button class="button" data-add-pc>➕ PC</button>
-            <button class="button" data-add-npc>➕ Criatura</button>
+            <button class="button" data-add-npc>➕ Grupo de NPCs</button>
             <button class="button" data-roll-init title="Tirar iniciativa">🎲 Iniciativa</button>
             <button class="button" data-clear-encounter title="Nuevo encuentro">🗑️ Nuevo</button>
         </div>`;
@@ -94,7 +96,10 @@ const EncounterManagerPage = (container) => {
             selectedIndex: state.activeIdx,
             getName: (it) => `${it && it.name ? it.name : ''}`,
             getPortraitUrl: (it) => it.img || '',
-            renderRight: (it, i) => html`<input class="init-input" type="number" step="1" placeholder="-" value="${it.init != null ? it.init : ''}" data-init-idx="${i}" title="Iniciativa" />`,
+            renderRight: (it, i) => {
+                const quantityText = it.type === 'npc-group' && it.quantity > 1 ? html`<span class="quantity-badge">x${it.quantity}</span>` : '';
+                return html`${quantityText}<input class="init-input" type="number" step="1" placeholder="-" value="${it.init != null ? it.init : ''}" data-init-idx="${i}" title="Iniciativa" />`;
+            },
             onAfterRender: (host) => {
                 host.querySelectorAll('.init-input').forEach((inp) => {
                     inp.addEventListener('click', (e) => e.stopPropagation());
@@ -131,17 +136,48 @@ const EncounterManagerPage = (container) => {
                     state.beasts = Array.isArray(y) ? y : (Array.isArray(y && y.creatures) ? y.creatures : []);
                 } catch (_) {}
             }
-            const host = document.body;
+            // Create a dedicated container for the modal
+            const modalContainer = document.createElement('div');
+            document.body.appendChild(modalContainer);
+            const host = modalContainer;
             const picker = EncounterParticipantPicker(host, {
                 mode,
                 party: state.party,
                 beasts: state.beasts,
+                tracker: state.tracker,
                 onPick: (it) => {
                     if (mode === 'pc') {
                         state.tracker.push({ type: 'pc', id: it.id, name: it.name, img: it.portraitUrl || '', init: null });
                     } else {
-                        const hp = Number(it?.stats?.salud) || 0;
-                        state.tracker.push({ type: 'npc', id: it.name, name: it.name, img: it.img || '', hp, maxHp: hp, data: it, init: null, rollLog: [] });
+                        // Handle creature groups
+                        if (it.isGroup && it.quantity > 1) {
+                            // Add as a group
+                            const hp = Number(it?.stats?.salud) || 0;
+                            state.tracker.push({ 
+                                type: 'npc-group', 
+                                id: `group-${it.name}-${Date.now()}`, 
+                                name: it.name, 
+                                img: it.img || '', 
+                                hp, 
+                                maxHp: hp, 
+                                data: it, 
+                                init: null, 
+                                rollLog: [],
+                                quantity: it.quantity,
+                                creatures: Array.from({ length: it.quantity }, (_, i) => ({
+                                    id: `${it.name}-${i + 1}`,
+                                    name: `${it.name} ${i + 1}`,
+                                    hp: hp,
+                                    maxHp: hp,
+                                    data: it,
+                                    rollLog: []
+                                }))
+                            });
+                        } else {
+                            // Add as single creature
+                            const hp = Number(it?.stats?.salud) || 0;
+                            state.tracker.push({ type: 'npc', id: it.name, name: it.name, img: it.img || '', hp, maxHp: hp, data: it, init: null, rollLog: [] });
+                        }
                     }
                     state.activeIdx = state.tracker.length - 1;
                     update();
@@ -214,6 +250,7 @@ const EncounterManagerPage = (container) => {
                 try {
                     const attrsHost = ed.querySelector('#attributes-host');
                     if (attrsHost) {
+                        console.log('DEBUG: Mounting AttributesPanel for NPC:', c.name);
                         const comp = AttributesPanel(attrsHost, {
                             attributes: { ...c.attributes },
                             rules: RULES,
@@ -221,24 +258,34 @@ const EncounterManagerPage = (container) => {
                             suerteMax: Number(derived.suerteMax) || 0,
                             onChange: (key, val) => { c.attributes[key] = val; persistEncounter(); },
                             onRoll: (key) => {
+                                console.log('DEBUG: AttributesPanel onRoll called with key:', key);
                                 const val = Number(c.attributes[key]) || 0;
-                                const base = computeDerivedStats(c.attributes);
-                                const ndBase2 = { ndMente: RULES.ndBase + (Number(c.attributes.Mente) || 0), ndInstinto: RULES.ndBase + (Number(c.attributes.Instinto) || 0) };
+                                console.log('DEBUG: Attribute value:', val);
+                                const base = computeDerivedStats(active.attributes);
+                                const ndBase2 = { ndMente: RULES.ndBase + (Number(active.attributes.Mente) || 0), ndInstinto: RULES.ndBase + (Number(active.attributes.Instinto) || 0) };
                                 const luckBase2 = { suerteMax: RULES.maxLuck };
-                                const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 }, c);
+                                const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(active.mitigacion) || 0 }, active);
+                                console.log('DEBUG: Opening roll modal for:', key, 'with value:', val);
                                 openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, (res) => {
-                                    if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
+                                    console.log('DEBUG: Roll modal callback called with result:', res);
+                                    if (res && res.luck) active.suerte = Math.max(0, (active.suerte || 0) - res.luck);
                                     if (res) {
-                                        const entry = { type: 'attr', ts: Date.now(), attr: key, total: res.total, details: { d6: res.d6, advMod: res.advMod, advantage: res.advantage, base: val, extras: res.extras, luck: res.luck } };
-                                        c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
-                                        c.rollLog.unshift(entry);
-                                        if (c.rollLog.length > 200) c.rollLog.length = 200;
-                                        // Global log
-                                        state.log.unshift({ ...entry, who: c.name });
+                                        const entry = { type: 'attribute', ts: Date.now(), attribute: key, total: res.total, details: { d6: res.d6, advMod: res.advMod, advantage: res.advantage, base: val, extras: res.extras, luck: res.luck } };
+                                        active.rollLog = Array.isArray(active.rollLog) ? active.rollLog : [];
+                                        active.rollLog.unshift(entry);
+                                        if (active.rollLog.length > 200) active.rollLog.length = 200;
+                                        // Global log - use character name (active is the specific NPC)
+                                        const globalEntry = { ...entry, who: active.name };
+                                        console.log('DEBUG: Adding to global log:', globalEntry);
+                                        state.log.unshift(globalEntry);
                                         if (state.log.length > 200) state.log.length = 200;
+                                        console.log('DEBUG: Global log length:', state.log.length);
+                                        console.log('DEBUG: Global log entries:', state.log.slice(0, 3));
                                     }
                                     persistEncounter();
                                     update();
+                                    // Update global log display
+                                    if (state._renderLog) state._renderLog();
                                 });
                             },
                             onLuckChange: (val) => { c.suerte = val; },
@@ -300,90 +347,331 @@ const EncounterManagerPage = (container) => {
         } else {
             // NPC: tabs Hoja / Dados
             const b = active.data;
-            const npcState = { tab: 'sheet' };
-            const renderNpc = () => html`
-                <div class="editor-header">
-                    <div class="name-input" style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;">${b.name}</div>
-                </div>
-                <div class="tabs">
-                    <button class="tab ${npcState.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
-                    <span class="tab-spacer"></span>
-                    <button class="tab ${npcState.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
-                </div>
-                ${npcState.tab === 'sheet'
-                    ? html`<div class="panel">
-                            <div style="margin-bottom:.75rem; display:flex; gap:1rem; align-items:center;">
-                                <label>HP</label>
-                                <input type="number" id="npc-hp" min="0" step="1" value="${active.hp || 0}" /> / <strong>${active.maxHp || 0}</strong>
-                            </div>
-                            ${renderBestiaryStatblock(b)}
-                        </div>`
-                    : html`<div id="dice-tab-container"></div>`}
-            `;
+            const npcState = { tab: 'sheet', selectedCreature: active.type === 'npc-group' ? 0 : null };
+            const renderNpc = () => {
+                const isGroup = active.type === 'npc-group';
+                
+                if (isGroup) {
+                    // Group layout with individual creature tabs
+                    return html`
+                        <div class="editor-header" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="name-input" style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;">${b.name} (Grupo de ${active.quantity})</div>
+                            <button class="button small" id="add-creature">➕ Agregar NPC</button>
+                        </div>
+                        
+                        <!-- Individual Creature Tabs -->
+                        <div class="tabs">
+                            ${active.creatures.map((creature, idx) => html`
+                                <button class="tab ${npcState.selectedCreature === idx ? 'active' : ''}" data-creature-idx="${idx}">${creature.name}</button>
+                            `).join('')}
+                            <span class="tab-spacer"></span>
+                            <button class="tab ${npcState.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
+                        </div>
+                        
+                        <!-- Creature Content -->
+                        ${npcState.tab === 'dice' 
+                            ? html`<div id="dice-tab-container"></div>`
+                            : npcState.selectedCreature !== null ? html`
+                                <div class="panel">
+                                    <div style="margin-bottom:.75rem; display:flex; gap:1rem; align-items:center; justify-content: space-between;">
+                                        <div style="display: flex; gap: 1rem; align-items: center;">
+                                            <label>HP</label>
+                                            <input type="number" id="npc-hp" min="0" step="1" value="${active.creatures[npcState.selectedCreature].hp || 0}" /> / <strong>${active.creatures[npcState.selectedCreature].maxHp || 0}</strong>
+                                        </div>
+                                        <button class="button small" id="remove-creature" title="Quitar este NPC del grupo" style="width: 2rem; height: 2rem; padding: 0; display: flex; align-items: center; justify-content: center;">🗑️</button>
+                                    </div>
+                                    <div id="attributes-host"></div>
+                                    ${renderBestiaryStatblockWithRolls(b)}
+                                </div>
+                            ` : ''}
+                    `;
+                } else {
+                    // Single NPC layout
+                    return html`
+                        <div class="editor-header">
+                            <div class="name-input" style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;">${b.name}</div>
+                        </div>
+                        <div class="tabs">
+                            <button class="tab ${npcState.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
+                            <span class="tab-spacer"></span>
+                            <button class="tab ${npcState.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
+                        </div>
+                        ${npcState.tab === 'sheet'
+                            ? html`<div class="panel">
+                                    <div style="margin-bottom:.75rem; display:flex; gap:1rem; align-items:center;">
+                                        <label>HP</label>
+                                        <input type="number" id="npc-hp" min="0" step="1" value="${active.hp || 0}" /> / <strong>${active.maxHp || 0}</strong>
+                                    </div>
+                                    <div id="attributes-host"></div>
+                                    ${renderBestiaryStatblockWithRolls(b)}
+                                </div>`
+                            : html`<div id="dice-tab-container"></div>`}
+                    `;
+                }
+            };
             const mountNpc = () => {
                 sheetRoot.innerHTML = renderNpc();
-                sheetRoot.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => { npcState.tab = t.getAttribute('data-tab'); mountNpc(); }));
-                const hpInp = sheetRoot.querySelector('#npc-hp');
-                if (hpInp) hpInp.addEventListener('input', (e) => { active.hp = Math.max(0, Number(e.target.value) || 0); persistEncounter(); });
+                
+                // Handle different tab types
+                if (active.type === 'npc-group') {
+                    // Group creature tabs
+                    sheetRoot.querySelectorAll('[data-creature-idx]').forEach((t) => {
+                        t.addEventListener('click', () => { 
+                            npcState.selectedCreature = Number(t.getAttribute('data-creature-idx')); 
+                            npcState.tab = 'sheet'; // Reset to sheet tab when selecting creature
+                            mountNpc(); 
+                        });
+                    });
+                    
+                    // Dice tab for groups
+                    sheetRoot.querySelectorAll('[data-tab="dice"]').forEach((t) => {
+                        t.addEventListener('click', () => { 
+                            npcState.tab = 'dice'; 
+                            mountNpc(); 
+                        });
+                    });
+                    
+                    // Add creature button
+                    const addCreatureBtn = sheetRoot.querySelector('#add-creature');
+                    if (addCreatureBtn) {
+                        addCreatureBtn.addEventListener('click', () => {
+                            active.quantity = (active.quantity || 1) + 1;
+                            active.creatures.push({
+                                id: `${active.data.name}-${active.quantity}`,
+                                name: `${active.data.name} ${active.quantity}`,
+                                hp: active.maxHp,
+                                maxHp: active.maxHp,
+                                data: active.data,
+                                rollLog: []
+                            });
+                            persistEncounter();
+                            mountNpc();
+                        });
+                    }
+                    
+                    // Remove specific creature button
+                    const removeCreatureBtn = sheetRoot.querySelector('#remove-creature');
+                    if (removeCreatureBtn) {
+                        removeCreatureBtn.addEventListener('click', () => {
+                            if (active.quantity > 1 && npcState.selectedCreature !== null) {
+                                // Remove the selected creature
+                                active.creatures.splice(npcState.selectedCreature, 1);
+                                active.quantity = active.quantity - 1;
+                                
+                                // Adjust selected creature if needed
+                                if (npcState.selectedCreature >= active.quantity) {
+                                    npcState.selectedCreature = active.quantity - 1;
+                                }
+                                
+                                // Update creature names to maintain sequence
+                                active.creatures.forEach((creature, idx) => {
+                                    creature.name = `${active.data.name} ${idx + 1}`;
+                                    creature.id = `${active.data.name}-${idx + 1}`;
+                                });
+                                
+                                persistEncounter();
+                                mountNpc();
+                            }
+                        });
+                    }
+                    
+                    // HP input for selected creature
+                    const hpInp = sheetRoot.querySelector('#npc-hp');
+                    if (hpInp) {
+                        hpInp.addEventListener('input', (e) => { 
+                            if (npcState.selectedCreature !== null) {
+                                active.creatures[npcState.selectedCreature].hp = Math.max(0, Number(e.target.value) || 0); 
+                                persistEncounter(); 
+                            }
+                        });
+                    }
+                } else {
+                    // Single NPC tabs
+                    sheetRoot.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => { npcState.tab = t.getAttribute('data-tab'); mountNpc(); }));
+                    
+                    // HP input for single NPC
+                    const hpInp = sheetRoot.querySelector('#npc-hp');
+                    if (hpInp) hpInp.addEventListener('input', (e) => { active.hp = Math.max(0, Number(e.target.value) || 0); persistEncounter(); });
+                }
                 if (npcState.tab === 'dice') {
                     try { 
                         const diceContainer = sheetRoot.querySelector('#dice-tab-container');
                         if (diceContainer) {
+                            // Determine the correct character for groups
+                            const characterForDiceTab = active.type === 'npc-group' && npcState.selectedCreature !== null
+                                ? active.creatures[npcState.selectedCreature]
+                                : active;
+                            
                             const diceTab = DiceTab(diceContainer, { 
-                                character: active, 
+                                character: characterForDiceTab, 
                                 onRoll: (e) => { 
-                                    state.log.unshift({ ...e, who: active.name }); 
-                                    if (state.log.length > 200) state.log.length = 200; 
+                                    // Determine the correct character name for groups
+                                    const characterName = active.type === 'npc-group' && npcState.selectedCreature !== null
+                                        ? active.creatures[npcState.selectedCreature].name
+                                        : active.name;
+                                    
+                                    // Add to roll store
+                                    rollStore.addRoll({ ...e, who: characterName });
+                                    
                                     persistEncounter(); 
-                                    if (state._renderLog) state._renderLog(); 
                                 } 
                             }); 
                             diceTab.init(); 
                         }
                     } catch (_) {}
                 }
+                
+                // Bind roll events for the creature (after all other bindings)
+                if ((active.type === 'npc' || active.type === 'npc-group') && b) {
+                    if (active.type === 'npc-group' && npcState.selectedCreature !== null) {
+                        // For groups, use the selected creature's data
+                        const selectedCreature = active.creatures[npcState.selectedCreature];
+                        bindBestiaryRollEvents(sheetRoot, {
+                            ...b,
+                            name: selectedCreature.name
+                        }, active, npcState.selectedCreature, () => {
+                            persistEncounter();
+                        });
+                    } else {
+                        // For single NPCs, use the original data
+                        bindBestiaryRollEvents(sheetRoot, b, active, null, () => {
+                            persistEncounter();
+                        });
+                    }
+                }
             };
             mountNpc();
+            
+            // Mount AttributesPanel for NPCs if we're in sheet tab
+            if (npcState.tab === 'sheet') {
+                try {
+                    const attrsHost = sheetRoot.querySelector('#attributes-host');
+                    if (attrsHost) {
+                        const comp = AttributesPanel(attrsHost, {
+                            attributes: { ...active.attributes },
+                            rules: RULES,
+                            suerte: Number(active.suerte) || 0,
+                            suerteMax: Number(derived.suerteMax) || 0,
+                            onChange: (key, val) => { active.attributes[key] = val; persistEncounter(); },
+                            onRoll: (key) => {
+                                const val = Number(active.attributes[key]) || 0;
+                                const base = computeDerivedStats(active.attributes);
+                                const ndBase2 = { ndMente: RULES.ndBase + (Number(active.attributes.Mente) || 0), ndInstinto: RULES.ndBase + (Number(active.attributes.Instinto) || 0) };
+                                const luckBase2 = { suerteMax: RULES.maxLuck };
+                                const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(active.mitigacion) || 0 }, active);
+                                openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, (res) => {
+                                    if (res && res.luck) active.suerte = Math.max(0, (active.suerte || 0) - res.luck);
+                                    if (res) {
+                                        const entry = { 
+                                            type: 'attribute', 
+                                            ts: Date.now(), 
+                                            attribute: key, 
+                                            total: res.total, 
+                                            details: { 
+                                                d6: res.d6, 
+                                                d6Rolls: res.d6Rolls, // Include explosion rolls
+                                                advMod: res.advMod, 
+                                                advantage: res.advantage, 
+                                                base: val, 
+                                                extras: res.extras, 
+                                                luck: res.luck,
+                                                exploded: res.d6Rolls && res.d6Rolls.length > 1
+                                            } 
+                                        };
+                                        active.rollLog = Array.isArray(active.rollLog) ? active.rollLog : [];
+                                        active.rollLog.unshift(entry);
+                                        if (active.rollLog.length > 200) active.rollLog.length = 200;
+                                        // Add to roll store
+                                        rollStore.addRoll({
+                                            ...entry,
+                                            who: active.name
+                                        });
+                                    }
+                                    persistEncounter();
+                                    update();
+                                });
+                            },
+                            onLuckChange: (val) => { active.suerte = val; },
+                        });
+                        comp.init();
+                    }
+                } catch (_) {}
+            }
         }
 
         // Mount global log
         const logRoot = container.querySelector('#global-log');
         const btnClear = container.querySelector('[data-log-clear]');
+        
         const renderLog = () => {
-            const rows = (state.log || []).map((e, i) => {
+            const rolls = rollStore.getRolls();
+            
+            const rows = rolls.map((e, i) => {
                 const who = e.who || '—';
                 if (e.type === 'dice') {
                     const rolls = Array.isArray(e.rolls) ? e.rolls.join(', ') : '';
-                    return html`<div class="log-row"><span class="log-text">[${who}] ${e.notation} → <strong>${e.total}</strong>${rolls ? html` (${rolls})` : ''}</span><button class="button icon-only" data-log-del="${i}" aria-label="Eliminar" title="Eliminar">🗑️</button></div>`;
+                    return html`<div class="log-row"><span class="log-text">[${who}] ${e.notation} → <strong>${e.total}</strong>${rolls ? html` (${rolls})` : ''}</span><button class="button icon-only" data-log-del="${e.id}" aria-label="Eliminar" title="Eliminar">🗑️</button></div>`;
+                }
+                if (e.type === 'attribute') {
+                    const d6Rolls = e.details?.d6Rolls || [e.details?.d6];
+                    let rolls = '';
+                    if (Array.isArray(d6Rolls)) {
+                        rolls = d6Rolls.map((roll, index) => {
+                            // Add explosion emoji for 6s (except the last one if it's not a 6)
+                            if (roll === 6 && index < d6Rolls.length - 1) {
+                                return `${roll}💥`;
+                            }
+                            return roll;
+                        }).join(', ');
+                    } else if (d6Rolls) {
+                        rolls = String(d6Rolls);
+                    }
+                    const exploded = e.details?.exploded ? ' explotando' : '';
+                    return html`<div class="log-row"><span class="log-text">[${who}] ${e.attribute} (${e.details?.base || 0}d6${exploded}) → <strong>${e.total}</strong>${rolls ? html` (${rolls})` : ''}</span><button class="button icon-only" data-log-del="${e.id}" aria-label="Eliminar" title="Eliminar">🗑️</button></div>`;
                 }
                 // fallback
-                return html`<div class="log-row"><span class="log-text">[${who}] ${e.notation || e.type || ''} → <strong>${e.total || ''}</strong></span><button class="button icon-only" data-log-del="${i}" aria-label="Eliminar" title="Eliminar">🗑️</button></div>`;
+                return html`<div class="log-row"><span class="log-text">[${who}] ${e.notation || e.type || ''} → <strong>${e.total || ''}</strong></span><button class="button icon-only" data-log-del="${e.id}" aria-label="Eliminar" title="Eliminar">🗑️</button></div>`;
             }).join('');
-            logRoot.innerHTML = rows || html`<div class="empty-state">Sin tiradas aún</div>`;
+            
+            if (logRoot) {
+                logRoot.innerHTML = rows || html`<div class="empty-state">Sin tiradas aún</div>`;
+            }
         };
         state._renderLog = renderLog;
-        if (btnClear) btnClear.addEventListener('click', () => { state.log = []; persistEncounter(); renderLog(); });
+        
+        // Subscribe to roll store updates
+        const unsubscribe = rollStore.subscribe(() => {
+            renderLog();
+        });
+        
+        if (btnClear) btnClear.addEventListener('click', () => { 
+            rollStore.clearRolls(); 
+        });
         if (logRoot && !logRoot._delBound) {
             logRoot.addEventListener('click', (ev) => {
                 const btn = ev.target && ev.target.closest ? ev.target.closest('[data-log-del]') : null;
                 if (!btn) return;
-                const idx = Number(btn.getAttribute('data-log-del'));
-                if (Number.isNaN(idx)) return;
-                state.log.splice(idx, 1);
-                persistEncounter();
-                renderLog();
+                const rollId = btn.getAttribute('data-log-del');
+                if (rollId) {
+                    rollStore.removeRoll(rollId);
+                }
             });
             logRoot._delBound = true;
         }
         renderLog();
     };
 
+    let layoutInstance = null;
     const update = () => {
-        const layoutRoot = container.querySelector('#layout');
-        const layout = LayoutWithSidebar(layoutRoot, { title: 'Gestor de encuentros' });
-        layout.init();
-        layout.setMainHtml(renderMain());
-        bind(layout.getMainEl());
+        if (!layoutInstance) {
+            container.innerHTML = '<div id="layout"></div>';
+            const layoutRoot = container.querySelector('#layout');
+            layoutInstance = LayoutWithSidebar(layoutRoot, { title: 'Gestor de encuentros' });
+            layoutInstance.init();
+        }
+        const mainEl = layoutInstance.getMainEl();
+        mainEl.innerHTML = renderMain();
+        bind(mainEl);
     };
 
     const init = async () => {

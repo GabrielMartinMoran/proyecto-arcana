@@ -1,6 +1,8 @@
 const html = window.html || String.raw;
 import { ensureStyle } from '../../utils/style-utils.js';
 import DiceService from '../../services/dice-service.js';
+import rollStore from '../../services/roll-store.js';
+import { evaluateDiceExpression } from '../../utils/dice-utils.js';
 
 /**
  * DiceTab - Component for dice rolling interface
@@ -113,6 +115,9 @@ const DiceTab = (container, props = {}) => {
                     total: sum
                 });
                 
+                // Add to global roll store
+                rollStore.addRoll({ ...entry, who: state.character.name });
+                
                 try { state.onRoll(entry); } catch (_) {}
                 renderHistory();
             }
@@ -127,9 +132,8 @@ const DiceTab = (container, props = {}) => {
                 const expr = String(exprInp.value || '').trim();
                 if (!expr) return;
                 
-                // Simple dice expression evaluation
+                // Evaluate dice expression with explosive dice support
                 const { total, parts } = evaluateDiceExpression(expr, state.character.attributes || {}, state.character);
-                console.log('DiceTab: Expression result:', { expr, total, parts });
                 
                 // Ensure rollLog exists
                 if (!Array.isArray(state.character.rollLog)) {
@@ -153,13 +157,18 @@ const DiceTab = (container, props = {}) => {
                 
                 // Show toast with result
                 const extractedRolls = parts.flatMap((p) => p.rolls || []);
-                console.log('DiceTab: Extracted rolls:', extractedRolls);
                 DiceService.showDiceRoll({
                     characterName: state.character.name,
                     notation: expr.toLowerCase(),
                     rolls: extractedRolls,
-                    total: total
+                    total: total,
+                    details: {
+                        parts: parts // Pass the parts to identify which dice exploded
+                    }
                 });
+                
+                // Add to global roll store
+                rollStore.addRoll({ ...entry, who: state.character.name });
                 
                 try { state.onRoll(entry); } catch (_) {}
                 renderHistory();
@@ -176,11 +185,11 @@ const DiceTab = (container, props = {}) => {
             });
         }
 
-        // Show available variables
+        // Show available variables and explosive dice syntax
         const varsHost = container.querySelector('#dice-vars');
         if (varsHost) {
             const allowed = ['cuerpo','reflejos','mente','instinto','presencia','esquiva','mitigacion','suerte'];
-            varsHost.innerHTML = `Variables: ${allowed.map((k) => '`' + k + '`').join(', ')}`;
+            varsHost.innerHTML = `Variables: ${allowed.map((k) => '`' + k + '`').join(', ')}<br/>Dados explosivos: usa 'e' (ej: 1d6e, 2d4e)`;
         }
     };
 
@@ -192,7 +201,7 @@ const DiceTab = (container, props = {}) => {
             .filter(e => e && e.notation && e.total !== undefined) // Filter out invalid entries
             .map((e) => ({
                 ts: e.ts,
-                text: `${e.notation || 'unknown'} → ${e.total || 0}${e.rolls && e.rolls.length ? ` (${e.rolls.join(', ')})` : ''}`,
+                text: `${state.character.name}: ${e.notation || 'unknown'} → ${e.total || 0}${e.rolls && e.rolls.length ? ` (${e.rolls.join(', ')})` : ''}`,
             }));
         
         host.innerHTML = items.length ? 
@@ -200,53 +209,6 @@ const DiceTab = (container, props = {}) => {
             html`<div class="empty-state">Sin tiradas aún</div>`;
     };
 
-    const evaluateDiceExpression = (expr, attributes = {}, character = {}) => {
-        // Simple dice expression parser
-        try {
-            let result = expr.toLowerCase();
-            const parts = [];
-            console.log('evaluateDiceExpression: Initial expr:', expr);
-            console.log('evaluateDiceExpression: Initial result:', result);
-            
-            // Replace variables with attribute values
-            const vars = { ...attributes, suerte: character.suerte || 0 };
-            console.log('evaluateDiceExpression: Variables:', vars);
-            Object.keys(vars).forEach(key => {
-                const value = Number(vars[key]) || 0;
-                // Case-insensitive replacement
-                result = result.replace(new RegExp(key, 'gi'), value);
-                parts.push({ type: 'var', key, value, sign: 1 });
-            });
-            console.log('evaluateDiceExpression: After variable replacement:', result);
-            
-            // Parse dice notation (simple)
-            const diceMatches = result.match(/(\d+)d(\d+)/g);
-            console.log('evaluateDiceExpression: Dice matches:', diceMatches);
-            if (diceMatches) {
-                diceMatches.forEach(match => {
-                    const [n, faces] = match.split('d').map(Number);
-                    const rolls = [];
-                    let sum = 0;
-                    for (let i = 0; i < n; i++) {
-                        const r = 1 + Math.floor(Math.random() * faces);
-                        rolls.push(r);
-                        sum += r;
-                    }
-                    result = result.replace(match, sum);
-                    parts.push({ type: 'dice', notation: match, rolls, sum, sign: 1 });
-                });
-            }
-            console.log('evaluateDiceExpression: After dice replacement:', result);
-            console.log('evaluateDiceExpression: Parts:', parts);
-            
-            const total = eval(result) || 0;
-            console.log('evaluateDiceExpression: Final total:', total);
-            return { total, parts };
-        } catch (error) {
-            console.error('evaluateDiceExpression: Error:', error);
-            return { total: 0, parts: [] };
-        }
-    };
 
     return {
         init: () => {

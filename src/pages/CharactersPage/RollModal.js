@@ -4,6 +4,28 @@ import ModalComponent from '../../components/ModalComponent/ModalComponent.js';
 import { evalFormula, rollDice } from '../../utils/dice-utils.js';
 import { ensureStyle } from '../../utils/style-utils.js';
 
+/**
+ * Roll a d6 with explosion mechanics (6s explode)
+ * @returns {Object} { total, rolls } - Total value and array of individual rolls
+ */
+function rollExplodingD6() {
+    const rolls = [];
+    let total = 0;
+    let currentRoll = rollDice('1d6');
+    
+    rolls.push(currentRoll);
+    total += currentRoll;
+    
+    // Keep rolling while we get 6s
+    while (currentRoll === 6) {
+        currentRoll = rollDice('1d6');
+        rolls.push(currentRoll);
+        total += currentRoll;
+    }
+    
+    return { total, rolls };
+}
+
 export function openRollModal(container, { attributeName, attributeValue, maxSuerte, currentSuerte }, onResult) {
     // Load modal styles
     ensureStyle('./src/pages/CharactersPage/RollModal.css');
@@ -49,10 +71,14 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
         const advantage = advSel.value;
         const luck = Math.max(0, Math.min(Number(luckInp.value) || 0, Number(currentSuerte) || 0));
         const base = Number(attributeValue) || 0;
-        const d6 = rollDice('1d6');
+        
+        // Roll exploding d6 for the base attribute roll
+        const { total: d6Total, rolls: d6Rolls } = rollExplodingD6();
+        
         let advMod = 0;
         if (advantage === 'ventaja') advMod = rollDice('1d4');
         else if (advantage === 'desventaja') advMod = -rollDice('1d4');
+        
         const extras = evalFormula(modsInp.value || '0', {
             cuerpo: 0,
             reflejos: 0,
@@ -60,11 +86,21 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
             instinto: 0,
             presencia: 0,
         });
-        const die = d6 + (advMod || 0);
+        
+        const die = d6Total + (advMod || 0);
         const total = die + base + extras + luck;
         
-        // Call result callback immediately
-        if (typeof onResult === 'function') onResult({ d6, advMod, advantage, base, extras, luck, total });
+        // Call result callback with explosion data
+        if (typeof onResult === 'function') onResult({ 
+            d6: d6Total, 
+            d6Rolls: d6Rolls, // Individual rolls for explosion
+            advMod, 
+            advantage, 
+            base, 
+            extras, 
+            luck, 
+            total 
+        });
         
         // Close modal automatically
         modal.close();

@@ -85,3 +85,13 @@
     text-align: center;
 }
 
+.characters-list .quantity-badge {
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.15rem 0.35rem;
+    border-radius: 0.25rem;
+    margin-right: 0.25rem;
+}
+

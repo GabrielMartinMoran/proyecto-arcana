@@ -193,6 +193,14 @@ body.no-scroll {
     &.primary:hover {
         background: #d97706;
     }
+    &.danger {
+        background: #dc2626;
+        border-color: transparent;
+        color: #fff;
+    }
+    &.danger:hover {
+        background: #b91c1c;
+    }
 }
 
 /* Inputs */
@@ -237,8 +245,11 @@ label {
 /* Modal */
 .modal-backdrop {
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.0);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     align-items: center;
     justify-content: center;

@@ -27,6 +27,9 @@ export default function CharacterSheet(container, props = {}) {
     
     // Initialize state.character with the passed character
     state.character = character;
+    
+    // Keep references to mounted components to avoid re-initialization
+    let mountedComponents = {};
 
     const render = () => {
         return html`
@@ -81,18 +84,29 @@ export default function CharacterSheet(container, props = {}) {
             } else if (state.tab === 'cards') {
                 const tabContainer = container.querySelector('#cards-tab-container');
                 if (tabContainer) {
-                    const comp = CardsTab(tabContainer, {
-                        character: state.character,
-                        state: props.state,
-                        cardService: CardService,
-                        meetsRequirements: meetsRequirements,
-                        readOnly: readOnly,
-                        onUpdate: (updatedCharacter) => {
-                            state.character = updatedCharacter;
-                            if (props.onUpdate) props.onUpdate(updatedCharacter);
-                        }
-                    });
-                    await comp.init();
+                    if (!mountedComponents.cards) {
+                        const comp = CardsTab(tabContainer, {
+                            character: state.character,
+                            state: props.state,
+                            cardService: CardService,
+                            meetsRequirements: meetsRequirements,
+                            readOnly: readOnly,
+                            onUpdate: (updatedCharacter) => {
+                                state.character = updatedCharacter;
+                                if (props.onUpdate) props.onUpdate(updatedCharacter);
+                            },
+                            onStateUpdate: (updatedState) => {
+                                // Update the global state
+                                Object.assign(props.state, updatedState);
+                                if (props.onStateUpdate) props.onStateUpdate(updatedState);
+                            }
+                        });
+                        await comp.init();
+                        mountedComponents.cards = comp;
+                    } else {
+                        // Update existing component with new data
+                        mountedComponents.cards.update();
+                    }
                 }
             } else if (state.tab === 'config') {
                 const tabContainer = container.querySelector('#config-tab-container');

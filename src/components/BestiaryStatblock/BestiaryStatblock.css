@@ -25,6 +25,12 @@
         border-bottom: 1px solid var(--border-color);
         border-top: 1px solid var(--border-color);
         padding: var(--spacing-sm);
+        
+        .kv {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     }
     .derived-attributes {
         display: flex;
@@ -34,6 +40,19 @@
         justify-content: space-between;
         padding: var(--spacing-sm);
     }
+}
+
+/* Small button styles for roll buttons */
+.button.small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    min-width: auto;
+    height: auto;
+    line-height: 1;
+}
+
+.button.small:hover {
+    transform: none;
 }
 
 

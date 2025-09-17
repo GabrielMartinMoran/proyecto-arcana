@@ -312,45 +312,9 @@
     }
 }
 
-.filters-collapsible.closed {
-    display: none;
-}
+/* filters-collapsible.closed is now handled by CardsTab.css */
 
-.cards-filters {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.5rem 1rem;
-    margin-bottom: var(--spacing-sm);
-
-    .filter-group {
-        background: #fff;
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-md);
-        padding: 0.5rem;
-    }
-    .filter-group > strong {
-        display: block;
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        margin-bottom: 0.35rem;
-    }
-    .options {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--spacing-md);
-    }
-    label {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-    }
-}
-@media (max-width: 1000px) {
-    .cards-filters {
-        grid-template-columns: 1fr;
-    }
-}
+/* .cards-filters styles moved to CardsTab.css to avoid conflicts */
 
 /* Textareas stack label above: moved inside .panel */
 

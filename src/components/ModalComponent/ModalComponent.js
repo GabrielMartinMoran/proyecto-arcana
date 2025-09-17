@@ -13,28 +13,35 @@ const ModalComponent = (container, props = {}) => {
         backdropClass: props.backdropClass || '',
     };
 
-    const render = () => html`
-        <div class="modal-backdrop ${state.open ? 'open' : ''} ${state.backdropClass}" role="dialog" aria-modal="true">
-            <div class="modal-panel">
-                <div class="modal-header">
-                    <h3 class="modal-title">${state.title}</h3>
-                    <button class="modal-close" aria-label="Close">×</button>
+    const render = () => {
+        return html`
+            <div class="modal-backdrop ${state.open ? 'open' : ''} ${state.backdropClass}" role="dialog" aria-modal="true">
+                <div class="modal-panel">
+                    <div class="modal-header">
+                        <h3 class="modal-title">${state.title}</h3>
+                        <button class="modal-close" aria-label="Close">×</button>
+                    </div>
+                    <div class="modal-body">${state.content}</div>
                 </div>
-                <div class="modal-body">${state.content}</div>
             </div>
-        </div>
-    `;
+        `;
+    };
 
     const bindEvents = () => {
         const backdrop = container.querySelector('.modal-backdrop');
         const closeBtn = container.querySelector('.modal-close');
+        
         if (backdrop) {
             backdrop.addEventListener('click', (e) => {
-                if (e.target === backdrop) api.close();
+                if (e.target === backdrop) {
+                    api.close();
+                }
             });
         }
         if (closeBtn) {
-            closeBtn.addEventListener('click', () => api.close());
+            closeBtn.addEventListener('click', () => {
+                api.close();
+            });
         }
         document.addEventListener('keydown', onKeyDown);
         window.addEventListener('hashchange', onRouteChange);
@@ -42,10 +49,14 @@ const ModalComponent = (container, props = {}) => {
     };
 
     const onKeyDown = (e) => {
-        if (state.open && e.key === 'Escape') api.close();
+        if (state.open && e.key === 'Escape') {
+            api.close();
+        }
     };
     const onRouteChange = () => {
-        if (state.open) api.close();
+        if (state.open) {
+            api.close();
+        }
     };
 
     const unbindEvents = () => {
@@ -70,7 +81,9 @@ const ModalComponent = (container, props = {}) => {
         },
         close() {
             setState({ open: false });
-            state.onClose();
+            if (state.onClose) {
+                state.onClose();
+            }
         },
         setState,
     };

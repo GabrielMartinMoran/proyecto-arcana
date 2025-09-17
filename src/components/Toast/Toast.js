@@ -25,7 +25,6 @@ export default function Toast(container, props = {}) {
 
     const render = () => {
         const typeClass = `toast-${state.type}`;
-        console.log('Toast: Rendering with characterName:', state.characterName);
         const characterNameHtml = state.characterName ? html`
             <div class="toast-character-name">${state.characterName}</div>
         ` : '';

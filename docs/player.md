@@ -108,6 +108,41 @@ Lenguas de planos, lo salvaje o tradiciones arcanas. Suelen requerir estudio, gu
 -   **Umbral**: Lengua de sombras y espectros; vinculada al Plano de la Penumbra y a la necromancia.
 -   **Arcaico**: Antigua lengua erudita de reinos perdidos; frecuente en inscripciones y crónicas.
 
+## Paso 7: Dando Vida a tu Personaje
+
+Ya tenés definidos los números y las cartas que representan las capacidades de tu personaje, pero, ¿quién es realmente? ARCANA es un juego centrado en la historia, y los personajes más memorables son aquellos que se sienten como personas reales.
+
+Esta última etapa no tiene reglas, solo preguntas para ayudarte a descubrir el corazón de tu aventurero. No necesitás responderlas todas, pero pensar en algunas de ellas le dará una profundidad increíble a tu interpretación.
+
+### Apariencia y Manierismos
+
+_¿Cómo te ven los demás a simple vista?_
+
+-   ¿Qué rasgo físico es el más llamativo de tu personaje (una cicatriz, un color de ojos inusual, un tatuaje)?
+-   ¿Cómo es su voz? ¿Habla rápido y con entusiasmo, o lento y con calma?
+-   ¿Tiene alguna costumbre o tic nervioso (jugar con una moneda, tocarse el pelo, mirar siempre por encima del hombro)?
+-   ¿Cómo se viste normalmente? ¿Con ropas prácticas y gastadas, o siempre busca verse impecable?
+
+### Trasfondo y Origen
+
+_¿De dónde venís y qué te convirtió en quien sos hoy?_
+
+-   ¿Dónde creciste? ¿En una ciudad bulliciosa, una aldea tranquila, en medio de la naturaleza salvaje?
+-   ¿A qué se dedica tu familia? ¿Seguís sus pasos o te rebelaste contra ellos?
+-   ¿Cuál es el evento más importante que te ha pasado hasta ahora? ¿Fue un triunfo o una tragedia?
+-   ¿Quién es la persona más importante en tu vida (un mentor, un familiar, un amor perdido)?
+-   ¿Por qué decidiste convertirte en un aventurero? ¿Buscás fama, fortuna, venganza, conocimiento o algo completamente distinto?
+
+### Creencias y Objetivos
+
+_¿Qué te impulsa a seguir adelante?_
+
+-   ¿Cuál es tu mayor objetivo en la vida? ¿Qué estarías dispuesto a hacer para conseguirlo?
+-   ¿Cuál es tu mayor miedo?
+-   ¿Tenés un código moral? ¿Hay algo que jamás harías, sin importar la recompensa?
+-   ¿Cómo te relacionás con los demás? ¿Sos confiado y abierto, o cínico y reservado?
+-   ¿Guardás algún secreto que nadie más conoce?
+
 # 3. Mecánicas de Juego
 
 Este capítulo detalla las reglas fundamentales para resolver acciones y situaciones en ARCANA.
@@ -193,10 +228,21 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 -   **[NOMBRE]**
 -   **Nivel:** De 1 a 5. Indica su poder y afecta a su coste de aprendizaje.
 -   **Requerimiento:** Atributo y valor mínimo necesario para poder añadirla a tu Colección (ej. "Mente 3").
--   **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración").
+-   **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
 -   **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 -   **Descripción:** Explica el efecto mecánico y narrativo de la carta.
 -   **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible.
+
+## Lanzamiento Ritual: Magia sin Prisa
+
+Algunas cartas de `Conjuro` poseen la etiqueta `Ritual`. Esto indica que el conjuro puede ser lanzado de una manera más lenta y metódica, sin gastar su energía de combate.
+
+Si una carta tiene la etiqueta `Ritual`, puedes lanzarla siguiendo estas reglas:
+
+-   El lanzamiento requiere **10 minutos** de concentración ininterrumpida. Si eres interrumpido, debes comenzar de nuevo.
+-   Al ser lanzado como un ritual, el conjuro **no gasta sus usos normales** (ni de recarga ni por descanso).
+
+Esta regla permite a los lanzadores de conjuros usar su magia para tareas de utilidad y preparación fuera del combate, como realizar una `Zona de la Verdad` para un interrogatorio prolongado o `Hablar con los Animales` antes de explorar un bosque, sin agotar sus recursos en caso de volver a necesitarlos en un apuro.
 
 ## Tipos de Cartas Especiales
 
@@ -297,6 +343,21 @@ La acción de **Correr** te permite usar tu Acción para moverte una distancia a
 
 **Preparar:** Es posible preparar una acción para que, dada una condición que indiques, esa acción se haga efectiva. Hacer efectiva la acción preparada consume tu Reacción.
 
+## La Acción de Maniobra: Más Allá de las Cartas
+
+Tu personaje es más que una colección de cartas; es un héroe ingenioso en un mundo dinámico. Además de Atacar o usar una carta Activable, puedes usar tu **Acción** para intentar cualquier maniobra de combate que se te ocurra. El límite es tu imaginación y la plausibilidad de la situación.
+
+Estas acciones, a menudo llamadas **Maniobras**, se resuelven normalmente con una **Tirada Enfrentada** contra el objetivo, usando el Atributo que el DJ considere más apropiado.
+
+El objetivo no es tener una regla para cada situación, sino fomentar la creatividad. Habla con tu Director de Juego, describe lo que quieres hacer, y juntos encontrarán la forma de resolverlo.
+
+**Ejemplos de Maniobras:**
+
+-   **Zancadilla:** Intentas derribar a un enemigo. Podría ser una Tirada Enfrentada de tus **Reflejos** contra los **Reflejos** del objetivo.
+-   **Empujón:** Quieres mover a un enemigo de su sitio, quizás para empujarlo por un saliente. Se resolvería con una Tirada Enfrentada de tu **Cuerpo** contra el **Cuerpo** del objetivo.
+-   **Desarmar:** Intentas quitarle el arma a tu oponente. Podría ser una Tirada Enfrentada de tus **Reflejos** contra los **Reflejos** o **Cuerpo** del enemigo, a discreción del DJ.
+-   **Usar el Entorno:** Haces algo para alterar el campo de batalla, como patear un brasero para crear una distracción, cortar la cuerda de un candelabro para que caiga, o volcar una mesa para crear cobertura. El DJ determinará la tirada necesaria y el efecto resultante.
+
 ## Alcance y Distancias
 
 -   **Inmediata:** A tu alcance o a unos pocos pasos (aproximadamente 1 metro).
@@ -310,6 +371,13 @@ Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe i
 -   **Tirada de Ataque:** 1d6 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
 -   **Esquiva:** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
     -   **Esquiva = 4 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
+
+## Cobertura
+
+Los muros, árboles, criaturas y otros obstáculos pueden ofrecer cobertura durante el combate, dificultando que te impacten. La cobertura es una de las consideraciones tácticas más importantes del campo de batalla. En ARCANA, existen dos grados de cobertura:
+
+-   **Cobertura Parcial:** Un objetivo tiene cobertura parcial si un obstáculo bloquea al menos la mitad de su cuerpo. Por ejemplo, estar asomado tras la esquina de un muro, detrás de una columna ancha o usando activamente a otra criatura como escudo. Un objetivo con cobertura parcial obtiene un **+1 a su Esquiva**.
+-   **Cobertura Total:** Un objetivo tiene cobertura total si un obstáculo lo oculta por completo. Por ejemplo, estar al otro lado de un muro o detrás de una puerta cerrada. Un objetivo con cobertura total **no puede ser el objetivo directo** de un ataque o de una carta que requiera línea de visión.
 
 ## Concentración
 
@@ -384,7 +452,55 @@ Los personajes mejoran gastando **Puntos de Progreso (PP)**.
 | **Nueva Carta**                  | 3 × Nivel de la Carta         | Añade una nueva carta a tu **Colección**.                              |
 | **+1 a un Atributo**             | 4 × Valor Actual del Atributo | Para subir un atributo de 3 a 4, el coste es de 12 PP. El máximo es 5. |
 
-# 10. Equipo y Economía
+# 10. Tiempo Entre Aventuras
+
+Las aventuras son momentos de alta intensidad, peligro y gloria, pero ¿qué hace tu personaje cuando el polvo se asienta? El tiempo que pasa entre una misión y la siguiente, conocido como "tiempo de descanso" o "downtime", es una oportunidad para que tu personaje crezca, entrene, investigue y se conecte con el mundo de una forma más personal.
+
+Normalmente, el DJ indicará cuándo el grupo tiene una cantidad significativa de tiempo libre, como una semana en una ciudad o un mes de viaje tranquilo. Durante este período, además de las actividades mundanas, cada personaje puede elegir realizar una actividad principal.
+
+### Gastar Puntos de Progreso (PP)
+
+El tiempo de descanso es el momento ideal para reflexionar sobre tus experiencias y traducirlas en nuevas capacidades. Es durante estos períodos que podés gastar tus PP acumulados para comprar nuevas cartas para tu **Colección** o para **mejorar un Atributo**. Este proceso representa el entrenamiento, estudio o introspección que tu personaje realiza.
+
+### Emprender Proyectos Personales
+
+Más allá de la progresión mecánica, el tiempo de descanso te permite llevar a cabo proyectos que requieren tiempo y recursos. Para resolver estas actividades, el DJ establecerá un período de tiempo necesario, un posible costo en oro y, a menudo, una o más **Pruebas de Habilidad** para determinar el resultado.
+
+Aquí tenés algunos ejemplos de lo que podés hacer:
+
+#### Investigar un Misterio
+
+Buscás información sobre una leyenda, la debilidad de un monstruo o la ubicación de una ruina perdida.
+
+* **Tiempo:** Generalmente una semana de estudio en una biblioteca o de buscar pistas por la ciudad.
+* **Costo:** Puede requerir el pago de informantes o el acceso a archivos privados (10-100 de Oro).
+* **Tirada:** Una Prueba de **Mente (Investigación)**. Un ND 7 podría revelar información común, mientras que un ND 11+ podría desvelar un secreto muy bien guardado.
+
+#### Fabricar un Objeto
+
+Querés crear pociones, venenos o incluso un objeto de equipo específico.
+
+* **Tiempo:** Desde un par de días para una dosis de veneno hasta varias semanas para una pieza de armadura.
+* **Costo:** Debés cubrir el costo de los materiales, que suele ser la mitad del precio de mercado del objeto final.
+* **Tirada:** Una Prueba de Habilidad apropiada. Por ejemplo, **Mente** para la alquimia de una poción, **Instinto (Supervivencia)** para recolectar ingredientes de un veneno natural, o una prueba con herramientas de artesano si el DJ las incluye. El éxito significa que fabricaste el objeto; un fallo puede significar que los materiales se arruinaron.
+
+#### Aprender una Nueva Capacidad
+
+Tu personaje busca expandir sus horizontes aprendiendo algo que no está cubierto por una carta, como un nuevo idioma o una habilidad mundana.
+
+* **Tiempo:** Aprender un nuevo idioma puede llevar meses de estudio. Aprender a usar un nuevo tipo de herramienta podría llevar varias semanas.
+* **Costo:** Necesitarás un tutor, libros o acceso a un taller, lo que puede costar una suma considerable de oro.
+* **Tirada:** El DJ podría pedir una serie de Pruebas de **Mente** a lo largo del tiempo para medir tu progreso. Varios éxitos consecutivos podrían significar que has aprendido la nueva capacidad.
+
+#### Construir una Red de Contactos
+
+Pasás tiempo en tabernas, cortes nobles o los bajos fondos para hacer amigos e informantes.
+
+* **Tiempo:** Una semana o más.
+* **Costo:** Implica gastar dinero en invitaciones, regalos o sobornos.
+* **Tirada:** Una serie de Pruebas de **Presencia** (Persuasión, Intimidación o Engaño, dependiendo de tu enfoque). El éxito podría darte un contacto confiable en una organización, un rumor útil para tu próxima aventura, o Ventaja en futuras interacciones sociales en esa comunidad.
+
+# 11. Equipo y Economía
 
 ## Moneda y Riqueza
 
@@ -443,7 +559,65 @@ La armadura proporciona **Mitigación**, que reduce el daño físico recibido. S
 | Placas completa | 4          | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
 | Escudo          | 0          | +1      | 0                   | Cuerpo 2 y Mano libre | 10 o   |
 
-# 11. Reglas Narrativas Avanzadas
+## Equipo de Aventura y Servicios
+
+Un aventurero bien preparado es un aventurero vivo. La siguiente lista ofrece precios para bienes, equipo y servicios que podés encontrar en la mayoría de los asentamientos.
+
+| Objeto o Servicio                   | Costo      |
+| :---------------------------------- | :--------- |
+| **Equipo de Aventura**              |            |
+| Mochila                             | 5 de Oro   |
+| Soga de cáñamo (15m)                | 2 de Oro   |
+| Antorcha                            | 1 de Oro   |
+| Raciones de viaje (por día)         | 1 de Oro   |
+| Odre de agua                        | 1 de Oro   |
+| Saco de dormir                      | 2 de Oro   |
+| Yesquero y pedernal                 | 1 de Oro   |
+| Ganzúas                             | 25 de Oro  |
+| **Munición**                        |            |
+| Flechas (paquete de 10)             | 2 de Oro   |
+| Virotes de ballesta (paquete de 10) | 3 de Oro   |
+| **Consumibles**                     |            |
+| Poción de Curación Menor (1d6+1)    | 50 de Oro  |
+| **Alojamiento (por noche)**         |            |
+| Posada (habitación compartida)      | 1 de Oro   |
+| Posada (habitación privada)         | 3 de Oro   |
+| **Transporte**                      |            |
+| Caballo de monta                    | 100 de Oro |
+| Mula o burro                        | 20 de Oro  |
+
+## Venenos y Toxinas
+
+Los venenos son herramientas sutiles y mortales, capaces de incapacitar a un gigante o derribar a un rey sin desenvainar una espada. Existen en innumerables variedades, desde las toxinas paralizantes de ciertas arañas hasta los polvos soporíferos destilados por alquimistas.
+
+### Mecánica General de los Venenos
+
+A menos que la descripción de un veneno específico diga lo contrario, todos funcionan de la siguiente manera:
+
+-   **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse. Los especialistas, como un Pícaro con la carta `Frasquero`, pueden ser capaces de hacerlo mucho más rápido.
+-   **Resistencia:** Una criatura afectada por un veneno (ya sea por una herida, ingestión o contacto) debe superar una **Tirada de Salvación de Cuerpo**. La dificultad (ND) y el efecto en caso de fallo dependen del tipo y la potencia del veneno.
+
+### Tipos de Venenos
+
+Los venenos se clasifican por su potencia, lo que determina su costo, la dificultad para resistirlos y la gravedad de sus efectos. La siguiente tabla es una guía para el DJ y los jugadores.
+
+| Calidad del Veneno | Costo Sugerido (dosis) | ND Típico |
+| :----------------- | :--------------------- | :-------- |
+| **Común**          | 25 - 75 de Oro         | 7         |
+| **Potente**        | 100 - 250 de Oro       | 9         |
+| **Exótico**        | 300+ de Oro            | 11+       |
+
+El **efecto exacto** de un veneno lo define el DJ, pero aquí hay algunos ejemplos comunes para inspirar la creación de nuevas toxinas:
+
+-   **Veneno Debilitante (Común):** Al fallar la TS, la víctima sufre el estado **Envenenado** durante 1 minuto.
+-   **Veneno Letal (Potente):** Al fallar la TS, la víctima sufre `2d6` de daño de Veneno inmediato.
+-   **Sérum de la Verdad (Potente):** Al fallar la TS, la víctima no puede decir una mentira deliberada durante 10 minutos.
+-   **Esencia Soporífera (Exótico):** Al fallar la TS, la víctima cae en el estado **Dormido** durante 1 hora o hasta que reciba daño.
+-   **Toxina de la Serpiente (Exótico):** Al fallar la TS, la víctima sufre `1d6` de daño de Veneno y queda **Inmovilizada** durante 1 minuto. Puede repetir la TS al final de cada uno de sus turnos para terminar el efecto.
+
+Un personaje puede comprar, encontrar o intentar fabricar venenos (esto último requeriría una prueba de **Mente** para la alquimia o de **Instinto** para la recolección, a discreción del DJ). Las cartas como `Toxinas Potenciadas` del Pícaro representan una maestría que permite alterar y mejorar los efectos de estos venenos base.
+
+# 12. Reglas Narrativas Avanzadas
 
 Este capítulo presenta mecánicas opcionales diseñadas para dar a los jugadores un mayor grado de control sobre la narrativa, permitiéndoles contribuir a la historia de maneras creativas y sorprendentes.
 
@@ -482,3 +656,76 @@ A veces, la preparación, una coincidencia afortunada o un detalle del pasado de
 > **Jugador:** "Hecho. Gasto 3 de mis 4 Puntos de Suerte."
 >
 > **DJ (narrando el resultado):** "Bien. Entonces, la escena cambia. El portón de piedra cae con un estruendo ensordecedor, pero justo antes de sellar la salida, se detiene con un chirrido metálico. La cuña de hierro que Roric colocó ha aguantado, dejando una pequeña abertura de apenas un palmo en la base. No es suficiente para escapar ahora mismo, pero os da una esperanza y una posible vía de escape si lográis sobrevivir a los gólems."
+
+# 13. Un Ejemplo de Juego
+
+Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presentamos una escena de ejemplo para ilustrar cómo fluye una partida de ARCANA, combinando la narración del Director de Juego (DJ) con las acciones y decisiones de los jugadores.
+
+**Los Personajes:**
+
+-   **Kaelen:** Un Combatiente robusto con **Cuerpo 3** e **Instinto 2**. Tiene las cartas `Sintonía con el Acero` y `Segundo Aliento`.
+-   **Elara:** Una Pícara ágil con **Reflejos 3** e **Instinto 3**. Tiene las cartas `Senda del Bribón` y `Manos Hábiles`.
+
+---
+
+> **DJ:** _Después de bajar por unas escaleras de piedra cubiertas de musgo, llegan a una cámara funeraria. El aire está pesado y huele a polvo y a tierra húmeda. En el centro de la sala, sobre un pedestal de piedra, descansa un antiguo casco de bronce, el artefacto que buscan. El único camino visible es un pasillo de baldosas de unos 10 metros que cruza la sala hasta el pedestal. El resto del piso está cubierto de escombros y huesos._
+
+**Elara:** "Un pasillo tan obvio en una tumba... me huele a trampa. Antes de avanzar, me detengo y reviso el suelo con mucho cuidado. Quiero buscar cualquier cosa fuera de lugar: baldosas flojas, agujeritos en las paredes, cualquier cosa sospechosa."
+
+> **DJ:** _Claro. Es una buena idea. Hacé una Prueba de Habilidad de Instinto (Percepción) para ver si encontrás algo. La dificultad es Normal, así que tenés que superar un ND 7._
+
+**Elara:** "Perfecto. Tiro 1d6 más mi Instinto, que es 3. Saco un 5 en el dado... ¡un total de 8! Supero el ND."
+
+> **DJ:** _Con ese resultado, tu ojo entrenado nota algo que Kaelen se hubiera perdido. Justo a la mitad del pasillo, una de las baldosas tiene un poco menos de polvo que las demás, como si tuviera un mecanismo debajo. Además, ves unas finas ranuras en las paredes a ambos lados del pasillo, a la altura del pecho._
+
+**Kaelen:** "Bien visto, Elara. Yo me quedo atrás. No quiero pisar nada que no deba."
+
+**Elara:** "Voy a intentar desarmarla. Me acerco con cuidado, esquivando esa baldosa, y saco mis herramientas. Quiero ver si puedo inutilizar el mecanismo sin que se active."
+
+> **DJ:** _Eso requiere una mano firme. Es una Prueba de Habilidad de Reflejos (Juego de Manos). Como tenés la carta `Manos Hábiles`, que te da Ventaja, podés tirar un d4 adicional. El ND también es 7._
+
+**Elara:** "¡Genial! Tiro 1d6 más mis Reflejos (3), y le sumo 1d4 por la Ventaja. Saco un 3 en el d6 y un 3 en el d4. Mi total es 3 + 3 + 3... ¡un 9! Éxito."
+
+> **DJ:** _Con una precisión increíble, metés una de tus ganzúas en la delgada línea entre las baldosas y, con un suave 'click', escuchás cómo un mecanismo interno se frena. Las ranuras de las paredes ya no parecen una amenaza. El camino hacia el pedestal parece seguro._
+
+**Kaelen:** "Buen trabajo. Ahora, a buscar ese casco. Avanzo con cuidado, con mi martillo en la mano."
+
+> **DJ:** _Cuando Kaelen llega al pedestal y estira la mano para agarrar el casco, un sonido de huesos raspando contra la piedra retumba en la sala. De las pilas de escombros a los costados, se levantan cuatro figuras esqueléticas, con pedazos de armadura oxidada y espadas cortas en sus manos huesudas. ¡Tiren iniciativa!_
+
+**Elara:** "Tiro 1d6 más mis Reflejos (3). Saco un 4, total 7."
+
+**Kaelen:** "1d6 más mis Reflejos (2). Saco un 2, total 4."
+
+> **DJ:** _Los esqueletos sacan un 5. El orden es: Esqueletos, Elara, Kaelen. Dos de los esqueletos se lanzan sobre Kaelen, que está al lado del pedestal. El primero ataca. Su tirada de ataque es un 8. Tu Esquiva es 6, así que te pega._
+
+**Kaelen:** "¡Rayos!"
+
+> **DJ:** _Te hace 3 puntos de daño Cortante. El segundo esqueleto también ataca, pero su tirada es solo un 5. Falla. Los otros dos esqueletos avanzan hacia Elara. Tu turno, Elara._
+
+**Elara:** "Estoy a distancia Cercana. Saco mi arco corto como Interacción. Como Acción, le disparo al esqueleto que tengo más cerca. Tiro 1d6 más mis Reflejos (3). ¡Saco un 6! ¡El dado explota!"
+
+> **DJ:** _¡Genial! Ganas 1 Punto de Suerte. Ahora tirá el d6 de nuevo y sumalo._
+
+**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 6 + 4 + 3... ¡un 15! Es un golpe crítico, ya que supera la Esquiva del esqueleto (8) por más de 5."
+
+> **DJ:** _¡Un impacto devastador! Tirás el doble de dados de daño. Tu arco corto hace 1d4 de daño Perforante, así que tirás 2d4._
+
+**Elara:** "Saco un 3 y un 4. ¡7 puntos de daño! Además, como un aliado (Kaelen) está al lado de mi objetivo, activo mi `Ataque Furtivo` y sumo 1d4 más de daño."
+
+> **DJ:** _Excelente jugada. El esqueleto recibe un total de 7 + 3... ¡10 puntos de daño! La flecha le atraviesa el cráneo y la criatura se desploma en una pila de huesos inertes. Te queda tu movimiento._
+
+**Elara:** "Me muevo para esconderme detrás de una columna, para tener cobertura parcial."
+
+> **DJ:** _Perfecto. Ganas +1 a tu Esquiva. Turno de Kaelen._
+
+**Kaelen:** "Estoy herido. Como Interacción, uso mi carta `Segundo Aliento` para curarme 1d6 más mi Cuerpo (3)."
+
+> **DJ:** _Dale._
+
+**Kaelen:** "Saco un 4 en el dado. Recupero 7 Puntos de Salud. Mucho mejor. Ahora, para mi Acción, quiero hacer una Maniobra. Voy a usar todo mi cuerpo para empujar al esqueleto que tengo enfrente y tirarlo a un pozo con escombros que tiene detrás."
+
+> **DJ:** _Me gusta. Es una Tirada Enfrentada de tu Cuerpo contra el suyo. El esqueleto tiene Cuerpo 2._
+
+**Kaelen:** "Tiro 1d6 más mi Cuerpo (3). Saco un 5, ¡total 8! El esqueleto tira 1d6 más su Cuerpo (2)... y saca un 2, ¡total 4! Le gano."
+
+> **DJ:** _Con un empujón brutal, lanzas al esqueleto para atrás. Cae aparatosamente en el pozo y escuchás cómo sus huesos se rompen contra los escombros. Ya no es una amenaza. El combate sigue..._

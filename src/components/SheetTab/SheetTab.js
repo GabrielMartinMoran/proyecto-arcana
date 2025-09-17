@@ -3,6 +3,7 @@ import PanelHeader from '../PanelHeader/PanelHeader.js';
 import { ensureStyle } from '../../utils/style-utils.js';
 import { openRollModal } from '../../pages/CharactersPage/RollModal.js';
 import DiceService from '../../services/dice-service.js';
+import rollStore from '../../services/roll-store.js';
 
 /**
  * SheetTab - Component for character sheet display
@@ -21,7 +22,7 @@ const SheetTab = (container, props = {}) => {
     const render = () => {
         const c = state.character;
         const readOnly = state.readOnly;
-        
+
         return html`
             <div class="editor-grid">
                 <div class="panel">
@@ -37,13 +38,27 @@ const SheetTab = (container, props = {}) => {
                     <div class="attrs">
                         <div class="attr">
                             <span>Oro</span>
-                            <input class="long-input" type="number" id="gold" min="0" step="1" value="${c.gold || 0}" ${readOnly ? 'disabled' : ''} />
+                            <input
+                                class="long-input"
+                                type="number"
+                                id="gold"
+                                min="0"
+                                step="1"
+                                value="${c.gold || 0}"
+                                ${readOnly ? 'disabled' : ''}
+                            />
                         </div>
                     </div>
                 </div>
                 <div class="panel">
                     ${PanelHeader({ title: 'Lenguas' })}
-                    <input id="languages" type="text" class="languages-input" value="${c.languages || ''}" ${readOnly ? 'disabled' : ''} />
+                    <input
+                        id="languages"
+                        type="text"
+                        class="languages-input"
+                        value="${c.languages || ''}"
+                        ${readOnly ? 'disabled' : ''}
+                    />
                 </div>
                 <div class="panel">
                     ${PanelHeader({ title: 'Equipo' })}
@@ -66,12 +81,16 @@ const SheetTab = (container, props = {}) => {
         });
 
         // Event delegation for blur events (auto-save)
-        container.addEventListener('blur', (e) => {
-            if (e.target.id === 'gold' || e.target.id === 'languages') {
-                // Trigger update if needed
-                state.onUpdate(state.character);
-            }
-        }, true);
+        container.addEventListener(
+            'blur',
+            (e) => {
+                if (e.target.id === 'gold' || e.target.id === 'languages') {
+                    // Trigger update if needed
+                    state.onUpdate(state.character);
+                }
+            },
+            true
+        );
     };
 
     const handleGoldChange = (value) => {
@@ -90,68 +109,83 @@ const SheetTab = (container, props = {}) => {
         if (attributeValue <= 0) return;
 
         // Open roll modal with modifiers and advantage/disadvantage
-        openRollModal(container, {
-            attributeName: attributeKey,
-            attributeValue: attributeValue,
-            maxSuerte: Number(state.derived.suerteMax) || 0,
-            currentSuerte: Number(state.character.suerte) || 0
-        }, (result) => {
-            if (!result) return;
-
-            // Deduct luck if used
-            if (result.luck > 0) {
-                state.character.suerte = Math.max(0, (state.character.suerte || 0) - result.luck);
-            }
-
-            // Create roll entry
-            const entry = {
-                type: 'attribute',
-                ts: Date.now(),
-                notation: `${attributeKey} (${attributeValue}d6)`,
-                rolls: [result.d6],
-                total: result.total,
-                attribute: attributeKey,
-                attributeValue: attributeValue,
-                details: {
-                    d6: result.d6,
-                    advMod: result.advMod,
-                    advantage: result.advantage,
-                    base: result.base,
-                    extras: result.extras,
-                    luck: result.luck,
-                    parts: [{
-                        type: 'attribute',
-                        attribute: attributeKey,
-                        value: attributeValue,
-                        notation: `${attributeValue}d6`,
-                        rolls: [result.d6],
-                        sum: result.total,
-                        sign: 1
-                    }]
-                }
-            };
-
-            // Add to roll log
-            if (!Array.isArray(state.character.rollLog)) {
-                state.character.rollLog = [];
-            }
-            state.character.rollLog.unshift(entry);
-            
-            // Limit roll log size
-            if (state.character.rollLog.length > 50) {
-                state.character.rollLog.length = 50;
-            }
-
-            // Show toast with result using DiceService
-            DiceService.showAttributeRoll({
-                characterName: state.character.name,
+        openRollModal(
+            container,
+            {
                 attributeName: attributeKey,
-                result: result
-            });
+                attributeValue: attributeValue,
+                maxSuerte: Number(state.derived.suerteMax) || 0,
+                currentSuerte: Number(state.character.suerte) || 0,
+            },
+            (result) => {
+                if (!result) return;
 
-            // Update character
-            state.onUpdate(state.character);
-        });
+                // Deduct luck if used
+                if (result.luck > 0) {
+                    state.character.suerte = Math.max(0, (state.character.suerte || 0) - result.luck);
+                }
+
+                // Create roll entry with explosion data
+                const entry = {
+                    type: 'attribute',
+                    ts: Date.now(),
+                    notation: `${attributeKey} (${attributeValue}d6${
+                        result.d6Rolls && result.d6Rolls.length > 1 ? ` explotando` : ''
+                    })`,
+                    rolls: result.d6Rolls || [result.d6], // Use explosion rolls if available
+                    total: result.total,
+                    attribute: attributeKey,
+                    attributeValue: attributeValue,
+                    details: {
+                        d6: result.d6,
+                        d6Rolls: result.d6Rolls, // Individual explosion rolls
+                        advMod: result.advMod,
+                        advantage: result.advantage,
+                        base: result.base,
+                        extras: result.extras,
+                        luck: result.luck,
+                        exploded: result.d6Rolls && result.d6Rolls.length > 1, // Flag for explosion
+                        parts: [
+                            {
+                                type: 'attribute',
+                                attribute: attributeKey,
+                                value: attributeValue,
+                                notation: `${attributeValue}d6${
+                                    result.d6Rolls && result.d6Rolls.length > 1 ? ` explotando` : ''
+                                }`,
+                                rolls: result.d6Rolls || [result.d6],
+                                sum: result.total,
+                                sign: 1,
+                            },
+                        ],
+                    },
+                };
+
+                // Add to roll log
+                if (!Array.isArray(state.character.rollLog)) {
+                    state.character.rollLog = [];
+                }
+                state.character.rollLog.unshift(entry);
+
+                // Limit roll log size
+                if (state.character.rollLog.length > 50) {
+                    state.character.rollLog.length = 50;
+                }
+
+                // Add to global roll store
+                rollStore.addRoll({ ...entry, who: state.character.name });
+
+                // Show toast with result using DiceService
+                DiceService.showAttributeRoll({
+                    characterName: state.character.name,
+                    attributeName: attributeKey,
+                    result: result,
+                });
+
+                // Update character
+                state.onUpdate(state.character);
+            }
+        );
     };
 
     const mountSubComponents = async () => {

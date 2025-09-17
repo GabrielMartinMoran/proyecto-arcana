@@ -105,7 +105,7 @@ const CharactersPage = (container) => {
         return reqs.every((raw) => {
             const r = String(raw || '').trim();
             if (!r || r.toLowerCase() === 'ninguno') return true;
-            if (/^solo\s+creación/i.test(r)) return true; // already owned; acquisition-only rule
+            if (/^solo\s+creación/i.test(r)) return true; // always eligible
             // Attribute requirement: "Nombre 2"
             const m = r.match(/^([A-Za-zÁÉÍÓÚáéíóúñÑ]+)\s*(\d+)$/);
             if (m) {
@@ -285,6 +285,12 @@ const CharactersPage = (container) => {
                 derived: derived_bind,
                 allowedFields,
                 rules: RULES,
+                onStateUpdate: (updatedState) => {
+                    // Update the global state when CardsTab changes it
+                    Object.assign(state, updatedState);
+                    // Don't call update() here to avoid re-rendering the entire page
+                    // CardsTab will handle its own updates
+                },
             onUpdate: (updatedCharacter) => {
                 Object.assign(c, updatedCharacter);
                 save();
@@ -436,7 +442,7 @@ const CharactersPage = (container) => {
                         const tagChecks = ed.querySelectorAll('input[data-filter-tag]');
                         const clearFilters = ed.querySelector('#cards-clear-filters');
                         const toggleAddFilters = ed.querySelector('#toggle-add-filters');
-                        if (toggleAddFilters) toggleAddFilters.addEventListener('click', () => { state.filtersOpenAdd = !state.filtersOpenAdd; update(); });
+                        // toggleAddFilters is now handled by CardsTab component
                         if (clearFilters) clearFilters.addEventListener('click', () => { state.cardFilters = { levels: [], types: [], attributes: [], tags: [] }; update(); });
                         levelChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = Number(e.target.value); if (e.target.checked && !state.cardFilters.levels.includes(v)) state.cardFilters.levels.push(v); if (!e.target.checked) state.cardFilters.levels = state.cardFilters.levels.filter((x) => x !== v); update(); }));
                         typeChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = e.target.value; if (e.target.checked && !state.cardFilters.types.includes(v)) state.cardFilters.types.push(v); if (!e.target.checked) state.cardFilters.types = state.cardFilters.types.filter((x) => x !== v); update(); }));
@@ -726,11 +732,7 @@ const CharactersPage = (container) => {
         const tagChecks = editor.querySelectorAll('input[data-filter-tag]');
         const clearFilters = editor.querySelector('#cards-clear-filters');
         const toggleAddFilters = editor.querySelector('#toggle-add-filters');
-        if (toggleAddFilters)
-            toggleAddFilters.addEventListener('click', () => {
-                state.filtersOpenAdd = !state.filtersOpenAdd;
-                update();
-            });
+        // toggleAddFilters is now handled by CardsTab component
         if (clearFilters)
             clearFilters.addEventListener('click', () => {
                 state.cardFilters = { levels: [], types: [], attributes: [], tags: [] };
