@@ -394,7 +394,33 @@ const SheetTab = (container, props = {}) => {
                         variables: vars,
                         currentSuerte: Number(state.character.suerte) || 0,
                         maxSuerte: Number(state.derived.suerteMax) || 0,
-                        characterName: state.character && state.character.name ? state.character.name : '',
+                        characterName: (state.character && state.character.name) || '',
+                        // onRoll: receive roll entries from AttacksList and persist to character log + global rollStore
+                        onRoll: (entry) => {
+                            try {
+                                if (!state.character) return;
+                                if (!Array.isArray(state.character.rollLog)) state.character.rollLog = [];
+                                const logEntry = {
+                                    type: entry.type || 'attack',
+                                    ts: entry.ts || Date.now(),
+                                    notation: entry.attackName || entry.notation || '',
+                                    rolls: entry.rolls || [],
+                                    total: entry.total,
+                                    details: entry.details || {},
+                                };
+                                // prepend to character roll log
+                                state.character.rollLog.unshift(logEntry);
+                                if (state.character.rollLog.length > 200) state.character.rollLog.length = 200;
+                                // add to global roll store for UI/history
+                                try {
+                                    rollStore.addRoll({ ...logEntry, who: state.character.name });
+                                } catch (_) {}
+                                // persist change via parent onUpdate (guarded)
+                                if (!suppressOnUpdate) state.onUpdate(state.character);
+                            } catch (err) {
+                                console.error('SheetTab:onRoll error', err);
+                            }
+                        },
                         onChange: (items) => {
                             state.character.attacks = items;
                             try {

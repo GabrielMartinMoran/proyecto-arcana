@@ -37,6 +37,8 @@ const AttacksList = (container, props = {}) => {
             typeof props.characterName === 'string'
                 ? props.characterName
                 : (props.character && props.character.name) || '',
+        // onRoll callback: notify parent of roll results (attack/damage)
+        onRoll: typeof props.onRoll === 'function' ? props.onRoll : () => {},
     };
 
     // Suppress notify while we're programmatically patching DOM to avoid loops
@@ -200,6 +202,17 @@ const AttacksList = (container, props = {}) => {
                             rolls,
                             breakdown,
                         });
+                        // Notify parent / logger about the roll (attack)
+                        try {
+                            state.onRoll({
+                                type: 'attack',
+                                attackName: item && item.name ? item.name : 'Ataque',
+                                total,
+                                rolls,
+                                breakdown,
+                                details: result,
+                            });
+                        } catch (_) {}
                     }
                 );
             } catch (err) {
@@ -215,6 +228,17 @@ const AttacksList = (container, props = {}) => {
                     rolls: atk.rolls,
                     breakdown,
                 });
+                // Notify parent / logger about the fallback attack roll
+                try {
+                    state.onRoll({
+                        type: 'attack',
+                        attackName: item && item.name ? item.name : 'Ataque',
+                        total,
+                        rolls: atk.rolls,
+                        breakdown,
+                        details: { exploding: true, rolls: atk.rolls, bonus },
+                    });
+                } catch (_) {}
             }
 
             return;
@@ -239,12 +263,23 @@ const AttacksList = (container, props = {}) => {
                 const parts = DamageUtils.parseDamageFormula(formula);
                 if (!parts.length) {
                     DiceService.showRollToast({
-                        characterName: item && item.name ? item.name : 'Daño',
+                        characterName: state.characterName || (item && item.name ? item.name : 'Daño'),
                         rollType: `${item && item.name ? item.name : 'Daño'} (daño)`,
                         total: formula,
                         rolls: [],
                         breakdown: `Fórmula: ${formula}`,
                     });
+                    // notify empty / invalid damage attempt
+                    try {
+                        state.onRoll({
+                            type: 'damage',
+                            attackName: item && item.name ? item.name : 'Daño',
+                            total: null,
+                            rolls: [],
+                            breakdown: `Fórmula inválida: ${formula}`,
+                            details: { formula },
+                        });
+                    } catch (_) {}
                     return;
                 }
                 const res = DamageUtils.evaluateDamageParts(parts, { explodeDice: false });
@@ -255,6 +290,17 @@ const AttacksList = (container, props = {}) => {
                     rolls: res.flatRolls,
                     breakdown: `${formula} => ${res.breakdown} => ${res.total}`,
                 });
+                // Notify parent / logger about the damage roll result
+                try {
+                    state.onRoll({
+                        type: 'damage',
+                        attackName: item && item.name ? item.name : 'Daño',
+                        total: res.total,
+                        rolls: res.flatRolls,
+                        breakdown: `${formula} => ${res.breakdown}`,
+                        details: { parts: parts, partsResults: res.partsResults || [], eval: res },
+                    });
+                } catch (_) {}
             } catch (err) {
                 console.error('AttacksList rollDamage error', err);
                 DiceService.showRollToast({
@@ -264,6 +310,17 @@ const AttacksList = (container, props = {}) => {
                     rolls: [],
                     breakdown: `Fórmula: ${formula}`,
                 });
+                // Notify parent about the error / fallback
+                try {
+                    state.onRoll({
+                        type: 'damage',
+                        attackName: item && item.name ? item.name : 'Daño',
+                        total: null,
+                        rolls: [],
+                        breakdown: `Error: ${String(err)}`,
+                        details: { error: String(err), formula },
+                    });
+                } catch (_) {}
             }
             return;
         }
