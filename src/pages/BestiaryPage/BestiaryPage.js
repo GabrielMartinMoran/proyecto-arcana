@@ -35,7 +35,9 @@ const BestiaryPage = (container) => {
             if (parsed && typeof parsed === 'object') data = validateBestiary(parsed);
         } catch (_) {}
         // Facets
-        const naFacets = Array.from(new Set((data.creatures || []).map((c) => Number(c.na) || 0))).sort((a, b) => a - b);
+        const naFacets = Array.from(new Set((data.creatures || []).map((c) => Number(c.na) || 0))).sort(
+            (a, b) => a - b
+        );
         let search = '';
         let naFilters = [];
         const getFiltered = () =>
@@ -47,14 +49,16 @@ const BestiaryPage = (container) => {
                 )
                 .filter((c) => (naFilters.length ? naFilters.includes(Number(c.na) || 0) : true));
         const renderAll = () => {
-            const list = getFiltered().slice().sort((a, b) => {
-                const naA = Number(a.na) || 0;
-                const naB = Number(b.na) || 0;
-                if (naA !== naB) return naA - naB;
-                const nameA = removeDiacritics(String(a.name || '')).toLowerCase();
-                const nameB = removeDiacritics(String(b.name || '')).toLowerCase();
-                return nameA.localeCompare(nameB);
-            });
+            const list = getFiltered()
+                .slice()
+                .sort((a, b) => {
+                    const naA = Number(a.na) || 0;
+                    const naB = Number(b.na) || 0;
+                    if (naA !== naB) return naA - naB;
+                    const nameA = removeDiacritics(String(a.name || '')).toLowerCase();
+                    const nameB = removeDiacritics(String(b.name || '')).toLowerCase();
+                    return nameA.localeCompare(nameB);
+                });
             const tocItems = list.map((c) => ({ id: slugify(c.name), text: c.name, children: [] }));
             layout.setSidebarExtra('Indice', renderTocHtml(tocItems));
             root.innerHTML = list.map(renderBestiaryStatblock).join('');
@@ -82,7 +86,7 @@ const BestiaryPage = (container) => {
     const escapeHtml = (s) =>
         String(s).replace(
             /[&<>"']/g,
-            (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])
+            (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]
         );
     const slugify = (s) =>
         String(s)

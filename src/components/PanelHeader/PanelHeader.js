@@ -14,5 +14,3 @@ export default function PanelHeader(props = {}) {
         <div class="panel-header-actions">${actions}</div>
     </div>`;
 }
-
-

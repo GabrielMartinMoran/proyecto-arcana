@@ -22,30 +22,30 @@ export function rollExplodingDice(notation) {
         .trim()
         .match(/^(\d*)d(\d+)$/i);
     if (!m) return { total: NaN, rolls: [] };
-    
+
     const n = Math.max(1, Number(m[1] || 1));
     const faces = Number(m[2] || 0);
     if (!faces) return { total: NaN, rolls: [] };
-    
+
     const allRolls = [];
     let total = 0;
-    
+
     for (let i = 0; i < n; i++) {
         const diceRolls = [];
         let currentRoll = 1 + Math.floor(Math.random() * faces);
         diceRolls.push(currentRoll);
         total += currentRoll;
-        
+
         // Keep rolling while we get max value (6 for d6, faces for other dice)
         while (currentRoll === faces) {
             currentRoll = 1 + Math.floor(Math.random() * faces);
             diceRolls.push(currentRoll);
             total += currentRoll;
         }
-        
+
         allRolls.push(...diceRolls);
     }
-    
+
     return { total, rolls: allRolls };
 }
 
@@ -74,10 +74,10 @@ export function evalFormula(formula, vars = {}) {
  */
 export function evaluateDiceExpression(formula, vars = {}) {
     if (formula == null || formula === '') return { total: 0, parts: [] };
-    
+
     let expr = String(formula);
     const parts = [];
-    
+
     // Replace explosive dice occurrences with their roll results (must be first!)
     expr = expr.replace(/(\d*)d(\d+)e/gi, (match, a, b) => {
         const notation = `${a || 1}d${b}`;
@@ -87,11 +87,11 @@ export function evaluateDiceExpression(formula, vars = {}) {
             notation: match, // Keep the original notation with 'e'
             rolls: rolls,
             sum: total,
-            sign: 1
+            sign: 1,
         });
         return String(total);
     });
-    
+
     // Replace normal dice occurrences with their roll results (must be after explosive dice)
     expr = expr.replace(/(\d*)d(\d+)/gi, (match, a, b) => {
         const notation = `${a || 1}d${b}`;
@@ -101,15 +101,15 @@ export function evaluateDiceExpression(formula, vars = {}) {
             notation: notation,
             rolls: [result],
             sum: result,
-            sign: 1
+            sign: 1,
         });
         return String(result);
     });
-    
+
     // Allowed variable names come from vars object
     const names = Object.keys(vars);
     const values = names.map((k) => Number(vars[k]) || 0);
-    
+
     try {
         // eslint-disable-next-line no-new-func
         const fn = new Function(...names, `return (${expr});`);

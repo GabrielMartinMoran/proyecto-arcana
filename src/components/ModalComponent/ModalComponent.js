@@ -15,7 +15,11 @@ const ModalComponent = (container, props = {}) => {
 
     const render = () => {
         return html`
-            <div class="modal-backdrop ${state.open ? 'open' : ''} ${state.backdropClass}" role="dialog" aria-modal="true">
+            <div
+                class="modal-backdrop ${state.open ? 'open' : ''} ${state.backdropClass}"
+                role="dialog"
+                aria-modal="true"
+            >
                 <div class="modal-panel">
                     <div class="modal-header">
                         <h3 class="modal-title">${state.title}</h3>
@@ -30,7 +34,7 @@ const ModalComponent = (container, props = {}) => {
     const bindEvents = () => {
         const backdrop = container.querySelector('.modal-backdrop');
         const closeBtn = container.querySelector('.modal-close');
-        
+
         if (backdrop) {
             backdrop.addEventListener('click', (e) => {
                 if (e.target === backdrop) {

@@ -14,20 +14,20 @@ La mejor práctica es otorgar los PP al **final de la sesión de juego**. Esto c
 
 ARCANA es un juego que recompensa más que solo el combate. Los PP deben ser un reflejo del progreso de los personajes en la historia. Considera otorgar PP por los siguientes logros:
 
--   **Cumplir Objetivos:** El grupo avanzó en su misión principal o completó una tarea secundaria importante.
--   **Superar Desafíos:** No solo combates. Un desafío puede ser navegar una compleja intriga social, resolver un acertijo antiguo o sobrevivir a un viaje peligroso a través de tierras salvajes.
--   **Buena Interpretación (Roleplaying):** Un jugador tomó una decisión audaz basada en la personalidad de su personaje (incluso si fue una mala decisión), interactuó de forma memorable con un PNJ o contribuyó significativamente a la historia del grupo.
--   **Ideas Creativas:** El grupo encontró una solución ingeniosa y no convencional para un problema. Recompensa el pensamiento lateral.
--   **Fracasos Interesantes:** A veces, un fracaso puede hacer la historia más emocionante. Si el error de un jugador introduce una complicación dramática y divertida, considera otorgarle un punto por ello.
+- **Cumplir Objetivos:** El grupo avanzó en su misión principal o completó una tarea secundaria importante.
+- **Superar Desafíos:** No solo combates. Un desafío puede ser navegar una compleja intriga social, resolver un acertijo antiguo o sobrevivir a un viaje peligroso a través de tierras salvajes.
+- **Buena Interpretación (Roleplaying):** Un jugador tomó una decisión audaz basada en la personalidad de su personaje (incluso si fue una mala decisión), interactuó de forma memorable con un PNJ o contribuyó significativamente a la historia del grupo.
+- **Ideas Creativas:** El grupo encontró una solución ingeniosa y no convencional para un problema. Recompensa el pensamiento lateral.
+- **Fracasos Interesantes:** A veces, un fracaso puede hacer la historia más emocionante. Si el error de un jugador introduce una complicación dramática y divertida, considera otorgarle un punto por ello.
 
 ## ¿Cuántos PP Otorgar? (Una Guía Flexible)
 
 En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupuesto de PP por sesión. Una buena regla general es repartir **entre 2 y 5 PP por personaje al final de cada sesión**.
 
--   **2 PP (Sesión de Progreso):** Una sesión estándar donde hubo algo de investigación, un combate menor o se avanzó en la trama sin grandes hitos.
--   **3 PP (Sesión Exitosa):** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo. Esta debería ser la recompensa más habitual.
--   **4 PP (Sesión Memorable):** Ocurrió algo épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o tuvo un momento de interpretación brillante que definió la sesión.
--   **+1 PP (Bono Individual):** Siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
+- **2 PP (Sesión de Progreso):** Una sesión estándar donde hubo algo de investigación, un combate menor o se avanzó en la trama sin grandes hitos.
+- **3 PP (Sesión Exitosa):** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo. Esta debería ser la recompensa más habitual.
+- **4 PP (Sesión Memorable):** Ocurrió algo épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o tuvo un momento de interpretación brillante que definió la sesión.
+- **+1 PP (Bono Individual):** Siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
 
 # Guía de Recompensas: Tesoro y Equipo
 
@@ -58,16 +58,16 @@ Esto evita las bonificaciones numéricas genéricas y, en su lugar, otorga capac
 
 Cuando diseñes un objeto especial, trátalo como si estuvieras creando una nueva carta exclusiva de ese objeto. La distinción entre un objeto "menor" y uno "poderoso" radica en si su carta necesita ocupar una de tus **Ranuras de Cartas Activas** para funcionar.
 
--   **Objetos de Efecto Pasivo (Menores):** Otorgan beneficios constantes sin necesidad de ocupar una ranura activa. Son "siempre activos" mientras el personaje los porte.
--   **Objetos de Poder Activo (Mayores):** Requieren que el jugador dedique una de sus Ranuras de Cartas Activas a la carta del objeto. Esto representa el esfuerzo mental y la concentración necesarios para canalizar el poder del objeto, y crea una decisión estratégica interesante para el jugador.
+- **Objetos de Efecto Pasivo (Menores):** Otorgan beneficios constantes sin necesidad de ocupar una ranura activa. Son "siempre activos" mientras el personaje los porte.
+- **Objetos de Poder Activo (Mayores):** Requieren que el jugador dedique una de sus Ranuras de Cartas Activas a la carta del objeto. Esto representa el esfuerzo mental y la concentración necesarios para canalizar el poder del objeto, y crea una decisión estratégica interesante para el jugador.
 
 Utiliza la siguiente plantilla:
 
--   **[NOMBRE DEL OBJETO]**
--   **Tipo:** Objeto (Puede ser de **Efecto** o **Activable**).
--   **Descripción:** Explica el efecto mecánico y narrativo del objeto.
--   **Usos:** Si es **Activable**, detalla cuántas veces se puede usar (ej. `1 por día de descanso`, `Recarga 5+`, etc.).
--   **Requerimientos:** Listado de requerimientos para poder usar el objeto.
+- **[NOMBRE DEL OBJETO]**
+- **Tipo:** Objeto (Puede ser de **Efecto** o **Activable**).
+- **Descripción:** Explica el efecto mecánico y narrativo del objeto.
+- **Usos:** Si es **Activable**, detalla cuántas veces se puede usar (ej. `1 por día de descanso`, `Recarga 5+`, etc.).
+- **Requerimientos:** Listado de requerimientos para poder usar el objeto.
 
 ### Ejemplos de Objetos-Carta
 
@@ -107,8 +107,8 @@ Establecer el **Nivel de Dificultad (ND)** para las acciones de los jugadores es
 
 Antes de fijar un ND, pregúntate: **¿Es el resultado de esta acción incierto e interesante?**
 
--   Si un maestro ladrón intenta abrir una cerradura simple sin presión de tiempo, **no pidas una tirada**. Simplemente lo logra.
--   Si la acción es imposible (intentar saltar a la luna), **no pidas una tirada**. Simplemente falla.
+- Si un maestro ladrón intenta abrir una cerradura simple sin presión de tiempo, **no pidas una tirada**. Simplemente lo logra.
+- Si la acción es imposible (intentar saltar a la luna), **no pidas una tirada**. Simplemente falla.
 
 Pide una tirada solo cuando tanto el éxito como el fracaso tienen consecuencias que hacen avanzar la historia.
 
@@ -116,19 +116,19 @@ Pide una tirada solo cuando tanto el éxito como el fracaso tienen consecuencias
 
 Recuerda siempre la base:
 
--   **ND 5 (Fácil):** Una tarea que un profesional esperaría lograr sin problemas.
--   **ND 7 (Normal):** Un desafío estándar. El éxito no está garantizado. **Este será tu ND más utilizado.**
--   **ND 9 (Difícil):** Una tarea que requiere habilidad y un poco de suerte.
--   **ND 11 (Muy Difícil):** Al borde de lo posible.
--   **ND 13+ (Épico):** Tareas legendarias.
+- **ND 5 (Fácil):** Una tarea que un profesional esperaría lograr sin problemas.
+- **ND 7 (Normal):** Un desafío estándar. El éxito no está garantizado. **Este será tu ND más utilizado.**
+- **ND 9 (Difícil):** Una tarea que requiere habilidad y un poco de suerte.
+- **ND 11 (Muy Difícil):** Al borde de lo posible.
+- **ND 13+ (Épico):** Tareas legendarias.
 
 ## Modificar el ND: El Contexto lo es Todo
 
 Una vez que tienes un ND base en mente, ajústalo +/- 1 o 2 puntos basándote en las circunstancias.
 
--   **¿Tienen las herramientas adecuadas?** Forzar una cerradura con ganzúas es más fácil que hacerlo con un alambre (ND +2).
--   **¿Las condiciones son desfavorables?** Escalar un muro bajo la lluvia es más difícil que hacerlo en un día seco (ND +2).
--   **¿Están bajo presión?** Desactivar una trampa mientras el techo se derrumba es más difícil que hacerlo con calma (ND +1).
+- **¿Tienen las herramientas adecuadas?** Forzar una cerradura con ganzúas es más fácil que hacerlo con un alambre (ND +2).
+- **¿Las condiciones son desfavorables?** Escalar un muro bajo la lluvia es más difícil que hacerlo en un día seco (ND +2).
+- **¿Están bajo presión?** Desactivar una trampa mientras el techo se derrumba es más difícil que hacerlo con calma (ND +1).
 
 # Diseñar Criaturas y Encuentros
 
@@ -138,15 +138,15 @@ La filosofía de diseño de criaturas en ARCANA se basa en la simplicidad, la ut
 
 Un bloque de estadísticas (statblock) se compone de:
 
--   **[NOMBRE DE LA CRIATURA]**
--   **Nivel de Amenaza (NA):** Un número que representa su poder general.
--   **Salud:** La cantidad de daño que puede soportar.
--   **Esquiva:** El número a superar en una tirada de ataque.
--   **Mitigación:** La cantidad de daño físico que la criatura ignora de cada golpe.
--   **Lenguas:** Idiomas que la criatura comprende y/o puede hablar.
--   **Ataque:** `[Nombre] +[Modificador] ([Daño] [Tipo])`
--   **Habilidades Especiales:** Rasgos pasivos y Acciones activas.
--   **Comportamiento:** Una frase corta que resume su actitud en combate.
+- **[NOMBRE DE LA CRIATURA]**
+- **Nivel de Amenaza (NA):** Un número que representa su poder general.
+- **Salud:** La cantidad de daño que puede soportar.
+- **Esquiva:** El número a superar en una tirada de ataque.
+- **Mitigación:** La cantidad de daño físico que la criatura ignora de cada golpe.
+- **Lenguas:** Idiomas que la criatura comprende y/o puede hablar.
+- **Ataque:** `[Nombre] +[Modificador] ([Daño] [Tipo])`
+- **Habilidades Especiales:** Rasgos pasivos y Acciones activas.
+- **Comportamiento:** Una frase corta que resume su actitud en combate.
 
 ## Habilidades con Recarga
 
@@ -175,18 +175,18 @@ o la mejora de atributos.
 >
 > Imaginemos a un personaje en diferentes etapas de su carrera:
 >
-> -   **Recién Creado:** Su carta más alta es de Nivel 1 y ha gastado 0 PP.
->     -   Su Poder es `1 + (0 / 10) = 1`.
-> -   **Tras algunas aventuras:** Compra su primera carta de Nivel 2 y ha gastado un total de 12 PP en su progreso.
->     -   Su Poder es `2 + (12 / 10) = 3.2`, que se redondea a **3**.
-> -   **Un Héroe Veterano:** Adquiere una carta de Nivel 3 y ha gastado un total de 40 PP a lo largo de sus aventuras.
->     -   Su Poder es `3 + (40 / 10) = 7`.
+> - **Recién Creado:** Su carta más alta es de Nivel 1 y ha gastado 0 PP.
+>     - Su Poder es `1 + (0 / 10) = 1`.
+> - **Tras algunas aventuras:** Compra su primera carta de Nivel 2 y ha gastado un total de 12 PP en su progreso.
+>     - Su Poder es `2 + (12 / 10) = 3.2`, que se redondea a **3**.
+> - **Un Héroe Veterano:** Adquiere una carta de Nivel 3 y ha gastado un total de 40 PP a lo largo de sus aventuras.
+>     - Su Poder es `3 + (40 / 10) = 7`.
 
 ### Paso 2: Calcula el poder del grupo
 
 El **Poder del Grupo (PG)** se calcula de la siguiente manera:
 
--   **Poder de Grupo = Suma del poder de cada personaje del grupo**
+- **Poder de Grupo = Suma del poder de cada personaje del grupo**
 
 ### Paso 3: Construye el Encuentro con tu Presupuesto de NA
 
@@ -216,23 +216,23 @@ A continuación se presenta una tabla que facilita la creación de criaturas.
 
 ### Significado de las columnas
 
--   **NA:** Nivel de amenaza
--   **STA**: Suma total de atributos
--   **VAM**: Valor del atributo más alto
--   **PS**: Puntos de salud
--   **ESQ**: Esquiva
--   **MIT**: Mitigación
--   **DPT**: Daño por turno (promedio del daño medio por turno durante 3 turnos)
--   **IH**: Impacto de habilidades (si la criatura posee habilidades que no realicen daño pero generen efectos negativos al grupo,
-    se debe tener en cuenta la criticidad de esos efectos)
+- **NA:** Nivel de amenaza
+- **STA**: Suma total de atributos
+- **VAM**: Valor del atributo más alto
+- **PS**: Puntos de salud
+- **ESQ**: Esquiva
+- **MIT**: Mitigación
+- **DPT**: Daño por turno (promedio del daño medio por turno durante 3 turnos)
+- **IH**: Impacto de habilidades (si la criatura posee habilidades que no realicen daño pero generen efectos negativos al grupo,
+  se debe tener en cuenta la criticidad de esos efectos)
 
 ### Calculo de los Puntos de Salud de una criatura
 
 Para calcular los Puntos de Salud de una criatura, se debe considerar el propósito de la criatura en el combate. Algunos ejemplos de propósitos son:
 
--   **Masilla**: Diseñada para resistir muy pocos golpes.
--   **Balanceado**: Su salud se asemeja a la que tendría un personaje con los mismos atributos.
--   **Tanque**: Esta diseñado para resistir muchos golpes.
+- **Masilla**: Diseñada para resistir muy pocos golpes.
+- **Balanceado**: Su salud se asemeja a la que tendría un personaje con los mismos atributos.
+- **Tanque**: Esta diseñado para resistir muchos golpes.
 
 Dependiendo del propósito, la salud se calcula de la siguiente manera:
 
@@ -252,13 +252,13 @@ Para calcular los Puntos de Salud de una criatura, se debe considerar el propós
 
 ### Calculo del Impacto de Habilidades
 
--   **Ninguno**: No hay impacto de habilidades o no tiene habilidades.
--   **Mínimo**: Bufos al ataque (ya calculados en **DPT**)
--   **Bajo**: Reducción de mobilidad, recuperación de salud leve, bufos a la defensa.
--   **Medio**: Mermado de un miembro del grupo. Recuperación de salud moderada.
--   **Alto**: Mermado de multiples miembros del grupo. Recuperación de salud alta.
--   **Muy Alto**: Inhabilitacion de un miembro del grupo
--   **Desmedido**: Inhabilitacion de multiples miembros del grupo
+- **Ninguno**: No hay impacto de habilidades o no tiene habilidades.
+- **Mínimo**: Bufos al ataque (ya calculados en **DPT**)
+- **Bajo**: Reducción de mobilidad, recuperación de salud leve, bufos a la defensa.
+- **Medio**: Mermado de un miembro del grupo. Recuperación de salud moderada.
+- **Alto**: Mermado de multiples miembros del grupo. Recuperación de salud alta.
+- **Muy Alto**: Inhabilitacion de un miembro del grupo
+- **Desmedido**: Inhabilitacion de multiples miembros del grupo
 
 ### Calculo de NA
 

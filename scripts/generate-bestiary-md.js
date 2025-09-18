@@ -43,9 +43,9 @@ function formatStats(stats = {}) {
     const mitigNote = stats.mitigacion && stats.mitigacion.note ? ` (${safeStr(stats.mitigacion.note)})` : '';
     const velocNote = stats.velocidad && stats.velocidad.note ? ` (${safeStr(stats.velocidad.note)})` : '';
     return `**Salud:** ${stats.salud ?? ''} | **Esquiva:** ${
-        stats.esquiva ? stats.esquiva.value ?? '' : ''
-    }${esquivaNote} | **Mitigación:** ${stats.mitigacion ? stats.mitigacion.value ?? '' : ''}${mitigNote} | **Velocidad:** ${
-        stats.velocidad ? stats.velocidad.value ?? '' : ''
+        stats.esquiva ? (stats.esquiva.value ?? '') : ''
+    }${esquivaNote} | **Mitigación:** ${stats.mitigacion ? (stats.mitigacion.value ?? '') : ''}${mitigNote} | **Velocidad:** ${
+        stats.velocidad ? (stats.velocidad.value ?? '') : ''
     }${velocNote}`;
 }
 
@@ -138,8 +138,16 @@ function generateMarkdown() {
             const naA = Number(a.na) || 0;
             const naB = Number(b.na) || 0;
             if (naA !== naB) return naA - naB;
-            const nameA = (a.name || '').toString().toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '');
-            const nameB = (b.name || '').toString().toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '');
+            const nameA = (a.name || '')
+                .toString()
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[^a-z0-9]+/g, '');
+            const nameB = (b.name || '')
+                .toString()
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[^a-z0-9]+/g, '');
             return nameA.localeCompare(nameB);
         });
         let md = `# Bestiario de ARCANA\n\n`;
@@ -158,5 +166,3 @@ function generateMarkdown() {
 }
 
 generateMarkdown();
-
-

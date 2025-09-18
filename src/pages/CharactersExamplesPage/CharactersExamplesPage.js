@@ -86,9 +86,15 @@ const CharactersExamplesPage = (container) => {
         }
         const attrs = { Cuerpo: 1, Reflejos: 1, Mente: 1, Instinto: 1, Presencia: 1, ...(c.attributes || {}) };
         const derivedBase = computeDerivedStats(attrs);
-        const ndBase = { ndMente: RULES.ndBase + (Number(attrs.Mente) || 0), ndInstinto: RULES.ndBase + (Number(attrs.Instinto) || 0) };
+        const ndBase = {
+            ndMente: RULES.ndBase + (Number(attrs.Mente) || 0),
+            ndInstinto: RULES.ndBase + (Number(attrs.Instinto) || 0),
+        };
         const luckBase = { suerteMax: RULES.maxLuck };
-        const derived = applyModifiersToDerived({ ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 }, c);
+        const derived = applyModifiersToDerived(
+            { ...derivedBase, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
+            c
+        );
         const sheet = CharacterSheet(sheetContainer, {
             state,
             character: { ...c, attributes: attrs },
@@ -122,10 +128,24 @@ const CharactersExamplesPage = (container) => {
                                     onRoll: (key) => {
                                         const val = Number((attrs || {})[key]) || 0;
                                         const base = computeDerivedStats(attrs || {});
-                                        const ndBase = { ndMente: 5 + (Number(attrs.Mente) || 0), ndInstinto: 5 + (Number(attrs.Instinto) || 0) };
+                                        const ndBase = {
+                                            ndMente: 5 + (Number(attrs.Mente) || 0),
+                                            ndInstinto: 5 + (Number(attrs.Instinto) || 0),
+                                        };
                                         const luckBase = { suerteMax: 5 };
-                                        const derivedNow = applyModifiersToDerived({ ...base, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 }, c);
-                                        openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, () => {});
+                                        const derivedNow = applyModifiersToDerived(
+                                            { ...base, ...ndBase, ...luckBase, mitigacion: Number(c.mitigacion) || 0 },
+                                            c
+                                        );
+                                        openRollModal(
+                                            document.body,
+                                            {
+                                                attributeName: key,
+                                                attributeValue: val,
+                                                maxSuerte: Number(derivedNow.suerteMax) || 0,
+                                            },
+                                            () => {}
+                                        );
                                     },
                                 });
                                 comp.init();
@@ -173,7 +193,7 @@ const CharactersExamplesPage = (container) => {
                             comp.init();
                         });
                     }
-                    
+
                     // CharacterSheet now handles all tab mounting internally
                 },
             },

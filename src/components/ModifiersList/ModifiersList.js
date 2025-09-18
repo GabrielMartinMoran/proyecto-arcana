@@ -25,22 +25,36 @@ const ModifiersList = (container, props = {}) => {
             <div class="mods">
                 ${state.items
                     .map(
-                        (m, idx) => html`<div class="mod-row" data-idx="${idx}">
-                            <select data-mod-field>
-                                ${state.allowedFields
-                                    .map(
-                                        (f) => html`<option value="${f}" ${m.field === f ? 'selected' : ''}>${f}</option>`
-                                    )
-                                    .join('')}
-                            </select>
-                            <select data-mod-mode>
-                                <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>+</option>
-                                <option value="set" ${m.mode === 'set' ? 'selected' : ''}>=</option>
-                            </select>
-                            <input type="text" data-mod-expr placeholder="expresion (e.g., 2, cuerpo*2)" value="${m.expr || ''}" />
-                            <input type="text" data-mod-label placeholder="Etiqueta (opcional)" value="${m.label || ''}" />
-                            <button class="button" data-mod-remove>Eliminar</button>
-                        </div>`
+                        (m, idx) =>
+                            html`<div class="mod-row" data-idx="${idx}">
+                                <select data-mod-field>
+                                    ${state.allowedFields
+                                        .map(
+                                            (f) =>
+                                                html`<option value="${f}" ${m.field === f ? 'selected' : ''}>
+                                                    ${f}
+                                                </option>`
+                                        )
+                                        .join('')}
+                                </select>
+                                <select data-mod-mode>
+                                    <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>+</option>
+                                    <option value="set" ${m.mode === 'set' ? 'selected' : ''}>=</option>
+                                </select>
+                                <input
+                                    type="text"
+                                    data-mod-expr
+                                    placeholder="expresion (e.g., 2, cuerpo*2)"
+                                    value="${m.expr || ''}"
+                                />
+                                <input
+                                    type="text"
+                                    data-mod-label
+                                    placeholder="Etiqueta (opcional)"
+                                    value="${m.label || ''}"
+                                />
+                                <button class="button" data-mod-remove>Eliminar</button>
+                            </div>`
                     )
                     .join('')}
                 <div class="mods-actions">
@@ -114,5 +128,3 @@ const ModifiersList = (container, props = {}) => {
 };
 
 export default ModifiersList;
-
-

@@ -36,7 +36,11 @@ const DiceTab = (container, props = {}) => {
                         <input type="text" id="dice-expr" placeholder="Ej: 2d6+1d4+3 o mente+1d6" />
                         <button class="button" id="dice-expr-roll">Tirar</button>
                     </div>
-                    <div id="dice-vars" class="dice-vars" style="margin-top:.5rem; color: var(--text-secondary); font-size:.9rem;"></div>
+                    <div
+                        id="dice-vars"
+                        class="dice-vars"
+                        style="margin-top:.5rem; color: var(--text-secondary); font-size:.9rem;"
+                    ></div>
                 </div>
             </div>
             <div class="panel">
@@ -55,22 +59,22 @@ const DiceTab = (container, props = {}) => {
             const btn = e.target && e.target.closest && e.target.closest('[data-dice]');
             const clearBtn = e.target && e.target.closest && e.target.closest('[data-dice-clear]');
             const delBtn = e.target && e.target.closest && e.target.closest('[data-dice-del]');
-            
+
             if (clearBtn) {
                 if (!state.character.rollLog) state.character.rollLog = [];
                 state.character.rollLog = [];
                 renderHistory();
                 return;
             }
-            
+
             if (delBtn) {
                 const ts = parseInt(delBtn.getAttribute('data-dice-del'));
                 if (!state.character.rollLog) state.character.rollLog = [];
-                state.character.rollLog = state.character.rollLog.filter(entry => entry.ts !== ts);
+                state.character.rollLog = state.character.rollLog.filter((entry) => entry.ts !== ts);
                 renderHistory();
                 return;
             }
-            
+
             if (btn) {
                 const notation = btn.getAttribute('data-dice');
                 const m = notation.match(/^(\d*)d(\d+)$/i);
@@ -78,7 +82,7 @@ const DiceTab = (container, props = {}) => {
                 const n = Math.max(1, Number(m[1] || 1));
                 const faces = Number(m[2] || 0);
                 if (!faces) return;
-                
+
                 const rolls = [];
                 let sum = 0;
                 for (let i = 0; i < n; i++) {
@@ -86,39 +90,41 @@ const DiceTab = (container, props = {}) => {
                     rolls.push(r);
                     sum += r;
                 }
-                
+
                 // Ensure rollLog exists
                 if (!Array.isArray(state.character.rollLog)) {
                     state.character.rollLog = [];
                 }
-                
+
                 const entry = {
-                    type: 'dice', 
-                    ts: Date.now(), 
-                    notation: notation.toLowerCase(), 
-                    rolls, 
-                    total: sum, 
-                    details: { parts: [{ type: 'dice', notation: notation.toLowerCase(), rolls, sum, sign: 1 }] } 
+                    type: 'dice',
+                    ts: Date.now(),
+                    notation: notation.toLowerCase(),
+                    rolls,
+                    total: sum,
+                    details: { parts: [{ type: 'dice', notation: notation.toLowerCase(), rolls, sum, sign: 1 }] },
                 };
-                
+
                 state.character.rollLog.unshift(entry);
                 // Limit to 50 entries to prevent infinite growth
                 if (state.character.rollLog.length > 50) {
                     state.character.rollLog.length = 50;
                 }
-                
+
                 // Show toast with result
                 DiceService.showDiceRoll({
                     characterName: state.character.name,
                     notation: notation.toLowerCase(),
                     rolls: rolls,
-                    total: sum
+                    total: sum,
                 });
-                
+
                 // Add to global roll store
                 rollStore.addRoll({ ...entry, who: state.character.name });
-                
-                try { state.onRoll(entry); } catch (_) {}
+
+                try {
+                    state.onRoll(entry);
+                } catch (_) {}
                 renderHistory();
             }
         });
@@ -126,35 +132,39 @@ const DiceTab = (container, props = {}) => {
         // Custom dice expression
         const exprBtn = container.querySelector('#dice-expr-roll');
         const exprInp = container.querySelector('#dice-expr');
-        
+
         if (exprBtn && exprInp) {
             const doExprRoll = () => {
                 const expr = String(exprInp.value || '').trim();
                 if (!expr) return;
-                
+
                 // Evaluate dice expression with explosive dice support
-                const { total, parts } = evaluateDiceExpression(expr, state.character.attributes || {}, state.character);
-                
+                const { total, parts } = evaluateDiceExpression(
+                    expr,
+                    state.character.attributes || {},
+                    state.character
+                );
+
                 // Ensure rollLog exists
                 if (!Array.isArray(state.character.rollLog)) {
                     state.character.rollLog = [];
                 }
-                
-                const entry = { 
-                    type: 'dice', 
-                    ts: Date.now(), 
-                    notation: expr.toLowerCase(), 
-                    rolls: parts.flatMap((p) => p.rolls || []), 
-                    total, 
-                    details: { parts } 
+
+                const entry = {
+                    type: 'dice',
+                    ts: Date.now(),
+                    notation: expr.toLowerCase(),
+                    rolls: parts.flatMap((p) => p.rolls || []),
+                    total,
+                    details: { parts },
                 };
-                
+
                 state.character.rollLog.unshift(entry);
                 // Limit to 50 entries to prevent infinite growth
                 if (state.character.rollLog.length > 50) {
                     state.character.rollLog.length = 50;
                 }
-                
+
                 // Show toast with result
                 const extractedRolls = parts.flatMap((p) => p.rolls || []);
                 DiceService.showDiceRoll({
@@ -163,32 +173,34 @@ const DiceTab = (container, props = {}) => {
                     rolls: extractedRolls,
                     total: total,
                     details: {
-                        parts: parts // Pass the parts to identify which dice exploded
-                    }
+                        parts: parts, // Pass the parts to identify which dice exploded
+                    },
                 });
-                
+
                 // Add to global roll store
                 rollStore.addRoll({ ...entry, who: state.character.name });
-                
-                try { state.onRoll(entry); } catch (_) {}
+
+                try {
+                    state.onRoll(entry);
+                } catch (_) {}
                 renderHistory();
                 exprInp.value = '';
                 exprInp.focus();
             };
-            
+
             exprBtn.addEventListener('click', doExprRoll);
-            exprInp.addEventListener('keydown', (e) => { 
-                if (e.key === 'Enter') { 
-                    e.preventDefault(); 
-                    doExprRoll(); 
-                } 
+            exprInp.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    doExprRoll();
+                }
             });
         }
 
         // Show available variables and explosive dice syntax
         const varsHost = container.querySelector('#dice-vars');
         if (varsHost) {
-            const allowed = ['cuerpo','reflejos','mente','instinto','presencia','esquiva','mitigacion','suerte'];
+            const allowed = ['cuerpo', 'reflejos', 'mente', 'instinto', 'presencia', 'esquiva', 'mitigacion', 'suerte'];
             varsHost.innerHTML = `Variables: ${allowed.map((k) => '`' + k + '`').join(', ')}<br/>Dados explosivos: usa 'e' (ej: 1d6e, 2d4e)`;
         }
     };
@@ -196,19 +208,33 @@ const DiceTab = (container, props = {}) => {
     const renderHistory = () => {
         const host = container.querySelector('#dice-history');
         if (!host) return;
-        
+
         const items = (state.character.rollLog || [])
-            .filter(e => e && e.notation && e.total !== undefined) // Filter out invalid entries
+            .filter((e) => e && e.notation && e.total !== undefined) // Filter out invalid entries
             .map((e) => ({
                 ts: e.ts,
                 text: `${state.character.name}: ${e.notation || 'unknown'} → ${e.total || 0}${e.rolls && e.rolls.length ? ` (${e.rolls.join(', ')})` : ''}`,
             }));
-        
-        host.innerHTML = items.length ? 
-            items.map((it) => html`<div class="log-row"><span class="log-text">${it.text}</span><button class="button icon-only" data-dice-del="${it.ts}" aria-label="Eliminar" title="Eliminar">🗑️</button></div>`).join('') :
-            html`<div class="empty-state">Sin tiradas aún</div>`;
-    };
 
+        host.innerHTML = items.length
+            ? items
+                  .map(
+                      (it) =>
+                          html`<div class="log-row">
+                              <span class="log-text">${it.text}</span
+                              ><button
+                                  class="button icon-only"
+                                  data-dice-del="${it.ts}"
+                                  aria-label="Eliminar"
+                                  title="Eliminar"
+                              >
+                                  🗑️
+                              </button>
+                          </div>`
+                  )
+                  .join('')
+            : html`<div class="empty-state">Sin tiradas aún</div>`;
+    };
 
     return {
         init: () => {

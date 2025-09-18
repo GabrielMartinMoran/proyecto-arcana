@@ -38,5 +38,3 @@ const HistoryList = (container, props = {}) => {
 };
 
 export default HistoryList;
-
-

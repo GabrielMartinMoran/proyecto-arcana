@@ -17,7 +17,7 @@ const BioTab = (container, props = {}) => {
     const render = () => {
         const c = state.character;
         const readOnly = state.readOnly;
-        
+
         return html`
             <div class="editor-grid one-col">
                 <div class="panel">
@@ -45,12 +45,16 @@ const BioTab = (container, props = {}) => {
         });
 
         // Event delegation for blur events (auto-save)
-        container.addEventListener('blur', (e) => {
-            if (e.target.id === 'bio-text') {
-                // Trigger update if needed
-                state.onUpdate(state.character);
-            }
-        }, true);
+        container.addEventListener(
+            'blur',
+            (e) => {
+                if (e.target.id === 'bio-text') {
+                    // Trigger update if needed
+                    state.onUpdate(state.character);
+                }
+            },
+            true
+        );
     };
 
     const handleBioChange = (value) => {

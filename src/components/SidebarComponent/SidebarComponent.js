@@ -33,9 +33,7 @@ const SidebarComponent = (container) => {
             },
             {
                 label: 'Herramientas',
-                children: [
-                    { path: '/encounters', label: 'Gestor de encuentros' },
-                ],
+                children: [{ path: '/encounters', label: 'Gestor de encuentros' }],
                 expanded: false,
             },
         ],
@@ -53,9 +51,19 @@ const SidebarComponent = (container) => {
                         .map((it) => {
                             if (it.children && it.children.length) {
                                 return html`<li>
-                                    <div class="sidebar-section-header" data-section="${it.label}" title="${it.expanded ? 'Colapsar' : 'Expandir'}" role="button" tabindex="0" aria-expanded="${it.expanded}" aria-label="${it.expanded ? 'Colapsar' : 'Expandir'} sección ${it.label}">
+                                    <div
+                                        class="sidebar-section-header"
+                                        data-section="${it.label}"
+                                        title="${it.expanded ? 'Colapsar' : 'Expandir'}"
+                                        role="button"
+                                        tabindex="0"
+                                        aria-expanded="${it.expanded}"
+                                        aria-label="${it.expanded ? 'Colapsar' : 'Expandir'} sección ${it.label}"
+                                    >
                                         <span class="sidebar-section-title">${it.label}</span>
-                                        <span class="sidebar-toggle-icon" aria-hidden="true">${it.expanded ? '▼' : '▶'}</span>
+                                        <span class="sidebar-toggle-icon" aria-hidden="true"
+                                            >${it.expanded ? '▼' : '▶'}</span
+                                        >
                                     </div>
                                     <ul class="sidebar-sublist ${it.expanded ? 'expanded' : 'collapsed'}">
                                         ${it.children
@@ -135,7 +143,7 @@ const SidebarComponent = (container) => {
         // Remove existing listeners to avoid duplicates
         window.removeEventListener('hashchange', onHashChange);
         window.addEventListener('hashchange', onHashChange);
-        
+
         // Remove existing listeners to avoid duplicates
         container.removeEventListener('click', handleClick);
         container.removeEventListener('keydown', handleKeydown);
@@ -148,13 +156,13 @@ const SidebarComponent = (container) => {
         header.setAttribute('aria-expanded', item.expanded);
         header.setAttribute('title', item.expanded ? 'Colapsar' : 'Expandir');
         header.setAttribute('aria-label', `${item.expanded ? 'Colapsar' : 'Expandir'} sección ${item.label}`);
-        
+
         // Update toggle icon
         const icon = header.querySelector('.sidebar-toggle-icon');
         if (icon) {
             icon.textContent = item.expanded ? '▼' : '▶';
         }
-        
+
         // Update sublist visibility
         const sublist = header.parentElement.querySelector('.sidebar-sublist');
         if (sublist) {
@@ -203,7 +211,7 @@ const SidebarComponent = (container) => {
             toggleSection(header);
             return;
         }
-        
+
         // Intercept TOC anchor clicks to avoid changing the hash and breaking SPA route reload
         const a = e.target && e.target.closest && e.target.closest('a[data-toc]');
         if (!a) return;

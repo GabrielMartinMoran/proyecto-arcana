@@ -27,9 +27,15 @@ const BestiaryFilters = (container, props = {}) => {
                     ${state.naOptions
                         .map(
                             (na) =>
-                                html`<label class="filters-check"><input type="checkbox" name="na-filter" value="${na}" ${
-                                    state.selectedNA.includes(na) ? 'checked' : ''
-                                } /> ${na}</label>`
+                                html`<label class="filters-check"
+                                    ><input
+                                        type="checkbox"
+                                        name="na-filter"
+                                        value="${na}"
+                                        ${state.selectedNA.includes(na) ? 'checked' : ''}
+                                    />
+                                    ${na}</label
+                                >`
                         )
                         .join('')}
                 </div>
@@ -86,5 +92,3 @@ const BestiaryFilters = (container, props = {}) => {
 };
 
 export default BestiaryFilters;
-
-

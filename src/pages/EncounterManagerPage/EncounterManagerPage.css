@@ -1,6 +1,6 @@
 .encounter-toolbar {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 .encounter-empty {
     display: grid;
@@ -12,7 +12,7 @@
     margin-top: var(--spacing-lg);
 }
 .encounter-log-section .log-row {
-    padding: .35rem .5rem;
+    padding: 0.35rem 0.5rem;
     border-bottom: 1px solid var(--border-color);
     display: grid;
     grid-template-columns: 1fr auto;
@@ -22,7 +22,7 @@
     border-bottom: 0;
 }
 .encounter-log-section .log-row .button.icon-only {
-    padding: .25rem .45rem;
+    padding: 0.25rem 0.45rem;
 }
 
 .encounter-log-section .global-log {

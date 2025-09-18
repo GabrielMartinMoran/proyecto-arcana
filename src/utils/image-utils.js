@@ -32,5 +32,3 @@ export function mountImageWithFallback(container, opts = {}) {
     });
     container.appendChild(img);
 }
-
-

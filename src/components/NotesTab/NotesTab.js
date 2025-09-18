@@ -14,7 +14,7 @@ const NotesTab = (container, props = {}) => {
 
     const render = () => {
         const c = state.character;
-        
+
         return html`
             <div class="editor-grid one-col">
                 <div class="panel">
@@ -36,12 +36,16 @@ const NotesTab = (container, props = {}) => {
         });
 
         // Event delegation for blur events (auto-save)
-        container.addEventListener('blur', (e) => {
-            if (e.target.id === 'notes') {
-                // Trigger update if needed
-                state.onUpdate(state.character);
-            }
-        }, true);
+        container.addEventListener(
+            'blur',
+            (e) => {
+                if (e.target.id === 'notes') {
+                    // Trigger update if needed
+                    state.onUpdate(state.character);
+                }
+            },
+            true
+        );
     };
 
     const handleNotesChange = (value) => {

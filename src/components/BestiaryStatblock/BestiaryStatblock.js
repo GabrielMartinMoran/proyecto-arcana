@@ -4,7 +4,7 @@ import { ensureStyle } from '../../utils/style-utils.js';
 const escapeHtml = (s) =>
     String(s).replace(
         /[&<>"']/g,
-        (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])
+        (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]
     );
 
 const slugify = (s) =>

@@ -17,7 +17,7 @@ export class DiceService {
         if (details.exploded && details.d6Rolls) {
             return roll === 6 && index < details.d6Rolls.length - 1;
         }
-        
+
         // For custom dice expressions with parts information
         if (details.parts) {
             let currentRollIndex = 0;
@@ -25,11 +25,11 @@ export class DiceService {
                 if (part.type === 'dice' && part.rolls) {
                     const partRolls = part.rolls;
                     const isExplosiveDice = part.notation.includes('e');
-                    
+
                     // Check if this roll is within this part's rolls
                     if (index >= currentRollIndex && index < currentRollIndex + partRolls.length) {
                         const localIndex = index - currentRollIndex;
-                        
+
                         if (isExplosiveDice) {
                             // Extract max value from notation (e.g., "1d2e" -> 2)
                             const match = part.notation.match(/(\d*)d(\d+)e/i);
@@ -40,12 +40,12 @@ export class DiceService {
                         }
                         return false; // Not explosive
                     }
-                    
+
                     currentRollIndex += partRolls.length;
                 }
             }
         }
-        
+
         // Default: only 6s explode (for backward compatibility)
         return roll === 6 && index < rolls.length - 1;
     }
@@ -61,13 +61,14 @@ export class DiceService {
      */
     static showRollToast({ characterName, rollType, total, rolls = [], breakdown, details = {} }) {
         const message = `${rollType}: ${total}`;
-        
+
         // Color individual dice rolls and add explosion emoji
         const coloredRolls = rolls.map((roll, index) => {
             let coloredRoll;
-            if (roll === 1) coloredRoll = `<span style="color: #dc2626; font-weight: bold;">${roll}</span>`; // Red for minimum
+            if (roll === 1)
+                coloredRoll = `<span style="color: #dc2626; font-weight: bold;">${roll}</span>`; // Red for minimum
             else coloredRoll = roll;
-            
+
             // Check if this roll should be green (maximum value) and explosive
             const isExplosiveRoll = this.isExplosiveRoll(roll, index, rolls, details);
             if (isExplosiveRoll) {
@@ -77,7 +78,7 @@ export class DiceService {
                     coloredRoll += '💥';
                 }
             }
-            
+
             return coloredRoll;
         });
 
@@ -89,8 +90,8 @@ export class DiceService {
             details: {
                 breakdown: breakdown,
                 rolls: coloredRolls,
-                ...details
-            }
+                ...details,
+            },
         });
     }
 
@@ -105,14 +106,14 @@ export class DiceService {
         // Handle explosion rolls
         const d6Rolls = result.d6Rolls || [result.d6];
         const exploded = d6Rolls.length > 1;
-        
+
         // Create breakdown with explosion info
         let breakdown = `1d6=${result.d6}`;
         if (exploded) {
             breakdown += ` (${d6Rolls.join('+')})`;
         }
         breakdown += ` | ${result.advantage === 'normal' ? '±0' : `${result.advantage}=${result.advMod >= 0 ? '+' : ''}${result.advMod}`} | atributo=${result.base} | mods=${result.extras} | suerte=${result.luck}`;
-        
+
         this.showRollToast({
             characterName,
             rollType: attributeName,
@@ -121,8 +122,8 @@ export class DiceService {
             breakdown: breakdown,
             details: {
                 exploded: exploded,
-                explosionCount: exploded ? d6Rolls.length - 1 : 0
-            }
+                explosionCount: exploded ? d6Rolls.length - 1 : 0,
+            },
         });
     }
 
@@ -138,7 +139,7 @@ export class DiceService {
         // Check if this is an explosive dice roll by looking at the notation
         const hasExplosiveDice = notation.includes('e');
         const breakdown = `${notation} = ${total}`;
-        
+
         this.showRollToast({
             characterName,
             rollType: notation,
@@ -148,8 +149,8 @@ export class DiceService {
             details: {
                 hasExplosiveDice: hasExplosiveDice,
                 explosiveNotation: notation, // Pass the notation to identify which dice explode
-                ...details // Include any additional details passed from DiceTab
-            }
+                ...details, // Include any additional details passed from DiceTab
+            },
         });
     }
 
@@ -168,7 +169,7 @@ export class DiceService {
             rollType: description,
             total: total,
             rolls: rolls,
-            breakdown: breakdown
+            breakdown: breakdown,
         });
     }
 }

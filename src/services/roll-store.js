@@ -48,11 +48,11 @@ class RollStore {
         const rollEntry = {
             id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
             timestamp: Date.now(),
-            ...roll
+            ...roll,
         };
 
         this.rolls.unshift(rollEntry);
-        
+
         // Limit the number of stored rolls
         if (this.rolls.length > this.maxRolls) {
             this.rolls.length = this.maxRolls;
@@ -87,7 +87,7 @@ class RollStore {
      * @param {string} rollId - The ID of the roll to remove
      */
     removeRoll(rollId) {
-        this.rolls = this.rolls.filter(roll => roll.id !== rollId);
+        this.rolls = this.rolls.filter((roll) => roll.id !== rollId);
         this.saveToStorage();
         this.notifySubscribers();
     }
@@ -99,7 +99,7 @@ class RollStore {
      */
     subscribe(callback) {
         this.subscribers.add(callback);
-        
+
         // Return unsubscribe function
         return () => {
             this.subscribers.delete(callback);
@@ -110,7 +110,7 @@ class RollStore {
      * Notify all subscribers of changes
      */
     notifySubscribers() {
-        this.subscribers.forEach(callback => {
+        this.subscribers.forEach((callback) => {
             try {
                 callback(this.getRolls());
             } catch (error) {
@@ -125,7 +125,7 @@ class RollStore {
      * @returns {Array} Array of rolls for the character
      */
     getRollsForCharacter(characterName) {
-        return this.rolls.filter(roll => roll.who === characterName);
+        return this.rolls.filter((roll) => roll.who === characterName);
     }
 
     /**
@@ -134,7 +134,7 @@ class RollStore {
      * @returns {Array} Array of rolls of the specified type
      */
     getRollsByType(type) {
-        return this.rolls.filter(roll => roll.type === type);
+        return this.rolls.filter((roll) => roll.type === type);
     }
 }
 

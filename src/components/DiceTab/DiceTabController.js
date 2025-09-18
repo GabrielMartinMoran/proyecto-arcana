@@ -39,16 +39,25 @@ const DiceTabController = (root, props = {}) => {
                     sum += r;
                 }
                 character.rollLog = Array.isArray(character.rollLog) ? character.rollLog : [];
-                const entry = { type: 'dice', ts: Date.now(), notation: notation.toLowerCase(), rolls, total: sum, details: { parts: [{ type: 'dice', notation: notation.toLowerCase(), rolls, sum, sign: 1 }] } };
+                const entry = {
+                    type: 'dice',
+                    ts: Date.now(),
+                    notation: notation.toLowerCase(),
+                    rolls,
+                    total: sum,
+                    details: { parts: [{ type: 'dice', notation: notation.toLowerCase(), rolls, sum, sign: 1 }] },
+                };
                 character.rollLog.unshift(entry);
                 if (character.rollLog.length > 200) character.rollLog.length = 200;
-                try { onRoll(entry); } catch (_) {}
+                try {
+                    onRoll(entry);
+                } catch (_) {}
                 renderHistory();
             }
         });
         const varsHost = tab.querySelector('#dice-vars');
         if (varsHost) {
-            const allowed = ['cuerpo','reflejos','mente','instinto','presencia','esquiva','mitigacion','suerte'];
+            const allowed = ['cuerpo', 'reflejos', 'mente', 'instinto', 'presencia', 'esquiva', 'mitigacion', 'suerte'];
             varsHost.innerHTML = `Variables: ${allowed.map((k) => '`' + k + '`').join(', ')}`;
         }
         const doExprRoll = () => {
@@ -57,17 +66,35 @@ const DiceTabController = (root, props = {}) => {
             if (!expr) return;
             const { total, parts } = evaluateDiceExpression(expr, attributes, character);
             character.rollLog = Array.isArray(character.rollLog) ? character.rollLog : [];
-            const entry = { type: 'dice', ts: Date.now(), notation: expr.toLowerCase(), rolls: parts.flatMap((p) => p.rolls || []), total, details: { parts } };
+            const entry = {
+                type: 'dice',
+                ts: Date.now(),
+                notation: expr.toLowerCase(),
+                rolls: parts.flatMap((p) => p.rolls || []),
+                total,
+                details: { parts },
+            };
             character.rollLog.unshift(entry);
             if (character.rollLog.length > 200) character.rollLog.length = 200;
-            try { onRoll(entry); } catch (_) {}
+            try {
+                onRoll(entry);
+            } catch (_) {}
             renderHistory();
-            if (exprInp) { exprInp.value = ''; exprInp.focus(); }
+            if (exprInp) {
+                exprInp.value = '';
+                exprInp.focus();
+            }
         };
         const exprBtn = tab.querySelector('#dice-expr-roll');
         if (exprBtn) exprBtn.addEventListener('click', doExprRoll);
         const exprInp = tab.querySelector('#dice-expr');
-        if (exprInp) exprInp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); doExprRoll(); } });
+        if (exprInp)
+            exprInp.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    doExprRoll();
+                }
+            });
     };
 
     const renderHistory = () => {
@@ -79,10 +106,19 @@ const DiceTabController = (root, props = {}) => {
                 if (r.type === 'attr') {
                     const d = r.details || {};
                     const advLabel = d.advantage && d.advantage !== 'normal' ? `, ${d.advantage}=${d.advMod}` : '';
-                    return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                    return html`<div class="dice-line" data-ts="${r.ts}">
+                        <span class="dice-entry"
+                            >[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras},
+                            suerte=${d.luck})</span
+                        ><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button>
+                    </div>`;
                 }
                 const breakdown = formatParts(r.details && r.details.parts);
-                return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Dados] ${r.notation} = ${r.total}${breakdown ? html` (${breakdown})` : ''}</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                return html`<div class="dice-line" data-ts="${r.ts}">
+                    <span class="dice-entry"
+                        >[Dados] ${r.notation} = ${r.total}${breakdown ? html` (${breakdown})` : ''}</span
+                    ><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button>
+                </div>`;
             };
             const list = HistoryList(host, { items, renderItem, wrap: false });
             list.init();
@@ -102,7 +138,9 @@ const DiceTabController = (root, props = {}) => {
 
 export default DiceTabController;
 // Expose for dynamic usage in pages that can't import async
-if (typeof window !== 'undefined') { window.__diceTabController = DiceTabController; }
+if (typeof window !== 'undefined') {
+    window.__diceTabController = DiceTabController;
+}
 
 // Simple dice expression evaluator supporting: NdM, +, -, integers, and variables
 function evaluateDiceExpression(expr, attributes = {}, character = {}) {
@@ -115,7 +153,13 @@ function evaluateDiceExpression(expr, attributes = {}, character = {}) {
         const map = attributes || {};
         const lower = String(name).toLowerCase();
         // direct attributes (case-insensitive) or explicit spanish names
-        const attrNameMap = { cuerpo: 'Cuerpo', reflejos: 'Reflejos', mente: 'Mente', instinto: 'Instinto', presencia: 'Presencia' };
+        const attrNameMap = {
+            cuerpo: 'Cuerpo',
+            reflejos: 'Reflejos',
+            mente: 'Mente',
+            instinto: 'Instinto',
+            presencia: 'Presencia',
+        };
         if (attrNameMap[lower]) {
             const v = map[attrNameMap[lower]];
             if (v != null) return Number(v) || 0;
@@ -124,30 +168,48 @@ function evaluateDiceExpression(expr, attributes = {}, character = {}) {
         if (key) return Number(map[key]) || 0;
         if (lower === 'suerte') return Number(character && character.suerte) || 0;
         if (lower === 'esquiva') {
-            const v = (character && character.stats && character.stats.esquiva && character.stats.esquiva.value) ?? character.esquiva;
+            const v =
+                (character && character.stats && character.stats.esquiva && character.stats.esquiva.value) ??
+                character.esquiva;
             return Number(v) || 0;
         }
         if (lower === 'mitigacion' || lower === 'mitigación') {
-            const v = character.mitigacion ?? (character && character.stats && character.stats.mitigacion && character.stats.mitigacion.value);
+            const v =
+                character.mitigacion ??
+                (character && character.stats && character.stats.mitigacion && character.stats.mitigacion.value);
             return Number(v) || 0;
         }
         return 0;
     };
     for (const t of tokens) {
-        if (t === '+') { sign = 1; continue; }
-        if (t === '-') { sign = -1; continue; }
+        if (t === '+') {
+            sign = 1;
+            continue;
+        }
+        if (t === '-') {
+            sign = -1;
+            continue;
+        }
         if (/^\d+d\d+$/.test(t)) {
             const [nStr, fStr] = t.split('d');
             const n = Math.max(1, Number(nStr) || 1);
             const f = Math.max(2, Number(fStr) || 2);
             const rolls = [];
             let sum = 0;
-            for (let i = 0; i < n; i++) { const r = 1 + Math.floor(Math.random() * f); rolls.push(r); sum += r; }
+            for (let i = 0; i < n; i++) {
+                const r = 1 + Math.floor(Math.random() * f);
+                rolls.push(r);
+                sum += r;
+            }
             total += sign * sum;
             parts.push({ type: 'dice', notation: t, rolls, sum, sign });
             continue;
         }
-        if (/^\d+$/.test(t)) { total += sign * Number(t); parts.push({ type: 'num', value: Number(t), sign }); continue; }
+        if (/^\d+$/.test(t)) {
+            total += sign * Number(t);
+            parts.push({ type: 'num', value: Number(t), sign });
+            continue;
+        }
         // var
         const v = resolveVar(t);
         total += sign * v;
@@ -181,5 +243,3 @@ function formatParts(parts) {
         return '';
     }
 }
-
-

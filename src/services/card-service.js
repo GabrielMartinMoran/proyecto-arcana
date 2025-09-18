@@ -25,8 +25,8 @@ function normalizeCard(raw) {
     card.requirements = Array.isArray(card.requirements)
         ? card.requirements
         : card.requirements
-        ? [card.requirements]
-        : [];
+          ? [card.requirements]
+          : [];
     card.description = card.description || 'No description';
     card.reload = Object.prototype.hasOwnProperty.call(raw, 'reload') ? raw.reload : null;
     return card;

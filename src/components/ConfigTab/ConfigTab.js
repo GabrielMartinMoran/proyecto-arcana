@@ -19,7 +19,7 @@ const ConfigTab = (container, props = {}) => {
     const render = () => {
         const c = state.character;
         const derived = state.derived;
-        
+
         return html`
             <div class="editor-grid one-col">
                 <div class="panel">
@@ -27,7 +27,12 @@ const ConfigTab = (container, props = {}) => {
                     <div class="attrs">
                         <div class="attr">
                             <span>URL</span>
-                            <input type="text" id="portrait-url" class="portrait-url-input" value="${c.portraitUrl || ''}" />
+                            <input
+                                type="text"
+                                id="portrait-url"
+                                class="portrait-url-input"
+                                value="${c.portraitUrl || ''}"
+                            />
                         </div>
                     </div>
                 </div>
@@ -35,16 +40,16 @@ const ConfigTab = (container, props = {}) => {
                     ${PanelHeader({ title: 'Listado de modificadores' })}
                     <div id="mods-host"></div>
                     <div class="config-vars-help">
-                        <small>Variables disponibles: cuerpo, reflejos, mente, instinto, presencia, salud, velocidad, esquiva, mitigacion, ndMente, ndInstinto, suerteMax, pp, gold.</small>
+                        <small
+                            >Variables disponibles: cuerpo, reflejos, mente, instinto, presencia, salud, velocidad,
+                            esquiva, mitigacion, ndMente, ndInstinto, suerteMax, pp, gold.</small
+                        >
                     </div>
                     <label>Valores actuales</label>
                     <div class="config-summary">
-                        ${InlineStat('Salud', derived.salud)}
-                        ${InlineStat('Velocidad', derived.velocidad)}
-                        ${InlineStat('Esquiva', derived.esquiva)}
-                        ${InlineStat('Mitigación', derived.mitigacion)}
-                        ${InlineStat('ND (Mente)', derived.ndMente)}
-                        ${InlineStat('ND (Instinto)', derived.ndInstinto)}
+                        ${InlineStat('Salud', derived.salud)} ${InlineStat('Velocidad', derived.velocidad)}
+                        ${InlineStat('Esquiva', derived.esquiva)} ${InlineStat('Mitigación', derived.mitigacion)}
+                        ${InlineStat('ND (Mente)', derived.ndMente)} ${InlineStat('ND (Instinto)', derived.ndInstinto)}
                         ${InlineStat('Suerte máx.', derived.suerteMax)}
                     </div>
                 </div>
@@ -63,12 +68,16 @@ const ConfigTab = (container, props = {}) => {
         });
 
         // Event delegation for blur events (auto-save)
-        container.addEventListener('blur', (e) => {
-            if (e.target.id === 'portrait-url') {
-                // Trigger update if needed
-                state.onUpdate(state.character);
-            }
-        }, true);
+        container.addEventListener(
+            'blur',
+            (e) => {
+                if (e.target.id === 'portrait-url') {
+                    // Trigger update if needed
+                    state.onUpdate(state.character);
+                }
+            },
+            true
+        );
     };
 
     const handlePortraitUrlChange = (value) => {

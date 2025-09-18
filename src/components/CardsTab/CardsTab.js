@@ -76,7 +76,12 @@ const CardsTab = (container, props = {}) => {
                                   ${state.localState.filtersOpenAdd ? 'Ocultar filtros' : 'Mostrar filtros'}
                               </button>`,
                           })}
-                          <div class="filters-collapsible ${state.localState.filtersOpenAdd ? '' : 'closed'}" style="${state.localState.filtersOpenAdd ? '' : 'max-height: 0; opacity: 0; margin-top: 0; overflow: hidden;'}">
+                          <div
+                              class="filters-collapsible ${state.localState.filtersOpenAdd ? '' : 'closed'}"
+                              style="${state.localState.filtersOpenAdd
+                                  ? ''
+                                  : 'max-height: 0; opacity: 0; margin-top: 0; overflow: hidden;'}"
+                          >
                               <div class="cards-search">
                                   <input
                                       id="card-search"
@@ -254,37 +259,36 @@ const CardsTab = (container, props = {}) => {
         state.onUpdate(updatedCharacter);
     };
 
+    let searchTimeout = null;
+
     const handleSearchChange = (value) => {
-        const updatedState = {
-            ...state.state,
-            cardSearch: value,
-        };
-        state.state = updatedState;
-        // Trigger re-render if needed
-        update();
+        // Update state silently without triggering any re-renders
+        state.state.cardSearch = value;
+
+        // Update ONLY the cards DOM atomically
+        updateCardsAtomically();
     };
 
     const handleEligibleOnlyChange = (checked) => {
-        const updatedState = {
-            ...state.state,
-            addOnlyEligible: checked,
-        };
-        state.state = updatedState;
-        update();
+        // Update state silently without triggering any re-renders
+        state.state.addOnlyEligible = checked;
+
+        // Update ONLY the cards DOM atomically
+        updateCardsAtomically();
     };
 
     const handleFilterChange = (filterType, value, checked) => {
-        const updatedState = {
-            ...state.state,
-            cardFilters: {
-                ...state.state.cardFilters,
-                [filterType]: checked
-                    ? [...state.state.cardFilters[filterType], value]
-                    : state.state.cardFilters[filterType].filter((v) => v !== value),
-            },
-        };
-        state.state = updatedState;
-        update();
+        // Update state silently without triggering any re-renders
+        if (checked) {
+            if (!state.state.cardFilters[filterType].includes(value)) {
+                state.state.cardFilters[filterType].push(value);
+            }
+        } else {
+            state.state.cardFilters[filterType] = state.state.cardFilters[filterType].filter((v) => v !== value);
+        }
+
+        // Update ONLY the cards DOM atomically
+        updateCardsAtomically();
     };
 
     const handleToggleFilters = () => {
@@ -340,6 +344,8 @@ const CardsTab = (container, props = {}) => {
         switch (slotAction) {
             case 'add':
                 updatedCharacter.cards = [...(updatedCharacter.cards || []), cardId];
+                // Clear search filter when adding a card
+                state.state.cardSearch = '';
                 break;
             case 'remove':
                 updatedCharacter.cards = (updatedCharacter.cards || []).filter((id) => id !== cardId);
@@ -359,14 +365,100 @@ const CardsTab = (container, props = {}) => {
 
         state.character = updatedCharacter;
         state.onUpdate(updatedCharacter);
-        update();
+
+        // Use atomic update for cards section to avoid full re-render
+        updateCardsAtomically();
+    };
+
+    const updateCardsAtomically = () => {
+        // Find the cards section in the "Add to collection" panel
+        const addPanel = Array.from(container.querySelectorAll('.panel')).find((panel) =>
+            panel.querySelector('.cards-filters-grid')
+        );
+        if (!addPanel) return;
+
+        // Find the cards container (it's the last element in the panel)
+        const cardsContainer = addPanel.lastElementChild;
+        if (!cardsContainer) return;
+
+        // Store current scroll position
+        const currentScroll = container.scrollTop;
+
+        // Re-render just the cards section
+        const c = state.character;
+        const availableCards = state.state.allCards || [];
+
+        if (!state.cardService || !state.cardService.filter) {
+            cardsContainer.innerHTML = '<div class="no-cards">Servicio de cartas no disponible</div>';
+            return;
+        }
+
+        const candidates = state.cardService
+            .filter(availableCards, {
+                text: state.state.cardSearch,
+                levels: state.state.cardFilters.levels,
+                types: state.state.cardFilters.types,
+                attributes: state.state.cardFilters.attributes,
+                tags: state.state.cardFilters.tags,
+            })
+            .filter((card) => !state.state.addOnlyEligible || state.meetsRequirements(c, card))
+            .filter((x) => !c.cards.includes(x.id))
+            .sort((a, b) => Number(a.level) - Number(b.level) || String(a.name).localeCompare(String(b.name)))
+            .slice(0, 12);
+
+        if (candidates.length === 0) {
+            cardsContainer.innerHTML = '<div class="no-cards">No hay cartas disponibles con los filtros actuales</div>';
+        } else {
+            cardsContainer.innerHTML = renderCardGrid(candidates, { mode: 'add', limit: 12 });
+            mountCardComponents();
+        }
+
+        // Restore scroll position immediately
+        container.scrollTop = currentScroll;
+    };
+
+    const updateCardsOnly = () => {
+        // Fallback method for compatibility
+        updateCardsAtomically();
     };
 
     const update = () => {
         if (!container) return;
+
+        // Preserve scroll position and input values
+        const scrollTop = container.scrollTop;
+        const cardSearchValue = container.querySelector('#card-search')?.value || '';
+        const addEligibleValue = container.querySelector('#add-eligible-only')?.checked || false;
+
+        // Also preserve filter states
+        const filterStates = {};
+        container
+            .querySelectorAll('input[data-filter-level], input[data-filter-type], input[data-filter-tag]')
+            .forEach((input) => {
+                filterStates[input.value] = input.checked;
+            });
+
         // Ensure CSS is loaded on every update
         ensureStyle('./src/components/CardsTab/CardsTab.css');
         container.innerHTML = render();
+
+        // Restore scroll position with a small delay to ensure DOM is ready
+        setTimeout(() => {
+            container.scrollTop = scrollTop;
+        }, 0);
+
+        // Restore input values
+        const cardSearchInput = container.querySelector('#card-search');
+        const addEligibleInput = container.querySelector('#add-eligible-only');
+        if (cardSearchInput) cardSearchInput.value = cardSearchValue;
+        if (addEligibleInput) addEligibleInput.checked = addEligibleValue;
+
+        // Restore filter states
+        Object.entries(filterStates).forEach(([value, checked]) => {
+            const filterInput = container.querySelector(`input[value="${value}"]`);
+            if (filterInput) filterInput.checked = checked;
+        });
+
         bindEvents();
         mountCardComponents();
     };
@@ -466,9 +558,21 @@ const CardsTab = (container, props = {}) => {
         setState(partial) {
             // Preserve local state when updating from parent
             const preservedLocalState = state.localState;
+            const oldState = { ...state };
             state = { ...state, ...partial };
             state.localState = preservedLocalState;
-            update();
+
+            // Only update if there are meaningful changes
+            const hasSignificantChanges =
+                oldState.character !== state.character ||
+                oldState.state.allCards !== state.state.allCards ||
+                oldState.state.cardSearch !== state.state.cardSearch ||
+                oldState.state.addOnlyEligible !== state.state.addOnlyEligible ||
+                JSON.stringify(oldState.state.cardFilters) !== JSON.stringify(state.state.cardFilters);
+
+            if (hasSignificantChanges) {
+                update();
+            }
         },
         update() {
             update();

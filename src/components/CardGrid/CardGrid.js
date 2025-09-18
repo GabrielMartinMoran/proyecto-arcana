@@ -19,5 +19,3 @@ export function renderCardGrid(cards, opts = {}) {
 }
 
 export default renderCardGrid;
-
-

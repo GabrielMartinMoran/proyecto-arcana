@@ -19,7 +19,9 @@ const ProgressTabController = (root, props = {}) => {
                     const amount = Math.max(0, Number(entry.amount) || 0);
                     const reason = String(entry.reason || '').trim();
                     const delta = entry.type === 'spend' ? `+${amount}` : `-${amount}`;
-                    const ok = window.confirm(`¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`);
+                    const ok = window.confirm(
+                        `¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`
+                    );
                     if (!ok) return;
                     CharacterService.undoPP(c, ts);
                     renderHistory();
@@ -38,21 +40,22 @@ const ProgressTabController = (root, props = {}) => {
                 const sign = h.type === 'spend' ? '-' : '+';
                 const amt = Number(h.amount) || 0;
                 const reason = (h.reason || '').toString();
-                return html`<div class="dice-line" data-ts="${h.ts}"><span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button></div>`;
+                return html`<div class="dice-line" data-ts="${h.ts}">
+                    <span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span
+                    ><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button>
+                </div>`;
             };
             const list = HistoryList(host, { items, renderItem, wrap: false });
             list.init();
         } catch (_) {}
     };
 
-    return { 
+    return {
         init: () => {
             ensureStyle('./src/components/ProgressTab/ProgressTabController.css');
             bind();
-        }
+        },
     };
 };
 
 export default ProgressTabController;
-
-

@@ -44,7 +44,7 @@
 .dice-log {
     max-height: 120px; /* alto para ~3 filas visibles según padding */
     overflow-y: auto;
-    padding-right: .25rem;
+    padding-right: 0.25rem;
 }
 .dice-line {
     background: #fff;
@@ -155,16 +155,26 @@
     justify-content: space-between;
 }
 .config-vars-help {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 }
 .config-vars-help + label {
     display: block;
     margin-top: var(--spacing-md);
 }
 
-.attrs { display: grid; gap: .5rem; }
-.attrs-deriv { display: grid; gap: .5rem; }
-.attr { display: inline-flex; align-items: center; gap: .5rem; }
+.attrs {
+    display: grid;
+    gap: 0.5rem;
+}
+.attrs-deriv {
+    display: grid;
+    gap: 0.5rem;
+}
+.attr {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 .nd-spells {
     display: flex;
@@ -177,7 +187,11 @@
         padding-left: var(--spacing-sm);
     }
 }
-.hp-wrap { display: inline-flex; align-items: center; gap: .35rem; }
+.hp-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
 
 .pp-negative {
     color: #b91c1c; /* red-700 */
@@ -275,8 +289,16 @@
     background: #f3f4f6; /* light gray */
 }
 /* Equipment list */
-.equip-list { display: grid; gap: .25rem; }
-.equip-row { display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: center; }
+.equip-list {
+    display: grid;
+    gap: 0.25rem;
+}
+.equip-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+}
 .portrait-wrap {
     display: grid;
     place-items: center;
@@ -342,8 +364,12 @@
     .editor-grid {
         grid-template-columns: 1fr;
     }
-    .attrs { gap: .5rem; }
-    .attrs-deriv { gap: .5rem; }
+    .attrs {
+        gap: 0.5rem;
+    }
+    .attrs-deriv {
+        gap: 0.5rem;
+    }
 }
 
 .card-buttons {

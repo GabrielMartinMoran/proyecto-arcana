@@ -22,7 +22,7 @@
     padding: 0.25rem 0.5rem;
 }
 .derived-stats-panel .hp-wrap input {
-    width: 3rem;    
+    width: 3rem;
     border: none !important;
     outline: none;
     text-align: center;
@@ -40,4 +40,3 @@
         grid-template-columns: 1fr;
     }
 }
-

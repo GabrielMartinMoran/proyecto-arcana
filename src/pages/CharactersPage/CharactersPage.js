@@ -32,6 +32,7 @@ import DerivedStatsPanel from '../../components/DerivedStatsPanel/DerivedStatsPa
 import CharacterList from '../../components/CharacterList/CharacterList.js';
 import CharacterSheet from '../../components/CharacterSheet/CharacterSheet.js';
 import DiceTabController from '../../components/DiceTab/DiceTabController.js';
+import DebugUtils from '../../utils/debug-utils.js';
 
 const STORAGE_KEY = 'arcana:characters';
 
@@ -139,8 +140,8 @@ const CharactersPage = (container) => {
                     <button class="button" data-dice="1d4">d4</button>
                     <button class="button" data-dice="1d6">d6</button>
                     <button class="button" data-dice="1d8">d8</button>
-                    </div>
                 </div>
+            </div>
             <div class="dice-section">
                 <label>Custom</label>
                 <div class="dice-custom">
@@ -291,30 +292,36 @@ const CharactersPage = (container) => {
                     // Don't call update() here to avoid re-rendering the entire page
                     // CardsTab will handle its own updates
                 },
-            onUpdate: (updatedCharacter) => {
-                Object.assign(c, updatedCharacter);
-                save();
-                // Only update if it's not just a rollLog change
-                if (updatedCharacter.rollLog && updatedCharacter.rollLog.length > 0) {
-                    // For dice rolls, just save without full re-render
-                    return;
-                }
-                update();
-            },
-            onRoll: (rollData) => {
-                const entry = {
-                    type: 'dice',
-                    ts: Date.now(),
-                    expression: rollData.expression,
-                    total: rollData.total,
-                    details: rollData.details
-                };
-                c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
-                c.rollLog.unshift(entry);
-                if (c.rollLog.length > 200) c.rollLog.length = 200;
-                save();
-                update();
-            },
+                onUpdate: (updatedCharacter) => {
+                    Object.assign(c, updatedCharacter);
+                    save();
+                    // Do not call `sheet.updateCharacter` from here to avoid notification loops
+                    // (sheet -> onUpdate -> sheet). The mounted sheet should manage its own updates.
+                    // If a full page refresh is required by external logic, call `update()` explicitly elsewhere.
+                },
+                onRoll: (rollData) => {
+                    const entry = {
+                        type: 'dice',
+                        ts: Date.now(),
+                        expression: rollData.expression,
+                        total: rollData.total,
+                        details: rollData.details,
+                    };
+                    c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                    c.rollLog.unshift(entry);
+                    if (c.rollLog.length > 200) c.rollLog.length = 200;
+                    save();
+                    // Update only the sheet's data (roll log) to avoid losing focus on inputs
+                    if (typeof sheet !== 'undefined' && sheet && typeof sheet.updateCharacter === 'function') {
+                        try {
+                            sheet.updateCharacter({ rollLog: c.rollLog });
+                        } catch (_) {
+                            update();
+                        }
+                    } else {
+                        update();
+                    }
+                },
                 hooks: {
                     onBind: async (ed) => {
                         ed.querySelectorAll('.tab').forEach((t) =>
@@ -328,18 +335,41 @@ const CharactersPage = (container) => {
                         const portraitUrl = ed.querySelector('#portrait-url');
                         const bioText = ed.querySelector('#bio-text');
                         const languages = ed.querySelector('#languages');
-                        if (name) name.addEventListener('input', (e) => { c.name = e.target.value; save(); });
-                        if (notes) notes.addEventListener('input', (e) => { c.notes = e.target.value; save(); });
-                        if (portraitUrl) portraitUrl.addEventListener('input', (e) => { c.portraitUrl = e.target.value; save(); });
-                        if (bioText) bioText.addEventListener('input', (e) => { c.bio = e.target.value; save(); });
-                        if (languages) languages.addEventListener('input', (e) => { c.languages = e.target.value; save(); });
+                        if (name)
+                            name.addEventListener('input', (e) => {
+                                c.name = e.target.value;
+                                save();
+                            });
+                        if (notes)
+                            notes.addEventListener('input', (e) => {
+                                c.notes = e.target.value;
+                                save();
+                            });
+                        if (portraitUrl)
+                            portraitUrl.addEventListener('input', (e) => {
+                                c.portraitUrl = e.target.value;
+                                save();
+                            });
+                        if (bioText)
+                            bioText.addEventListener('input', (e) => {
+                                c.bio = e.target.value;
+                                save();
+                            });
+                        if (languages)
+                            languages.addEventListener('input', (e) => {
+                                c.languages = e.target.value;
+                                save();
+                            });
                         // Mount EquipmentList
                         try {
                             const equipHost = ed.querySelector('#equip-list');
                             if (equipHost) {
                                 const comp = EquipmentList(equipHost, {
                                     items: Array.isArray(c.equipmentList) ? c.equipmentList : [],
-                                    onChange: (items) => { c.equipmentList = items; save(); },
+                                    onChange: (items) => {
+                                        c.equipmentList = items;
+                                        save();
+                                    },
                                 });
                                 comp.init();
                             }
@@ -351,18 +381,36 @@ const CharactersPage = (container) => {
                         const ppDeltaInp = ed.querySelector('#pp-delta');
                         const ppReasonInp = ed.querySelector('#pp-reason');
                         if (pp) pp.setAttribute('disabled', 'disabled');
-                        if (ppAddBtn) ppAddBtn.addEventListener('click', () => {
-                            const amount = Math.max(1, Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0);
-                            const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
-                            if (!reason) { window.alert('Por favor, indica la razón del cambio de PP.'); return; }
-                            CharacterService.addPP(c, amount, reason); save(); update();
-                        });
-                        if (ppSpendBtn) ppSpendBtn.addEventListener('click', () => {
-                            const amount = Math.max(1, Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0);
-                            const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
-                            if (!reason) { window.alert('Por favor, indica la razón del gasto de PP.'); return; }
-                            CharacterService.spendPP(c, amount, reason); save(); update();
-                        });
+                        if (ppAddBtn)
+                            ppAddBtn.addEventListener('click', () => {
+                                const amount = Math.max(
+                                    1,
+                                    Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0
+                                );
+                                const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
+                                if (!reason) {
+                                    window.alert('Por favor, indica la razón del cambio de PP.');
+                                    return;
+                                }
+                                CharacterService.addPP(c, amount, reason);
+                                save();
+                                update();
+                            });
+                        if (ppSpendBtn)
+                            ppSpendBtn.addEventListener('click', () => {
+                                const amount = Math.max(
+                                    1,
+                                    Number(ppDeltaInp && ppDeltaInp.value ? ppDeltaInp.value : 0) || 0
+                                );
+                                const reason = (ppReasonInp && ppReasonInp.value ? ppReasonInp.value : '').trim();
+                                if (!reason) {
+                                    window.alert('Por favor, indica la razón del gasto de PP.');
+                                    return;
+                                }
+                                CharacterService.spendPP(c, amount, reason);
+                                save();
+                                update();
+                            });
                         // Attributes panel
                         try {
                             const host = ed.querySelector('#attributes-host');
@@ -372,25 +420,122 @@ const CharactersPage = (container) => {
                                     rules: RULES,
                                     suerte: Number(c.suerte) || 0,
                                     suerteMax: Number(derived_bind.suerteMax) || 0,
-                                    onChange: (key, val) => { c.attributes[key] = val; save(); update(); },
+                                    onChange: (key, val) => {
+                                        // Immutable update to attributes to keep reference changes predictable
+                                        c.attributes = { ...c.attributes, [key]: val };
+                                        save();
+                                        // Recompute derived stats and update only the derived panel on the mounted sheet
+                                        try {
+                                            const base = computeDerivedStats(c.attributes);
+                                            const ndBase2 = {
+                                                ndMente: RULES.ndBase + (Number(c.attributes.Mente) || 0),
+                                                ndInstinto: RULES.ndBase + (Number(c.attributes.Instinto) || 0),
+                                            };
+                                            const luckBase2 = { suerteMax: RULES.maxLuck };
+                                            const derivedNow = applyModifiersToDerived(
+                                                {
+                                                    ...base,
+                                                    ...ndBase2,
+                                                    ...luckBase2,
+                                                    mitigacion: Number(c.mitigacion) || 0,
+                                                },
+                                                c
+                                            );
+                                            if (
+                                                typeof sheet !== 'undefined' &&
+                                                sheet &&
+                                                typeof sheet.updateDerived === 'function'
+                                            ) {
+                                                sheet.updateDerived(derivedNow);
+                                            } else {
+                                                update();
+                                            }
+                                        } catch (_) {
+                                            // Fallback to full update if recompute fails
+                                            update();
+                                        }
+                                    },
                                     onRoll: (key) => {
                                         const val = Number(c.attributes[key]) || 0;
                                         const base = computeDerivedStats(c.attributes);
-                                        const ndBase2 = { ndMente: 5 + (Number(c.attributes.Mente) || 0), ndInstinto: 5 + (Number(c.attributes.Instinto) || 0) };
+                                        const ndBase2 = {
+                                            ndMente: 5 + (Number(c.attributes.Mente) || 0),
+                                            ndInstinto: 5 + (Number(c.attributes.Instinto) || 0),
+                                        };
                                         const luckBase2 = { suerteMax: 5 };
-                                        const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 }, c);
-                                        openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, (res) => {
-                                            if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
-                                            if (res) {
-                                                const entry = { type: 'attr', ts: Date.now(), attr: key, total: res.total, details: { d6: res.d6, advMod: res.advMod, advantage: res.advantage, base: val, extras: res.extras, luck: res.luck } };
-                                                c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
-                                                c.rollLog.unshift(entry);
-                                                if (c.rollLog.length > 200) c.rollLog.length = 200;
+                                        const derivedNow = applyModifiersToDerived(
+                                            {
+                                                ...base,
+                                                ...ndBase2,
+                                                ...luckBase2,
+                                                mitigacion: Number(c.mitigacion) || 0,
+                                            },
+                                            c
+                                        );
+                                        openRollModal(
+                                            document.body,
+                                            {
+                                                attributeName: key,
+                                                attributeValue: val,
+                                                maxSuerte: Number(derivedNow.suerteMax) || 0,
+                                            },
+                                            (res) => {
+                                                if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
+                                                if (res) {
+                                                    const entry = {
+                                                        type: 'attr',
+                                                        ts: Date.now(),
+                                                        attr: key,
+                                                        total: res.total,
+                                                        details: {
+                                                            d6: res.d6,
+                                                            advMod: res.advMod,
+                                                            advantage: res.advantage,
+                                                            base: val,
+                                                            extras: res.extras,
+                                                            luck: res.luck,
+                                                        },
+                                                    };
+                                                    c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                                                    c.rollLog.unshift(entry);
+                                                    if (c.rollLog.length > 200) c.rollLog.length = 200;
+                                                }
+                                                save();
+                                                // Only patch the sheet to avoid losing focus; include suerte and rollLog updates
+                                                if (
+                                                    typeof sheet !== 'undefined' &&
+                                                    sheet &&
+                                                    typeof sheet.updateCharacter === 'function'
+                                                ) {
+                                                    try {
+                                                        sheet.updateCharacter({ suerte: c.suerte, rollLog: c.rollLog });
+                                                    } catch (_) {
+                                                        update();
+                                                    }
+                                                } else {
+                                                    update();
+                                                }
                                             }
-                                            save(); update();
-                                        });
+                                        );
                                     },
-                                    onLuckChange: (val) => { c.suerte = val; save(); update(); },
+                                    onLuckChange: (val) => {
+                                        c.suerte = val;
+                                        save();
+                                        // Patch only the character's luck value on the mounted sheet
+                                        if (
+                                            typeof sheet !== 'undefined' &&
+                                            sheet &&
+                                            typeof sheet.updateCharacter === 'function'
+                                        ) {
+                                            try {
+                                                sheet.updateCharacter({ suerte: c.suerte });
+                                            } catch (_) {
+                                                update();
+                                            }
+                                        } else {
+                                            update();
+                                        }
+                                    },
                                 });
                                 comp.init();
                             }
@@ -403,8 +548,28 @@ const CharactersPage = (container) => {
                                     derived: derived_bind,
                                     hp: Number(c.hp) || 0,
                                     tempHp: Number(c.tempHp) || 0,
-                                    onHpChange: (hpVal) => { c.hp = hpVal; save(); update(); },
-                                    onTempHpChange: (tempVal) => { c.tempHp = tempVal; save(); },
+                                    onHpChange: (hpVal) => {
+                                        c.hp = hpVal;
+                                        save();
+                                        // Update only hp on the mounted sheet to avoid full re-render
+                                        if (
+                                            typeof sheet !== 'undefined' &&
+                                            sheet &&
+                                            typeof sheet.updateCharacter === 'function'
+                                        ) {
+                                            try {
+                                                sheet.updateCharacter({ hp: c.hp });
+                                            } catch (_) {
+                                                update();
+                                            }
+                                        } else {
+                                            update();
+                                        }
+                                    },
+                                    onTempHpChange: (tempVal) => {
+                                        c.tempHp = tempVal;
+                                        save();
+                                    },
                                 });
                                 comp.init();
                             }
@@ -417,25 +582,34 @@ const CharactersPage = (container) => {
                                     const comp = ModifiersList(modsHost, {
                                         items: Array.isArray(c.modifiers) ? c.modifiers : [],
                                         allowedFields,
-                                        onChange: (items) => { c.modifiers = items; save(); },
+                                        onChange: (items) => {
+                                            c.modifiers = items;
+                                            save();
+                                        },
                                     });
                                     comp.init();
                                 }
                             }
                         } catch (_) {}
-                        
+
                         // CharacterSheet now handles all tab mounting internally
-                        
+
                         // Cards filters & search
                         const gold = ed.querySelector('#gold');
                         const cardSearch = ed.querySelector('#card-search');
-                        if (gold) gold.addEventListener('change', (e) => { c.gold = Math.max(0, Number(e.target.value) || 0); save(); });
+                        if (gold)
+                            gold.addEventListener('change', (e) => {
+                                c.gold = Math.max(0, Number(e.target.value) || 0);
+                                save();
+                            });
                         if (cardSearch)
                             cardSearch.addEventListener('input', (e) => {
                                 state.cardSearch = e.target.value;
                                 state.focusCardSearch = true;
                                 clearTimeout(cardSearchDebounceTimer);
-                                cardSearchDebounceTimer = setTimeout(() => { update(); }, 220);
+                                cardSearchDebounceTimer = setTimeout(() => {
+                                    update();
+                                }, 220);
                             });
                         const levelChecks = ed.querySelectorAll('input[data-filter-level]');
                         const typeChecks = ed.querySelectorAll('input[data-filter-type]');
@@ -443,14 +617,56 @@ const CharactersPage = (container) => {
                         const clearFilters = ed.querySelector('#cards-clear-filters');
                         const toggleAddFilters = ed.querySelector('#toggle-add-filters');
                         // toggleAddFilters is now handled by CardsTab component
-                        if (clearFilters) clearFilters.addEventListener('click', () => { state.cardFilters = { levels: [], types: [], attributes: [], tags: [] }; update(); });
-                        levelChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = Number(e.target.value); if (e.target.checked && !state.cardFilters.levels.includes(v)) state.cardFilters.levels.push(v); if (!e.target.checked) state.cardFilters.levels = state.cardFilters.levels.filter((x) => x !== v); update(); }));
-                        typeChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = e.target.value; if (e.target.checked && !state.cardFilters.types.includes(v)) state.cardFilters.types.push(v); if (!e.target.checked) state.cardFilters.types = state.cardFilters.types.filter((x) => x !== v); update(); }));
-                        tagChecks.forEach((ch) => ch.addEventListener('change', (e) => { const v = e.target.value; if (e.target.checked && !state.cardFilters.tags.includes(v)) state.cardFilters.tags.push(v); if (!e.target.checked) state.cardFilters.tags = state.cardFilters.tags.filter((x) => x !== v); update(); }));
+                        if (clearFilters)
+                            clearFilters.addEventListener('click', () => {
+                                state.cardFilters = { levels: [], types: [], attributes: [], tags: [] };
+                                update();
+                            });
+                        levelChecks.forEach((ch) =>
+                            ch.addEventListener('change', (e) => {
+                                const v = Number(e.target.value);
+                                if (e.target.checked && !state.cardFilters.levels.includes(v))
+                                    state.cardFilters.levels.push(v);
+                                if (!e.target.checked)
+                                    state.cardFilters.levels = state.cardFilters.levels.filter((x) => x !== v);
+                                update();
+                            })
+                        );
+                        typeChecks.forEach((ch) =>
+                            ch.addEventListener('change', (e) => {
+                                const v = e.target.value;
+                                if (e.target.checked && !state.cardFilters.types.includes(v))
+                                    state.cardFilters.types.push(v);
+                                if (!e.target.checked)
+                                    state.cardFilters.types = state.cardFilters.types.filter((x) => x !== v);
+                                update();
+                            })
+                        );
+                        tagChecks.forEach((ch) =>
+                            ch.addEventListener('change', (e) => {
+                                const v = e.target.value;
+                                if (e.target.checked && !state.cardFilters.tags.includes(v))
+                                    state.cardFilters.tags.push(v);
+                                if (!e.target.checked)
+                                    state.cardFilters.tags = state.cardFilters.tags.filter((x) => x !== v);
+                                update();
+                            })
+                        );
                         const activeSlots = ed.querySelector('#active-slots');
-                        if (activeSlots) activeSlots.addEventListener('change', (e) => { c.activeSlots = Math.max(0, Number(e.target.value) || 0); if (c.activeCards.length > c.activeSlots) c.activeCards = c.activeCards.slice(0, c.activeSlots); save(); update(); });
+                        if (activeSlots)
+                            activeSlots.addEventListener('change', (e) => {
+                                c.activeSlots = Math.max(0, Number(e.target.value) || 0);
+                                if (c.activeCards.length > c.activeSlots)
+                                    c.activeCards = c.activeCards.slice(0, c.activeSlots);
+                                save();
+                                update();
+                            });
                         const addEligibleToggle = ed.querySelector('#add-eligible-only');
-                        if (addEligibleToggle) addEligibleToggle.addEventListener('change', (e) => { state.addOnlyEligible = !!e.target.checked; update(); });
+                        if (addEligibleToggle)
+                            addEligibleToggle.addEventListener('change', (e) => {
+                                state.addOnlyEligible = !!e.target.checked;
+                                update();
+                            });
                         // Cards visuals and actions
                         ed.querySelectorAll('.card-slot').forEach((slot) => {
                             const id = slot.getAttribute('data-id');
@@ -462,23 +678,47 @@ const CharactersPage = (container) => {
                                 const canActivate = typeLower === 'activable';
                                 if (mode === 'toggle') {
                                     const active = (getSelected().activeCards || []).includes(cc.id);
-                                    const removeBtn = html`<button class="button" data-remove="${cc.id}">Quitar</button>`;
-                                    const toggleBtn = canActivate ? html`<button class="button" data-toggle-active="${cc.id}">${active ? 'Desactivar' : 'Activar'}</button>` : html`<span class="muted">No activable</span>`;
+                                    const removeBtn = html`<button class="button" data-remove="${cc.id}">
+                                        Quitar
+                                    </button>`;
+                                    const toggleBtn = canActivate
+                                        ? html`<button class="button" data-toggle-active="${cc.id}">
+                                              ${active ? 'Desactivar' : 'Activar'}
+                                          </button>`
+                                        : html`<span class="muted">No activable</span>`;
                                     return html`<div class="card-buttons">${removeBtn} ${toggleBtn}</div>`;
                                 }
                                 if (mode === 'deactivate') {
                                     const reload = cc.reload && typeof cc.reload === 'object' ? cc.reload : null;
-                                    const qtyNum = reload && Number.isFinite(Number(reload.qty)) ? Number(reload.qty) : null;
+                                    const qtyNum =
+                                        reload && Number.isFinite(Number(reload.qty)) ? Number(reload.qty) : null;
                                     const reloadType = String(reload && reload.type ? reload.type : '').toUpperCase();
                                     const isRoll = reloadType === 'ROLL';
                                     const showUses = !!reload && (reload.type != null || qtyNum > 0);
-                                    const uses = (getSelected().cardUses && getSelected().cardUses[cc.id]) || { left: null, total: null };
+                                    const uses = (getSelected().cardUses && getSelected().cardUses[cc.id]) || {
+                                        left: null,
+                                        total: null,
+                                    };
                                     const total = isRoll ? 1 : Number(uses.total ?? (qtyNum != null ? qtyNum : 0)) || 0;
                                     const left = Math.min(Number(uses.left ?? total) || 0, total);
                                     const leftControl = showUses
-                                        ? html`<div style="display:flex; align-items:center; gap:.5rem;"><span>Usos</span><div class="hp-wrap"><input type="number" data-card-use-left="${cc.id}" min="0" step="1" value="${left}" /> / <strong>${total}</strong></div></div>`
+                                        ? html`<div style="display:flex; align-items:center; gap:.5rem;">
+                                              <span>Usos</span>
+                                              <div class="hp-wrap">
+                                                  <input
+                                                      type="number"
+                                                      data-card-use-left="${cc.id}"
+                                                      min="0"
+                                                      step="1"
+                                                      value="${left}"
+                                                  />
+                                                  / <strong>${total}</strong>
+                                              </div>
+                                          </div>`
                                         : html`<span></span>`;
-                                    const rightBtn = html`<button class="button" data-toggle-active="${cc.id}">Desactivar</button>`;
+                                    const rightBtn = html`<button class="button" data-toggle-active="${cc.id}">
+                                        Desactivar
+                                    </button>`;
                                     return html`<div class="card-buttons">${leftControl} ${rightBtn}</div>`;
                                 }
                                 if (mode === 'add') {
@@ -489,20 +729,69 @@ const CharactersPage = (container) => {
                             const comp = CardComponent(slot, { card, actionsRenderer });
                             comp.init();
                         });
-                        ed.querySelectorAll('[data-remove]').forEach((btn) => btn.addEventListener('click', () => { const id = btn.getAttribute('data-remove'); const idx = c.cards.indexOf(id); if (idx >= 0) c.cards.splice(idx, 1); c.activeCards = Array.isArray(c.activeCards) ? c.activeCards.filter((x) => x !== id) : []; save(); update(); }));
+                        ed.querySelectorAll('[data-remove]').forEach((btn) =>
+                            btn.addEventListener('click', () => {
+                                const id = btn.getAttribute('data-remove');
+                                const idx = c.cards.indexOf(id);
+                                if (idx >= 0) c.cards.splice(idx, 1);
+                                c.activeCards = Array.isArray(c.activeCards)
+                                    ? c.activeCards.filter((x) => x !== id)
+                                    : [];
+                                save();
+                                update();
+                            })
+                        );
                         ed.addEventListener('click', (e) => {
                             const addBtn = e.target && e.target.closest && e.target.closest('[data-add-card]');
-                            if (addBtn) { const id = addBtn.getAttribute('data-add-card'); if (id && !c.cards.includes(id)) { c.cards.push(id); save(); update(); } return; }
+                            if (addBtn) {
+                                const id = addBtn.getAttribute('data-add-card');
+                                if (id && !c.cards.includes(id)) {
+                                    c.cards.push(id);
+                                    save();
+                                    update();
+                                }
+                                return;
+                            }
                             const toggleBtn = e.target && e.target.closest && e.target.closest('[data-toggle-active]');
-                            if (toggleBtn) { const id = toggleBtn.getAttribute('data-toggle-active'); const idx = c.activeCards.indexOf(id); if (idx >= 0) c.activeCards.splice(idx, 1); else if (c.activeCards.length < (c.activeSlots || 0)) c.activeCards.push(id); save(); update(); return; }
+                            if (toggleBtn) {
+                                const id = toggleBtn.getAttribute('data-toggle-active');
+                                const idx = c.activeCards.indexOf(id);
+                                if (idx >= 0) c.activeCards.splice(idx, 1);
+                                else if (c.activeCards.length < (c.activeSlots || 0)) c.activeCards.push(id);
+                                save();
+                                update();
+                                return;
+                            }
                         });
                         ed.addEventListener('input', (e) => {
                             const inp = e.target && e.target.closest && e.target.closest('input[data-card-use-left]');
-                            if (inp) { const cardId = inp.getAttribute('data-card-use-left'); if (!c.cardUses || typeof c.cardUses !== 'object') c.cardUses = {}; const card = state.allCards.find((x) => x.id === cardId); const cd = card && card.reload && typeof card.reload === 'object' ? card.reload : null; const reloadType = String(cd?.type || '').toUpperCase(); const total = reloadType === 'ROLL' ? 1 : Number(c.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0; const left = reloadType === 'ROLL' ? Math.max(0, Math.min(Number(inp.value) || 0, 1)) : Math.max(0, Math.min(Number(inp.value) || 0, total)); c.cardUses[cardId] = { left, total }; save(); }
+                            if (inp) {
+                                const cardId = inp.getAttribute('data-card-use-left');
+                                if (!c.cardUses || typeof c.cardUses !== 'object') c.cardUses = {};
+                                const card = state.allCards.find((x) => x.id === cardId);
+                                const cd = card && card.reload && typeof card.reload === 'object' ? card.reload : null;
+                                const reloadType = String(cd?.type || '').toUpperCase();
+                                const total =
+                                    reloadType === 'ROLL' ? 1 : Number(c.cardUses[cardId]?.total ?? cd?.qty ?? 0) || 0;
+                                const left =
+                                    reloadType === 'ROLL'
+                                        ? Math.max(0, Math.min(Number(inp.value) || 0, 1))
+                                        : Math.max(0, Math.min(Number(inp.value) || 0, total));
+                                c.cardUses[cardId] = { left, total };
+                                save();
+                            }
                         });
                         // Dice tab
                         if (state.tab === 'dice') {
-                            try { const ctrl = DiceTabController(ed, { character: c, onRoll: () => { save(); } }); ctrl.init(); } catch (_) {}
+                            try {
+                                const ctrl = DiceTabController(ed, {
+                                    character: c,
+                                    onRoll: () => {
+                                        save();
+                                    },
+                                });
+                                ctrl.init();
+                            } catch (_) {}
                         }
                         if (state.tab === 'progress') {
                             const ppTab = ed.querySelector('.pp-tab');
@@ -517,7 +806,9 @@ const CharactersPage = (container) => {
                                             const amount = Math.max(0, Number(entry.amount) || 0);
                                             const reason = String(entry.reason || '').trim();
                                             const delta = entry.type === 'spend' ? `+${amount}` : `-${amount}`;
-                                            const ok = window.confirm(`¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`);
+                                            const ok = window.confirm(
+                                                `¿Deshacer movimiento de PP?\n\nCambio: ${delta}\nMotivo: ${reason || '(sin motivo)'}\n\nEsta acción revertirá el total actual.`
+                                            );
                                             if (!ok) return;
                                             CharacterService.undoPP(c, ts);
                                         }
@@ -530,24 +821,45 @@ const CharactersPage = (container) => {
                             try {
                                 const host = ed.querySelector('#pp-history');
                                 if (host) {
-                                    const items = (c.ppHistory || []).slice(0, 200).sort((a, b) => Number(b.ts || 0) - Number(a.ts || 0));
+                                    const items = (c.ppHistory || [])
+                                        .slice(0, 200)
+                                        .sort((a, b) => Number(b.ts || 0) - Number(a.ts || 0));
                                     const renderItem = (h) => {
                                         const sign = h.type === 'spend' ? '-' : '+';
                                         const amt = Number(h.amount) || 0;
                                         const reason = (h.reason || '').toString();
-                                        return html`<div class="dice-line" data-ts="${h.ts}"><span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button></div>`;
+                                        return html`<div class="dice-line" data-ts="${h.ts}">
+                                            <span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span
+                                            ><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button>
+                                        </div>`;
                                     };
-                                    const list = HistoryList(host, { items, renderItem, wrap: false }); list.init();
+                                    const list = HistoryList(host, { items, renderItem, wrap: false });
+                                    list.init();
                                 }
                             } catch (_) {}
                         }
                         // Portrait image mount
                         try {
                             const pm = ed.querySelector('#portrait-mount');
-                            if (pm) { mountImageWithFallback(pm, { src: c && c.portraitUrl ? String(c.portraitUrl) : '', alt: c ? `Retrato de ${c.name}` : 'Retrato', className: 'portrait-img', placeholderText: 'Sin retrato' }); }
+                            if (pm) {
+                                mountImageWithFallback(pm, {
+                                    src: c && c.portraitUrl ? String(c.portraitUrl) : '',
+                                    alt: c ? `Retrato de ${c.name}` : 'Retrato',
+                                    className: 'portrait-img',
+                                    placeholderText: 'Sin retrato',
+                                });
+                            }
                         } catch (_) {}
                         // Restore focus on card search
-                        if (state.focusCardSearch) { const search = ed.querySelector('#card-search'); if (search) { const val = search.value; search.focus(); search.setSelectionRange(val.length, val.length); } state.focusCardSearch = false; }
+                        if (state.focusCardSearch) {
+                            const search = ed.querySelector('#card-search');
+                            if (search) {
+                                const val = search.value;
+                                search.focus();
+                                search.setSelectionRange(val.length, val.length);
+                            }
+                            state.focusCardSearch = false;
+                        }
                     },
                 },
             });
@@ -660,26 +972,49 @@ const CharactersPage = (container) => {
                     suerteMax: Number(derived_bind.suerteMax) || 0,
                     onChange: (key, val) => {
                         c.attributes[key] = val;
-                save();
+                        save();
                         update();
                     },
                     onRoll: (key) => {
                         const val = Number(c.attributes[key]) || 0;
                         const base = computeDerivedStats(c.attributes);
-                        const ndBase2 = { ndMente: 5 + (Number(c.attributes.Mente) || 0), ndInstinto: 5 + (Number(c.attributes.Instinto) || 0) };
+                        const ndBase2 = {
+                            ndMente: 5 + (Number(c.attributes.Mente) || 0),
+                            ndInstinto: 5 + (Number(c.attributes.Instinto) || 0),
+                        };
                         const luckBase2 = { suerteMax: 5 };
-                        const derivedNow = applyModifiersToDerived({ ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 }, c);
-                        openRollModal(document.body, { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 }, (res) => {
-                            if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
-                            if (res) {
-                                const entry = { type: 'attr', ts: Date.now(), attr: key, total: res.total, details: { d6: res.d6, advMod: res.advMod, advantage: res.advantage, base: val, extras: res.extras, luck: res.luck } };
-                                c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
-                                c.rollLog.unshift(entry);
-                                if (c.rollLog.length > 200) c.rollLog.length = 200;
+                        const derivedNow = applyModifiersToDerived(
+                            { ...base, ...ndBase2, ...luckBase2, mitigacion: Number(c.mitigacion) || 0 },
+                            c
+                        );
+                        openRollModal(
+                            document.body,
+                            { attributeName: key, attributeValue: val, maxSuerte: Number(derivedNow.suerteMax) || 0 },
+                            (res) => {
+                                if (res && res.luck) c.suerte = Math.max(0, (c.suerte || 0) - res.luck);
+                                if (res) {
+                                    const entry = {
+                                        type: 'attr',
+                                        ts: Date.now(),
+                                        attr: key,
+                                        total: res.total,
+                                        details: {
+                                            d6: res.d6,
+                                            advMod: res.advMod,
+                                            advantage: res.advantage,
+                                            base: val,
+                                            extras: res.extras,
+                                            luck: res.luck,
+                                        },
+                                    };
+                                    c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
+                                    c.rollLog.unshift(entry);
+                                    if (c.rollLog.length > 200) c.rollLog.length = 200;
+                                }
+                                save();
+                                update();
                             }
-                            save();
-                            update();
-                        });
+                        );
                     },
                     onLuckChange: (val) => {
                         c.suerte = val;
@@ -723,7 +1058,7 @@ const CharactersPage = (container) => {
                 state.focusCardSearch = true;
                 clearTimeout(cardSearchDebounceTimer);
                 cardSearchDebounceTimer = setTimeout(() => {
-                update();
+                    update();
                 }, 220);
             });
         // Cards tab filters
@@ -829,8 +1164,8 @@ const CharactersPage = (container) => {
                             c.rollLog.unshift(entry);
                             if (c.rollLog.length > 200) c.rollLog.length = 200;
                         }
-                            save();
-                            update();
+                        save();
+                        update();
                     }
                 );
             })
@@ -872,9 +1207,9 @@ const CharactersPage = (container) => {
                     const active = (getSelected().activeCards || []).includes(c.id);
                     const removeBtn = html`<button class="button" data-remove="${c.id}">Quitar</button>`;
                     const toggleBtn = canActivate
-                        ? html`<button class="button" data-toggle-active="${c.id}">${
-                              active ? 'Desactivar' : 'Activar'
-                          }</button>`
+                        ? html`<button class="button" data-toggle-active="${c.id}">
+                              ${active ? 'Desactivar' : 'Activar'}
+                          </button>`
                         : html`<span class="muted">No activable</span>`;
 
                     return html`<div class="card-buttons">${removeBtn} ${toggleBtn}</div>`;
@@ -931,7 +1266,7 @@ const CharactersPage = (container) => {
                     allowedFields,
                     onChange: (items) => {
                         c.modifiers = items;
-                save();
+                        save();
                         // No update() inmediato para evitar perder foco al escribir
                     },
                 });
@@ -954,7 +1289,7 @@ const CharactersPage = (container) => {
                         ? Math.max(0, Math.min(Number(inp.value) || 0, 1))
                         : Math.max(0, Math.min(Number(inp.value) || 0, total));
                 current.cardUses[cardId] = { left, total };
-                    save();
+                save();
             }
         });
 
@@ -968,7 +1303,7 @@ const CharactersPage = (container) => {
                     const clearBtn = e.target && e.target.closest && e.target.closest('[data-dice-clear]');
                     if (clearBtn) {
                         c.rollLog = [];
-                    save();
+                        save();
                         update();
                         return;
                     }
@@ -1002,7 +1337,7 @@ const CharactersPage = (container) => {
                             total: sum,
                         });
                         if (c.rollLog.length > 200) c.rollLog.length = 200;
-                    save();
+                        save();
                         update();
                     }
                 });
@@ -1025,7 +1360,7 @@ const CharactersPage = (container) => {
                         c.rollLog = Array.isArray(c.rollLog) ? c.rollLog : [];
                         c.rollLog.unshift({ type: 'dice', ts: Date.now(), notation, rolls, total: sum });
                         if (c.rollLog.length > 200) c.rollLog.length = 200;
-                    save();
+                        save();
                         update();
                     });
             }
@@ -1038,11 +1373,20 @@ const CharactersPage = (container) => {
                     const renderItem = (r) => {
                         if (r.type === 'attr') {
                             const d = r.details || {};
-                            const advLabel = d.advantage && d.advantage !== 'normal' ? `, ${d.advantage}=${d.advMod}` : '';
-                            return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base}, mods=${d.extras}, suerte=${d.luck})</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                            const advLabel =
+                                d.advantage && d.advantage !== 'normal' ? `, ${d.advantage}=${d.advMod}` : '';
+                            return html`<div class="dice-line" data-ts="${r.ts}">
+                                <span class="dice-entry"
+                                    >[Atributo] ${r.attr}: ${r.total} (1d6=${d.d6}${advLabel}, base=${d.base},
+                                    mods=${d.extras}, suerte=${d.luck})</span
+                                ><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button>
+                            </div>`;
                         }
                         const rolls = Array.isArray(r.rolls) ? ` [${r.rolls.join(', ')}]` : '';
-                        return html`<div class="dice-line" data-ts="${r.ts}"><span class="dice-entry">[Dados] ${r.notation} = ${r.total}${rolls}</span><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button></div>`;
+                        return html`<div class="dice-line" data-ts="${r.ts}">
+                            <span class="dice-entry">[Dados] ${r.notation} = ${r.total}${rolls}</span
+                            ><button class="button" data-dice-del="${r.ts}" title="Eliminar">🗑️</button>
+                        </div>`;
                     };
                     const list = HistoryList(host, { items, renderItem, wrap: false });
                     list.init();
@@ -1068,8 +1412,8 @@ const CharactersPage = (container) => {
                             if (!ok) return;
                             CharacterService.undoPP(c, ts);
                         }
-                    save();
-                    update();
+                        save();
+                        update();
                         return;
                     }
                 });
@@ -1086,7 +1430,10 @@ const CharactersPage = (container) => {
                         const sign = h.type === 'spend' ? '-' : '+';
                         const amt = Number(h.amount) || 0;
                         const reason = (h.reason || '').toString();
-                        return html`<div class="dice-line" data-ts="${h.ts}"><span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button></div>`;
+                        return html`<div class="dice-line" data-ts="${h.ts}">
+                            <span class="dice-entry">[PP] ${sign}${amt} — ${reason}</span
+                            ><button class="button" data-pp-del="${h.ts}" title="Deshacer">↩️</button>
+                        </div>`;
                     };
                     const list = HistoryList(host, { items, renderItem, wrap: false });
                     list.init();
@@ -1097,6 +1444,12 @@ const CharactersPage = (container) => {
 
     let layoutInstance = null;
     const update = () => {
+        // Debug: log and measure CharactersPage update calls
+        try {
+            DebugUtils.logRender('CharactersPage.update', { reason: 'start' });
+        } catch (_) {}
+        const __updateToken = DebugUtils.isEnabled() ? DebugUtils.timeStart('CharactersPage.update') : null;
+
         if (!layoutInstance) {
             container.innerHTML = '<div id="layout"></div>';
             const layoutRoot = container.querySelector('#layout');
@@ -1104,20 +1457,70 @@ const CharactersPage = (container) => {
             layoutInstance.init();
         }
         const mainEl = layoutInstance.getMainEl();
-        mainEl.innerHTML = renderInner();
+
+        // Instrument rendering of the main content to measure cost
+        if (DebugUtils.isEnabled()) {
+            try {
+                DebugUtils.instrumentRender(
+                    'CharactersPage.renderInner',
+                    () => {
+                        mainEl.innerHTML = renderInner();
+                    },
+                    { phase: 'renderInner' }
+                );
+            } catch (e) {
+                // fallback to normal render
+                mainEl.innerHTML = renderInner();
+            }
+        } else {
+            mainEl.innerHTML = renderInner();
+        }
+
         bindEvents(mainEl);
+
         // Mount portrait image with safe fallback in Bio tab
         try {
             const c = getSelected();
             const pm = mainEl.querySelector('#portrait-mount');
             if (pm) {
-                mountImageWithFallback(pm, {
-                    src: c && c.portraitUrl ? String(c.portraitUrl) : '',
-                    alt: c ? `Retrato de ${c.name}` : 'Retrato',
-                    className: 'portrait-img',
-                    placeholderText: 'Sin retrato',
-                });
+                if (DebugUtils.isEnabled()) {
+                    try {
+                        DebugUtils.instrumentRender(
+                            'CharactersPage.mountImageWithFallback',
+                            () => {
+                                mountImageWithFallback(pm, {
+                                    src: c && c.portraitUrl ? String(c.portraitUrl) : '',
+                                    alt: c ? `Retrato de ${c.name}` : 'Retrato',
+                                    className: 'portrait-img',
+                                    placeholderText: 'Sin retrato',
+                                });
+                            },
+                            { phase: 'mountImage' }
+                        );
+                    } catch (e) {
+                        // fallback
+                        mountImageWithFallback(pm, {
+                            src: c && c.portraitUrl ? String(c.portraitUrl) : '',
+                            alt: c ? `Retrato de ${c.name}` : 'Retrato',
+                            className: 'portrait-img',
+                            placeholderText: 'Sin retrato',
+                        });
+                    }
+                } else {
+                    mountImageWithFallback(pm, {
+                        src: c && c.portraitUrl ? String(c.portraitUrl) : '',
+                        alt: c ? `Retrato de ${c.name}` : 'Retrato',
+                        className: 'portrait-img',
+                        placeholderText: 'Sin retrato',
+                    });
+                }
             }
+        } catch (_) {}
+
+        // Debug: finish timing
+        try {
+            if (__updateToken) DebugUtils.timeEnd(__updateToken, { phase: 'end' });
+            DebugUtils.logRender('CharactersPage.update', { reason: 'end' });
         } catch (_) {}
         // Restore focus on card search if user was typing
         if (state.focusCardSearch) {
@@ -1145,6 +1548,28 @@ const CharactersPage = (container) => {
         } catch (_) {}
         if (!state.selectedId && state.list[0]) state.selectedId = state.list[0].id;
         setCharQuery(state.selectedId);
+
+        // Listen for global equipment save events and persist them to the characters list.
+        // This handles equipment commits coming from SheetTab (arcana:save).
+        try {
+            window.addEventListener('arcana:save', (ev) => {
+                try {
+                    const d = ev && ev.detail ? ev.detail : null;
+                    if (!d) return;
+                    const id = d.id;
+                    const equipmentList = Array.isArray(d.equipmentList) ? d.equipmentList : null;
+                    if (!id || equipmentList == null) return;
+                    const idx = state.list.findIndex((x) => x.id === id);
+                    if (idx === -1) return;
+                    // Update and persist
+                    state.list[idx].equipmentList = equipmentList;
+                    save();
+                } catch (_) {
+                    // Ignore individual handler errors
+                }
+            });
+        } catch (_) {}
+
         update();
     };
 

@@ -20,27 +20,26 @@ export default function Toast(container, props = {}) {
         details: props.details || null,
         characterName: props.characterName || null,
         visible: false,
-        timeoutId: null
+        timeoutId: null,
     };
 
     const render = () => {
         const typeClass = `toast-${state.type}`;
-        const characterNameHtml = state.characterName ? html`
-            <div class="toast-character-name">${state.characterName}</div>
-        ` : '';
-        
-        const detailsHtml = state.showDetails && state.details ? html`
-            <div class="toast-details">
-                <div class="toast-breakdown">
-                    ${state.details.breakdown || ''}
-                </div>
-                ${state.details.rolls ? html`
-                    <div class="toast-rolls">
-                        Dados: [${state.details.rolls.join(', ')}]
-                    </div>
-                ` : ''}
-            </div>
-        ` : '';
+        const characterNameHtml = state.characterName
+            ? html` <div class="toast-character-name">${state.characterName}</div> `
+            : '';
+
+        const detailsHtml =
+            state.showDetails && state.details
+                ? html`
+                      <div class="toast-details">
+                          <div class="toast-breakdown">${state.details.breakdown || ''}</div>
+                          ${state.details.rolls
+                              ? html` <div class="toast-rolls">Dados: [${state.details.rolls.join(', ')}]</div> `
+                              : ''}
+                      </div>
+                  `
+                : '';
 
         return html`
             <div class="toast ${typeClass} ${state.visible ? 'toast-visible' : ''}" role="alert">
@@ -57,7 +56,7 @@ export default function Toast(container, props = {}) {
     const show = () => {
         state.visible = true;
         container.innerHTML = render();
-        
+
         // Auto-hide after duration
         startTimer();
 
@@ -119,7 +118,7 @@ export default function Toast(container, props = {}) {
     return {
         show,
         hide,
-        setState
+        setState,
     };
 }
 
@@ -140,14 +139,14 @@ export class ToastManager {
             this.container.className = 'toast-container';
             document.body.appendChild(this.container);
         }
-        
+
         // Load styles
         ensureStyle('./src/components/Toast/Toast.css');
     }
 
     show(message, options = {}) {
         this.init();
-        
+
         // Hide current toast if exists
         if (this.currentToast) {
             this.currentToast.hide();
@@ -157,9 +156,9 @@ export class ToastManager {
         this.currentToast = Toast(this.container, {
             message,
             characterName: options.characterName,
-            ...options
+            ...options,
         });
-        
+
         this.currentToast.show();
         return this.currentToast;
     }

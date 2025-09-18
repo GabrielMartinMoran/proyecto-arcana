@@ -12,5 +12,3 @@ const Footer = () => html`
 `;
 
 export default Footer;
-
-

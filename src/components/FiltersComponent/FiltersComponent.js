@@ -73,7 +73,7 @@ const FiltersComponent = (container, props = {}) => {
                         .join('')}
                 </div>
             </div>
-            
+
             <div class="filters-block filters-block--sint">
                 <label class="filters-label">Etiquetas</label>
                 <div class="dropdown">
@@ -139,7 +139,7 @@ const FiltersComponent = (container, props = {}) => {
                 state.value.text = e.target.value;
                 debounced(emit);
             });
-        
+
         if (clear)
             clear.addEventListener('click', () => {
                 state.value = { text: '', levels: [], types: [], attributes: [], tags: [] };

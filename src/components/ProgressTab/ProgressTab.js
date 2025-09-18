@@ -86,7 +86,7 @@ const ProgressTab = (container, props = {}) => {
     const handleSpend = () => {
         const deltaInput = document.getElementById('pp-delta');
         const reasonInput = document.getElementById('pp-reason');
-        
+
         if (!deltaInput || !reasonInput) return;
 
         const amount = Number(deltaInput.value) || 1;
@@ -108,7 +108,7 @@ const ProgressTab = (container, props = {}) => {
         };
 
         state.onUpdate(updatedCharacter);
-        
+
         // Clear inputs
         deltaInput.value = '1';
         reasonInput.value = '';
@@ -117,7 +117,7 @@ const ProgressTab = (container, props = {}) => {
     const handleAdd = () => {
         const deltaInput = document.getElementById('pp-delta');
         const reasonInput = document.getElementById('pp-reason');
-        
+
         if (!deltaInput || !reasonInput) return;
 
         const amount = Number(deltaInput.value) || 1;
@@ -139,7 +139,7 @@ const ProgressTab = (container, props = {}) => {
         };
 
         state.onUpdate(updatedCharacter);
-        
+
         // Clear inputs
         deltaInput.value = '1';
         reasonInput.value = '';
@@ -153,20 +153,20 @@ const ProgressTab = (container, props = {}) => {
         const amount = Math.abs(Number(entry.amount) || 0);
         const isSpend = entry.type === 'spend';
         const action = isSpend ? 'gasto' : 'adición';
-        
+
         // Confirmación antes de deshacer
         const confirmed = confirm(
             `¿Estás seguro de que quieres deshacer este ${action} de ${amount} PP?\n\n` +
-            `Motivo: ${entry.reason}\n\n` +
-            `Esta acción no se puede deshacer.`
+                `Motivo: ${entry.reason}\n\n` +
+                `Esta acción no se puede deshacer.`
         );
-        
+
         if (!confirmed) return;
 
         // Para rollback: si era un gasto (amount negativo), ahora sumamos a PP actuales
         // Si era una adición (amount positivo), ahora restamos de PP actuales
         const rollbackAmount = -Number(entry.amount);
-        
+
         const updatedCharacter = {
             ...state.character,
             pp: (Number(state.character.pp) || 0) + rollbackAmount,
@@ -193,7 +193,7 @@ const ProgressTab = (container, props = {}) => {
                 const isSpend = entry.type === 'spend';
                 const amount = Math.abs(Number(entry.amount) || 0);
                 const originalIndex = history.length - 1 - reverseIndex; // Convertir índice reverso a original
-                
+
                 return html`
                     <div class="log-row">
                         <div class="log-content">
@@ -202,7 +202,11 @@ const ProgressTab = (container, props = {}) => {
                             </span>
                             <span class="log-reason">${entry.reason}</span>
                         </div>
-                        <button class="button small rollback-btn" data-rollback-index="${originalIndex}" title="Deshacer esta acción">
+                        <button
+                            class="button small rollback-btn"
+                            data-rollback-index="${originalIndex}"
+                            title="Deshacer esta acción"
+                        >
                             ↶
                         </button>
                     </div>

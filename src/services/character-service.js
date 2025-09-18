@@ -79,5 +79,3 @@ const CharacterService = {
 };
 
 export default CharacterService;
-
-

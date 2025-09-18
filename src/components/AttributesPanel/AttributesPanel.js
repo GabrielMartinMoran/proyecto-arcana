@@ -20,24 +20,41 @@ const AttributesPanel = (container, props = {}) => {
 
     const render = () => html`
         <div class="attributes-panel">
-        <div class="attrs">
-            ${Object.entries(state.attributes)
-                .map(
-                    ([k, v]) => html`<div class="attr">
-                        <span>${k}</span>
-                        <input type="number" min="${state.rules.attributeMin}" max="${state.rules.attributeMax}" step="1" data-attr="${k}" value="${v}" ${state.readOnly ? 'disabled' : ''} />
-                        <button class="button" data-roll-attr="${k}" title="Tirar">🎲</button>
-                    </div>`
-                )
-                .join('')}
-            <div class="attr">
-                <span>Suerte</span>
-                <div class="hp-wrap">
-                    <input type="number" id="suerte" data-max="${state.suerteMax}" min="0" step="1" value="${state.suerte}" ${state.readOnly ? 'disabled' : ''} />
-                    / <strong>${state.suerteMax}</strong>
+            <div class="attrs">
+                ${Object.entries(state.attributes)
+                    .map(
+                        ([k, v]) =>
+                            html`<div class="attr">
+                                <span>${k}</span>
+                                <input
+                                    type="number"
+                                    min="${state.rules.attributeMin}"
+                                    max="${state.rules.attributeMax}"
+                                    step="1"
+                                    data-attr="${k}"
+                                    value="${v}"
+                                    ${state.readOnly ? 'disabled' : ''}
+                                />
+                                <button class="button" data-roll-attr="${k}" title="Tirar">🎲</button>
+                            </div>`
+                    )
+                    .join('')}
+                <div class="attr">
+                    <span>Suerte</span>
+                    <div class="hp-wrap">
+                        <input
+                            type="number"
+                            id="suerte"
+                            data-max="${state.suerteMax}"
+                            min="0"
+                            step="1"
+                            value="${state.suerte}"
+                            ${state.readOnly ? 'disabled' : ''}
+                        />
+                        / <strong>${state.suerteMax}</strong>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     `;
 
@@ -72,6 +89,7 @@ const AttributesPanel = (container, props = {}) => {
 
     const setState = (partial) => {
         state = { ...state, ...partial };
+        // Always update to ensure components are properly rendered
         container.innerHTML = render();
         bind();
     };
@@ -86,5 +104,3 @@ const AttributesPanel = (container, props = {}) => {
 };
 
 export default AttributesPanel;
-
-

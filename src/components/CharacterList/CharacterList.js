@@ -15,7 +15,7 @@ import { ensureStyles } from '../../utils/style-utils.js';
  */
 export default function CharacterList(container, props = {}) {
     const getId = props.getId || ((_, i) => String(i));
-    const getName = props.getName || ((x) => x && x.name ? String(x.name) : 'Personaje');
+    const getName = props.getName || ((x) => (x && x.name ? String(x.name) : 'Personaje'));
     const getPortraitUrl = props.getPortraitUrl || ((x) => (x && x.portraitUrl) || '');
     const renderRight = typeof props.renderRight === 'function' ? props.renderRight : null;
 
@@ -45,7 +45,9 @@ export default function CharacterList(container, props = {}) {
                                         <span class="initial">${initial}</span>
                                     </span>
                                     <span class="item-name">${name}</span>
-                                    ${renderRight ? html`<span class="item-right">${renderRight(item, idx)}</span>` : ''}
+                                    ${renderRight
+                                        ? html`<span class="item-right">${renderRight(item, idx)}</span>`
+                                        : ''}
                                 </button>
                             </li>`;
                         })
@@ -67,7 +69,9 @@ export default function CharacterList(container, props = {}) {
             });
         });
         if (typeof props.onAfterRender === 'function') {
-            try { props.onAfterRender(container); } catch (_) {}
+            try {
+                props.onAfterRender(container);
+            } catch (_) {}
         }
     };
 
@@ -85,5 +89,3 @@ export default function CharacterList(container, props = {}) {
 
     return { init, update };
 }
-
-

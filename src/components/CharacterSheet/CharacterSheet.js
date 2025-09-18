@@ -24,43 +24,64 @@ export default function CharacterSheet(container, props = {}) {
     const RULES = props.services?.RULES || {};
     const readOnly = !!(props.options && props.options.readOnly);
     const lockName = !!(props.options && props.options.lockName);
-    
+
     // Initialize state.character with the passed character
     state.character = character;
-    
+
     // Keep references to mounted components to avoid re-initialization
     let mountedComponents = {};
+    // Ensure hooks.onBind is called only once to avoid remounting listeners
+    let boundOnce = false;
+    // Reentrancy guard to avoid notification loops when updateCharacter is invoked
+    let suppressUpdateCharacter = false;
 
     const render = () => {
         return html`
             <div class="editor-header">
                 ${readOnly || lockName
-                    ? html`<div class="name-input" style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;">${character.name || ''}</div>`
+                    ? html`<div
+                          class="name-input"
+                          style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;"
+                      >
+                          ${character.name || ''}
+                      </div>`
                     : html`<input id="name" class="name-input" type="text" value="${character.name || ''}" />`}
             </div>
             <div class="tabs">
                 <button class="tab ${state.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">Hoja</button>
                 <button class="tab ${state.tab === 'cards' ? 'active' : ''}" data-tab="cards">Cartas</button>
-                ${readOnly ? '' : html`<button class="tab ${state.tab === 'notes' ? 'active' : ''}" data-tab="notes">Notas</button>`}
+                ${readOnly
+                    ? ''
+                    : html`<button class="tab ${state.tab === 'notes' ? 'active' : ''}" data-tab="notes">
+                          Notas
+                      </button>`}
                 <button class="tab ${state.tab === 'bio' ? 'active' : ''}" data-tab="bio">Bio</button>
-                ${readOnly ? '' : html`<button class="tab ${state.tab === 'config' ? 'active' : ''}" data-tab="config">Configuración</button>`}
-                ${readOnly ? '' : html`<button class="tab ${state.tab === 'progress' ? 'active' : ''}" data-tab="progress">Progreso</button>`}
+                ${readOnly
+                    ? ''
+                    : html`<button class="tab ${state.tab === 'config' ? 'active' : ''}" data-tab="config">
+                          Configuración
+                      </button>`}
+                ${readOnly
+                    ? ''
+                    : html`<button class="tab ${state.tab === 'progress' ? 'active' : ''}" data-tab="progress">
+                          Progreso
+                      </button>`}
                 <span class="tab-spacer"></span>
                 <button class="tab ${state.tab === 'dice' ? 'active' : ''} tab-right" data-tab="dice">Dados</button>
             </div>
             ${state.tab === 'sheet'
                 ? html`<div id="sheet-tab-container"></div>`
                 : state.tab === 'cards'
-                ? html`<div id="cards-tab-container"></div>`
-                : state.tab === 'config'
-                ? html`<div id="config-tab-container"></div>`
-                : state.tab === 'bio'
-                ? html`<div id="bio-tab-container"></div>`
-                : state.tab === 'progress'
-                ? html`<div id="progress-tab-container"></div>`
-                : state.tab === 'dice'
-                ? html`<div id="dice-tab-container"></div>`
-                : html`<div id="notes-tab-container"></div>`}
+                  ? html`<div id="cards-tab-container"></div>`
+                  : state.tab === 'config'
+                    ? html`<div id="config-tab-container"></div>`
+                    : state.tab === 'bio'
+                      ? html`<div id="bio-tab-container"></div>`
+                      : state.tab === 'progress'
+                        ? html`<div id="progress-tab-container"></div>`
+                        : state.tab === 'dice'
+                          ? html`<div id="dice-tab-container"></div>`
+                          : html`<div id="notes-tab-container"></div>`}
         `;
     };
 
@@ -69,17 +90,28 @@ export default function CharacterSheet(container, props = {}) {
             if (state.tab === 'sheet') {
                 const tabContainer = container.querySelector('#sheet-tab-container');
                 if (tabContainer) {
-                    const comp = SheetTab(tabContainer, {
-                        character: state.character,
-                        derived: props.derived,
-                        rules: props.rules,
-                        readOnly: readOnly,
-                        onUpdate: (updatedCharacter) => {
-                            state.character = updatedCharacter;
-                            if (props.onUpdate) props.onUpdate(updatedCharacter);
-                        }
-                    });
-                    await comp.init();
+                    if (!mountedComponents.sheet) {
+                        const comp = SheetTab(tabContainer, {
+                            character: state.character,
+                            derived: props.derived,
+                            rules: props.rules,
+                            readOnly: readOnly,
+                            onUpdate: (updatedCharacter) => {
+                                state.character = updatedCharacter;
+                                if (props.onUpdate) props.onUpdate(updatedCharacter);
+                            },
+                        });
+                        await comp.init();
+                        mountedComponents.sheet = comp;
+                    } else {
+                        // Update existing component with new data
+                        await mountedComponents.sheet.setState({
+                            character: state.character,
+                            derived: props.derived,
+                            rules: props.rules,
+                            readOnly: readOnly,
+                        });
+                    }
                 }
             } else if (state.tab === 'cards') {
                 const tabContainer = container.querySelector('#cards-tab-container');
@@ -99,7 +131,7 @@ export default function CharacterSheet(container, props = {}) {
                                 // Update the global state
                                 Object.assign(props.state, updatedState);
                                 if (props.onStateUpdate) props.onStateUpdate(updatedState);
-                            }
+                            },
                         });
                         await comp.init();
                         mountedComponents.cards = comp;
@@ -118,7 +150,7 @@ export default function CharacterSheet(container, props = {}) {
                         onUpdate: (updatedCharacter) => {
                             state.character = updatedCharacter;
                             if (props.onUpdate) props.onUpdate(updatedCharacter);
-                        }
+                        },
                     });
                     await comp.init();
                 }
@@ -131,7 +163,7 @@ export default function CharacterSheet(container, props = {}) {
                         onUpdate: (updatedCharacter) => {
                             state.character = updatedCharacter;
                             if (props.onUpdate) props.onUpdate(updatedCharacter);
-                        }
+                        },
                     });
                     await comp.init();
                 }
@@ -143,7 +175,7 @@ export default function CharacterSheet(container, props = {}) {
                         onUpdate: (updatedCharacter) => {
                             state.character = updatedCharacter;
                             if (props.onUpdate) props.onUpdate(updatedCharacter);
-                        }
+                        },
                     });
                     await comp.init();
                 }
@@ -154,7 +186,7 @@ export default function CharacterSheet(container, props = {}) {
                         character: state.character,
                         onRoll: (rollData) => {
                             if (props.onRoll) props.onRoll(rollData);
-                        }
+                        },
                     });
                     await comp.init();
                 }
@@ -166,7 +198,7 @@ export default function CharacterSheet(container, props = {}) {
                         onUpdate: (updatedCharacter) => {
                             state.character = updatedCharacter;
                             if (props.onUpdate) props.onUpdate(updatedCharacter);
-                        }
+                        },
                     });
                     await comp.init();
                 }
@@ -179,13 +211,86 @@ export default function CharacterSheet(container, props = {}) {
     const setState = async (partial) => {
         state = { ...state, ...partial };
         container.innerHTML = render();
-        if (props.hooks && typeof props.hooks.onBind === 'function') props.hooks.onBind(container);
+        // Call hooks.onBind only once to avoid remounting listeners on each setState()
+        if (!boundOnce && props.hooks && typeof props.hooks.onBind === 'function') {
+            try {
+                props.hooks.onBind(container);
+            } catch (_) {}
+            boundOnce = true;
+        }
         // Wait for DOM to be ready before mounting components
-        await new Promise(resolve => requestAnimationFrame(resolve));
+        await new Promise((resolve) => requestAnimationFrame(resolve));
         await mountTabComponents();
     };
 
-    return { init: () => setState({}), setState };
+    return {
+        init: () => setState({}),
+        setState,
+
+        /**
+         * updateCharacter(partial) - delegate character partial updates to the mounted SheetTab
+         * This allows parent pages to patch small pieces of state (gold, luck, rollLog, hp, etc.)
+         * without forcing a full re-render of the tab container.
+         */
+        updateCharacter(partial = {}) {
+            if (!partial || typeof partial !== 'object') return;
+            // Avoid re-entrant calls: if we're already processing an updateCharacter,
+            // skip to prevent notification loops.
+            if (suppressUpdateCharacter) return;
+            suppressUpdateCharacter = true;
+            try {
+                // If the underlying mounted SheetTab exposes an updateCharacter API, use it.
+                if (mountedComponents.sheet && typeof mountedComponents.sheet.updateCharacter === 'function') {
+                    try {
+                        mountedComponents.sheet.updateCharacter(partial);
+                        return;
+                    } catch (e) {
+                        // fallthrough to setState fallback
+                    }
+                }
+                // Fallback: patch SheetTab via setState to update character subcomponents.
+                if (mountedComponents.sheet && typeof mountedComponents.sheet.setState === 'function') {
+                    try {
+                        const patched = { character: { ...state.character, ...partial } };
+                        mountedComponents.sheet.setState(patched);
+                    } catch (e) {
+                        // Last resort: trigger full setState of this component to keep consistency
+                        setState({ character: { ...state.character, ...partial } });
+                    }
+                } else {
+                    // If sheet isn't mounted, update local state so future mounts render correct data.
+                    state.character = { ...state.character, ...partial };
+                }
+            } finally {
+                suppressUpdateCharacter = false;
+            }
+        },
+
+        /**
+         * updateDerived(partialDerived) - update derived stats only (salud, velocidad, esquiva, nd, suerteMax...)
+         * Delegates to mounted sheet's updateDerived if present, otherwise tries to patch via setState.
+         */
+        updateDerived(partialDerived = {}) {
+            if (!partialDerived || typeof partialDerived !== 'object') return;
+            // If the mounted SheetTab exposes updateDerived use it.
+            if (mountedComponents.sheet && typeof mountedComponents.sheet.updateDerived === 'function') {
+                try {
+                    mountedComponents.sheet.updateDerived(partialDerived);
+                    return;
+                } catch (e) {
+                    // fallthrough to setState fallback
+                }
+            }
+            // Fallback to updating local derived state and patching the sheet via setState
+            state.derived = { ...state.derived, ...partialDerived };
+            if (mountedComponents.sheet && typeof mountedComponents.sheet.setState === 'function') {
+                try {
+                    mountedComponents.sheet.setState({ derived: state.derived });
+                } catch (e) {
+                    // Last resort: full re-render
+                    setState({ derived: state.derived });
+                }
+            }
+        },
+    };
 }
-
-

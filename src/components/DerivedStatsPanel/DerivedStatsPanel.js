@@ -18,28 +18,44 @@ const DerivedStatsPanel = (container, props = {}) => {
 
     const render = () => html`
         <div class="derived-stats-panel">
-        <div class="attrs attrs-deriv">
-            <div class="attr">
-                <span>Salud</span>
-                <div class="hp-wrap">
-                    <input type="number" id="hp" min="0" step="1" value="${state.hp}" ${state.readOnly ? 'disabled' : ''} /> /
-                    <strong>${state.derived.salud}</strong>
+            <div class="attrs attrs-deriv">
+                <div class="attr">
+                    <span>Salud</span>
+                    <div class="hp-wrap">
+                        <input
+                            type="number"
+                            id="hp"
+                            min="0"
+                            step="1"
+                            value="${state.hp}"
+                            ${state.readOnly ? 'disabled' : ''}
+                        />
+                        /
+                        <strong>${state.derived.salud}</strong>
+                    </div>
+                </div>
+                <div class="attr">
+                    <span>Salud temporal</span
+                    ><input
+                        type="number"
+                        id="temp-hp"
+                        min="0"
+                        step="1"
+                        value="${state.tempHp}"
+                        ${state.readOnly ? 'disabled' : ''}
+                    />
+                </div>
+                <div class="attr"><span>Velocidad</span><strong>${state.derived.velocidad}</strong></div>
+                <div class="attr"><span>Esquiva</span><strong>${state.derived.esquiva}</strong></div>
+                <div class="attr"><span>Mitigación</span><strong>${state.derived.mitigacion}</strong></div>
+                <div class="nd-spells">
+                    <div class="attr" style="grid-column:1 / -1; padding-top:.25rem;">
+                        <strong>ND de Conjuro</strong>
+                    </div>
+                    <div class="attr child"><span>ND (Mente)</span><strong>${state.derived.ndMente}</strong></div>
+                    <div class="attr child"><span>ND (Instinto)</span><strong>${state.derived.ndInstinto}</strong></div>
                 </div>
             </div>
-            <div class="attr">
-                <span>Salud temporal</span><input type="number" id="temp-hp" min="0" step="1" value="${state.tempHp}" ${state.readOnly ? 'disabled' : ''} />
-            </div>
-            <div class="attr"><span>Velocidad</span><strong>${state.derived.velocidad}</strong></div>
-            <div class="attr"><span>Esquiva</span><strong>${state.derived.esquiva}</strong></div>
-            <div class="attr"><span>Mitigación</span><strong>${state.derived.mitigacion}</strong></div>
-            <div class="nd-spells">
-                <div class="attr" style="grid-column:1 / -1; padding-top:.25rem;">
-                    <strong>ND de Conjuro</strong>
-                </div>
-                <div class="attr child"><span>ND (Mente)</span><strong>${state.derived.ndMente}</strong></div>
-                <div class="attr child"><span>ND (Instinto)</span><strong>${state.derived.ndInstinto}</strong></div>
-            </div>
-        </div>
         </div>
     `;
 
@@ -55,6 +71,7 @@ const DerivedStatsPanel = (container, props = {}) => {
 
     const setState = (partial) => {
         state = { ...state, ...partial };
+        // Always update to ensure components are properly rendered
         container.innerHTML = render();
         bind();
     };
@@ -69,5 +86,3 @@ const DerivedStatsPanel = (container, props = {}) => {
 };
 
 export default DerivedStatsPanel;
-
-

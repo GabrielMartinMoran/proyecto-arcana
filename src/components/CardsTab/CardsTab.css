@@ -41,22 +41,22 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cards-tab .card-slot[data-actions="add"] {
+.cards-tab .card-slot[data-actions='add'] {
     border-style: dashed;
     border-color: var(--text-tertiary);
 }
 
-.cards-tab .card-slot[data-actions="add"]:hover {
+.cards-tab .card-slot[data-actions='add']:hover {
     border-color: var(--success-color);
     background: var(--success-bg);
 }
 
-.cards-tab .card-slot[data-actions="deactivate"] {
+.cards-tab .card-slot[data-actions='deactivate'] {
     border-color: var(--warning-color);
     background: var(--warning-bg);
 }
 
-.cards-tab .card-slot[data-actions="deactivate"]:hover {
+.cards-tab .card-slot[data-actions='deactivate']:hover {
     border-color: var(--danger-color);
     background: var(--danger-bg);
 }
@@ -65,7 +65,9 @@
     margin-top: 0.5rem;
     max-height: 1000px;
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .cards-tab .filters-collapsible.closed {
@@ -229,7 +231,7 @@
     cursor: pointer;
 }
 
-.cards-tab .cards-filter-group input[type="checkbox"] {
+.cards-tab .cards-filter-group input[type='checkbox'] {
     margin: 0;
 }
 
@@ -243,7 +245,7 @@
     white-space: nowrap;
 }
 
-.cards-tab .inline-filter input[type="checkbox"] {
+.cards-tab .inline-filter input[type='checkbox'] {
     margin: 0;
 }
 
@@ -267,4 +269,3 @@
     width: 100%;
     margin-top: 0.5rem;
 }
-
