@@ -192,6 +192,8 @@ const EncounterManagerPage = (container) => {
                                 init: null,
                                 rollLog: [],
                                 quantity: it.quantity,
+                                // Maintain a monotonically increasing index so creature names/ids are persistent
+                                nextCreatureIndex: it.quantity,
                                 creatures: Array.from({ length: it.quantity }, (_, i) => ({
                                     id: `${it.name}-${i + 1}`,
                                     name: `${it.name} ${i + 1}`,
@@ -604,10 +606,13 @@ const EncounterManagerPage = (container) => {
                     const addCreatureBtn = sheetRoot.querySelector('#add-creature');
                     if (addCreatureBtn) {
                         addCreatureBtn.addEventListener('click', () => {
-                            active.quantity = (active.quantity || 1) + 1;
+                            // Use a monotonic nextCreatureIndex so removed indices are not reused.
+                            active.nextCreatureIndex = (active.nextCreatureIndex || active.quantity || 0) + 1;
+                            const newIndex = active.nextCreatureIndex;
+                            active.quantity = (active.quantity || 0) + 1;
                             active.creatures.push({
-                                id: `${active.data.name}-${active.quantity}`,
-                                name: `${active.data.name} ${active.quantity}`,
+                                id: `${active.data.name}-${newIndex}`,
+                                name: `${active.data.name} ${newIndex}`,
                                 hp: active.maxHp,
                                 maxHp: active.maxHp,
                                 data: active.data,
@@ -623,20 +628,17 @@ const EncounterManagerPage = (container) => {
                     if (removeCreatureBtn) {
                         removeCreatureBtn.addEventListener('click', () => {
                             if (active.quantity > 1 && npcState.selectedCreature !== null) {
-                                // Remove the selected creature
+                                // Remove the selected creature; do NOT rename remaining creatures.
                                 active.creatures.splice(npcState.selectedCreature, 1);
                                 active.quantity = active.quantity - 1;
 
-                                // Adjust selected creature if needed
+                                // Adjust selected creature index if it now points past the end
                                 if (npcState.selectedCreature >= active.quantity) {
-                                    npcState.selectedCreature = active.quantity - 1;
+                                    npcState.selectedCreature = Math.max(0, active.quantity - 1);
                                 }
 
-                                // Update creature names to maintain sequence
-                                active.creatures.forEach((creature, idx) => {
-                                    creature.name = `${active.data.name} ${idx + 1}`;
-                                    creature.id = `${active.data.name}-${idx + 1}`;
-                                });
+                                // Intentionally DO NOT reassign names/ids for remaining creatures.
+                                // This preserves the original numbering and avoids reuse of indices.
 
                                 persistEncounter();
                                 mountNpc();
@@ -928,6 +930,33 @@ const EncounterManagerPage = (container) => {
             const saved = StorageUtils.load(STORAGE_KEY_ENCOUNTER, null);
             if (saved && typeof saved === 'object') {
                 state = { ...state, ...saved };
+                // Ensure npc-group entries have a monotonic nextCreatureIndex based on existing creatures
+                try {
+                    state.tracker = (state.tracker || []).map((t) => {
+                        if (!t || t.type !== 'npc-group') return t;
+                        // Determine the highest numeric suffix present in creature ids or names
+                        const nums = (t.creatures || []).map((c) => {
+                            if (!c) return 0;
+                            // try to parse id like "Goblin-3"
+                            const idMatch = String(c.id || '').match(/-(\d+)$/);
+                            if (idMatch) return Number(idMatch[1]) || 0;
+                            // try to parse name like "Goblin 3"
+                            const nameMatch = String(c.name || '').match(/\s+(\d+)$/);
+                            if (nameMatch) return Number(nameMatch[1]) || 0;
+                            return 0;
+                        });
+                        const maxNum = nums.length ? Math.max(...nums) : 0;
+                        const origNext = Number(t.nextCreatureIndex || 0) || 0;
+                        const qty = Number(t.quantity || 0) || 0;
+                        // pick the maximum observed index, the stored nextCreatureIndex, or quantity
+                        const safeNext = Math.max(origNext, maxNum, qty);
+                        // store back the last used index (so addCreature will increment it to safeNext+1)
+                        t.nextCreatureIndex = safeNext;
+                        return t;
+                    });
+                } catch (_) {
+                    // if anything goes wrong computing indexes, ignore and keep saved state as-is
+                }
             }
         } catch (_) {}
         try {
