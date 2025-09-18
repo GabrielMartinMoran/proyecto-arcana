@@ -366,8 +366,16 @@ const CardsTab = (container, props = {}) => {
         state.character = updatedCharacter;
         state.onUpdate(updatedCharacter);
 
-        // Use atomic update for cards section to avoid full re-render
-        updateCardsAtomically();
+        // Ensure both active and owned card grids refresh and stay in sync.
+        // Prefer a full update of the tab so mounted CardComponents are remounted with the
+        // latest data (this guarantees the Activas / Tu colección panels reflect changes).
+        try {
+            update(); // full re-render of this CardsTab
+        } catch (err) {
+            // fallback to atomic update if something goes wrong
+            console.error('CardsTab: full update failed, falling back to atomic update', err);
+            updateCardsAtomically();
+        }
     };
 
     const updateCardsAtomically = () => {
