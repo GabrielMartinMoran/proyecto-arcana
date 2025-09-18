@@ -193,4 +193,77 @@ export default MyComponent;
 
 ---
 
-Ante cualquier duda, mantener la consistencia con los componentes existentes y priorizar claridad y mantenibilidad.
+### Actualizaciones operativas y mejora continua
+
+A continuación se consolidan las prácticas operativas y las herramientas introducidas para mantener la calidad en el tiempo. Estas prácticas deben seguirse y, si se detectan incumplimientos, el equipo debe alinearlas progresivamente sin romper la app (mejora continua incremental).
+
+#### API mínima recomendada para componentes
+Además de `init()` y `setState(partial)`, se recomienda que los componentes complejos expongan:
+- `destroy()` — limpiar listeners y subcomponentes.
+- Actualizaciones parciales: `updateCharacter(partial)` y `updateDerived(partial)` (cuando aplique) para parchear datos sin re-render completo.
+
+#### Guards para evitar reentradas y loops
+- Usar banderas como `suppressOnUpdate`, `suppressNotify`, `suppressUpdateCharacter` cuando se hagan actualizaciones programáticas que puedan disparar callbacks (ej. `child.setState()`).
+- Patrón: setear la bandera antes de la actualización y quitarla en un `finally` para garantizar no dejar el sistema en estado suprimido.
+
+#### Patrón para listas editables (ej.: EquipmentList)
+- Event delegation en el `container`.
+- Actualizar `state.items` in-place durante `input` y notificar al padre sólo en `change` (commit) o `blur`.
+- Para cambios estructurales (añadir/eliminar filas) re-renderizar la estructura y re-bindear listeners.
+- Si se requiere guardado "live" usar debounce (150–300 ms) y evitar notificar en cada `input`.
+
+#### Evento global de persistencia: `arcana:save`
+- Estándar para persistencia desde subcomponentes sin provocar re-render ni loops.
+- Payloads aceptados:
+  - `{ id, equipmentList }`
+  - `{ id, updatedCharacter }`
+  - o `{ id, <partialFields> }`
+- `CharactersPage` escucha `arcana:save` y hace merge + `StorageUtils.save()` centralizado.
+
+#### Mounted components y parcheo in-place
+- Mantener `mountedComponents` y reutilizar subcomponentes con `comp.setState(...)`.
+- Si se reemplaza el contenedor con `innerHTML`, primero llamar `destroy()` en subcomponentes y limpiar listeners.
+
+#### Debugging y telemetría local
+- Usar `src/utils/debug-utils.js`:
+  - Activar con `?debug=renders` o `localStorage['arcana:debug:renders']='1'`.
+  - Helpers: `logRender`, `instrumentRender`, `addRenderCounterBadge`.
+- Usar logs y badges para detectar renders excesivos y hotspots.
+
+#### Checks automatizables
+- Existe `scripts/checks.js` con heurísticas (listeners sin cleanup, innerHTML abundante, posibles loops).
+- Ejecutar: `npm run checks`.
+- Integrar en CI para detectar regresiones de arquitectura.
+
+#### Binding idempotente y cleanup
+- Guardar handlers en `container.__handlers` y quitar antes de re-asignar.
+- Evitar listeners fugaces en `window/document` sin `destroy()`.
+
+#### Router y teardown
+- Recomendamos que el `router` invoque `currentPageApi?.destroy?.()` antes de montar la nueva ruta.
+
+### Mejora continua (operativa)
+- Si cualquier check o revisión detecta incumplimiento de estas prácticas:
+  - Priorizar corrección incremental con PRs pequeños.
+  - Evitar cambios disruptivos: preferir parches que no rompan la UX ni la persistencia.
+  - Documentar en el PR el motivo del cambio, evidencia (logs/debug) y pasos para probar.
+- Metodología:
+  1. Detectar (checks/PR review/manual).
+  2. Reproducir localmente con `?debug=renders`.
+  3. Aplicar corrección mínima (1–2 cambios).
+  4. Ejecutar `npm run checks` y pruebas manuales de foco/persistencia.
+  5. Merge y monitoreo breve en entorno de desarrollo.
+
+---
+
+Apéndice: checklist rápido para revisar un PR del UI
+- ¿Se evitan re-render completos en handlers de input?
+- ¿Se preserva el foco en inputs al editar?
+- ¿Se desmontan listeners al reemplazar DOM?
+- ¿No hay loops entre `onChange`/`onUpdate`/`setState`?
+- ¿Hay logs/mediciones si se tocó rendimiento?
+- ¿Commit message claro y pruebas manuales descritas?
+
+---
+
+Ante cualquier duda, mantener la consistencia con los componentes existentes y priorizar claridad, mantenibilidad y seguridad de los datos. Si se detecta que alguna práctica no se está cumpliendo, alinear el código siguiendo estas guías de forma incremental y segura para no romper la aplicación.

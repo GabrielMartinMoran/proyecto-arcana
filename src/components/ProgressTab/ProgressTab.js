@@ -1,5 +1,6 @@
 const html = window.html || String.raw;
 import { ensureStyle } from '../../utils/style-utils.js';
+import DebugUtils from '../../utils/debug-utils.js';
 
 /**
  * ProgressTab - Component for progress points management
@@ -63,31 +64,104 @@ const ProgressTab = (container, props = {}) => {
     const bindEvents = () => {
         if (!container) return;
 
-        // Event delegation for PP buttons
-        container.addEventListener('click', (e) => {
-            if (e.target.id === 'pp-spend') {
+        // Remove any previously attached direct button handlers (idempotent)
+        try {
+            if (container.__ppSpendHandler) {
+                const prev = container.querySelector('#pp-spend');
+                if (prev && container.__ppSpendHandler) prev.removeEventListener('click', container.__ppSpendHandler);
+            }
+        } catch (_) {}
+        try {
+            if (container.__ppAddHandler) {
+                const prev = container.querySelector('#pp-add');
+                if (prev && container.__ppAddHandler) prev.removeEventListener('click', container.__ppAddHandler);
+            }
+        } catch (_) {}
+
+        // Attach direct handlers to the add/spend buttons for reliable clicks
+        try {
+            const spendBtn = container.querySelector('#pp-spend');
+            const addBtn = container.querySelector('#pp-add');
+
+            const spendHandler = (ev) => {
+                ev && ev.stopPropagation && ev.stopPropagation();
+                try {
+                    DebugUtils.logRender('ProgressTab.click', { action: 'spend' });
+                } catch (_) {}
                 handleSpend();
-            } else if (e.target.id === 'pp-add') {
+            };
+            const addHandler = (ev) => {
+                ev && ev.stopPropagation && ev.stopPropagation();
+                try {
+                    DebugUtils.logRender('ProgressTab.click', { action: 'add' });
+                } catch (_) {}
                 handleAdd();
-            } else if (e.target.hasAttribute('data-rollback-index')) {
-                const index = parseInt(e.target.getAttribute('data-rollback-index'));
+            };
+
+            if (spendBtn) {
+                spendBtn.addEventListener('click', spendHandler);
+                container.__ppSpendHandler = spendHandler;
+            }
+            if (addBtn) {
+                addBtn.addEventListener('click', addHandler);
+                container.__ppAddHandler = addHandler;
+            }
+        } catch (_) {}
+
+        // Delegate rollback clicks inside history container (single delegated listener)
+        try {
+            // remove previous if any
+            if (container.__ppHistoryHandler) {
+                container.removeEventListener('click', container.__ppHistoryHandler);
+            }
+        } catch (_) {}
+        const historyHandler = (e) => {
+            const target = e.target;
+            if (!target) return;
+            const btn = (target.closest && target.closest('[data-rollback-index]')) || null;
+            if (!btn) return;
+            const index = parseInt(btn.getAttribute('data-rollback-index'));
+            if (Number.isFinite(index)) {
+                try {
+                    DebugUtils.logRender('ProgressTab.click', { action: 'rollback', index });
+                } catch (_) {}
                 handleRollback(index);
             }
-        });
+        };
+        container.__ppHistoryHandler = historyHandler;
+        container.addEventListener('click', historyHandler);
 
-        // Event delegation for input changes
-        container.addEventListener('input', (e) => {
-            if (e.target.id === 'pp-delta' || e.target.id === 'pp-reason') {
-                // Auto-save or validate if needed
+        // Simple input listener for potential validation (no heavy logic here)
+        try {
+            if (container.__ppInputHandler) container.removeEventListener('input', container.__ppInputHandler);
+        } catch (_) {}
+        const inputHandler = (e) => {
+            const id = e.target && e.target.id;
+            if (id === 'pp-delta' || id === 'pp-reason') {
+                try {
+                    DebugUtils.logRender('ProgressTab.input', { id });
+                } catch (_) {}
             }
-        });
+        };
+        container.__ppInputHandler = inputHandler;
+        container.addEventListener('input', inputHandler);
     };
 
     const handleSpend = () => {
-        const deltaInput = document.getElementById('pp-delta');
-        const reasonInput = document.getElementById('pp-reason');
+        const deltaInput = container.querySelector('#pp-delta');
+        const reasonInput = container.querySelector('#pp-reason');
 
         if (!deltaInput || !reasonInput) return;
+
+        // Debug entry
+        try {
+            console.debug &&
+                console.debug('ProgressTab.handleSpend invoked', {
+                    delta: deltaInput.value,
+                    reason: (reasonInput.value || '').trim(),
+                });
+            DebugUtils.logRender('ProgressTab.handler', { handler: 'spend' });
+        } catch (_) {}
 
         const amount = Number(deltaInput.value) || 1;
         const reason = reasonInput.value.trim() || 'Sin motivo especificado';
@@ -107,7 +181,58 @@ const ProgressTab = (container, props = {}) => {
             ppHistory: [...(state.character.ppHistory || []), newEntry],
         };
 
-        state.onUpdate(updatedCharacter);
+        // Update local state and UI first (so the user sees immediate feedback)
+        try {
+            state.character = { ...updatedCharacter };
+            // Update PP current display
+            const ppCurrentEl = container.querySelector('.pp-current strong');
+            if (ppCurrentEl) {
+                ppCurrentEl.textContent = String(state.character.pp || 0);
+                try {
+                    if (Number(state.character.pp) < 0) ppCurrentEl.classList.add('pp-negative');
+                    else ppCurrentEl.classList.remove('pp-negative');
+                } catch (_) {}
+            }
+            // Re-render history panel
+            renderHistory();
+            // Update PP spent display
+            try {
+                const ppSpentEl = container.querySelector('.pp-spent strong');
+                if (ppSpentEl) {
+                    const ppSpent = (state.character.ppHistory || [])
+                        .filter((x) => x && x.type === 'spend')
+                        .reduce((sum, x) => sum + Math.abs(Number(x.amount) || 0), 0);
+                    ppSpentEl.textContent = String(ppSpent);
+                }
+            } catch (_) {}
+        } catch (_) {}
+
+        // Notify parent and persist via both onUpdate and global event
+        try {
+            if (DebugUtils.isEnabled()) {
+                DebugUtils.instrumentRender('ProgressTab.applySpend', () => state.onUpdate(updatedCharacter), {
+                    amount,
+                });
+            } else {
+                state.onUpdate(updatedCharacter);
+            }
+        } catch (_) {
+            try {
+                state.onUpdate(updatedCharacter);
+            } catch (_) {}
+        }
+
+        try {
+            DebugUtils.logRender('ProgressTab.spend', { amount });
+        } catch (_) {}
+
+        // Dispatch a global save event so the page can persist this change without causing re-entrant updates
+        try {
+            const evt = new CustomEvent('arcana:save', {
+                detail: { id: state.character && state.character.id ? state.character.id : null, updatedCharacter },
+            });
+            window.dispatchEvent(evt);
+        } catch (_) {}
 
         // Clear inputs
         deltaInput.value = '1';
@@ -115,10 +240,20 @@ const ProgressTab = (container, props = {}) => {
     };
 
     const handleAdd = () => {
-        const deltaInput = document.getElementById('pp-delta');
-        const reasonInput = document.getElementById('pp-reason');
+        const deltaInput = container.querySelector('#pp-delta');
+        const reasonInput = container.querySelector('#pp-reason');
 
         if (!deltaInput || !reasonInput) return;
+
+        // Debug entry
+        try {
+            console.debug &&
+                console.debug('ProgressTab.handleAdd invoked', {
+                    delta: deltaInput.value,
+                    reason: (reasonInput.value || '').trim(),
+                });
+            DebugUtils.logRender('ProgressTab.handler', { handler: 'add' });
+        } catch (_) {}
 
         const amount = Number(deltaInput.value) || 1;
         const reason = reasonInput.value.trim() || 'Sin motivo especificado';
@@ -138,7 +273,54 @@ const ProgressTab = (container, props = {}) => {
             ppHistory: [...(state.character.ppHistory || []), newEntry],
         };
 
-        state.onUpdate(updatedCharacter);
+        // Update local state and UI first
+        try {
+            state.character = { ...updatedCharacter };
+            const ppCurrentEl = container.querySelector('.pp-current strong');
+            if (ppCurrentEl) {
+                ppCurrentEl.textContent = String(state.character.pp || 0);
+                try {
+                    if (Number(state.character.pp) < 0) ppCurrentEl.classList.add('pp-negative');
+                    else ppCurrentEl.classList.remove('pp-negative');
+                } catch (_) {}
+            }
+            renderHistory();
+            // Update PP spent display
+            try {
+                const ppSpentEl = container.querySelector('.pp-spent strong');
+                if (ppSpentEl) {
+                    const ppSpent = (state.character.ppHistory || [])
+                        .filter((x) => x && x.type === 'spend')
+                        .reduce((sum, x) => sum + Math.abs(Number(x.amount) || 0), 0);
+                    ppSpentEl.textContent = String(ppSpent);
+                }
+            } catch (_) {}
+        } catch (_) {}
+
+        // Notify parent and persist
+        try {
+            if (DebugUtils.isEnabled()) {
+                DebugUtils.instrumentRender('ProgressTab.applyAdd', () => state.onUpdate(updatedCharacter), { amount });
+            } else {
+                state.onUpdate(updatedCharacter);
+            }
+        } catch (_) {
+            try {
+                state.onUpdate(updatedCharacter);
+            } catch (_) {}
+        }
+
+        try {
+            DebugUtils.logRender('ProgressTab.add', { amount });
+        } catch (_) {}
+
+        // Dispatch a global save event so the page can persist this change without causing re-entrant updates
+        try {
+            const evt = new CustomEvent('arcana:save', {
+                detail: { id: state.character && state.character.id ? state.character.id : null, updatedCharacter },
+            });
+            window.dispatchEvent(evt);
+        } catch (_) {}
 
         // Clear inputs
         deltaInput.value = '1';
@@ -173,7 +355,45 @@ const ProgressTab = (container, props = {}) => {
             ppHistory: history.filter((_, i) => i !== index),
         };
 
-        state.onUpdate(updatedCharacter);
+        // Update local UI and state
+        try {
+            state.character = { ...updatedCharacter };
+            const ppCurrentEl = container.querySelector('.pp-current strong');
+            if (ppCurrentEl) {
+                ppCurrentEl.textContent = String(state.character.pp || 0);
+                try {
+                    if (Number(state.character.pp) < 0) ppCurrentEl.classList.add('pp-negative');
+                    else ppCurrentEl.classList.remove('pp-negative');
+                } catch (_) {}
+            }
+            renderHistory();
+            // Update PP spent display
+            try {
+                const ppSpentEl = container.querySelector('.pp-spent strong');
+                if (ppSpentEl) {
+                    const ppSpent = (state.character.ppHistory || [])
+                        .filter((x) => x && x.type === 'spend')
+                        .reduce((sum, x) => sum + Math.abs(Number(x.amount) || 0), 0);
+                    ppSpentEl.textContent = String(ppSpent);
+                }
+            } catch (_) {}
+        } catch (_) {}
+
+        // Notify parent and persist the rollback
+        try {
+            state.onUpdate(updatedCharacter);
+        } catch (_) {
+            try {
+                state.onUpdate(updatedCharacter);
+            } catch (_) {}
+        }
+
+        try {
+            const evt = new CustomEvent('arcana:save', {
+                detail: { id: state.character && state.character.id ? state.character.id : null, updatedCharacter },
+            });
+            window.dispatchEvent(evt);
+        } catch (_) {}
     };
 
     const renderHistory = () => {

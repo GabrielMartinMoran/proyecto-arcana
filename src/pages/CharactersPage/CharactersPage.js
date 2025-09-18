@@ -1549,20 +1549,41 @@ const CharactersPage = (container) => {
         if (!state.selectedId && state.list[0]) state.selectedId = state.list[0].id;
         setCharQuery(state.selectedId);
 
-        // Listen for global equipment save events and persist them to the characters list.
-        // This handles equipment commits coming from SheetTab (arcana:save).
+        // Listen for global save events and persist updates to the characters list.
+        // Handles payloads from components that dispatch `arcana:save` with either:
+        //  - { id, equipmentList }
+        //  - { id, updatedCharacter }
+        //  - { id, <any other fields> } (will be merged into the character)
         try {
             window.addEventListener('arcana:save', (ev) => {
                 try {
                     const d = ev && ev.detail ? ev.detail : null;
                     if (!d) return;
                     const id = d.id;
-                    const equipmentList = Array.isArray(d.equipmentList) ? d.equipmentList : null;
-                    if (!id || equipmentList == null) return;
+                    if (!id) return;
                     const idx = state.list.findIndex((x) => x.id === id);
                     if (idx === -1) return;
-                    // Update and persist
-                    state.list[idx].equipmentList = equipmentList;
+
+                    // If payload contains equipmentList explicitly, update that field
+                    if (Array.isArray(d.equipmentList)) {
+                        state.list[idx].equipmentList = d.equipmentList;
+                    }
+
+                    // If payload contains an updatedCharacter object, merge its properties
+                    if (d.updatedCharacter && typeof d.updatedCharacter === 'object') {
+                        state.list[idx] = { ...state.list[idx], ...d.updatedCharacter };
+                    }
+
+                    // Merge any other direct fields (except id) into the character
+                    const extras = { ...d };
+                    delete extras.id;
+                    delete extras.equipmentList;
+                    delete extras.updatedCharacter;
+                    if (Object.keys(extras).length) {
+                        state.list[idx] = { ...state.list[idx], ...extras };
+                    }
+
+                    // Persist changes
                     save();
                 } catch (_) {
                     // Ignore individual handler errors

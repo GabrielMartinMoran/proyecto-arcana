@@ -1,4 +1,7 @@
 {
+    "scripts": {
+        "checks": "node scripts/checks.js"
+    },
     "dependencies": {
         "marked": "^16.3.0"
     }
