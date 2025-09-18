@@ -1,3 +1,16 @@
+/*
+ proyecto-arcana/src/components/SheetTab/SheetTab.js
+
+ Component that mounts the character sheet tab and its subcomponents:
+ - Attributes panel
+ - Derived stats panel
+ - Equipment list
+ - Attacks list
+
+ This file restores a correct and balanced mounting sequence for the AttacksList,
+ passing the expected variables, suerte and characterName to the child component.
+*/
+
 const html = window.html || String.raw;
 import PanelHeader from '../PanelHeader/PanelHeader.js';
 import { ensureStyle } from '../../utils/style-utils.js';
@@ -20,15 +33,10 @@ const SheetTab = (container, props = {}) => {
         onUpdate: typeof props.onUpdate === 'function' ? props.onUpdate : () => {},
     };
 
-    // Local registry for mounted subcomponents inside this tab.
-    // Declared here to avoid ReferenceError when attempting to reuse or destroy
-    // previously mounted subcomponents during re-renders.
+    // Registry for mounted subcomponents
     let mountedComponents = {};
 
-    // Guard flag used to suppress onUpdate notifications while we programmatically
-    // patch subcomponents. This prevents re-entrant notification loops when
-    // updateCharacter/updateDerived call child.setState(...) that would otherwise
-    // trigger state.onUpdate -> parent -> child loops.
+    // Guard to suppress parent notifications while programmatic updates happen
     let suppressOnUpdate = false;
 
     const render = () => {
@@ -46,6 +54,11 @@ const SheetTab = (container, props = {}) => {
                     <div id="derived-host" data-readonly="${readOnly ? '1' : '0'}"></div>
                 </div>
                 <div class="panel">
+                    ${PanelHeader({ title: 'Ataques' })}
+                    <div id="attacks-list" data-readonly="${readOnly ? '1' : '0'}"></div>
+                </div>
+
+                <div class="panel">
                     ${PanelHeader({ title: 'Economía' })}
                     <div class="attrs">
                         <div class="attr">
@@ -62,6 +75,7 @@ const SheetTab = (container, props = {}) => {
                         </div>
                     </div>
                 </div>
+
                 <div class="panel">
                     ${PanelHeader({ title: 'Lenguas' })}
                     <input
@@ -72,6 +86,7 @@ const SheetTab = (container, props = {}) => {
                         ${readOnly ? 'disabled' : ''}
                     />
                 </div>
+
                 <div class="panel">
                     ${PanelHeader({ title: 'Equipo' })}
                     <div id="equip-list" data-readonly="${readOnly ? '1' : '0'}"></div>
@@ -83,7 +98,7 @@ const SheetTab = (container, props = {}) => {
     const bindEvents = () => {
         if (!container) return;
 
-        // Event delegation for input changes
+        // Input delegation for simple fields
         container.addEventListener('input', (e) => {
             if (e.target.id === 'gold') {
                 handleGoldChange(e.target.value);
@@ -92,12 +107,11 @@ const SheetTab = (container, props = {}) => {
             }
         });
 
-        // Event delegation for blur events (auto-save)
+        // Blur auto-save for simple inputs
         container.addEventListener(
             'blur',
             (e) => {
                 if (e.target.id === 'gold' || e.target.id === 'languages') {
-                    // Trigger update if needed (guarded to avoid loops)
                     if (!suppressOnUpdate) state.onUpdate(state.character);
                 }
             },
@@ -120,7 +134,6 @@ const SheetTab = (container, props = {}) => {
         const attributeValue = state.character.attributes?.[attributeKey] || 0;
         if (attributeValue <= 0) return;
 
-        // Open roll modal with modifiers and advantage/disadvantage
         openRollModal(
             container,
             {
@@ -137,34 +150,30 @@ const SheetTab = (container, props = {}) => {
                     state.character.suerte = Math.max(0, (state.character.suerte || 0) - result.luck);
                 }
 
-                // Create roll entry with explosion data
+                // Build roll entry
                 const entry = {
                     type: 'attribute',
                     ts: Date.now(),
-                    notation: `${attributeKey} (${attributeValue}d6${
-                        result.d6Rolls && result.d6Rolls.length > 1 ? ` explotando` : ''
-                    })`,
-                    rolls: result.d6Rolls || [result.d6], // Use explosion rolls if available
+                    notation: `${attributeKey} (${attributeValue}d6${result.d6Rolls && result.d6Rolls.length > 1 ? ' explotando' : ''})`,
+                    rolls: result.d6Rolls || [result.d6],
                     total: result.total,
                     attribute: attributeKey,
-                    attributeValue: attributeValue,
+                    attributeValue,
                     details: {
                         d6: result.d6,
-                        d6Rolls: result.d6Rolls, // Individual explosion rolls
+                        d6Rolls: result.d6Rolls,
                         advMod: result.advMod,
                         advantage: result.advantage,
                         base: result.base,
                         extras: result.extras,
                         luck: result.luck,
-                        exploded: result.d6Rolls && result.d6Rolls.length > 1, // Flag for explosion
+                        exploded: result.d6Rolls && result.d6Rolls.length > 1,
                         parts: [
                             {
                                 type: 'attribute',
                                 attribute: attributeKey,
                                 value: attributeValue,
-                                notation: `${attributeValue}d6${
-                                    result.d6Rolls && result.d6Rolls.length > 1 ? ` explotando` : ''
-                                }`,
+                                notation: `${attributeValue}d6${result.d6Rolls && result.d6Rolls.length > 1 ? ' explotando' : ''}`,
                                 rolls: result.d6Rolls || [result.d6],
                                 sum: result.total,
                                 sign: 1,
@@ -173,28 +182,19 @@ const SheetTab = (container, props = {}) => {
                     },
                 };
 
-                // Add to roll log
-                if (!Array.isArray(state.character.rollLog)) {
-                    state.character.rollLog = [];
-                }
+                // Push to roll log
+                if (!Array.isArray(state.character.rollLog)) state.character.rollLog = [];
                 state.character.rollLog.unshift(entry);
+                if (state.character.rollLog.length > 50) state.character.rollLog.length = 50;
 
-                // Limit roll log size
-                if (state.character.rollLog.length > 50) {
-                    state.character.rollLog.length = 50;
-                }
-
-                // Add to global roll store
+                // Add to global store and show toast
                 rollStore.addRoll({ ...entry, who: state.character.name });
-
-                // Show toast with result using DiceService
                 DiceService.showAttributeRoll({
                     characterName: state.character.name,
-                    attributeName: attributeKey,
-                    result: result,
+                    attributeName,
+                    result,
                 });
 
-                // Update character (guarded to avoid reentrancy)
                 if (!suppressOnUpdate) state.onUpdate(state.character);
             }
         );
@@ -207,13 +207,12 @@ const SheetTab = (container, props = {}) => {
             if (attrsHost && state.rules) {
                 const AttributesPanel = (await import('../AttributesPanel/AttributesPanel.js')).default;
 
-                // If component already mounted, re-use and update its state instead of re-creating it.
+                const initialAttrs =
+                    state.character && state.character.attributes && Object.keys(state.character.attributes).length
+                        ? { ...state.character.attributes }
+                        : { Cuerpo: 1, Reflejos: 1, Mente: 1, Instinto: 1, Presencia: 1 };
+
                 if (mountedComponents.attributes && typeof mountedComponents.attributes.setState === 'function') {
-                    // Provide a fallback set of attributes when the character has none
-                    const initialAttrs =
-                        state.character && state.character.attributes && Object.keys(state.character.attributes).length
-                            ? { ...state.character.attributes }
-                            : { Cuerpo: 1, Reflejos: 1, Mente: 1, Instinto: 1, Presencia: 1 };
                     mountedComponents.attributes.setState({
                         attributes: initialAttrs,
                         rules: state.rules,
@@ -222,25 +221,16 @@ const SheetTab = (container, props = {}) => {
                         readOnly: state.readOnly,
                     });
                 } else {
-                    const initialAttrs =
-                        state.character && state.character.attributes && Object.keys(state.character.attributes).length
-                            ? { ...state.character.attributes }
-                            : { Cuerpo: 1, Reflejos: 1, Mente: 1, Instinto: 1, Presencia: 1 };
                     const comp = AttributesPanel(attrsHost, {
                         attributes: initialAttrs,
                         rules: state.rules,
                         suerte: Number(state.character.suerte) || 0,
                         suerteMax: Number(state.derived.suerteMax) || 0,
                         onChange: (key, val) => {
-                            // keep character updated (immutable update)
                             state.character.attributes = { ...state.character.attributes, [key]: val };
-                            // Notify parent via onUpdate (parent may choose to do a full page update).
-                            // We still expose separate updateDerived() so parent can recompute derived without re-render.
                             if (!suppressOnUpdate) state.onUpdate(state.character);
                         },
-                        onRoll: (attributeKey) => {
-                            handleAttributeRoll(attributeKey);
-                        },
+                        onRoll: (attributeKey) => handleAttributeRoll(attributeKey),
                         onLuckChange: (val) => {
                             state.character.suerte = val;
                             if (!suppressOnUpdate) state.onUpdate(state.character);
@@ -309,16 +299,12 @@ const SheetTab = (container, props = {}) => {
                 } else {
                     const comp = EquipmentList(equipHost, {
                         items: Array.isArray(state.character.equipmentList) ? state.character.equipmentList : [],
+                        readOnly: state.readOnly,
                         onChange: (items) => {
-                            // Update the local character equipment list in-place.
                             state.character.equipmentList = items;
                             try {
-                                // Guarded notification to avoid re-entrant loops when we programmatically
-                                // update children. If suppressOnUpdate is active, skip notifying.
                                 if (!suppressOnUpdate) {
                                     state.onUpdate(state.character);
-                                    // Also dispatch a global save event so external listeners (e.g., the page)
-                                    // can persist the change without causing re-entrant sheet updates.
                                     try {
                                         const evt = new CustomEvent('arcana:save', {
                                             detail: {
@@ -333,24 +319,129 @@ const SheetTab = (container, props = {}) => {
                         },
                     });
                     comp.init();
+                    // call setState to ensure consistent rendering after init
+                    try {
+                        if (typeof comp.setState === 'function') {
+                            comp.setState({
+                                items: Array.isArray(state.character.equipmentList)
+                                    ? state.character.equipmentList
+                                    : [],
+                                readOnly: state.readOnly,
+                            });
+                        }
+                    } catch (_) {}
                     mountedComponents.equipment = comp;
                 }
             }
         } catch (error) {
             console.error('SheetTab: Error mounting EquipmentList:', error);
         }
+
+        // ATTACKS LIST
+        try {
+            const attacksHost = container.querySelector('#attacks-list');
+            if (attacksHost) {
+                const AttacksList = (await import('../AttacksList/AttacksList.js')).default;
+
+                // Build attribute variables in lowercase for eval usage
+                const vars = {
+                    cuerpo:
+                        Number(
+                            (state.character.attributes &&
+                                (state.character.attributes.Cuerpo ?? state.character.attributes.cuerpo)) ||
+                                0
+                        ) || 0,
+                    reflejos:
+                        Number(
+                            (state.character.attributes &&
+                                (state.character.attributes.Reflejos ?? state.character.attributes.reflejos)) ||
+                                0
+                        ) || 0,
+                    mente:
+                        Number(
+                            (state.character.attributes &&
+                                (state.character.attributes.Mente ?? state.character.attributes.mente)) ||
+                                0
+                        ) || 0,
+                    instinto:
+                        Number(
+                            (state.character.attributes &&
+                                (state.character.attributes.Instinto ?? state.character.attributes.instinto)) ||
+                                0
+                        ) || 0,
+                    presencia:
+                        Number(
+                            (state.character.attributes &&
+                                (state.character.attributes.Presencia ?? state.character.attributes.presencia)) ||
+                                0
+                        ) || 0,
+                };
+
+                if (mountedComponents.attacks && typeof mountedComponents.attacks.setState === 'function') {
+                    // Update mounted attacks component
+                    mountedComponents.attacks.setState({
+                        items: Array.isArray(state.character.attacks) ? state.character.attacks : [],
+                        readOnly: state.readOnly,
+                        variables: vars,
+                        currentSuerte: Number(state.character.suerte) || 0,
+                        maxSuerte: Number(state.derived.suerteMax) || 0,
+                        characterName: state.character && state.character.name ? state.character.name : '',
+                    });
+                } else {
+                    const comp = AttacksList(attacksHost, {
+                        items: Array.isArray(state.character.attacks) ? state.character.attacks : [],
+                        readOnly: state.readOnly,
+                        variables: vars,
+                        currentSuerte: Number(state.character.suerte) || 0,
+                        maxSuerte: Number(state.derived.suerteMax) || 0,
+                        characterName: state.character && state.character.name ? state.character.name : '',
+                        onChange: (items) => {
+                            state.character.attacks = items;
+                            try {
+                                if (!suppressOnUpdate) state.onUpdate(state.character);
+                                try {
+                                    const evt = new CustomEvent('arcana:save', {
+                                        detail: {
+                                            id: state.character && state.character.id ? state.character.id : null,
+                                            updatedCharacter: { attacks: items },
+                                        },
+                                    });
+                                    window.dispatchEvent(evt);
+                                } catch (_) {}
+                            } catch (_) {}
+                        },
+                    });
+
+                    comp.init();
+                    // ensure consistent render after init
+                    try {
+                        if (typeof comp.setState === 'function') {
+                            comp.setState({
+                                items: Array.isArray(state.character.attacks) ? state.character.attacks : [],
+                                readOnly: state.readOnly,
+                                variables: vars,
+                                currentSuerte: Number(state.character.suerte) || 0,
+                                maxSuerte: Number(state.derived.suerteMax) || 0,
+                                characterName: state.character && state.character.name ? state.character.name : '',
+                            });
+                        }
+                    } catch (_) {}
+                    mountedComponents.attacks = comp;
+                }
+            }
+        } catch (error) {
+            console.error('SheetTab: Error mounting AttacksList:', error);
+        }
     };
 
     const update = async () => {
         if (!container) return;
 
-        // Log this update for diagnostics
         try {
             DebugUtils.logRender('SheetTab.update', { reason: 'update-called' });
         } catch (_) {}
 
-        // If there are already mounted subcomponents, try to destroy them cleanly
-        // This avoids keeping references to components bound to DOM nodes that will be replaced
+        // Destroy mounted components before re-rendering
         try {
             for (const key in mountedComponents) {
                 const comp = mountedComponents[key];
@@ -363,12 +454,11 @@ const SheetTab = (container, props = {}) => {
                 }
             }
         } catch (_) {}
-        // Clear references so mountSubComponents will re-initialize components on the new DOM
         mountedComponents = {};
 
         container.innerHTML = render();
         bindEvents();
-        // Instrument mounting subcomponents to measure time
+
         try {
             await DebugUtils.instrumentRender(
                 'SheetTab.mountSubComponents',
@@ -378,7 +468,7 @@ const SheetTab = (container, props = {}) => {
                 { phase: 'mount' }
             );
         } catch (e) {
-            // if instrumentation fails for any reason, fallback to normal mount
+            // fallback if instrumentation fails
             await mountSubComponents();
         }
     };
@@ -386,51 +476,37 @@ const SheetTab = (container, props = {}) => {
     return {
         async init() {
             ensureStyle('./src/components/SheetTab/SheetTab.css');
+            ensureStyle('./src/components/AttacksList/AttacksList.css');
             await update();
         },
 
-        /**
-         * Full setState - preserves current behavior (re-renders whole tab).
-         * Parent code can still call this when a full refresh is required.
-         */
         async setState(partial) {
             state = { ...state, ...partial };
             try {
                 DebugUtils.logRender('SheetTab.setState', { keys: Object.keys(partial || {}) });
             } catch (_) {}
-            // Always update to ensure components are properly rendered
             await update();
         },
 
-        /**
-         * updateCharacter(partial) - apply small changes to the character object and
-         * patch mounted subcomponents / DOM inputs without re-rendering the whole tab.
-         *
-         * Example usage: sheet.updateCharacter({ gold: 10, languages: 'Común' })
-         */
         updateCharacter(partial = {}) {
             if (!partial || typeof partial !== 'object') return;
-            // Merge character shallowly
             state.character = { ...state.character, ...partial };
 
-            // Patch simple DOM inputs inside this tab (gold, languages) if present
+            // Patch simple inputs
             try {
                 const goldInput = container.querySelector('#gold');
-                if (goldInput && partial.hasOwnProperty('gold')) {
-                    goldInput.value = Number(partial.gold) || 0;
-                }
+                if (goldInput && partial.hasOwnProperty('gold')) goldInput.value = Number(partial.gold) || 0;
+
                 const languagesInput = container.querySelector('#languages');
-                if (languagesInput && partial.hasOwnProperty('languages')) {
+                if (languagesInput && partial.hasOwnProperty('languages'))
                     languagesInput.value = partial.languages || '';
-                }
             } catch (_) {}
 
-            // Update mounted subcomponents that reflect character data.
-            // Suppress onUpdate notifications while we programmatically update children
-            // to avoid re-entrant loops (child.setState -> child.onChange -> parent.onUpdate -> child.updateCharacter).
+            // Patch mounted subcomponents (safely)
             if (
                 (mountedComponents.attributes && typeof mountedComponents.attributes.setState === 'function') ||
-                (mountedComponents.equipment && typeof mountedComponents.equipment.setState === 'function')
+                (mountedComponents.equipment && typeof mountedComponents.equipment.setState === 'function') ||
+                (mountedComponents.attacks && typeof mountedComponents.attacks.setState === 'function')
             ) {
                 try {
                     suppressOnUpdate = true;
@@ -443,6 +519,51 @@ const SheetTab = (container, props = {}) => {
                     if (mountedComponents.equipment && typeof mountedComponents.equipment.setState === 'function') {
                         mountedComponents.equipment.setState({
                             items: Array.isArray(state.character.equipmentList) ? state.character.equipmentList : [],
+                            readOnly: state.readOnly,
+                        });
+                    }
+                    if (mountedComponents.attacks && typeof mountedComponents.attacks.setState === 'function') {
+                        // Recompute vars and pass updated characterName/suerte
+                        const vars = {
+                            cuerpo:
+                                Number(
+                                    (state.character.attributes &&
+                                        (state.character.attributes.Cuerpo ?? state.character.attributes.cuerpo)) ||
+                                        0
+                                ) || 0,
+                            reflejos:
+                                Number(
+                                    (state.character.attributes &&
+                                        (state.character.attributes.Reflejos ?? state.character.attributes.reflejos)) ||
+                                        0
+                                ) || 0,
+                            mente:
+                                Number(
+                                    (state.character.attributes &&
+                                        (state.character.attributes.Mente ?? state.character.attributes.mente)) ||
+                                        0
+                                ) || 0,
+                            instinto:
+                                Number(
+                                    (state.character.attributes &&
+                                        (state.character.attributes.Instinto ?? state.character.attributes.instinto)) ||
+                                        0
+                                ) || 0,
+                            presencia:
+                                Number(
+                                    (state.character.attributes &&
+                                        (state.character.attributes.Presencia ??
+                                            state.character.attributes.presencia)) ||
+                                        0
+                                ) || 0,
+                        };
+                        mountedComponents.attacks.setState({
+                            items: Array.isArray(state.character.attacks) ? state.character.attacks : [],
+                            readOnly: state.readOnly,
+                            variables: vars,
+                            currentSuerte: Number(state.character.suerte) || 0,
+                            maxSuerte: Number(state.derived.suerteMax) || 0,
+                            characterName: state.character && state.character.name ? state.character.name : '',
                         });
                     }
                 } finally {
@@ -451,10 +572,6 @@ const SheetTab = (container, props = {}) => {
             }
         },
 
-        /**
-         * updateDerived(partialDerived) - patch derived stats (salud, esquiva, velocidad, etc.)
-         * and notify the DerivedStatsPanel to update without re-rendering the whole tab.
-         */
         updateDerived(partialDerived = {}) {
             if (!partialDerived || typeof partialDerived !== 'object') return;
             state.derived = { ...state.derived, ...partialDerived };
@@ -467,7 +584,6 @@ const SheetTab = (container, props = {}) => {
                 });
             }
 
-            // Some components (attributes) may depend on derived values such as suerteMax
             if (mountedComponents.attributes && typeof mountedComponents.attributes.setState === 'function') {
                 mountedComponents.attributes.setState({
                     suerteMax: Number(state.derived.suerteMax) || 0,

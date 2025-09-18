@@ -1,0 +1,163 @@
+/* proyecto-arcana/src/components/AttacksList/AttacksList.css
+ *
+ * Basic styles for AttacksList component, following EquipmentList look & feel.
+ * Uses common CSS variables from app.css when available.
+ */
+
+.attacks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.attacks-list.readonly {
+    opacity: 0.95;
+}
+
+/* Each attack row: group fields horizontally, stack on small screens */
+.attack-row {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 2fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm, 6px);
+    border: 1px solid var(--border-color, #e5e7eb);
+    background: var(--panel-bg, #fff);
+}
+
+/* On very small screens, make rows stack vertically */
+@media (max-width: 640px) {
+    .attack-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Name input spans full height on first column */
+.attack-name {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-sm, 6px);
+    background: var(--input-bg, #fff);
+    box-sizing: border-box;
+}
+
+/* Inline small groups: formula + button */
+.attack-inline {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Formulas and notes */
+.attack-formula,
+.damage-formula,
+.attack-notes {
+    width: 100%;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-sm, 6px);
+    background: var(--input-bg, #fff);
+    box-sizing: border-box;
+}
+
+/* Buttons in the row (small) */
+.attacks-list .button.small,
+.attack-row .button.small,
+.attacks-list .btn-roll-attack,
+.attacks-list .btn-roll-damage,
+.attacks-list .btn-remove-attack {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 28px;
+    padding: 0 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+    background: var(--button-bg, #f3f4f6);
+    color: var(--text-color, #111827);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Primary-looking small button variant (if needed) */
+.attacks-list .button.primary {
+    background: var(--accent-500, #2563eb);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Remove button style slightly muted */
+.attacks-list .btn-remove-attack {
+    background: transparent;
+    border: none;
+    color: var(--danger, #c53030);
+    padding: 0 4px;
+}
+
+/* Hover/focus states */
+.attacks-list .button.small:hover,
+.attack-row .button.small:hover,
+.attacks-list .btn-roll-attack:hover,
+.attacks-list .btn-roll-damage:hover {
+    filter: brightness(0.96);
+    transform: translateY(-1px);
+}
+
+/* Disabled / readonly visuals */
+.attacks-list.readonly .attack-row,
+.attack-row[disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Footer add button container */
+.attacks-list > div:last-child {
+    margin-top: 0.5rem;
+}
+
+/* Tidy spacing for the add button container */
+.attacks-list .button[data-attack-add] {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md, 8px);
+}
+
+/* Small visual tweak for attack-inline on narrow widths */
+@media (max-width: 900px) {
+    .attack-inline {
+        flex-direction: row;
+    }
+}
+
+/* Accessibility helpers */
+.attack-row input:focus,
+.attack-row .button.small:focus {
+    outline: 2px solid var(--accent-400, rgba(37, 99, 235, 0.25));
+    outline-offset: 2px;
+}
+
+/* Compact layout niceties */
+.attack-row .attack-inline .btn-roll-attack,
+.attack-row .attack-inline .btn-roll-damage {
+    padding: 4px 6px;
+    font-size: 13px;
+}
+
+/* Ensure consistent gaps */
+.attack-row .attack-inline input {
+    margin: 0;
+}
+
+/* Make sure long notes wrap */
+.attack-notes {
+    white-space: normal;
+}
+
+/* Visual separation from equipment panel if adjacent */
+#attacks-list {
+    margin-bottom: 0.5rem;
+}

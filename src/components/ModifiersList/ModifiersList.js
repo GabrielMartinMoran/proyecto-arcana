@@ -65,7 +65,15 @@ const ModifiersList = (container, props = {}) => {
     `;
 
     const bind = () => {
-        container.addEventListener('click', (e) => {
+        // Ensure we don't attach duplicate delegated handlers on the container.
+        // Use a stable handler reference stored on the container so we can remove it
+        // before adding a new one.
+        try {
+            if (container.__modsClickHandler) {
+                container.removeEventListener('click', container.__modsClickHandler);
+            }
+        } catch (_) {}
+        const clickHandler = (e) => {
             const add = e.target && e.target.closest && e.target.closest('[data-mod-add]');
             const rem = e.target && e.target.closest && e.target.closest('[data-mod-remove]');
             if (add) {
@@ -82,33 +90,50 @@ const ModifiersList = (container, props = {}) => {
                 state.onChange(state.items);
                 return;
             }
-        });
+        };
+        container.__modsClickHandler = clickHandler;
+        container.addEventListener('click', container.__modsClickHandler);
+
+        // Per-row listeners are attached to the freshly rendered DOM nodes (safe to add).
         container.querySelectorAll('.mod-row').forEach((row) => {
             const idx = Number(row.getAttribute('data-idx'));
             const fieldSel = row.querySelector('[data-mod-field]');
             const modeSel = row.querySelector('[data-mod-mode]');
             const exprInp = row.querySelector('[data-mod-expr]');
             const labelInp = row.querySelector('[data-mod-label]');
-            if (fieldSel)
-                fieldSel.addEventListener('change', (e) => {
+
+            if (fieldSel) {
+                // Use named handler closures so it's clear and debuggable
+                const onFieldChange = (e) => {
                     if (state.items[idx]) state.items[idx].field = e.target.value;
                     state.onChange(state.items);
-                });
-            if (modeSel)
-                modeSel.addEventListener('change', (e) => {
+                };
+                fieldSel.addEventListener('change', onFieldChange);
+            }
+
+            if (modeSel) {
+                const onModeChange = (e) => {
                     if (state.items[idx]) state.items[idx].mode = e.target.value === 'set' ? 'set' : 'add';
                     state.onChange(state.items);
-                });
-            if (exprInp)
-                exprInp.addEventListener('input', (e) => {
+                };
+                modeSel.addEventListener('change', onModeChange);
+            }
+
+            if (exprInp) {
+                const onExprInput = (e) => {
                     if (state.items[idx]) state.items[idx].expr = e.target.value;
                     state.onChange(state.items);
-                });
-            if (labelInp)
-                labelInp.addEventListener('input', (e) => {
+                };
+                exprInp.addEventListener('input', onExprInput);
+            }
+
+            if (labelInp) {
+                const onLabelInput = (e) => {
                     if (state.items[idx]) state.items[idx].label = e.target.value;
                     state.onChange(state.items);
-                });
+                };
+                labelInp.addEventListener('input', onLabelInput);
+            }
         });
     };
 

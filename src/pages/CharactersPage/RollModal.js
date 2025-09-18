@@ -26,13 +26,17 @@ function rollExplodingD6() {
     return { total, rolls };
 }
 
-export function openRollModal(container, { attributeName, attributeValue, maxSuerte, currentSuerte }, onResult) {
+export function openRollModal(
+    container,
+    { attributeName, attributeValue, maxSuerte, currentSuerte, initialMods, variables } = {},
+    onResult
+) {
     // Load modal styles
     ensureStyle('./src/pages/CharactersPage/RollModal.css');
 
     const host = document.createElement('div');
     container.appendChild(host);
-    const modal = ModalComponent(host, { title: `Tirada: ${attributeName}` });
+    const modal = ModalComponent(host, { title: `Tirada: ${attributeName || 'Tirada'}` });
     modal.init();
 
     const content = html`
@@ -59,13 +63,19 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
             <div id="roll-result" class="result" style="margin-top: .5rem;"></div>
         </div>
     `;
-    modal.open(content, `Tirada: ${attributeName}`);
+    modal.open(content, `Tirada: ${attributeName || 'Tirada'}`);
 
     const advSel = host.querySelector('#adv');
     const modsInp = host.querySelector('#mods');
     const luckInp = host.querySelector('#luck');
     const rollBtn = host.querySelector('#do-roll');
     const resultEl = host.querySelector('#roll-result');
+
+    // If caller provided initial modifiers, prefill the mods input
+    try {
+        if (typeof initialMods === 'string' && modsInp) modsInp.value = initialMods;
+        else if (initialMods != null && modsInp) modsInp.value = String(initialMods);
+    } catch (_) {}
 
     rollBtn.addEventListener('click', () => {
         const advantage = advSel.value;
@@ -79,13 +89,19 @@ export function openRollModal(container, { attributeName, attributeValue, maxSue
         if (advantage === 'ventaja') advMod = rollDice('1d4');
         else if (advantage === 'desventaja') advMod = -rollDice('1d4');
 
-        const extras = evalFormula(modsInp.value || '0', {
-            cuerpo: 0,
-            reflejos: 0,
-            mente: 0,
-            instinto: 0,
-            presencia: 0,
-        });
+        // Prepare variables map for evalFormula: prefer provided variables, otherwise fall back to defaults
+        const vars =
+            variables && typeof variables === 'object'
+                ? variables
+                : {
+                      cuerpo: 0,
+                      reflejos: 0,
+                      mente: 0,
+                      instinto: 0,
+                      presencia: 0,
+                  };
+
+        const extras = evalFormula(modsInp.value || '0', vars);
 
         const die = d6Total + (advMod || 0);
         const total = die + base + extras + luck;
