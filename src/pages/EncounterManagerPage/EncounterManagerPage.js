@@ -104,15 +104,18 @@ const EncounterManagerPage = (container) => {
                     it.type === 'npc-group' && it.quantity > 1
                         ? html`<span class="quantity-badge">x${it.quantity}</span>`
                         : '';
-                return html`${quantityText}<input
-                        class="init-input"
-                        type="number"
-                        step="1"
-                        placeholder="-"
-                        value="${it.init != null ? it.init : ''}"
-                        data-init-idx="${i}"
-                        title="Iniciativa"
-                    />`;
+                return html`${quantityText}
+                    <div style="display:flex; gap:.5rem; align-items:center;">
+                        <input
+                            class="init-input"
+                            type="number"
+                            step="1"
+                            placeholder="-"
+                            value="${it.init != null ? it.init : ''}"
+                            data-init-idx="${i}"
+                            title="Iniciativa"
+                        />
+                    </div>`;
             },
             onAfterRender: (host) => {
                 host.querySelectorAll('.init-input').forEach((inp) => {
@@ -148,6 +151,8 @@ const EncounterManagerPage = (container) => {
             },
         });
         list.init();
+
+        // (Removed per-item delegated remove listener - removal is handled from detail headers / dedicated controls)
 
         const openAddModal = async (mode) => {
             if (mode === 'npc' && !state.beasts.length) {
@@ -192,16 +197,18 @@ const EncounterManagerPage = (container) => {
                                 init: null,
                                 rollLog: [],
                                 quantity: it.quantity,
-                                // Maintain a monotonically increasing index so creature names/ids are persistent
-                                nextCreatureIndex: it.quantity,
-                                creatures: Array.from({ length: it.quantity }, (_, i) => ({
-                                    id: `${it.name}-${i + 1}`,
-                                    name: `${it.name} ${i + 1}`,
-                                    hp: hp,
-                                    maxHp: hp,
-                                    data: it,
-                                    rollLog: [],
-                                })),
+                                creatures: Array.from({ length: it.quantity }, (_, i) => {
+                                    const idx = i + 1;
+                                    const uniqueSuffix = `${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+                                    return {
+                                        id: `${it.name}-${uniqueSuffix}`,
+                                        name: `${it.name} ${idx}`,
+                                        hp: hp,
+                                        maxHp: hp,
+                                        data: it,
+                                        rollLog: [],
+                                    };
+                                }),
                             });
                         } else {
                             // Add as single creature
@@ -220,6 +227,7 @@ const EncounterManagerPage = (container) => {
                         }
                     }
                     state.activeIdx = state.tracker.length - 1;
+                    persistEncounter();
                     update();
                 },
             });
@@ -460,11 +468,62 @@ const EncounterManagerPage = (container) => {
                             const progCtrl = ProgressTabController(ed, { character: c });
                             progCtrl.init();
                         } catch (_) {}
+                        // Add a remove-PC button to the right of the name display (wrap name element in a flex container and append button)
+                        try {
+                            // Prefer the actual name input if present, otherwise fallback to the visible .name-input element
+                            const nameEl = ed.querySelector('#name') || ed.querySelector('.name-input');
+                            // Do not add duplicate button
+                            if (nameEl && !ed.querySelector('#remove-pc')) {
+                                // Create a wrapper that places the name and the remove button inline
+                                const wrapper = document.createElement('div');
+                                wrapper.style.display = 'flex';
+                                wrapper.style.alignItems = 'center';
+                                wrapper.style.gap = '.5rem';
+                                wrapper.style.width = '100%';
+                                // Replace the original name element with the wrapper in the DOM, then move nameEl into wrapper
+                                if (nameEl.parentElement) {
+                                    nameEl.parentElement.replaceChild(wrapper, nameEl);
+                                    wrapper.appendChild(nameEl);
+                                } else {
+                                    // fallback: append wrapper to header and reparent nameEl into it
+                                    const header = ed.querySelector('.editor-header');
+                                    if (header) {
+                                        header.appendChild(wrapper);
+                                        wrapper.appendChild(nameEl);
+                                    }
+                                }
+                                const removeBtn = document.createElement('button');
+                                removeBtn.className = 'button small';
+                                removeBtn.id = 'remove-pc';
+                                removeBtn.setAttribute('aria-label', 'Quitar participante');
+                                removeBtn.title = 'Quitar participante';
+                                removeBtn.textContent = '🗑️';
+                                // Append the remove button to the wrapper so it appears to the right of the name element
+                                wrapper.appendChild(removeBtn);
+                                removeBtn.addEventListener('click', () => {
+                                    try {
+                                        const ok = window.confirm(`¿Quitar participante "${c.name}" del encuentro?`);
+                                        if (!ok) return;
+                                        // Find the tracker index for this PC and remove it
+                                        const idx = state.tracker.findIndex(
+                                            (t) => t && t.type === 'pc' && t.id === c.id
+                                        );
+                                        if (idx >= 0) {
+                                            state.tracker.splice(idx, 1);
+                                            state.activeIdx = Math.max(0, Math.min(state.tracker.length - 1, idx - 1));
+                                            persistEncounter();
+                                            update();
+                                        }
+                                    } catch (_) {}
+                                });
+                            }
+                        } catch (_) {}
                         persistEncounter();
                     },
                 },
             });
             sheet.init();
+            return;
         } else {
             // NPC: tabs Hoja / Dados
             const b = active.data;
@@ -485,7 +544,18 @@ const EncounterManagerPage = (container) => {
                             >
                                 ${b.name} (Grupo de ${active.quantity})
                             </div>
-                            <button class="button small" id="add-creature">➕ Agregar NPC</button>
+                            <div style="display:flex; gap:.5rem; align-items:center;">
+                                <button class="button" id="add-creature" title="Agregar NPC">➕</button>
+                                <button
+                                    class="button"
+                                    id="remove-group"
+                                    title="Quitar grupo"
+                                    style="margin-left:.25rem;"
+                                    title="Quitar grupo"
+                                >
+                                    🗑️
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Individual Creature Tabs -->
@@ -549,13 +619,14 @@ const EncounterManagerPage = (container) => {
                 } else {
                     // Single NPC layout
                     return html`
-                        <div class="editor-header">
+                        <div class="editor-header" style="display:flex; align-items:center; gap:.5rem;">
                             <div
                                 class="name-input"
-                                style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff;"
+                                style="border:1px solid var(--border-color); border-radius: var(--radius-md); padding: .5rem .75rem; background:#fff; flex:1;"
                             >
                                 ${b.name}
                             </div>
+                            <button class="button small" id="remove-single" title="Quitar participante">🗑️</button>
                         </div>
                         <div class="tabs">
                             <button class="tab ${npcState.tab === 'sheet' ? 'active' : ''}" data-tab="sheet">
@@ -606,20 +677,41 @@ const EncounterManagerPage = (container) => {
                     const addCreatureBtn = sheetRoot.querySelector('#add-creature');
                     if (addCreatureBtn) {
                         addCreatureBtn.addEventListener('click', () => {
-                            // Use a monotonic nextCreatureIndex so removed indices are not reused.
-                            active.nextCreatureIndex = (active.nextCreatureIndex || active.quantity || 0) + 1;
-                            const newIndex = active.nextCreatureIndex;
+                            // Add a new creature to the group. Use a unique id suffix so indices are not reused.
                             active.quantity = (active.quantity || 0) + 1;
+                            const idx =
+                                active.creatures && active.creatures.length
+                                    ? active.creatures.length + 1
+                                    : active.quantity;
+                            const uniqueSuffix = `${Date.now()}-${Math.floor(Math.random() * 10000)}`;
                             active.creatures.push({
-                                id: `${active.data.name}-${newIndex}`,
-                                name: `${active.data.name} ${newIndex}`,
+                                id: `${active.data && active.data.name ? active.data.name : 'npc'}-${uniqueSuffix}`,
+                                name: `${active.data && active.data.name ? active.data.name : 'NPC'} ${idx}`,
                                 hp: active.maxHp,
                                 maxHp: active.maxHp,
-                                data: active.data,
+                                data: active.data || null,
                                 rollLog: [],
                             });
                             persistEncounter();
                             mountNpc();
+                        });
+                    }
+
+                    // Remove entire group button (appears next to Add Creature in the group header)
+                    const removeGroupBtn = sheetRoot.querySelector('#remove-group');
+                    if (removeGroupBtn) {
+                        removeGroupBtn.addEventListener('click', () => {
+                            const ok = window.confirm(`¿Quitar el grupo "${active.name}" del encuentro?`);
+                            if (!ok) return;
+                            // Find index of this group in the tracker and remove it
+                            const idx = state.tracker.findIndex((t) => t === active);
+                            if (idx >= 0) {
+                                state.tracker.splice(idx, 1);
+                                // Adjust active index safely
+                                state.activeIdx = Math.max(0, Math.min(state.tracker.length - 1, idx - 1));
+                                persistEncounter();
+                                update();
+                            }
                         });
                     }
 
@@ -675,6 +767,23 @@ const EncounterManagerPage = (container) => {
                             active.hp = Math.max(0, Number(e.target.value) || 0);
                             persistEncounter();
                         });
+
+                    // Remove single participant button (if present)
+                    const removeSingleBtn = sheetRoot.querySelector('#remove-single');
+                    if (removeSingleBtn) {
+                        removeSingleBtn.addEventListener('click', () => {
+                            const ok = window.confirm(`¿Quitar participante "${active.name}" del encuentro?`);
+                            if (!ok) return;
+                            // Find index of active participant and remove
+                            const idx = state.tracker.findIndex((t) => t === active);
+                            if (idx >= 0) {
+                                state.tracker.splice(idx, 1);
+                                state.activeIdx = Math.max(0, Math.min(state.tracker.length - 1, idx - 1));
+                                persistEncounter();
+                                update();
+                            }
+                        });
+                    }
                 }
                 if (npcState.tab === 'dice') {
                     try {
@@ -930,33 +1039,6 @@ const EncounterManagerPage = (container) => {
             const saved = StorageUtils.load(STORAGE_KEY_ENCOUNTER, null);
             if (saved && typeof saved === 'object') {
                 state = { ...state, ...saved };
-                // Ensure npc-group entries have a monotonic nextCreatureIndex based on existing creatures
-                try {
-                    state.tracker = (state.tracker || []).map((t) => {
-                        if (!t || t.type !== 'npc-group') return t;
-                        // Determine the highest numeric suffix present in creature ids or names
-                        const nums = (t.creatures || []).map((c) => {
-                            if (!c) return 0;
-                            // try to parse id like "Goblin-3"
-                            const idMatch = String(c.id || '').match(/-(\d+)$/);
-                            if (idMatch) return Number(idMatch[1]) || 0;
-                            // try to parse name like "Goblin 3"
-                            const nameMatch = String(c.name || '').match(/\s+(\d+)$/);
-                            if (nameMatch) return Number(nameMatch[1]) || 0;
-                            return 0;
-                        });
-                        const maxNum = nums.length ? Math.max(...nums) : 0;
-                        const origNext = Number(t.nextCreatureIndex || 0) || 0;
-                        const qty = Number(t.quantity || 0) || 0;
-                        // pick the maximum observed index, the stored nextCreatureIndex, or quantity
-                        const safeNext = Math.max(origNext, maxNum, qty);
-                        // store back the last used index (so addCreature will increment it to safeNext+1)
-                        t.nextCreatureIndex = safeNext;
-                        return t;
-                    });
-                } catch (_) {
-                    // if anything goes wrong computing indexes, ignore and keep saved state as-is
-                }
             }
         } catch (_) {}
         try {
@@ -972,17 +1054,142 @@ const EncounterManagerPage = (container) => {
         } catch (_) {
             state.beasts = [];
         }
+
+        // Reconcile tracker: if an NPC/group does not exist in the bestiary, remove it;
+        // for those that do exist, enrich minimal data from the bestiary.
+        try {
+            if (Array.isArray(state.tracker) && Array.isArray(state.beasts)) {
+                const beastsByName = {};
+                state.beasts.forEach((b) => {
+                    if (!b || !b.name) return;
+                    beastsByName[String(b.name).toLowerCase()] = b;
+                });
+
+                const newTracker = [];
+                for (const t of state.tracker || []) {
+                    if (!t) continue;
+                    if (t.type === 'pc') {
+                        newTracker.push(t);
+                        continue;
+                    }
+                    if (t.type === 'npc') {
+                        const found = t.name ? beastsByName[String(t.name).toLowerCase()] : null;
+                        if (!found) {
+                            // If the beast is not in bestiary, drop it from the tracker
+                            console.info('Removing NPC (not found in bestiary):', t.name);
+                            continue;
+                        }
+                        t.data = found;
+                        const hp = Number(found.stats?.salud) || Number(t.maxHp) || Number(t.hp) || 0;
+                        t.maxHp = Number(t.maxHp || hp);
+                        t.hp = Number(t.hp != null ? t.hp : t.maxHp);
+                        newTracker.push(t);
+                        continue;
+                    }
+                    if (t.type === 'npc-group') {
+                        const found = t.name ? beastsByName[String(t.name).toLowerCase()] : null;
+                        if (!found) {
+                            console.info('Removing NPC group (not found in bestiary):', t.name);
+                            continue;
+                        }
+                        t.data = found;
+                        t.maxHp = Number(t.maxHp || found.stats?.salud || 0);
+                        // Rebuild or sanitize creatures list with minimal serializable fields
+                        t.creatures =
+                            t.creatures && t.creatures.length
+                                ? t.creatures.map((c, i) => ({
+                                      id: c && c.id ? c.id : `${t.name}-${i + 1}`,
+                                      name: c && c.name ? c.name : `${t.name} ${i + 1}`,
+                                      hp: c && c.hp != null ? c.hp : t.maxHp,
+                                      maxHp: c && c.maxHp ? c.maxHp : t.maxHp,
+                                      data: found,
+                                      rollLog: Array.isArray(c && c.rollLog) ? c.rollLog.slice(0, 200) : [],
+                                  }))
+                                : Array.from({ length: Number(t.quantity) || 1 }, (_, i) => ({
+                                      id: `${t.name}-${i + 1}`,
+                                      name: `${t.name} ${i + 1}`,
+                                      hp: t.maxHp,
+                                      maxHp: t.maxHp,
+                                      data: found,
+                                      rollLog: [],
+                                  }));
+                        newTracker.push(t);
+                        continue;
+                    }
+                    // Other types: keep as-is
+                    newTracker.push(t);
+                }
+                state.tracker = newTracker;
+            }
+        } catch (_) {}
+
         update();
     };
 
     const persistEncounter = () => {
-        StorageUtils.save(STORAGE_KEY_ENCOUNTER, {
-            tracker: state.tracker,
-            activeIdx: state.activeIdx,
-            log: state.log,
-        });
-        // Also persist updated characters
-        StorageUtils.save(STORAGE_KEY_CHARACTERS, state.party);
+        try {
+            // Create a sanitized, serializable snapshot of the tracker to avoid losing NPCs
+            // due to non-serializable fields (DOM refs, functions, circular refs).
+            const sanitizedTracker = (state.tracker || []).map((t) => {
+                // Base common fields
+                const base = {
+                    type: t.type,
+                    id: t.id,
+                    name: t.name,
+                    img: t.img,
+                    hp: t.hp,
+                    maxHp: t.maxHp,
+                    init: t.init,
+                    // Keep a trimmed copy of rollLog to avoid unbounded growth in storage
+                    rollLog: Array.isArray(t.rollLog) ? t.rollLog.slice(0, 200) : [],
+                };
+                // PC entries: keep reference to party id (the real character data is stored separately)
+                if (t.type === 'pc') {
+                    base.partyId = t.id;
+                }
+                // NPC groups: preserve quantity, nextCreatureIndex and lightweight creature entries
+                if (t.type === 'npc-group') {
+                    base.quantity = Number(t.quantity) || 0;
+
+                    // Persist a minimal reference to the original bestiary data
+                    base.data = t.data
+                        ? {
+                              name: t.data.name,
+                              // keep image and basic stats only (avoid embedding whole objects)
+                              img: t.data.img || null,
+                              stats: t.data.stats || null,
+                          }
+                        : null;
+                    // Persist creatures list with minimal, serializable fields (do NOT rename them)
+                    base.creatures = (t.creatures || []).map((c) => ({
+                        id: c.id,
+                        name: c.name,
+                        hp: c.hp,
+                        maxHp: c.maxHp,
+                        rollLog: Array.isArray(c.rollLog) ? c.rollLog.slice(0, 200) : [],
+                    }));
+                }
+                return base;
+            });
+            // Save sanitized encounter state
+            StorageUtils.save(STORAGE_KEY_ENCOUNTER, {
+                tracker: sanitizedTracker,
+                activeIdx: state.activeIdx,
+                log: Array.isArray(state.log) ? state.log.slice(0, 200) : [],
+            });
+            // Also persist updated characters separately (party)
+            StorageUtils.save(STORAGE_KEY_CHARACTERS, state.party);
+        } catch (err) {
+            console.error('persistEncounter error:', err);
+            // Fallback: attempt raw save (best effort)
+            try {
+                StorageUtils.save(STORAGE_KEY_ENCOUNTER, {
+                    tracker: state.tracker,
+                    activeIdx: state.activeIdx,
+                    log: state.log,
+                });
+            } catch (_) {}
+        }
     };
 
     return { init };

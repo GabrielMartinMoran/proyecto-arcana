@@ -80,6 +80,7 @@
     gap: 0.25rem;
 }
 .characters-list .item-right .init-input {
+    flex: 1;
     width: 3.5rem;
     padding: 0.15rem 0.35rem;
     text-align: center;

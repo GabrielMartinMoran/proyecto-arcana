@@ -3,6 +3,7 @@ import { ensureStyle } from '../../utils/style-utils.js';
 import { openRollModal } from '../../pages/CharactersPage/RollModal.js';
 import DiceService from '../../services/dice-service.js';
 import rollStore from '../../services/roll-store.js';
+import DamageUtils from '../../utils/damage-utils.js';
 
 const escapeHtml = (s) =>
     String(s).replace(
@@ -52,10 +53,18 @@ const renderAttacks = (items, creatureName) =>
                                   class="button small"
                                   data-roll-attack="${escapeHtml(a.name)}"
                                   data-attack-bonus="${Number(a.bonus) || 0}"
-                                  data-attack-damage="${escapeHtml(a.damage)}"
                                   title="Tirar ataque"
                               >
-                                  🎲
+                                  🎯
+                              </button>
+                              <button
+                                  class="button small"
+                                  data-roll-damage="${escapeHtml(a.name)}"
+                                  data-attack-damage="${escapeHtml(a.damage)}"
+                                  title="Tirar daño"
+                                  style="margin-left:.5rem;"
+                              >
+                                  💥
                               </button>
                           </li>`
                   )
@@ -333,101 +342,101 @@ export function bindBestiaryRollEvents(
         });
     });
 
-    // Bind attack roll events
+    // Bind attack roll events (attack only)
     container.querySelectorAll('[data-roll-attack]').forEach((btn) => {
         btn.addEventListener('click', () => {
             const attackName = btn.getAttribute('data-roll-attack');
             const attackBonus = Number(btn.getAttribute('data-attack-bonus')) || 0;
+
+            // For NPC attacks: roll exploding 1d6 + attackBonus (attack roll only)
+            try {
+                const explodeRoll = (faces) => {
+                    const rolls = [];
+                    let r = 1 + Math.floor(Math.random() * faces);
+                    rolls.push(r);
+                    while (r === faces) {
+                        r = 1 + Math.floor(Math.random() * faces);
+                        rolls.push(r);
+                    }
+                    const sum = rolls.reduce((s, v) => s + v, 0);
+                    return { rolls, sum };
+                };
+
+                const atk = explodeRoll(6);
+                const attackTotal = atk.sum + attackBonus;
+                const characterName =
+                    activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null
+                        ? activeParticipant.creatures[selectedCreatureIndex].name
+                        : creature.name;
+
+                const breakdown = `attack(1d6 exploding)=${atk.rolls.join('+')} ; bonus=${attackBonus}`;
+
+                DiceService.showRollToast({
+                    characterName,
+                    rollType: `${attackName} (ataque)`,
+                    total: attackTotal,
+                    rolls: atk.rolls,
+                    breakdown,
+                });
+
+                // Log attack entry
+                if (activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null) {
+                    const selectedCreature = activeParticipant.creatures[selectedCreatureIndex];
+                    if (!selectedCreature.rollLog) selectedCreature.rollLog = [];
+
+                    const entry = {
+                        type: 'attack',
+                        ts: Date.now(),
+                        notation: `${attackName} (atk)`,
+                        rolls: atk.rolls,
+                        total: attackTotal,
+                        attackName,
+                        attackBonus,
+                        details: {
+                            exploding: true,
+                            rolls: atk.rolls,
+                            sum: atk.sum,
+                            bonus: attackBonus,
+                        },
+                    };
+
+                    selectedCreature.rollLog.unshift(entry);
+                    if (selectedCreature.rollLog.length > 50) selectedCreature.rollLog.length = 50;
+                    if (onPersist) onPersist();
+                }
+            } catch (err) {
+                console.error('Error rolling attack:', err);
+            }
+        });
+    });
+
+    // Bind damage roll events (damage only)
+    container.querySelectorAll('[data-roll-damage]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const attackName = btn.getAttribute('data-roll-damage');
             const attackDamage = btn.getAttribute('data-attack-damage') || '';
 
-            // Open roll modal for attack (using attack bonus as "attribute")
-            openRollModal(
-                container,
-                {
-                    attributeName: attackName,
-                    attributeValue: attackBonus,
-                    maxSuerte: 0, // NPCs don't have luck
-                    currentSuerte: 0,
-                },
-                (result) => {
-                    if (!result) return;
+            try {
+                const characterName =
+                    activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null
+                        ? activeParticipant.creatures[selectedCreatureIndex].name
+                        : creature.name;
 
-                    // Determine the correct character name for groups
-                    const characterName =
-                        activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null
-                            ? activeParticipant.creatures[selectedCreatureIndex].name
-                            : creature.name;
-
-                    // Show attack roll toast
-                    const breakdown = `1d6=${result.d6} | ${result.advantage === 'normal' ? '±0' : `${result.advantage}=${result.advMod >= 0 ? '+' : ''}${result.advMod}`} | bonus=${result.base} | mods=${result.extras} | suerte=${result.luck}`;
-
-                    DiceService.showRollToast({
-                        characterName: characterName,
-                        rollType: `${attackName} (ataque)`,
-                        total: result.total,
-                        rolls: [result.d6],
-                        breakdown: breakdown,
-                    });
-
-                    // Add to group log if it's a group
-                    if (activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null) {
-                        const selectedCreature = activeParticipant.creatures[selectedCreatureIndex];
-                        if (!selectedCreature.rollLog) selectedCreature.rollLog = [];
-
-                        const entry = {
-                            type: 'attack',
-                            ts: Date.now(),
-                            notation: `${attackName} (${attackBonus}d6)`,
-                            rolls: [result.d6],
-                            total: result.total,
-                            attackName: attackName,
-                            attackBonus: attackBonus,
-                            details: {
-                                d6: result.d6,
-                                advMod: result.advMod,
-                                advantage: result.advantage,
-                                base: result.base,
-                                extras: result.extras,
-                                luck: result.luck,
-                                parts: [
-                                    {
-                                        type: 'attack',
-                                        attackName: attackName,
-                                        value: attackBonus,
-                                        notation: `${attackBonus}d6`,
-                                        rolls: [result.d6],
-                                        sum: result.total,
-                                        sign: 1,
-                                    },
-                                ],
-                            },
-                        };
-
-                        selectedCreature.rollLog.unshift(entry);
-                        if (selectedCreature.rollLog.length > 50) {
-                            selectedCreature.rollLog.length = 50;
-                        }
-
-                        // Persist changes
-                        if (onPersist) onPersist();
-                    }
-
-                    // If there's damage, roll it too
-                    if (attackDamage && attackDamage.trim()) {
-                        setTimeout(() => {
-                            rollDamage(
-                                container,
-                                characterName,
-                                attackName,
-                                attackDamage,
-                                activeParticipant,
-                                selectedCreatureIndex,
-                                onPersist
-                            );
-                        }, 1000); // Small delay to show attack first
-                    }
+                if (attackDamage && attackDamage.trim()) {
+                    // Roll damage using the shared utility
+                    rollDamage(
+                        container,
+                        characterName,
+                        attackName,
+                        attackDamage,
+                        activeParticipant,
+                        selectedCreatureIndex,
+                        onPersist
+                    );
                 }
-            );
+            } catch (err) {
+                console.error('Error rolling damage:', err);
+            }
         });
     });
 }
@@ -441,14 +450,10 @@ function rollDamage(
     selectedCreatureIndex = null,
     onPersist = null
 ) {
-    // Simple damage roll without modal (direct roll)
     try {
-        // Parse damage formula (e.g., "1d6+2", "2d4", "1d8+1d4")
-        const cleaned = damageFormula.replace(/\s+/g, '').toLowerCase();
-        const diceMatches = cleaned.match(/(\d+)d(\d+)/g);
-
-        if (!diceMatches) {
-            // No dice in formula, just show the formula
+        // Use shared utility to parse and evaluate damage formulas
+        const parsed = DamageUtils.parseDamageFormula(damageFormula);
+        if (!parsed.length) {
             DiceService.showRollToast({
                 characterName: creatureName,
                 rollType: `${attackName} (daño)`,
@@ -459,37 +464,21 @@ function rollDamage(
             return;
         }
 
-        let total = 0;
-        const allRolls = [];
-        let resultFormula = cleaned;
+        // Evaluate parts (damage dice are non-exploding by default)
+        const evalRes = DamageUtils.evaluateDamageParts(parsed, { explodeDice: false });
+        const total = evalRes.total;
+        const allRolls = evalRes.flatRolls || [];
+        const breakdown = evalRes.breakdown || '';
 
-        // Roll each dice group
-        diceMatches.forEach((match) => {
-            const [n, faces] = match.split('d').map(Number);
-            const rolls = [];
-            let sum = 0;
-            for (let i = 0; i < n; i++) {
-                const r = 1 + Math.floor(Math.random() * faces);
-                rolls.push(r);
-                sum += r;
-            }
-            resultFormula = resultFormula.replace(match, sum);
-            allRolls.push(...rolls);
-        });
-
-        // Evaluate the final formula
-        const damageTotal = eval(resultFormula) || 0;
-
-        // Show damage roll toast
         DiceService.showRollToast({
             characterName: creatureName,
             rollType: `${attackName} (daño)`,
-            total: damageTotal,
+            total,
             rolls: allRolls,
-            breakdown: `Fórmula: ${damageFormula} = ${damageTotal}`,
+            breakdown: `${damageFormula} => ${breakdown} => ${total}`,
         });
 
-        // Add to group log if it's a group
+        // Add to group log if applicable
         if (activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null) {
             const selectedCreature = activeParticipant.creatures[selectedCreatureIndex];
             if (!selectedCreature.rollLog) selectedCreature.rollLog = [];
@@ -499,36 +488,23 @@ function rollDamage(
                 ts: Date.now(),
                 notation: damageFormula,
                 rolls: allRolls,
-                total: damageTotal,
-                attackName: attackName,
-                damageFormula: damageFormula,
+                total,
+                attackName,
+                damageFormula,
                 details: {
                     formula: damageFormula,
-                    rolls: allRolls,
-                    total: damageTotal,
-                    parts: [
-                        {
-                            type: 'damage',
-                            formula: damageFormula,
-                            rolls: allRolls,
-                            sum: damageTotal,
-                            sign: 1,
-                        },
-                    ],
+                    parts: parsed,
+                    rolledParts: evalRes.partsResults || [],
+                    total,
                 },
             };
 
             selectedCreature.rollLog.unshift(entry);
-            if (selectedCreature.rollLog.length > 50) {
-                selectedCreature.rollLog.length = 50;
-            }
-
-            // Persist changes
+            if (selectedCreature.rollLog.length > 200) selectedCreature.rollLog.length = 200;
             if (onPersist) onPersist();
         }
-    } catch (error) {
-        console.error('Error rolling damage:', error);
-        // Fallback: just show the formula
+    } catch (err) {
+        console.error('Error rolling damage:', err);
         DiceService.showRollToast({
             characterName: creatureName,
             rollType: `${attackName} (daño)`,
