@@ -305,13 +305,27 @@ const EncounterManagerPage = (container) => {
                 options: { readOnly: false, lockName: true },
                 hooks: {
                     onBind: (ed) => {
-                        // Tabs
-                        ed.querySelectorAll('.tab').forEach((t) =>
-                            t.addEventListener('click', () => {
-                                const tab = t.getAttribute('data-tab');
+                        // Tabs — use a single delegated handler and make it idempotent
+                        try {
+                            // Remove previous handler if present to avoid duplicates
+                            if (ed.__tabHandler) {
+                                ed.removeEventListener('click', ed.__tabHandler);
+                            }
+                        } catch (_) {}
+                        // Create and store a single delegated click handler on the editor container
+                        ed.__tabHandler = function (e) {
+                            const btn = e.target && e.target.closest && e.target.closest('.tab');
+                            if (!btn) return;
+                            const tab = btn.getAttribute('data-tab');
+                            if (!tab) return;
+                            // Delegate to the sheet instance to change tab
+                            try {
                                 sheet.setState({ tab });
-                            })
-                        );
+                            } catch (err) {
+                                console.error('Error changing sheet tab via delegated handler', err);
+                            }
+                        };
+                        ed.addEventListener('click', ed.__tabHandler);
                         // Mount panels if their hosts exist (works across tabs)
                         try {
                             const attrsHost = ed.querySelector('#attributes-host');

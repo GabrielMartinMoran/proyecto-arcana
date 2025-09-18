@@ -30,7 +30,8 @@ export default function CharacterSheet(container, props = {}) {
 
     // Keep references to mounted components to avoid re-initialization
     let mountedComponents = {};
-    // Ensure hooks.onBind is called only once to avoid remounting listeners
+    // Call hooks.onBind each time setState runs so tabs/buttons are rebound after every re-render
+    // (keeps backward-compat fallback variable for compatibility)
     let boundOnce = false;
     // Reentrancy guard to avoid notification loops when updateCharacter is invoked
     let suppressUpdateCharacter = false;
@@ -211,15 +212,35 @@ export default function CharacterSheet(container, props = {}) {
     const setState = async (partial) => {
         state = { ...state, ...partial };
         container.innerHTML = render();
-        // Call hooks.onBind only once to avoid remounting listeners on each setState()
-        if (!boundOnce && props.hooks && typeof props.hooks.onBind === 'function') {
+        // Always call hooks.onBind on every setState so tab buttons and per-tab mount logic
+        // are rebound after the DOM is re-rendered. This ensures clicking a tab from any parent
+        // context (e.g., Encounter manager) rebinds the tab buttons and their handlers.
+        if (props.hooks && typeof props.hooks.onBind === 'function') {
             try {
                 props.hooks.onBind(container);
             } catch (_) {}
-            boundOnce = true;
         }
         // Wait for DOM to be ready before mounting components
         await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        // Destroy any previously mounted subcomponents before mounting new ones.
+        // This avoids stale mounts keeping old DOM references/listeners and ensures
+        // each tab mount starts from a clean state.
+        try {
+            for (const key in mountedComponents) {
+                const comp = mountedComponents[key];
+                if (comp && typeof comp.destroy === 'function') {
+                    try {
+                        comp.destroy();
+                    } catch (_) {
+                        // ignore destroy errors for safety
+                    }
+                }
+            }
+        } catch (_) {}
+        // Clear references so mountTabComponents creates fresh instances
+        mountedComponents = {};
+
         await mountTabComponents();
     };
 
