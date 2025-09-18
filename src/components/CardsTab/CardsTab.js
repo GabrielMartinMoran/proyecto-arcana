@@ -344,8 +344,6 @@ const CardsTab = (container, props = {}) => {
         switch (slotAction) {
             case 'add':
                 updatedCharacter.cards = [...(updatedCharacter.cards || []), cardId];
-                // Clear search filter when adding a card
-                state.state.cardSearch = '';
                 break;
             case 'remove':
                 updatedCharacter.cards = (updatedCharacter.cards || []).filter((id) => id !== cardId);
