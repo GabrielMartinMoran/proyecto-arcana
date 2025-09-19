@@ -255,6 +255,7 @@ export function bindBestiaryRollEvents(
     creature,
     activeParticipant = null,
     selectedCreatureIndex = null,
+    onRoll = null,
     onPersist = null
 ) {
     // Bind attribute roll events
@@ -331,8 +332,15 @@ export function bindBestiaryRollEvents(
                             selectedCreature.rollLog.length = 50;
                         }
 
-                        // Add to roll store
-                        rollStore.addRoll({ ...entry, who: characterName });
+                        // Publish roll via provided onRoll callback (encounter context) or fall back to global rollStore.
+                        try {
+                            const payload = { ...entry, who: characterName };
+                            if (typeof onRoll === 'function') {
+                                onRoll(payload);
+                            } else {
+                                rollStore.addRoll(payload);
+                            }
+                        } catch (_) {}
 
                         // Persist changes
                         if (onPersist) onPersist();
@@ -348,64 +356,94 @@ export function bindBestiaryRollEvents(
             const attackName = btn.getAttribute('data-roll-attack');
             const attackBonus = Number(btn.getAttribute('data-attack-bonus')) || 0;
 
-            // For NPC attacks: roll exploding 1d6 + attackBonus (attack roll only)
+            // Use the shared roll modal to let the user apply advantage/extra mods.
             try {
-                const explodeRoll = (faces) => {
-                    const rolls = [];
-                    let r = 1 + Math.floor(Math.random() * faces);
-                    rolls.push(r);
-                    while (r === faces) {
-                        r = 1 + Math.floor(Math.random() * faces);
-                        rolls.push(r);
-                    }
-                    const sum = rolls.reduce((s, v) => s + v, 0);
-                    return { rolls, sum };
-                };
-
-                const atk = explodeRoll(6);
-                const attackTotal = atk.sum + attackBonus;
                 const characterName =
                     activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null
                         ? activeParticipant.creatures[selectedCreatureIndex].name
                         : creature.name;
 
-                const breakdown = `attack(1d6 exploding)=${atk.rolls.join('+')} ; bonus=${attackBonus}`;
+                // Open roll modal reusing the attribute roll UI but passing the attack bonus as initial mods.
+                openRollModal(
+                    container,
+                    {
+                        attributeName: attackName || 'Ataque',
+                        attributeValue: 0, // attacks rely on mods/input for bonus
+                        maxSuerte: 0,
+                        currentSuerte: 0,
+                        initialMods: String(attackBonus || ''),
+                        variables: {}, // no extra variables by default for NPC attacks
+                    },
+                    (result) => {
+                        if (!result) return;
 
-                DiceService.showRollToast({
-                    characterName,
-                    rollType: `${attackName} (ataque)`,
-                    total: attackTotal,
-                    rolls: atk.rolls,
-                    breakdown,
-                });
+                        const rolls = result.d6Rolls || (result.d6 ? [result.d6] : []);
+                        const total = result.total;
+                        const breakdown = `d6=${(result.d6Rolls || [result.d6]).join('+')} ; mods=${result.extras} ; luck=${result.luck}`;
 
-                // Log attack entry
-                if (activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null) {
-                    const selectedCreature = activeParticipant.creatures[selectedCreatureIndex];
-                    if (!selectedCreature.rollLog) selectedCreature.rollLog = [];
+                        DiceService.showRollToast({
+                            characterName,
+                            rollType: `${attackName} (ataque)`,
+                            total,
+                            rolls,
+                            breakdown,
+                        });
 
-                    const entry = {
-                        type: 'attack',
-                        ts: Date.now(),
-                        notation: `${attackName} (atk)`,
-                        rolls: atk.rolls,
-                        total: attackTotal,
-                        attackName,
-                        attackBonus,
-                        details: {
-                            exploding: true,
-                            rolls: atk.rolls,
-                            sum: atk.sum,
-                            bonus: attackBonus,
-                        },
-                    };
+                        // Build entry to store in creature log and/or publish to encounter
+                        const entry = {
+                            type: 'attack',
+                            ts: Date.now(),
+                            notation: `${attackName} (atk)`,
+                            rolls: rolls,
+                            total,
+                            attackName,
+                            attackBonus,
+                            details: {
+                                modalResult: result,
+                                breakdown,
+                            },
+                        };
 
-                    selectedCreature.rollLog.unshift(entry);
-                    if (selectedCreature.rollLog.length > 50) selectedCreature.rollLog.length = 50;
-                    if (onPersist) onPersist();
-                }
+                        // If this is a group, add to selected creature rollLog
+                        if (
+                            activeParticipant &&
+                            activeParticipant.type === 'npc-group' &&
+                            selectedCreatureIndex !== null
+                        ) {
+                            const selectedCreature = activeParticipant.creatures[selectedCreatureIndex];
+                            if (!selectedCreature.rollLog) selectedCreature.rollLog = [];
+                            selectedCreature.rollLog.unshift(entry);
+                            if (selectedCreature.rollLog.length > 200) selectedCreature.rollLog.length = 200;
+                        } else if (activeParticipant && activeParticipant.type === 'npc') {
+                            // Single NPC: add to the NPC's own rollLog as well
+                            if (!activeParticipant.rollLog) activeParticipant.rollLog = [];
+                            activeParticipant.rollLog.unshift(entry);
+                            if (activeParticipant.rollLog.length > 200) activeParticipant.rollLog.length = 200;
+                        }
+
+                        // Publish the roll via onRoll callback (encounter context) or fallback to rollStore
+                        try {
+                            const payload = { ...entry, who: characterName };
+                            if (typeof onRoll === 'function') {
+                                onRoll(payload);
+                            } else {
+                                // fallback: global store for non-encounter contexts
+                                try {
+                                    rollStore.addRoll(payload);
+                                } catch (_) {}
+                            }
+                        } catch (_) {}
+
+                        // Persist if a persist callback exists
+                        if (typeof onPersist === 'function') {
+                            try {
+                                onPersist();
+                            } catch (_) {}
+                        }
+                    }
+                );
             } catch (err) {
-                console.error('Error rolling attack:', err);
+                console.error('Error rolling attack (modal):', err);
             }
         });
     });
@@ -431,6 +469,7 @@ export function bindBestiaryRollEvents(
                         attackDamage,
                         activeParticipant,
                         selectedCreatureIndex,
+                        onRoll,
                         onPersist
                     );
                 }
@@ -448,6 +487,7 @@ function rollDamage(
     damageFormula,
     activeParticipant = null,
     selectedCreatureIndex = null,
+    onRoll = null,
     onPersist = null
 ) {
     try {
@@ -478,31 +518,48 @@ function rollDamage(
             breakdown: `${damageFormula} => ${breakdown} => ${total}`,
         });
 
-        // Add to group log if applicable
+        const entry = {
+            type: 'damage',
+            ts: Date.now(),
+            notation: damageFormula,
+            rolls: allRolls,
+            total,
+            attackName,
+            damageFormula,
+            details: {
+                formula: damageFormula,
+                parts: parsed,
+                rolledParts: evalRes.partsResults || [],
+                total,
+            },
+        };
+
+        // Add to group or single NPC log if applicable
         if (activeParticipant && activeParticipant.type === 'npc-group' && selectedCreatureIndex !== null) {
             const selectedCreature = activeParticipant.creatures[selectedCreatureIndex];
             if (!selectedCreature.rollLog) selectedCreature.rollLog = [];
-
-            const entry = {
-                type: 'damage',
-                ts: Date.now(),
-                notation: damageFormula,
-                rolls: allRolls,
-                total,
-                attackName,
-                damageFormula,
-                details: {
-                    formula: damageFormula,
-                    parts: parsed,
-                    rolledParts: evalRes.partsResults || [],
-                    total,
-                },
-            };
-
             selectedCreature.rollLog.unshift(entry);
             if (selectedCreature.rollLog.length > 200) selectedCreature.rollLog.length = 200;
-            if (onPersist) onPersist();
+        } else if (activeParticipant && activeParticipant.type === 'npc') {
+            // Single NPC: add to the NPC's own roll log
+            if (!activeParticipant.rollLog) activeParticipant.rollLog = [];
+            activeParticipant.rollLog.unshift(entry);
+            if (activeParticipant.rollLog.length > 200) activeParticipant.rollLog.length = 200;
         }
+
+        // Publish damage roll via provided onRoll callback (encounter context) or fallback to global rollStore
+        try {
+            const payload = { ...entry, who: creatureName };
+            if (typeof onRoll === 'function') {
+                onRoll(payload);
+            } else {
+                try {
+                    rollStore.addRoll(payload);
+                } catch (_) {}
+            }
+        } catch (_) {}
+
+        if (typeof onPersist === 'function') onPersist();
     } catch (err) {
         console.error('Error rolling damage:', err);
         DiceService.showRollToast({

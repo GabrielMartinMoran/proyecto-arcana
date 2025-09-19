@@ -101,6 +101,16 @@ export default function CharacterSheet(container, props = {}) {
                                 state.character = updatedCharacter;
                                 if (props.onUpdate) props.onUpdate(updatedCharacter);
                             },
+                            onRoll: (rollData) => {
+                                // Forward roll events to parent if provided. Keep it safe.
+                                if (typeof props.onRoll === 'function') {
+                                    try {
+                                        props.onRoll(rollData);
+                                    } catch (_) {
+                                        // swallow to avoid breaking sheet interactions
+                                    }
+                                }
+                            },
                         });
                         await comp.init();
                         mountedComponents.sheet = comp;

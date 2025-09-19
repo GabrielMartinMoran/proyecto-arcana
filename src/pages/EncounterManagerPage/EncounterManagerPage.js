@@ -86,6 +86,44 @@ const EncounterManagerPage = (container) => {
     };
 
     const bind = (root) => {
+        // Helper to publish rolls for this encounter (adds to encounter-local log only).
+        // The encounter log is atomic to this encounter and is NOT forwarded to the global rollStore.
+        const publishEncounterRoll = (entry) => {
+            try {
+                const payload = { ...entry };
+                // Normalize who if possible
+                if (!payload.who && payload.characterName) payload.who = payload.characterName;
+
+                // Ensure an id exists for local management (used by delete buttons)
+                if (!payload.id) {
+                    try {
+                        payload.id =
+                            typeof crypto !== 'undefined' && crypto && typeof crypto.randomUUID === 'function'
+                                ? crypto.randomUUID()
+                                : String(Date.now() + Math.floor(Math.random() * 1000000));
+                    } catch (_) {
+                        payload.id = String(Date.now() + Math.floor(Math.random() * 1000000));
+                    }
+                }
+
+                // Ensure timestamp field exists (some consumers expect `ts`)
+                if (!payload.ts) payload.ts = Date.now();
+
+                // Ensure encounter-local log exists and prepend
+                state.log = Array.isArray(state.log) ? state.log : [];
+                state.log.unshift(payload);
+                if (state.log.length > 200) state.log.length = 200;
+
+                // Persist encounter and update the log render if available
+                try {
+                    persistEncounter();
+                } catch (_) {}
+                try {
+                    if (state._renderLog) state._renderLog();
+                } catch (_) {}
+            } catch (_) {}
+        };
+
         // Mount tracker sidebar
         const listRoot = root.querySelector('#tracker-list');
         const headerHtml = html`<div class="buttons-container encounter-toolbar">
@@ -101,9 +139,7 @@ const EncounterManagerPage = (container) => {
             getPortraitUrl: (it) => it.img || '',
             renderRight: (it, i) => {
                 const quantityText =
-                    it.type === 'npc-group' && it.quantity > 1
-                        ? html`<span class="quantity-badge">x${it.quantity}</span>`
-                        : '';
+                    it.type === 'npc-group' ? html`<span class="quantity-badge">x${it.quantity}</span>` : '';
                 return html`${quantityText}
                     <div style="display:flex; gap:.5rem; align-items:center;">
                         <input
@@ -182,10 +218,11 @@ const EncounterManagerPage = (container) => {
                             init: null,
                         });
                     } else {
-                        // Handle creature groups
-                        if (it.isGroup && it.quantity > 1) {
+                        // Handle creature groups: treat any beast with isGroup === true as a group (even if quantity === 1)
+                        if (it.isGroup) {
                             // Add as a group
                             const hp = Number(it?.stats?.salud) || 0;
+                            const qty = Number(it.quantity) || 1;
                             state.tracker.push({
                                 type: 'npc-group',
                                 id: `group-${it.name}-${Date.now()}`,
@@ -196,8 +233,8 @@ const EncounterManagerPage = (container) => {
                                 data: it,
                                 init: null,
                                 rollLog: [],
-                                quantity: it.quantity,
-                                creatures: Array.from({ length: it.quantity }, (_, i) => {
+                                quantity: qty,
+                                creatures: Array.from({ length: qty }, (_, i) => {
                                     const idx = i + 1;
                                     const uniqueSuffix = `${Date.now()}-${Math.floor(Math.random() * 10000)}`;
                                     return {
@@ -303,6 +340,7 @@ const EncounterManagerPage = (container) => {
                 services: { CardService, meetsRequirements: () => true, RULES },
                 derived,
                 options: { readOnly: false, lockName: true },
+                onRoll: publishEncounterRoll,
                 hooks: {
                     onBind: (ed) => {
                         // Tabs — use a single delegated handler and make it idempotent
@@ -394,8 +432,15 @@ const EncounterManagerPage = (container) => {
                                                     // Global log - use character name (active is the specific NPC)
                                                     const globalEntry = { ...entry, who: active.name };
                                                     console.log('DEBUG: Adding to global log:', globalEntry);
-                                                    state.log.unshift(globalEntry);
-                                                    if (state.log.length > 200) state.log.length = 200;
+                                                    // Publish via encounter-level publisher to ensure consistent handling
+                                                    try {
+                                                        if (typeof publishEncounterRoll === 'function') {
+                                                            publishEncounterRoll(globalEntry);
+                                                        } else {
+                                                            state.log.unshift(globalEntry);
+                                                            if (state.log.length > 200) state.log.length = 200;
+                                                        }
+                                                    } catch (_) {}
                                                     console.log('DEBUG: Global log length:', state.log.length);
                                                     console.log('DEBUG: Global log entries:', state.log.slice(0, 3));
                                                 }
@@ -470,10 +515,20 @@ const EncounterManagerPage = (container) => {
                             const diceCtrl = DiceTabController(ed, {
                                 character: c,
                                 onRoll: (e) => {
-                                    state.log.unshift({ ...e, who: c.name });
-                                    if (state.log.length > 200) state.log.length = 200;
-                                    persistEncounter();
-                                    if (state._renderLog) state._renderLog();
+                                    try {
+                                        const payload = { ...e, who: c.name };
+                                        if (typeof publishEncounterRoll === 'function') {
+                                            publishEncounterRoll(payload);
+                                        } else {
+                                            // Fallback for safety: preserve previous behaviour
+                                            state.log.unshift(payload);
+                                            if (state.log.length > 200) state.log.length = 200;
+                                            try {
+                                                persistEncounter();
+                                            } catch (_) {}
+                                            if (state._renderLog) state._renderLog();
+                                        }
+                                    } catch (_) {}
                                 },
                             });
                             diceCtrl.init();
@@ -537,7 +592,6 @@ const EncounterManagerPage = (container) => {
                 },
             });
             sheet.init();
-            return;
         } else {
             // NPC: tabs Hoja / Dados
             const b = active.data;
@@ -733,14 +787,23 @@ const EncounterManagerPage = (container) => {
                     const removeCreatureBtn = sheetRoot.querySelector('#remove-creature');
                     if (removeCreatureBtn) {
                         removeCreatureBtn.addEventListener('click', () => {
-                            if (active.quantity > 1 && npcState.selectedCreature !== null) {
+                            if (npcState.selectedCreature !== null) {
                                 // Remove the selected creature; do NOT rename remaining creatures.
                                 active.creatures.splice(npcState.selectedCreature, 1);
-                                active.quantity = active.quantity - 1;
+                                active.quantity = Math.max(0, (active.quantity || 0) - 1);
 
-                                // Adjust selected creature index if it now points past the end
-                                if (npcState.selectedCreature >= active.quantity) {
-                                    npcState.selectedCreature = Math.max(0, active.quantity - 1);
+                                // If group is empty, remove it from tracker entirely
+                                if (active.quantity <= 0) {
+                                    const idx = state.tracker.findIndex((t) => t === active);
+                                    if (idx >= 0) {
+                                        state.tracker.splice(idx, 1);
+                                        state.activeIdx = Math.max(0, Math.min(state.tracker.length - 1, idx - 1));
+                                    }
+                                } else {
+                                    // Adjust selected creature index if it now points past the end
+                                    if (npcState.selectedCreature >= active.quantity) {
+                                        npcState.selectedCreature = Math.max(0, active.quantity - 1);
+                                    }
                                 }
 
                                 // Intentionally DO NOT reassign names/ids for remaining creatures.
@@ -818,10 +881,14 @@ const EncounterManagerPage = (container) => {
                                             ? active.creatures[npcState.selectedCreature].name
                                             : active.name;
 
-                                    // Add to roll store
-                                    rollStore.addRoll({ ...e, who: characterName });
+                                    const payload = { ...e, who: characterName };
 
-                                    persistEncounter();
+                                    // Delegate publishing to the encounter-level publisher when available.
+                                    // Fallback to the previous behaviour (write to global rollStore + persist)
+                                    try {
+                                        // Publish to encounter-local history only
+                                        publishEncounterRoll(payload);
+                                    } catch (_) {}
                                 },
                             });
                             diceTab.init();
@@ -842,13 +909,15 @@ const EncounterManagerPage = (container) => {
                             },
                             active,
                             npcState.selectedCreature,
+                            // Pass the encounter-level publisher to ensure rolls from bestiary are routed through it
+                            publishEncounterRoll,
                             () => {
                                 persistEncounter();
                             }
                         );
                     } else {
                         // For single NPCs, use the original data
-                        bindBestiaryRollEvents(sheetRoot, b, active, null, () => {
+                        bindBestiaryRollEvents(sheetRoot, b, active, null, publishEncounterRoll, () => {
                             persistEncounter();
                         });
                     }
@@ -912,11 +981,11 @@ const EncounterManagerPage = (container) => {
                                             active.rollLog = Array.isArray(active.rollLog) ? active.rollLog : [];
                                             active.rollLog.unshift(entry);
                                             if (active.rollLog.length > 200) active.rollLog.length = 200;
-                                            // Add to roll store
-                                            rollStore.addRoll({
-                                                ...entry,
-                                                who: active.name,
-                                            });
+                                            // Publish to encounter-local history only
+                                            try {
+                                                const payload = { ...entry, who: active.name };
+                                                publishEncounterRoll(payload);
+                                            } catch (_) {}
                                         }
                                         persistEncounter();
                                         update();
@@ -938,7 +1007,8 @@ const EncounterManagerPage = (container) => {
         const btnClear = container.querySelector('[data-log-clear]');
 
         const renderLog = () => {
-            const rolls = rollStore.getRolls();
+            // Render the encounter-local history only
+            const rolls = Array.isArray(state.log) ? state.log : [];
 
             const rows = rolls
                 .map((e, i) => {
@@ -1008,14 +1078,16 @@ const EncounterManagerPage = (container) => {
         };
         state._renderLog = renderLog;
 
-        // Subscribe to roll store updates
-        const unsubscribe = rollStore.subscribe(() => {
-            renderLog();
-        });
+        // Encounter log is local to this encounter. Do not subscribe to the global rollStore here.
+        // (renderLog will be triggered by publishEncounterRoll and persistEncounter calls)
 
         if (btnClear)
             btnClear.addEventListener('click', () => {
-                rollStore.clearRolls();
+                const ok = window.confirm('¿Limpiar historial de tiradas del encuentro?');
+                if (!ok) return;
+                state.log = [];
+                persistEncounter();
+                if (state._renderLog) state._renderLog();
             });
         if (logRoot && !logRoot._delBound) {
             logRoot.addEventListener('click', (ev) => {
@@ -1023,7 +1095,10 @@ const EncounterManagerPage = (container) => {
                 if (!btn) return;
                 const rollId = btn.getAttribute('data-log-del');
                 if (rollId) {
-                    rollStore.removeRoll(rollId);
+                    // Remove from encounter-local log only
+                    state.log = (state.log || []).filter((r) => String(r.id) !== String(rollId));
+                    persistEncounter();
+                    if (state._renderLog) state._renderLog();
                 }
             });
             logRoot._delBound = true;

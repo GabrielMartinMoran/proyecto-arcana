@@ -12,7 +12,7 @@ import { evaluateDiceExpression } from '../../utils/dice-utils.js';
 const DiceTab = (container, props = {}) => {
     let state = {
         character: props.character || {},
-        onRoll: typeof props.onRoll === 'function' ? props.onRoll : () => {},
+        onRoll: typeof props.onRoll === 'function' ? props.onRoll : null,
     };
 
     const render = () => html`
@@ -119,12 +119,18 @@ const DiceTab = (container, props = {}) => {
                     total: sum,
                 });
 
-                // Add to global roll store
-                rollStore.addRoll({ ...entry, who: state.character.name });
-
+                // Publish roll: prefer parent's onRoll callback, fallback to global rollStore
                 try {
-                    state.onRoll(entry);
+                    const entryWithWho = { ...entry, who: state.character.name };
+                    if (typeof state.onRoll === 'function') {
+                        // Delegate publishing to parent (e.g., EncounterManager)
+                        state.onRoll(entryWithWho);
+                    } else {
+                        // Standalone behavior: write to global roll store
+                        rollStore.addRoll(entryWithWho);
+                    }
                 } catch (_) {}
+
                 renderHistory();
             }
         });
@@ -177,11 +183,14 @@ const DiceTab = (container, props = {}) => {
                     },
                 });
 
-                // Add to global roll store
-                rollStore.addRoll({ ...entry, who: state.character.name });
-
+                // Publish roll: prefer parent's onRoll callback, fallback to global rollStore
                 try {
-                    state.onRoll(entry);
+                    const entryWithWho = { ...entry, who: state.character.name };
+                    if (typeof state.onRoll === 'function') {
+                        state.onRoll(entryWithWho);
+                    } else {
+                        rollStore.addRoll(entryWithWho);
+                    }
                 } catch (_) {}
                 renderHistory();
                 exprInp.value = '';

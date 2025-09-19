@@ -31,6 +31,9 @@ const SheetTab = (container, props = {}) => {
         rules: props.rules || {},
         readOnly: !!props.readOnly,
         onUpdate: typeof props.onUpdate === 'function' ? props.onUpdate : () => {},
+        // Optional onRoll callback provided by parent (EncounterManager). When present,
+        // SheetTab will delegate publishing of encounter-scoped rolls to this callback.
+        onRoll: typeof props.onRoll === 'function' ? props.onRoll : null,
     };
 
     // Registry for mounted subcomponents
@@ -187,8 +190,15 @@ const SheetTab = (container, props = {}) => {
                 state.character.rollLog.unshift(entry);
                 if (state.character.rollLog.length > 50) state.character.rollLog.length = 50;
 
-                // Add to global store and show toast
-                rollStore.addRoll({ ...entry, who: state.character.name });
+                // Publish roll: prefer parent's onRoll callback (encounter context), fallback to global rollStore.
+                try {
+                    const payload = { ...entry, who: state.character.name };
+                    if (typeof state.onRoll === 'function') {
+                        state.onRoll(payload);
+                    } else {
+                        rollStore.addRoll(payload);
+                    }
+                } catch (_) {}
                 DiceService.showAttributeRoll({
                     characterName: state.character.name,
                     attributeName: attributeKey,
@@ -411,9 +421,14 @@ const SheetTab = (container, props = {}) => {
                                 // prepend to character roll log
                                 state.character.rollLog.unshift(logEntry);
                                 if (state.character.rollLog.length > 200) state.character.rollLog.length = 200;
-                                // add to global roll store for UI/history
+                                // Publish roll via parent-provided onRoll if available, fallback to global rollStore.
                                 try {
-                                    rollStore.addRoll({ ...logEntry, who: state.character.name });
+                                    const payload = { ...logEntry, who: state.character.name };
+                                    if (typeof state.onRoll === 'function') {
+                                        state.onRoll(payload);
+                                    } else {
+                                        rollStore.addRoll(payload);
+                                    }
                                 } catch (_) {}
                                 // persist change via parent onUpdate (guarded)
                                 if (!suppressOnUpdate) state.onUpdate(state.character);
