@@ -2,29 +2,182 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    height: 100%;
 }
 
-.notes-tab .editor-grid {
+.notes-layout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 1rem;
+    height: 100%;
+    min-height: 500px;
 }
 
-.notes-tab .panel {
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+    .notes-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        gap: 1rem;
+    }
+
+    .notes-list-panel {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+}
+
+/* Notes List Panel */
+.notes-list-panel {
     background: var(--surface-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-surface);
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.notes-tab label {
-    display: block;
-    font-weight: 600;
-    color: var(--text-primary);
+.notes-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
 }
 
-.notes-tab textarea {
+.notes-list-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Notes List */
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.note-list-item {
+    padding: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--input-bg);
+}
+
+.note-list-item:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-color);
+}
+
+.note-list-item.selected {
+    background: var(--panel-bg-strong, rgba(0, 0, 0, 0.06));
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+}
+
+.note-list-item.selected:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.note-list-title {
+    font-weight: 500;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+/* Empty State */
+.notes-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    flex: 1;
+}
+
+.notes-empty-state p {
+    margin: 0;
+    font-style: italic;
+}
+
+/* Notes Editor Panel */
+.notes-editor-panel {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-surface);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.note-editor-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Note Header */
+.note-header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.note-header-readonly {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.note-header-readonly h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+.note-title-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.note-title-input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-color: var(--primary-color);
+}
+
+/* Note Content */
+.note-content-input {
+    flex: 1;
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border-color);
@@ -38,8 +191,29 @@
     font-family: inherit;
 }
 
-.notes-tab textarea:focus {
+.note-content-input:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
     border-color: var(--primary-color);
+}
+
+.note-content-readonly {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--surface-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-y: auto;
+    min-height: 300px;
+}
+
+.note-content-readonly p {
+    margin: 0 0 1em 0;
+}
+
+.note-content-readonly p:last-child {
+    margin-bottom: 0;
 }

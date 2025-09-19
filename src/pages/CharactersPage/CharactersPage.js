@@ -50,7 +50,7 @@ const defaultCharacter = () => ({
     modifiers: [],
     suerte: 0,
     hp: 0,
-    notes: '',
+    notes: [],
     portraitUrl: '',
     bio: '',
     languages: '',
@@ -863,6 +863,7 @@ const CharactersPage = (container) => {
                     },
                 },
             });
+
             sheet.init();
             return;
         }

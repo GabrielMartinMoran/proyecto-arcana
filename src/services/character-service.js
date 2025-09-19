@@ -26,7 +26,7 @@ const CharacterService = {
             suerte: Number.isFinite(c.suerte) ? Number(c.suerte) : 0,
             hp: Number.isFinite(c.hp) ? Number(c.hp) : 0,
             tempHp: Number.isFinite(c.tempHp) ? Number(c.tempHp) : 0,
-            notes: typeof c.notes === 'string' ? c.notes : '',
+            notes: Array.isArray(c.notes) ? c.notes : [],
             portraitUrl: typeof c.portraitUrl === 'string' ? c.portraitUrl : '',
             bio: typeof c.bio === 'string' ? c.bio : '',
             languages: typeof c.languages === 'string' ? c.languages : '',

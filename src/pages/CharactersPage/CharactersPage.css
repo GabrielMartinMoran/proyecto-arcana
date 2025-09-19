@@ -288,17 +288,7 @@
     border-radius: var(--radius-md);
     background: #f3f4f6; /* light gray */
 }
-/* Equipment list */
-.equip-list {
-    display: grid;
-    gap: 0.25rem;
-}
-.equip-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.5rem;
-    align-items: center;
-}
+
 .portrait-wrap {
     display: grid;
     place-items: center;

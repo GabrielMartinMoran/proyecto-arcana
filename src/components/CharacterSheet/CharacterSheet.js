@@ -206,6 +206,7 @@ export default function CharacterSheet(container, props = {}) {
                 if (tabContainer) {
                     const comp = NotesTab(tabContainer, {
                         character: state.character,
+                        readOnly: readOnly,
                         onUpdate: (updatedCharacter) => {
                             state.character = updatedCharacter;
                             if (props.onUpdate) props.onUpdate(updatedCharacter);
