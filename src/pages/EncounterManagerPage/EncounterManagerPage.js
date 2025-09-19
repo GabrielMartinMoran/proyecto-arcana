@@ -15,7 +15,7 @@ import AttributesPanel from '../../components/AttributesPanel/AttributesPanel.js
 import DerivedStatsPanel from '../../components/DerivedStatsPanel/DerivedStatsPanel.js';
 import CardComponent from '../../components/CardComponent/CardComponent.js';
 import rollStore from '../../services/roll-store.js';
-import { RULES, computeDerivedStats, applyModifiersToDerived } from '../../models/rules.js';
+import { RULES, computeDerivedStats, applyModifiersToDerived, ALLOWED_MODIFIER_FIELDS } from '../../models/rules.js';
 import EquipmentList from '../../components/EquipmentList/EquipmentList.js';
 import EncounterParticipantPicker from '../../components/EncounterParticipantPicker/EncounterParticipantPicker.js';
 import { mountImageWithFallback } from '../../utils/image-utils.js';
@@ -340,6 +340,7 @@ const EncounterManagerPage = (container) => {
                 services: { CardService, meetsRequirements: () => true, RULES },
                 derived,
                 options: { readOnly: false, lockName: true },
+                allowedFields: ALLOWED_MODIFIER_FIELDS,
                 onRoll: publishEncounterRoll,
                 hooks: {
                     onBind: (ed) => {

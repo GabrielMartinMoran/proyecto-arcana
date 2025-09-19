@@ -28,14 +28,25 @@ const ModifiersList = (container, props = {}) => {
                         (m, idx) =>
                             html`<div class="mod-row" data-idx="${idx}">
                                 <select data-mod-field>
-                                    ${state.allowedFields
-                                        .map(
-                                            (f) =>
-                                                html`<option value="${f}" ${m.field === f ? 'selected' : ''}>
-                                                    ${f}
-                                                </option>`
-                                        )
-                                        .join('')}
+                                    ${(() => {
+                                        // Build option list from allowedFields but ensure the current modifier field
+                                        // is present so the select shows the existing value even if it's not in allowedFields.
+                                        const fields = Array.isArray(state.allowedFields)
+                                            ? state.allowedFields.slice()
+                                            : [];
+                                        if (m && m.field && !fields.includes(m.field)) {
+                                            // Add current field at the front so it's visible and selected.
+                                            fields.unshift(m.field);
+                                        }
+                                        return fields
+                                            .map(
+                                                (f) =>
+                                                    html`<option value="${f}" ${m.field === f ? 'selected' : ''}>
+                                                        ${f}
+                                                    </option>`
+                                            )
+                                            .join('');
+                                    })()}
                                 </select>
                                 <select data-mod-mode>
                                     <option value="add" ${m.mode !== 'set' ? 'selected' : ''}>+</option>

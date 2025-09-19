@@ -2,6 +2,7 @@ const html = window.html || String.raw;
 import PanelHeader from '../PanelHeader/PanelHeader.js';
 import InlineStat from '../InlineStat/InlineStat.js';
 import { ensureStyle } from '../../utils/style-utils.js';
+import { ALLOWED_MODIFIER_FIELDS } from '../../models/rules.js';
 
 /**
  * ConfigTab - Component for character configuration
@@ -12,7 +13,7 @@ const ConfigTab = (container, props = {}) => {
     let state = {
         character: props.character || {},
         derived: props.derived || {},
-        allowedFields: props.allowedFields || [],
+        allowedFields: Array.isArray(props.allowedFields) ? props.allowedFields : ALLOWED_MODIFIER_FIELDS.slice(),
         onUpdate: typeof props.onUpdate === 'function' ? props.onUpdate : () => {},
     };
 
