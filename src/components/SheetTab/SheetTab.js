@@ -36,6 +36,24 @@ const SheetTab = (container, props = {}) => {
         onRoll: typeof props.onRoll === 'function' ? props.onRoll : null,
     };
 
+    // Ensure `info` exists on character (default to empty string) to avoid undefined checks later.
+    // If the field was missing, initialize it and dispatch a save event so the change is persisted.
+    try {
+        if (!state.character || typeof state.character !== 'object') state.character = {};
+        if (!Object.prototype.hasOwnProperty.call(state.character, 'info')) {
+            state.character.info = '';
+            try {
+                const evt = new CustomEvent('arcana:save', {
+                    detail: {
+                        id: state.character && state.character.id ? state.character.id : null,
+                        updatedCharacter: { info: '' },
+                    },
+                });
+                window.dispatchEvent(evt);
+            } catch (_) {}
+        }
+    } catch (_) {}
+
     // Registry for mounted subcomponents
     let mountedComponents = {};
 
@@ -56,6 +74,22 @@ const SheetTab = (container, props = {}) => {
                     ${PanelHeader({ title: 'Derivados' })}
                     <div id="derived-host" data-readonly="${readOnly ? '1' : '0'}"></div>
                 </div>
+
+                <div class="panel">
+                    ${PanelHeader({ title: 'Info' })}
+                    <div class="info-container">
+                        <textarea
+                            id="info"
+                            class="info-textarea"
+                            rows="6"
+                            ${readOnly ? 'disabled' : ''}
+                            placeholder="Información general, habilidades, etc."
+                        >
+${c.info || ''}</textarea
+                        >
+                    </div>
+                </div>
+
                 <div class="panel">
                     ${PanelHeader({ title: 'Ataques' })}
                     <div id="attacks-list" data-readonly="${readOnly ? '1' : '0'}"></div>
@@ -107,6 +141,8 @@ const SheetTab = (container, props = {}) => {
                 handleGoldChange(e.target.value);
             } else if (e.target.id === 'languages') {
                 handleLanguagesChange(e.target.value);
+            } else if (e.target.id === 'info') {
+                handleInfoChange(e.target.value);
             }
         });
 
@@ -114,7 +150,7 @@ const SheetTab = (container, props = {}) => {
         container.addEventListener(
             'blur',
             (e) => {
-                if (e.target.id === 'gold' || e.target.id === 'languages') {
+                if (e.target.id === 'gold' || e.target.id === 'languages' || e.target.id === 'info') {
                     if (!suppressOnUpdate) state.onUpdate(state.character);
                 }
             },
@@ -130,6 +166,12 @@ const SheetTab = (container, props = {}) => {
 
     const handleLanguagesChange = (value) => {
         state.character.languages = value.trim();
+        if (!suppressOnUpdate) state.onUpdate(state.character);
+    };
+
+    const handleInfoChange = (value) => {
+        // Keep textarea content as-is (no trim) to preserve formatting
+        state.character.info = typeof value === 'string' ? value : '';
         if (!suppressOnUpdate) state.onUpdate(state.character);
     };
 
@@ -541,6 +583,9 @@ const SheetTab = (container, props = {}) => {
                 const languagesInput = container.querySelector('#languages');
                 if (languagesInput && partial.hasOwnProperty('languages'))
                     languagesInput.value = partial.languages || '';
+
+                const infoInput = container.querySelector('#info');
+                if (infoInput && partial.hasOwnProperty('info')) infoInput.value = partial.info || '';
             } catch (_) {}
 
             // Patch mounted subcomponents (safely)
