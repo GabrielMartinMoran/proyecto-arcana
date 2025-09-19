@@ -191,7 +191,7 @@ const SheetTab = (container, props = {}) => {
                 rollStore.addRoll({ ...entry, who: state.character.name });
                 DiceService.showAttributeRoll({
                     characterName: state.character.name,
-                    attributeName,
+                    attributeName: attributeKey,
                     result,
                 });
 
