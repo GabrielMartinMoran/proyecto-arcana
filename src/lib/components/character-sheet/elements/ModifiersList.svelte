@@ -22,14 +22,6 @@
 		modifiers = modifiers.filter((i) => i.id !== modifier.id);
 		onChange(modifiers);
 	};
-
-	const rollmodifier = (modifier: Modifier) => {
-		console.log('Rolling modifier', modifier);
-	};
-
-	const rollDamage = (modifier: Modifier) => {
-		console.log('Rolling damage', modifier);
-	};
 </script>
 
 <div class="modifier-list">
@@ -39,13 +31,13 @@
 	</div>
 	<div class="content">
 		<div class="modifiers-header">
-			<label class="field">Atributo</label>
 			<label class="type">Tipo</label>
+			<label class="field">Atributo</label>
 			<label class="formula">Formula</label>
 			<label class="label">Razón</label>
 		</div>
 		{#each modifiers as modifier (modifier.id)}
-			<div class="item">
+			<div class="modifier">
 				<SelectField
 					options={[
 						{ label: 'Sumar', value: 'add' },
@@ -122,7 +114,7 @@
 				width: 100%;
 			}
 
-			.item {
+			.modifier {
 				display: grid;
 				grid-template-columns: 1fr 1fr 1fr 1fr 50px;
 				gap: var(--spacing-md);
