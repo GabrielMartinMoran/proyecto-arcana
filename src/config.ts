@@ -1,0 +1,7 @@
+export const CONFIG = {
+	BASE_SPEED: 6,
+	BASE_HEALTH: 6,
+	HEALTH_BODY_MULTIPIER: 3,
+	MAX_LUCK: 5,
+	BASE_EVASION: 4,
+};
