@@ -113,6 +113,14 @@
 
 <Container title="Información">
 	<div class="info">
+		<AttacksList
+			attacks={character.attacks}
+			{readonly}
+			onChange={(attacks) => {
+				character.attacks = attacks;
+				onChange(character);
+			}}
+		/>
 		<TextField
 			label="Información Rápida"
 			value={character.quickInfo}
@@ -132,18 +140,6 @@
 			textAlign="left"
 			onChange={(value) => {
 				character.languages = value as string;
-				onChange(character);
-			}}
-		/>
-	</div>
-</Container>
-<Container title="Ataques">
-	<div class="attacks">
-		<AttacksList
-			attacks={character.attacks}
-			{readonly}
-			onChange={(attacks) => {
-				character.attacks = attacks;
 				onChange(character);
 			}}
 		/>
@@ -174,7 +170,6 @@
 		margin-top: var(--spacing-md);
 	}
 
-	.attacks,
 	.equipment,
 	.info {
 		display: flex;

@@ -1,3 +1,4 @@
+import { calculateModifierFormula } from '$lib/utils/modifiers-calculator';
 import { CONFIG } from '../../config';
 import type { Attributes } from './attributes';
 
@@ -40,25 +41,40 @@ export class Character {
 		this.attacks = props.attacks;
 	}
 
+	protected calculateAttrModifiers(attr: string, baseValue: number) {
+		let value = baseValue;
+		const modifiers = this.modifiers.filter((x) => x.attribute === attr);
+		for (const modifier of modifiers) {
+			const formulaResult = calculateModifierFormula(modifier.formula, this);
+			if (modifier.type === 'set') return formulaResult;
+			if (modifier.type === 'add') value += formulaResult;
+		}
+		return value;
+	}
+
 	get maxLuck() {
-		// TODO: Refactor
-		return CONFIG.MAX_LUCK;
+		const base = CONFIG.MAX_LUCK;
+		return this.calculateAttrModifiers('maxLuck', base);
 	}
 
 	get maxHP() {
-		return CONFIG.BASE_HEALTH + this.attributes.cuerpo * CONFIG.HEALTH_BODY_MULTIPIER;
+		const base = CONFIG.BASE_HEALTH + this.attributes.cuerpo * CONFIG.HEALTH_BODY_MULTIPIER;
+		return this.calculateAttrModifiers('maxHP', base);
 	}
 
 	get speed() {
-		return CONFIG.BASE_SPEED + this.attributes.reflejos;
+		const base = CONFIG.BASE_SPEED + this.attributes.reflejos;
+		return this.calculateAttrModifiers('speed', base);
 	}
 
 	get evasion() {
-		return CONFIG.BASE_EVASION + this.attributes.reflejos;
+		const base = CONFIG.BASE_EVASION + this.attributes.reflejos;
+		return this.calculateAttrModifiers('evasion', base);
 	}
 
 	get mitigation() {
-		return 0;
+		const base = 0;
+		return this.calculateAttrModifiers('mitigation', base);
 	}
 
 	get gold() {
@@ -94,10 +110,11 @@ export interface Equipment {
 }
 
 export interface Modifier {
-	field: 'hp' | 'luck' | 'evasion' | 'mitigation';
-	mode: 'add' | 'set';
+	id: string;
+	attribute: 'maxHP' | 'maxLuck' | 'evasion' | 'mitigation' | 'speed';
+	type: 'add' | 'set';
 	formula: string;
-	label: string;
+	reason: string;
 }
 
 export interface Note {

@@ -3,7 +3,7 @@
 		label?: string;
 		value: number | string;
 		max?: number;
-		readonly: boolean;
+		readonly?: boolean;
 		onChange?: (value: number | string) => void;
 		fullWidth?: boolean;
 		placeholder?: string;
@@ -19,7 +19,7 @@
 		label = undefined,
 		value,
 		max,
-		readonly,
+		readonly = false,
 		onChange = () => {},
 		button = undefined,
 		fullWidth = false,
