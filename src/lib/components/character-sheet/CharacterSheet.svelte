@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Character } from '$lib/types/character';
 	import type { Component } from 'svelte';
+	import TitleField from '../ui/TitleField.svelte';
+	import BioTab from './tabs/BioTab.svelte';
 	import CardsTab from './tabs/CardsTab.svelte';
 	import DicesTab from './tabs/DicesTab.svelte';
 	import GeneralTab from './tabs/GeneralTab.svelte';
@@ -31,6 +33,11 @@
 		{
 			title: 'Cartas',
 			component: CardsTab,
+			availableWhenReadOnly: true,
+		},
+		{
+			title: 'Bio',
+			component: BioTab,
 			availableWhenReadOnly: true,
 		},
 		{
@@ -67,6 +74,16 @@
 </script>
 
 <div class="character-sheet">
+	<div class="title">
+		<TitleField
+			value={character.name}
+			{readonly}
+			onChange={(value) => {
+				character.name = value;
+				onCharacterChange(character);
+			}}
+		/>
+	</div>
 	<div class="tabs">
 		{#each TABS as tab, index (tab.title)}
 			{#if tab.availableWhenReadOnly || !readonly}
@@ -86,6 +103,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-md);
+		width: 100%;
 
 		.tabs {
 			display: flex;

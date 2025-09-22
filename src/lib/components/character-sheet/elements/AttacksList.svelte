@@ -60,7 +60,7 @@
 					}}
 				/>
 				<InputField
-					value={attack.name}
+					value={attack.atkFormula}
 					{readonly}
 					placeholder="1d6e+cuerpo"
 					fullWidth={true}
@@ -75,7 +75,7 @@
 					}}
 				/>
 				<InputField
-					value={attack.name}
+					value={attack.dmgFormula}
 					{readonly}
 					placeholder="1d4"
 					fullWidth={true}
@@ -90,7 +90,7 @@
 					}}
 				/>
 				<InputField
-					value={attack.name}
+					value={attack.notes}
 					{readonly}
 					placeholder="Contundente"
 					fullWidth={true}

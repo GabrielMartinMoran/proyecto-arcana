@@ -12,7 +12,7 @@
 
 	let { value, options, onChange = () => {} }: Props = $props();
 
-	let innerValue = $state(value);
+	let innerValue = $derived(value);
 </script>
 
 <div class="fieldgroup">

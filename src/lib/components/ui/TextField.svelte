@@ -1,30 +1,41 @@
 <script lang="ts">
-	const ROWS = 6;
+	const DEFAULT_ROWS = 6;
 
 	type Props = {
-		label: string;
+		label?: string;
 		value: string;
 		readonly: boolean;
 		placeholder?: string;
+		maxRows?: number | 'unlimited';
 		onChange: (value: string) => void;
 	};
 
-	let { label, value, readonly, placeholder = '', onChange }: Props = $props();
+	let {
+		label = undefined,
+		value,
+		readonly,
+		placeholder = '',
+		maxRows = DEFAULT_ROWS,
+		onChange,
+	}: Props = $props();
 
-	let innerValue = $state(value);
+	let innerValue = $derived(value);
 </script>
 
-<div class="fieldgroup">
-	<label>{label}</label>
-	<span class="field">
+<div class="fieldgroup" class:expanded={maxRows === 'unlimited'}>
+	{#if label}
+		<label>{label}</label>
+	{/if}
+	<div class="field" class:expanded={maxRows === 'unlimited'}>
 		<textarea
 			bind:value={innerValue}
 			disabled={readonly}
 			{placeholder}
 			oninput={() => onChange(innerValue)}
-			rows={ROWS}
+			rows={maxRows === 'unlimited' ? undefined : maxRows}
+			class:expanded={maxRows === 'unlimited'}
 		/>
-	</span>
+	</div>
 </div>
 
 <style>
@@ -43,9 +54,13 @@
 				border: none;
 				border: 1px solid var(--border-color);
 				border-radius: var(--radius-md);
-				resize: vertical;
+				resize: none;
 				padding: var(--spacing-md);
 			}
 		}
+	}
+
+	.expanded {
+		flex-grow: 1;
 	}
 </style>

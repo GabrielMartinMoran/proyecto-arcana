@@ -6,7 +6,7 @@ export class Character {
 	id: string;
 	name: string;
 	attributes: Attributes;
-	cards: CharacterCards;
+	cards: CharacterCard[];
 	ppHistory: Log[];
 	goldHistory: Log[];
 	equipment: Equipment[];
@@ -15,7 +15,7 @@ export class Character {
 	tempHP: number;
 	currentLuck: number;
 	img: string | null;
-	bio: string;
+	story: string;
 	notes: Note[];
 	languages: string;
 	quickInfo: string;
@@ -34,7 +34,7 @@ export class Character {
 		this.tempHP = props.tempHP;
 		this.currentLuck = props.currentLuck;
 		this.img = props.img;
-		this.bio = props.bio;
+		this.story = props.story;
 		this.notes = props.notes;
 		this.languages = props.languages;
 		this.quickInfo = props.quickInfo;
@@ -81,22 +81,40 @@ export class Character {
 		return 0;
 	}
 
+	get currentPP() {
+		const current = this.ppHistory
+			.filter((x) => x.type === 'add')
+			.reduce((acc, x) => acc + x.value, 0);
+		const spent = this.spentPP;
+		if (spent > 0) return current - spent;
+		return current;
+	}
+
+	get spentPP() {
+		return this.ppHistory.filter((x) => x.type === 'subtract').reduce((acc, x) => acc + x.value, 0);
+	}
+
+	get pjPower() {
+		// Get the level of the max card
+		const maxCardLevel = this.cards.reduce((acc, card) => Math.max(acc, card.level), 0);
+		const ppFactor = this.spentPP / CONFIG.PJ_POWER_SPENT_PP_DIVIDER;
+		return Math.round(maxCardLevel + ppFactor);
+	}
+
 	copy() {
 		return new Character({ ...this });
 	}
 }
 
-export interface CharacterCards {
-	active: CharacterCard[];
-	owned: CharacterCard[];
-}
-
 export interface CharacterCard {
 	id: string;
 	uses: number | null;
+	level: number; // Just for calculations
+	isActive: boolean;
 }
 
 export interface Log {
+	id: string;
 	type: 'add' | 'subtract';
 	value: number;
 	reason: string;

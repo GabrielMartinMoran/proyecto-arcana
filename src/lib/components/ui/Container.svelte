@@ -4,12 +4,13 @@
 	type Props = {
 		title?: string;
 		children?: Snippet;
+		width?: string;
 	};
 
-	let { title = undefined, children }: Props = $props();
+	let { title = undefined, children, width = undefined }: Props = $props();
 </script>
 
-<div class="container">
+<div class="container" style:width>
 	{#if title}
 		<h2>{title}</h2>
 	{/if}

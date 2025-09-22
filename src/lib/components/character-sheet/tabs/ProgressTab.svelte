@@ -1,12 +1,185 @@
 <script lang="ts">
-	import type { Character } from '$lib/types/character';
+	import Container from '$lib/components/ui/Container.svelte';
+	import InputField from '$lib/components/ui/InputField.svelte';
+	import { Character, type Log } from '$lib/types/character';
+
+	const DEFAULT_REASON = 'Sin razón especifica';
 
 	type Props = {
 		character: Character;
 		readonly: boolean;
+		onChange: (character: Character) => void;
 	};
 
-	let { character, readonly }: Props = $props();
+	let { character, readonly, onChange }: Props = $props();
+
+	let controls: { quantity: number; reason: string } = $state({ quantity: 1, reason: '' });
+
+	const resetControls = () => {
+		controls.quantity = 1;
+		controls.reason = '';
+	};
+
+	const addPP = () => {
+		const log = {
+			id: crypto.randomUUID(),
+			type: 'add',
+			value: controls.quantity,
+			reason: controls.reason || DEFAULT_REASON,
+		} as Log;
+		character.ppHistory.unshift(log);
+		onChange(character);
+		resetControls();
+	};
+
+	const substractPP = () => {
+		const log = {
+			id: crypto.randomUUID(),
+			type: 'subtract',
+			value: controls.quantity,
+			reason: controls.reason || DEFAULT_REASON,
+		} as Log;
+		character.ppHistory.unshift(log);
+		onChange(character);
+		resetControls();
+	};
+
+	const rollbackLog = (log: Log) => {
+		character.ppHistory = character.ppHistory.filter((item) => item.id !== log.id);
+		onChange(character);
+	};
 </script>
 
-<h1>Progreso</h1>
+<Container title="Estado Actual">
+	<div class="status">
+		<div class="indicator">
+			<span>PP Actuales</span>
+			<strong class="number" class:negative={character.currentPP < 0}>{character.currentPP}</strong>
+		</div>
+		<div class="indicator">
+			<span>PP Gastados</span>
+			<strong class="number">{character.spentPP}</strong>
+		</div>
+		<div class="indicator">
+			<span>Poder de PJ</span>
+			<strong class="number">{character.pjPower}</strong>
+		</div>
+	</div>
+</Container>
+
+<Container title="Actualizar Progreso">
+	<div class="editor">
+		<div class="labels">
+			<label>Cantidad</label>
+			<label>Razón</label>
+		</div>
+		<div class="controls">
+			<InputField
+				value={controls.quantity}
+				placeholder="Cantidad"
+				fullWidth={true}
+				onChange={(value) => {
+					controls.quantity = Number(value);
+				}}
+			/>
+			<InputField
+				value={controls.reason}
+				placeholder="Razón"
+				fullWidth={true}
+				onChange={(value) => {
+					controls.reason = value.toString();
+				}}
+			/>
+			<button title="Gastar PP" onclick={substractPP}>-</button>
+			<button title="Ganar PP" onclick={addPP}>+</button>
+		</div>
+	</div>
+</Container>
+
+<Container title="Historial">
+	<div class="history">
+		{#each character.ppHistory as log (log.id)}
+			<div class="log-content">
+				<strong
+					class="log-amount"
+					class:positive={log.type === 'add'}
+					class:negative={log.type === 'subtract'}
+					>{log.type === 'add' ? '+' : '-'}{log.value} PP
+				</strong>
+				<span class="log-reason">{log.reason}</span>
+				<button title="Deshacer esta acción" onclick={() => rollbackLog(log)}> ↶ </button>
+			</div>
+		{:else}
+			<div class="empty">
+				<em>No hay registros</em>
+			</div>
+		{/each}
+	</div>
+</Container>
+
+<style>
+	.status {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+
+		.indicator {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.number {
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	.editor {
+		.labels {
+			display: grid;
+			grid-template-columns: 1fr 3fr 50px 50px;
+			gap: var(--spacing-sm);
+		}
+
+		.controls {
+			display: grid;
+			grid-template-columns: 1fr 3fr 50px 50px;
+			gap: var(--spacing-sm);
+		}
+	}
+
+	.history {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+
+		.log-content {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: var(--spacing-sm);
+
+			.log-reason {
+				flex-grow: 1;
+			}
+		}
+
+		.empty {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.positive {
+		color: green;
+	}
+
+	.negative {
+		color: red;
+	}
+</style>

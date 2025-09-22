@@ -1,12 +1,24 @@
 <script lang="ts">
+	import Container from '$lib/components/ui/Container.svelte';
 	import type { Character } from '$lib/types/character';
+	import Notes from '../elements/Notes.svelte';
 
 	type Props = {
 		character: Character;
 		readonly: boolean;
+		onChange: (character: Character) => void;
 	};
 
-	let { character, readonly }: Props = $props();
+	let { character, readonly, onChange }: Props = $props();
 </script>
 
-<h1>Notas</h1>
+<Container title="Notas">
+	<Notes
+		notes={character.notes}
+		{readonly}
+		onChange={(value) => {
+			character.notes = value;
+			onChange(character);
+		}}
+	/>
+</Container>
