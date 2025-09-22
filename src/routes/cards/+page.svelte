@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Card from '$lib/components/cards/Card.svelte';
+	import CardsList from '$lib/components/cards/CardsList.svelte';
 	import { useCardsService } from '$lib/services/cards-service';
 	import { onMount } from 'svelte';
 
@@ -12,21 +12,5 @@
 
 <section>
 	<h1>Galería de Cartas</h1>
-	<div class="cards">
-		{#each $cards as card (card.id)}
-			<Card {card} />
-		{/each}
-	</div>
+	<CardsList cards={$cards} />
 </section>
-
-<style>
-	.cards {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		gap: var(--spacing-md);
-	}
-</style>

@@ -81,13 +81,14 @@
 		display: flex;
 		flex-direction: row;
 		gap: var(--spacing-md);
+		flex-grow: 1;
 
 		.list {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			width: 300px;
+			justify-content: start;
+			width: 250px;
 
 			.header {
 				display: flex;
@@ -103,7 +104,7 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: center;
+				justify-content: start;
 				width: 100%;
 				gap: var(--spacing-sm);
 				padding-top: var(--spacing-md);

@@ -20,6 +20,7 @@ export class Character {
 	languages: string;
 	quickInfo: string;
 	attacks: Attack[];
+	maxActiveCards: number;
 
 	constructor(props: any) {
 		this.id = props.id;
@@ -39,6 +40,7 @@ export class Character {
 		this.languages = props.languages;
 		this.quickInfo = props.quickInfo;
 		this.attacks = props.attacks;
+		this.maxActiveCards = props.maxActiveCards;
 	}
 
 	protected calculateAttrModifiers(attr: string, baseValue: number) {
@@ -99,6 +101,10 @@ export class Character {
 		const maxCardLevel = this.cards.reduce((acc, card) => Math.max(acc, card.level), 0);
 		const ppFactor = this.spentPP / CONFIG.PJ_POWER_SPENT_PP_DIVIDER;
 		return Math.round(maxCardLevel + ppFactor);
+	}
+
+	get numActiveCards() {
+		return this.cards.filter((card) => card.isActive).length;
 	}
 
 	copy() {

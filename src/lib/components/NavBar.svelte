@@ -19,7 +19,7 @@
 		},
 		{
 			path: '/gm',
-			label: '👨‍⚖️ Manual del Director de Juego',
+			label: '👨‍⚖️ Manual del DJ',
 		},
 		{
 			path: '/bestiary',
@@ -48,10 +48,14 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		width: 300px;
+		width: 220px;
 		z-index: 1000;
-		gap: var(--spacing-md);
 		border-right: 1px solid var(--border-color);
+		background-color: var(--secondary-bg);
+
+		h1 {
+			margin-left: var(--spacing-md);
+		}
 
 		a {
 			display: flex;

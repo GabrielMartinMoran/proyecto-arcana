@@ -5,9 +5,10 @@
 
 	type Props = {
 		card: Card;
+		children?: Snippet;
 	};
 
-	let { card }: Props = $props();
+	let { card, children = undefined }: Props = $props();
 
 	const getBorderColor = (tags: string[]) => {
 		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
@@ -51,13 +52,27 @@
 			{#each card.tags as tag (tag)}
 				<span class="chip">{tag}</span>
 			{/each}
+			{#if card.uses.type}
+				{#if card.uses.type === 'LONG_REST'}
+					<span class="chip">Usos: {card.uses.qty ?? '?'} por día de descanso</span>
+				{:else if card.uses.type === 'RELOAD'}
+					<span class="chip">Usos: 1 (Recarga {card.uses.qty ?? '?'}+)</span>
+				{:else if card.uses.type === 'USES'}
+					<span class="chip">Usos: {card.uses.qty ?? '?'}</span>
+				{/if}
+			{/if}
 		</div>
 	</div>
 	<div class="footer">
 		<span class="requirements">REQUERIMIENTOS</span>
 		<div class="requirements-list">
-			<span>{card.requirements.length > 0 ? card.requirements.join(', ') : '-'}</span>
+			<span>{card.requirements.length > 0 ? card.requirements.join(', ') : '—'}</span>
 		</div>
+		{#if children}
+			<div class="controls">
+				{@render children()}
+			</div>
+		{/if}
 	</div>
 </div>
 
@@ -67,8 +82,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		width: 350px;
-		min-height: 400px;
+		width: 300px;
+		min-height: 450px;
 		border-radius: var(--radius-md);
 		border: 1px solid;
 		padding: var(--spacing-md);
@@ -80,9 +95,9 @@
 			border-color 0.2s ease;
 
 		&:hover {
-			transform: translateY(-5px);
+			transform: scale(1.01);
 			border: 2px solid;
-			box-shadow: var(--shadow-md);
+			box-shadow: var(--shadow-lg);
 		}
 
 		.header {
@@ -102,6 +117,7 @@
 
 			h3 {
 				padding: var(--spacing-sm);
+				padding-top: var(--spacing-md);
 				margin: 0;
 			}
 		}
@@ -113,6 +129,7 @@
 			align-items: center;
 			justify-content: start;
 			padding: var(--spacing-sm);
+			font-size: 0.8rem;
 
 			.description {
 				flex-grow: 1;
@@ -147,13 +164,28 @@
 			.requirements {
 				font-size: 0.8rem;
 				color: var(--text-secondary);
-				text-transform: uppercase;
 				letter-spacing: 0.08em;
 			}
 
 			.requirements-list {
 				padding-left: var(--spacing-xs);
 				padding-right: var(--spacing-xs);
+				font-size: 0.8rem;
+			}
+
+			.controls {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				gap: var(--spacing-sm);
+				width: 100%;
+				padding-top: var(--spacing-sm);
+
+				.spacer {
+					/* Used by the children */
+					flex-grow: 1;
+				}
 			}
 		}
 	}

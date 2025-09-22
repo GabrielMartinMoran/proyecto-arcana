@@ -29,7 +29,6 @@
 		width: 100%;
 		padding: 0px;
 		margin: 0px;
-		gap: var(--spacing-lg);
 
 		.content {
 			flex: 1;
