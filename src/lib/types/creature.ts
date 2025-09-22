@@ -1,4 +1,5 @@
 import type { Attributes } from './attributes';
+import type { Uses } from './uses';
 
 export interface Creature {
 	id: string;
@@ -42,10 +43,5 @@ export interface CreatureTrait {
 export interface CreatureAction {
 	name: string;
 	detail: string;
-	uses: ActionUses | null;
-}
-
-export interface ActionUses {
-	qty: number | null;
-	type: 'RELOAD' | 'USES';
+	uses: Uses | null;
 }

@@ -67,34 +67,36 @@
 	</div>
 </Container>
 
-<Container title="Actualizar Progreso">
-	<div class="editor">
-		<div class="labels">
-			<label>Cantidad</label>
-			<label>Razón</label>
+{#if !readonly}
+	<Container title="Actualizar Progreso">
+		<div class="editor">
+			<div class="labels">
+				<label>Cantidad</label>
+				<label>Razón</label>
+			</div>
+			<div class="controls">
+				<InputField
+					value={controls.quantity}
+					placeholder="Cantidad"
+					fullWidth={true}
+					onChange={(value) => {
+						controls.quantity = Number(value);
+					}}
+				/>
+				<InputField
+					value={controls.reason}
+					placeholder="Razón"
+					fullWidth={true}
+					onChange={(value) => {
+						controls.reason = value.toString();
+					}}
+				/>
+				<button title="Gastar PP" onclick={substractPP}>-</button>
+				<button title="Ganar PP" onclick={addPP}>+</button>
+			</div>
 		</div>
-		<div class="controls">
-			<InputField
-				value={controls.quantity}
-				placeholder="Cantidad"
-				fullWidth={true}
-				onChange={(value) => {
-					controls.quantity = Number(value);
-				}}
-			/>
-			<InputField
-				value={controls.reason}
-				placeholder="Razón"
-				fullWidth={true}
-				onChange={(value) => {
-					controls.reason = value.toString();
-				}}
-			/>
-			<button title="Gastar PP" onclick={substractPP}>-</button>
-			<button title="Ganar PP" onclick={addPP}>+</button>
-		</div>
-	</div>
-</Container>
+	</Container>
+{/if}
 
 <Container title="Historial">
 	<div class="history">

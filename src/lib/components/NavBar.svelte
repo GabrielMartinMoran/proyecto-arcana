@@ -14,6 +14,10 @@
 			label: '🕹️ Manual del Jugador',
 		},
 		{
+			path: '/cards',
+			label: '🃏 Galería de Cartas',
+		},
+		{
 			path: '/gm',
 			label: '👨‍⚖️ Manual del Director de Juego',
 		},

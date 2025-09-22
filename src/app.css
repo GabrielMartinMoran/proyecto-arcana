@@ -111,7 +111,7 @@ button {
 		box-shadow: var(--shadow-md);
 	}
 	&:active {
-		transform: translateY(1px);
+		transform: translateY(-1px);
 	}
 	&.primary {
 		background: #f59e0b;
