@@ -2,7 +2,6 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import CharacterSheet from '$lib/components/character-sheet/CharacterSheet.svelte';
-	import Container from '$lib/components/ui/Container.svelte';
 	import { createCharacter } from '$lib/factories/character-factory';
 	import { useCharactersService } from '$lib/services/characters-service';
 	import type { Character } from '$lib/types/character';
@@ -43,32 +42,30 @@
 </script>
 
 <section class="characters-page">
-	<Container>
-		<div class="list">
-			<div class="header">
-				<button onclick={addCharacter}>➕</button>
-				<button>📥</button>
-				<button>📤</button>
-				<button>🗑️</button>
-			</div>
-			<div class="content">
-				{#each $characters as character (character.id)}
-					<button
-						class="character-item"
-						class:selected={selectedCharacterId === character.id}
-						onclick={() => selectCharacter(character)}
-					>
-						{#if character.img}
-							<img class="character-image" src={character.img} alt={character.name} />
-						{:else}
-							<span class="image-placeholder">{character.name.charAt(0).toUpperCase()}</span>
-						{/if}
-						<span>{character.name}</span>
-					</button>
-				{/each}
-			</div>
+	<div class="list">
+		<div class="header">
+			<button onclick={addCharacter}>➕</button>
+			<button>📥</button>
+			<button>📤</button>
+			<button>🗑️</button>
 		</div>
-	</Container>
+		<div class="content">
+			{#each $characters as character (character.id)}
+				<button
+					class="character-item"
+					class:selected={selectedCharacterId === character.id}
+					onclick={() => selectCharacter(character)}
+				>
+					{#if character.img}
+						<img class="character-image" src={character.img} alt={character.name} />
+					{:else}
+						<span class="image-placeholder">{character.name.charAt(0).toUpperCase()}</span>
+					{/if}
+					<span>{character.name}</span>
+				</button>
+			{/each}
+		</div>
+	</div>
 	<div class="viewport">
 		{#if selectedCharacter}
 			<CharacterSheet character={selectedCharacter} readonly={false} onChange={onCharacterUpdate} />
@@ -82,12 +79,17 @@
 		flex-direction: row;
 		gap: var(--spacing-md);
 		flex-grow: 1;
+		justify-content: center;
 
 		.list {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: start;
+			border: 1px solid var(--border-color);
+			padding: var(--spacing-md);
+			border-radius: var(--radius-md);
+			background-color: var(--secondary-bg);
 			width: 250px;
 
 			.header {
@@ -142,6 +144,22 @@
 
 		.viewport {
 			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.characters-page {
+			flex-wrap: wrap;
+		}
+
+		.list {
+			width: 100% !important;
+			height: fit-content;
+
+			.content {
+				max-height: 150px;
+				overflow-y: scroll;
+			}
 		}
 	}
 </style>

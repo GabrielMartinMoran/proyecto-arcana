@@ -107,6 +107,10 @@ export class Character {
 		return this.cards.filter((card) => card.isActive).length;
 	}
 
+	get initiative() {
+		return this.attributes.reflejos;
+	}
+
 	copy() {
 		return new Character({ ...this });
 	}
