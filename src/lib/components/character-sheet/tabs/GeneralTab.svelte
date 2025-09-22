@@ -128,6 +128,11 @@
 				onChange(character);
 			}}
 		/>
+		{#if character.attacks.length === 0}
+			<div class="empty">
+				<em>No hay ataques cargados.</em>
+			</div>
+		{/if}
 		<TextField
 			label="Información Rápida"
 			value={character.quickInfo}
@@ -163,6 +168,11 @@
 				onChange(character);
 			}}
 		/>
+		{#if character.equipment.length === 0}
+			<div class="empty">
+				<em>El equipo esta vacío.</em>
+			</div>
+		{/if}
 	</div>
 </Container>
 
@@ -184,5 +194,12 @@
 		width: 100%;
 		gap: var(--spacing-md);
 		margin-top: var(--spacing-md);
+
+		.empty {
+			display: flex;
+			flex: 1;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 </style>
