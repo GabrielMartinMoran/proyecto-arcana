@@ -86,11 +86,15 @@
 	.filters {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
 		gap: var(--spacing-md);
 		flex-grow: 1;
+		flex-wrap: wrap;
 
 		input {
 			flex: 1;
+			min-width: 300px;
 		}
 	}
 </style>
