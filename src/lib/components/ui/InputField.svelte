@@ -111,13 +111,11 @@
 
 				&.fullWidth,
 				&.alone {
-					padding-right: var(--spacing-md);
 				}
 
 				&.withButton {
-					width: 3.1rem;
-					text-align: center;
-					margin-left: 2.5rem;
+					width: 4rem;
+					text-align: right;
 				}
 
 				&:disabled {

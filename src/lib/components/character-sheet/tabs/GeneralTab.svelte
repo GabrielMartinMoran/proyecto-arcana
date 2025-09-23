@@ -117,13 +117,7 @@
 		<InputField label="Velocidad" value={character.speed} readonly={true} />
 		<InputField label="Esquiva" value={character.evasion} readonly={true} />
 		<InputField label="Mitigación" value={character.mitigation} readonly={true} />
-		<InputField
-			label="Iniciativa"
-			value={character.initiative > 0
-				? `+${character.initiative}`
-				: character.initiative.toString()}
-			readonly={true}
-		/>
+		<InputField label="Iniciativa" value={character.initiative} readonly={true} />
 	</div>
 </Container>
 
