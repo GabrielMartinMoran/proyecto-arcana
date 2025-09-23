@@ -8,7 +8,7 @@
 
 <div class="top-bar">
 	<button onclick={toggleSideMenu}>☰</button>
-	<h1>Arcana</h1>
+	<h1>Proyecto Arcana</h1>
 </div>
 
 <style>

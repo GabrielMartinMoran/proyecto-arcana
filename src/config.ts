@@ -10,4 +10,7 @@ export const CONFIG = {
 	RELOAD_CARD_USES: 1,
 
 	MOBILE_MAX_WIDTH: 1024,
+
+	STANDARD_DICES: ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'],
+	CLEAR_3D_DICES_DELAY: 3000,
 };

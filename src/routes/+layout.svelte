@@ -27,7 +27,7 @@
 		<TopBar />
 	{/if}
 	<div class="body" onclick={onBodyClick}>
-		<DiceBox />
+		<DiceBox {isMobile} />
 		<SideMenu {isMobile} />
 		<section class="content" class:isMobile>
 			{@render children?.()}

@@ -2,6 +2,7 @@
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import TextField from '$lib/components/ui/TextField.svelte';
+	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { Character } from '$lib/types/character';
 	import AttacksList from '../elements/AttacksList.svelte';
 	import AttributeField from '../elements/AttributeField.svelte';
@@ -15,8 +16,16 @@
 
 	let { character, readonly, onChange }: Props = $props();
 
+	let { rollExpression } = useDiceRollerService();
+
 	const onAttributeDiceRoll = (attributeName: string) => {
 		console.log(`Rolling dice for ${attributeName}`);
+		rollExpression(`1d6e+${attributeName}`, {
+			cuerpo: character.attributes.cuerpo,
+			reflejos: character.attributes.reflejos,
+			mente: character.attributes.mente,
+			instinto: character.attributes.instinto,
+		});
 	};
 </script>
 

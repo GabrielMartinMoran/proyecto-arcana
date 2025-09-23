@@ -37,6 +37,7 @@
 	<span
 		class="field"
 		class:inputAlone={max === undefined && button === undefined && !fullWidth}
+		class:inputWithButton={button !== undefined}
 		class:fullWidth
 	>
 		<input
@@ -45,6 +46,7 @@
 			disabled={readonly}
 			class:alone={max === undefined && button === undefined}
 			class:fullWidth
+			class:withButton={button !== undefined}
 			class={`text-align-${textAlign}`}
 			{max}
 			min={0}
@@ -54,8 +56,6 @@
 		{#if max !== undefined}
 			<span class="divider">/</span>
 			<span class="max">{max}</span>
-		{:else if button !== undefined && !fullWidth}
-			<span class="spacer"> </span>
 		{/if}
 		{#if button}
 			<button class="button" onclick={button.onClick} title={button.title}>
@@ -84,9 +84,14 @@
 			gap: var(--spacing-sm);
 			border: 1px solid var(--border-color);
 			border-radius: var(--radius-md);
+			width: 8.2rem;
 
 			&.inputAlone {
 				width: 8.2rem;
+			}
+
+			&.inputWithButton {
+				gap: 0;
 			}
 
 			input {
@@ -94,7 +99,7 @@
 				padding-left: var(--spacing-md);
 				margin-right: 0rem;
 				padding-right: 0rem;
-				width: 3.1rem;
+				flex: 1;
 
 				&.text-align-center {
 					text-align: center;
@@ -106,8 +111,13 @@
 
 				&.fullWidth,
 				&.alone {
-					flex: 1;
 					padding-right: var(--spacing-md);
+				}
+
+				&.withButton {
+					width: 3.1rem;
+					text-align: center;
+					margin-left: 2.5rem;
 				}
 
 				&:disabled {
@@ -132,13 +142,13 @@
 
 			button {
 				border: none;
-				width: 3.1rem;
-				padding-right: var(--spacing-md);
+				width: 2rem;
+				margin-right: var(--spacing-md);
 			}
 		}
 	}
 
 	.fullWidth {
-		width: 100%;
+		width: 100% !important;
 	}
 </style>
