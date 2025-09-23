@@ -80,6 +80,7 @@
 		gap: var(--spacing-md);
 		flex-grow: 1;
 		justify-content: center;
+		width: 100%;
 
 		.list {
 			display: flex;
