@@ -34,6 +34,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
+		"@3d-dice/dice-box": "^1.1.4",
 		"@types/js-sha1": "^0.6.3",
 		"@types/js-yaml": "^4.0.9",
 		"@types/sha1": "^1.1.5",

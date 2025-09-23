@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import DiceBox from '$lib/components/DiceBox.svelte';
 	import SideMenu from '$lib/components/SideMenu.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
@@ -26,6 +27,7 @@
 		<TopBar />
 	{/if}
 	<div class="body" onclick={onBodyClick}>
+		<DiceBox />
 		<SideMenu {isMobile} />
 		<section class="content" class:isMobile>
 			{@render children?.()}
