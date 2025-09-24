@@ -6,9 +6,11 @@
 		attacks: Attack[];
 		readonly: boolean;
 		onChange: (attack: Attack[]) => void;
+		onAttackRoll: (attack: Attack) => void;
+		onDamageRoll: (attack: Attack) => void;
 	};
 
-	let { attacks, readonly, onChange }: Props = $props();
+	let { attacks, readonly, onChange, onAttackRoll, onDamageRoll }: Props = $props();
 
 	const addAttack = () => {
 		attacks = [
@@ -21,14 +23,6 @@
 	const removeAttack = (attack: Attack) => {
 		attacks = attacks.filter((i) => i.id !== attack.id);
 		onChange(attacks);
-	};
-
-	const rollAttack = (attack: Attack) => {
-		console.log('Rolling attack', attack);
-	};
-
-	const rollDamage = (attack: Attack) => {
-		console.log('Rolling damage', attack);
 	};
 </script>
 
@@ -71,7 +65,7 @@
 					button={{
 						icon: '🎯',
 						title: 'Tirar Ataque',
-						onClick: () => rollAttack(attack),
+						onClick: () => onAttackRoll(attack),
 					}}
 				/>
 				<InputField
@@ -86,7 +80,7 @@
 					button={{
 						icon: '💥',
 						title: 'Tirar Daño',
-						onClick: () => rollDamage(attack),
+						onClick: () => onDamageRoll(attack),
 					}}
 				/>
 				<InputField

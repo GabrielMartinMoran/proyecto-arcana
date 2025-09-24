@@ -46,10 +46,10 @@
 		padding: 16px;
 		z-index: 2;
 		/*background-color: red;*/
-		width: calc(100% - (var(--side-bar-width) * 2));
+		width: calc(100% - var(--side-bar-width) - var(--dice-panel-width));
 		height: 100%;
 		margin-left: var(--side-bar-width);
-		margin-right: var(--side-bar-width);
+		margin-right: var(--dice-panel-width);
 		pointer-events: none;
 
 		&.isMobile {

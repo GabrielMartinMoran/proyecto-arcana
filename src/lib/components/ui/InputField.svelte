@@ -78,6 +78,7 @@
 		}
 
 		.field {
+			position: relative;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -95,11 +96,17 @@
 			}
 
 			input {
+				position: relative;
 				border: none;
 				padding-left: var(--spacing-md);
 				margin-right: 0rem;
 				padding-right: 0rem;
 				flex: 1;
+
+				&[type='number']::-webkit-outer-spin-button,
+				&[type='number']::-webkit-inner-spin-button {
+					display: none;
+				}
 
 				&.text-align-center {
 					text-align: center;
@@ -111,11 +118,16 @@
 
 				&.fullWidth,
 				&.alone {
+					padding-right: var(--spacing-md);
+					text-align: center;
 				}
 
 				&.withButton {
-					width: 4rem;
-					text-align: right;
+					flex: 1;
+					text-align: center;
+					padding-right: var(--spacing-md);
+					margin-right: var(--spacing-md);
+					margin-left: var(--spacing-md);
 				}
 
 				&:disabled {
@@ -139,9 +151,12 @@
 			}
 
 			button {
+				position: absolute;
 				border: none;
 				width: 2rem;
-				margin-right: var(--spacing-md);
+				right: var(--spacing-xs);
+				background: transparent;
+				padding: 0;
 			}
 		}
 	}

@@ -48,7 +48,8 @@
 		Helvetica Neue, Arial;
 
 	--top-bar-height: 40px;
-	--side-bar-width: 220px;
+	--side-bar-width: 200px;
+	--dice-panel-width: 250px;
 }
 
 /* CSS reset (minimal) */

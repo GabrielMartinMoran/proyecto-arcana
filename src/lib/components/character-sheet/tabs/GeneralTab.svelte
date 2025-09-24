@@ -3,7 +3,8 @@
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import TextField from '$lib/components/ui/TextField.svelte';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
-	import { Character } from '$lib/types/character';
+	import { Character, type Attack } from '$lib/types/character';
+	import { capitalize } from '$lib/utils/formatting';
 	import AttacksList from '../elements/AttacksList.svelte';
 	import AttributeField from '../elements/AttributeField.svelte';
 	import EquipmentList from '../elements/EquipmentList.svelte';
@@ -19,7 +20,6 @@
 	let { rollExpression } = useDiceRollerService();
 
 	const onAttributeDiceRoll = (attributeName: string) => {
-		console.log(`Rolling dice for ${attributeName}`);
 		rollExpression({
 			expression: `1d6e+${attributeName}`,
 			variables: {
@@ -29,6 +29,35 @@
 				instinto: character.attributes.instinto,
 				presencia: character.attributes.presencia,
 			},
+			title: `${character.name}: ${capitalize(attributeName)}`,
+		});
+	};
+
+	const onAttackRoll = (attack: Attack) => {
+		rollExpression({
+			expression: attack.atkFormula,
+			variables: {
+				cuerpo: character.attributes.cuerpo,
+				reflejos: character.attributes.reflejos,
+				mente: character.attributes.mente,
+				instinto: character.attributes.instinto,
+				presencia: character.attributes.presencia,
+			},
+			title: `${character.name}: Ataque con ${attack.name}`,
+		});
+	};
+
+	const onDamageRoll = (attack: Attack) => {
+		rollExpression({
+			expression: attack.dmgFormula,
+			variables: {
+				cuerpo: character.attributes.cuerpo,
+				reflejos: character.attributes.reflejos,
+				mente: character.attributes.mente,
+				instinto: character.attributes.instinto,
+				presencia: character.attributes.presencia,
+			},
+			title: `${character.name}: Daño de ${attack.name}`,
 		});
 	};
 </script>
@@ -134,6 +163,8 @@
 				character.attacks = attacks;
 				onChange(character);
 			}}
+			{onAttackRoll}
+			{onDamageRoll}
 		/>
 		{#if character.attacks.length === 0}
 			<div class="empty">

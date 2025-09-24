@@ -3,6 +3,8 @@
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { CONFIG } from '../../config';
 
+	const SCROLL_DELAY = 100;
+
 	type Props = {
 		isMobile: boolean;
 	};
@@ -18,7 +20,7 @@
 	rollLogs.subscribe(() => {
 		setTimeout(() => {
 			logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
-		}, 100);
+		}, SCROLL_DELAY);
 	});
 
 	const onBodyClick = (event: MouseEvent) => {
@@ -77,7 +79,7 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		width: var(--side-bar-width);
+		width: var(--dice-panel-width);
 		z-index: 1000;
 		border-left: 1px solid var(--border-color);
 		background-color: var(--secondary-bg);
@@ -88,7 +90,7 @@
 			top: var(--top-bar-height);
 			right: 0;
 			bottom: 0;
-			width: var(--side-bar-width);
+			width: var(--dice-panel-width);
 			overflow-y: auto;
 			transition: transform 0.3s ease-in-out;
 		}
@@ -129,6 +131,11 @@
 				border-radius: var(--radius-md);
 				padding: var(--spacing-xs);
 
+				.title {
+					font-weight: 600;
+					font-size: 0.9rem;
+				}
+
 				.total {
 					display: flex;
 					align-items: center;
@@ -136,13 +143,16 @@
 					border-radius: var(--radius-md);
 					border: 1px solid var(--border-color);
 					padding: var(--spacing-xs);
-					font-size: 1.2rem;
 					font-weight: 600;
 					background-color: var(--disabled-bg);
 				}
 
 				.detail {
 					font-size: 0.8rem;
+					padding-left: var(--spacing-sm);
+					padding-right: var(--spacing-sm);
+					text-align: center;
+					text-wrap: balance;
 
 					:global(.max) {
 						/* Used in detail */

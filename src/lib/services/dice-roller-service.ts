@@ -77,7 +77,7 @@ const buildRollsDetail = (rolls: DiceRoll[]): string => {
 		switch (expression.type) {
 			case 'dice':
 				if (i > 0 && !expression.value.toString().startsWith('-')) term += '+ ';
-				term += `${expression.value} [${(roll.result as DiceResult[]).map((x) => `<span class="${x.value === x.sides ? 'max' : ''}${x.value === 1 ? 'min' : ''}">` + x.value.toString() + (expression.isExplosive && x.value === x.sides ? '💥' : '') + '</span>').join(', ')}]`;
+				term += `${expression.value}${expression.isExplosive ? 'e' : ''} [${(roll.result as DiceResult[]).map((x) => `<span class="${x.value === x.sides ? 'max' : ''}${x.value === 1 ? 'min' : ''}">` + x.value.toString() + (expression.isExplosive && x.value === x.sides ? '💥' : '') + '</span>').join(', ')}]`;
 				break;
 			case 'constant':
 				term = `${i > 0 && (expression.value as number) >= 0 ? '+ ' : ''}${expression.value}`;

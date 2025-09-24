@@ -4,7 +4,6 @@
 	import TitleField from '../ui/TitleField.svelte';
 	import BioTab from './tabs/BioTab.svelte';
 	import CardsTab from './tabs/CardsTab.svelte';
-	import DicesTab from './tabs/DicesTab.svelte';
 	import GeneralTab from './tabs/GeneralTab.svelte';
 	import NotesTab from './tabs/NotesTab.svelte';
 	import ProgressTab from './tabs/ProgressTab.svelte';
@@ -54,11 +53,6 @@
 			title: 'Progreso',
 			component: ProgressTab,
 			availableWhenReadOnly: false,
-		},
-		{
-			title: 'Dados',
-			component: DicesTab,
-			availableWhenReadOnly: true,
 		},
 	];
 

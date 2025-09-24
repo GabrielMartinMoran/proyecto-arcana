@@ -74,7 +74,7 @@
 		overflow-y: auto; /* scroll interno aquí, no en el documento */
 
 		&.dicePanelExpanded {
-			padding-right: calc(var(--side-bar-width) + var(--spacing-lg));
+			padding-right: calc(var(--dice-panel-width) + var(--spacing-lg));
 		}
 
 		&.isMobile {
