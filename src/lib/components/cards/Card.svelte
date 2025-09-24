@@ -3,6 +3,7 @@
 	import { removeDiacritics } from '$lib/utils/formatting';
 	import { marked } from 'marked';
 	import type { Snippet } from 'svelte';
+	import { CONFIG } from '../../../config';
 
 	type Props = {
 		card: Card;
@@ -35,9 +36,20 @@
 				return 'var(--accent-default)';
 		}
 	};
+
+	const getBackgroundImageUrl = (tags: string[]) => {
+		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
+
+		if (CONFIG.CARD_BACKGROUNDS[first]) {
+			return CONFIG.CARD_BACKGROUNDS[first];
+		}
+
+		return CONFIG.CARD_BACKGROUNDS.default;
+	};
 </script>
 
 <div class="card" style:border-color={getBorderColor(card.tags)}>
+	<div class="bg" style:background-image={`url(${getBackgroundImageUrl(card.tags)})`}></div>
 	<div class="header">
 		<div class="chips">
 			<span class="chip">Nivel {card.level}</span>
@@ -79,6 +91,7 @@
 
 <style>
 	.card {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -88,17 +101,30 @@
 		border-radius: var(--radius-md);
 		border: 1px solid;
 		padding: var(--spacing-md);
-		background-color: var(--secondary-bg);
 		box-shadow: var(--shadow-sm);
 		transition:
 			transform 0.2s ease,
 			box-shadow 0.2s ease,
 			border-color 0.2s ease;
+		background-position: center;
+		background-size: cover;
 
 		&:hover {
 			transform: scale(1.01);
 			border: 2px solid;
 			box-shadow: var(--shadow-lg);
+		}
+
+		.bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-position: 50% 25%;
+			background-size: 180%;
+			opacity: 0.6;
+			z-index: -1;
 		}
 
 		.header {

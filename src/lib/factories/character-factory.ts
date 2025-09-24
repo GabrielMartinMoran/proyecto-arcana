@@ -27,5 +27,6 @@ export const createCharacter = () => {
 		quickInfo: '',
 		attacks: [],
 		maxActiveCards: CONFIG.BASE_MAX_ACTIVE_CARDS,
+		version: 1,
 	});
 };

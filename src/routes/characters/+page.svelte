@@ -11,8 +11,12 @@
 
 	let selectedCharacterId: string | null = $derived(page.url.searchParams.get('characterId'));
 
-	const selectCharacter = (character: Character) => {
-		page.url.searchParams.set('characterId', character.id);
+	const selectCharacter = (character: Character | null) => {
+		if (character !== null) {
+			page.url.searchParams.set('characterId', character.id);
+		} else {
+			page.url.searchParams.delete('characterId');
+		}
 		goto(`?${page.url.searchParams.toString()}`);
 	};
 
@@ -25,7 +29,9 @@
 	});
 
 	const addCharacter = () => {
-		characters.update(() => [...$characters, createCharacter()]);
+		const character = createCharacter();
+		characters.update(() => [...$characters, character]);
+		selectCharacter(character);
 	};
 
 	const onCharacterUpdate = (character: Character) => {
@@ -39,15 +45,62 @@
 			return characters;
 		});
 	};
+
+	const deleteCurrentCharacter = () => {
+		if (!selectedCharacter) return;
+		const proceed = confirm(`¿Quieres eliminar a ${selectedCharacter.name}?`);
+		if (!proceed) return;
+		characters.update((characters) => characters.filter((c) => c.id !== selectedCharacterId));
+		selectedCharacter = undefined;
+		selectCharacter(null);
+	};
+
+	const exportCurrentCharacter = () => {
+		if (!selectedCharacter) return;
+		const blob = new Blob([JSON.stringify(selectedCharacter)], { type: 'application/json' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = `${selectedCharacter.name}.json`;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	};
+
+	const importCharacter = async () => {
+		const input = document.createElement('input');
+		input.type = 'file';
+		input.accept = '.json';
+		input.onchange = async () => {
+			if (!input.files || input.files.length === 0) return;
+			const file = input.files[0];
+			const reader = new FileReader();
+			reader.onload = async (event) => {
+				const data = JSON.parse(event.target?.result as any);
+				const character = { ...data, id: crypto.randomUUID() };
+				characters.update((characters) => [...characters, character]);
+				selectCharacter(character);
+			};
+			reader.readAsText(file);
+		};
+		document.body.appendChild(input);
+		input.click();
+		document.body.removeChild(input);
+	};
 </script>
 
 <section class="characters-page">
 	<div class="list">
 		<div class="header">
-			<button onclick={addCharacter}>➕</button>
-			<button>📥</button>
-			<button>📤</button>
-			<button>🗑️</button>
+			<button onclick={addCharacter} title="Crear">➕</button>
+			<button onclick={importCharacter} title="Importar">📥</button>
+			<button onclick={exportCurrentCharacter} disabled={!selectedCharacter} title="Exportar"
+				>📤</button
+			>
+			<button onclick={deleteCurrentCharacter} disabled={!selectedCharacter} title="Eliminar"
+				>🗑️</button
+			>
 		</div>
 		<div class="content">
 			{#each $characters as character (character.id)}
@@ -100,7 +153,12 @@
 				justify-content: space-between;
 				width: 100%;
 				border-bottom: 1px solid var(--border-color);
-				padding: var(--spacing-sm);
+				padding-bottom: var(--spacing-sm);
+				gap: var(--spacing-sm);
+
+				button {
+					padding: var(--spacing-sm);
+				}
 			}
 
 			.content {

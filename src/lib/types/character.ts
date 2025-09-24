@@ -21,6 +21,7 @@ export class Character {
 	quickInfo: string;
 	attacks: Attack[];
 	maxActiveCards: number;
+	version: number;
 
 	constructor(props: any) {
 		this.id = props.id;
@@ -41,6 +42,7 @@ export class Character {
 		this.quickInfo = props.quickInfo;
 		this.attacks = props.attacks;
 		this.maxActiveCards = props.maxActiveCards;
+		this.version = props.version;
 	}
 
 	protected calculateAttrModifiers(attr: string, baseValue: number) {

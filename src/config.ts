@@ -13,4 +13,16 @@ export const CONFIG = {
 
 	STANDARD_DICES: ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'],
 	CLEAR_3D_DICES_DELAY: 3000,
+
+	CARD_BACKGROUNDS: {
+		arcanista: 'https://i.imgur.com/DMUW7t7.png',
+		combatiente: 'https://i.imgur.com/sbXWSBs.png',
+		picaro: 'https://i.imgur.com/7oV3AUV.png',
+		sacerdote: 'https://i.imgur.com/kyDUxvB.png',
+		druida: 'https://i.imgur.com/86JW0IU.png',
+		bardo: 'https://i.imgur.com/l6xUNWn.png',
+		dote: 'https://i.imgur.com/y5ZcA8n.png',
+		linaje: 'https://i.imgur.com/TJVRx45.png',
+		default: 'https://i.imgur.com/y15UGtj.png',
+	},
 };
