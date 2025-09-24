@@ -1,9 +1,28 @@
 <script lang="ts">
+	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import type { Creature } from '$lib/types/creature';
+	import { capitalize } from '$lib/utils/formatting';
 	import CreatureAction from './CreatureAction.svelte';
 
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
+
+	let { rollExpression } = useDiceRollerService();
+
+	const roll = (expression: string, type: string) => {
+		rollExpression({
+			expression: expression,
+			variables: {
+				cuerpo: creature.attributes.cuerpo,
+				reflejos: creature.attributes.reflejos,
+				mente: creature.attributes.mente,
+				instinto: creature.attributes.instinto,
+				presencia: creature.attributes.presencia,
+				iniciativa: creature.attributes.reflejos,
+			},
+			title: `${creature.name}: ${type}`,
+		});
+	};
 </script>
 
 <div class="statblock">
@@ -18,7 +37,12 @@
 		{#each ['cuerpo', 'reflejos', 'mente', 'instinto', 'presencia'] as attribute (attribute)}
 			<div class="attribute">
 				<strong>{attribute.charAt(0).toUpperCase() + attribute.slice(1)}</strong>
-				<span>{creature.attributes[attribute]}</span>
+				<div class="score">
+					<span>{creature.attributes[attribute]}</span>
+					<button onclick={() => roll(`1d6e+${attribute}`, capitalize(attribute))} title="Tirar">
+						🎲
+					</button>
+				</div>
 			</div>
 		{/each}
 	</div>
@@ -50,6 +74,13 @@
 					? ` (${creature.stats.velocidad.note})`
 					: ''}</span
 			>
+		</div>
+		<div class="attribute">
+			<strong>Iniciativa</strong>
+			<div class="score">
+				<span>{creature.attributes.reflejos}</span>
+				<button onclick={() => roll(`1d6e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
+			</div>
 		</div>
 	</div>
 	<div class="middle">
@@ -139,7 +170,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
+		align-items: start;
 		margin: var(--spacing-md);
 	}
 
@@ -164,5 +195,30 @@
 		border-radius: 50%;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		border: 2px solid gray;
+	}
+
+	@media screen and (max-width: 768px) {
+	}
+	.attribute {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		.score {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: var(--spacing-md);
+			border: 1px solid var(--border-color);
+			border-radius: var(--radius-md);
+			padding: var(--spacing-sm);
+
+			button {
+				padding: 0;
+				border: none;
+			}
+		}
 	}
 </style>
