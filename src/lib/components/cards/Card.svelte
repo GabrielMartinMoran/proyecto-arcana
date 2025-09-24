@@ -2,6 +2,7 @@
 	import type { Card } from '$lib/types/card';
 	import { removeDiacritics } from '$lib/utils/formatting';
 	import { marked } from 'marked';
+	import type { Snippet } from 'svelte';
 
 	type Props = {
 		card: Card;

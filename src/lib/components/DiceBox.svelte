@@ -2,7 +2,6 @@
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import DiceBox from '@3d-dice/dice-box';
 	import { onMount } from 'svelte';
-	import { CONFIG } from '../../config';
 
 	type Props = {
 		isMobile: boolean;
@@ -10,7 +9,7 @@
 
 	let { isMobile }: Props = $props();
 
-	let { rollExpression, register3DDiceRollerFn, registerClear3DDicesFn } = useDiceRollerService();
+	let { register3DDiceRollerFn, registerClear3DDicesFn } = useDiceRollerService();
 
 	let diceBox: DiceBox = $state();
 
@@ -33,16 +32,6 @@
 </script>
 
 <div class="dice-box-container" class:isMobile>
-	<div class="controls">
-		{#if diceBox !== undefined}
-			<button onclick={() => rollExpression('1d2e', {})} class="dice-button">1d2e</button>
-			{#each CONFIG.STANDARD_DICES as dice (dice)}
-				<button onclick={() => rollExpression(`4${dice}e`, {})} class="dice-button"
-					>{`4${dice}e`}</button
-				>
-			{/each}
-		{/if}
-	</div>
 	<div class="dice-box" id="dice-box"></div>
 </div>
 
@@ -57,9 +46,10 @@
 		padding: 16px;
 		z-index: 2;
 		/*background-color: red;*/
-		width: calc(100% - var(--side-bar-width));
+		width: calc(100% - (var(--side-bar-width) * 2));
 		height: 100%;
 		margin-left: var(--side-bar-width);
+		margin-right: var(--side-bar-width);
 		pointer-events: none;
 
 		&.isMobile {
@@ -70,19 +60,6 @@
 			box-shadow: none;
 			padding: 0;
 			margin-left: 0;
-		}
-
-		.controls {
-			display: flex;
-			flex-direction: row;
-			gap: var(--spacing-sm);
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: space-around;
-
-			.dice-button {
-				pointer-events: all;
-			}
 		}
 
 		.dice-box {

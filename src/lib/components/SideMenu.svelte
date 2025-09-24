@@ -84,7 +84,7 @@
 			top: var(--top-bar-height);
 			left: 0;
 			bottom: 0;
-			width: 220px;
+			width: var(--side-bar-width);
 			overflow-y: auto;
 			transition: transform 0.3s ease-in-out;
 		}

@@ -20,11 +20,14 @@
 
 	const onAttributeDiceRoll = (attributeName: string) => {
 		console.log(`Rolling dice for ${attributeName}`);
-		rollExpression(`1d6e+${attributeName}`, {
-			cuerpo: character.attributes.cuerpo,
-			reflejos: character.attributes.reflejos,
-			mente: character.attributes.mente,
-			instinto: character.attributes.instinto,
+		rollExpression({
+			expression: `1d6e+${attributeName}`,
+			variables: {
+				cuerpo: character.attributes.cuerpo,
+				reflejos: character.attributes.reflejos,
+				mente: character.attributes.mente,
+				instinto: character.attributes.instinto,
+			},
 		});
 	};
 </script>

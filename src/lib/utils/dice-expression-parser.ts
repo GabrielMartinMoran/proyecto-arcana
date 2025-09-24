@@ -14,12 +14,7 @@
      (por compatibilidad con representaciones de tokens "negativos", puesto que `value` es string para dados).
 */
 
-export interface DiceExpressionMember {
-	type: 'constant' | 'variable' | 'dice';
-	value: number | string;
-	label?: string;
-	isExplosive: boolean;
-}
+import type { DiceExpressionMember } from '$lib/types/dice-expression-member';
 
 export const parseDiceExpression = (
 	formula: string,

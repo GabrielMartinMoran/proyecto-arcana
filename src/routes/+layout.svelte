@@ -1,18 +1,23 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import DiceBox from '$lib/components/DiceBox.svelte';
+	import DicePanel from '$lib/components/DicePanel.svelte';
 	import SideMenu from '$lib/components/SideMenu.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
+	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
+	import { isMobileScreen } from '$lib/utils/screen-size-detector';
 	import '../app.css';
-	import { CONFIG } from '../config';
 
 	let { children } = $props();
 
-	let isMobile = $derived(window.innerWidth < CONFIG.MOBILE_MAX_WIDTH);
+	let isMobile = $derived(isMobileScreen());
 
 	const onBodyClick = () => {
 		sideMenuExpandedStore.set(false);
+		if (isMobile) {
+			dicePanelExpandedStore.set(false);
+		}
 	};
 </script>
 
@@ -20,7 +25,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<svelte:window on:resize={() => (isMobile = window.innerWidth <= CONFIG.MOBILE_MAX_WIDTH)} />
+<svelte:window on:resize={() => isMobileScreen()} />
 
 <main>
 	{#if isMobile}
@@ -29,9 +34,10 @@
 	<div class="body" onclick={onBodyClick}>
 		<DiceBox {isMobile} />
 		<SideMenu {isMobile} />
-		<section class="content" class:isMobile>
+		<section class="content" class:isMobile class:dicePanelExpanded={$dicePanelExpandedStore}>
 			{@render children?.()}
 		</section>
+		<DicePanel {isMobile} />
 	</div>
 </main>
 
@@ -66,6 +72,10 @@
 		padding: var(--spacing-lg);
 		padding-left: calc(var(--side-bar-width) + var(--spacing-lg));
 		overflow-y: auto; /* scroll interno aquí, no en el documento */
+
+		&.dicePanelExpanded {
+			padding-right: calc(var(--side-bar-width) + var(--spacing-lg));
+		}
 
 		&.isMobile {
 			margin-top: var(--top-bar-height);
