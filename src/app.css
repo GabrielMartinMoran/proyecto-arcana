@@ -35,8 +35,6 @@
 
 	/* Border radius */
 	--radius-md: 0.5rem;
-	/* Unified surface radius for cards, panels, lists, etc. */
-	--radius-surface: var(--radius-lg);
 
 	/* Shadows */
 	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
@@ -87,6 +85,21 @@ h2,
 h3,
 .page-title {
 	font-family: 'Cinzel', serif;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
 }
 
 a {
@@ -158,4 +171,127 @@ select {
 label {
 	color: var(--text-secondary);
 	font-size: 0.9rem;
+}
+
+/* MARKDOWN DOCS STYLE (Not working if put in the component) */
+.markdown-doc {
+	isplay: flex;
+	flex-direction: column;
+
+	/* Inherit base typography; override headings with brand font */
+	font-family: inherit;
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	h2 {
+		font-size: 1.25rem;
+	}
+
+	h1,
+	h2,
+	h3 {
+		margin: 1rem 0 0 0;
+		font-family: 'Cinzel', serif;
+	}
+
+	p {
+		color: var(--text-secondary);
+		line-height: 1.7;
+		font-family: inherit;
+	}
+
+	ul,
+	ol {
+		font-family: inherit;
+		color: var(--text-secondary);
+		line-height: 1.7;
+		padding-left: 1.25rem;
+		margin: 0.5rem 0 0.75rem 0;
+	}
+	li {
+		font-family: inherit;
+		color: var(--text-secondary);
+		line-height: 1.7;
+	}
+
+	a {
+		color: var(--brand-link);
+	}
+
+	&,
+	* {
+		word-break: break-word;
+		overflow-wrap: anywhere;
+		font-family: inherit;
+	}
+
+	pre {
+		white-space: pre-wrap;
+	}
+
+	/* Tables: centered, integrated look */
+	table {
+		display: block;
+		width: max-content;
+		max-width: 100%;
+		margin: 0.75rem auto; /* center in the content */
+		overflow-x: auto;
+		font-family: inherit;
+		color: var(--text-secondary);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		border-collapse: separate;
+		border-spacing: 0; /* enable radius without double borders */
+		box-shadow: var(--shadow-sm);
+		background: var(--secondary-bg);
+		font-size: 0.9rem;
+	}
+	thead th {
+		font-family: inherit;
+		color: var(--text-primary);
+		background: var(--disabled-bg); /* subtle highlight */
+		font-weight: 700;
+		border-bottom: 1px solid var(--border-color);
+		text-align: center;
+	}
+	th,
+	td {
+		font-family: inherit;
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+		vertical-align: top;
+		background: #fff;
+	}
+	/* Center all columns */
+	thead th,
+	tbody td {
+		text-align: center;
+	}
+	/* Column separators */
+	th + th,
+	td + td {
+		border-left: 1px solid var(--border-color);
+	}
+	/* Row separators */
+	tbody tr + tr td {
+		border-top: 1px solid var(--border-color);
+	}
+	/* Zebra for readability */
+	tbody tr:nth-child(even) td {
+		background: var(--secondary-bg);
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	blockquote {
+		border-left: 4px solid var(--border-color);
+		padding-left: var(--spacing-md);
+		margin-left: 0;
+		margin-right: 0;
+	}
 }

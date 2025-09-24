@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 </script>
 
 <main>
@@ -7,12 +8,9 @@
 		<p class="hero-subtitle">
 			Aprende en minutos, personaliza con cartas y juega en cualquier mundo.
 		</p>
-		<div class="hero-actions">
-			<a class="button primary" href="#/player">Empieza a jugar</a>
-			<a class="button" href="#/characters">Crea tu personaje</a>
-		</div>
 	</div>
 
+	<h2>Un vistazo rápido</h2>
 	<div class="video-container">
 		<iframe
 			src="https://www.youtube.com/embed/EhnoY3QU7vM?modestbranding=1"
@@ -27,7 +25,7 @@
 	<h2>¿Qué es Arcana?</h2>
 	<p class="lead">
 		Arcana es un sistema de rol de mesa diseñado para ser simple, adaptable y centrado en la
-		historia. Es una caja de herramientas creada para directores de juego y jugadores que buscan la
+		narrativa. Es una caja de herramientas creada para directores de juego y jugadores que buscan la
 		libertad de contar sus propias historias, en cualquier universo imaginable, sin verse frenados
 		por reglas complejas. Si valoras la narrativa, la personalización profunda y un sistema que se
 		aparta para dejar brillar tus ideas, Arcana es para ti.
@@ -43,4 +41,58 @@
 		Arcana no es solo un conjunto de reglas, es un lienzo en blanco para tus crónicas. Reúne a tus
 		amigos, baraja tus habilidades y prepárate para forjar tu propia leyenda.
 	</p>
+
+	<h2>¡Ahora si, comencemos!</h2>
+
+	<div class="ctas">
+		<button class="player" onclick={() => goto('/player')}>Iniciando como jugador</button>
+		<button class="character" onclick={() => goto('/characters')}>¡A crear un personaje!</button>
+		<button class="gm" onclick={() => goto('/gm')}>¡Es hora de dirigir!</button>
+	</div>
 </main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+
+		.hero {
+			background: linear-gradient(135deg, #fef3c7, #e0e7ff);
+			border: 1px solid var(--border-color);
+			border-radius: var(--radius-md);
+			padding: clamp(1rem, 3vw, 2rem);
+			box-shadow: var(--shadow-md);
+			text-align: center;
+		}
+		.video-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--spacing-md);
+		}
+
+		.ctas {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-evenly;
+			gap: var(--spacing-md);
+			flex: 1;
+			padding-top: var(--spacing-md);
+
+			button {
+				color: white;
+			}
+
+			.player {
+				background-color: steelblue;
+			}
+			.character {
+				background-color: mediumseagreen;
+			}
+			.gm {
+				background-color: mediumpurple;
+			}
+		}
+	}
+</style>

@@ -12,4 +12,14 @@
 	});
 </script>
 
-{@html htmlContent}
+<div class="markdown-doc">
+	{@html htmlContent}
+</div>
+
+<style>
+	.markdown-doc {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+	}
+</style>

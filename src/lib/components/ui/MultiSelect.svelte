@@ -116,7 +116,7 @@
 		padding-right: var(--spacing-md);
 		margin-top: -4px;
 		margin-left: -1px;
-		z-index: 2;
+		z-index: 3;
 
 		fieldset {
 			border: 0;
