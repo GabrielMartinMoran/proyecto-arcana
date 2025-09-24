@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
+	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
+	import type { RollLog } from '$lib/types/roll-log';
+	import { get } from 'svelte/store';
 	import { CONFIG } from '../../config';
 
 	const SCROLL_DELAY = 100;
@@ -17,20 +20,29 @@
 
 	let logList: HTMLElement | undefined;
 
-	rollLogs.subscribe(() => {
+	let lastLogsCount = get(rollLogs).length;
+
+	rollLogs.subscribe((logs: RollLog[]) => {
+		// We check the logs count as this callback is called when subscribing to the store
+		if (logs.length <= lastLogsCount) return;
+		dicePanelExpandedStore.set(true);
 		setTimeout(() => {
 			logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
 		}, SCROLL_DELAY);
+		lastLogsCount = logs.length;
 	});
 
 	const onBodyClick = (event: MouseEvent) => {
 		event.stopPropagation();
+		sideMenuExpandedStore.set(false);
 	};
 
 	const onExpressionRoll = async (expression: string) => {
 		if (!expression) return;
 		await rollExpression({ expression });
 	};
+
+	console.log(get(dicePanelExpandedStore));
 </script>
 
 <div
@@ -86,12 +98,9 @@
 		box-shadow: var(--shadow-sm);
 
 		&.mobile {
-			position: fixed;
 			top: var(--top-bar-height);
-			right: 0;
 			bottom: 0;
-			width: var(--dice-panel-width);
-			overflow-y: auto;
+			height: calc(100% - var(--top-bar-height));
 			transition: transform 0.3s ease-in-out;
 		}
 

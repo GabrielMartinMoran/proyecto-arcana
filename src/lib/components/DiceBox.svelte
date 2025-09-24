@@ -44,7 +44,7 @@
 		justify-content: center;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		padding: 16px;
-		z-index: 2;
+		z-index: 1001;
 		/*background-color: red;*/
 		width: calc(100% - var(--side-bar-width) - var(--dice-panel-width));
 		height: 100%;

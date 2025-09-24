@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
+	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 
 	type Props = {
@@ -46,6 +47,7 @@
 
 	const onBodyClick = (event: MouseEvent) => {
 		event.stopPropagation();
+		dicePanelExpandedStore.set(false);
 	};
 </script>
 

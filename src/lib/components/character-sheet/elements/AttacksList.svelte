@@ -39,7 +39,7 @@
 			<label class="atk-formula">Formula Ataque</label>
 			<label class="dmg-formula">Formula Daño</label>
 			<label class="notes">Notas</label>
-			<label class="actions"> </label>
+			<label class="actions"></label>
 		</div>
 		{#each attacks as attack (attack.id)}
 			<div class="item">
@@ -122,17 +122,35 @@
 			width: 100%;
 
 			.attacks-header {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr 50px;
+				display: flex;
 				flex-direction: row;
+				flex-wrap: wrap;
 				width: 100%;
+				gap: var(--spacing-md);
+
+				.name,
+				.atk-formula,
+				.dmg-formula,
+				.notes {
+					flex: 1;
+					min-width: 8.2rem;
+				}
+
+				.actions {
+					width: 50px;
+				}
 			}
 
 			.item {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr 50px;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
 				gap: var(--spacing-md);
 				width: 100%;
+
+				button {
+					width: 50px;
+				}
 			}
 		}
 	}

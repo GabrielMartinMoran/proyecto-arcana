@@ -85,6 +85,7 @@
 			gap: var(--spacing-sm);
 			border: 1px solid var(--border-color);
 			border-radius: var(--radius-md);
+			min-width: 8.2rem;
 			width: 8.2rem;
 
 			&.inputAlone {
@@ -163,5 +164,6 @@
 
 	.fullWidth {
 		width: 100% !important;
+		flex: 1;
 	}
 </style>

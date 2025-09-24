@@ -1,14 +1,21 @@
 <script lang="ts">
+	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 
 	const toggleSideMenu = () => {
 		sideMenuExpandedStore.update((value) => !value);
 	};
+
+	const toggleDicePanel = () => {
+		dicePanelExpandedStore.update((value) => !value);
+	};
 </script>
 
 <div class="top-bar">
 	<button onclick={toggleSideMenu}>☰</button>
-	<h1>Proyecto Arcana</h1>
+	<h1>Arcana</h1>
+	<span class="spacer"></span>
+	<button onclick={toggleDicePanel}>🎲</button>
 </div>
 
 <style>
@@ -38,6 +45,10 @@
 		h1 {
 			margin: 0;
 			font-size: 1.5rem;
+		}
+
+		.spacer {
+			flex-grow: 1;
 		}
 	}
 </style>
