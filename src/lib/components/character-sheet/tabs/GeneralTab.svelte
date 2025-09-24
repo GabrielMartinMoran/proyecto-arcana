@@ -27,6 +27,7 @@
 				reflejos: character.attributes.reflejos,
 				mente: character.attributes.mente,
 				instinto: character.attributes.instinto,
+				presencia: character.attributes.presencia,
 			},
 		});
 	};
