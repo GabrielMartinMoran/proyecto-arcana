@@ -83,6 +83,10 @@
 				/>
 				<button onclick={() => removeModifier(modifier)} title="Eliminar">🗑️</button>
 			</div>
+		{:else}
+			<div class="empty">
+				<em>No hay modificadores disponibles</em>
+			</div>
 		{/each}
 	</div>
 </div>
@@ -119,6 +123,14 @@
 				grid-template-columns: 1fr 1fr 1fr 1fr 50px;
 				gap: var(--spacing-md);
 				width: 100%;
+			}
+
+			.empty {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				flex: 1;
 			}
 		}
 	}

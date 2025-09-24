@@ -153,6 +153,8 @@ button {
 	&:disabled {
 		background: var(--disabled-bg);
 		cursor: not-allowed;
+		transform: unset;
+		box-shadow: unset;
 	}
 }
 

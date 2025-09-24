@@ -81,8 +81,19 @@ export class Character {
 		return this.calculateAttrModifiers('mitigation', base);
 	}
 
-	get gold() {
-		return 0;
+	get currentGold() {
+		const current = this.goldHistory
+			.filter((x) => x.type === 'add')
+			.reduce((acc, x) => acc + x.value, 0);
+		const spent = this.spentGold;
+		if (spent > 0) return current - spent;
+		return current;
+	}
+
+	get spentGold() {
+		return this.goldHistory
+			.filter((x) => x.type === 'subtract')
+			.reduce((acc, x) => acc + x.value, 0);
 	}
 
 	get currentPP() {

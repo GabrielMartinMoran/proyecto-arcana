@@ -140,11 +140,13 @@
 				margin-top: var(--spacing-sm);
 
 				&.empty {
+					display: flex;
+					flex: 1;
 					width: 100%;
 					height: 100%;
 					justify-content: center;
 					align-items: center;
-					transform: translateY(calc(var(--spacing-xl) * -1));
+					margin-top: 0;
 				}
 
 				.note-btn {

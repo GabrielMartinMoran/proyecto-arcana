@@ -66,6 +66,7 @@
 						icon: '🎯',
 						title: 'Tirar Ataque',
 						onClick: () => onAttackRoll(attack),
+						disabled: !attack.atkFormula,
 					}}
 				/>
 				<InputField
@@ -81,6 +82,7 @@
 						icon: '💥',
 						title: 'Tirar Daño',
 						onClick: () => onDamageRoll(attack),
+						disabled: !attack.dmgFormula,
 					}}
 				/>
 				<InputField

@@ -1,0 +1,50 @@
+[{
+  "id": "27a8e7e2-1c9b-4994-a135-6b35bbe0130e",
+  "name": "PJ de Ejemplo",
+  "attributes": {
+    "cuerpo": 1,
+    "reflejos": 1,
+    "mente": 1,
+    "instinto": 1,
+    "presencia": 1
+  },
+  "cards": [
+    {
+      "id": "9b9864426990a5e105c6d9e27c08202573af7bd8",
+      "uses": 0,
+      "isActive": true,
+      "level": 3
+    }
+  ],
+  "ppHistory": [],
+  "goldHistory": [],
+  "equipment": [],
+  "modifiers": [],
+  "currentHP": 0,
+  "tempHP": 0,
+  "currentLuck": 2,
+  "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ49uq-LhNM8piLmPDN51z4djBFWuTTHkRBWA&s",
+  "story": "",
+  "notes": [],
+  "languages": "",
+  "quickInfo": "",
+  "attacks": [
+    {
+      "id": "6973a2cf-4ed8-4852-9bcb-7f9a6514517b",
+      "name": "Maza",
+      "atkFormula": "1d6e+cuerpo",
+      "dmgFormula": "1d6",
+      "notes": "Contundente"
+    },
+    {
+      "id": "0a71e7d8-b201-4086-b285-0edc70c29062",
+      "name": "",
+      "atkFormula": "",
+      "dmgFormula": "",
+      "notes": ""
+    }
+  ],
+  "maxActiveCards": 3,
+  "version": 1
+}
+]

@@ -12,6 +12,7 @@
 			icon: string;
 			onClick: () => void;
 			title: string;
+			disabled?: boolean;
 		};
 	};
 
@@ -39,6 +40,7 @@
 		class:inputAlone={max === undefined && button === undefined && !fullWidth}
 		class:inputWithButton={button !== undefined}
 		class:fullWidth
+		class:readonly
 	>
 		<input
 			type={typeof value === 'number' ? 'number' : 'text'}
@@ -58,7 +60,12 @@
 			<span class="max">{max}</span>
 		{/if}
 		{#if button}
-			<button class="button" onclick={button.onClick} title={button.title}>
+			<button
+				class="button"
+				onclick={button.onClick}
+				title={button.title}
+				disabled={button.disabled}
+			>
 				{button.icon}
 			</button>
 		{/if}
@@ -87,6 +94,10 @@
 			border-radius: var(--radius-md);
 			min-width: 8.2rem;
 			width: 8.2rem;
+
+			&.readonly {
+				background-color: var(--disabled-bg);
+			}
 
 			&.inputAlone {
 				width: 8.2rem;

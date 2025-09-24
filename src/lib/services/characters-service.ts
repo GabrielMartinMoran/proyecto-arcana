@@ -5,13 +5,13 @@ const STORAGE_KEY = 'arcana:characters';
 
 const state = {
 	charactersStore: writable<Character[]>([]),
-	alreadyLoaded: false,
+	exampleCharactersStore: writable<Character[]>([]),
+	charactersAlreadyLoaded: false,
+	exampleCharactersAlreadyLoaded: false,
 };
 
-const charactersStore = writable<Character[]>([]);
-
 const subscribePersistance = () => {
-	charactersStore.subscribe((characters: Character[]) => {
+	state.charactersStore.subscribe((characters: Character[]) => {
 		const serialized = JSON.stringify(characters);
 		localStorage.setItem(STORAGE_KEY, serialized);
 	});
@@ -19,22 +19,41 @@ const subscribePersistance = () => {
 
 export const useCharactersService = () => {
 	const loadCharacters = async () => {
-		if (state.alreadyLoaded) return;
+		if (state.charactersAlreadyLoaded) return;
 		const rawLoaded = localStorage.getItem(STORAGE_KEY);
 		if (rawLoaded) {
 			try {
 				const characters = JSON.parse(rawLoaded);
-				charactersStore.set(characters.map((x) => new Character(x)));
+				state.charactersStore.set(characters.map((x) => new Character(x)));
 			} catch (error) {
 				console.error('Error parsing characters JSON:', error);
 			}
 		}
 		subscribePersistance();
-		state.alreadyLoaded = true;
+		state.charactersAlreadyLoaded = true;
+	};
+
+	const loadExampleCharacters = async () => {
+		if (state.exampleCharactersAlreadyLoaded) return;
+		let characters: any[] = [];
+		try {
+			const response = await fetch('/docs/example-characters.json');
+			characters = await response.json();
+		} catch (error) {
+			console.error('Error fetching example characters:', error);
+		}
+		try {
+			state.exampleCharactersStore.set(characters.map((x) => new Character(x)));
+		} catch (error) {
+			console.error('Error parsing example characters JSON:', error);
+		}
+		state.exampleCharactersAlreadyLoaded = true;
 	};
 
 	return {
 		loadCharacters: loadCharacters,
-		characters: charactersStore,
+		loadExampleCharacters: loadExampleCharacters,
+		characters: state.charactersStore,
+		exampleCharacters: state.exampleCharactersStore,
 	};
 };

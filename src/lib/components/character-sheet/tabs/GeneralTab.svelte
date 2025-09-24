@@ -197,7 +197,7 @@
 </Container>
 <Container title="Equipo">
 	<div class="equipment">
-		<InputField label="Oro" value={character.gold} readonly={true} fullWidth={true} />
+		<InputField label="Oro" value={character.currentGold} readonly={true} fullWidth={true} />
 		<EquipmentList
 			equipment={character.equipment}
 			{readonly}

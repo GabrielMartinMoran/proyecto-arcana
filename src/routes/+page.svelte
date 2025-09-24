@@ -57,12 +57,20 @@
 		flex-direction: column;
 
 		.hero {
-			background: linear-gradient(135deg, #fef3c7, #e0e7ff);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			background-image: url('https://i.imgur.com/L04yLuL.png');
+			background-size: cover;
+			background-position: 0% 51%;
 			border: 1px solid var(--border-color);
 			border-radius: var(--radius-md);
 			padding: clamp(1rem, 3vw, 2rem);
 			box-shadow: var(--shadow-md);
 			text-align: center;
+			height: 250px;
 		}
 		.video-container {
 			display: flex;

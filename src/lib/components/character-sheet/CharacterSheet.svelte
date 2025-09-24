@@ -4,6 +4,7 @@
 	import TitleField from '../ui/TitleField.svelte';
 	import BioTab from './tabs/BioTab.svelte';
 	import CardsTab from './tabs/CardsTab.svelte';
+	import EconomyTab from './tabs/EconomyTab.svelte';
 	import GeneralTab from './tabs/GeneralTab.svelte';
 	import NotesTab from './tabs/NotesTab.svelte';
 	import ProgressTab from './tabs/ProgressTab.svelte';
@@ -45,13 +46,18 @@
 			availableWhenReadOnly: true,
 		},
 		{
-			title: 'Configuración',
-			component: SettingsTab,
-			availableWhenReadOnly: false,
-		},
-		{
 			title: 'Progreso',
 			component: ProgressTab,
+			availableWhenReadOnly: true,
+		},
+		{
+			title: 'Economía',
+			component: EconomyTab,
+			availableWhenReadOnly: true,
+		},
+		{
+			title: 'Configuración',
+			component: SettingsTab,
 			availableWhenReadOnly: false,
 		},
 	];

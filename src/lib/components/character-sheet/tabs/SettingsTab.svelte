@@ -41,7 +41,7 @@
 				onChange(character);
 			}}
 		/>
-		<small>
+		<small class="available-variables">
 			<em>Varaibles disponibles: cuerpo, reflejos, mente, instinto, presencia.</em>
 		</small>
 	</div>
@@ -56,5 +56,9 @@
 	.modifiers {
 		display: flex;
 		flex-direction: column;
+
+		.available-variables {
+			margin-top: var(--spacing-md);
+		}
 	}
 </style>
