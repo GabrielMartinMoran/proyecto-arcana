@@ -104,28 +104,30 @@
 	{#each cards as card (card.id)}
 		<Card {card}>
 			{#if !readonly}
-				{#if listMode === 'active'}
-					{#if getCardTotalUses(card) !== null}
-						<InputField
-							value={getCurrentUses(card.id)!}
-							max={getCardTotalUses(card)!}
-							onChange={(value) => updateCardCurrentUses(card.id, Number(value))}
-						/>
-					{/if}
-					<span class="spacer"></span>
-					<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
-				{:else if listMode === 'collection'}
-					<button onclick={() => removeCard(card.id)}>Quitar</button>
-					<span class="spacer"></span>
-					{#if isCardActive(card)}
+				<div class="controls">
+					{#if listMode === 'active'}
+						{#if getCardTotalUses(card) !== null}
+							<InputField
+								value={getCurrentUses(card.id)!}
+								max={getCardTotalUses(card)!}
+								onChange={(value) => updateCardCurrentUses(card.id, Number(value))}
+							/>
+						{/if}
+						<span class="spacer"></span>
 						<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
+					{:else if listMode === 'collection'}
+						<button onclick={() => removeCard(card.id)}>Quitar</button>
+						<span class="spacer"></span>
+						{#if isCardActive(card)}
+							<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
+						{:else}
+							<button onclick={() => activateCard(card.id)}>Activar</button>
+						{/if}
 					{:else}
-						<button onclick={() => activateCard(card.id)}>Activar</button>
+						<span class="spacer"></span>
+						<button onclick={() => addCard(card)}>Agregar</button>
 					{/if}
-				{:else}
-					<span class="spacer"></span>
-					<button onclick={() => addCard(card)}>Agregar</button>
-				{/if}
+				</div>
 			{/if}
 		</Card>
 	{/each}
@@ -140,5 +142,15 @@
 		justify-content: space-around;
 		width: 100%;
 		gap: var(--spacing-md);
+
+		.controls {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			flex-grow: 1;
+			padding-top: var(--spacing-sm);
+		}
 	}
 </style>

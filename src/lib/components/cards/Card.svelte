@@ -50,42 +50,44 @@
 
 <div class="card" style:border-color={getBorderColor(card.tags)}>
 	<div class="bg" style:background-image={`url(${getBackgroundImageUrl(card.tags)})`}></div>
-	<div class="header">
-		<div class="chips">
-			<span class="chip">Nivel {card.level}</span>
-			<span class="chip">{card.type.charAt(0).toUpperCase() + card.type.slice(1)}</span>
+	<div class="inner">
+		<div class="header">
+			<div class="chips">
+				<span class="chip">Nivel {card.level}</span>
+				<span class="chip">{card.type.charAt(0).toUpperCase() + card.type.slice(1)}</span>
+			</div>
+			<h3>{card.name}</h3>
 		</div>
-		<h3>{card.name}</h3>
-	</div>
-	<div class="body">
-		<span class="description">
-			{@html marked.parse(card.description)}
-		</span>
-		<div class="tags">
-			{#each card.tags as tag (tag)}
-				<span class="chip">{tag}</span>
-			{/each}
-			{#if card.uses.type}
-				{#if card.uses.type === 'LONG_REST'}
-					<span class="chip">Usos: {card.uses.qty ?? '?'} por día de descanso</span>
-				{:else if card.uses.type === 'RELOAD'}
-					<span class="chip">Usos: 1 (Recarga {card.uses.qty ?? '?'}+)</span>
-				{:else if card.uses.type === 'USES'}
-					<span class="chip">Usos: {card.uses.qty ?? '?'}</span>
+		<div class="body">
+			<span class="description">
+				{@html marked.parse(card.description)}
+			</span>
+			<div class="tags">
+				{#each card.tags as tag (tag)}
+					<span class="chip">{tag}</span>
+				{/each}
+				{#if card.uses.type}
+					{#if card.uses.type === 'LONG_REST'}
+						<span class="chip">Usos: {card.uses.qty ?? '?'} por día de descanso</span>
+					{:else if card.uses.type === 'RELOAD'}
+						<span class="chip">Usos: 1 (Recarga {card.uses.qty ?? '?'}+)</span>
+					{:else if card.uses.type === 'USES'}
+						<span class="chip">Usos: {card.uses.qty ?? '?'}</span>
+					{/if}
 				{/if}
+			</div>
+		</div>
+		<div class="footer">
+			<span class="requirements">REQUERIMIENTOS</span>
+			<div class="requirements-list">
+				<span>{card.requirements.length > 0 ? card.requirements.join(', ') : '—'}</span>
+			</div>
+			{#if children !== undefined}
+				<div class="controls">
+					{@render children()}
+				</div>
 			{/if}
 		</div>
-	</div>
-	<div class="footer">
-		<span class="requirements">REQUERIMIENTOS</span>
-		<div class="requirements-list">
-			<span>{card.requirements.length > 0 ? card.requirements.join(', ') : '—'}</span>
-		</div>
-		{#if children}
-			<div class="controls">
-				{@render children()}
-			</div>
-		{/if}
 	</div>
 </div>
 
@@ -93,9 +95,6 @@
 	.card {
 		position: relative;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 		width: 300px;
 		min-height: 450px;
 		border-radius: var(--radius-md);
@@ -106,8 +105,6 @@
 			transform 0.2s ease,
 			box-shadow 0.2s ease,
 			border-color 0.2s ease;
-		background-position: center;
-		background-size: cover;
 
 		&:hover {
 			transform: scale(1.01);
@@ -124,94 +121,104 @@
 			background-position: 50% 25%;
 			background-size: 180%;
 			opacity: 0.6;
-			z-index: -1;
+			z-index: 1;
+			border-radius: var(--radius-md);
 		}
 
-		.header {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			width: 100%;
-
-			.chips {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
-				gap: var(--spacing-sm);
-				width: 100%;
-			}
-
-			h3 {
-				padding: var(--spacing-sm);
-				padding-top: var(--spacing-md);
-				margin: 0;
-			}
-		}
-
-		.body {
-			flex: 1;
+		.inner {
+			flex-grow: 1;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: start;
-			padding: var(--spacing-sm);
-			font-size: 0.8rem;
+			justify-content: center;
+			z-index: 2;
 
-			.description {
-				flex-grow: 1;
-				margin: 0;
+			.header {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				width: 100%;
 
-				:global(p) {
+				.chips {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-between;
+					gap: var(--spacing-sm);
+					width: 100%;
+				}
+
+				h3 {
+					padding: var(--spacing-sm);
+					padding-top: var(--spacing-md);
 					margin: 0;
 				}
 			}
 
-			.tags {
+			.body {
+				flex: 1;
 				display: flex;
-				flex-direction: row;
+				flex-direction: column;
 				align-items: center;
 				justify-content: start;
-				gap: var(--spacing-sm);
-				width: 100%;
-				flex-wrap: wrap;
-			}
-		}
-
-		.footer {
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-content: center;
-			width: 100%;
-			border-top: 1px dashed var(--border-color);
-			padding: var(--spacing-sm);
-			padding-bottom: 0;
-
-			.requirements {
+				padding: var(--spacing-sm);
 				font-size: 0.8rem;
-				color: var(--text-secondary);
-				letter-spacing: 0.08em;
-			}
 
-			.requirements-list {
-				padding-left: var(--spacing-xs);
-				padding-right: var(--spacing-xs);
-				font-size: 0.8rem;
-			}
-
-			.controls {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
-				gap: var(--spacing-sm);
-				width: 100%;
-				padding-top: var(--spacing-sm);
-
-				.spacer {
-					/* Used by the children */
+				.description {
 					flex-grow: 1;
+					margin: 0;
+
+					:global(p) {
+						margin: 0;
+					}
+				}
+
+				.tags {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: start;
+					gap: var(--spacing-sm);
+					width: 100%;
+					flex-wrap: wrap;
+				}
+			}
+
+			.footer {
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: center;
+				width: 100%;
+				border-top: 1px solid black;
+				padding: var(--spacing-sm);
+				padding-bottom: 0;
+				margin-bottom: 0;
+
+				.requirements {
+					font-size: 0.8rem;
+					color: var(--text-secondary);
+					letter-spacing: 0.08em;
+				}
+
+				.requirements-list {
+					padding-left: var(--spacing-xs);
+					padding-right: var(--spacing-xs);
+					font-size: 0.8rem;
+				}
+
+				.controls {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-between;
+					gap: var(--spacing-sm);
+					width: 100%;
+
+					.spacer {
+						/* Used by the children */
+						flex-grow: 1;
+					}
 				}
 			}
 		}
@@ -223,7 +230,8 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 999px;
-		border: 1px solid var(--border-color);
+		border: 1px solid black;
+		background-color: #ded1b5;
 		padding: 0.25rem 0.5rem;
 		font-size: 0.8rem;
 	}

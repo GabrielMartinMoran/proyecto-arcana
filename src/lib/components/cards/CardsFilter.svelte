@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Card } from '$lib/types/card';
-	import { removeDiacritics } from '$lib/utils/formatting';
+	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
 	import Container from '../ui/Container.svelte';
 	import MultiSelect from '../ui/MultiSelect.svelte';
 
@@ -15,12 +15,14 @@
 		name: string;
 		level: number[];
 		tags: string[];
+		type: string;
 	};
 
 	const buildEmptyFilters = () => ({
 		name: '',
 		level: [],
 		tags: [],
+		type: '',
 	});
 
 	let filters: Filters = $state(buildEmptyFilters());
@@ -32,7 +34,8 @@
 					removeDiacritics(filters.name.toLowerCase()),
 				) &&
 				(filters.level.length === 0 || filters.level.includes(card.level)) &&
-				(filters.tags.length === 0 || filters.tags.every((tag) => card.tags.includes(tag)))
+				(filters.tags.length === 0 || filters.tags.every((tag) => card.tags.includes(tag))) &&
+				(!filters.type || filters.type === card.type)
 			);
 		});
 		onFilter(results);
@@ -52,6 +55,11 @@
 		const tags = new Set(cards.flatMap((card) => card.tags));
 		return Array.from(tags).sort();
 	};
+
+	const getAvailableTypes = () => {
+		const types = new Set(cards.map((card) => card.type));
+		return Array.from(types).sort();
+	};
 </script>
 
 <Container>
@@ -62,6 +70,18 @@
 			bind:value={filters.name}
 			oninput={() => onFilterChange()}
 		/>
+		<select
+			onchange={(event) => {
+				filters.type = (event.target as HTMLSelectElement).value;
+				console.log(filters.type);
+				onFilterChange();
+			}}
+		>
+			<option value="">Filtrar por Tipo</option>
+			{#each getAvailableTypes() as type (type)}
+				<option value={type}>{capitalize(type)}</option>
+			{/each}
+		</select>
 		<MultiSelect
 			summary="Filtrar por Nivel"
 			options={getAvailableLevels().map((x) => ({ value: x, label: `Nivel ${x}` }))}
@@ -95,6 +115,11 @@
 		input {
 			flex: 1;
 			min-width: 300px;
+		}
+
+		select {
+			width: 200px;
+			padding: var(--spacing-sm);
 		}
 	}
 </style>

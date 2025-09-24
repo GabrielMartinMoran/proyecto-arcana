@@ -3,6 +3,7 @@
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 	import type { RollLog } from '$lib/types/roll-log';
+	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
 	import { CONFIG } from '../../config';
 
@@ -42,7 +43,9 @@
 		await rollExpression({ expression });
 	};
 
-	console.log(get(dicePanelExpandedStore));
+	onMount(() => {
+		logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
+	});
 </script>
 
 <div

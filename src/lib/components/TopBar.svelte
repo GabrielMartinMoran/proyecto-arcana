@@ -36,7 +36,7 @@
 		button {
 			height: 25px;
 			width: 25px;
-			padding: var(--spacing-sm);
+			padding: var(--spacing-md);
 			display: flex;
 			align-items: center;
 			justify-content: center;

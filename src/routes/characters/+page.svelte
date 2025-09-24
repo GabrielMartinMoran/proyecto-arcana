@@ -114,7 +114,7 @@
 					{:else}
 						<span class="image-placeholder">{character.name.charAt(0).toUpperCase()}</span>
 					{/if}
-					<span>{character.name}</span>
+					<span class="name" title={character.name}>{character.name}</span>
 				</button>
 			{/each}
 		</div>
@@ -144,7 +144,7 @@
 			padding: var(--spacing-md);
 			border-radius: var(--radius-md);
 			background-color: var(--secondary-bg);
-			width: 250px;
+			width: 300px;
 
 			.header {
 				display: flex;
@@ -155,10 +155,6 @@
 				border-bottom: 1px solid var(--border-color);
 				padding-bottom: var(--spacing-sm);
 				gap: var(--spacing-sm);
-
-				button {
-					padding: var(--spacing-sm);
-				}
 			}
 
 			.content {
@@ -179,6 +175,14 @@
 					align-items: center;
 					justify-content: left;
 					gap: var(--spacing-sm);
+
+					.name {
+						padding: 0px;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						width: 8rem;
+					}
 
 					.character-image {
 						width: 2rem;

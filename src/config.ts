@@ -15,10 +15,10 @@ export const CONFIG = {
 	CLEAR_3D_DICES_DELAY: 3000,
 
 	CARD_BACKGROUNDS: {
-		arcanista: 'https://i.imgur.com/DMUW7t7.png',
-		combatiente: 'https://i.imgur.com/sbXWSBs.png',
+		arcanista: 'https://i.imgur.com/jo942TR.png',
+		combatiente: 'https://i.imgur.com/z6bStFF.png',
 		picaro: 'https://i.imgur.com/7oV3AUV.png',
-		sacerdote: 'https://i.imgur.com/kyDUxvB.png',
+		sacerdote: 'https://i.imgur.com/YDxjRLN.png',
 		druida: 'https://i.imgur.com/86JW0IU.png',
 		bardo: 'https://i.imgur.com/l6xUNWn.png',
 		dote: 'https://i.imgur.com/y5ZcA8n.png',

@@ -103,7 +103,7 @@
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-			gap: var(--spacing-md);
+			gap: var(--spacing-sm);
 		}
 	}
 </style>

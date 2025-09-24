@@ -79,6 +79,7 @@
 		padding: var(--spacing-lg);
 		padding-left: calc(var(--side-bar-width) + var(--spacing-lg));
 		overflow-y: auto; /* scroll interno aquí, no en el documento */
+		scrollbar-width: thin;
 
 		&.dicePanelExpanded {
 			padding-right: calc(var(--dice-panel-width) + var(--spacing-md));
