@@ -2,16 +2,38 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import CharacterSheet from '$lib/components/character-sheet/CharacterSheet.svelte';
-	import { createCharacter } from '$lib/factories/character-factory';
 	import type { Character } from '$lib/types/character';
 	import type { Writable } from 'svelte/store';
 
 	type Props = {
 		characters: Writable<Character[]>;
 		readonly: boolean;
+		onAddToMyCharacters?: (character: Character) => Promise<void>;
+		onCreateCharacter?: () => Promise<Character>;
+		onImportCharacter?: () => Promise<Character>;
+		onExportCharacter?: (character: Character) => Promise<void>;
+		onDeleteCharacter?: (character: Character) => Promise<void>;
 	};
 
-	let { characters, readonly }: Props = $props();
+	let {
+		characters,
+		readonly,
+		onAddToMyCharacters = () => {
+			throw new Error('onAddToMyCharacters not implemented');
+		},
+		onCreateCharacter = async () => {
+			throw new Error('onCreateCharacter not implemented');
+		},
+		onImportCharacter = async () => {
+			throw new Error('onCreateCharacter not implemented');
+		},
+		onExportCharacter = async () => {
+			throw new Error('onCreateCharacter not implemented');
+		},
+		onDeleteCharacter = async () => {
+			throw new Error('onCreateCharacter not implemented');
+		},
+	}: Props = $props();
 
 	let selectedCharacterId: string | null = $derived(page.url.searchParams.get('characterId'));
 
@@ -28,10 +50,33 @@
 		$characters.find((c) => c.id === selectedCharacterId),
 	);
 
-	const addCharacter = () => {
-		const character = createCharacter();
-		characters.update(() => [...$characters, character]);
+	const createCharacter = async () => {
+		const character = await onCreateCharacter();
 		selectCharacter(character);
+	};
+
+	const importCharacter = async () => {
+		const character = await onImportCharacter();
+		selectCharacter(character);
+	};
+
+	const exportCharacter = async () => {
+		if (!selectedCharacter) return;
+		await onExportCharacter(selectedCharacter);
+	};
+
+	const deleteCharacter = async () => {
+		if (!selectedCharacter) return;
+		const proceed = confirm(`¿Quieres eliminar a ${selectedCharacter.name}?`);
+		if (!proceed) return;
+		await onDeleteCharacter(selectedCharacter);
+		selectedCharacter = undefined;
+		selectCharacter(null);
+	};
+
+	const addToMyCharacters = async () => {
+		if (!selectedCharacter) return;
+		await onAddToMyCharacters(selectedCharacter);
 	};
 
 	const onCharacterUpdate = (character: Character) => {
@@ -45,62 +90,21 @@
 			return characters;
 		});
 	};
-
-	const deleteCurrentCharacter = () => {
-		if (!selectedCharacter) return;
-		const proceed = confirm(`¿Quieres eliminar a ${selectedCharacter.name}?`);
-		if (!proceed) return;
-		characters.update((characters) => characters.filter((c) => c.id !== selectedCharacterId));
-		selectedCharacter = undefined;
-		selectCharacter(null);
-	};
-
-	const exportCurrentCharacter = () => {
-		if (!selectedCharacter) return;
-		const blob = new Blob([JSON.stringify(selectedCharacter)], { type: 'application/json' });
-		const url = URL.createObjectURL(blob);
-		const a = document.createElement('a');
-		a.href = url;
-		a.download = `${selectedCharacter.name}.json`;
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-		URL.revokeObjectURL(url);
-	};
-
-	const importCharacter = async () => {
-		const input = document.createElement('input');
-		input.type = 'file';
-		input.accept = '.json';
-		input.onchange = async () => {
-			if (!input.files || input.files.length === 0) return;
-			const file = input.files[0];
-			const reader = new FileReader();
-			reader.onload = async (event) => {
-				const data = JSON.parse(event.target?.result as any);
-				const character = { ...data, id: crypto.randomUUID() };
-				characters.update((characters) => [...characters, character]);
-				selectCharacter(character);
-			};
-			reader.readAsText(file);
-		};
-		document.body.appendChild(input);
-		input.click();
-		document.body.removeChild(input);
-	};
 </script>
 
 <section class="characters-page">
 	<div class="list">
 		<div class="header">
-			<button onclick={addCharacter} title="Crear">➕</button>
-			<button onclick={importCharacter} title="Importar">📥</button>
-			<button onclick={exportCurrentCharacter} disabled={!selectedCharacter} title="Exportar"
-				>📤</button
-			>
-			<button onclick={deleteCurrentCharacter} disabled={!selectedCharacter} title="Eliminar"
-				>🗑️</button
-			>
+			{#if readonly}
+				<button onclick={addToMyCharacters} disabled={!selectedCharacter} title="Importar y Editar"
+					>📝</button
+				>
+			{:else}
+				<button onclick={createCharacter} title="Crear">➕</button>
+				<button onclick={importCharacter} title="Importar">📥</button>
+				<button onclick={exportCharacter} disabled={!selectedCharacter} title="Exportar">📤</button>
+				<button onclick={deleteCharacter} disabled={!selectedCharacter} title="Eliminar">🗑️</button>
+			{/if}
 		</div>
 		<div class="content">
 			{#each $characters as character (character.id)}

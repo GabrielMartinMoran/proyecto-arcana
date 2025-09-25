@@ -15,27 +15,31 @@
 	const routes = [
 		{
 			path: '/',
-			label: '✨ Inicio',
+			label: '🚩 Inicio',
 		},
 		{
 			path: '/player',
-			label: '🕹️ Manual del Jugador',
+			label: '📙 Manual del Jugador',
+		},
+		{
+			path: '/gm',
+			label: '📓 Manual del DJ',
 		},
 		{
 			path: '/cards',
 			label: '🃏 Galería de Cartas',
 		},
 		{
-			path: '/gm',
-			label: '👨‍⚖️ Manual del DJ',
-		},
-		{
 			path: '/bestiary',
-			label: '🐉 Bestiario',
+			label: '🐦‍🔥 Bestiario',
 		},
 		{
 			path: '/characters',
-			label: '🧙‍♂️ Personajes',
+			label: '🎭  Personajes',
+		},
+		{
+			path: '/characters/examples',
+			label: '💡 PJs de Ejemplo',
 		},
 	];
 
