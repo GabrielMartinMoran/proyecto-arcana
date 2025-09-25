@@ -3,8 +3,9 @@ import { serializeRollLog } from '$lib/serializers/roll-log-serializer';
 import type { DiceResult } from '$lib/types/dice-result';
 import type { DiceRoll } from '$lib/types/dice-roll';
 import type { RollLog } from '$lib/types/roll-log';
-import { parseDiceExpression } from '$lib/utils/dice-expression-parser';
-import { writable, type Writable } from 'svelte/store';
+import type { RollModalData } from '$lib/types/roll-modal-data';
+import { buildRollsDetail, calculateTotal, parseDiceExpression } from '$lib/utils/dice-rolling';
+import { get, writable, type Writable } from 'svelte/store';
 import { CONFIG } from '../../config';
 
 const STORAGE_KEY = 'arcana:rollLogs';
@@ -15,12 +16,16 @@ const state: {
 	roll3DDice: (expression: string) => Promise<DiceResult[]>;
 	clear3DDices: () => void;
 	logs: Writable<RollLog[]>;
+	rollModalOpened: Writable<boolean>;
+	rollModalData: Writable<RollModalData | undefined>;
 } = {
 	inited: false,
 	clearTimeoutId: null,
 	roll3DDice: async () => [],
 	clear3DDices: () => {},
 	logs: writable([]),
+	rollModalOpened: writable(false),
+	rollModalData: writable(undefined),
 };
 
 const loadRollLogs = (): RollLog[] => {
@@ -69,65 +74,23 @@ const rollDice = async (expression: string): Promise<DiceResult[]> => {
 	}
 };
 
-const buildRollsDetail = (rolls: DiceRoll[]): string => {
-	let detail = '';
-	rolls.forEach((roll, i) => {
-		const expression = roll.expressionMember;
-		let term = '';
-		switch (expression.type) {
-			case 'dice':
-				if (i > 0 && !expression.value.toString().startsWith('-')) term += '+ ';
-				term += `${expression.value}${expression.isExplosive ? 'e' : ''} [${(roll.result as DiceResult[]).map((x) => `<span class="${x.value === x.sides ? 'max' : ''}${x.value === 1 ? 'min' : ''}">` + x.value.toString() + (expression.isExplosive && x.value === x.sides ? '💥' : '') + '</span>').join(', ')}]`;
-				break;
-			case 'constant':
-				term = `${i > 0 && (expression.value as number) >= 0 ? '+ ' : ''}${expression.value}`;
-				break;
-			case 'variable':
-				term = `${i > 0 && (expression.value as number) >= 0 ? '+ ' : ''}${expression.label} [${expression.value}]`;
-				break;
-			default:
-				break;
-		}
-		if (term.startsWith('-')) term = term.replace('-', '- ');
-		detail += `${i > 0 ? ' ' : ''}${term}`;
-	});
-	return detail;
-};
-
-const calculateTotal = (rolls: DiceRoll[]): number => {
-	let total = 0;
-	rolls.forEach((roll) => {
-		const expression = roll.expressionMember;
-		switch (expression.type) {
-			case 'dice':
-				total +=
-					(roll.result as DiceResult[]).reduce((acc, result) => acc + result.value, 0) *
-					(expression.value.toString().startsWith('-') ? -1 : 1);
-				break;
-			case 'constant':
-				total += expression.value as number;
-				break;
-			case 'variable':
-				total += expression.value as number;
-				break;
-			default:
-				break;
-		}
-	});
-	return total;
-};
-
 const logRolls = (rolls: DiceRoll[], title?: string) => {
 	console.log(rolls);
 	const log: RollLog = {
 		id: crypto.randomUUID(),
 		timestamp: new Date(),
-		title: title || 'Dice Roll',
+		title: title || 'Tirada anónima',
 		total: calculateTotal(rolls),
 		detail: buildRollsDetail(rolls),
 	};
 
 	state.logs.update((x) => [...x, log]);
+};
+
+type RollFnProps = {
+	expression: string;
+	variables?: Record<string, number>;
+	title?: string;
 };
 
 export const useDiceRollerService = () => {
@@ -136,15 +99,49 @@ export const useDiceRollerService = () => {
 		state.inited = true;
 	}
 
+	const openRollModal = ({ expression, variables = {}, title = undefined }: RollFnProps) => {
+		state.rollModalData.set({
+			expression,
+			variables,
+			title: title ?? 'Tirar',
+			rollType: 'normal',
+			extraModsExpression: '',
+		});
+		state.rollModalOpened.set(true);
+	};
+
+	const submitRollModal = async () => {
+		const rollModalData = get(state.rollModalData);
+		state.rollModalData.set(undefined);
+		state.rollModalOpened.set(false);
+		if (!rollModalData) return;
+		let expression = rollModalData.expression;
+		let title = rollModalData.title;
+		if (rollModalData.rollType !== 'normal') {
+			expression += rollModalData.rollType === 'advantage' ? '+1d4' : '-1d4';
+			title += rollModalData.rollType === 'advantage' ? ' (ventaja)' : ' (desventaja)';
+		}
+		if (rollModalData?.extraModsExpression) {
+			expression += `+${rollModalData.extraModsExpression.trim()}`;
+			expression = expression.replaceAll('++', '+').replaceAll('+-', '-');
+		}
+		rollExpression({
+			expression,
+			variables: rollModalData.variables,
+			title,
+		});
+	};
+
+	const abortRollModal = () => {
+		state.rollModalOpened.set(false);
+		state.rollModalData.set(undefined);
+	};
+
 	const rollExpression = async ({
 		expression,
 		variables = {},
 		title = undefined,
-	}: {
-		expression: string;
-		variables?: Record<string, number>;
-		title?: string;
-	}): Promise<DiceRoll[]> => {
+	}: RollFnProps): Promise<DiceRoll[]> => {
 		const members = parseDiceExpression(expression, variables);
 
 		if (state.clearTimeoutId) {
@@ -239,5 +236,12 @@ export const useDiceRollerService = () => {
 		register3DDiceRollerFn,
 		registerClear3DDicesFn,
 		rollLogs: state.logs,
+		rollModal: {
+			rollModalOpened: state.rollModalOpened,
+			openRollModal,
+			rollModalData: state.rollModalData,
+			submitRollModal,
+			abortRollModal,
+		},
 	};
 };

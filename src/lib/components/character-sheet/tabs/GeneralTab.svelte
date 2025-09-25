@@ -17,10 +17,10 @@
 
 	let { character, readonly, onChange }: Props = $props();
 
-	let { rollExpression } = useDiceRollerService();
+	let { rollExpression, rollModal } = useDiceRollerService();
 
 	const onAttributeDiceRoll = (attributeName: string) => {
-		rollExpression({
+		rollModal.openRollModal({
 			expression: `1d6e+${attributeName}`,
 			variables: {
 				cuerpo: character.attributes.cuerpo,
@@ -34,7 +34,7 @@
 	};
 
 	const onAttackRoll = (attack: Attack) => {
-		rollExpression({
+		rollModal.openRollModal({
 			expression: attack.atkFormula,
 			variables: {
 				cuerpo: character.attributes.cuerpo,

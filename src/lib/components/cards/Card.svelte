@@ -105,6 +105,7 @@
 			transform 0.2s ease,
 			box-shadow 0.2s ease,
 			border-color 0.2s ease;
+		overflow: hidden;
 
 		&:hover {
 			transform: scale(1.01);
@@ -122,7 +123,6 @@
 			background-size: 180%;
 			opacity: 0.6;
 			z-index: 1;
-			border-radius: var(--radius-md);
 		}
 
 		.inner {

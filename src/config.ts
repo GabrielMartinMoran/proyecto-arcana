@@ -15,14 +15,14 @@ export const CONFIG = {
 	CLEAR_3D_DICES_DELAY: 3000,
 
 	CARD_BACKGROUNDS: {
-		arcanista: 'https://i.imgur.com/jo942TR.png',
-		combatiente: 'https://i.imgur.com/tNMMiKA.png',
-		picaro: 'https://i.imgur.com/7oV3AUV.png',
-		sacerdote: 'https://i.imgur.com/YDxjRLN.png',
-		druida: 'https://i.imgur.com/86JW0IU.png',
-		bardo: 'https://i.imgur.com/l6xUNWn.png',
-		dote: 'https://i.imgur.com/y5ZcA8n.png',
-		linaje: 'https://i.imgur.com/TJVRx45.png',
-		default: 'https://i.imgur.com/y15UGtj.png',
+		arcanista: 'https://i.imgur.com/qZ79oFt.png',
+		combatiente: 'https://i.imgur.com/RnbXeXe.png',
+		picaro: 'https://i.imgur.com/IPopAUR.png',
+		sacerdote: 'https://i.imgur.com/hB0g0sH.png',
+		druida: 'https://i.imgur.com/tn9UUel.png',
+		bardo: 'https://i.imgur.com/s42RmGr.png',
+		dote: 'https://i.imgur.com/lP7XapA.png',
+		linaje: 'https://i.imgur.com/Hcz7pX3.png',
+		default: 'https://i.imgur.com/ON6lmPC.png',
 	},
 };

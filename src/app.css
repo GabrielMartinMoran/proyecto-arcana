@@ -168,6 +168,13 @@ select {
 	border: 1px solid var(--border-color);
 	color: var(--text-primary);
 	border-radius: var(--radius-md);
+
+	&:disabled {
+		background: var(--disabled-bg);
+		cursor: not-allowed;
+		transform: unset;
+		box-shadow: unset;
+	}
 }
 
 label {

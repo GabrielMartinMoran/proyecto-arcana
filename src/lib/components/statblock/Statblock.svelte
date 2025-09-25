@@ -7,10 +7,10 @@
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
 
-	let { rollExpression } = useDiceRollerService();
+	let { rollModal } = useDiceRollerService();
 
 	const roll = (expression: string, type: string) => {
-		rollExpression({
+		rollModal.openRollModal({
 			expression: expression,
 			variables: {
 				cuerpo: creature.attributes.cuerpo,
@@ -26,198 +26,224 @@
 </script>
 
 <div class="statblock">
-	<div class="header">
-		<h2>{creature.name}</h2>
-		<span>
-			<strong>NA</strong>
-			<span>{creature.na}</span>
-		</span>
-	</div>
-	<div class="attributes">
-		{#each ['cuerpo', 'reflejos', 'mente', 'instinto', 'presencia'] as attribute (attribute)}
+	<div class="bg"></div>
+	<div class="data">
+		<div class="header">
+			<h2>{creature.name}</h2>
+			<span>
+				<strong>NA</strong>
+				<span>{creature.na}</span>
+			</span>
+		</div>
+		<div class="attributes">
+			{#each ['cuerpo', 'reflejos', 'mente', 'instinto', 'presencia'] as attribute (attribute)}
+				<div class="attribute">
+					<strong>{attribute.charAt(0).toUpperCase() + attribute.slice(1)}</strong>
+					<div class="score">
+						<span>{creature.attributes[attribute]}</span>
+						<button onclick={() => roll(`1d6e+${attribute}`, capitalize(attribute))} title="Tirar">
+							🎲
+						</button>
+					</div>
+				</div>
+			{/each}
+		</div>
+		<div class="stats">
 			<div class="attribute">
-				<strong>{attribute.charAt(0).toUpperCase() + attribute.slice(1)}</strong>
+				<strong>Salud</strong>
+				<span>{creature.stats.salud}</span>
+			</div>
+			<div class="attribute">
+				<strong>Esquiva</strong>
+				<span
+					>{creature.stats.esquiva.value}{creature.stats.esquiva.note
+						? ` (${creature.stats.esquiva.note})`
+						: ''}</span
+				>
+			</div>
+			<div class="attribute">
+				<strong>Mitigación</strong>
+				<span
+					>{creature.stats.mitigacion.value}{creature.stats.mitigacion.note
+						? ` (${creature.stats.mitigacion.note})`
+						: ''}</span
+				>
+			</div>
+			<div class="attribute">
+				<strong>Velocidad</strong>
+				<span
+					>{creature.stats.velocidad.value}{creature.stats.velocidad.note
+						? ` (${creature.stats.velocidad.note})`
+						: ''}</span
+				>
+			</div>
+			<div class="attribute">
+				<strong>Iniciativa</strong>
 				<div class="score">
-					<span>{creature.attributes[attribute]}</span>
-					<button onclick={() => roll(`1d6e+${attribute}`, capitalize(attribute))} title="Tirar">
-						🎲
-					</button>
+					<span>{creature.attributes.reflejos}</span>
+					<button onclick={() => roll(`1d6e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
 				</div>
 			</div>
-		{/each}
-	</div>
-	<div class="stats">
-		<div class="attribute">
-			<strong>Salud</strong>
-			<span>{creature.stats.salud}</span>
 		</div>
-		<div class="attribute">
-			<strong>Esquiva</strong>
-			<span
-				>{creature.stats.esquiva.value}{creature.stats.esquiva.note
-					? ` (${creature.stats.esquiva.note})`
-					: ''}</span
-			>
-		</div>
-		<div class="attribute">
-			<strong>Mitigación</strong>
-			<span
-				>{creature.stats.mitigacion.value}{creature.stats.mitigacion.note
-					? ` (${creature.stats.mitigacion.note})`
-					: ''}</span
-			>
-		</div>
-		<div class="attribute">
-			<strong>Velocidad</strong>
-			<span
-				>{creature.stats.velocidad.value}{creature.stats.velocidad.note
-					? ` (${creature.stats.velocidad.note})`
-					: ''}</span
-			>
-		</div>
-		<div class="attribute">
-			<strong>Iniciativa</strong>
-			<div class="score">
-				<span>{creature.attributes.reflejos}</span>
-				<button onclick={() => roll(`1d6e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
+		<div class="middle">
+			<div class="left">
+				<div class="languages">
+					<strong>Lenguas</strong>
+					<span>
+						{creature.languages.join(', ')}
+					</span>
+				</div>
+				<div class="attacks">
+					<strong>Ataques</strong>
+					<ul>
+						{#each creature.attacks as attack (attack.name)}
+							<li>
+								<strong>{attack.name}</strong>
+								<span
+									>{attack.bonus > 0 ? '+' + attack.bonus : attack.bonus} ({attack.damage}){attack.note
+										? ` - ${attack.note}`
+										: ''}</span
+								>
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<div class="actions">
+					<strong>Acciones</strong>
+					<ul>
+						{#each creature.actions as action (action.name)}
+							<li>
+								<CreatureAction {action} />
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<div class="actions">
+					<strong>Reacciones</strong>
+					<ul>
+						{#each creature.reactions as reaction (reaction.name)}
+							<li>
+								<CreatureAction action={reaction} />
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<div class="behavior">
+					<strong>Comportamiento</strong>
+					<span>{creature.behavior}</span>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="middle">
-		<div class="left">
-			<div class="languages">
-				<strong>Lenguas</strong>
-				<span>
-					{creature.languages.join(', ')}
-				</span>
+			<div class="right">
+				<img src={creature.img} alt={creature.name} />
 			</div>
-			<div class="attacks">
-				<strong>Ataques</strong>
-				<ul>
-					{#each creature.attacks as attack (attack.name)}
-						<li>
-							<strong>{attack.name}</strong>
-							<span
-								>{attack.bonus > 0 ? '+' + attack.bonus : attack.bonus} ({attack.damage}){attack.note
-									? ` - ${attack.note}`
-									: ''}</span
-							>
-						</li>
-					{/each}
-				</ul>
-			</div>
-			<div class="actions">
-				<strong>Acciones</strong>
-				<ul>
-					{#each creature.actions as action (action.name)}
-						<li>
-							<CreatureAction {action} />
-						</li>
-					{/each}
-				</ul>
-			</div>
-			<div class="actions">
-				<strong>Reacciones</strong>
-				<ul>
-					{#each creature.reactions as reaction (reaction.name)}
-						<li>
-							<CreatureAction action={reaction} />
-						</li>
-					{/each}
-				</ul>
-			</div>
-			<div class="behavior">
-				<strong>Comportamiento</strong>
-				<span>{creature.behavior}</span>
-			</div>
-		</div>
-		<div class="right">
-			<img src={creature.img} alt={creature.name} />
 		</div>
 	</div>
 </div>
 
 <style>
 	.statblock {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	}
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-md);
+		overflow: hidden;
 
-	.header {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
+		.bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('https://i.imgur.com/NhUqdlu.png');
+			background-position: 50% 50%;
+			background-size: 100%;
+			opacity: 0.2;
+			z-index: 1;
+		}
 
-	.attributes {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		border-top: 1px solid black;
-		border-bottom: 1px solid black;
-		padding: var(--spacing-md);
-		margin-bottom: var(--spacing-md);
-		margin-top: var(--spacing-md);
-	}
-
-	.stats {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: start;
-		margin: var(--spacing-md);
-	}
-
-	.middle {
-		display: flex;
-		flex-direction: row;
-
-		.left {
+		.data {
+			flex: 1;
 			display: flex;
 			flex-direction: column;
-			flex: 1;
-			gap: var(--spacing-md);
-		}
+			z-index: 2;
+			width: 100%;
 
-		.right {
-		}
-	}
+			.header {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+			}
 
-	img {
-		max-width: 200px;
-		height: auto;
-		border-radius: 50%;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		border: 2px solid gray;
-	}
+			.attributes {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				border-top: 1px solid black;
+				border-bottom: 1px solid black;
+				padding: var(--spacing-md);
+				margin-bottom: var(--spacing-md);
+				margin-top: var(--spacing-md);
+			}
 
-	@media screen and (max-width: 768px) {
-	}
-	.attribute {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+			.stats {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: start;
+				margin: var(--spacing-md);
+			}
 
-		.score {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			gap: var(--spacing-md);
-			border: 1px solid var(--border-color);
-			border-radius: var(--radius-md);
-			padding: var(--spacing-sm);
+			.middle {
+				display: flex;
+				flex-direction: row;
 
-			button {
-				padding: 0;
-				border: none;
+				.left {
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+					gap: var(--spacing-md);
+				}
+
+				.right {
+				}
+			}
+
+			img {
+				max-width: 200px;
+				height: auto;
+				border-radius: 50%;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				border: 2px solid gray;
+			}
+
+			.attribute {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				.score {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					gap: var(--spacing-md);
+					border: 1px solid var(--border-color);
+					border-radius: var(--radius-md);
+					padding: var(--spacing-sm);
+					background-color: var(--secondary-bg);
+
+					button {
+						padding: 0;
+						border: none;
+						background-color: var(--secondary-bg);
+					}
+				}
 			}
 		}
 	}

@@ -62,7 +62,7 @@
 			align-items: center;
 			justify-content: center;
 			color: white;
-			background-image: url('https://i.imgur.com/L04yLuL.png');
+			background-image: url('https://i.imgur.com/KTbGjxQ.png');
 			background-size: cover;
 			background-position: 0% 51%;
 			border: 1px solid var(--border-color);

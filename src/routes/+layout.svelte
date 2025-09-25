@@ -2,6 +2,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import DiceBox from '$lib/components/DiceBox.svelte';
 	import DicePanel from '$lib/components/DicePanel.svelte';
+	import RollModal from '$lib/components/RollModal.svelte';
 	import SideMenu from '$lib/components/SideMenu.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
@@ -45,6 +46,7 @@
 			{@render children?.()}
 		</section>
 		<DicePanel {isMobile} />
+		<RollModal />
 	</div>
 </main>
 
