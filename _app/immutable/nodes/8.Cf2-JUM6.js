@@ -1,0 +1,1 @@
+import"../chunks/DsnmJJEf.js";import"../chunks/GLbBk91X.js";import{f as s,b as e,s as t,d as n,r as i}from"../chunks/Dq1J35Nh.js";import{M as m}from"../chunks/BXgX6sAb.js";var c=s('<section class="svelte-nefmhu"><h1>Manual del Jugador</h1> <!></section>');function h(a){var o=c(),r=t(n(o),2);m(r,{src:"/docs/player.md"}),i(o),e(a,o)}export{h as component};
