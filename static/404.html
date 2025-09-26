@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Guarda la ruta original y redirige a la raíz para que el router de Svelte se encargue
+    sessionStorage.redirect = location.pathname;
+    location.href = '/proyecto-arcana/'; // ¡Asegúrate que coincida con el nombre de tu repo!
+  </script>
+</head>
+<body>
+</body>
+</html>
