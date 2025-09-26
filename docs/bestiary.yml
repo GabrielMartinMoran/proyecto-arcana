@@ -1,0 +1,473 @@
+creatures:
+    - name: Goblin
+      na: 1
+      attributes:
+          cuerpo: 1
+          reflejos: 3
+          mente: 1
+          instinto: 2
+          presencia: 1
+      stats:
+          salud: 5 # Masilla
+          esquiva:
+              value: 7
+              note: null
+          mitigacion:
+              value: 0
+              note: null
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - Goblin
+          - 'Común (jerga rudimentaria)'
+      attacks:
+          - name: Cimitarra oxidada
+            bonus: 3
+            damage: 1d4 Cortante
+            note: null
+      traits: []
+      actions: []
+      reactions: []
+      behavior: |
+          Atacar en grandes grupos al enemigo más cercano. Huir si se ve superado en número.
+      img: https://i.imgur.com/I3zy9zB.png
+
+    - name: Bandido
+      na: 2
+      attributes:
+          cuerpo: 2
+          reflejos: 3
+          mente: 1
+          instinto: 1
+          presencia: 1
+      stats:
+          salud: 11 # Balanceado
+          esquiva:
+              value: 7
+              note: null
+          mitigacion:
+              value: 1
+              note: Cuero
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - 'Común (jerga rudimentaria)'
+      attacks:
+          - name: Espada corta
+            bonus: 3
+            damage: 1d6 Cortante
+            note: null
+          - name: Ballesta Ligera
+            bonus: 3
+            damage: 1d6 Perforante
+            note: null
+      traits: []
+      actions: []
+      reactions: []
+      behavior: |
+          Atacar en grandes grupos al enemigo más cercano. Huir si se ve superado en número.
+      img: https://i.imgur.com/ParBKHT.png
+
+    - name: Orco
+      na: 2
+      attributes:
+          cuerpo: 3
+          reflejos: 3
+          mente: 1
+          instinto: 2
+          presencia: 1
+      stats:
+          salud: 14 # Balanceado
+          esquiva:
+              value: 6
+              note: null
+          mitigacion:
+              value: 0
+              note: null
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - Orco
+          - 'Común (rudimentario)'
+      attacks:
+          - name: Hacha de mano
+            bonus: 3
+            damage: 1d6 Cortante
+            note: null
+      traits:
+          - name: Furia
+            detail: Mientras el orco tenga la mitad de su Salud o menos, sus ataques infligen +2 de daño adicional.
+      actions: []
+      reactions: []
+      behavior: |
+          Cargar contra el enemigo que parezca más fuerte y luchar hasta la muerte sin retroceder.
+      img: https://i.imgur.com/vwS87Yq.png
+
+    - name: Espectro
+      na: 5
+      attributes:
+          cuerpo: 1
+          reflejos: 4
+          mente: 2
+          instinto: 5
+          presencia: 4
+      stats:
+          salud: 20 # Excepcional
+          esquiva:
+              value: 8
+              note: null
+          mitigacion:
+              value: 2
+              note: null
+          velocidad:
+              value: 9
+              note: Flota
+      languages:
+          - Umbral
+          - 'Común (comprende)'
+      attacks:
+          - name: Toque Gélido
+            bonus: 4
+            damage: 1d6 Necrótico
+            note: null
+      traits:
+          - name: Drenar Vida
+            detail: Cuando el espectro inflige daño con su Toque Gélido, recupera una cantidad de Salud igual al daño infligido.
+      actions:
+          - name: Mirada Aterradora
+            uses:
+                type: RELOAD
+                qty: 6
+            detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 10) o quedar Aturdido hasta el final de su próximo turno.
+      reactions: []
+      behavior: |
+          Flotar a través de los muros para aterrorizar y aislar a sus víctimas, enfocándose en los personajes con menor puntuación de Instinto.
+      img: https://i.imgur.com/3LAtxZ4.png
+
+    - name: Ogro
+      na: 8
+      attributes:
+          cuerpo: 6
+          reflejos: 1
+          mente: 1
+          instinto: 2
+          presencia: 2
+      stats:
+          salud: 28 # Tanque
+          esquiva:
+              value: 5
+              note: null
+          mitigacion:
+              value: 2
+              note: null
+          velocidad:
+              value: 7
+              note: null
+      languages:
+          - Gigante
+      attacks:
+          - name: Gran Garrote
+            bonus: 6
+            damage: 2d6+1 Contundente
+            note: null
+      traits: []
+      actions:
+          - name: Barrido
+            uses:
+                type: RELOAD
+                qty: 5
+            detail: El ogro blande su garrote en un arco amplio. Todos los personajes a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 9) o recibir 1d8 de daño Contundente y ser Derribados.
+      reactions: []
+      behavior: |
+          Aplastar primero lo que sea más pequeño y ruidoso, luego comer.
+      img: https://i.imgur.com/bZ1hNkv.png
+
+    - name: Capitán de los Bandidos
+      na: 5
+      attributes:
+          cuerpo: 3
+          reflejos: 4
+          mente: 2
+          instinto: 2
+          presencia: 3
+      stats:
+          salud: 14 # Balanceado
+          esquiva:
+              value: 8
+              note: null
+          mitigacion:
+              value: 1
+              note: Cuero
+          velocidad:
+              value: 10
+              note: null
+      languages:
+          - Común
+      attacks:
+          - name: Cimitarra
+            bonus: 4
+            damage: 1d6 Cortante
+            note: null
+          - name: Ballesta ligera
+            bonus: 4
+            damage: 1d6 Perforante
+            note: null
+      traits:
+          - name: Asalto Múltiple
+            detail: Puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Pesada (ignora recarga) en cualquier combinación.
+      actions: []
+      reactions:
+          - name: Parada
+            detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, añade +2 a su Esquiva contra ese ataque, pudiendo hacer que falle.
+      behavior: |
+          Se mantiene a distancia con su ballesta, usando a sus bandidos como escudo. Usa Parada contra los atacantes más fuertes que logren acercarse.
+      img: https://i.imgur.com/k3QVNis.png
+
+    - name: Cultista
+      na: 2
+      attributes:
+          cuerpo: 2
+          reflejos: 3
+          mente: 1
+          instinto: 3
+          presencia: 2
+      stats:
+          salud: 11 # Balanceado
+          esquiva:
+              value: 7
+              note: null
+          mitigacion:
+              value: 1
+              note: Cuero
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - Común
+      attacks:
+          - name: Daga ritual
+            bonus: 2
+            damage: 1d4 Cortante + 1 Necrótico o Radiante
+            note: null
+          - name: Ballesta ligera
+            bonus: 2
+            damage: 1d6 Perforante
+            note: null
+      traits:
+          - name: Fanático
+            detail: Tiene Ventaja en Tiradas de Salvación de Instinto para resistir efectos de miedo.
+      actions: []
+      reactions: []
+      behavior: |
+          Protege a su líder a toda costa y lucha fanáticamente hasta la muerte, creyendo que su sacrificio será recompensado.
+      img: https://i.imgur.com/VBT0h7Z.png
+
+    - name: Sacerdote
+      na: 4
+      attributes:
+          cuerpo: 4
+          reflejos: 2
+          mente: 2
+          instinto: 5
+          presencia: 2
+      stats:
+          salud: 17 # Balanceado
+          esquiva:
+              value: 5
+              note: null
+          mitigacion:
+              value: 2
+              note: Cota de mallas
+          velocidad:
+              value: 8
+              note: null
+      languages:
+          - Común
+          - Celestial
+      attacks:
+          - name: Maza
+            bonus: 4
+            damage: 1d6 Contundente + 1d6 Radiante
+            note: null
+          - name: Llama Radiante
+            bonus: 5
+            damage: 2d6 Radiante
+            note: null
+      traits:
+          - name: Asalto Múltiple
+            detail: Puede realizar dos ataques con su Acción, usando Maza o Llama Radiante en cualquier combinación.
+      actions:
+          - name: Toque Sanador
+            uses:
+                type: RELOAD
+                qty: 3
+            detail: Toca a una criatura y esta recupera 1d6 de Salud.
+          - name:
+            uses:
+                type: RELOAD
+                qty: 3
+            detail: Toca a una criatura y elimina Cegado, Ensordecido o Envenenado. próximo ataque), Curar Heridas (1d6 de Salud), Restablecimiento (elimina Cegado, Ensordecido o Envenenado).'
+          - name: Espíritus Guardianes
+            uses:
+                type: USES
+                qty: 1
+            detail: 'Concentración, 1 minuto. Radio 3m. Enemigos que entren o empiecen su turno deben TS Instinto (ND 9) recibiendo 2d6 Radiante en caso de fallo y la mitad en caso de éxito.'
+      reactions: []
+      behavior: |
+          Se mantiene detrás de sus aliados, usando Llama Radiante y ayudando a los heridos. Usa Espíritus Guardianes si se ve rodeado por múltiples enemigos.
+      img: https://i.imgur.com/w5QQCP6.png
+
+    - name: Esqueleto
+      na: 2
+      attributes:
+          cuerpo: 2
+          reflejos: 3
+          mente: 1
+          instinto: 1
+          presencia: 1
+      stats:
+          salud: 8 # Masilla
+          esquiva:
+              value: 8
+              note: Escudo
+          mitigacion:
+              value: 0
+              note: null
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - Umbral
+      attacks:
+          - name: Espada Corta
+            bonus: 3
+            damage: 1d6 Cortante
+            note: null
+          - name: Arco Corto
+            bonus: 3
+            damage: 1d4 Perforante
+            note: null
+      traits:
+          - name: Vulnerabilidad (Contundente)
+            detail: Recibe el doble de daño de fuentes de daño Contundente.
+          - name: Inmunidad (Veneno)
+            detail: No recibe daño de Veneno y no puede ser Envenenado.
+      actions: []
+      reactions: []
+      behavior: |
+          Sigue las últimas órdenes recibidas sin pensar. Usa su arco contra enemigos lejanos y su espada contra cercanos. No tiene instinto de autopreservación.
+      img: https://i.imgur.com/QElMAiy.png
+
+    - name: Matón
+      na: 3
+      attributes:
+          cuerpo: 4
+          reflejos: 3
+          mente: 1
+          instinto: 2
+          presencia: 2
+      stats:
+          salud: 17 # Balanceado
+          esquiva:
+              value: 7
+              note: null
+          mitigacion:
+              value: 1
+              note: Cuero
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - Común
+      attacks:
+          - name: Maza
+            bonus: 4
+            damage: 1d6 Contundente
+            note: null
+          - name: Ballesta ligera
+            bonus: 3
+            damage: 1d6 Perforante
+            note: null
+      traits:
+          - name: Ataque en Grupo
+            detail: Tiene Ventaja en ataques contra un enemigo si al menos un aliado está adyacente a este.
+      actions: []
+      reactions: []
+      behavior: |
+          Busca superar en número a sus oponentes para usar sus tácticas. Se enfoca en enemigos derribados o que parezcan débiles.
+      img: https://i.imgur.com/yw8RtuI.png
+
+    - name: Troll
+      na: 7
+      attributes:
+          cuerpo: 7
+          reflejos: 3
+          mente: 1
+          instinto: 2
+          presencia: 1
+      stats:
+          salud: 31 # Tanque
+          esquiva:
+              value: 7
+              note: null
+          mitigacion:
+              value: 2
+              note: Piel dura
+          velocidad:
+              value: 9
+              note: null
+      languages:
+          - Gigante
+      attacks:
+          - name: Desgarrar
+            bonus: 7
+            damage: 2d6 Cortante
+            note: null
+      traits:
+          - name: Regeneración
+            detail: Al inicio de su turno, recupera 10 de Salud. Si recibe daño por Fuego o Ácido, no regenera en su siguiente turno. Solo muere si empieza su turno con 0 de Salud y no puede regenerar.
+          - name: Asalto Múltiple
+            detail: Realiza tres ataques de Desgarrar.
+      actions: []
+      reactions: []
+      behavior: |
+          Ataca sin pensar al enemigo más cercano, confiando en su regeneración. Evita el fuego o ácido cuando aprende su debilidad.
+      img: https://i.imgur.com/5MAnITP.png
+
+    - name: Zombi
+      na: 1
+      attributes:
+          cuerpo: 2
+          reflejos: 2
+          mente: 1
+          instinto: 2
+          presencia: 1
+      stats:
+          salud: 8 # Masilla
+          esquiva:
+              value: 6
+              note: null
+          mitigacion:
+              value: 0
+              note: null
+          velocidad:
+              value: 8
+              note: null
+      languages:
+          - Umbral (comprende)
+      attacks:
+          - name: Mordisco
+            bonus: 3
+            damage: 1d4 Necrótico
+            note: null
+      traits:
+          - name: Fortaleza de No-Muerto
+            detail: Si un daño reduce al zombi a 0 de Salud, debe hacer una TS de Cuerpo (ND 5 + daño). Con éxito, queda a 1 de Salud. No funciona con daño Radiante o golpe crítico.
+      actions: []
+      reactions: []
+      behavior: |
+          Avanza lentamente hacia el ser vivo más cercano para golpearlo sin cesar hasta que deje de moverse. No reacciona a peligros del entorno.
+      img: https://i.imgur.com/ZVpBSZ6.png
