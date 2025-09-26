@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { replaceState } from '$app/navigation';
+	import { page } from '$app/state';
 	import type { Card } from '$lib/types/card';
 	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
 	import Container from '../ui/Container.svelte';
@@ -25,9 +27,59 @@
 		type: '',
 	});
 
-	let filters: Filters = $state(buildEmptyFilters());
+	const buildFiltersFromURL = () => {
+		const name = page.url.searchParams.get('name') ?? '';
+		const level = page.url.searchParams
+			.getAll('level')
+			.filter((tag) => tag !== '')
+			.map(Number)
+			.filter((x) => x > 0);
+		const tags = page.url.searchParams.getAll('tags').filter((tag) => tag !== '');
+		const type = page.url.searchParams.get('type') ?? '';
+
+		return {
+			name,
+			level,
+			tags,
+			type,
+		};
+	};
+
+	const updateURLFilters = () => {
+		if (filters.name) {
+			page.url.searchParams.set('name', filters.name);
+		} else {
+			page.url.searchParams.delete('name');
+		}
+
+		if (filters.level.length === 0) {
+			page.url.searchParams.delete('level');
+		} else {
+			page.url.searchParams.set('level', filters.level.join(','));
+		}
+
+		if (filters.tags.length === 0) {
+			page.url.searchParams.delete('tags');
+		} else {
+			page.url.searchParams.set('tags', filters.tags.join(','));
+		}
+
+		if (!filters.type) {
+			page.url.searchParams.delete('type');
+		} else {
+			page.url.searchParams.set('type', filters.type);
+		}
+
+		const queryParams = page.url.searchParams.toString();
+
+		const newUrl = `${page.url.pathname}${queryParams ? `?${queryParams}` : ''}`;
+		replaceState(newUrl, {});
+	};
+
+	let filters: Filters = $derived(buildFiltersFromURL());
 
 	const onFilterChange = () => {
+		console.log('Filters', filters);
 		const results = cards.filter((card) => {
 			return (
 				removeDiacritics(card.name.toLowerCase()).includes(
@@ -39,6 +91,7 @@
 			);
 		});
 		onFilter(results);
+		updateURLFilters();
 	};
 
 	const resetFilters = () => {
@@ -77,6 +130,7 @@
 			}}
 		>
 			<option value="">Filtrar por Tipo</option>
+			<option value="">Todos</option>
 			{#each getAvailableTypes() as type (type)}
 				<option value={type}>{capitalize(type)}</option>
 			{/each}
