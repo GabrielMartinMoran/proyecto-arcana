@@ -75,7 +75,6 @@ const rollDice = async (expression: string): Promise<DiceResult[]> => {
 };
 
 const logRolls = (rolls: DiceRoll[], title?: string) => {
-	console.log(rolls);
 	const log: RollLog = {
 		id: crypto.randomUUID(),
 		timestamp: new Date(),

@@ -16,7 +16,7 @@ export const CONFIG = {
 
 	CARD_BACKGROUNDS: {
 		arcanista: 'https://i.imgur.com/qZ79oFt.png',
-		combatiente: 'https://i.imgur.com/RnbXeXe.png',
+		combatiente: 'https://i.imgur.com/Y1Nj73K.png',
 		picaro: 'https://i.imgur.com/IPopAUR.png',
 		sacerdote: 'https://i.imgur.com/hB0g0sH.png',
 		druida: 'https://i.imgur.com/tn9UUel.png',

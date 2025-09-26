@@ -127,3 +127,67 @@ export const calculateTotal = (rolls: DiceRoll[]): number => {
 	});
 	return total;
 };
+
+export const parseCreatureDamageExpression = (raw: string) => {
+	const parts: any[] = [];
+	if (!raw || !String(raw).trim()) return parts;
+	const s = String(raw).trim();
+
+	// Normalize plus/minus spacing but preserve case for damageType.
+	// Ensure uniform leading sign
+	const norm = /^[+-]/.test(s) ? s : `+${s}`;
+
+	// Regex to capture sequences: sign then all until next sign
+	const tokenRe = /([+-])\s*([^+-]+)/g;
+	let m;
+	while ((m = tokenRe.exec(norm)) !== null) {
+		const sign = m[1] === '+' ? 1 : -1;
+		const term = (m[2] || '').trim();
+		if (!term) continue;
+
+		// Try dice at start: NdM or N d M
+		const diceMatch = term.match(/^(\d+)\s*d\s*(\d+)/i);
+		if (diceMatch) {
+			const n = Number(diceMatch[1]);
+			const faces = Number(diceMatch[2]);
+			const rest = term.slice(diceMatch[0].length).trim();
+			const damageType = rest || null;
+			parts.push({ kind: 'dice', sign, n, faces, damageType, raw: term });
+			continue;
+		}
+
+		// Try flat number at start
+		const numMatch = term.match(/^(\d+)/);
+		if (numMatch) {
+			const value = Number(numMatch[1]);
+			const rest = term.slice(numMatch[0].length).trim();
+			const damageType = rest || null;
+			parts.push({ kind: 'flat', sign, value, damageType, raw: term });
+			continue;
+		}
+
+		// Fallback: try to find any dice anywhere
+		const anyDice = term.match(/(\d+)\s*d\s*(\d+)/i);
+		if (anyDice) {
+			const n = Number(anyDice[1]);
+			const faces = Number(anyDice[2]);
+			const damageType = term.replace(anyDice[0], '').trim() || null;
+			parts.push({ kind: 'dice', sign, n, faces, damageType, raw: term });
+			continue;
+		}
+
+		// Fallback: treat as "flat" label with zero numeric effect (keeps type information)
+		parts.push({ kind: 'flat', sign, value: 0, damageType: term || null, raw: term });
+	}
+
+	const finalExpression = parts.reduce((acc, term) => {
+		if (term.kind === 'dice') {
+			return `${acc} ${term.sign === 1 ? '+' : '-'} ${term.n}d${term.faces}`;
+		} else if (term.kind === 'flat') {
+			return `${acc} ${term.sign === 1 ? '+' : '-'} ${term.value}`;
+		}
+		return acc;
+	}, '');
+
+	return finalExpression;
+};

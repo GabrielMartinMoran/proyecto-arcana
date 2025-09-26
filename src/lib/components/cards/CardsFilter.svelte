@@ -73,7 +73,6 @@
 		<select
 			onchange={(event) => {
 				filters.type = (event.target as HTMLSelectElement).value;
-				console.log(filters.type);
 				onFilterChange();
 			}}
 		>

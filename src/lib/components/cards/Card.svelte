@@ -121,7 +121,7 @@
 			height: 100%;
 			background-position: 50% 25%;
 			background-size: 180%;
-			opacity: 0.6;
+			opacity: 0.5;
 			z-index: 1;
 		}
 
@@ -159,7 +159,6 @@
 				flex: 1;
 				display: flex;
 				flex-direction: column;
-				align-items: center;
 				justify-content: start;
 				padding: var(--spacing-sm);
 				font-size: 0.8rem;
@@ -167,6 +166,8 @@
 				.description {
 					flex-grow: 1;
 					margin: 0;
+					text-shadow: 1px 1px 1px #ded1b5;
+					mix-blend-mode: saturation;
 
 					:global(p) {
 						margin: 0;

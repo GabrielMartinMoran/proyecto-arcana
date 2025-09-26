@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
-	import type { Creature } from '$lib/types/creature';
+	import type { Creature, CreatureAttack } from '$lib/types/creature';
+	import { parseCreatureDamageExpression } from '$lib/utils/dice-rolling';
 	import { capitalize } from '$lib/utils/formatting';
 	import CreatureAction from './CreatureAction.svelte';
 
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
 
-	let { rollModal } = useDiceRollerService();
+	let { rollModal, rollExpression } = useDiceRollerService();
 
 	const roll = (expression: string, type: string) => {
 		rollModal.openRollModal({
@@ -21,6 +22,19 @@
 				iniciativa: creature.attributes.reflejos,
 			},
 			title: `${creature.name}: ${type}`,
+		});
+	};
+
+	const rollAttack = (attack: CreatureAttack) => {
+		roll(`1d6e+${attack.bonus}`, `Ataca con ${attack.name}`);
+	};
+
+	const rollDamage = (attack: CreatureAttack) => {
+		const parsedFormula = parseCreatureDamageExpression(attack.damage);
+
+		rollExpression({
+			expression: parsedFormula,
+			title: `${creature.name}: Daño de ${attack.name}`,
 		});
 	};
 </script>
@@ -93,43 +107,64 @@
 						{creature.languages.join(', ')}
 					</span>
 				</div>
-				<div class="attacks">
-					<strong>Ataques</strong>
-					<ul>
-						{#each creature.attacks as attack (attack.name)}
-							<li>
-								<strong>{attack.name}</strong>
-								<span
-									>{attack.bonus > 0 ? '+' + attack.bonus : attack.bonus} ({attack.damage}){attack.note
-										? ` - ${attack.note}`
-										: ''}</span
-								>
-							</li>
-						{/each}
-					</ul>
-				</div>
-				<div class="actions">
-					<strong>Acciones</strong>
-					<ul>
-						{#each creature.actions as action (action.name)}
-							<li>
-								<CreatureAction {action} />
-							</li>
-						{/each}
-					</ul>
-				</div>
-				<div class="actions">
-					<strong>Reacciones</strong>
-					<ul>
-						{#each creature.reactions as reaction (reaction.name)}
-							<li>
-								<CreatureAction action={reaction} />
-							</li>
-						{/each}
-					</ul>
-				</div>
+				{#if creature.traits.length > 0}
+					<div class="traits">
+						<strong>Rasgos</strong>
+						<ul>
+							{#each creature.traits as trait (trait.name)}
+								<li>
+									<strong>{trait.name}: </strong>
+									<span>{trait.detail}</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+				{#if creature.attacks.length > 0}
+					<div class="attacks">
+						<strong>Ataques</strong>
+						<ul>
+							{#each creature.attacks as attack (attack.name)}
+								<li>
+									<strong>{attack.name}</strong>
+									<span
+										><button onclick={() => rollAttack(attack)}
+											>{attack.bonus > 0 ? '+' + attack.bonus : attack.bonus} 🎯</button
+										>
+										<button onclick={() => rollDamage(attack)}>{attack.damage} 💥</button
+										>{attack.note ? attack.note : ''}
+									</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+				{#if creature.actions.length > 0}
+					<div class="actions">
+						<strong>Acciones</strong>
+						<ul>
+							{#each creature.actions as action (action.name)}
+								<li>
+									<CreatureAction {action} />
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+				{#if creature.reactions.length > 0}
+					<div class="actions">
+						<strong>Reacciones</strong>
+						<ul>
+							{#each creature.reactions as reaction (reaction.name)}
+								<li>
+									<CreatureAction action={reaction} />
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
 				<div class="behavior">
-					<strong>Comportamiento</strong>
+					<strong>Comportamiento: </strong>
 					<span>{creature.behavior}</span>
 				</div>
 			</div>
@@ -208,8 +243,17 @@
 					flex: 1;
 					gap: var(--spacing-md);
 				}
-
 				.right {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+				}
+
+				.attacks {
+					button {
+						margin-left: var(--spacing-sm);
+					}
 				}
 			}
 

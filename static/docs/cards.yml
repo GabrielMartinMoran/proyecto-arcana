@@ -226,7 +226,7 @@ cards:
           - Reflejos 2
       description: >-
           Obtienes Ventaja (+1d4) en Pruebas de Habilidad relacionadas con Sigilo
-          y Juegos de Manos. Es requisito para otras cartas de Pícaro.
+          y Juegos de Manos.
       uses:
           type: null
           qty: 0
@@ -311,8 +311,7 @@ cards:
           - Reflejos 2
           - Presencia 2
       description: >-
-          Obtienes Ventaja (+1d4) en Pruebas de Acrobacias e Intimidación. Es requisito para otras
-          cartas de Duelista.
+          Obtienes Ventaja (+1d4) en Pruebas de Acrobacias e Intimidación.
       uses:
           type: null
           qty: 0
@@ -356,7 +355,6 @@ cards:
           - Senda del Bribón
       description: >-
           Eres hábil preparando y aplicando toxinas. Puedes aplicar veneno a un arma como una Interacción.
-          Es requisito para otras cartas de veneno.
       uses:
           type: null
           qty: 0
@@ -387,7 +385,6 @@ cards:
           - Senda del Bribón
       description: >-
           Obtienes Ventaja (+1d4) en pruebas de Juego de Manos para abrir cerraduras o desactivar mecanismos.
-          Es requisito para otras cartas de Infiltrador.
       uses:
           type: null
           qty: 0
@@ -415,7 +412,7 @@ cards:
       requirements:
           - Cuerpo 2
       description: >-
-          Obtienes Ventaja (+1d4) en Pruebas de Atletismo. Es requisito para otras cartas de Combatiente.
+          Obtienes Ventaja (+1d4) en Pruebas de Atletismo.
       uses:
           type: null
           qty: 0
@@ -619,7 +616,7 @@ cards:
           - Presencia 3
       description: >-
           Como Acción, eliges a un aliado a distancia Cercana. Ese aliado puede usar
-          su Reacción para moverse hasta su velocidad o realizar un ataque básico.
+          su Reacción para moverse hasta su velocidad o realizar un ataque único.
       uses:
           type: RELOAD
           qty: 4
@@ -636,7 +633,7 @@ cards:
       description: >-
           Tu visión es excepcionalmente aguda. Obtienes Ventaja (+1d4) en pruebas de Percepción para avistar
           enemigos lejanos. Además, los enemigos no se benefician del bono a la Esquiva por cobertura parcial
-          cuando les atacas con un arma a distancia. Es requisito para otras cartas de Tirador.
+          cuando les atacas con un arma a distancia.
       uses:
           type: null
           qty: 0
@@ -678,7 +675,7 @@ cards:
       requirements:
           - Mente 2
       description: >-
-          Obtienes Ventaja (+1d4) en pruebas de conocimiento mágico (Arcano). Es requisito para otras cartas de Arcanista.
+          Obtienes Ventaja (+1d4) en pruebas de conocimiento mágico (Arcano).
       uses:
           type: null
           qty: 0
@@ -918,7 +915,7 @@ cards:
           - Instinto 2
       description: >-
           Obtienes Ventaja en pruebas de asociadas a temas religiosos y en pruebas de Presencia
-          para interactuar con fieles de tu misma fe. Es requisito para otras cartas de Sacerdote.
+          para interactuar con fieles de tu misma fe.
       uses:
           type: null
           qty: 0
@@ -1134,8 +1131,7 @@ cards:
           - Instinto 2
           - Mente 2
       description: >-
-          Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras. Es requisito
-          para otras cartas de Inquisidor.
+          Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras.
       uses:
           type: null
           qty: 0
@@ -1181,7 +1177,7 @@ cards:
       requirements:
           - Instinto 2
       description: >-
-          Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Trato con Animales. Es requisito para otras cartas de Druida.
+          Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Trato con Animales.
       uses:
           type: null
           qty: 0
@@ -1409,7 +1405,6 @@ cards:
           - Presencia 2
       description: >-
           Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.
-          Es requisito para otras cartas de Bardo.
       uses:
           type: null
           qty: 0

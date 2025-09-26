@@ -44,7 +44,7 @@
 	};
 
 	onMount(() => {
-		logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
+		logList?.scroll({ top: logList.scrollHeight, behavior: 'instant' });
 	});
 </script>
 
