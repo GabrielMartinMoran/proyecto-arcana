@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import CharacterSheet from '$lib/components/character-sheet/CharacterSheet.svelte';
 	import type { Character } from '$lib/types/character';
@@ -48,12 +49,12 @@
 			page.url.searchParams.delete('characterId');
 			page.url.searchParams.delete('tab');
 		}
-		goto(`?${page.url.searchParams.toString()}`);
+		goto(resolve(`?${page.url.searchParams.toString()}`));
 	};
 
 	const onTabChange = (tab: string) => {
 		page.url.searchParams.set('tab', tab);
-		goto(`?${page.url.searchParams.toString()}`);
+		goto(resolve(`?${page.url.searchParams.toString()}`));
 	};
 
 	let selectedCharacter: Character | undefined = $derived(
