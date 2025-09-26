@@ -72,8 +72,13 @@
 		},
 	];
 
-	let currentTabIndex: number = $state(TABS.findIndex((tab) => tab.name === currentTab));
-	let currentTabReference: Tab = $derived(TABS.find((tab) => tab.name === currentTab));
+	let currentTabIndex: number = $derived(
+		Math.max(
+			TABS.findIndex((tab) => tab.name === currentTab),
+			0,
+		),
+	);
+	let currentTabReference: Tab = $derived(TABS.find((tab) => tab.name === currentTab) ?? TABS[0]);
 
 	const onCharacterChange = (chara: Character) => {
 		const newChara = chara.copy();
