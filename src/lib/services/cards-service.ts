@@ -1,3 +1,4 @@
+import { resolve } from '$app/paths';
 import { mapCard } from '$lib/mappers/card-mapper';
 import type { Card } from '$lib/types/card';
 
@@ -10,7 +11,7 @@ export const useCardsService = () => {
 	const loadCards = async () => {
 		if (get(cardsStore).length > 0) return;
 
-		const response = await fetch('/docs/cards.yml');
+		const response = await fetch(resolve('/docs/cards.yml'));
 		const rawData = await response.text();
 
 		let rawCards = [];
