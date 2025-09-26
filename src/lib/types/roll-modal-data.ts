@@ -4,5 +4,5 @@ export interface RollModalData {
 	title: string;
 	rollType: 'normal' | 'advantage' | 'disadvantage';
 	extraModsExpression: string;
-	resultFormatter?: (total: number) => string;
+	resultFormatter?: (total: number) => string | undefined;
 }

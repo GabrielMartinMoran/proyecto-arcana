@@ -77,7 +77,7 @@ const rollDice = async (expression: string): Promise<DiceResult[]> => {
 const logRolls = (
 	rolls: DiceRoll[],
 	title?: string,
-	resultFormatter?: (result: number) => string,
+	resultFormatter?: (result: number) => string | undefined,
 ) => {
 	const total = calculateTotal(rolls);
 	const log: RollLog = {
@@ -96,7 +96,7 @@ type RollFnProps = {
 	expression: string;
 	variables?: Record<string, number>;
 	title?: string;
-	resultFormatter?: (result: number) => string;
+	resultFormatter?: (result: number) => string | undefined;
 };
 
 export const useDiceRollerService = () => {
@@ -109,7 +109,7 @@ export const useDiceRollerService = () => {
 		expression,
 		variables = {},
 		title = undefined,
-		resultFormatter = (result) => result.toString(),
+		resultFormatter = () => undefined,
 	}: RollFnProps) => {
 		state.rollModalData.set({
 			expression,
@@ -153,7 +153,7 @@ export const useDiceRollerService = () => {
 		expression,
 		variables = {},
 		title = undefined,
-		resultFormatter = (result) => result.toString(),
+		resultFormatter = () => undefined,
 	}: RollFnProps): Promise<number> => {
 		const members = parseDiceExpression(expression, variables);
 

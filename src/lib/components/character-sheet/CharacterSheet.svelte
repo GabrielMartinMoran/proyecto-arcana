@@ -14,11 +14,14 @@
 		character: Character;
 		readonly: boolean;
 		onChange: (character: Character) => void;
+		currentTab: string;
+		onTabChange: (tab: string) => void;
 	};
 
-	let { character, readonly, onChange }: Props = $props();
+	let { character, readonly, onChange, currentTab, onTabChange }: Props = $props();
 
 	type Tab = {
+		name: string;
 		title: string;
 		component: Component<Props, any, any>;
 		availableWhenReadOnly: boolean;
@@ -26,50 +29,61 @@
 
 	const TABS: Tab[] = [
 		{
+			name: 'general',
 			title: 'General',
 			component: GeneralTab,
 			availableWhenReadOnly: true,
 		},
 		{
+			name: 'cards',
 			title: 'Cartas',
 			component: CardsTab,
 			availableWhenReadOnly: true,
 		},
 		{
+			name: 'bio',
 			title: 'Bio',
 			component: BioTab,
 			availableWhenReadOnly: true,
 		},
 		{
+			name: 'notes',
 			title: 'Notas',
 			component: NotesTab,
 			availableWhenReadOnly: true,
 		},
 		{
+			name: 'progress',
 			title: 'Progreso',
 			component: ProgressTab,
 			availableWhenReadOnly: true,
 		},
 		{
+			name: 'economy',
 			title: 'Economía',
 			component: EconomyTab,
 			availableWhenReadOnly: true,
 		},
 		{
+			name: 'settings',
 			title: 'Configuración',
 			component: SettingsTab,
 			availableWhenReadOnly: false,
 		},
 	];
 
-	let currentTabIndex: number = $state(0);
-
-	let currentTab: Tab = $derived(TABS[currentTabIndex]);
+	let currentTabIndex: number = $state(TABS.findIndex((tab) => tab.name === currentTab));
+	let currentTabReference: Tab = $derived(TABS.find((tab) => tab.name === currentTab));
 
 	const onCharacterChange = (chara: Character) => {
 		const newChara = chara.copy();
 		onChange(newChara);
 		character = newChara;
+	};
+
+	const changeTab = (index: number) => {
+		currentTabIndex = index;
+		onTabChange(TABS[index].name);
 	};
 </script>
 
@@ -90,12 +104,12 @@
 				<button
 					class="tab"
 					class:selected={currentTabIndex === index}
-					onclick={() => (currentTabIndex = index)}>{tab.title}</button
+					onclick={() => changeTab(index)}>{tab.title}</button
 				>
 			{/if}
 		{/each}
 	</div>
-	<currentTab.component {character} {readonly} onChange={onCharacterChange} />
+	<currentTabReference.component {character} {readonly} onChange={onCharacterChange} />
 </div>
 
 <style>

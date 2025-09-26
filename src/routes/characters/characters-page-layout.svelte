@@ -5,6 +5,8 @@
 	import type { Character } from '$lib/types/character';
 	import type { Writable } from 'svelte/store';
 
+	const DEFAULT_TAB = 'general';
+
 	type Props = {
 		characters: Writable<Character[]>;
 		readonly: boolean;
@@ -36,13 +38,21 @@
 	}: Props = $props();
 
 	let selectedCharacterId: string | null = $derived(page.url.searchParams.get('characterId'));
+	let currentTab: string = $derived(page.url.searchParams.get('tab') ?? DEFAULT_TAB);
 
 	const selectCharacter = (character: Character | null) => {
 		if (character !== null) {
 			page.url.searchParams.set('characterId', character.id);
+			page.url.searchParams.set('tab', DEFAULT_TAB);
 		} else {
 			page.url.searchParams.delete('characterId');
+			page.url.searchParams.delete('tab');
 		}
+		goto(`?${page.url.searchParams.toString()}`);
+	};
+
+	const onTabChange = (tab: string) => {
+		page.url.searchParams.set('tab', tab);
 		goto(`?${page.url.searchParams.toString()}`);
 	};
 
@@ -125,7 +135,13 @@
 	</div>
 	<div class="viewport">
 		{#if selectedCharacter}
-			<CharacterSheet character={selectedCharacter} {readonly} onChange={onCharacterUpdate} />
+			<CharacterSheet
+				character={selectedCharacter}
+				{readonly}
+				onChange={onCharacterUpdate}
+				{currentTab}
+				{onTabChange}
+			/>
 		{/if}
 	</div>
 </section>

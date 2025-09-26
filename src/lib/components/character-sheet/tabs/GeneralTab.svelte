@@ -28,6 +28,7 @@
 				mente: character.attributes.mente,
 				instinto: character.attributes.instinto,
 				presencia: character.attributes.presencia,
+				iniciativa: character.initiative,
 			},
 			title: `${character.name}: ${capitalize(attributeName)}`,
 		});
@@ -150,7 +151,16 @@
 		<InputField label="Velocidad" value={character.speed} readonly={true} />
 		<InputField label="Esquiva" value={character.evasion} readonly={true} />
 		<InputField label="Mitigación" value={character.mitigation} readonly={true} />
-		<InputField label="Iniciativa" value={character.initiative} readonly={true} />
+		<InputField
+			label="Iniciativa"
+			value={character.initiative}
+			readonly={true}
+			button={{
+				icon: '🎲',
+				title: 'Tirar iniciativa',
+				onClick: () => onAttributeDiceRoll('iniciativa'),
+			}}
+		/>
 	</div>
 </Container>
 
