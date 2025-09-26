@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
@@ -45,7 +46,7 @@
 
 	const navigateRoute = (event: MouseEvent, path: string) => {
 		event.preventDefault();
-		goto(path);
+		goto(resolve(path));
 		sideMenuExpandedStore.set(false);
 	};
 

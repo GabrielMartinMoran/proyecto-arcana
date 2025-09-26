@@ -1,3 +1,4 @@
+import { resolve } from '$app/paths';
 import { mapCreature } from '$lib/mappers/creature-mapper';
 import type { Creature } from '$lib/types/creature';
 import { load } from 'js-yaml';
@@ -9,7 +10,7 @@ export const useCreaturesService = () => {
 	const loadCreatures = async () => {
 		if (get(creaturesStore).length > 0) return;
 
-		const response = await fetch('/docs/bestiary.yml');
+		const response = await fetch(resolve('/docs/bestiary.yml'));
 		const rawData = await response.text();
 
 		let rawCreatures = [];

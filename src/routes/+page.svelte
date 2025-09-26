@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 </script>
 
 <main>
@@ -45,9 +46,11 @@
 	<h2>¡Ahora si, comencemos!</h2>
 
 	<div class="ctas">
-		<button class="player" onclick={() => goto('/player')}>Iniciando como jugador</button>
-		<button class="character" onclick={() => goto('/characters')}>¡A crear un personaje!</button>
-		<button class="gm" onclick={() => goto('/gm')}>¡Es hora de dirigir!</button>
+		<button class="player" onclick={() => goto(resolve('/player'))}>Iniciando como jugador</button>
+		<button class="character" onclick={() => goto(resolve('/characters'))}
+			>¡A crear un personaje!</button
+		>
+		<button class="gm" onclick={() => goto(resolve('/gm'))}>¡Es hora de dirigir!</button>
 	</div>
 </main>
 

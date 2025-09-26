@@ -1,3 +1,4 @@
+import { resolve } from '$app/paths';
 import { Character } from '$lib/types/character';
 import { writable } from 'svelte/store';
 
@@ -37,7 +38,7 @@ export const useCharactersService = () => {
 		if (state.exampleCharactersAlreadyLoaded) return;
 		let characters: any[] = [];
 		try {
-			const response = await fetch('/docs/example-characters.json');
+			const response = await fetch(resolve('/docs/example-characters.json'));
 			characters = await response.json();
 		} catch (error) {
 			console.error('Error fetching example characters:', error);
