@@ -11,6 +11,7 @@
 		characterCards?: CharacterCard[];
 		listMode?: 'active' | 'collection' | 'all';
 		onChange?: (characterCards: CharacterCard[]) => void;
+		onCardReloadClick?: (cardId: string) => void;
 	};
 
 	let {
@@ -19,6 +20,7 @@
 		characterCards: initialCharacterCards = [],
 		listMode = 'all',
 		onChange = () => {},
+		onCardReloadClick = () => {},
 	}: Props = $props();
 
 	let characterCards = $derived(initialCharacterCards);
@@ -58,7 +60,7 @@
 			...characterCards,
 			{
 				id: card.id,
-				uses: card.uses.qty,
+				uses: getCardTotalUses(card),
 				isActive: false,
 				level: card.level,
 			} as CharacterCard,
@@ -111,6 +113,12 @@
 								value={getCurrentUses(card.id)!}
 								max={getCardTotalUses(card)!}
 								onChange={(value) => updateCardCurrentUses(card.id, Number(value))}
+								button={{
+									icon: '🎲',
+									title: 'Tirar para recargar',
+									onClick: () => onCardReloadClick(card.id),
+									disabled: getCurrentUses(card.id) === getCardTotalUses(card),
+								}}
 							/>
 						{/if}
 						<span class="spacer"></span>

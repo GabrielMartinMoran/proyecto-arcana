@@ -58,7 +58,11 @@
 		{#each $rollLogs as log (log.id)}
 			<div class="log-item">
 				<span class="title">{log.title}</span>
-				<span class="total">{log.total}</span>
+				{#if log.formattedTotal}
+					{@html log.formattedTotal}
+				{:else}
+					<span class="total">{log.total}</span>
+				{/if}
 				<span class="detail">{@html log.detail}</span>
 			</div>
 		{:else}
@@ -148,7 +152,7 @@
 					font-size: 0.9rem;
 				}
 
-				.total {
+				:global(.total) {
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -157,6 +161,18 @@
 					padding: var(--spacing-xs);
 					font-weight: 600;
 					background-color: var(--disabled-bg);
+
+					&.success {
+						/* Used by the children when custom formatting the total */
+						color: var(--success-color);
+						font-weight: 600;
+					}
+
+					&.failure {
+						/* Used by the children when custom formatting the total */
+						color: var(--failure-color);
+						font-weight: 600;
+					}
 				}
 
 				.detail {
@@ -168,13 +184,13 @@
 
 					:global(.max) {
 						/* Used in detail */
-						color: green;
+						color: var(--success-color);
 						font-weight: 600;
 					}
 
 					:global(.min) {
 						/* Used in detail */
-						color: darkred;
+						color: var(--failure-color);
 						font-weight: 600;
 					}
 				}

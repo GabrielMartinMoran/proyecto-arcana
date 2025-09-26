@@ -176,10 +176,10 @@
 	}
 
 	.positive {
-		color: green;
+		color: var(--success-color);
 	}
 
 	.negative {
-		color: red;
+		color: var(--failure-color);
 	}
 </style>

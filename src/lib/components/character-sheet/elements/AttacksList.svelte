@@ -128,7 +128,7 @@
 				flex-direction: row;
 				flex-wrap: wrap;
 				width: 100%;
-				gap: var(--spacing-md);
+				gap: var(--spacing-xs);
 
 				.name,
 				.atk-formula,
@@ -147,11 +147,11 @@
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
-				gap: var(--spacing-md);
+				gap: var(--spacing-xs);
 				width: 100%;
 
 				button {
-					width: 50px;
+					width: 40px;
 				}
 			}
 		}

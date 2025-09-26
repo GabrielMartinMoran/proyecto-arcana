@@ -1,6 +1,7 @@
 <script lang="ts">
 	type Props = {
 		label?: string;
+		labelWidth?: 'normalized' | 'fit';
 		value: number | string;
 		max?: number;
 		readonly?: boolean;
@@ -18,6 +19,7 @@
 
 	let {
 		label = undefined,
+		labelWidth = 'normalized',
 		value,
 		max,
 		readonly = false,
@@ -33,7 +35,7 @@
 
 <div class="fieldgroup" class:fullWidth>
 	{#if label}
-		<label>{label}</label>
+		<label class={labelWidth}>{label}</label>
 	{/if}
 	<span
 		class="field"
@@ -49,15 +51,21 @@
 			class:alone={max === undefined && button === undefined}
 			class:fullWidth
 			class:withButton={button !== undefined}
+			class:withButtonAndMax={max !== undefined && button !== undefined}
 			class={`text-align-${textAlign}`}
 			{max}
 			min={0}
 			{placeholder}
-			oninput={() => onChange(innerValue)}
+			oninput={() => {
+				if (max !== undefined && typeof innerValue === 'number') {
+					innerValue = Math.min(innerValue, max);
+				}
+				onChange(innerValue);
+			}}
 		/>
 		{#if max !== undefined}
 			<span class="divider">/</span>
-			<span class="max">{max}</span>
+			<span class="max" class:withButton={button !== undefined}>{max}</span>
 		{/if}
 		{#if button}
 			<button
@@ -77,11 +85,18 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: var(--spacing-sm);
+		gap: var(--spacing-md);
 
 		label {
-			width: 8rem;
 			text-align: left;
+
+			&.normalized {
+				width: 7rem;
+			}
+
+			&.fit {
+				width: fit-content;
+			}
 		}
 
 		.field {
@@ -94,6 +109,7 @@
 			border-radius: var(--radius-md);
 			min-width: 8.2rem;
 			width: 8.2rem;
+			background-color: var(--secondary-bg);
 
 			&.readonly {
 				background-color: var(--disabled-bg);
@@ -142,6 +158,12 @@
 					margin-left: var(--spacing-md);
 				}
 
+				&.withButtonAndMax {
+					padding-right: 0;
+					margin-right: 0;
+					margin-left: 0;
+				}
+
 				&:disabled {
 					background-color: var(--disabled-bg);
 				}
@@ -160,6 +182,11 @@
 				padding-right: var(--spacing-md);
 				width: 3.1rem;
 				text-align: center;
+
+				&.withButton {
+					padding-right: 3.5rem;
+					padding-left: var(--spacing-sm);
+				}
 			}
 
 			button {

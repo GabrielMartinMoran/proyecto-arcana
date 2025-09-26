@@ -4,6 +4,7 @@
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import { useCardsService } from '$lib/services/cards-service';
+	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import type { Card } from '$lib/types/card';
 	import type { Character, CharacterCard } from '$lib/types/character';
 	import { onMount } from 'svelte';
@@ -17,6 +18,8 @@
 	let { character, readonly, onChange }: Props = $props();
 
 	let { loadCards, cards: cardsStore } = useCardsService();
+
+	let { rollExpression } = useDiceRollerService();
 
 	let cards = $derived($cardsStore);
 
@@ -32,6 +35,24 @@
 	const onAllCardFilter = (results: Card[]) => {
 		cards = results;
 	};
+
+	const onCardReloadClick = async (cardId: string) => {
+		const characterCard = character.cards.find((card) => card.id === cardId);
+		const card = cards.find((card) => card.id === cardId);
+		if (characterCard && card && characterCard.uses !== null && card) {
+			const rollResult = await rollExpression({
+				expression: '1d6',
+				variables: {},
+				title: `${character.name}: Recarga de carta ${card.name}`,
+				resultFormatter: (result) =>
+					`<span class="total ${result >= (card.uses?.qty ?? 0) ? 'success' : 'failure'}">${result}</span>`,
+			});
+			if (rollResult >= (card.uses?.qty ?? 0)) {
+				characterCard.uses += 1;
+				onCharacterCardsChange([...character.cards]);
+			}
+		}
+	};
 </script>
 
 <div class="cards-tab">
@@ -39,6 +60,7 @@
 		<Container>
 			<InputField
 				label="Ranuras de Cartas Activas"
+				labelWidth="fit"
 				value={character.maxActiveCards}
 				{readonly}
 				fullWidth={true}
@@ -56,6 +78,7 @@
 			characterCards={character.cards}
 			listMode="active"
 			onChange={onCharacterCardsChange}
+			{onCardReloadClick}
 		/>
 	</Container>
 

@@ -79,7 +79,7 @@
 		min-height: 0; /* IMPORTANTE: permite que el contenido pueda hacer scroll dentro del flex */
 		width: 100%;
 		padding: var(--spacing-lg);
-		padding-left: calc(var(--side-bar-width) + var(--spacing-lg));
+		padding-left: calc(var(--side-bar-width) + var(--spacing-md));
 		overflow-y: auto; /* scroll interno aquí, no en el documento */
 		scrollbar-width: thin;
 

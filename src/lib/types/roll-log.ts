@@ -3,5 +3,6 @@ export type RollLog = {
 	timestamp: Date;
 	title: string;
 	total: number;
+	formattedTotal?: string;
 	detail: string;
 };

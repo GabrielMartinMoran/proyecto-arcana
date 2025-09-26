@@ -74,12 +74,18 @@ const rollDice = async (expression: string): Promise<DiceResult[]> => {
 	}
 };
 
-const logRolls = (rolls: DiceRoll[], title?: string) => {
+const logRolls = (
+	rolls: DiceRoll[],
+	title?: string,
+	resultFormatter?: (result: number) => string,
+) => {
+	const total = calculateTotal(rolls);
 	const log: RollLog = {
 		id: crypto.randomUUID(),
 		timestamp: new Date(),
 		title: title || 'Tirada anónima',
-		total: calculateTotal(rolls),
+		total: total,
+		formattedTotal: resultFormatter ? resultFormatter(total) : undefined,
 		detail: buildRollsDetail(rolls),
 	};
 
@@ -90,6 +96,7 @@ type RollFnProps = {
 	expression: string;
 	variables?: Record<string, number>;
 	title?: string;
+	resultFormatter?: (result: number) => string;
 };
 
 export const useDiceRollerService = () => {
@@ -98,13 +105,19 @@ export const useDiceRollerService = () => {
 		state.inited = true;
 	}
 
-	const openRollModal = ({ expression, variables = {}, title = undefined }: RollFnProps) => {
+	const openRollModal = ({
+		expression,
+		variables = {},
+		title = undefined,
+		resultFormatter = (result) => result.toString(),
+	}: RollFnProps) => {
 		state.rollModalData.set({
 			expression,
 			variables,
 			title: title ?? 'Tirar',
 			rollType: 'normal',
 			extraModsExpression: '',
+			resultFormatter,
 		});
 		state.rollModalOpened.set(true);
 	};
@@ -140,7 +153,8 @@ export const useDiceRollerService = () => {
 		expression,
 		variables = {},
 		title = undefined,
-	}: RollFnProps): Promise<DiceRoll[]> => {
+		resultFormatter = (result) => result.toString(),
+	}: RollFnProps): Promise<number> => {
 		const members = parseDiceExpression(expression, variables);
 
 		if (state.clearTimeoutId) {
@@ -218,9 +232,9 @@ export const useDiceRollerService = () => {
 			state.clear3DDices();
 		}, CONFIG.CLEAR_3D_DICES_DELAY);
 
-		logRolls(rolls, title);
+		logRolls(rolls, title, resultFormatter);
 
-		return rolls;
+		return calculateTotal(rolls);
 	};
 
 	const register3DDiceRollerFn = (fn: (expression: string) => Promise<DiceResult[]>) => {
