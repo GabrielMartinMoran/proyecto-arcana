@@ -122,6 +122,10 @@
 			padding: var(--spacing-md);
 			width: 300px;
 
+			@media screen and (max-width: 712px) {
+				width: 100%;
+			}
+
 			.header {
 				display: flex;
 				flex-direction: row;

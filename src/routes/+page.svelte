@@ -15,8 +15,6 @@
 	<div class="video-container">
 		<iframe
 			src="https://www.youtube.com/embed/EhnoY3QU7vM?modestbranding=1"
-			width="560"
-			height="315"
 			title="Arcana - Guía Rápida"
 			frameborder="0"
 			allowfullscreen
@@ -58,6 +56,9 @@
 	main {
 		display: flex;
 		flex-direction: column;
+		flex-grow: 1;
+		justify-content: center;
+		width: 100%;
 
 		.hero {
 			display: flex;
@@ -74,12 +75,31 @@
 			box-shadow: var(--shadow-md);
 			text-align: center;
 			height: 250px;
+
+			@media screen and (max-width: 860px) {
+				background-size: 150%;
+				background-position: 50% 51%;
+			}
+
+			@media screen and (max-width: 600px) {
+				background-size: 260%;
+				background-position: 50% 51%;
+
+				p {
+					margin-top: var(--spacing-xs);
+				}
+			}
 		}
 		.video-container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			gap: var(--spacing-md);
+
+			iframe {
+				aspect-ratio: 16/9;
+				width: calc(max(60%, 400px));
+			}
 		}
 
 		.ctas {

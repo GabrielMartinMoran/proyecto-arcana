@@ -35,6 +35,7 @@
 			<label class="field">Atributo</label>
 			<label class="formula">Formula</label>
 			<label class="label">Razón</label>
+			<label class="btn"></label>
 		</div>
 		{#each modifiers as modifier (modifier.id)}
 			<div class="modifier">
@@ -112,17 +113,39 @@
 			width: 100%;
 
 			.modifiers-header {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr 50px;
+				display: flex;
 				flex-direction: row;
 				width: 100%;
+				flex-wrap: wrap;
+				gap: var(--spacing-md);
+
+				.type {
+					width: 8rem;
+				}
+				.field {
+					width: 9rem;
+				}
+
+				.formula,
+				.label {
+					flex: 1;
+				}
+
+				.btn {
+					width: 40px;
+				}
 			}
 
 			.modifier {
-				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr 50px;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
 				gap: var(--spacing-md);
 				width: 100%;
+
+				button {
+					width: 40px;
+				}
 			}
 
 			.empty {

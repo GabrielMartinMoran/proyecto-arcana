@@ -71,14 +71,16 @@
 	<Container title="Actualizar Progreso">
 		<div class="editor">
 			<div class="labels">
-				<label>Cantidad</label>
-				<label>Razón</label>
+				<label class="qty">Cantidad</label>
+				<label class="reason">Razón</label>
+				<label class="btn"></label>
+				<label class="btn"></label>
 			</div>
 			<div class="controls">
 				<InputField
 					value={controls.quantity}
 					placeholder="Cantidad"
-					fullWidth={true}
+					fullWidth={false}
 					onChange={(value) => {
 						controls.quantity = Number(value);
 					}}
@@ -140,15 +142,32 @@
 
 	.editor {
 		.labels {
-			display: grid;
-			grid-template-columns: 1fr 3fr 50px 50px;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
 			gap: var(--spacing-sm);
+
+			.qty {
+				width: 8.2rem;
+			}
+
+			.reason {
+				flex-grow: 1;
+			}
+
+			.btn {
+				width: 30px;
+			}
 		}
 
 		.controls {
-			display: grid;
-			grid-template-columns: 1fr 3fr 50px 50px;
+			display: flex;
+			flex-wrap: wrap;
 			gap: var(--spacing-sm);
+
+			button {
+				width: 40px;
+			}
 		}
 	}
 

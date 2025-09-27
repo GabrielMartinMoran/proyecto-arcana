@@ -255,6 +255,11 @@
 						margin-left: var(--spacing-sm);
 					}
 				}
+
+				@media screen and (max-width: 640px) {
+					flex-direction: column;
+					gap: var(--spacing-md);
+				}
 			}
 
 			img {
