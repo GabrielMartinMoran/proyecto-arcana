@@ -13,6 +13,7 @@
 	let { children } = $props();
 
 	let isMobile = $state(isMobileScreen());
+	let prevIsMobile = $state(isMobile);
 
 	const onBodyClick = () => {
 		sideMenuExpandedStore.set(false);
@@ -20,8 +21,15 @@
 	};
 
 	const onScreenReize = () => {
-		isMobile = isMobileScreen();
-		onBodyClick();
+		const current = isMobileScreen();
+		// Solo cerrar cuando realmente cambió el tipo de pantalla (desktop <-> mobile)
+		if (current !== prevIsMobile) {
+			isMobile = current;
+			onBodyClick();
+		} else {
+			isMobile = current;
+		}
+		prevIsMobile = current;
 	};
 </script>
 
