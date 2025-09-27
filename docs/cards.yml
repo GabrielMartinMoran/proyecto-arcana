@@ -21,8 +21,7 @@ cards:
       requirements:
           - Solo Creación de Personaje
       description: >-
-          Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos
-          y enfermedades.
+          Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos, enfermedades y daño necrótico.
       uses:
           type: null
           qty: 0
@@ -35,7 +34,7 @@ cards:
           - Solo Creación de Personaje
       description: >-
           Obtienes Ventaja (+1d4) en Tiradas de Salvación para resistir el estado
-          Encantado.
+          Encantado y no pueden dormirte con magia.
       uses:
           type: null
           qty: 0
@@ -61,7 +60,7 @@ cards:
       requirements:
           - Solo Creación de Personaje
       description: >-
-          Tu Velocidad base aumenta en 1 metro. Además, obtienes Ventaja en Pruebas
+          Tu Velocidad base aumenta 1 metro. Además, obtienes Ventaja en Pruebas
           de Instinto para percibir amenazas.
       uses:
           type: null
@@ -86,8 +85,8 @@ cards:
       requirements:
           - Solo Creación de Personaje
       description: >-
-          Elige una habilidad (ej: Atletismo, Sigilo, Persuasión). Obtienes
-          Ventaja (+1d4) en todas las Pruebas de Habilidad que realices con ella.
+          Elige dos habilidades (ej: Atletismo, Sigilo, Persuasión). Obtienes
+          Ventaja (+1d4) en todas las pruebas relacionadas a esas habilidades.
       uses:
           type: null
           qty: 0
