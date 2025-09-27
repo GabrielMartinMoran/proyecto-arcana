@@ -45,9 +45,10 @@
 
 	<div class="ctas">
 		<button class="player" onclick={() => goto(resolve('/player'))}>Iniciando como jugador</button>
-		<button class="character" onclick={() => goto(resolve('/characters'))}
-			>¡A crear un personaje!</button
+		<button class="character" onclick={() => goto(resolve('/characters/examples'))}
+			>Ejemplos de personajes</button
 		>
+		<button class="cards" onclick={() => goto(resolve('/cards'))}>¡Veamos las cartas!</button>
 		<button class="gm" onclick={() => goto(resolve('/gm'))}>¡Es hora de dirigir!</button>
 	</div>
 </main>
@@ -123,6 +124,9 @@
 			}
 			.gm {
 				background-color: mediumpurple;
+			}
+			.cards {
+				background-color: indianred;
 			}
 		}
 	}

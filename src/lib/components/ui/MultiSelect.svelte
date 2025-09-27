@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { clickOutsideDetector } from '$lib/utils/outside-click-detector';
+	import { SvelteSet } from 'svelte/reactivity';
 
 	type Props = {
 		summary: string;
+		value: any[];
 		options: {
 			label: string;
 			value: any;
@@ -10,9 +12,9 @@
 		onChange: (values: any[]) => void;
 	};
 
-	let { summary, options, onChange }: Props = $props();
+	let { summary, options, onChange, value }: Props = $props();
 
-	let selectedOptions = $state(new Set<string>());
+	let selectedOptions = $derived(new SvelteSet(value));
 
 	const onCheckboxChange = (checked: boolean, value: string) => {
 		if (checked) {
@@ -20,6 +22,7 @@
 		} else {
 			selectedOptions.delete(value);
 		}
+		selectedOptions = new SvelteSet(selectedOptions);
 		onChange(Array.from(selectedOptions));
 	};
 
@@ -28,10 +31,15 @@
 	const onOutsideClick = () => {
 		isOpened = false;
 	};
+
+	const clearAll = () => {
+		selectedOptions = new SvelteSet();
+		onChange(Array.from(selectedOptions));
+	};
 </script>
 
 <details use:clickOutsideDetector onoutsideclick={onOutsideClick} bind:open={isOpened}>
-	<summary>{summary}</summary>
+	<summary>{summary} ({selectedOptions.size})</summary>
 	<form>
 		<fieldset>
 			<ul>
@@ -52,6 +60,9 @@
 					</li>
 				{/each}
 			</ul>
+			<button onclick={clearAll} class="clear-btn" disabled={selectedOptions.size === 0}>
+				Limpiar
+			</button>
 		</fieldset>
 	</form>
 </details>
@@ -112,10 +123,12 @@
 		border-radius: 0 0 var(--radius-md) var(--radius-md);
 		border-top: 0;
 		width: calc(100% + 2px);
-		padding-left: var(--spacing-md);
-		padding-right: var(--spacing-md);
+		padding-left: var(--spacing-sm);
+		padding-right: var(--spacing-sm);
 		margin-top: -4px;
 		margin-left: -1px;
+		padding-top: var(--spacing-sm);
+		padding-bottom: var(--spacing-sm);
 		z-index: 3;
 
 		fieldset {
@@ -128,7 +141,7 @@
 				margin: 0;
 				padding: 0;
 				overflow-y: auto;
-				max-height: 100px;
+				max-height: 200px;
 
 				li {
 					border-radius: var(--border-radius);
@@ -146,6 +159,12 @@
 						cursor: pointer;
 					}
 				}
+			}
+
+			.clear-btn {
+				margin-top: var(--spacing-sm);
+				padding: 0;
+				width: 100%;
 			}
 		}
 	}

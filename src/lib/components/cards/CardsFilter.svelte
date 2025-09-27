@@ -118,7 +118,7 @@
 	<div class="filters">
 		<input
 			type="text"
-			placeholder="Filtrar por nombre"
+			placeholder="Buscar por nombre"
 			bind:value={filters.name}
 			oninput={() => onFilterChange()}
 		/>
@@ -128,23 +128,24 @@
 				onFilterChange();
 			}}
 		>
-			<option value="">Filtrar por Tipo</option>
-			<option value="">Todos</option>
+			<option value="">Todos los Tipos</option>
 			{#each getAvailableTypes() as type (type)}
 				<option value={type}>{capitalize(type)}</option>
 			{/each}
 		</select>
 		<MultiSelect
-			summary="Filtrar por Nivel"
+			summary="Niveles"
 			options={getAvailableLevels().map((x) => ({ value: x, label: `Nivel ${x}` }))}
+			value={filters.level}
 			onChange={(values: any[]) => {
 				filters.level = values;
 				onFilterChange();
 			}}
 		/>
 		<MultiSelect
-			summary="Filtrar por Etiqueta"
+			summary="Etiquetas"
 			options={getAvailableTags().map((x) => ({ value: x, label: x }))}
+			value={filters.tags}
 			onChange={(values: any[]) => {
 				filters.tags = values;
 				onFilterChange();
