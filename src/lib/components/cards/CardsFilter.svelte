@@ -79,7 +79,6 @@
 	let filters: Filters = $derived(buildFiltersFromURL());
 
 	const onFilterChange = () => {
-		console.log('Filters', filters);
 		const results = cards.filter((card) => {
 			return (
 				removeDiacritics(card.name.toLowerCase()).includes(
