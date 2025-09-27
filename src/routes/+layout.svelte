@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import { resolve } from '$app/paths';
 	import DiceBox from '$lib/components/DiceBox.svelte';
 	import DicePanel from '$lib/components/DicePanel.svelte';
 	import RollModal from '$lib/components/RollModal.svelte';
@@ -34,7 +34,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={resolve('/logo.png')} />
 </svelte:head>
 
 <svelte:window on:resize={onScreenReize} />
