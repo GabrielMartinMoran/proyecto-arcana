@@ -126,10 +126,12 @@
 					{:else if listMode === 'collection'}
 						<button onclick={() => removeCard(card.id)}>Quitar</button>
 						<span class="spacer"></span>
-						{#if isCardActive(card)}
-							<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
-						{:else}
-							<button onclick={() => activateCard(card.id)}>Activar</button>
+						{#if card.type === 'activable'}
+							{#if isCardActive(card)}
+								<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
+							{:else}
+								<button onclick={() => activateCard(card.id)}>Activar</button>
+							{/if}
 						{/if}
 					{:else}
 						<span class="spacer"></span>
