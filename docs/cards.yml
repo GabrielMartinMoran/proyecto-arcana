@@ -161,7 +161,7 @@ cards:
       requirements:
           - Mente 2
       description: >-
-          Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección.
+          Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, adquieres ventaja en pruebas para aprender otros idiomas.
       uses:
           type: null
           qty: 0
@@ -199,10 +199,10 @@ cards:
       requirements:
           - Cuerpo 3
       description: >-
-          Como Reacción cuando recibes daño, obtienes Mitigación +2 contra ese golpe.
+          Como Reacción cuando recibes daño (ya sea físico o mágico), obtienes Mitigación +2 contra ese daño.
       uses:
-          type: null
-          qty: 0
+          type: RELOAD
+          qty: 5
     - name: Experto en Ballestas
       level: 2
       type: efecto
@@ -352,8 +352,9 @@ cards:
           - Pícaro
       requirements:
           - Senda del Bribón
+          - Mente 2
       description: >-
-          Eres hábil preparando y aplicando toxinas. Puedes aplicar veneno a un arma como una Interacción.
+          Adquieres ventaja preparando y aplicando toxinas (en caso de ser necesario). Puedes aplicar veneno a un arma como una Interacción.
       uses:
           type: null
           qty: 0
@@ -437,9 +438,10 @@ cards:
       requirements:
           - Sintonía con el Acero
       description: >-
-          Entras en furia por 1 minuto. Ganas Mitigación +1 contra daño Físico
-          y Ventaja en Pruebas de Habilidad de Cuerpo. No puedes usar cartas de Magia mientras
-          dure.
+          Entras en furia por 1 minuto o hasta que quedes inconsciente. Ganas Mitigación +1 contra daño Físico
+          y ventaja en pruebas de habilidad de cuerpo y en pruebas de intimidación. No puedes razonar correctamennte,
+          mantener concentración ni usar cartas de Magia mientras dure.
+          Además, en caso de no recibir una agresión o agredir a alguien durante una ronda, el efecto termina.
       uses:
           type: LONG_REST
           qty: 3
@@ -473,7 +475,7 @@ cards:
       uses:
           type: null
           qty: 0
-    - name: 'Estilo de Combate: A Dos Manos'
+    - name: 'Estilo de Combate: Agarre Dual'
       level: 2
       type: efecto
       tags:
@@ -483,7 +485,7 @@ cards:
           - Sintonía con el Acero
           - Cuerpo 3
       description: >-
-          Cuando atacas con un arma a dos manos o Versátil, obtienes un +2 al daño del ataque.
+          Cuando atacas con un arma a dos manos o versátil (usando ambas manos para el ataque), obtienes un +2 al daño del ataque.
       uses:
           type: null
           qty: 0
@@ -657,13 +659,14 @@ cards:
           - Combatiente
           - Tirador
       requirements:
-          - Disparo Perforante
+          - Ojo de Halcón
+          - Reflejos 4
       description: >-
           Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3m
           de ese punto deben superar una TS de Reflejos (ND 4 + Reflejos) o recibir 2d6 de daño Perforante.
       uses:
           type: RELOAD
-          qty: 5
+          qty: 4
     # ------------------------------ ARCANISTA ------------------------------
     - name: Afinidad Arcana
       level: 1
@@ -734,7 +737,8 @@ cards:
           - Afinidad Arcana
       description: >-
           Usas tu Interacción para crear una ilusión menor no tangible (un sonido, una imagen estática, un olor).
-          Como Acción, puedes otorgar Ventaja (+1d4) a la prueba de Sigilo de un aliado a distancia Cercana cubriéndolo con sombras.
+          Alternativamente, como Acción, puedes cubrir a un aliado en un velo de sombras para otorgarle Ventaja (+1d4)
+          en la próxima prueba de Sigilo que realice en el próximo minuto, siempre que esté a distancia Cercana de ti.
       uses:
           type: null
           qty: 0
@@ -748,8 +752,7 @@ cards:
       requirements:
           - Afinidad Arcana
       description: >-
-          Una barrera de energía te protege. Obtienes un +2 a tu Esquiva mientras
-          no lleves armadura. El efecto dura hasta el próximo día de descanso.
+          Una barrera de energía te protege. Mientras no lleves armadura, obtienes un +1 de mitigación física y mágica. El efecto dura 8 horas.
       uses:
           type: LONG_REST
           qty: 1
@@ -760,13 +763,16 @@ cards:
           - Arcanista
           - Conjuro
           - Encantamiento
+          - Concentración
       requirements:
           - Afinidad Arcana
           - Mente 3
       description: >-
           Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 4+Mente).
-          Si falla, le aplicas uno de los siguientes efectos durante 1 minuto (requiere Concentración):
-          le das Desventaja (-1d4) en sus ataques o en sus Tiradas de Salvación.
+          Si falla, le aplicas uno de los siguientes efectos durante 1 minuto:
+          - Le das desventaja en sus tiradas de ataque usando un atributo en específico
+          - Le das desventaja en sus tiradas de salvación de un atributo en específico
+          - Le das desventaja en sus tiradas de habilidad un atributo en específico
       uses:
           type: RELOAD
           qty: 3
@@ -845,8 +851,8 @@ cards:
           - Afinidad Arcana
           - Mente 4
       description: >-
-          Como Reacción cuando ves a otro lanzar un conjuro, haz una Tirada Enfrentada
-          de Mente. Si ganas, su conjuro falla.
+          Como Reacción cuando ves a otra criatura lanzar un conjuro, haz una Tirada Enfrentada
+          de tu Mente contra su atributo con el que lanzo el conjuro. Si ganas, su conjuro falla.
       uses:
           type: RELOAD
           qty: 5
@@ -897,12 +903,13 @@ cards:
           - Escudo Absorbente
       description: >-
           Creas un círculo mágico de 3m de radio en el suelo que dura 10 minutos.
-          Elige un tipo de criatura (no-muertos, demonios, etc.). Esas criaturas no pueden
-          entrar al círculo y los aliados dentro del círculo tienen Ventaja (+1d4) en las
-          Tiradas de Salvación contra sus efectos.
+          Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo,
+          una criatura del tipo elegido debe superar una tirada de Instinto (ND 4+Mente).
+          Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de
+          Salvación contra efectos de criaturas del tipo declarado.
       uses:
-          type: LONG_REST
-          qty: 1
+          type: RELOAD
+          qty: 5
     # ------------------------------ SACERDOTE ------------------------------
     - name: Fe Inspiradora
       level: 1
@@ -977,7 +984,7 @@ cards:
       uses:
           type: RELOAD
           qty: 2
-    - name: Intervención Divina
+    - name: Aura Protectora
       level: 2
       type: activable
       tags:
