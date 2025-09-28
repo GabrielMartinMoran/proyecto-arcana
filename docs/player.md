@@ -59,9 +59,9 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 A partir de tus atributos, se calculan otros valores esenciales para tu personaje:
 
 - **Salud:** Es la cantidad de daño que puedes soportar antes de quedar inconsciente.
-    - **Salud = 5 + (Cuerpo × 3)**
+  - **Salud = 5 + (Cuerpo × 3)**
 - **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.
-    - **Velocidad = 6 + Reflejos**
+  - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
 - **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
 
@@ -259,24 +259,24 @@ Este capítulo te guiará sobre cómo usar las habilidades y atributos de tu per
 Cada atributo tiene un papel fundamental a la hora de superar los obstáculos que el mundo te presenta. La herramienta principal siempre será la **Prueba de Habilidad** (`1d6 + Atributo` vs. ND), pero saber qué atributo aplicar es la clave del éxito.
 
 - **Mente (Análisis y Conocimiento):** Tu Mente te permite procesar información y entender el mundo que te rodea.
-    - **Investigar:** Al examinar una escena del crimen, podrías hacer una prueba de Mente para conectar pistas que otros han pasado por alto.
-    - **Recordar:** Frente a un símbolo antiguo, una prueba de Mente podría permitirte recordar su significado a partir de tus estudios.
-    - **Descifrar:** Al encontrar un mensaje en clave, tu Mente es la herramienta para desentrañar su contenido.
+  - **Investigar:** Al examinar una escena del crimen, podrías hacer una prueba de Mente para conectar pistas que otros han pasado por alto.
+  - **Recordar:** Frente a un símbolo antiguo, una prueba de Mente podría permitirte recordar su significado a partir de tus estudios.
+  - **Descifrar:** Al encontrar un mensaje en clave, tu Mente es la herramienta para desentrañar su contenido.
 
 - **Instinto (Percepción y Supervivencia):** Tu Instinto es tu conexión con el entorno, tus sentidos y tu capacidad para anticipar el peligro.
-    - **Detectar:** Una prueba de Instinto es lo que te permite notar el sonido de una rama al romperse en una emboscada, descubrir una trampa de foso oculta bajo la hojarasca o sentir que un PNJ oculta algo.
-    - **Rastrear:** Seguir las huellas de una criatura a través de un terreno difícil es un desafío clásico de Instinto.
-    - **Orientarse:** En mitad de una tormenta de nieve o un laberinto de callejones, tu Instinto te ayuda a encontrar el camino correcto.
+  - **Detectar:** Una prueba de Instinto es lo que te permite notar el sonido de una rama al romperse en una emboscada, descubrir una trampa de foso oculta bajo la hojarasca o sentir que un PNJ oculta algo.
+  - **Rastrear:** Seguir las huellas de una criatura a través de un terreno difícil es un desafío clásico de Instinto.
+  - **Orientarse:** En mitad de una tormenta de nieve o un laberinto de callejones, tu Instinto te ayuda a encontrar el camino correcto.
 
 - **Reflejos (Agilidad y Precisión):** Tus Reflejos determinan tu capacidad para moverte con gracia, velocidad y cuidado.
-    - **Sigilo:** Moverte sin ser visto ni oído es una prueba de Reflejos.
-    - **Desarmar Trampas:** Un mecanismo de presión delicado o un cable tenso requieren una mano firme y una prueba de Reflejos para ser neutralizados.
-    - **Acrobacias:** Saltar entre tejados, mantener el equilibrio en una cuerda floja o realizar juegos de manos son todas acciones que dependen de tus Reflejos.
+  - **Sigilo:** Moverte sin ser visto ni oído es una prueba de Reflejos.
+  - **Desarmar Trampas:** Un mecanismo de presión delicado o un cable tenso requieren una mano firme y una prueba de Reflejos para ser neutralizados.
+  - **Acrobacias:** Saltar entre tejados, mantener el equilibrio en una cuerda floja o realizar juegos de manos son todas acciones que dependen de tus Reflejos.
 
 - **Cuerpo (Fuerza y Resistencia):** Tu Cuerpo es tu capacidad para superar los obstáculos físicos mediante la fuerza bruta.
-    - **Escalar:** Trepar por un muro escarpado o el costado de un acantilado es una prueba de Cuerpo.
-    - **Forzar:** Echar abajo una puerta, levantar un pesado portón o doblar los barrotes de una celda son desafíos de Cuerpo.
-    - **Nadar y Aguantar:** Cruzar un río embravecido o bucear en busca de un objeto hundido pone a prueba tu resistencia física.
+  - **Escalar:** Trepar por un muro escarpado o el costado de un acantilado es una prueba de Cuerpo.
+  - **Forzar:** Echar abajo una puerta, levantar un pesado portón o doblar los barrotes de una celda son desafíos de Cuerpo.
+  - **Nadar y Aguantar:** Cruzar un río embravecido o bucear en busca de un objeto hundido pone a prueba tu resistencia física.
 
 ## Herramientas y Equipo
 
@@ -291,20 +291,20 @@ Este capítulo te enseña a usar tus atributos para navegar las complejas redes 
 ## Las Armas del Diplomático: Usando tus Atributos
 
 - **Presencia (Carisma e Influencia):** Tu Presencia es tu capacidad para proyectar tu personalidad e influir en los demás. Es el atributo social por excelencia.
-    - **Persuadir:** Convencer a alguien a través del encanto, la buena fe o la elocuencia.
-    - **Intimidar:** Forzar a alguien a hacer lo que quieres a través del miedo y las amenazas.
-    - **Actuar:** Adoptar un disfraz o realizar una realizar una actuación para simular o generar una emoción en otro.
-    - **Engañar:** Mentir de forma convincente o alterar la realidad para engañar a alguien o manipularlo.
-    - **Inspirar:** Dar un discurso que levante la moral de tus aliados o de una multitud.
+  - **Persuadir:** Convencer a alguien a través del encanto, la buena fe o la elocuencia.
+  - **Intimidar:** Forzar a alguien a hacer lo que quieres a través del miedo y las amenazas.
+  - **Actuar:** Adoptar un disfraz o realizar una realizar una actuación para simular o generar una emoción en otro.
+  - **Engañar:** Mentir de forma convincente o alterar la realidad para engañar a alguien o manipularlo.
+  - **Inspirar:** Dar un discurso que levante la moral de tus aliados o de una multitud.
 
 - **Mente (Lógica y Razón):** No todas las interacciones se basan en la emoción. A veces, el mejor argumento es el más lógico.
-    - **Argumentar:** Usar la lógica, los hechos y la retórica para ganar un debate o convencer a un escéptico.
-    - **Investigar Socialmente:** Al hablar con varios testigos, una prueba de Mente puede ayudarte a detectar inconsistencias en sus historias para descubrir la verdad.
-    - **Recordar Protocolo:** En la corte de un noble, una prueba de Mente te ayuda a recordar las complejas reglas de etiqueta para no ofender a nadie.
+  - **Argumentar:** Usar la lógica, los hechos y la retórica para ganar un debate o convencer a un escéptico.
+  - **Investigar Socialmente:** Al hablar con varios testigos, una prueba de Mente puede ayudarte a detectar inconsistencias en sus historias para descubrir la verdad.
+  - **Recordar Protocolo:** En la corte de un noble, una prueba de Mente te ayuda a recordar las complejas reglas de etiqueta para no ofender a nadie.
 
 - **Instinto (Empatía y Percepción):** Tu Instinto te permite leer entre líneas y entender las emociones y motivaciones ocultas de los demás.
-    - **Saber Intenciones:** Una prueba de Instinto te permite discernir si un PNJ está siendo sincero, si tiene miedo o si oculta intenciones hostiles.
-    - **Consolar / Calmar:** Usar la empatía para calmar a alguien que está en pánico o para ofrecer las palabras de consuelo adecuadas a alguien que está sufriendo.
+  - **Saber Intenciones:** Una prueba de Instinto te permite discernir si un PNJ está siendo sincero, si tiene miedo o si oculta intenciones hostiles.
+  - **Consolar / Calmar:** Usar la empatía para calmar a alguien que está en pánico o para ofrecer las palabras de consuelo adecuadas a alguien que está sufriendo.
 
 ## La Regla de Oro Social: Las Tiradas no son Control Mental
 
@@ -365,7 +365,7 @@ Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe i
 
 - **Tirada de Ataque:** 1d6 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
 - **Esquiva:** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
-    - **Esquiva = 4 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
+  - **Esquiva = 4 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
 
 ## Cobertura
 
@@ -390,14 +390,15 @@ Cuando un efecto (como un conjuro o una trampa) requiere que un personaje resist
 
 - El **objetivo** del efecto realiza la tirada: **1d6 + Atributo Defensivo** (indicado por la carta o el DJ).
 - La **Dificultad (ND)** a superar la establece el creador del efecto. Para los conjuros de los jugadores, se calcula así:
-    - **ND de Conjuros = 4 + Atributo de Magia del Lanzador**
+  - **ND de Conjuros = 4 + Atributo de Magia del Lanzador**
 
 Si el resultado de la tirada de salvación **iguala o supera** el ND, el personaje resiste el efecto con éxito.
 
 ## Daño y Mitigación
 
 - **Daño de Armas:** Las armas infligen un tipo y cantidad de daño fijos (ej. 1d6 Cortante).
-- **Armadura:** La armadura reduce el daño físico recibido. Resta su valor de **Mitigación** del daño final (mínimo 0).
+- **Daño Físico:** La **Mitigación Física** reduce el daño físico recibido. Resta tu valor de **Mitigación Física** del daño final (mínimo 0).
+- **Daño Elemental y Mágico:** La **Mitigación Mágica** reduce el daño mágico o elemental recibido. Resta tu valor de **Mitigación Mágica** del daño final (mínimo 0).
 - **Daño Crítico:** Cuando un ataque resulta en un crítico, se duplican los dados de daño del ataque.
 
 | Nivel de Daño | Pérdida de Salud | Ejemplo                                 |
@@ -410,7 +411,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 
 ### Tipos de Daño
 
-- **Físicos (mitigados por armadura):** Contundente, Cortante, Perforante.
+- **Físicos:** Contundente, Cortante, Perforante.
 - **Elementales:** Fuego, Frío, Eléctrico.
 - **Mágicos:** Sónico, Psíquico, Veneno, Ácido, Necrótico, Radiante, Fuerza.
 
@@ -543,16 +544,16 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 
 ## Armaduras y Escudos
 
-La armadura proporciona **Mitigación**, que reduce el daño físico recibido. Sin embargo, también impone una **Penalización a la Esquiva** y al **Sigilo**. Si no cumples el **Requisito**, sufres **Desventaja (-1d4)** en todas las tiradas que requieran movilidad (ataques, pruebas de Reflejos y Cuerpo).
+La armadura proporciona **Mitigación Física**, que reduce el daño físico recibido. Sin embargo, también impone una **Penalización a la Esquiva** y al **Sigilo**. Si no cumples el **Requisito**, sufres **Desventaja (-1d4)** en todas las tiradas que requieran movilidad (ataques, pruebas de Reflejos y Cuerpo).
 
-| Armadura        | Mitigación | Esquiva | Penalización Sigilo | Requisito             | Precio |
-| :-------------- | :--------- | :------ | :------------------ | :-------------------- | :----- |
-| Cuero           | 1          | 0       | 0                   | Cuerpo 1              | 20 o   |
-| Cota de mallas  | 2          | -1      | -2 (Muy ruidosa)    | Cuerpo 2              | 75 o   |
-| Brigantina      | 2          | -1      | -1 (Ruidosa)        | Cuerpo 2              | 150 o  |
-| Placas parcial  | 3          | -1      | -2 (Muy ruidosa)    | Cuerpo 3              | 400 o  |
-| Placas completa | 4          | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
-| Escudo          | 0          | +1      | 0                   | Cuerpo 2 y Mano libre | 10 o   |
+| Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
+| :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
+| Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
+| Cota de mallas  | 2                 | -1      | -2 (Muy ruidosa)    | Cuerpo 2              | 75 o   |
+| Brigantina      | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 150 o  |
+| Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 3              | 400 o  |
+| Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
+| Escudo          | 0                 | +1      | 0                   | Cuerpo 2 y Mano libre | 10 o   |
 
 ## Equipo de Aventura y Servicios
 

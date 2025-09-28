@@ -176,11 +176,11 @@ o la mejora de atributos.
 > Imaginemos a un personaje en diferentes etapas de su carrera:
 >
 > - **Recién Creado:** Su carta más alta es de Nivel 1 y ha gastado 0 PP.
->     - Su Poder es `1 + (0 / 10) = 1`.
+>   - Su Poder es `1 + (0 / 10) = 1`.
 > - **Tras algunas aventuras:** Compra su primera carta de Nivel 2 y ha gastado un total de 12 PP en su progreso.
->     - Su Poder es `2 + (12 / 10) = 3.2`, que se redondea a **3**.
+>   - Su Poder es `2 + (12 / 10) = 3.2`, que se redondea a **3**.
 > - **Un Héroe Veterano:** Adquiere una carta de Nivel 3 y ha gastado un total de 40 PP a lo largo de sus aventuras.
->     - Su Poder es `3 + (40 / 10) = 7`.
+>   - Su Poder es `3 + (40 / 10) = 7`.
 
 ### Paso 2: Calcula el poder del grupo
 
@@ -221,7 +221,7 @@ A continuación se presenta una tabla que facilita la creación de criaturas.
 - **VAM**: Valor del atributo más alto
 - **PS**: Puntos de salud
 - **ESQ**: Esquiva
-- **MIT**: Mitigación
+- **MIT**: Mitigación (el máximo entre mitigación física y mágica)
 - **DPT**: Daño por turno (promedio del daño medio por turno durante 3 turnos)
 - **IH**: Impacto de habilidades (si la criatura posee habilidades que no realicen daño pero generen efectos negativos al grupo,
   se debe tener en cuenta la criticidad de esos efectos)
