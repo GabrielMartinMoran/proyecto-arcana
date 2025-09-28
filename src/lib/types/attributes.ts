@@ -1,7 +1,7 @@
 export interface Attributes {
-	cuerpo: number;
-	reflejos: number;
-	mente: number;
-	instinto: number;
-	presencia: number;
+	body: number;
+	reflexes: number;
+	mind: number;
+	instinct: number;
+	presence: number;
 }

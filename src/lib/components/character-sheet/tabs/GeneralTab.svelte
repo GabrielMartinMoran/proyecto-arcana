@@ -23,11 +23,11 @@
 		rollModal.openRollModal({
 			expression: `1d6e+${attributeName}`,
 			variables: {
-				cuerpo: character.attributes.cuerpo,
-				reflejos: character.attributes.reflejos,
-				mente: character.attributes.mente,
-				instinto: character.attributes.instinto,
-				presencia: character.attributes.presencia,
+				cuerpo: character.attributes.body,
+				reflejos: character.attributes.reflexes,
+				mente: character.attributes.mind,
+				instinto: character.attributes.instinct,
+				presencia: character.attributes.presence,
 				iniciativa: character.initiative,
 			},
 			title: `${character.name}: ${capitalize(attributeName)}`,
@@ -38,11 +38,11 @@
 		rollModal.openRollModal({
 			expression: attack.atkFormula,
 			variables: {
-				cuerpo: character.attributes.cuerpo,
-				reflejos: character.attributes.reflejos,
-				mente: character.attributes.mente,
-				instinto: character.attributes.instinto,
-				presencia: character.attributes.presencia,
+				cuerpo: character.attributes.body,
+				reflejos: character.attributes.reflexes,
+				mente: character.attributes.mind,
+				instinto: character.attributes.instinct,
+				presencia: character.attributes.presence,
 			},
 			title: `${character.name}: Ataque con ${attack.name}`,
 		});
@@ -52,11 +52,11 @@
 		rollExpression({
 			expression: attack.dmgFormula,
 			variables: {
-				cuerpo: character.attributes.cuerpo,
-				reflejos: character.attributes.reflejos,
-				mente: character.attributes.mente,
-				instinto: character.attributes.instinto,
-				presencia: character.attributes.presencia,
+				cuerpo: character.attributes.body,
+				reflejos: character.attributes.reflexes,
+				mente: character.attributes.mind,
+				instinto: character.attributes.instinct,
+				presencia: character.attributes.presence,
 			},
 			title: `${character.name}: Daño de ${attack.name}`,
 		});
@@ -67,51 +67,51 @@
 	<div class="attributes">
 		<AttributeField
 			name="Cuerpo"
-			value={character.attributes.cuerpo}
+			value={character.attributes.body}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('cuerpo')}
 			onChange={(value) => {
-				character.attributes.cuerpo = value;
+				character.attributes.body = value;
 				onChange(character);
 			}}
 		/>
 		<AttributeField
 			name="Reflejos"
-			value={character.attributes.reflejos}
+			value={character.attributes.reflexes}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('reflejos')}
 			onChange={(value) => {
-				character.attributes.reflejos = value;
+				character.attributes.reflexes = value;
 				onChange(character);
 			}}
 		/>
 		<AttributeField
 			name="Mente"
-			value={character.attributes.mente}
+			value={character.attributes.mind}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('mente')}
 			onChange={(value) => {
-				character.attributes.mente = value;
+				character.attributes.mind = value;
 				onChange(character);
 			}}
 		/>
 		<AttributeField
 			name="Instinto"
-			value={character.attributes.instinto}
+			value={character.attributes.instinct}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('instinto')}
 			onChange={(value) => {
-				character.attributes.instinto = value;
+				character.attributes.instinct = value;
 				onChange(character);
 			}}
 		/>
 		<AttributeField
 			name="Presencia"
-			value={character.attributes.presencia}
+			value={character.attributes.presence}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('presencia')}
 			onChange={(value) => {
-				character.attributes.presencia = value;
+				character.attributes.presence = value;
 				onChange(character);
 			}}
 		/>
@@ -150,7 +150,8 @@
 		/>
 		<InputField label="Velocidad" value={character.speed} readonly={true} />
 		<InputField label="Esquiva" value={character.evasion} readonly={true} />
-		<InputField label="Mitigación" value={character.mitigation} readonly={true} />
+		<InputField label="Mitigación Física" value={character.physicalMitigation} readonly={true} />
+		<InputField label="Mitigación Mágica" value={character.magicalMitigation} readonly={true} />
 		<InputField
 			label="Iniciativa"
 			value={character.initiative}

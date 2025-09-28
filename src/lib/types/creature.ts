@@ -17,10 +17,11 @@ export interface Creature {
 }
 
 export interface CreatureStats {
-	salud: number;
-	esquiva: CreatureStat;
-	mitigacion: CreatureStat;
-	velocidad: CreatureStat;
+	maxHealth: number;
+	evasion: CreatureStat;
+	physicalMitigation: CreatureStat;
+	magicalMitigation: CreatureStat;
+	speed: CreatureStat;
 }
 
 export interface CreatureStat {

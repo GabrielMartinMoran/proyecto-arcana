@@ -55,7 +55,8 @@
 						{ label: 'Salud Máxima', value: 'maxHP' },
 						{ label: 'Suerte Máxima', value: 'maxLuck' },
 						{ label: 'Esquiva', value: 'evasion' },
-						{ label: 'Mitigación', value: 'mitigation' },
+						{ label: 'Mitigación Física', value: 'physicalMitigation' },
+						{ label: 'Mitigación Mágica', value: 'magicalMitigation' },
 						{ label: 'Velocidad', value: 'speed' },
 					]}
 					value={modifier.attribute}

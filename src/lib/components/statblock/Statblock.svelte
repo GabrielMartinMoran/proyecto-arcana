@@ -5,6 +5,14 @@
 	import { capitalize } from '$lib/utils/formatting';
 	import CreatureAction from './CreatureAction.svelte';
 
+	const ATTR_NAME_MAP = {
+		body: 'Cuerpo',
+		reflexes: 'Reflejos',
+		mind: 'Mente',
+		instinct: 'Instinto',
+		presence: 'Presencia',
+	};
+
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
 
@@ -14,12 +22,12 @@
 		rollModal.openRollModal({
 			expression: expression,
 			variables: {
-				cuerpo: creature.attributes.cuerpo,
-				reflejos: creature.attributes.reflejos,
-				mente: creature.attributes.mente,
-				instinto: creature.attributes.instinto,
-				presencia: creature.attributes.presencia,
-				iniciativa: creature.attributes.reflejos,
+				cuerpo: creature.attributes.body,
+				reflejos: creature.attributes.reflexes,
+				mente: creature.attributes.mind,
+				instinto: creature.attributes.instinct,
+				presencia: creature.attributes.presence,
+				iniciativa: creature.attributes.reflexes,
 			},
 			title: `${creature.name}: ${type}`,
 		});
@@ -50,9 +58,9 @@
 			</span>
 		</div>
 		<div class="attributes">
-			{#each ['cuerpo', 'reflejos', 'mente', 'instinto', 'presencia'] as attribute (attribute)}
+			{#each ['body', 'reflexes', 'mind', 'instinct', 'presence'] as attribute (attribute)}
 				<div class="attribute">
-					<strong>{attribute.charAt(0).toUpperCase() + attribute.slice(1)}</strong>
+					<strong>{ATTR_NAME_MAP[attribute]}</strong>
 					<div class="score">
 						<span>{creature.attributes[attribute]}</span>
 						<button onclick={() => roll(`1d6e+${attribute}`, capitalize(attribute))} title="Tirar">
@@ -65,36 +73,44 @@
 		<div class="stats">
 			<div class="attribute">
 				<strong>Salud</strong>
-				<span>{creature.stats.salud}</span>
+				<span>{creature.stats.maxHealth}</span>
 			</div>
 			<div class="attribute">
 				<strong>Esquiva</strong>
 				<span
-					>{creature.stats.esquiva.value}{creature.stats.esquiva.note
-						? ` (${creature.stats.esquiva.note})`
+					>{creature.stats.evasion.value}{creature.stats.evasion.note
+						? ` (${creature.stats.evasion.note})`
 						: ''}</span
 				>
 			</div>
 			<div class="attribute">
-				<strong>Mitigación</strong>
+				<strong>Mitigación Física</strong>
 				<span
-					>{creature.stats.mitigacion.value}{creature.stats.mitigacion.note
-						? ` (${creature.stats.mitigacion.note})`
+					>{creature.stats.physicalMitigation.value}{creature.stats.physicalMitigation.note
+						? ` (${creature.stats.physicalMitigation.note})`
+						: ''}</span
+				>
+			</div>
+			<div class="attribute">
+				<strong>Mitigación Mágica</strong>
+				<span
+					>{creature.stats.magicalMitigation.value}{creature.stats.magicalMitigation.note
+						? ` (${creature.stats.magicalMitigation.note})`
 						: ''}</span
 				>
 			</div>
 			<div class="attribute">
 				<strong>Velocidad</strong>
 				<span
-					>{creature.stats.velocidad.value}{creature.stats.velocidad.note
-						? ` (${creature.stats.velocidad.note})`
+					>{creature.stats.speed.value}{creature.stats.speed.note
+						? ` (${creature.stats.speed.note})`
 						: ''}</span
 				>
 			</div>
 			<div class="attribute">
 				<strong>Iniciativa</strong>
 				<div class="score">
-					<span>{creature.attributes.reflejos}</span>
+					<span>{creature.attributes.reflexes}</span>
 					<button onclick={() => roll(`1d6e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
 				</div>
 			</div>

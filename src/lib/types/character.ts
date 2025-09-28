@@ -62,23 +62,28 @@ export class Character {
 	}
 
 	get maxHP() {
-		const base = CONFIG.BASE_HEALTH + this.attributes.cuerpo * CONFIG.HEALTH_BODY_MULTIPIER;
+		const base = CONFIG.BASE_HEALTH + this.attributes.body * CONFIG.HEALTH_BODY_MULTIPIER;
 		return this.calculateAttrModifiers('maxHP', base);
 	}
 
 	get speed() {
-		const base = CONFIG.BASE_SPEED + this.attributes.reflejos;
+		const base = CONFIG.BASE_SPEED + this.attributes.reflexes;
 		return this.calculateAttrModifiers('speed', base);
 	}
 
 	get evasion() {
-		const base = CONFIG.BASE_EVASION + this.attributes.reflejos;
+		const base = CONFIG.BASE_EVASION + this.attributes.reflexes;
 		return this.calculateAttrModifiers('evasion', base);
 	}
 
-	get mitigation() {
+	get physicalMitigation() {
 		const base = 0;
-		return this.calculateAttrModifiers('mitigation', base);
+		return this.calculateAttrModifiers('physicalMitigation', base);
+	}
+
+	get magicalMitigation() {
+		const base = 0;
+		return this.calculateAttrModifiers('magicalMitigation', base);
 	}
 
 	get currentGold() {
@@ -121,7 +126,7 @@ export class Character {
 	}
 
 	get initiative() {
-		return this.attributes.reflejos;
+		return this.attributes.reflexes;
 	}
 
 	copy() {
@@ -152,7 +157,7 @@ export interface Equipment {
 
 export interface Modifier {
 	id: string;
-	attribute: 'maxHP' | 'maxLuck' | 'evasion' | 'mitigation' | 'speed';
+	attribute: 'maxHP' | 'maxLuck' | 'evasion' | 'physicalMitigation' | 'magicalMitigation' | 'speed';
 	type: 'add' | 'set';
 	formula: string;
 	reason: string;

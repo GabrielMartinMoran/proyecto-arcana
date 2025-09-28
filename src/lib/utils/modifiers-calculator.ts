@@ -34,11 +34,11 @@ const evaluateModifierExpression = (expression: string, context: any) => {
 
 export const calculateModifierFormula = (formula: string, character: Character) => {
 	return evaluateModifierExpression(formula, {
-		cuerpo: character.attributes.cuerpo,
-		reflejos: character.attributes.reflejos,
-		mente: character.attributes.mente,
-		instinto: character.attributes.instinto,
-		presencia: character.attributes.presencia,
+		cuerpo: character.attributes.body,
+		reflejos: character.attributes.reflexes,
+		mente: character.attributes.mind,
+		instinto: character.attributes.instinct,
+		presencia: character.attributes.presence,
 		Math,
 	});
 };
