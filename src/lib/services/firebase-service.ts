@@ -1,23 +1,18 @@
 /**
- * proyecto-arcana/src/lib/services/firebase-service.ts
+ * Firebase service (Auth + Firestore) - always enabled
  *
- * Singleton Svelte-style service for Firebase (Auth + Firestore).
- *
- * Provides:
- * - `useFirebaseService()` returning the singleton service.
- * - `ready`: Writable<boolean> store (true when init completed successfully).
- * - `initFirebase()`: async idempotent initializer (callers can await).
- * - Auth helpers: `signInWithGoogle()`, `signOutUser()`, `onAuthState()`.
- * - Firestore helpers for user characters:
- *     `saveCharactersForUser`, `loadCharactersForUser`, `deleteCharacterForUser`, `listenCharactersForUser`.
+ * - Uses dynamic, modular Firebase SDK imports to avoid bundling Firebase when not needed.
+ * - Provides a singleton Svelte-style service via `useFirebaseService()`.
+ * - Exposes `ready` and `user` writable stores and an async `initFirebase()` method.
+ * - Provides auth helpers and Firestore helpers for characters and roll logs.
  *
  * Notes:
- * - In development mode (import.meta.env.MODE === 'development') the service is disabled and
- *   public functions become safe no-ops or return safe defaults. `ready` will be false.
- * - Uses dynamic imports of the modular Firebase SDK to avoid bundling Firebase when not needed.
+ * - The service attempts to initialize Firebase in all environments. If the VITE_FIREBASE_*
+ *   variables are missing, initialization will fail; callers should handle errors accordingly.
  */
 
 import { Character } from '$lib/types/character';
+import type { RollLog } from '$lib/types/roll-log';
 import { writable, type Writable } from 'svelte/store';
 
 type FirebaseUserLite = {
@@ -29,28 +24,18 @@ type FirebaseUserLite = {
 
 type Unsubscribe = () => void;
 
-/**
- * Helper: detect browser environment
- */
 function isBrowser(): boolean {
 	return typeof window !== 'undefined';
 }
 
-/**
- * Detect development mode (Vite / SvelteKit - import.meta.env.MODE)
- */
-const isDev = (() => {
-	const mode =
-		typeof import.meta !== 'undefined' && 'env' in import.meta
-			? (import.meta as any).env?.MODE
-			: undefined;
-	return mode === undefined ? true : mode === 'development';
-})();
-
-/**
- * Read Firebase config from env (Vite exposes VITE_* vars)
- */
-function getFirebaseConfigFromEnv() {
+function getFirebaseConfigFromEnv(): {
+	apiKey: string;
+	authDomain?: string;
+	projectId: string;
+	storageBucket?: string;
+	messagingSenderId?: string;
+	appId: string;
+} | null {
 	const env =
 		typeof import.meta !== 'undefined' && 'env' in import.meta ? (import.meta as any).env : {};
 	const apiKey = env.VITE_FIREBASE_API_KEY;
@@ -73,309 +58,185 @@ function getFirebaseConfigFromEnv() {
 }
 
 /**
- * Factory that creates the firebase service (singleton created below)
+ * Factory that builds the firebase service singleton.
+ * Keep implementation encapsulated and clean.
  */
 function createFirebaseService() {
-	let initialized = false;
-	let initializingPromise: Promise<void> | null = null;
-	let firebaseAvailable = false;
-
-	// runtime references to SDK objects (initialized after init)
+	// runtime handles (set after init)
 	let auth: any = null;
 	let db: any = null;
 
-	// store that indicates readiness (true when Firebase init succeeded)
-	const ready: Writable<boolean> = writable(false);
+	let initialized = false;
+	let initializingPromise: Promise<void> | null = null;
 
-	// public store with the current authenticated user (null when not signed in)
+	const ready: Writable<boolean> = writable(false);
 	const user: Writable<FirebaseUserLite | null> = writable(null);
 
 	/**
-	 * internal initialization function
+	 * Internal initialization routine.
+	 * Idempotent and safe to call multiple times.
 	 */
 	async function internalInit(): Promise<void> {
 		if (initialized) return;
 		initialized = true;
 
-		// Guard: only initialize in browser and when not in development
 		if (!isBrowser()) {
-			console.info('[firebase-service] Not initializing: not running in browser');
-			firebaseAvailable = false;
-			ready.set(false);
-			return;
-		}
-		if (isDev) {
-			console.info('[firebase-service] Not initializing Firebase in development mode');
-			firebaseAvailable = false;
 			ready.set(false);
 			return;
 		}
 
 		const config = getFirebaseConfigFromEnv();
 		if (!config) {
-			console.warn(
-				'[firebase-service] Firebase config missing. Set VITE_FIREBASE_* env vars to enable cloud persistence.',
-			);
-			firebaseAvailable = false;
+			// Fail fast if config missing
 			ready.set(false);
-			return;
+			throw new Error('Firebase configuration missing: VITE_FIREBASE_* variables required.');
 		}
 
 		try {
-			// Use modular SDK dynamic imports
 			const { initializeApp, getApps } = await import('firebase/app');
 			const authModule = await import('firebase/auth');
 			const firestoreModule = await import('firebase/firestore');
 
-			// Initialize app if not already
 			if (getApps && getApps().length === 0) {
 				initializeApp(config);
 			}
 
-			// Obtain handles
 			auth = authModule.getAuth();
 			db = firestoreModule.getFirestore();
 
-			// Sanity check
-			if (!auth || !db) {
-				console.warn('[firebase-service] Auth or Firestore not available after initialization.');
-				firebaseAvailable = false;
-				ready.set(false);
-				return;
-			}
+			// Hook auth state to update the user store
+			authModule.onAuthStateChanged(auth, (u: any) => {
+				const normalized = u
+					? {
+							uid: u.uid,
+							displayName: u.displayName,
+							email: u.email,
+							photoURL: u.photoURL,
+						}
+					: null;
+				user.set(normalized);
+			});
 
-			firebaseAvailable = true;
 			ready.set(true);
-			console.info('[firebase-service] Firebase initialized and available.');
 		} catch (err) {
-			console.error('[firebase-service] Error initializing firebase:', err);
-			firebaseAvailable = false;
 			ready.set(false);
+			console.error('[firebase-service] Initialization error:', err);
+			throw err;
 		}
 	}
 
 	/**
-	 * Public async init function (idempotent)
+	 * Public init function: awaitable and idempotent.
 	 */
 	async function initFirebase(): Promise<void> {
 		if (initializingPromise) return initializingPromise;
 		initializingPromise = internalInit();
-		await initializingPromise;
-		initializingPromise = null;
+		try {
+			await initializingPromise;
+		} finally {
+			initializingPromise = null;
+		}
 	}
 
 	function isEnabled(): boolean {
-		return !isDev && firebaseAvailable;
+		// Enabled if init completed successfully and db/auth handles exist
+		let val = false;
+		ready.subscribe((r) => {
+			val = r;
+		})();
+		return val && !!auth && !!db;
 	}
 
-	/**
-	 * Auth helpers
-	 */
+	/* ---------------------- Authentication helpers ---------------------- */
 
-	/**
-	 * Subscribe to auth state changes. Awaits init internally.
-	 * Returns an unsubscribe function.
-	 */
-	async function onAuthState(cb: (user: FirebaseUserLite | null) => void): Promise<Unsubscribe> {
-		if (!isBrowser()) {
-			console.info('[firebase-service] onAuthState called but not in browser.');
-			cb(null);
-			return () => {};
-		}
-
-		await initFirebase();
-		if (!isEnabled()) {
-			// Provide a synchronous callback and noop unsub
-			cb(null);
-			return () => {};
-		}
-
-		const { onAuthStateChanged } = await import('firebase/auth');
-		const unsub = onAuthStateChanged(auth, (u: any) => {
-			// normalize user or null and update the service-level store before calling the callback
-			const normalized = u
-				? {
-						uid: u.uid,
-						displayName: u.displayName,
-						email: u.email,
-						photoURL: u.photoURL,
-					}
-				: null;
-			// update store so pages/components can subscribe to auth state
-			user.set(normalized);
-
-			// If the user just signed in and there is local fallback data, attempt resync in background.
-			if (normalized) {
-				try {
-					const localKey = 'arcana:characters';
-					const raw = (() => {
-						try {
-							return localStorage.getItem(localKey);
-						} catch {
-							return null;
-						}
-					})();
-					if (raw) {
-						(async () => {
-							try {
-								const parsed = JSON.parse(raw);
-								if (Array.isArray(parsed) && parsed.length > 0) {
-									await saveCharactersForUser(
-										normalized.uid,
-										parsed.map((p: any) => new Character(p)),
-									);
-									try {
-										localStorage.removeItem(localKey);
-										console.info(
-											'[firebase-service] Resynced local characters to Firestore after sign-in and cleared local fallback.',
-										);
-									} catch (rmErr) {
-										console.warn(
-											'[firebase-service] Resynced after sign-in but failed to remove local fallback:',
-											rmErr,
-										);
-									}
-								}
-							} catch (errResync) {
-								console.warn(
-									'[firebase-service] Failed to resync local fallback after sign-in:',
-									errResync,
-								);
-							}
-						})();
-					}
-				} catch (eResync) {
-					console.warn(
-						'[firebase-service] Error scheduling resync after sign-in (ignored):',
-						eResync,
-					);
-				}
-			}
-
-			// call the external callback
-			cb(normalized);
-		});
-		return () => {
-			try {
-				if (unsub) unsub();
-			} catch {
-				/* ignore */
-			}
-		};
-	}
-
-	/**
-	 * Sign in with Google (popup)
-	 */
 	async function signInWithGoogle(): Promise<FirebaseUserLite | null> {
 		if (!isBrowser()) return null;
 		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] signInWithGoogle called but firebase is not enabled');
-			return null;
-		}
 		const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth');
 		const provider = new GoogleAuthProvider();
 		provider.setCustomParameters({ prompt: 'select_account' });
 		const result = await signInWithPopup(auth, provider);
-		const user = result.user;
-		if (!user) return null;
-
-		// Attempt to resync local fallback immediately after sign-in in background.
-		try {
-			const localKey = 'arcana:characters';
-			const raw = (() => {
-				try {
-					return localStorage.getItem(localKey);
-				} catch {
-					return null;
-				}
-			})();
-			if (raw) {
-				(async () => {
-					try {
-						const parsed = JSON.parse(raw);
-						if (Array.isArray(parsed) && parsed.length > 0) {
-							await saveCharactersForUser(
-								user.uid,
-								parsed.map((p: any) => new Character(p)),
-							);
-							try {
-								localStorage.removeItem(localKey);
-								console.info(
-									'[firebase-service] Resynced local characters to Firestore after sign-in and cleared local fallback.',
-								);
-							} catch (rmErr) {
-								console.warn(
-									'[firebase-service] Resynced after sign-in but failed to remove local fallback:',
-									rmErr,
-								);
-							}
-						}
-					} catch (errResync) {
-						console.warn(
-							'[firebase-service] Failed to resync local fallback after sign-in:',
-							errResync,
-						);
-					}
-				})();
-			}
-		} catch (e) {
-			console.warn('[firebase-service] Error scheduling resync after sign-in (ignored):', e);
-		}
-
-		return {
-			uid: user.uid,
-			displayName: user.displayName,
-			email: user.email,
-			photoURL: user.photoURL,
+		const u = result.user;
+		if (!u) return null;
+		const normalized = {
+			uid: u.uid,
+			displayName: u.displayName,
+			email: u.email,
+			photoURL: u.photoURL,
 		};
+		user.set(normalized);
+		return normalized;
 	}
 
-	/**
-	 * Sign out user
-	 */
 	async function signOutUser(): Promise<void> {
 		if (!isBrowser()) return;
 		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] signOutUser called but firebase is not enabled');
-			return;
-		}
 		const { signOut } = await import('firebase/auth');
 		await signOut(auth);
+		user.set(null);
 	}
 
 	/**
-	 * Firestore helpers for characters.
-	 * Documents stored under: users/{uid}/characters/{characterId}
+	 * Subscribe to auth state changes.
+	 * Returns an unsubscribe function. The caller may await this function if it needs the unsub.
 	 */
-	function ensureFirestore(): void {
-		if (!isBrowser()) throw new Error('Not in browser');
-		if (!isEnabled()) throw new Error('Firebase not enabled');
+	async function onAuthState(callback: (u: FirebaseUserLite | null) => void): Promise<Unsubscribe> {
+		if (!isBrowser()) {
+			callback(null);
+			return () => {};
+		}
+		await initFirebase();
+		const { onAuthStateChanged } = await import('firebase/auth');
+		const unsub = onAuthStateChanged(auth, (raw: any) => {
+			const normalized = raw
+				? {
+						uid: raw.uid,
+						displayName: raw.displayName,
+						email: raw.email,
+						photoURL: raw.photoURL,
+					}
+				: null;
+			// Update internal store first
+			user.set(normalized);
+			callback(normalized);
+		});
+		return unsub;
+	}
+
+	/* ---------------------- Firestore helpers - characters ---------------------- */
+
+	async function ensureFirestore(): Promise<void> {
+		await initFirebase();
 		if (!db) throw new Error('Firestore not initialized');
 	}
 
 	async function saveCharactersForUser(userId: string, characters: Character[]): Promise<void> {
 		if (!userId) throw new Error('userId required');
 		if (!isBrowser()) return;
-		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] saveCharactersForUser: firebase not enabled; skipping');
-			return;
-		}
-		ensureFirestore();
-		const { doc, setDoc } = await import('firebase/firestore');
-		try {
-			const ops = characters.map((c) => {
-				const plain = JSON.parse(JSON.stringify(c || {}));
-				const ref = doc(db, 'users', userId, 'characters', plain.id);
-				return setDoc(ref, plain, { merge: true });
-			});
-			await Promise.all(ops);
-		} catch (err) {
-			console.error('[firebase-service] saveCharactersForUser error:', err);
-			throw err;
+		await ensureFirestore();
+
+		const { doc, writeBatch } = await import('firebase/firestore');
+
+		const plain = characters.map((c) => JSON.parse(JSON.stringify(c || {})));
+
+		// batch commit with retry
+		const MAX_ATTEMPTS = 3;
+		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+			try {
+				const batch = writeBatch(db);
+				for (const p of plain) {
+					const ref = doc(db, 'users', userId, 'characters', p.id);
+					batch.set(ref, p, { merge: true });
+				}
+				await batch.commit();
+				return;
+			} catch (err) {
+				console.error(`[firebase-service] saveCharactersForUser attempt ${attempt} failed:`, err);
+				if (attempt === MAX_ATTEMPTS) {
+					throw err;
+				}
+				await new Promise((res) => setTimeout(res, 200 * attempt));
+			}
 		}
 	}
 
@@ -383,94 +244,49 @@ function createFirebaseService() {
 		if (!userId) throw new Error('userId required');
 		if (!characterId) throw new Error('characterId required');
 		if (!isBrowser()) return;
-		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] deleteCharacterForUser: firebase not enabled; skipping');
-			return;
-		}
-		ensureFirestore();
+		await ensureFirestore();
 		const { doc, deleteDoc } = await import('firebase/firestore');
-		try {
-			await deleteDoc(doc(db, 'users', userId, 'characters', characterId));
-		} catch (err) {
-			console.error('[firebase-service] deleteCharacterForUser error:', err);
-			throw err;
-		}
+		await deleteDoc(doc(db, 'users', userId, 'characters', characterId));
 	}
 
 	async function loadCharactersForUser(userId: string): Promise<Character[]> {
 		if (!userId) throw new Error('userId required');
 		if (!isBrowser()) return [];
-		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] loadCharactersForUser: firebase not enabled; returning []');
-			return [];
-		}
-		ensureFirestore();
+		await ensureFirestore();
 		const { collection, getDocs } = await import('firebase/firestore');
-		try {
-			const col = collection(db, 'users', userId, 'characters');
-			const snap = await getDocs(col);
-			const out: Character[] = [];
-			snap.forEach((docSnap: any) => {
-				const data = docSnap.data();
-				try {
-					out.push(new Character(data));
-				} catch {
-					out.push(new Character({ ...(data as any) }));
-				}
-			});
-			return out;
-		} catch (err) {
-			console.error('[firebase-service] loadCharactersForUser error:', err);
-			throw err;
-		}
+		const col = collection(db, 'users', userId, 'characters');
+		const snap = await getDocs(col);
+		const out: Character[] = [];
+		snap.forEach((d: any) => {
+			const data = d.data();
+			out.push(new (Character as any)(data));
+		});
+		return out;
 	}
 
-	/**
-	 * Real-time listener for user's characters collection.
-	 * Returns an unsubscribe function.
-	 */
 	function listenCharactersForUser(
 		userId: string,
 		cb: (characters: Character[]) => void,
 	): Unsubscribe {
 		if (!isBrowser()) {
-			console.info(
-				'[firebase-service] listenCharactersForUser called but not in browser. Calling back with empty array.',
-			);
 			cb([]);
 			return () => {};
 		}
-
+		// Attach listener asynchronously (non-blocking to caller)
 		let unsub: Unsubscribe = () => {};
-		// run attach asynchronously via a named function; return an unsubscribe which will call the actual unsub when available
-		async function attachListener(): Promise<void> {
+		(async () => {
 			try {
-				await initFirebase();
-				if (!isEnabled()) {
-					console.info(
-						'[firebase-service] listenCharactersForUser: firebase not enabled; calling back []',
-					);
-					cb([]);
-					return;
-				}
-				ensureFirestore();
+				await ensureFirestore();
 				const { collection, onSnapshot } = await import('firebase/firestore');
 				const col = collection(db, 'users', userId, 'characters');
 				unsub = onSnapshot(
 					col,
 					(snapshot: any) => {
-						const chars: Character[] = [];
+						const arr: Character[] = [];
 						snapshot.forEach((docSnap: any) => {
-							const data = docSnap.data();
-							try {
-								chars.push(new Character(data));
-							} catch {
-								chars.push(new Character({ ...(data as any) }));
-							}
+							arr.push(new (Character as any)(docSnap.data()));
 						});
-						cb(chars);
+						cb(arr);
 					},
 					(error: any) => {
 						console.error('[firebase-service] listenCharactersForUser snapshot error:', error);
@@ -478,19 +294,10 @@ function createFirebaseService() {
 					},
 				);
 			} catch (err) {
-				console.error('[firebase-service] Error setting up characters snapshot listener:', err);
+				console.error('[firebase-service] listenCharactersForUser setup error:', err);
 				cb([]);
 			}
-		}
-		// call and guard for unhandled rejection (so errors are logged)
-		attachListener().catch((err) => {
-			console.error(
-				'[firebase-service] Error setting up characters snapshot listener (unhandled):',
-				err,
-			);
-			cb([]);
-		});
-
+		})();
 		return () => {
 			try {
 				if (unsub) unsub();
@@ -500,122 +307,65 @@ function createFirebaseService() {
 		};
 	}
 
-	/**
-	 * Firestore helpers for roll logs (dice history).
-	 *
-	 * Writes roll logs as documents under users/{userId}/rollLogs/{logId}.
-	 * The functions are defensive: they await init and verify firebase is enabled.
-	 */
+	/* ---------------------- Firestore helpers - roll logs ---------------------- */
 
-	async function saveRollLogsForUser(userId: string, logs: any[]): Promise<void> {
+	async function saveRollLogsForUser(userId: string, logs: RollLog[]): Promise<void> {
 		if (!userId) throw new Error('userId required');
 		if (!isBrowser()) return;
-		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] saveRollLogsForUser: firebase not enabled; skipping');
-			return;
-		}
-		ensureFirestore();
-		const { doc, writeBatch } = await import('firebase/firestore');
+		await ensureFirestore();
 
-		const plainLogs = logs.map((l) => JSON.parse(JSON.stringify(l || {})));
+		const { doc, writeBatch } = await import('firebase/firestore');
+		const plain = logs.map((l) => JSON.parse(JSON.stringify(l || {})));
 
 		const MAX_ATTEMPTS = 3;
-		let attempt = 0;
-
-		while (attempt < MAX_ATTEMPTS) {
+		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
 			try {
 				const batch = writeBatch(db);
-				for (const plain of plainLogs) {
-					const ref = doc(db, 'users', userId, 'rollLogs', plain.id);
-					batch.set(ref, plain, { merge: true });
+				for (const p of plain) {
+					const ref = doc(db, 'users', userId, 'rollLogs', p.id);
+					batch.set(ref, p, { merge: true });
 				}
 				await batch.commit();
 				return;
-			} catch (err: any) {
-				attempt++;
+			} catch (err) {
 				console.error(`[firebase-service] saveRollLogsForUser attempt ${attempt} failed:`, err);
-				if (attempt < MAX_ATTEMPTS) {
-					const backoffMs = 200 * Math.pow(2, attempt - 1);
-					await new Promise((res) => setTimeout(res, backoffMs));
-					continue;
+				if (attempt === MAX_ATTEMPTS) {
+					throw err;
 				}
-				// fallback to localStorage to avoid data loss
-				try {
-					const localKey = 'arcana:rollLogs';
-					localStorage.setItem(localKey, JSON.stringify(plainLogs));
-					console.warn(
-						'[firebase-service] saveRollLogsForUser: all attempts failed. Roll logs saved to localStorage as fallback under key:',
-						localKey,
-					);
-				} catch (lsErr) {
-					console.error(
-						'[firebase-service] saveRollLogsForUser fallback to localStorage failed:',
-						lsErr,
-					);
-				}
-				return;
+				await new Promise((res) => setTimeout(res, 200 * attempt));
 			}
 		}
 	}
 
-	async function loadRollLogsForUser(userId: string): Promise<any[]> {
+	async function loadRollLogsForUser(userId: string): Promise<RollLog[]> {
 		if (!userId) throw new Error('userId required');
 		if (!isBrowser()) return [];
-		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] loadRollLogsForUser: firebase not enabled; returning []');
-			return [];
-		}
-		ensureFirestore();
+		await ensureFirestore();
 		const { collection, getDocs } = await import('firebase/firestore');
-		try {
-			const col = collection(db, 'users', userId, 'rollLogs');
-			const snap = await getDocs(col);
-			const out: any[] = [];
-			snap.forEach((docSnap: any) => {
-				const data = docSnap.data();
-				out.push({ ...data });
-			});
-			return out;
-		} catch (err) {
-			console.error('[firebase-service] loadRollLogsForUser error:', err);
-			throw err;
-		}
+		const col = collection(db, 'users', userId, 'rollLogs');
+		const snap = await getDocs(col);
+		const out: RollLog[] = [];
+		snap.forEach((d: any) => out.push(d.data()));
+		return out;
 	}
 
-	function listenRollLogsForUser(userId: string, cb: (logs: any[]) => void): Unsubscribe {
+	function listenRollLogsForUser(userId: string, cb: (logs: RollLog[]) => void): Unsubscribe {
 		if (!isBrowser()) {
-			console.info(
-				'[firebase-service] listenRollLogsForUser called but not in browser. Calling back with empty array.',
-			);
 			cb([]);
 			return () => {};
 		}
-
 		let unsub: Unsubscribe = () => {};
 		(async () => {
 			try {
-				await initFirebase();
-				if (!isEnabled()) {
-					console.info(
-						'[firebase-service] listenRollLogsForUser: firebase not enabled; calling back []',
-					);
-					cb([]);
-					return;
-				}
-				ensureFirestore();
+				await ensureFirestore();
 				const { collection, onSnapshot } = await import('firebase/firestore');
 				const col = collection(db, 'users', userId, 'rollLogs');
 				unsub = onSnapshot(
 					col,
 					(snapshot: any) => {
-						const entries: any[] = [];
-						snapshot.forEach((docSnap: any) => {
-							const data = docSnap.data();
-							entries.push({ ...data });
-						});
-						cb(entries);
+						const arr: RollLog[] = [];
+						snapshot.forEach((docSnap: any) => arr.push(docSnap.data()));
+						cb(arr);
 					},
 					(error: any) => {
 						console.error('[firebase-service] listenRollLogsForUser snapshot error:', error);
@@ -623,14 +373,10 @@ function createFirebaseService() {
 					},
 				);
 			} catch (err) {
-				console.error('[firebase-service] Error setting up roll logs snapshot listener:', err);
+				console.error('[firebase-service] listenRollLogsForUser setup error:', err);
 				cb([]);
 			}
-		})().catch((err) => {
-			console.error('[firebase-service] Error starting roll logs listener (unhandled):', err);
-			cb([]);
-		});
-
+		})();
 		return () => {
 			try {
 				if (unsub) unsub();
@@ -644,22 +390,13 @@ function createFirebaseService() {
 		if (!userId) throw new Error('userId required');
 		if (!logId) throw new Error('logId required');
 		if (!isBrowser()) return;
-		await initFirebase();
-		if (!isEnabled()) {
-			console.info('[firebase-service] deleteRollLogForUser: firebase not enabled; skipping');
-			return;
-		}
-		ensureFirestore();
+		await ensureFirestore();
 		const { doc, deleteDoc } = await import('firebase/firestore');
-		try {
-			await deleteDoc(doc(db, 'users', userId, 'rollLogs', logId));
-		} catch (err) {
-			console.error('[firebase-service] deleteRollLogForUser error:', err);
-			throw err;
-		}
+		await deleteDoc(doc(db, 'users', userId, 'rollLogs', logId));
 	}
 
-	// public API
+	/* ---------------------- Public API ---------------------- */
+
 	return {
 		firebaseReady: ready,
 		user,
@@ -667,7 +404,7 @@ function createFirebaseService() {
 		isEnabled,
 		signInWithGoogle,
 		signOutUser,
-		onAuthState, // returns Promise<Unsubscribe>
+		onAuthState,
 		saveCharactersForUser,
 		loadCharactersForUser,
 		deleteCharacterForUser,
@@ -679,15 +416,8 @@ function createFirebaseService() {
 	};
 }
 
-/**
- * Singleton instance and convenience exports to match existing import patterns.
- */
 const singleton = createFirebaseService();
 
-/**
- * Primary access pattern consistent with other services:
- * const svc = useFirebaseService(); svc.initFirebase() ...
- */
 export function useFirebaseService() {
 	return singleton;
 }

@@ -12,8 +12,8 @@
 
 	let { isMobile }: Props = $props();
 
-	let firebase = useFirebaseService();
-	let { firebaseReady, user } = firebase;
+	const firebase = useFirebaseService();
+	const { firebaseReady, user } = firebase;
 
 	let path = $derived(page.url.pathname);
 
@@ -122,12 +122,12 @@
 				<span style="font-weight:600;">{$user.displayName ?? 'Cuenta'}</span>
 				<button onclick={onSignOut} title="Cerrar sesión">➜]</button>
 			{:else}
-				<button class="google-login-btn" onclick={onSignIn} title="Iniciar sesión con Google"
-					><img
+				<button class="google-login-btn" onclick={onSignIn} title="Iniciar sesión con Google">
+					<img
 						src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
 						alt="Google Logo"
-					/>Iniciar sesión con Google</button
-				>
+					/>Iniciar sesión con Google
+				</button>
 			{/if}
 		</div>
 	{/if}

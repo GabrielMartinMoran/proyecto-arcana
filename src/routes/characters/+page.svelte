@@ -9,6 +9,8 @@
 	import { get } from 'svelte/store';
 	import CharactersPageLayout from './CharactersPageLayout.svelte';
 
+	const NO_USER_REDIRECT_DELAY = 500;
+
 	// Characters service (now cloud-aware)
 	let { characters, loadCharacters, deleteCharacter } = useCharactersService();
 	const firebase = useFirebaseService();
@@ -29,7 +31,7 @@
 		if (!firebaseReady) return;
 		setTimeout(() => {
 			onUserChange();
-		}, 500);
+		}, NO_USER_REDIRECT_DELAY);
 	});
 
 	onDestroy(() => {
