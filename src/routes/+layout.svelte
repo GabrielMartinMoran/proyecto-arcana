@@ -5,12 +5,16 @@
 	import RollModal from '$lib/components/RollModal.svelte';
 	import SideMenu from '$lib/components/SideMenu.svelte';
 	import TopBar from '$lib/components/TopBar.svelte';
+	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 	import { isMobileScreen } from '$lib/utils/screen-size-detector';
+	import { onMount } from 'svelte';
 	import '../app.css';
 
 	let { children } = $props();
+
+	let firebase = useFirebaseService();
 
 	let isMobile = $state(isMobileScreen());
 	let prevIsMobile = $state(isMobile);
@@ -31,6 +35,24 @@
 		}
 		prevIsMobile = current;
 	};
+
+	onMount(async () => {
+		// Initialize firebase (idempotent and safe if not configured)
+		try {
+			await firebase.initFirebase();
+		} catch (err) {
+			// Init is defensive; continue using local persistence if it fails
+			console.warn('Firebase init error (continuing with local persistence):', err);
+		}
+
+		// Subscribe to auth state changes so the UI can react to sign-in/sign-out.
+		try {
+			// attach auth-state listener; the service updates its `user` store internally
+			await firebase.onAuthState(() => {});
+		} catch (err) {
+			console.warn('Auth listener setup error (continuing without remote auth):', err);
+		}
+	});
 </script>
 
 <svelte:head>

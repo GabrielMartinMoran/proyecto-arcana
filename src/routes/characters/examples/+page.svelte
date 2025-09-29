@@ -2,12 +2,17 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { useCharactersService } from '$lib/services/characters-service';
+	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { Character } from '$lib/types/character';
 	import { onMount } from 'svelte';
-	import CharactersPageLayout from '../characters-page-layout.svelte';
+	import CharactersPageLayout from '../CharactersPageLayout.svelte';
 
 	let { exampleCharacters, loadExampleCharacters, characters, loadCharacters } =
 		useCharactersService();
+
+	const firebase = useFirebaseService();
+	// Destructure only the stores we need for UI subscription
+	const { user } = firebase;
 
 	onMount(async () => {
 		await Promise.all([loadExampleCharacters(), loadCharacters()]);
@@ -20,4 +25,9 @@
 	};
 </script>
 
-<CharactersPageLayout readonly={true} characters={exampleCharacters} {onAddToMyCharacters} />
+<CharactersPageLayout
+	readonly={true}
+	allActionsDisabled={!$user}
+	characters={exampleCharacters}
+	{onAddToMyCharacters}
+/>

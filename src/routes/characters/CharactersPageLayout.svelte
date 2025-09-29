@@ -10,6 +10,7 @@
 	type Props = {
 		characters: Writable<Character[]>;
 		readonly: boolean;
+		allActionsDisabled: boolean;
 		onAddToMyCharacters?: (character: Character) => Promise<void>;
 		onCreateCharacter?: () => Promise<Character>;
 		onImportCharacter?: () => Promise<Character>;
@@ -20,6 +21,7 @@
 	let {
 		characters,
 		readonly,
+		allActionsDisabled,
 		onAddToMyCharacters = () => {
 			throw new Error('onAddToMyCharacters not implemented');
 		},
@@ -106,14 +108,24 @@
 	<div class="list">
 		<div class="header">
 			{#if readonly}
-				<button onclick={addToMyCharacters} disabled={!selectedCharacter} title="Importar y Editar"
-					>📝</button
+				<button
+					onclick={addToMyCharacters}
+					disabled={allActionsDisabled || !selectedCharacter}
+					title="Importar y Editar">📝</button
 				>
 			{:else}
-				<button onclick={createCharacter} title="Crear">➕</button>
-				<button onclick={importCharacter} title="Importar">📥</button>
-				<button onclick={exportCharacter} disabled={!selectedCharacter} title="Exportar">📤</button>
-				<button onclick={deleteCharacter} disabled={!selectedCharacter} title="Eliminar">🗑️</button>
+				<button onclick={createCharacter} disabled={allActionsDisabled} title="Crear">➕</button>
+				<button onclick={importCharacter} disabled={allActionsDisabled} title="Importar">📥</button>
+				<button
+					onclick={exportCharacter}
+					disabled={allActionsDisabled || !selectedCharacter}
+					title="Exportar">📤</button
+				>
+				<button
+					onclick={deleteCharacter}
+					disabled={allActionsDisabled || !selectedCharacter}
+					title="Eliminar">🗑️</button
+				>
 			{/if}
 		</div>
 		<div class="content">

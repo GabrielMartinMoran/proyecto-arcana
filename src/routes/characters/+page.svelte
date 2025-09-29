@@ -1,18 +1,45 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { createCharacter } from '$lib/factories/character-factory';
 	import { useCharactersService } from '$lib/services/characters-service';
+	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { Character } from '$lib/types/character';
-	import { onMount } from 'svelte';
-	import CharactersPageLayout from './characters-page-layout.svelte';
+	import { onDestroy } from 'svelte';
+	import { get } from 'svelte/store';
+	import CharactersPageLayout from './CharactersPageLayout.svelte';
 
-	let { characters, loadCharacters } = useCharactersService();
+	// Characters service (now cloud-aware)
+	let { characters, loadCharacters, deleteCharacter } = useCharactersService();
+	const firebase = useFirebaseService();
+	// Destructure only the stores we need for UI subscription
+	const { user, firebaseReady } = firebase;
 
-	onMount(async () => {
+	const onUserChange = async () => {
+		if (!get(firebaseReady)) return;
+		if (!get(user)) {
+			goto(resolve('/'));
+			return;
+		}
 		await loadCharacters();
+	};
+
+	const unsubscribeFromUser = user.subscribe(async () => await onUserChange());
+	const unsubscribeFromFirebaseReady = firebaseReady.subscribe(async (firebaseReady) => {
+		if (!firebaseReady) return;
+		setTimeout(() => {
+			onUserChange();
+		}, 500);
+	});
+
+	onDestroy(() => {
+		unsubscribeFromUser();
+		unsubscribeFromFirebaseReady();
 	});
 
 	const onCreateCharacter = async () => {
 		const character = createCharacter();
+		// Use the store's value to append the new character
 		characters.update(() => [...$characters, character]);
 		return character;
 	};
@@ -52,12 +79,20 @@
 	};
 
 	const onDeleteCharacter = async (character: Character) => {
-		characters.update((characters) => characters.filter((c) => c.id !== character.id));
+		try {
+			// Delegate deletion to the characters service (it updates local store and syncs with Firestore)
+			await deleteCharacter(character.id);
+		} catch (err) {
+			console.error('Error deleting character:', err);
+			// Fallback: remove locally so UI reflects deletion even if cloud sync failed
+			characters.update((characters) => characters.filter((c) => c.id !== character.id));
+		}
 	};
 </script>
 
 <CharactersPageLayout
 	readonly={false}
+	allActionsDisabled={!$user}
 	{characters}
 	{onCreateCharacter}
 	{onImportCharacter}

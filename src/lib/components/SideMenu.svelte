@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
+	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 
@@ -11,9 +12,12 @@
 
 	let { isMobile }: Props = $props();
 
+	let firebase = useFirebaseService();
+	let { firebaseReady, user } = firebase;
+
 	let path = $derived(page.url.pathname);
 
-	const routes = [
+	const PUBLIC_ROUTES = [
 		{
 			path: '/',
 			label: '🚩 Inicio',
@@ -35,12 +39,15 @@
 			label: '🐦‍🔥 Bestiario',
 		},
 		{
-			path: '/characters',
-			label: '🎭  Personajes',
-		},
-		{
 			path: '/characters/examples',
 			label: '💡 PJs de Ejemplo',
+		},
+	];
+
+	const PRIVATE_ROUTES = [
+		{
+			path: '/characters',
+			label: '🎭 Mis Personajes',
 		},
 	];
 
@@ -54,6 +61,23 @@
 		event.stopPropagation();
 		dicePanelExpandedStore.set(false);
 	};
+
+	const onSignIn = async () => {
+		try {
+			await firebase.signInWithGoogle();
+		} catch (err) {
+			console.error('Sign in failed', err);
+			alert('Error al iniciar sesión con Google');
+		}
+	};
+
+	const onSignOut = async () => {
+		try {
+			await firebase.signOutUser();
+		} catch (err) {
+			console.error('Sign out failed', err);
+		}
+	};
 </script>
 
 <nav
@@ -64,13 +88,49 @@
 	{#if !isMobile}
 		<h1>Arcana</h1>
 	{/if}
-	{#each routes as route (route.path)}
-		<a
-			href={route.path}
-			class:active={path === route.path}
-			onclick={(event) => navigateRoute(event, route.path)}>{route.label}</a
-		>
-	{/each}
+
+	<div class="public-routes">
+		{#each PUBLIC_ROUTES as route (route.path)}
+			<a
+				href={route.path}
+				class:active={path === route.path}
+				onclick={(event) => navigateRoute(event, route.path)}>{route.label}</a
+			>
+		{/each}
+	</div>
+
+	{#if $user}
+		<div class="private-routes">
+			{#each PRIVATE_ROUTES as route (route.path)}
+				<a
+					href={route.path}
+					class:active={path === route.path}
+					onclick={(event) => navigateRoute(event, route.path)}>{route.label}</a
+				>
+			{/each}
+		</div>
+	{/if}
+
+	<span class="spacer"></span>
+
+	{#if $firebaseReady}
+		<div class="user-container">
+			{#if $user}
+				{#if $user.photoURL}
+					<img src={$user.photoURL} alt="user" style="width:2rem;height:2rem;border-radius:50%;" />
+				{/if}
+				<span style="font-weight:600;">{$user.displayName ?? 'Cuenta'}</span>
+				<button onclick={onSignOut} title="Cerrar sesión">➜]</button>
+			{:else}
+				<button class="google-login-btn" onclick={onSignIn} title="Iniciar sesión con Google"
+					><img
+						src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+						alt="Google Logo"
+					/>Iniciar sesión con Google</button
+				>
+			{/if}
+		</div>
+	{/if}
 </nav>
 
 <style>
@@ -88,6 +148,7 @@
 
 		&.mobile {
 			position: fixed;
+			height: calc(100% - var(--top-bar-height));
 			top: var(--top-bar-height);
 			left: 0;
 			bottom: 0;
@@ -102,6 +163,45 @@
 
 		h1 {
 			margin-left: var(--spacing-md);
+		}
+
+		.public-routes {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.private-routes {
+			display: flex;
+			flex-direction: column;
+			border-top: 1px solid var(--border-color);
+			margin-top: var(--spacing-md);
+			padding-top: var(--spacing-md);
+		}
+
+		.spacer {
+			flex-grow: 1;
+		}
+
+		.user-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: var(--spacing-sm);
+			padding: var(--spacing-md);
+			border-top: 1px solid var(--border-color);
+
+			.google-login-btn {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				img {
+					width: 24px;
+					height: 24px;
+					margin-right: var(--spacing-sm);
+				}
+			}
 		}
 
 		a {
@@ -119,6 +219,11 @@
 
 			&:visited {
 				color: var(--text-primary);
+			}
+
+			&.disabled {
+				background-color: var(--disabled-color);
+				cursor: not-allowed;
 			}
 		}
 	}
