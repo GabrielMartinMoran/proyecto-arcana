@@ -21,6 +21,26 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Validate required env vars for Firebase
+        env:
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+        run: |
+          missing=0
+          for v in VITE_FIREBASE_API_KEY VITE_FIREBASE_AUTH_DOMAIN VITE_FIREBASE_PROJECT_ID VITE_FIREBASE_STORAGE_BUCKET VITE_FIREBASE_MESSAGING_SENDER_ID VITE_FIREBASE_APP_ID; do
+            if [ -z "${!v}" ]; then
+              echo "ERROR: Required env var $v is not set. Please add it to repo secrets."
+              missing=1
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            exit 1
+          fi
+
       - name: Build SvelteKit SPA
         env:
           MODE: production
@@ -31,6 +51,22 @@ jobs:
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
         run: npm run build
+
+      - name: Verify Firebase project id was embedded in built files
+        env:
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+        run: |
+          # Check silently whether the project id string exists somewhere in the built files.
+          # We use grep -q to avoid printing the actual secret in logs.
+          if grep -Raq "$VITE_FIREBASE_PROJECT_ID" ./build --binary-files=without-match; then
+            echo "OK: Firebase project id found in build artifacts."
+          else
+            echo "ERROR: Firebase project id NOT found in build artifacts. The VITE_ variables may not have been injected at build time."
+            # show a few files for debugging (filenames only)
+            echo "Files in build directory (sample):"
+            ls -la ./build | head -n 20
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
