@@ -117,7 +117,12 @@
 		<div class="user-container">
 			{#if $user}
 				{#if $user.photoURL}
-					<img src={$user.photoURL} alt="user" style="width:2rem;height:2rem;border-radius:50%;" />
+					<img
+						referrerPolicy="no-referrer"
+						src={$user.photoURL}
+						alt="user"
+						style="width:2rem;height:2rem;border-radius:50%;"
+					/>
 				{/if}
 				<span style="font-weight:600;">{$user.displayName ?? 'Cuenta'}</span>
 				<button onclick={onSignOut} title="Cerrar sesión">➜]</button>

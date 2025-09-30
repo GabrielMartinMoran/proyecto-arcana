@@ -28,7 +28,18 @@ function isBrowser(): boolean {
 	return typeof window !== 'undefined';
 }
 
-function getFirebaseConfigFromEnv(): {
+declare const __APP_ENV__: { [key: string]: string };
+
+/* ---------------------
+   Build-time config read
+   --------------------- */
+/* We read variables from a global __APP_ENV__ object injected by Vite. */
+function hasBuildConfig(): boolean {
+	const cfg = getBuildConfig();
+	return Boolean(cfg && cfg.apiKey && cfg.projectId && cfg.appId);
+}
+
+function getBuildConfig(): {
 	apiKey: string;
 	authDomain?: string;
 	projectId: string;
@@ -36,24 +47,21 @@ function getFirebaseConfigFromEnv(): {
 	messagingSenderId?: string;
 	appId: string;
 } | null {
-	const env =
-		typeof import.meta !== 'undefined' && 'env' in import.meta ? (import.meta as any).env : {};
-	const apiKey = env.VITE_FIREBASE_API_KEY;
-	const authDomain = env.VITE_FIREBASE_AUTH_DOMAIN;
-	const projectId = env.VITE_FIREBASE_PROJECT_ID;
-	const storageBucket = env.VITE_FIREBASE_STORAGE_BUCKET;
-	const messagingSenderId = env.VITE_FIREBASE_MESSAGING_SENDER_ID;
-	const appId = env.VITE_FIREBASE_APP_ID;
+	if (typeof __APP_ENV__ === 'undefined') {
+		return null;
+	}
 
-	if (!apiKey || !projectId || !appId) return null;
+	const env = typeof __APP_ENV__ === 'string' ? JSON.parse(__APP_ENV__ as string) : __APP_ENV__;
+
+	if (!env.VITE_FIREBASE_API_KEY) return null;
 
 	return {
-		apiKey,
-		authDomain,
-		projectId,
-		storageBucket,
-		messagingSenderId,
-		appId,
+		apiKey: env.VITE_FIREBASE_API_KEY,
+		authDomain: env.VITE_FIREBASE_AUTH_DOMAIN,
+		projectId: env.VITE_FIREBASE_PROJECT_ID,
+		storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET,
+		messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+		appId: env.VITE_FIREBASE_APP_ID,
 	};
 }
 
@@ -85,7 +93,8 @@ function createFirebaseService() {
 			return;
 		}
 
-		const config = getFirebaseConfigFromEnv();
+		// Prefer build-time config
+		const config = getBuildConfig() ?? null;
 		if (!config) {
 			// Fail fast if config missing
 			ready.set(false);
