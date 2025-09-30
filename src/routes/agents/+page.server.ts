@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({ request }) => {
 	const filePath = join(process.cwd(), 'static', 'docs', 'ai-gm-prompt.md');
 	let doc = readFileSync(filePath, 'utf-8');
 
-	const basePath = request.url.includes('localhost') ? request.url : CONFIG.BASE_URL;
+	const basePath = request.url.includes('localhost') ? request.url : `${CONFIG.BASE_URL}/agents`;
 
 	const replacement_variables = [
 		{
