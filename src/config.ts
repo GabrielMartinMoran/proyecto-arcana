@@ -25,4 +25,7 @@ export const CONFIG = {
 		linaje: 'https://i.imgur.com/VKUcBoy.png',
 		default: 'https://i.imgur.com/ON6lmPC.png',
 	},
+
+	PLAYER_MANUAL_PATH: '/docs/player.md',
+	GM_MANUAL_PATH: '/docs/gm.md',
 };

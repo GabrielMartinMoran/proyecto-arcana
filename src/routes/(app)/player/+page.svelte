@@ -1,11 +1,12 @@
 <script>
 	import MarkdownDoc from '$lib/components/MarkdownDoc.svelte';
+	import { CONFIG } from '../../../config';
 </script>
 
 <section>
 	<h1>Manual del Jugador</h1>
 
-	<MarkdownDoc src="/docs/player.md" />
+	<MarkdownDoc src={CONFIG.PLAYER_MANUAL_PATH} />
 </section>
 
 <style>
