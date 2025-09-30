@@ -28,4 +28,6 @@ export const CONFIG = {
 
 	PLAYER_MANUAL_PATH: '/docs/player.md',
 	GM_MANUAL_PATH: '/docs/gm.md',
+
+	BASE_URL: 'https://gabrielmartinmoran.github.io/proyecto-arcana',
 };
