@@ -26,7 +26,9 @@ creatures:
         bonus: 3
         damage: 1d4 Cortante
         note: null
-    traits: []
+    traits:
+      - name: Visión en la Oscuridad
+        detail: Puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
     actions: []
     reactions: []
     behavior: |
@@ -134,6 +136,8 @@ creatures:
         damage: 1d6 Necrótico
         note: null
     traits:
+      - name: Visión Verdadera
+        detail: Puede ver en la oscuridad y además criaturas invisibles.
       - name: Drenar Vida
         detail: Cuando el espectro inflige daño con su Toque Gélido, recupera una cantidad de Salud igual al daño infligido.
     actions:
@@ -351,6 +355,8 @@ creatures:
         damage: 1d4 Perforante
         note: null
     traits:
+      - name: Visión en la Oscuridad
+        detail: Puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
       - name: Vulnerabilidad (Contundente)
         detail: Recibe el doble de daño de fuentes de daño Contundente.
       - name: Inmunidad (Veneno)
@@ -427,6 +433,8 @@ creatures:
         damage: 2d6 Cortante
         note: null
     traits:
+      - name: Visión en la Oscuridad
+        detail: Puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
       - name: Regeneración
         detail: Al inicio de su turno, recupera 10 de Salud. Si recibe daño por Fuego o Ácido, no regenera en su siguiente turno. Solo muere si empieza su turno con 0 de Salud y no puede regenerar.
       - name: Asalto Múltiple
@@ -464,6 +472,8 @@ creatures:
         damage: 1d4 Necrótico
         note: null
     traits:
+      - name: Visión en la Oscuridad
+        detail: Puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
       - name: Fortaleza de No-Muerto
         detail: Si un daño reduce al zombi a 0 de Salud, debe hacer una TS de Cuerpo (ND 5 + daño). Con éxito, queda a 1 de Salud. No funciona con daño Radiante o golpe crítico.
     actions: []
