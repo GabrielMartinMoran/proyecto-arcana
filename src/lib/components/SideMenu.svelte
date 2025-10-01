@@ -39,6 +39,10 @@
 			label: '🐦‍🔥 Bestiario',
 		},
 		{
+			path: '/magical-items',
+			label: '🔮 Objetos Mágicos',
+		},
+		{
 			path: '/characters/examples',
 			label: '💡 PJs de Ejemplo',
 		},

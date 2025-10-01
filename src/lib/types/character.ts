@@ -139,6 +139,7 @@ export interface CharacterCard {
 	uses: number | null;
 	level: number; // Just for calculations
 	isActive: boolean;
+	cardType: 'ability' | 'item';
 }
 
 export interface Log {

@@ -1,36 +1,55 @@
 import { resolve } from '$app/paths';
-import { mapCard } from '$lib/mappers/card-mapper';
-import type { Card } from '$lib/types/card';
+import { mapAbilityCard, mapItemCard } from '$lib/mappers/card-mapper';
 
-import { load } from 'js-yaml';
-import { get, writable } from 'svelte/store';
+import type { AbilityCard } from '$lib/types/cards/ability-card';
+import type { Card } from '$lib/types/cards/card';
+import type { ItemCard } from '$lib/types/cards/item-card';
 
-const cardsStore = writable<Card[]>([]);
+import { load as loadYaml } from 'js-yaml';
+import { get, writable, type Writable } from 'svelte/store';
+
+const abilityCardsStore = writable<AbilityCard[]>([]);
+const itemCardsStore = writable<ItemCard[]>([]);
+
+const loadCards = async <T extends Card>(
+	url: string,
+	rootKey: string,
+	store: Writable<T[]>,
+	mapper: (x: any) => T,
+) => {
+	if (get(store).length > 0) return;
+
+	const response = await fetch(resolve(url));
+	const rawData = await response.text();
+
+	let rawCards = [];
+
+	try {
+		rawCards = (loadYaml(rawData) as any)[rootKey] ?? [];
+	} catch (e) {
+		console.error('Error parsing YAML:', e);
+	}
+
+	store.set(
+		rawCards
+			.map((x) => mapper(x))
+			.toSorted((a, b) => a.level - b.level || a.name.localeCompare(b.name)),
+	);
+};
 
 export const useCardsService = () => {
-	const loadCards = async () => {
-		if (get(cardsStore).length > 0) return;
+	const loadAbilityCards = async () => {
+		await loadCards('/docs/cards.yml', 'cards', abilityCardsStore, mapAbilityCard);
+	};
 
-		const response = await fetch(resolve('/docs/cards.yml'));
-		const rawData = await response.text();
-
-		let rawCards = [];
-
-		try {
-			rawCards = (load(rawData) as any).cards ?? [];
-		} catch (e) {
-			console.error('Error parsing YAML:', e);
-		}
-
-		cardsStore.set(
-			rawCards
-				.map((x) => mapCard(x))
-				.toSorted((a, b) => a.level - b.level || a.name.localeCompare(b.name)),
-		);
+	const loadItemCards = async () => {
+		await loadCards('/docs/magical-items.yml', 'items', itemCardsStore, mapItemCard);
 	};
 
 	return {
-		loadCards,
-		cards: cardsStore,
+		loadAbilityCards,
+		abilityCards: abilityCardsStore,
+		loadItemCards,
+		itemCards: itemCardsStore,
 	};
 };

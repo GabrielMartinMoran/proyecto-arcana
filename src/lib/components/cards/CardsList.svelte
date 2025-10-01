@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Card as CardType } from '$lib/types/card';
+	import type { AbilityCard as CardType } from '$lib/types/card';
 	import type { CharacterCard } from '$lib/types/character';
 	import { CONFIG } from '../../../config';
 	import InputField from '../ui/InputField.svelte';
@@ -63,6 +63,7 @@
 				uses: getCardTotalUses(card),
 				isActive: false,
 				level: card.level,
+				cardType: card.type,
 			} as CharacterCard,
 		];
 		onChange(characterCards);
@@ -88,6 +89,7 @@
 		switch (card.uses.type) {
 			case 'USES':
 			case 'LONG_REST':
+			case 'DAY':
 				return card.uses.qty ?? 0;
 			case 'RELOAD':
 				return CONFIG.RELOAD_CARD_USES;

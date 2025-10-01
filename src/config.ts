@@ -14,7 +14,7 @@ export const CONFIG = {
 	STANDARD_DICES: ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'],
 	CLEAR_3D_DICES_DELAY: 3000,
 
-	CARD_BACKGROUNDS: {
+	ABILITY_CARD_BACKGROUNDS: {
 		arcanista: 'https://i.imgur.com/qZ79oFt.png',
 		combatiente: 'https://i.imgur.com/Y1Nj73K.png',
 		picaro: 'https://i.imgur.com/IPopAUR.png',
@@ -24,6 +24,10 @@ export const CONFIG = {
 		dote: 'https://i.imgur.com/KfwuOdi.png',
 		linaje: 'https://i.imgur.com/VKUcBoy.png',
 		default: 'https://i.imgur.com/ON6lmPC.png',
+	},
+
+	ITEM_CARD_BACKGROUNDS: {
+		default: 'https://i.imgur.com/1Pdtm3M.png',
 	},
 
 	PLAYER_MANUAL_PATH: '/docs/player.md',

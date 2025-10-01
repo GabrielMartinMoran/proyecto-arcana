@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Card } from '$lib/types/card';
 	import type { CardFilters } from '$lib/types/card-filters';
+	import type { Card } from '$lib/types/cards/card';
 	import { capitalize } from '$lib/utils/formatting';
 	import Container from '../ui/Container.svelte';
 	import MultiSelect from '../ui/MultiSelect.svelte';

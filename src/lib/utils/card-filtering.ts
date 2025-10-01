@@ -1,5 +1,5 @@
-import type { Card } from '$lib/types/card';
 import type { CardFilters } from '$lib/types/card-filters';
+import type { Card } from '$lib/types/cards/card';
 import { removeDiacritics } from './formatting';
 
 export const filterCards = (cards: Card[], filters: CardFilters) => {

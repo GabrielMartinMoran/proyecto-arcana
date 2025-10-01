@@ -7,8 +7,10 @@
 	import { useCardsService } from '$lib/services/cards-service';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import type { CardFilters } from '$lib/types/card-filters';
+	import type { Card } from '$lib/types/cards/card';
 	import type { Character, CharacterCard } from '$lib/types/character';
 	import { filterCards } from '$lib/utils/card-filtering';
+	import { clickOutsideDetector } from '$lib/utils/outside-click-detector';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
 
@@ -20,7 +22,12 @@
 
 	let { character, readonly, onChange }: Props = $props();
 
-	let { loadCards, cards: cardsStore } = useCardsService();
+	let {
+		loadAbilityCards,
+		abilityCards: abilityCardsStore,
+		loadItemCards,
+		itemCards: itemCardsStore,
+	} = useCardsService();
 
 	let { rollExpression } = useDiceRollerService();
 
@@ -28,10 +35,17 @@
 
 	let filters: CardFilters = $state(getFiltersFromURL());
 
-	let cards = $derived(filterCards(get(cardsStore), filters));
+	let cards = $derived(filterCards(get(abilityCardsStore), filters));
 
-	const unsubscribe = cardsStore.subscribe(() => {
-		cards = filterCards(get(cardsStore), filters);
+	let allCards: Card[] = $state([]);
+
+	let addCardModalState = $state({
+		opened: false,
+		cards: [] as Card[],
+	});
+
+	const unsubscribe = abilityCardsStore.subscribe(() => {
+		cards = filterCards(get(abilityCardsStore), filters);
 	});
 
 	onDestroy(() => {
@@ -39,7 +53,8 @@
 	});
 
 	onMount(async () => {
-		await loadCards();
+		await Promise.all([loadItemCards(), loadAbilityCards()]);
+		allCards = [...get(itemCardsStore), ...get(abilityCardsStore)];
 	});
 
 	const onCharacterCardsChange = (updatedCards: CharacterCard[]) => {
@@ -66,12 +81,28 @@
 
 	const onFiltersChange = (newFilters: CardFilters) => {
 		filters = newFilters;
-		cards = filterCards(get(cardsStore), filters);
+		cards = filterCards(get(abilityCardsStore), filters);
 		updateURLFilters(filters);
 	};
 
 	const onResetFilters = () => {
 		onFiltersChange(buildEmptyFilters());
+	};
+
+	const openAddCardModal = (type: 'ability' | 'item') => {
+		setTimeout(() => {
+			addCardModalState = {
+				opened: true,
+				cards: type === 'ability' ? get(abilityCardsStore) : get(itemCardsStore),
+			};
+		}, 0);
+	};
+
+	const closeAddCardModal = () => {
+		addCardModalState = {
+			opened: false,
+			cards: [],
+		};
 	};
 </script>
 
@@ -89,11 +120,18 @@
 					onChange(character);
 				}}
 			/>
+			<div class="controls">
+				<span>Agregar cartas a tu colección</span>
+				<div class="buttons">
+					<button onclick={() => openAddCardModal('ability')}>Agregar Carta de Habilidad</button>
+					<button onclick={() => openAddCardModal('item')}>Agregar Carta de Objeto Mágico</button>
+				</div>
+			</div>
 		</Container>
 	{/if}
 	<Container title="Cartas Activas ({character.numActiveCards}/{character.maxActiveCards})">
 		<CardsList
-			cards={$cardsStore.filter((x) => character.cards.some((y) => y.isActive && y.id === x.id))}
+			cards={allCards.filter((x) => character.cards.some((y) => y.isActive && y.id === x.id))}
 			{readonly}
 			characterCards={character.cards}
 			listMode="active"
@@ -104,20 +142,29 @@
 
 	<Container title="Colección">
 		<CardsList
-			cards={$cardsStore.filter((x) => character.cards.some((y) => y.id === x.id))}
+			cards={allCards.filter((x) => character.cards.some((y) => y.id === x.id))}
 			{readonly}
 			characterCards={character.cards}
 			listMode="collection"
 			onChange={onCharacterCardsChange}
 		/>
 	</Container>
+</div>
 
-	<Container title="Todas las Cartas">
-		<div class="all-cards">
-			<CardsFilter cards={$cardsStore} {onFiltersChange} {onResetFilters} {filters} />
+<div
+	class="add-card-modal"
+	hidden={!addCardModalState.opened}
+	use:clickOutsideDetector
+	onoutsideclick={closeAddCardModal}
+>
+	<div class="all-cards">
+		<CardsFilter cards={addCardModalState.cards} {onFiltersChange} {onResetFilters} {filters} />
+		<div class="cards-viewport">
 			{#if cards.length > 0}
 				<CardsList
-					cards={cards.filter((x) => character.cards.find((y) => y.id === x.id) === undefined)}
+					cards={addCardModalState.cards.filter(
+						(x) => character.cards.find((y) => y.id === x.id) === undefined,
+					)}
 					{readonly}
 					characterCards={character.cards}
 					listMode="all"
@@ -129,22 +176,19 @@
 				</div>
 			{/if}
 		</div>
-	</Container>
+	</div>
+	<div class="footer">
+		<button onclick={closeAddCardModal}>Cerrar</button>
+	</div>
 </div>
 
 <style>
 	.cards-tab {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		gap: var(--spacing-md);
-
-		.all-cards {
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-md);
-			padding-top: var(--spacing-md);
-		}
 	}
 
 	.empty {
@@ -153,5 +197,70 @@
 		align-items: center;
 		height: 100%;
 		width: 100%;
+	}
+
+	.add-card-modal {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-md);
+		background-color: var(--secondary-bg);
+		box-shadow: var(--shadow-md);
+
+		.all-cards {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-md);
+			padding-top: var(--spacing-md);
+
+			.cards-viewport {
+				height: 400px;
+				overflow-y: scroll;
+			}
+		}
+
+		.footer {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: var(--spacing-sm);
+		}
+	}
+
+	@media screen and (max-width: 1280px) {
+		.add-card-modal {
+			width: 95%;
+		}
+	}
+
+	@media screen and (min-width: 1600px) {
+		.add-card-modal {
+			width: 1000px;
+		}
+	}
+
+	.controls {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+		padding-top: var(--spacing-md);
+
+		span {
+			color: var(--text-secondary);
+			font-size: 0.9rem;
+		}
+
+		.buttons {
+			display: flex;
+			flex-direction: row;
+			gap: var(--spacing-md);
+			justify-content: space-evenly;
+			align-items: center;
+		}
 	}
 </style>

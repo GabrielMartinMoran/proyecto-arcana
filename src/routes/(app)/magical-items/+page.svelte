@@ -8,7 +8,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
 
-	const { loadAbilityCards, abilityCards: cardsStore } = useCardsService();
+	const { loadItemCards, itemCards: cardsStore } = useCardsService();
 
 	const { buildEmptyFilters, getFiltersFromURL, updateURLFilters } = useCardFiltersService();
 
@@ -17,7 +17,7 @@
 	let cards = $derived(filterCards(get(cardsStore), filters));
 
 	onMount(async () => {
-		await loadAbilityCards();
+		await loadItemCards();
 	});
 
 	const unsubscribe = cardsStore.subscribe(() => {
@@ -40,7 +40,7 @@
 </script>
 
 <section>
-	<h1>Galería de Cartas</h1>
+	<h1>Objetos Mágicos</h1>
 	<CardsFilter cards={$cardsStore} {onFiltersChange} {onResetFilters} {filters} />
 	<CardsList {cards} />
 </section>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Card } from '$lib/types/card';
+	import type { Card } from '$lib/types/cards/card';
+	import type { ItemCard } from '$lib/types/cards/item-card';
 	import { removeDiacritics } from '$lib/utils/formatting';
 	import { marked } from 'marked';
 	import type { Snippet } from 'svelte';
-	import { CONFIG } from '../../../config';
 
 	type Props = {
 		card: Card;
@@ -36,24 +36,16 @@
 				return 'var(--accent-default)';
 		}
 	};
-
-	const getBackgroundImageUrl = (tags: string[]) => {
-		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
-
-		if (CONFIG.CARD_BACKGROUNDS[first]) {
-			return CONFIG.CARD_BACKGROUNDS[first];
-		}
-
-		return CONFIG.CARD_BACKGROUNDS.default;
-	};
 </script>
 
 <div class="card" style:border-color={getBorderColor(card.tags)}>
-	<div class="bg" style:background-image={`url(${getBackgroundImageUrl(card.tags)})`}></div>
+	<div class="bg" style:background-image={`url(${card.img})`}></div>
 	<div class="inner">
 		<div class="header">
 			<div class="chips">
+				<span class="chip">{card.cardType === 'ability' ? 'Habilidad' : 'Objeto Mágico'}</span>
 				<span class="chip">Nivel {card.level}</span>
+				<span class="spacer"></span>
 				<span class="chip">{card.type.charAt(0).toUpperCase() + card.type.slice(1)}</span>
 			</div>
 			<h3>{card.name}</h3>
@@ -74,6 +66,9 @@
 					{:else if card.uses.type === 'USES'}
 						<span class="chip">Usos: {card.uses.qty ?? '?'}</span>
 					{/if}
+				{/if}
+				{#if card.cardType === 'item'}
+					<span class="chip">Costo: {(card as ItemCard).cost} de oro</span>
 				{/if}
 			</div>
 		</div>
@@ -235,5 +230,9 @@
 		background-color: #ded1b5;
 		padding: 0.25rem 0.5rem;
 		font-size: 0.8rem;
+	}
+
+	.spacer {
+		flex: 1;
 	}
 </style>

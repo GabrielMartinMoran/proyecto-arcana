@@ -1,5 +1,5 @@
 import { mapCard } from '$lib/mappers/card-mapper';
-import type { Card } from '$lib/types/card';
+import type { AbilityCard } from '$lib/types/cards/ability-card';
 import type { Uses } from '$lib/types/uses';
 import { load as yamlLoad } from 'js-yaml';
 import { readFileSync } from 'node:fs';
@@ -24,7 +24,7 @@ const formatUses = (uses: Uses | null): string => {
 	}
 };
 
-const cardToMarkdown = (card: Card): string => {
+const cardToMarkdown = (card: AbilityCard): string => {
 	let md = ``;
 	md += `# ${card.name}\n\n`;
 	md += `**Nivel:** ${card.level}\n\n`;
@@ -57,7 +57,7 @@ export const load: PageServerLoad = () => {
 		console.error('Error parsing YAML:', e);
 	}
 
-	const cards: Card[] = rawCards.map((x) => mapCard(x));
+	const cards: AbilityCard[] = rawCards.map((x) => mapCard(x));
 
 	const doc = cards.map(cardToMarkdown).join('---\n\n');
 

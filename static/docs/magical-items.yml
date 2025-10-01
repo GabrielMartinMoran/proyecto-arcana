@@ -1,0 +1,330 @@
+items:
+  - name: 'Botas de Velocidad'
+    tier: 3
+    cost: '150 - 250'
+    type: 'activable'
+    tags: []
+    requirements:
+      - 'Reflejos 3'
+    description: >-
+      Como una Interacción, puedes activar el poder de las botas. Durante 1 minuto,
+      tu Velocidad se duplica y obtienes Ventaja (+1d4) en las Tiradas de Salvación
+      de Reflejos.
+    uses:
+      type: PER_DAY
+      qty: 3
+
+  - name: 'Capa de Sigilo'
+    tier: 2
+    cost: '75 - 100'
+    type: 'efecto'
+    tags: []
+    requirements: []
+    description: >-
+      Esta capa tejida con sombras y susurros te ayuda a camuflarte con el entorno.
+      Obtienes Ventaja (+1d4) en todas las Pruebas de Sigilo
+      siempre que estés en luz tenue o en oscuridad.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Brazales de Furia Gigante'
+    tier: 4
+    cost: '300 - 500'
+    type: 'activable'
+    tags: []
+    requirements:
+      - 'Cuerpo 3'
+    description: >-
+      Mientras tengas esta carta activa, tu fuerza física alcanza la de un gigante.
+      Tu puntuación de Cuerpo se establece en 5 para calcular tu Salud, el daño de
+      tus ataques cuerpo a cuerpo y para cualquier Prueba de Habilidad basada en Cuerpo.
+      Este efecto no altera tu puntuación base para cumplir requisitos de otras cartas
+      u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Anillo de Protección'
+    tier: 3
+    cost: '125 - 200'
+    type: 'efecto'
+    tags: []
+    requirements: []
+    description: >-
+      Este simple anillo de plata genera un campo de fuerza sutil a tu alrededor.
+      Obtienes un +1 permanente a tu Mitigación Física y Mágica.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Varita de Proyectiles Mágicos'
+    tier: 3
+    cost: '150 - 250'
+    type: 'activable'
+    tags: []
+    requirements:
+      - 'Mente 2'
+    description: >-
+      Como una Acción, gastas usos de la varita para lanzar dardos de energía
+      mágica que impactan automáticamente a objetivos que puedas ver a distancia Larga.
+      Por cada uso gastado, lanzas un dardo que inflige 1d4 de daño de fuerza. Puedes dirigir
+      los dardos a uno o varios objetivos.
+    uses:
+      type: PER_DAY
+      qty: 7
+
+  - name: 'Bolsa Contenedora'
+    tier: 3
+    cost: '250'
+    type: 'efecto'
+    tags: []
+    requirements: []
+    description: >-
+      El interior de esta bolsa de lona es un espacio extra-dimensional. Puede
+      contener hasta 250 kg de peso o 2 metros cúbicos de volumen. Pesa siempre
+      5 kg sin importar su contenido. Sacar un objeto es una Interacción.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Anillo de Invisibilidad'
+    tier: 5
+    cost: '1000+'
+    type: 'activable'
+    tags: []
+    requirements: []
+    description: >-
+      Como una Acción, te vuelves invisible. El efecto dura hasta que atacas,
+      lanzas un conjuro, usas otra carta activable o te quitas el anillo.
+      Ocupa una ranura de carta activa mientras está en uso.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Yelmo del Políglota'
+    tier: 3
+    cost: '200 - 300'
+    type: 'efecto'
+    tags: []
+    requirements:
+      - Lenguas
+    description: >-
+      Mientras llevas este yelmo, comprendes el significado literal de cualquier
+      lengua hablada que oigas. Además, puedes hacerte entender por cualquier
+      criatura que posea un idioma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Sortija del Viento'
+    tier: 3
+    cost: '125 - 200'
+    type: 'efecto'
+    tags:
+      - Esquiva
+    requirements: []
+    description: >-
+      Este anillo te envuelve en una brisa protectora casi imperceptible.
+      Mientras lo lleves puesto, obtienes un +1 a tu Esquiva.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Hoja del Alba'
+    tier: 1
+    cost: '25 - 50'
+    type: 'activable'
+    tags:
+      - 'Arma'
+    requirements:
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo).
+      Como una Interacción, puedes hacer que el arma emita una luz brillante
+      en un radio de 5 metros. Puedes usar otra Interacción para apagarla.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Égida del Imán'
+    tier: 4
+    cost: '400 - 600'
+    type: 'activable'
+    tags:
+      - Escudo
+    requirements:
+      - Cuerpo 3
+    description: >-
+      Este escudo pesado de acero funciona como un escudo normal (otorgando +1 a la Esquiva).
+      Además, mientras tengas esta carta activa y el escudo levantado, te conviertes en un pararrayos para
+      proyectiles. Cualquier ataque a distancia con un arma (flechas, virotes,
+      jabalinas) que tenga como objetivo a una criatura a distancia Cercana,
+      en su lugar te tiene como objetivo a ti.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Botas Aladas'
+    tier: 5
+    cost: '1200+'
+    type: 'activable'
+    tags: []
+    requirements: []
+    description: >-
+      Mientras tengas esta carta activa, obtienes una velocidad de vuelo igual
+      a tu velocidad terrestre. Puedes ascender y descender a voluntad.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Diadema del Sabio'
+    tier: 4
+    cost: '300 - 500'
+    type: 'activable'
+    tags:
+      - Mente
+    requirements: []
+    description: >-
+      Mientras tengas esta carta activa, tu agudeza mental es legendaria.
+      Tu puntuación de Mente se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Collar de Instinto Primordial'
+    tier: 4
+    cost: '300 - 500'
+    type: 'activable'
+    tags:
+      - Instinto
+    requirements: []
+    description: >-
+      Mientras tengas esta carta activa, tus sentidos se agudizan al máximo.
+      Tu puntuación de Instinto se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Manto del Soberano'
+    tier: 4
+    cost: '300 - 500'
+    type: 'activable'
+    tags:
+      - Presencia
+    requirements: []
+    description: >-
+      Mientras tengas esta carta activa, proyectas un aura de autoridad natural.
+      Tu puntuación de Presencia se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Amuleto Felino'
+    tier: 4
+    cost: '300 - 500'
+    type: 'activable'
+    tags:
+      - Reflejos
+    requirements: []
+    description: >-
+      Mientras tengas esta carta activa, te mueves con una gracia sobrenatural.
+      Tu puntuación de Reflejos se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Filo Armonizado'
+    tier: 2
+    cost: '100 - 150'
+    type: 'efecto'
+    tags:
+      - Arma
+    requirements: []
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma). El arma está afinada
+      mágicamente para golpear con más certeza. Obtienes un +1 a tus tiradas
+      de ataque y +1 al daño infligido con esta arma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Perla de Resonancia Arcana'
+    tier: 4
+    cost: '500 - 750'
+    type: 'activable'
+    tags:
+      - Habilidades
+    requirements: []
+    description: >-
+      Como una Interacción, puedes tocar esta perla para recuperar el aliento
+      arcano o físico. Elige una de tus cartas activables que ya hayas usado
+      y que tenga un sistema de 'Recarga (X+)' o 'Usos por día'. Recuperas
+      inmediatamente un uso de esa carta.
+    uses:
+      type: PER_DAY
+      qty: 1
+
+  - name: 'Amuleto del Troll de Piedra'
+    tier: 2
+    cost: '80 - 120'
+    type: 'efecto'
+    tags:
+      - Salud
+    requirements: []
+    description: >-
+      Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta
+      permanentemente en 5.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Escarabajo de la Fortuna'
+    tier: 2
+    cost: '100 - 150'
+    type: 'activable'
+    tags:
+      - Suerte
+    requirements: []
+    description: >-
+      Como una Interacción, puedes frotar este escarabajo de jade para que la
+      suerte te sonría. Recuperas 2 Puntos de Suerte gastados.
+    uses:
+      type: PER_DAY
+      qty: 1
+
+  - name: 'Lentes Nocturnos'
+    tier: 1
+    cost: '50 - 75'
+    type: 'efecto'
+    tags:
+      - Visión
+    requirements: []
+    description: >-
+      Los cristales de estas gafas están ahumados y son casi opacos a la luz
+      del día, pero en la penumbra revelan el mundo con claridad. Obtienes
+      el rasgo 'Visión en la Oscuridad'.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Monóculo del Revelador'
+    tier: 5
+    cost: '1500+'
+    type: 'activable'
+    tags:
+      - Visión
+    requirements:
+      - 'Instinto 4'
+    description: >-
+      Como una Acción, puedes mirar a través de este monóculo para ver el
+      mundo tal y como es. Durante 1 minuto, obtienes visión verdadera hasta
+      distancia Cercana, lo que te permite ver en la oscuridad total (mágica
+      o no), ver criaturas y objetos invisibles y ver la forma original de
+      criaturas cambiaformas o transformadas por ilusiones.
+    uses:
+      type: PER_DAY
+      qty: 1
