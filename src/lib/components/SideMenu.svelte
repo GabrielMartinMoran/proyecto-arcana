@@ -90,7 +90,9 @@
 	onclick={onBodyClick}
 >
 	{#if !isMobile}
-		<h1>Arcana</h1>
+		<div class="header">
+			<h1>Arcana</h1>
+		</div>
 	{/if}
 
 	<div class="public-routes">
@@ -143,6 +145,19 @@
 </nav>
 
 <style>
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		h1 {
+			margin: 0;
+			margin-top: var(--spacing-md);
+			font-size: 2.4rem;
+		}
+	}
+
 	nav {
 		position: fixed;
 		left: 0;
@@ -177,6 +192,8 @@
 		.public-routes {
 			display: flex;
 			flex-direction: column;
+			border-top: 1px solid var(--border-color);
+			margin-top: var(--spacing-md);
 		}
 
 		.private-routes {
