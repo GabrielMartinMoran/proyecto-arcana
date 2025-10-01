@@ -153,7 +153,7 @@
 		width: 100%;
 		border-bottom: 1px solid var(--border-color);
 		padding-bottom: var(--spacing-md);
-		margin-bottom: var(--spacing-md);
+		margin-bottom: var(--spacing-sm);
 
 		h1 {
 			margin: 0;
@@ -202,8 +202,8 @@
 			display: flex;
 			flex-direction: column;
 			border-top: 1px solid var(--border-color);
-			margin-top: var(--spacing-md);
-			padding-top: var(--spacing-md);
+			margin-top: var(--spacing-sm);
+			padding-top: var(--spacing-sm);
 		}
 
 		.spacer {
