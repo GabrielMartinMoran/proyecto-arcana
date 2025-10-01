@@ -151,6 +151,10 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+
 		h1 {
 			margin: 0;
 			margin-top: var(--spacing-md);
@@ -192,8 +196,6 @@
 		.public-routes {
 			display: flex;
 			flex-direction: column;
-			border-top: 1px solid var(--border-color);
-			margin-top: var(--spacing-md);
 		}
 
 		.private-routes {
