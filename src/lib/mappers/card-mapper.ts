@@ -11,6 +11,7 @@ const mapCard = (data: any): Card => {
 	return {
 		id: generateId(data.name),
 		...data,
+		requirements: data.requirements ?? [],
 	};
 };
 
