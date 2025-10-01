@@ -1,4 +1,4 @@
-import { mapCard } from '$lib/mappers/card-mapper';
+import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import type { AbilityCard } from '$lib/types/cards/ability-card';
 import type { Uses } from '$lib/types/uses';
 import { load as yamlLoad } from 'js-yaml';
@@ -57,7 +57,7 @@ export const load: PageServerLoad = () => {
 		console.error('Error parsing YAML:', e);
 	}
 
-	const cards: AbilityCard[] = rawCards.map((x) => mapCard(x));
+	const cards: AbilityCard[] = rawCards.map((x) => mapAbilityCard(x));
 
 	const doc = cards.map(cardToMarkdown).join('---\n\n');
 
