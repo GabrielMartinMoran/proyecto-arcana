@@ -239,6 +239,8 @@
 				padding: var(--spacing-md);
 				margin-bottom: var(--spacing-md);
 				margin-top: var(--spacing-md);
+				gap: var(--spacing-lg);
+				flex-wrap: wrap;
 			}
 
 			.stats {
@@ -247,6 +249,8 @@
 				justify-content: space-between;
 				align-items: start;
 				margin: var(--spacing-md);
+				gap: var(--spacing-lg);
+				flex-wrap: wrap;
 			}
 
 			.middle {

@@ -20,9 +20,18 @@
 </section>
 
 <style>
-	.statblock-list {
+	section {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-lg);
+		gap: var(--spacing-md);
+		flex-grow: 1;
+		justify-content: center;
+		width: 100%;
+
+		.statblock-list {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-lg);
+		}
 	}
 </style>

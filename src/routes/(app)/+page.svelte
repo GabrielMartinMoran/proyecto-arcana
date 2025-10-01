@@ -111,9 +111,12 @@
 			gap: var(--spacing-md);
 			flex: 1;
 			padding-top: var(--spacing-md);
+			flex-wrap: wrap;
 
 			button {
 				color: white;
+				width: 200px;
+				height: 75px;
 			}
 
 			.player {
