@@ -31,21 +31,24 @@
 
 	let { rollExpression } = useDiceRollerService();
 
-	const { buildEmptyFilters, getFiltersFromURL, updateURLFilters } = useCardFiltersService();
+	const { buildEmptyFilters, updateURLFilters } = useCardFiltersService();
 
-	let filters: CardFilters = $state(getFiltersFromURL());
-
-	let cards = $derived(filterCards(get(abilityCardsStore), filters));
+	let filters: CardFilters = $state(buildEmptyFilters());
 
 	let allCards: Card[] = $state([]);
 
 	let addCardModalState = $state({
 		opened: false,
-		cards: [] as Card[],
+		filteredCards: [] as Card[],
+		allCards: [] as Card[],
 	});
 
 	const unsubscribe = abilityCardsStore.subscribe(() => {
-		cards = filterCards(get(abilityCardsStore), filters);
+		addCardModalState = {
+			...addCardModalState,
+			allCards: [],
+			filteredCards: [],
+		};
 	});
 
 	onDestroy(() => {
@@ -63,7 +66,7 @@
 	};
 	const onCardReloadClick = async (cardId: string) => {
 		const characterCard = character.cards.find((card) => card.id === cardId);
-		const card = cards.find((card) => card.id === cardId);
+		const card = allCards.find((card) => card.id === cardId);
 		if (characterCard && card && characterCard.uses !== null && card) {
 			const rollResult = await rollExpression({
 				expression: '1d6',
@@ -81,8 +84,10 @@
 
 	const onFiltersChange = (newFilters: CardFilters) => {
 		filters = newFilters;
-		cards = filterCards(get(abilityCardsStore), filters);
-		updateURLFilters(filters);
+		addCardModalState = {
+			...addCardModalState,
+			filteredCards: filterCards(addCardModalState.allCards, filters),
+		};
 	};
 
 	const onResetFilters = () => {
@@ -91,9 +96,11 @@
 
 	const openAddCardModal = (type: 'ability' | 'item') => {
 		setTimeout(() => {
+			const modalCards = type === 'ability' ? get(abilityCardsStore) : get(itemCardsStore);
 			addCardModalState = {
 				opened: true,
-				cards: type === 'ability' ? get(abilityCardsStore) : get(itemCardsStore),
+				filteredCards: modalCards,
+				allCards: modalCards,
 			};
 		}, 0);
 	};
@@ -101,7 +108,8 @@
 	const closeAddCardModal = () => {
 		addCardModalState = {
 			opened: false,
-			cards: [],
+			filteredCards: [],
+			allCards: [],
 		};
 	};
 </script>
@@ -158,11 +166,16 @@
 	onoutsideclick={closeAddCardModal}
 >
 	<div class="all-cards">
-		<CardsFilter cards={addCardModalState.cards} {onFiltersChange} {onResetFilters} {filters} />
+		<CardsFilter
+			cards={addCardModalState.filteredCards}
+			{onFiltersChange}
+			{onResetFilters}
+			{filters}
+		/>
 		<div class="cards-viewport">
-			{#if cards.length > 0}
+			{#if addCardModalState.filteredCards.length > 0}
 				<CardsList
-					cards={addCardModalState.cards.filter(
+					cards={addCardModalState.filteredCards.filter(
 						(x) => character.cards.find((y) => y.id === x.id) === undefined,
 					)}
 					{readonly}

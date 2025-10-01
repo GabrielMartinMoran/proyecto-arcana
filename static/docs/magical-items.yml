@@ -1,6 +1,6 @@
 items:
   - name: 'Botas de Velocidad'
-    tier: 3
+    level: 3
     cost: '150 - 250'
     type: 'activable'
     tags: []
@@ -15,7 +15,7 @@ items:
       qty: 3
 
   - name: 'Capa de Sigilo'
-    tier: 2
+    level: 2
     cost: '75 - 100'
     type: 'efecto'
     tags: []
@@ -29,7 +29,7 @@ items:
       qty: 0
 
   - name: 'Brazales de Furia Gigante'
-    tier: 4
+    level: 4
     cost: '300 - 500'
     type: 'activable'
     tags: []
@@ -46,7 +46,7 @@ items:
       qty: 0
 
   - name: 'Anillo de Protección'
-    tier: 3
+    level: 3
     cost: '125 - 200'
     type: 'efecto'
     tags: []
@@ -59,7 +59,7 @@ items:
       qty: 0
 
   - name: 'Varita de Proyectiles Mágicos'
-    tier: 3
+    level: 3
     cost: '150 - 250'
     type: 'activable'
     tags: []
@@ -75,7 +75,7 @@ items:
       qty: 7
 
   - name: 'Bolsa Contenedora'
-    tier: 3
+    level: 3
     cost: '250'
     type: 'efecto'
     tags: []
@@ -89,7 +89,7 @@ items:
       qty: 0
 
   - name: 'Anillo de Invisibilidad'
-    tier: 5
+    level: 5
     cost: '1000+'
     type: 'activable'
     tags: []
@@ -103,7 +103,7 @@ items:
       qty: 0
 
   - name: 'Yelmo del Políglota'
-    tier: 3
+    level: 3
     cost: '200 - 300'
     type: 'efecto'
     tags: []
@@ -118,7 +118,7 @@ items:
       qty: 0
 
   - name: 'Sortija del Viento'
-    tier: 3
+    level: 3
     cost: '125 - 200'
     type: 'efecto'
     tags:
@@ -132,7 +132,7 @@ items:
       qty: 0
 
   - name: 'Hoja del Alba'
-    tier: 1
+    level: 1
     cost: '25 - 50'
     type: 'activable'
     tags:
@@ -147,7 +147,7 @@ items:
       qty: 0
 
   - name: 'Égida del Imán'
-    tier: 4
+    level: 4
     cost: '400 - 600'
     type: 'activable'
     tags:
@@ -165,7 +165,7 @@ items:
       qty: 0
 
   - name: 'Botas Aladas'
-    tier: 5
+    level: 5
     cost: '1200+'
     type: 'activable'
     tags: []
@@ -178,7 +178,7 @@ items:
       qty: 0
 
   - name: 'Diadema del Sabio'
-    tier: 4
+    level: 4
     cost: '300 - 500'
     type: 'activable'
     tags:
@@ -193,7 +193,7 @@ items:
       qty: 0
 
   - name: 'Collar de Instinto Primordial'
-    tier: 4
+    level: 4
     cost: '300 - 500'
     type: 'activable'
     tags:
@@ -208,7 +208,7 @@ items:
       qty: 0
 
   - name: 'Manto del Soberano'
-    tier: 4
+    level: 4
     cost: '300 - 500'
     type: 'activable'
     tags:
@@ -223,7 +223,7 @@ items:
       qty: 0
 
   - name: 'Amuleto Felino'
-    tier: 4
+    level: 4
     cost: '300 - 500'
     type: 'activable'
     tags:
@@ -237,23 +237,23 @@ items:
       type: NULL
       qty: 0
 
-  - name: 'Filo Armonizado'
-    tier: 2
+  - name: 'Arma Enriquecida'
+    level: 2
     cost: '100 - 150'
     type: 'efecto'
     tags:
       - Arma
     requirements: []
     description: >-
-      (Esta propiedad se puede aplicar a cualquier arma). El arma está afinada
-      mágicamente para golpear con más certeza. Obtienes un +1 a tus tiradas
+      Esta propiedad se puede aplicar a cualquier arma. El arma está inbuída y enriquecida
+      mágicamente para golpear con más certeza y hacer más daño. Obtienes un +1 a tus tiradas
       de ataque y +1 al daño infligido con esta arma.
     uses:
       type: NULL
       qty: 0
 
   - name: 'Perla de Resonancia Arcana'
-    tier: 4
+    level: 4
     cost: '500 - 750'
     type: 'activable'
     tags:
@@ -269,7 +269,7 @@ items:
       qty: 1
 
   - name: 'Amuleto del Troll de Piedra'
-    tier: 2
+    level: 2
     cost: '80 - 120'
     type: 'efecto'
     tags:
@@ -283,7 +283,7 @@ items:
       qty: 0
 
   - name: 'Escarabajo de la Fortuna'
-    tier: 2
+    level: 2
     cost: '100 - 150'
     type: 'activable'
     tags:
@@ -297,7 +297,7 @@ items:
       qty: 1
 
   - name: 'Lentes Nocturnos'
-    tier: 1
+    level: 1
     cost: '50 - 75'
     type: 'efecto'
     tags:
@@ -312,7 +312,7 @@ items:
       qty: 0
 
   - name: 'Monóculo del Revelador'
-    tier: 5
+    level: 5
     cost: '1500+'
     type: 'activable'
     tags:

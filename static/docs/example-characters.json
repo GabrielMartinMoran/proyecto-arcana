@@ -1,51 +1,402 @@
 [
 	{
-		"id": "27a8e7e2-1c9b-4994-a135-6b35bbe0130e",
-		"name": "PJ de Ejemplo",
-		"attributes": {
-			"cuerpo": 1,
-			"reflejos": 1,
-			"mente": 1,
-			"instinto": 1,
-			"presencia": 1
-		},
+		"id": "5d4238c2-d31c-401b-8817-affbeb6b4136",
+		"name": "Maëliv Hojaverde [PJ Inicial]",
+		"attributes": { "presence": 1, "body": 2, "instinct": 3, "reflexes": 2, "mind": 2 },
 		"cards": [
 			{
-				"id": "9b9864426990a5e105c6d9e27c08202573af7bd8",
-				"uses": 0,
-				"isActive": true,
-				"level": 3
-			}
-		],
-		"ppHistory": [],
-		"goldHistory": [],
-		"equipment": [],
-		"modifiers": [],
-		"currentHP": 0,
-		"tempHP": 0,
-		"currentLuck": 2,
-		"img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ49uq-LhNM8piLmPDN51z4djBFWuTTHkRBWA&s",
-		"story": "",
-		"notes": [],
-		"languages": "",
-		"quickInfo": "",
-		"attacks": [
-			{
-				"id": "6973a2cf-4ed8-4852-9bcb-7f9a6514517b",
-				"name": "Maza",
-				"atkFormula": "1d6e+cuerpo",
-				"dmgFormula": "1d6",
-				"notes": "Contundente"
+				"level": 1,
+				"isActive": false,
+				"uses": null,
+				"id": "ae7cec3c7868e7a1283045e8c5c896624fa401c9"
 			},
 			{
-				"id": "0a71e7d8-b201-4086-b285-0edc70c29062",
-				"name": "",
-				"atkFormula": "",
-				"dmgFormula": "",
-				"notes": ""
+				"id": "161a4290d194746de99f60f5aeceabdd27695146",
+				"uses": null,
+				"level": 1,
+				"isActive": false
+			},
+			{
+				"isActive": false,
+				"id": "3464978f669d360c22f58591e55dd56ba2408ec6",
+				"level": 1,
+				"uses": null
+			},
+			{
+				"level": 1,
+				"uses": null,
+				"isActive": true,
+				"id": "7c15a2c077ce5b4d9ee304764400222156d97726"
+			},
+			{ "isActive": true, "level": 1, "id": "2601adef1ae62c5845599f934d12eb1550315cbc", "uses": 2 }
+		],
+		"ppHistory": [],
+		"goldHistory": [
+			{
+				"value": 66,
+				"type": "subtract",
+				"reason": "Equipo inicial",
+				"id": "4e5ebc14-7d0e-413c-a646-3e20a81595d7"
+			},
+			{
+				"reason": "Oro inicial",
+				"value": 100,
+				"id": "078af3b9-9f79-4676-97cc-780cfe14f6a3",
+				"type": "add"
+			}
+		],
+		"equipment": [
+			{
+				"name": "Bastón",
+				"id": "48103c95-6e52-45db-acb9-d95d1dbdbf43",
+				"notes": "1d4/1d6 Contundente (Versatil)",
+				"quantity": 1
+			},
+			{
+				"quantity": 1,
+				"id": "b6a3269f-1d67-4071-8801-ed731086eac5",
+				"notes": "+1 Mitigación Física",
+				"name": "Arm. de cuero"
+			},
+			{
+				"quantity": 1,
+				"name": "Mochila",
+				"id": "aaf765e4-fdca-4fd9-951c-8e47ced11c0c",
+				"notes": "-"
+			},
+			{
+				"name": "Soga",
+				"quantity": 1,
+				"notes": "Hecha de cáñamo (15m)",
+				"id": "99daf40d-0096-4a6b-bd04-a4114e6105cf"
+			},
+			{
+				"notes": "1d4 Perforante (A dos manos, Rango [Larga])",
+				"quantity": 1,
+				"name": "Arco corto",
+				"id": "a9665198-61ef-4ac0-bf8f-691beb5ecdbb"
+			},
+			{
+				"notes": "-",
+				"name": "Flechas",
+				"id": "9d8576b3-125d-424e-be91-d7185671dfce",
+				"quantity": 20
+			},
+			{
+				"quantity": 1,
+				"id": "565d42c2-5f0d-4792-a227-642a36251c0d",
+				"notes": "-",
+				"name": "Saco de dormir"
+			},
+			{
+				"quantity": 1,
+				"notes": "-",
+				"name": "Odre de agua",
+				"id": "99a64f86-ea1b-43de-a67f-900038c3977a"
+			},
+			{
+				"notes": "-",
+				"name": "Escudo",
+				"id": "9f6d502d-ccbc-444d-9955-afbdc742dda0",
+				"quantity": 1
+			}
+		],
+		"modifiers": [
+			{
+				"formula": "1",
+				"attribute": "physicalMitigation",
+				"id": "013d1d0d-6f9d-4b00-8f3a-2556b3b0065a",
+				"type": "add",
+				"reason": "Armadura"
+			},
+			{
+				"formula": "1",
+				"attribute": "evasion",
+				"reason": "Escudo",
+				"type": "add",
+				"id": "f7c5f31c-6ddd-41cc-91c6-ef09ef8e6a40"
+			},
+			{
+				"formula": "1",
+				"id": "095ae5e3-28e2-4290-b5ad-33a1c630d34a",
+				"type": "add",
+				"attribute": "speed",
+				"reason": "Gracia Silvana"
+			}
+		],
+		"currentHP": 12,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/PowTha4.png",
+		"story": "Maëliv dejó su arboleda sagrada cuando sintió que una extraña corrupción enfermaba las tierras. Su viaje inicial fue una dura prueba de supervivencia, pero le enseñó a confiar en sus instintos y en el poder restaurador de la naturaleza. Ahora, entiende que el mundo más allá de los bosques necesita tanto a un guardián como a un sanador.",
+		"notes": [],
+		"languages": "Común, Silvano",
+		"quickInfo": "Gracia Silvana: Ventaja en percibir peligro\nTalento de Familia: Ventaja en naturaleza y perspicacia\nSintonía Primordial: Ventaja en supervivencia y trato con animales",
+		"attacks": [
+			{
+				"name": "Bastón",
+				"id": "9a0acd01-5f16-462f-ab20-596907e386a0",
+				"notes": "Contundente",
+				"atkFormula": "1d6e+cuerpo",
+				"dmgFormula": "1d4"
+			},
+			{
+				"atkFormula": "1d6e+cuerpo",
+				"name": "Bastón (2 manos)",
+				"notes": "Contundente",
+				"id": "5f1a42cd-d143-4103-958b-6c5715ccb5d7",
+				"dmgFormula": "1d6"
+			},
+			{
+				"name": "Arco corto",
+				"atkFormula": "1d6e+reflejos",
+				"notes": "Perforante",
+				"id": "2faf6f9d-4772-4c9b-a8c0-0ae16da2813f",
+				"dmgFormula": "1d4"
 			}
 		],
 		"maxActiveCards": 3,
+		"version": 1
+	},
+	{
+		"id": "57d4798e-dc0d-469e-ad7f-c04d5804e8c3",
+		"name": "Keldurr, Maza de Hierro [PJ Avanzado]",
+		"attributes": { "reflexes": 2, "body": 4, "instinct": 3, "mind": 1, "presence": 1 },
+		"cards": [
+			{
+				"level": 1,
+				"isActive": false,
+				"uses": null,
+				"id": "c401c6c14d62bb74149e0b75bac24ef568eecd6f"
+			},
+			{
+				"id": "465239038da5be2412587f4cfe0e10d0778231f8",
+				"uses": null,
+				"level": 1,
+				"isActive": false
+			},
+			{
+				"uses": null,
+				"id": "e7c3f7586449b81902da1bc7479a463077a0e557",
+				"isActive": false,
+				"level": 1
+			},
+			{ "level": 1, "uses": 1, "isActive": true, "id": "2a8d46598771dc9dcc91992dec7033c9efee553c" },
+			{ "uses": 1, "id": "1f49450e4b2de47bfc0aab65184d3ab8236ac03c", "isActive": true, "level": 1 },
+			{
+				"uses": null,
+				"level": 1,
+				"id": "f3bcd176b12b64b7554539bf6d27c32d76125395",
+				"isActive": false
+			},
+			{
+				"level": 1,
+				"isActive": false,
+				"id": "d3866f9a311f1bd2756c1c787738c0187c466c87",
+				"uses": null
+			},
+			{
+				"id": "b7c37b66747a498175032891b26a47d11228e8b6",
+				"uses": null,
+				"level": 3,
+				"isActive": true
+			},
+			{
+				"level": 1,
+				"id": "591c9b98fcb403fb1697731f113169934c0516b0",
+				"isActive": false,
+				"uses": 1
+			},
+			{ "isActive": true, "id": "d3ed7bff6d5bd84cb0af302a15fe2f46ff4aa097", "level": 2, "uses": 1 },
+			{
+				"level": 1,
+				"uses": null,
+				"id": "601a9e8c3f70e0013d2c3bde7e653a4e3ff3cca0",
+				"isActive": false
+			},
+			{
+				"isActive": false,
+				"level": 2,
+				"id": "f9120bdd094a802636a027b48c10acd0be4ff5fc",
+				"uses": null,
+				"cardType": "efecto"
+			}
+		],
+		"ppHistory": [
+			{
+				"type": "subtract",
+				"value": 3,
+				"reason": "Compra carta: Atleta",
+				"id": "e67e611a-9a2e-4384-82f8-e967b8eb2c6e"
+			},
+			{
+				"reason": "Compra carta: Golpe divino",
+				"type": "subtract",
+				"id": "7e49e8a2-6793-447b-a156-9ba5d4a06d50",
+				"value": 6
+			},
+			{
+				"value": 3,
+				"reason": "Compra carta: Llama sagrada",
+				"type": "subtract",
+				"id": "3921a65d-bccf-4ab4-a052-8ecd683ab231"
+			},
+			{
+				"reason": "Ranura de carta adicional (cuarta ranura)",
+				"id": "47779503-9ef9-40bd-bded-55c6e4fc6818",
+				"value": 6,
+				"type": "subtract"
+			},
+			{
+				"id": "c51daf27-1ecd-4e64-85e2-bce051f5d3f7",
+				"reason": "Compra carta: Ataque adicional",
+				"type": "subtract",
+				"value": 12
+			},
+			{
+				"type": "subtract",
+				"value": 3,
+				"reason": "Compra carta: Sintonía con el Acero",
+				"id": "867a6211-6d16-4281-b8fa-d4ff37f466c3"
+			},
+			{
+				"reason": "Mejora de atributo: Cuerpo 4",
+				"value": 12,
+				"id": "1ffd58ac-f52f-42ac-ae58-421cfacdf16b",
+				"type": "subtract"
+			},
+			{
+				"type": "subtract",
+				"reason": "Compra carta: Vigor",
+				"id": "fbd69ef9-88be-4786-a9c1-61fb746c7736",
+				"value": 3
+			},
+			{
+				"value": 50,
+				"reason": "Progreso de PJ",
+				"type": "add",
+				"id": "2a97d675-206d-4710-be66-96d9daefeafa"
+			}
+		],
+		"goldHistory": [
+			{
+				"type": "subtract",
+				"reason": "Maza mágica (Arma Enriquecida)",
+				"id": "fc3a8b87-0bd0-4809-bfaa-e8a079f11459",
+				"value": 135
+			},
+			{
+				"type": "add",
+				"id": "eab55461-17b8-4991-af19-a71e4efb3a47",
+				"value": 125,
+				"reason": "Aventuras varias"
+			},
+			{
+				"reason": "Equipo inicial",
+				"type": "subtract",
+				"value": 85,
+				"id": "910086ea-ec72-4e12-9e1f-55d5c8f33585"
+			},
+			{
+				"reason": "Creación de personaje",
+				"value": 100,
+				"type": "add",
+				"id": "5bb06fb2-909d-42b1-92fe-59099c8c9e33"
+			}
+		],
+		"equipment": [
+			{
+				"quantity": 1,
+				"notes": "Mitigación física +2, Esquiva -2, Sigilo -2",
+				"id": "e700c851-8601-48b2-a6f0-77c470e193cd",
+				"name": "Cota de mallas"
+			},
+			{
+				"name": "Maza (Arma Enriquecida)",
+				"id": "b32cc559-27cb-4755-b41a-94934470f76a",
+				"notes": "1d6 Contundente",
+				"quantity": 1
+			},
+			{
+				"notes": "-",
+				"name": "Mochila",
+				"quantity": 1,
+				"id": "d4b9c90a-0d29-40ca-a2d3-bbe032fd8bbb"
+			},
+			{
+				"id": "768426f5-b969-45f1-90f0-ffeddc844348",
+				"name": "Odre de agua",
+				"quantity": 1,
+				"notes": "-"
+			},
+			{
+				"quantity": 1,
+				"id": "08f546b8-56ef-4be6-9fa2-ede49081d498",
+				"name": "Saco de dormir",
+				"notes": "-"
+			},
+			{
+				"name": "Soga",
+				"quantity": 1,
+				"id": "3ff8e439-36d9-4eb4-b061-9f38e9a9c25d",
+				"notes": "De cáñamo (15 m)"
+			}
+		],
+		"modifiers": [
+			{
+				"id": "a457d34c-4d06-4f0c-8634-cde1c3414e74",
+				"reason": "Fortaleza Rocosa",
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "3"
+			},
+			{
+				"formula": "cuerpo",
+				"id": "41cc1391-dcd1-48d3-806a-a5c637987f59",
+				"attribute": "maxHP",
+				"reason": "Vigor",
+				"type": "add"
+			},
+			{
+				"reason": "Atleta",
+				"id": "c2dcc633-cd3b-4739-83bf-b5a47d6f7337",
+				"attribute": "speed",
+				"type": "add",
+				"formula": "2"
+			},
+			{
+				"attribute": "evasion",
+				"reason": "Armadura",
+				"type": "add",
+				"id": "827342d7-4336-4f7d-8bee-3004592812cb",
+				"formula": "-2"
+			},
+			{
+				"type": "add",
+				"id": "c6ee658d-a512-4513-a2d2-401789a6df53",
+				"attribute": "physicalMitigation",
+				"formula": "2",
+				"reason": "Armadura"
+			}
+		],
+		"currentHP": 25,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/fTHFBLs.png",
+		"story": "Keldurr es un enano de Karak-Varr, un herrero y devoto Sacerdote de Moradin, el Forjador de Almas. Su vida cambió durante un gran temblor que atrapó a varios mineros en las profundidades. Guiado por la fe y empuñando una maza de hierro forjada por él mismo, Keldurr invocó la fuerza de Moradin para romper el bloqueo de rocas y rescatar a su gente. Desde entonces, se ganó el apodo de \"Maza de Hierro\" y juró proteger a los suyos con la misma tenacidad que el metal. Ahora viaja, buscando la mítica \"Forja del Alma\", un lugar sagrado que cree que restaurará la gloria de su pueblo bajo la mirada de Moradin.",
+		"notes": [],
+		"languages": "Común, Enano",
+		"quickInfo": "Visión en la oscuridad\n\nFortaleza Rocosa: Ventaja para resistir ser derribado o movido contra tu voluntad.\nFe Inspiradora: Ventaja en pruebas de asociadas a temas religiosos y en pruebas de Presencia para interactuar con fieles de tu misma fe.\nSintonía con el Acero: Ventaja en Pruebas de Atletismo.",
+		"attacks": [
+			{
+				"id": "45df08a8-aa7a-48e1-a128-6fbc4f518d01",
+				"dmgFormula": "1d6+1",
+				"name": "Maza",
+				"atkFormula": "1d6e+cuerpo+1",
+				"notes": "Contuntende"
+			}
+		],
+		"maxActiveCards": 4,
 		"version": 1
 	}
 ]
