@@ -30,8 +30,8 @@
 	</div>
 	<div class="content">
 		<div class="items-header">
-			<label class="name">Nombre</label>
 			<label class="quantity">Cantidad</label>
+			<label class="name">Nombre</label>
 			<label class="notes">Notas</label>
 		</div>
 		{#each equipment as item (item.id)}
