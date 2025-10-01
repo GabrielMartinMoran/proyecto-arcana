@@ -1,1 +1,0 @@
-import"../chunks/DsnmJJEf.js";import{p as o,b as p,s as i,f as m,t as f,a as n,d as c,e as d,r as h}from"../chunks/Qsi4OEeq.js";import{s as l}from"../chunks/O9SRKCTq.js";var _=p("<h1>Bestiario</h1> <pre> </pre>",1);function x(r,t){o(t,!0);var a=_(),e=i(m(a),2),s=d(e,!0);h(e),f(()=>l(s,t.data.doc)),n(r,a),c()}export{x as component};

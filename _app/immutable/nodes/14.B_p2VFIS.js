@@ -1,0 +1,1 @@
+import"../chunks/DsnmJJEf.js";import{p as o,b as p,s as m,f,t as i,a as d,d as n,e as l,r as c}from"../chunks/CXLGFl3I.js";import{s as h}from"../chunks/DYVYXqqK.js";var u=p("<h1>Manual del Jugador</h1> <pre> </pre>",1);function x(r,a){o(a,!0);var t=u(),e=m(f(t),2),s=l(e,!0);c(e),i(()=>h(s,a.data.doc)),d(r,t),n()}export{x as component};
