@@ -75,7 +75,7 @@
 					}}
 				/>
 				<InputField
-					value={modifier.formula}
+					value={modifier.reason}
 					placeholder="Razón"
 					fullWidth={true}
 					onChange={(value) => {

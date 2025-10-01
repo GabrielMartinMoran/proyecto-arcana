@@ -3,11 +3,14 @@
 	import CardsList from '$lib/components/cards/CardsList.svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
+	import { useCardFiltersService } from '$lib/services/cards-filter-service';
 	import { useCardsService } from '$lib/services/cards-service';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
-	import type { Card } from '$lib/types/card';
+	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Character, CharacterCard } from '$lib/types/character';
-	import { onMount } from 'svelte';
+	import { filterCards } from '$lib/utils/card-filtering';
+	import { onDestroy, onMount } from 'svelte';
+	import { get } from 'svelte/store';
 
 	type Props = {
 		character: Character;
@@ -21,7 +24,19 @@
 
 	let { rollExpression } = useDiceRollerService();
 
-	let cards = $derived($cardsStore);
+	const { buildEmptyFilters, getFiltersFromURL, updateURLFilters } = useCardFiltersService();
+
+	let filters: CardFilters = $state(getFiltersFromURL());
+
+	let cards = $derived(filterCards(get(cardsStore), filters));
+
+	const unsubscribe = cardsStore.subscribe(() => {
+		cards = filterCards(get(cardsStore), filters);
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 
 	onMount(async () => {
 		await loadCards();
@@ -31,11 +46,6 @@
 		character.cards = updatedCards;
 		onChange(character);
 	};
-
-	const onAllCardFilter = (results: Card[]) => {
-		cards = results;
-	};
-
 	const onCardReloadClick = async (cardId: string) => {
 		const characterCard = character.cards.find((card) => card.id === cardId);
 		const card = cards.find((card) => card.id === cardId);
@@ -52,6 +62,16 @@
 				onCharacterCardsChange([...character.cards]);
 			}
 		}
+	};
+
+	const onFiltersChange = (newFilters: CardFilters) => {
+		filters = newFilters;
+		cards = filterCards(get(cardsStore), filters);
+		updateURLFilters(filters);
+	};
+
+	const onResetFilters = () => {
+		onFiltersChange(buildEmptyFilters());
 	};
 </script>
 
@@ -94,7 +114,7 @@
 
 	<Container title="Todas las Cartas">
 		<div class="all-cards">
-			<CardsFilter cards={$cardsStore} onFilter={onAllCardFilter} />
+			<CardsFilter cards={$cardsStore} {onFiltersChange} {onResetFilters} {filters} />
 			{#if cards.length > 0}
 				<CardsList
 					cards={cards.filter((x) => character.cards.find((y) => y.id === x.id) === undefined)}

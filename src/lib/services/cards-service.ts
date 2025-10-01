@@ -22,7 +22,11 @@ export const useCardsService = () => {
 			console.error('Error parsing YAML:', e);
 		}
 
-		cardsStore.set(rawCards.map((x) => mapCard(x)));
+		cardsStore.set(
+			rawCards
+				.map((x) => mapCard(x))
+				.toSorted((a, b) => a.level - b.level || a.name.localeCompare(b.name)),
+		);
 	};
 
 	return {

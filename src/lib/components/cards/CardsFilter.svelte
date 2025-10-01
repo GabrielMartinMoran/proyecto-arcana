@@ -1,102 +1,20 @@
 <script lang="ts">
-	import { replaceState } from '$app/navigation';
-	import { page } from '$app/state';
 	import type { Card } from '$lib/types/card';
-	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
+	import type { CardFilters } from '$lib/types/card-filters';
+	import { capitalize } from '$lib/utils/formatting';
 	import Container from '../ui/Container.svelte';
 	import MultiSelect from '../ui/MultiSelect.svelte';
 
 	type Props = {
 		cards: Card[];
-		onFilter: (results: Card[]) => void;
+		filters: CardFilters;
+		onFiltersChange: (filters: CardFilters) => void;
+		onResetFilters: () => void;
 	};
 
-	let { cards, onFilter }: Props = $props();
+	let { cards, filters: receivedFilters, onFiltersChange, onResetFilters }: Props = $props();
 
-	type Filters = {
-		name: string;
-		level: number[];
-		tags: string[];
-		type: string;
-	};
-
-	const buildEmptyFilters = () => ({
-		name: '',
-		level: [],
-		tags: [],
-		type: '',
-	});
-
-	const buildFiltersFromURL = () => {
-		const name = page.url.searchParams.get('name') ?? '';
-		const level = page.url.searchParams
-			.getAll('level')
-			.filter((tag) => tag !== '')
-			.map(Number)
-			.filter((x) => x > 0);
-		const tags = page.url.searchParams.getAll('tags').filter((tag) => tag !== '');
-		const type = page.url.searchParams.get('type') ?? '';
-
-		return {
-			name,
-			level,
-			tags,
-			type,
-		};
-	};
-
-	const updateURLFilters = () => {
-		if (filters.name) {
-			page.url.searchParams.set('name', filters.name);
-		} else {
-			page.url.searchParams.delete('name');
-		}
-
-		if (filters.level.length === 0) {
-			page.url.searchParams.delete('level');
-		} else {
-			page.url.searchParams.set('level', filters.level.join(','));
-		}
-
-		if (filters.tags.length === 0) {
-			page.url.searchParams.delete('tags');
-		} else {
-			page.url.searchParams.set('tags', filters.tags.join(','));
-		}
-
-		if (!filters.type) {
-			page.url.searchParams.delete('type');
-		} else {
-			page.url.searchParams.set('type', filters.type);
-		}
-
-		const queryParams = page.url.searchParams.toString();
-
-		const newUrl = `${page.url.pathname}${queryParams ? `?${queryParams}` : ''}`;
-		replaceState(newUrl, {});
-	};
-
-	let filters: Filters = $derived(buildFiltersFromURL());
-
-	const onFilterChange = () => {
-		const results = cards.filter((card) => {
-			return (
-				removeDiacritics(card.name.toLowerCase()).includes(
-					removeDiacritics(filters.name.toLowerCase()),
-				) &&
-				(filters.level.length === 0 || filters.level.includes(card.level)) &&
-				(filters.tags.length === 0 || filters.tags.every((tag) => card.tags.includes(tag))) &&
-				(!filters.type || filters.type === card.type)
-			);
-		});
-		onFilter(results);
-		updateURLFilters();
-	};
-
-	const resetFilters = () => {
-		filters = buildEmptyFilters();
-		onFilterChange();
-	};
+	let filters = $derived(receivedFilters);
 
 	const getAvailableLevels = () => {
 		const levels = new Set(cards.map((card) => card.level));
@@ -120,12 +38,12 @@
 			type="text"
 			placeholder="Buscar por nombre"
 			bind:value={filters.name}
-			oninput={() => onFilterChange()}
+			oninput={() => onFiltersChange({ ...filters })}
 		/>
 		<select
 			onchange={(event) => {
 				filters.type = (event.target as HTMLSelectElement).value;
-				onFilterChange();
+				onFiltersChange({ ...filters });
 			}}
 		>
 			<option value="">Todos los Tipos</option>
@@ -139,19 +57,19 @@
 			value={filters.level}
 			onChange={(values: any[]) => {
 				filters.level = values;
-				onFilterChange();
+				onFiltersChange({ ...filters });
 			}}
 		/>
 		<MultiSelect
 			summary="Etiquetas"
-			options={getAvailableTags().map((x) => ({ value: x, label: x }))}
+			options={getAvailableTags().map((x) => ({ value: x.toLowerCase(), label: x }))}
 			value={filters.tags}
 			onChange={(values: any[]) => {
-				filters.tags = values;
-				onFilterChange();
+				filters.tags = values.map((x) => x.toLowerCase());
+				onFiltersChange({ ...filters });
 			}}
 		/>
-		<button onclick={resetFilters}>Limpiar Filtros</button>
+		<button onclick={() => onResetFilters()}>Limpiar Filtros</button>
 	</div>
 </Container>
 
