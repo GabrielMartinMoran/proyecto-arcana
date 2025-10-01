@@ -231,7 +231,7 @@ cards:
       qty: 0
   - name: Ataque Furtivo
     level: 1
-    type: efecto
+    type: activable
     tags:
       - Pícaro
     requirements:
@@ -259,7 +259,7 @@ cards:
       qty: 2
   - name: Acción Astuta
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Pícaro
     requirements:
@@ -273,7 +273,7 @@ cards:
       qty: 0
   - name: Evasión
     level: 3
-    type: efecto
+    type: activable
     tags:
       - Pícaro
     requirements:
@@ -462,7 +462,7 @@ cards:
       qty: 2
   - name: 'Estilo de Combate: Lucha con Dos Armas'
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Combatiente
       - Estilo de Combate
@@ -477,7 +477,7 @@ cards:
       qty: 0
   - name: 'Estilo de Combate: Agarre Dual'
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Combatiente
       - Estilo de Combate
@@ -535,7 +535,7 @@ cards:
       qty: 6
   - name: Ataque Adicional
     level: 3
-    type: efecto
+    type: activable
     tags:
       - Combatiente
     requirements:
@@ -1075,7 +1075,7 @@ cards:
     requirements:
       - Escudo de Fe
     description: >-
-      Emites un aura protectora de 3m de radio. Tú y tus aliados dentro del aura obtienen un +1 a todas las Tiradas de Salvación.
+      Emites un aura protectora de 3m de radio que dura 1 minuto. Tú y tus aliados dentro del aura obtienen un +1 a todas las Tiradas de Salvación.
     uses:
       type: RELOAD
       qty: 4
@@ -1135,9 +1135,9 @@ cards:
       - Inquisidor
     requirements:
       - Instinto 2
-      - Mente 2
+      - Presencia 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras.
+      Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras y en pruebas de Intimidación para interrogar u obtener información.
     uses:
       type: null
       qty: 0
