@@ -4,10 +4,9 @@
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 	import type { RollLog } from '$lib/types/roll-log';
 	import { onMount } from 'svelte';
-	import { get } from 'svelte/store';
 	import { CONFIG } from '../../config';
 
-	const SCROLL_DELAY = 100;
+	const SCROLL_DELAY = 50;
 
 	type Props = {
 		isMobile: boolean;
@@ -21,16 +20,45 @@
 
 	let logList: HTMLElement | undefined;
 
-	let lastLogsCount = get(rollLogs).length;
+	// Track logs by their IDs to detect new additions more reliably
+	let lastLogIds = new Set<string>();
+	let hasInitialized = false;
+
+	// Track panel expansion to scroll when it opens
+	let wasPanelExpanded = false;
 
 	rollLogs.subscribe((logs: RollLog[]) => {
-		// We check the logs count as this callback is called when subscribing to the store
-		if (logs.length <= lastLogsCount) return;
-		dicePanelExpandedStore.set(true);
-		setTimeout(() => {
-			logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
-		}, SCROLL_DELAY);
-		lastLogsCount = logs.length;
+		if (!hasInitialized) {
+			// First subscription - just initialize tracking
+			lastLogIds = new Set(logs.map((log) => log.id).filter(Boolean));
+			hasInitialized = true;
+			return;
+		}
+
+		// Check if there are new logs by comparing IDs
+		const currentIds = new Set(logs.map((log) => log.id).filter(Boolean));
+		const hasNewLogs = logs.some((log) => log.id && !lastLogIds.has(log.id));
+
+		if (hasNewLogs) {
+			// New log detected - expand panel and scroll
+			dicePanelExpandedStore.set(true);
+			setTimeout(() => {
+				logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
+			}, SCROLL_DELAY);
+		}
+
+		lastLogIds = currentIds;
+	});
+
+	// Watch for panel expansion to scroll to bottom when opened
+	dicePanelExpandedStore.subscribe((expanded) => {
+		if (expanded && !wasPanelExpanded && hasInitialized) {
+			// Panel just opened - scroll to bottom after a short delay
+			setTimeout(() => {
+				logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
+			}, SCROLL_DELAY);
+		}
+		wasPanelExpanded = expanded;
 	});
 
 	const onBodyClick = (event: MouseEvent) => {
@@ -44,7 +72,10 @@
 	};
 
 	onMount(() => {
-		logList?.scroll({ top: logList.scrollHeight, behavior: 'instant' });
+		// Scroll to bottom on initial mount
+		setTimeout(() => {
+			logList?.scroll({ top: logList.scrollHeight, behavior: 'instant' });
+		}, SCROLL_DELAY);
 	});
 </script>
 
