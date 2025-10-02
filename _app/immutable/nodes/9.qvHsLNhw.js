@@ -1,0 +1,1 @@
+import"../chunks/DsnmJJEf.js";import"../chunks/CuaO6uo7.js";import{b as a,a as e,s as t,e as c,r as i}from"../chunks/IMy7ATtu.js";import{M as m}from"../chunks/k1XNarVc.js";var n=a('<section class="svelte-gxmzbc"><h1>Manual del Director de Juego</h1> <!></section>');function f(r){var o=n(),s=t(c(o),2);m(s,{src:"/docs/gm.md"}),i(o),e(r,o)}export{f as component};

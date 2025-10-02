@@ -1,1 +1,0 @@
-import"../chunks/DsnmJJEf.js";import{p as o,b as p,s as i,f as m,t as f,a as d,d as n,e as c,r as h}from"../chunks/CXLGFl3I.js";import{s as l}from"../chunks/DYVYXqqK.js";var _=p("<h1>Listado de Cartas</h1> <pre> </pre>",1);function x(r,a){o(a,!0);var t=_(),e=i(m(t),2),s=c(e,!0);h(e),f(()=>l(s,a.data.doc)),d(r,t),n()}export{x as component};
