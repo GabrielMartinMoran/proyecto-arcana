@@ -1,7 +1,7 @@
 import type { Creature, CreatureAction, CreatureAttack, CreatureTrait } from '$lib/types/creature';
 import type { Uses } from '$lib/types/uses';
 
-export const renderStatblockMarkdown = (creature: Creature): string => {
+export const serializeStatblockAsMD = (creature: Creature): string => {
 	let md = ``;
 	md += `# ${creature.name}\n\n`;
 	md += `**NA:** ${creature.na}\n\n`;

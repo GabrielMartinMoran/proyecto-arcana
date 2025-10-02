@@ -8,6 +8,7 @@
 	import GeneralTab from './tabs/GeneralTab.svelte';
 	import NotesTab from './tabs/NotesTab.svelte';
 	import ProgressTab from './tabs/ProgressTab.svelte';
+	import SeeAsMDTab from './tabs/SeeAsMDTab.svelte';
 	import SettingsTab from './tabs/SettingsTab.svelte';
 
 	type Props = {
@@ -69,6 +70,12 @@
 			title: 'Configuración',
 			component: SettingsTab,
 			availableWhenReadOnly: false,
+		},
+		{
+			name: 'see_as_md',
+			title: 'Ver como MD',
+			component: SeeAsMDTab,
+			availableWhenReadOnly: true,
 		},
 	];
 

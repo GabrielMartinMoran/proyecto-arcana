@@ -1,34 +1,58 @@
+import { loadBestiaryAsMD } from '$lib/utils/server-loaders/bestiary-loader';
+import {
+	loadAbilityCardsAsMD,
+	loadMagicalItemsCardsAsMD,
+} from '$lib/utils/server-loaders/cards-loader';
 import { marked } from 'marked';
-import { readFileSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { CONFIG } from '../../config';
 import type { PageServerLoad } from './$types';
 
 export const prerender = true;
 export const ssr = true;
 
-export const load: PageServerLoad = async ({ request }) => {
-	const filePath = join(process.cwd(), 'static', 'docs', 'ai-gm-prompt.md');
-	let doc = readFileSync(filePath, 'utf-8');
+const PROMPT_FILE_PATH = join(process.cwd(), 'static', 'docs', 'ai-gm-prompt.md');
+const PLAYER_MANUAL_FILE_PATH = join(process.cwd(), 'static', 'docs', 'player.md');
+const GM_MANUAL_FILE_PATH = join(process.cwd(), 'static', 'docs', 'gm.md');
 
-	const basePath = request.url.includes('localhost') ? request.url : `${CONFIG.BASE_URL}/agents`;
+const loadDocument = async (path: string) => {
+	return await readFile(path, 'utf-8');
+};
+
+export const load: PageServerLoad = async () => {
+	const [basePrompt, playerManual, gmManual, bestiary, cardsList, magicalItems] = await Promise.all(
+		[
+			loadDocument(PROMPT_FILE_PATH),
+			loadDocument(PLAYER_MANUAL_FILE_PATH),
+			loadDocument(GM_MANUAL_FILE_PATH),
+			loadBestiaryAsMD(),
+			loadAbilityCardsAsMD(),
+			loadMagicalItemsCardsAsMD(),
+		],
+	);
+
+	let doc = basePrompt;
 
 	const replacement_variables = [
 		{
-			variable: 'player_manual_url',
-			value: `${basePath}/player`,
+			variable: 'player_manual',
+			value: playerManual,
 		},
 		{
-			variable: 'game_master_url',
-			value: `${basePath}/gm`,
+			variable: 'game_master_manual',
+			value: gmManual,
 		},
 		{
-			variable: 'bestiary_url',
-			value: `${basePath}/bestiary`,
+			variable: 'bestiary',
+			value: bestiary,
 		},
 		{
-			variable: 'card_list_url',
-			value: `${basePath}/cards`,
+			variable: 'cards_list',
+			value: cardsList,
+		},
+		{
+			variable: 'magical_items',
+			value: magicalItems,
 		},
 	];
 

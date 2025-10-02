@@ -31,7 +31,7 @@
 
 	let { rollExpression } = useDiceRollerService();
 
-	const { buildEmptyFilters, updateURLFilters } = useCardFiltersService();
+	const { buildEmptyFilters } = useCardFiltersService();
 
 	let filters: CardFilters = $state(buildEmptyFilters());
 
@@ -64,6 +64,7 @@
 		character.cards = updatedCards;
 		onChange(character);
 	};
+
 	const onCardReloadClick = async (cardId: string) => {
 		const characterCard = character.cards.find((card) => card.id === cardId);
 		const card = allCards.find((card) => card.id === cardId);
