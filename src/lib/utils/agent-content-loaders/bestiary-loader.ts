@@ -1,13 +1,12 @@
 import { mapCreature } from '$lib/mappers/creature-mapper';
 import { load as yamlLoad } from 'js-yaml';
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import { serializeStatblockAsMD } from '../serializers/statblock-serializer';
+import { loadAgentFile } from './agent-content-loader';
 
-const BESTIARY_FILE_PATH = join(process.cwd(), 'static', 'docs', 'bestiary.yml');
+const BESTIARY_FILE_PATH = '/docs/bestiary.yml';
 
 export const loadBestiaryAsMD = async () => {
-	const fileContent = await readFile(BESTIARY_FILE_PATH, 'utf-8');
+	const fileContent = await loadAgentFile(BESTIARY_FILE_PATH);
 	let rawCreatures = [];
 	try {
 		rawCreatures = (yamlLoad(fileContent) as any).creatures ?? [];

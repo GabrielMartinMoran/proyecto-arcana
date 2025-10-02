@@ -2,11 +2,10 @@ import { mapAbilityCard, mapItemCard } from '$lib/mappers/card-mapper';
 import type { Card } from '$lib/types/cards/card';
 import type { Uses } from '$lib/types/uses';
 import { load as yamlLoad } from 'js-yaml';
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { loadAgentFile } from './agent-content-loader';
 
-const ABILITY_CARDS_FILE_PATH = join(process.cwd(), 'static', 'docs', 'cards.yml');
-const MAGICAL_ITEM_CARDS_FILE_PATH = join(process.cwd(), 'static', 'docs', 'magical-items.yml');
+const ABILITY_CARDS_FILE_PATH = '/docs/cards.yml';
+const MAGICAL_ITEM_CARDS_FILE_PATH = '/docs/magical-items.yml';
 
 const formatUses = (uses: Uses | null): string => {
 	if (!uses || !uses.type) return 'N/A';
@@ -50,7 +49,7 @@ const cardToMarkdown = (card: Card): string => {
 };
 
 const loadCards = async (path: string, mapper: (card: any) => Card) => {
-	const fileContent = await readFile(path, 'utf-8');
+	const fileContent = await loadAgentFile(path);
 
 	let rawCards = [];
 	try {

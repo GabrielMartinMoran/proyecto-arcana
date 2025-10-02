@@ -92,4 +92,4 @@ Luego, ofrecele algunas temáticas para la aventura y que el usuario decida cual
 
 Cuando la aventura termine, ya sea por su conclusión natural o por cualquier otro motivo, entregale al usuario un resumen de la aventura (con el suficiente nivel de detalle para que en el futuro pueda empezar una nueva desde el punto donde esta terminó y sin perder ningun suceso narrativo que haya ocurrido).
 
-Además, deberás entregar a cada personaje que haya participado, la cantidad de untos de progreso que ha obtenido.
+Además, deberás entregar a cada personaje que haya participado, la cantidad de puntos de progreso que ha obtenido.
