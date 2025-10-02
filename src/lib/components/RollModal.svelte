@@ -30,7 +30,12 @@
 			<label for="modifier"
 				>Modificadores adicionales
 
-				<input type="number" id="modifier" placeholder="Ej: 1 + 1d6" />
+				<input
+					type="text"
+					id="modifier"
+					bind:value={$rollModalData.extraModsExpression}
+					placeholder="Ej: 1 + 1d6"
+				/>
 			</label>
 
 			<div class="buttons">

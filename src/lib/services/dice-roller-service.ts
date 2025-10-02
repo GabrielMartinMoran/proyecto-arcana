@@ -10,6 +10,7 @@ import { get, writable, type Writable } from 'svelte/store';
 import { CONFIG } from '../../config';
 
 const STORAGE_KEY = 'arcana:rollLogs';
+const MAX_LOGS_TO_KEEP = 100;
 
 const state: {
 	inited: boolean;
@@ -32,21 +33,20 @@ const state: {
 const firebase = useFirebaseService();
 let currentUserId: string | null = null;
 let unsubscribeRemoteLogs: (() => void) | null = null;
-const storeUnsubLogs: (() => void) | null = null;
 let applyingRemoteLogsUpdate = false;
+let savingToCloud = false;
 
 const loadRollLogs = (): RollLog[] => {
 	try {
 		const logs = localStorage.getItem(STORAGE_KEY);
 		const rawLogs = logs ? JSON.parse(logs) : [];
-		// Keep only the last 100 entries when loading from localStorage
-		const trimmed = Array.isArray(rawLogs) ? rawLogs.slice(-100) : rawLogs;
+		const trimmed = Array.isArray(rawLogs) ? rawLogs.slice(-MAX_LOGS_TO_KEEP) : rawLogs;
 		return trimmed.map((x: any) => mapRollLog(x));
 	} catch (error) {
 		console.error('Error loading roll logs:', error);
 		return [];
 	} finally {
-		// subscribe asynchronously so saveRollLogs can be async and perform cloud writes
+		// Subscribe to store changes to persist logs
 		state.logs.subscribe(async (logs) => {
 			try {
 				await saveRollLogs(logs);
@@ -57,37 +57,90 @@ const loadRollLogs = (): RollLog[] => {
 	}
 };
 
-const saveRollLogs = async (logs: RollLog[]): Promise<void> => {
-	// If logs update originated from remote snapshot, don't echo them back to cloud.
-	if (applyingRemoteLogsUpdate) return;
+const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
+	// Skip if applying remote updates to avoid echo loops
+	if (applyingRemoteLogsUpdate) {
+		return;
+	}
+
+	// Prevent concurrent cloud saves
+	if (savingToCloud) {
+		// Still persist locally to maintain UI state
+		try {
+			const trimmed = Array.isArray(logs) ? logs.slice(-MAX_LOGS_TO_KEEP) : [];
+			const serialized = trimmed.map((x: any) => serializeRollLog(x));
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(serialized));
+		} catch (err) {
+			console.error('[dice-roller-service] Error persisting locally during concurrent save:', err);
+		}
+		return;
+	}
 
 	try {
-		// Trim to last 100 before serializing/saving
-		const last100 = Array.isArray(logs) ? logs.slice(-100) : logs;
-		const serializedLogs = last100.map((x) => serializeRollLog(x));
+		const trimmedLogs = Array.isArray(logs) ? logs.slice(-MAX_LOGS_TO_KEEP) : [];
 
-		// If user is signed-in and firebase is enabled, try to save to cloud.
-		if (currentUserId && firebase.isEnabled()) {
-			try {
-				// saveRollLogsForUser expects plain objects; pass serialized logs
-				await firebase.saveRollLogsForUser(currentUserId, serializedLogs);
-				return;
-			} catch (cloudErr) {
-				// If cloud write fails, fall back to localStorage (but keep trying later via resync logic).
-				console.error(
-					'[dice-roller-service] saveRollLogs cloud write failed, falling back to localStorage:',
-					cloudErr,
-				);
+		// Find pending entries that need to be synced to cloud
+		const pendingLogs = trimmedLogs.filter((x: any) => x && x.pending);
+
+		// Ensure all pending logs have IDs
+		for (const log of pendingLogs) {
+			if (log && !(log as any).id) {
+				try {
+					(log as any).id = crypto.randomUUID();
+				} catch {
+					// Fallback if crypto.randomUUID() is not available
+					(log as any).id = `local-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
+				}
 			}
 		}
-		// Fallback: persist locally
+
+		// Sync pending logs to cloud if user is authenticated
+		if (currentUserId && firebase.isEnabled() && pendingLogs.length > 0) {
+			try {
+				savingToCloud = true;
+				const serializedPending = pendingLogs.map((x: any) => serializeRollLog(x));
+
+				await firebase.saveRollLogsForUser(currentUserId, serializedPending);
+
+				// Clear pending flags for successfully saved entries
+				const savedIds = serializedPending.map((s: any) => s.id).filter(Boolean);
+				if (savedIds.length > 0) {
+					state.logs.update((current) =>
+						Array.isArray(current)
+							? current.map((l: any) =>
+									savedIds.includes((l as any).id) ? { ...l, pending: false } : l,
+								)
+							: current,
+					);
+
+					// Persist the updated store
+					const updatedLogs = get(state.logs) || [];
+					const serializedUpdated = (
+						Array.isArray(updatedLogs) ? updatedLogs.slice(-MAX_LOGS_TO_KEEP) : []
+					).map((x) => serializeRollLog(x));
+					localStorage.setItem(STORAGE_KEY, JSON.stringify(serializedUpdated));
+				}
+			} catch (cloudErr) {
+				console.error(
+					'[dice-roller-service] Cloud sync failed, falling back to localStorage:',
+					cloudErr,
+				);
+			} finally {
+				savingToCloud = false;
+			}
+		}
+
+		// Always persist to localStorage for durability
 		try {
+			const serializedLogs = trimmedLogs.map((x: any) => serializeRollLog(x));
 			localStorage.setItem(STORAGE_KEY, JSON.stringify(serializedLogs));
 		} catch (lsErr) {
 			console.error('Error saving roll logs to localStorage:', lsErr);
 		}
 	} catch (error) {
 		console.error('Error preparing roll logs for save:', error);
+	} finally {
+		savingToCloud = false;
 	}
 };
 
@@ -121,20 +174,81 @@ const logRolls = (
 	resultFormatter?: (result: number) => string | undefined,
 ) => {
 	const total = calculateTotal(rolls);
-	const log: RollLog = {
+	const log: RollLog & { pending?: boolean } = {
 		id: crypto.randomUUID(),
 		timestamp: new Date(),
 		title: title || 'Tirada anónima',
 		total: total,
 		formattedTotal: resultFormatter ? resultFormatter(total) : undefined,
+		pending: true, // Mark as pending for cloud sync
 		detail: buildRollsDetail(rolls),
 	};
 
-	// Append the new log and trim to keep only the last 100 entries
 	state.logs.update((x) => {
 		const newArr = [...x, log];
-		return newArr.slice(-100);
+		return newArr.slice(-MAX_LOGS_TO_KEEP);
 	});
+};
+
+const mergeRemoteAndLocalLogs = (remoteLogs: RollLog[], localLogs: RollLog[]): RollLog[] => {
+	const remoteMap = new Map<string, RollLog>();
+	for (const log of remoteLogs) {
+		if (log && (log as any).id) {
+			remoteMap.set((log as any).id, log);
+		}
+	}
+
+	const mergedById = new Map<string, RollLog>();
+
+	// Start with remote entries
+	for (const log of remoteLogs) {
+		if (log && (log as any).id) {
+			mergedById.set((log as any).id, log);
+		}
+	}
+
+	// Overlay local entries, preferring pending ones
+	for (const localLog of localLogs) {
+		const lid = (localLog as any).id;
+
+		if (!lid) {
+			// Assign ID to local-only entry
+			const genId = crypto.randomUUID();
+			(localLog as any).id = genId;
+			mergedById.set(genId, localLog);
+			continue;
+		}
+
+		// Prefer pending local entries over remote ones
+		if ((localLog as any).pending) {
+			mergedById.set(lid, localLog);
+			continue;
+		}
+
+		const remoteLog = remoteMap.get(lid);
+		if (!remoteLog) {
+			// Local-only entry
+			mergedById.set(lid, localLog);
+		} else {
+			// Compare timestamps and prefer newer
+			const localTime = new Date((localLog as any).timestamp).getTime();
+			const remoteTime = new Date((remoteLog as any).timestamp).getTime();
+
+			if (!isNaN(localTime) && !isNaN(remoteTime)) {
+				mergedById.set(lid, localTime >= remoteTime ? localLog : remoteLog);
+			} else {
+				// Fallback to local if timestamps are invalid
+				mergedById.set(lid, localLog);
+			}
+		}
+	}
+
+	// Convert to array, sort by timestamp, and trim
+	const mergedArray = Array.from(mergedById.values()).sort(
+		(a: RollLog, b: RollLog) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
+	);
+
+	return mergedArray.slice(-MAX_LOGS_TO_KEEP);
 };
 
 type RollFnProps = {
@@ -149,86 +263,65 @@ export const useDiceRollerService = () => {
 		state.logs.set(loadRollLogs());
 		state.inited = true;
 
-		// Setup firebase integration for roll logs in background
+		// Setup Firebase integration
 		(async () => {
 			try {
-				// Initialize firebase (idempotent)
-				try {
-					await firebase.initFirebase();
-				} catch (initErr) {
-					console.warn(
-						'[dice-roller-service] firebase init error (continuing with local logs):',
-						initErr,
-					);
-				}
+				await firebase.initFirebase();
 
-				// Attach auth state changes so we start/stop listening to remote roll logs
-				try {
-					await firebase.onAuthState(async (u) => {
-						const previousUser = currentUserId;
-						currentUserId = u ? u.uid : null;
+				await firebase.onAuthState(async (user) => {
+					const previousUserId = currentUserId;
+					currentUserId = user ? user.uid : null;
 
-						// If user changed, stop previous remote listener
-						if (previousUser && previousUser !== currentUserId) {
-							if (unsubscribeRemoteLogs) {
-								try {
-									unsubscribeRemoteLogs();
-								} catch {
-									/* ignore */
-								}
-								unsubscribeRemoteLogs = null;
-							}
+					// Stop previous listener if user changed
+					if (previousUserId && previousUserId !== currentUserId && unsubscribeRemoteLogs) {
+						try {
+							unsubscribeRemoteLogs();
+							unsubscribeRemoteLogs = null;
+						} catch {
+							// Ignore cleanup errors
 						}
+					}
 
-						// If signed in and firebase enabled, start remote listener
-						if (currentUserId && firebase.isEnabled()) {
-							try {
-								// Start listening to user's roll logs
-								unsubscribeRemoteLogs = firebase.listenRollLogsForUser(
-									currentUserId,
-									(remoteLogs) => {
-										// Avoid echoing remote updates back to cloud
-										applyingRemoteLogsUpdate = true;
-										try {
-											// Map remote plain entries into RollLog via mapper
-											const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
-											state.logs.set(mapped);
-										} catch (applyErr) {
-											console.error(
-												'[dice-roller-service] Error applying remote roll logs:',
-												applyErr,
-											);
-										} finally {
-											applyingRemoteLogsUpdate = false;
-										}
-									},
-								);
-							} catch (listenErr) {
-								console.error(
-									'[dice-roller-service] Error starting remote roll logs listener:',
-									listenErr,
-								);
-							}
-						} else {
-							// No user: ensure local cached logs are loaded
-							try {
-								const raw = localStorage.getItem(STORAGE_KEY);
-								if (raw) {
-									const parsed = JSON.parse(raw);
-									state.logs.set(parsed.map((x: any) => mapRollLog(x)));
-								}
-							} catch (localErr) {
-								console.error('[dice-roller-service] Error loading local fallback logs:', localErr);
-							}
+					if (currentUserId && firebase.isEnabled()) {
+						// Start listening to remote roll logs
+						try {
+							unsubscribeRemoteLogs = firebase.listenRollLogsForUser(
+								currentUserId,
+								(remoteLogs) => {
+									applyingRemoteLogsUpdate = true;
+									try {
+										const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
+										const local = get(state.logs) || [];
+										const merged = mergeRemoteAndLocalLogs(mapped, local);
+										state.logs.set(merged);
+									} catch (applyErr) {
+										console.error('[dice-roller-service] Error applying remote logs:', applyErr);
+									} finally {
+										applyingRemoteLogsUpdate = false;
+									}
+								},
+							);
+						} catch (listenErr) {
+							console.error('[dice-roller-service] Error starting remote listener:', listenErr);
 						}
-					});
-				} catch (authErr) {
-					console.warn('[dice-roller-service] Error subscribing to auth state (ignored):', authErr);
-				}
-			} catch (err) {
-				console.error(
-					'[dice-roller-service] Unexpected error setting up firebase integration:',
-					err,
+					} else {
+						// Load local cached logs when not authenticated
+						try {
+							const raw = localStorage.getItem(STORAGE_KEY);
+							if (raw) {
+								const parsed = JSON.parse(raw) as any[];
+								const mappedLocal = parsed.map((x: any) => mapRollLog(x));
+								state.logs.set(mappedLocal);
+							}
+						} catch (localErr) {
+							console.error('[dice-roller-service] Error loading local logs:', localErr);
+						}
+					}
+				});
+			} catch (authErr) {
+				console.warn(
+					'[dice-roller-service] Firebase setup error (continuing with local logs):',
+					authErr,
 				);
 			}
 		})();
@@ -255,17 +348,22 @@ export const useDiceRollerService = () => {
 		const rollModalData = get(state.rollModalData);
 		state.rollModalData.set(undefined);
 		state.rollModalOpened.set(false);
+
 		if (!rollModalData) return;
+
 		let expression = rollModalData.expression;
 		let title = rollModalData.title;
+
 		if (rollModalData.rollType !== 'normal') {
 			expression += rollModalData.rollType === 'advantage' ? '+1d4' : '-1d4';
 			title += rollModalData.rollType === 'advantage' ? ' (ventaja)' : ' (desventaja)';
 		}
+
 		if (rollModalData?.extraModsExpression) {
 			expression += `+${rollModalData.extraModsExpression.trim()}`;
 			expression = expression.replaceAll('++', '+').replaceAll('+-', '-');
 		}
+
 		rollExpression({
 			expression,
 			variables: rollModalData.variables,
@@ -320,6 +418,7 @@ export const useDiceRollerService = () => {
 			const filteredRolls = rolls.filter(
 				(x) => x.expressionMember.type === 'dice' && x.result === undefined,
 			);
+
 			for (const roll of filteredRolls) {
 				resolvers.push(
 					(async () => {
@@ -330,20 +429,20 @@ export const useDiceRollerService = () => {
 							if (
 								roll.expressionMember.isExplosive &&
 								result.sides === result.value &&
-								result.sides > 1 // For preventing infinite loops
+								result.sides > 1
 							) {
 								roll.numExplosions++;
 							}
 						}
 
 						if (roll.numExplosions > 0) {
-							const expressionMember = {
+							const explosionMember = {
 								...roll.expressionMember,
 								value: `${roll.numExplosions}d${roll.result[0].sides}`,
 							};
 							rolls.push({
-								expressionMember: expressionMember,
-								promise: rollDice(expressionMember.value as string),
+								expressionMember: explosionMember,
+								promise: rollDice(explosionMember.value as string),
 								result: undefined,
 								explosionResolved: false,
 								numExplosions: 0,
@@ -354,6 +453,7 @@ export const useDiceRollerService = () => {
 					})(),
 				);
 			}
+
 			await Promise.all(resolvers);
 		}
 
@@ -373,6 +473,7 @@ export const useDiceRollerService = () => {
 	const registerClear3DDicesFn = (fn: () => void) => {
 		state.clear3DDices = fn;
 	};
+
 	return {
 		rollExpression,
 		register3DDiceRollerFn,

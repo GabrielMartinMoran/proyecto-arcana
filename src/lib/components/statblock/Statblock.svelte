@@ -19,16 +19,20 @@
 	let { rollModal, rollExpression } = useDiceRollerService();
 
 	const roll = (expression: string, type: string) => {
+		const variables = {
+			Cuerpo: creature.attributes.body,
+			Reflejos: creature.attributes.reflexes,
+			Mente: creature.attributes.mind,
+			Instinto: creature.attributes.instinct,
+			Presencia: creature.attributes.presence,
+			Iniciativa: creature.attributes.reflexes,
+		};
+		for (const variable of Object.keys(variables)) {
+			variables[variable.toLowerCase()] = variables[variable];
+		}
 		rollModal.openRollModal({
 			expression: expression,
-			variables: {
-				cuerpo: creature.attributes.body,
-				reflejos: creature.attributes.reflexes,
-				mente: creature.attributes.mind,
-				instinto: creature.attributes.instinct,
-				presencia: creature.attributes.presence,
-				iniciativa: creature.attributes.reflexes,
-			},
+			variables,
 			title: `${creature.name}: ${type}`,
 		});
 	};
@@ -63,7 +67,11 @@
 					<strong>{ATTR_NAME_MAP[attribute]}</strong>
 					<div class="score">
 						<span>{creature.attributes[attribute]}</span>
-						<button onclick={() => roll(`1d6e+${attribute}`, capitalize(attribute))} title="Tirar">
+						<button
+							onclick={() =>
+								roll(`1d6e+${ATTR_NAME_MAP[attribute]}`, capitalize(ATTR_NAME_MAP[attribute]))}
+							title="Tirar"
+						>
 							🎲
 						</button>
 					</div>

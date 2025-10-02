@@ -34,10 +34,7 @@ declare const __APP_ENV__: { [key: string]: string };
    Build-time config read
    --------------------- */
 /* We read variables from a global __APP_ENV__ object injected by Vite. */
-function hasBuildConfig(): boolean {
-	const cfg = getBuildConfig();
-	return Boolean(cfg && cfg.apiKey && cfg.projectId && cfg.appId);
-}
+/* hasBuildConfig removed - callers should use getBuildConfig() directly when needed */
 
 function getBuildConfig(): {
 	apiKey: string;
@@ -318,7 +315,7 @@ function createFirebaseService() {
 
 	/* ---------------------- Firestore helpers - roll logs ---------------------- */
 
-	async function saveRollLogsForUser(userId: string, logs: RollLog[]): Promise<void> {
+	async function saveRollLogsForUser(userId: string, logs: any[]): Promise<void> {
 		if (!userId) throw new Error('userId required');
 		if (!isBrowser()) return;
 		await ensureFirestore();
@@ -354,7 +351,8 @@ function createFirebaseService() {
 		const col = collection(db, 'users', userId, 'rollLogs');
 		const snap = await getDocs(col);
 		const out: RollLog[] = [];
-		snap.forEach((d: any) => out.push(d.data()));
+		// Include Firestore document id along with the data so callers have stable ids
+		snap.forEach((d: any) => out.push({ ...(d.data() || {}), id: d.id }));
 		return out;
 	}
 
@@ -373,7 +371,11 @@ function createFirebaseService() {
 					col,
 					(snapshot: any) => {
 						const arr: RollLog[] = [];
-						snapshot.forEach((docSnap: any) => arr.push(docSnap.data()));
+						// Include Firestore document id so logs retain their document identity client-side
+						snapshot.forEach((docSnap: any) => {
+							const data = { ...(docSnap.data() || {}), id: docSnap.id };
+							arr.push(data);
+						});
 						cb(arr);
 					},
 					(error: any) => {
