@@ -46,6 +46,10 @@
 			path: '/characters/examples',
 			label: '💡 PJs de Ejemplo',
 		},
+		{
+			path: '/agents',
+			label: '🤖 IA como DJ',
+		},
 	];
 
 	const PRIVATE_ROUTES = [
@@ -235,7 +239,7 @@
 		a {
 			display: flex;
 			align-items: center;
-			padding: var(--spacing-md);
+			padding: var(--spacing-sm);
 			height: 60px;
 			border-left: 4px solid transparent;
 			color: var(--text-primary);

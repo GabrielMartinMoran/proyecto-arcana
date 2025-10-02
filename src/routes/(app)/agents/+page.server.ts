@@ -3,7 +3,6 @@ import {
 	loadAbilityCardsAsMD,
 	loadMagicalItemsCardsAsMD,
 } from '$lib/utils/server-loaders/cards-loader';
-import { marked } from 'marked';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { PageServerLoad } from './$types';
@@ -59,9 +58,7 @@ export const load: PageServerLoad = async () => {
 	for (const x of replacement_variables) {
 		doc = doc.replace(`{{${x.variable}}}`, x.value);
 	}
-
-	const prompt = await marked.parse(doc);
 	return {
-		prompt,
+		prompt: doc,
 	};
 };
