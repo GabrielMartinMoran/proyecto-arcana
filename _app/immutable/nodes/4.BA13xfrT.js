@@ -1,0 +1,59 @@
+import"../chunks/DsnmJJEf.js";import{d as C,o as I,s as L}from"../chunks/DEyIqfax.js";import{p as w,b as T,aa as q,g as l,t as R,a as x,d as D,e as p,j as $,r as c,K as S}from"../chunks/4UBXq5Sj.js";import{r as U}from"../chunks/fX8MPl6d.js";import{m as F}from"../chunks/DemwCk8g.js";import{l as y}from"../chunks/CGjaQNWU.js";import{m as j,a as N}from"../chunks/D5qFhXHN.js";const i=async a=>await(await fetch(U(a))).text(),H="/docs/ai-gm-prompt.md",G=async()=>await i(H),O=a=>{let t="";return t+=`# ${a.name}
+
+`,t+=`**NA:** ${a.na}
+
+`,a.behavior&&(t+=`**Comportamiento:** ${a.behavior}
+
+`),a.languages&&a.languages.length>0&&(t+=`**Lenguas:** ${a.languages.join(", ")}
+
+`),t+=`## Atributos
+`,t+=`- **Cuerpo:** ${a.attributes.body}
+`,t+=`- **Reflejos:** ${a.attributes.reflexes}
+`,t+=`- **Mente:** ${a.attributes.mind}
+`,t+=`- **Instinto:** ${a.attributes.instinct}
+`,t+=`- **Presencia:** ${a.attributes.presence}
+
+`,t+=`## Estadísticas
+`,t+=`- **Salud Máxima:** ${a.stats.maxHealth}
+`,t+=`- **Exquiva:** ${a.stats.evasion.value}${a.stats.evasion.note?` (${a.stats.evasion.note})`:""}
+`,t+=`- **Mitigación Física:** ${a.stats.physicalMitigation.value}${a.stats.physicalMitigation.note?` (${a.stats.physicalMitigation.note})`:""}
+`,t+=`- **Mitigación Mágica:** ${a.stats.magicalMitigation.value}${a.stats.magicalMitigation.note?` (${a.stats.magicalMitigation.note})`:""}
+`,t+=`- **Velocidad:** ${a.stats.speed.value}${a.stats.speed.note?` (${a.stats.speed.note})`:""}
+
+`,t+=`- **Iniciativa:** ${a.attributes.reflexes}
+
+`,a.attacks&&a.attacks.length>0&&(t+=`## Ataques
+`,a.attacks.forEach(s=>{t+=`- **${s.name}:** Modificador de ataque: +${s.bonus}. Daño: ${s.damage}${s.note?` (${s.note})`:""}
+`}),t+=`
+`),a.traits&&a.traits.length>0&&(t+=`## Rasgos
+`,a.traits.forEach(s=>{t+=`- **${s.name}:** ${s.detail}
+`}),t+=`
+`),a.actions&&a.actions.length>0&&(t+=`## Acciones
+`,a.actions.forEach(s=>{t+=`- **${s.name}:** ${s.detail}${s.uses?` (Usos: ${g(s.uses)})`:""}
+`}),t+=`
+`),a.reactions&&a.reactions.length>0&&(t+=`## Reacciones
+`,a.reactions.forEach(s=>{t+=`- **${s.name}:** ${s.detail}${s.uses?` (Usos: ${g(s.uses)})`:""}
+`}),t+=`
+`),t},g=a=>{switch(a?.type){case"RELOAD":return`${a.qty} [Recarga ${a.qty}+]`;case"USES":case"LONG_REST":return`${a.qty}`;default:return""}},Y="/docs/bestiary.yml",z=async()=>{const a=await i(Y);let t=[];try{t=y(a).creatures??[]}catch(e){console.error("Error parsing YAML:",e)}return t.map(e=>F(e)).map(O).join(`---
+
+`)},B="/docs/cards.yml",k="/docs/magical-items.yml",J=a=>{if(!a||!a.type)return"N/A";switch(a.type){case"LONG_REST":return`${a.qty??"—"} por día de descanso`;case"RELOAD":return`1 (Recarga ${a.qty??"—"}+)`;case"USES":return`${a.qty??"—"}`;default:return"—"}},K=a=>{let t="";t+=`# ${a.name}
+
+`,t+=`**Nivel:** ${a.level}
+
+`,t+=`**Tipo:** ${a.type.charAt(0).toUpperCase()+a.type.slice(1)}
+
+`,a.cardType==="item"&&(t+=`**Costo:** ${a.cost} de oro
+
+`),t+=`**Descripción:**
+${a.description}
+
+`,a.tags&&a.tags.length>0&&(t+=`**Etiquetas:** ${a.tags?a.tags.join(", "):"—"}
+
+`),t+=`**Requerimientos:** ${a.requirements&&a.requirements.length>0?a.requirements.join(", "):"—"}
+
+`;const s=J(a.uses);return s!=="N/A"&&(t+=`**Usos:** ${s}
+
+`),t},u=async(a,t)=>{const s=await i(a);let e=[];try{e=y(s).cards??[]}catch(o){console.error("Error parsing YAML:",o)}return e.map(o=>t(o)).map(K).join(`---
+
+`)},V=async()=>await u(B,j),Q=async()=>await u(k,N),W="/docs/gm.md",X=async()=>await i(W),Z="/docs/player.md",aa=async()=>await i(Z),ta=async(a,t)=>{try{await navigator.clipboard.writeText($(t)),alert("Prompt copiado al portapapeles")}catch(s){console.error("Failed to copy text: ",s),alert("Error al copiar el prompt al portapapeles")}};var sa=T(`<section class="svelte-2504y"><h1>IA como Director de Juego</h1> <p>A continuación hay un prompt que puede ser utilizado para probar Arcana utilizado a una AI como
+		Director de Juego.</p> <p>Para utilizarla, simplemente copia el prompt, pegalo en tu AI favorita y ¡a disfrutar del juego!</p> <div class="prompt-header svelte-2504y"><h2>Prompt</h2> <button>Copiar Prompt</button></div> <pre class="svelte-2504y"> </pre></section>`);function ca(a,t){w(t,!0);let s=q("");const e=async()=>{const[f,b,h,M,_,E]=await Promise.all([G(),aa(),X(),z(),V(),Q()]);let r=f;const P=[{variable:"player_manual",value:b},{variable:"game_master_manual",value:h},{variable:"bestiary",value:M},{variable:"cards_list",value:_},{variable:"magical_items",value:E}];for(const d of P)r=r.replace(`{{${d.variable}}}`,d.value);S(s,r,!0)};I(async()=>await e());var n=sa(),o=l(p(n),6),v=l(p(o),2);v.__click=[ta,s],c(o);var m=l(o,2),A=p(m,!0);c(m),c(n),R(()=>L(A,$(s))),x(a,n),D()}C(["click"]);export{ca as component};
