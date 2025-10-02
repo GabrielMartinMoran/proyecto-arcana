@@ -7,7 +7,6 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { PageServerLoad } from './$types';
 
-export const prerender = true;
 export const ssr = true;
 
 const PROMPT_FILE_PATH = join(process.cwd(), 'static', 'docs', 'ai-gm-prompt.md');
