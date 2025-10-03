@@ -1,4 +1,4 @@
-import"../chunks/DsnmJJEf.js";import{d as C,o as I,s as L}from"../chunks/DEyIqfax.js";import{p as w,b as T,aa as q,g as l,t as R,a as x,d as D,e as p,j as $,r as c,K as S}from"../chunks/4UBXq5Sj.js";import{r as U}from"../chunks/fX8MPl6d.js";import{m as F}from"../chunks/DemwCk8g.js";import{l as y}from"../chunks/CGjaQNWU.js";import{m as j,a as N}from"../chunks/D5qFhXHN.js";const i=async a=>await(await fetch(U(a))).text(),H="/docs/ai-gm-prompt.md",G=async()=>await i(H),O=a=>{let t="";return t+=`# ${a.name}
+import"../chunks/DsnmJJEf.js";import{d as C,o as I,s as L}from"../chunks/DEyIqfax.js";import{p as w,b as T,aa as q,g as l,t as R,a as x,d as D,e as p,j as $,r as c,K as S}from"../chunks/4UBXq5Sj.js";import{r as U}from"../chunks/Tt7jWNin.js";import{m as F}from"../chunks/DemwCk8g.js";import{l as y}from"../chunks/CGjaQNWU.js";import{m as j,a as N}from"../chunks/D5qFhXHN.js";const i=async a=>await(await fetch(U(a))).text(),H="/docs/ai-gm-prompt.md",G=async()=>await i(H),O=a=>{let t="";return t+=`# ${a.name}
 
 `,t+=`**NA:** ${a.na}
 
