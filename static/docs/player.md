@@ -423,7 +423,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
   Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 7) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
   Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.
   Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
-- **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a su valor de **Cuerpo**.
+- **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.
 
 # 8. Estados y Condiciones
 
