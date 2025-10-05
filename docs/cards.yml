@@ -1380,7 +1380,7 @@ cards:
     requirements:
       - Sintonía Primordial
     description: >-
-      Realizas un ataque de conjuro a distancia (1d6+Instinto). Eliges el tipo de daño:
+      Realizas un ataque de conjuro (1d6+Instinto) a distancia Cercana. Eliges el tipo de daño:
       Contundente (roca) o Cortante (viento). Si impactas, infliges 1d10 de daño.
     uses:
       type: RELOAD

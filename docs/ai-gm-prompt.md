@@ -26,7 +26,7 @@ Esta manual es una guía para dirigir aventuras, crear encuentros, diseñar cria
 
 ```
 <game_master_manual>
-{{game_master}}
+{{game_master_manual}}
 <\game_master_manual>
 ```
 
