@@ -231,7 +231,7 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 - **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
 - **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
-- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible.
+- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible. En caso de estar fuera de combate, un personaje puede tomarse 10 minutos para reponer energías y recargar un uso.
 
 ## Lanzamiento Ritual: Magia sin Prisa
 
