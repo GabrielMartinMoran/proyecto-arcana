@@ -48,12 +48,16 @@ const cardToMarkdown = (card: Card): string => {
 	return md;
 };
 
-const loadCards = async (path: string, mapper: (card: any) => Card) => {
+const loadCards = async (
+	path: string,
+	mapper: (card: any) => Card,
+	rootKey: string,
+): Promise<string> => {
 	const fileContent = await loadAgentFile(path);
 
 	let rawCards = [];
 	try {
-		rawCards = (yamlLoad(fileContent) as any).cards ?? [];
+		rawCards = (yamlLoad(fileContent) as any)[rootKey] ?? [];
 	} catch (e) {
 		console.error('Error parsing YAML:', e);
 	}
@@ -64,9 +68,9 @@ const loadCards = async (path: string, mapper: (card: any) => Card) => {
 };
 
 export const loadAbilityCardsAsMD = async () => {
-	return await loadCards(ABILITY_CARDS_FILE_PATH, mapAbilityCard);
+	return await loadCards(ABILITY_CARDS_FILE_PATH, mapAbilityCard, 'cards');
 };
 
 export const loadMagicalItemsCardsAsMD = async () => {
-	return await loadCards(MAGICAL_ITEM_CARDS_FILE_PATH, mapItemCard);
+	return await loadCards(MAGICAL_ITEM_CARDS_FILE_PATH, mapItemCard, 'items');
 };
