@@ -33,7 +33,12 @@ const loadCards = async <T extends Card>(
 	store.set(
 		rawCards
 			.map((x) => mapper(x))
-			.toSorted((a, b) => a.level - b.level || a.name.localeCompare(b.name)),
+			.toSorted(
+				(a, b) =>
+					a.level - b.level ||
+					a.tags.join('|').localeCompare(b.tags.join('|')) ||
+					a.name.localeCompare(b.name),
+			),
 	);
 };
 

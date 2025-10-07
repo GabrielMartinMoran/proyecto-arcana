@@ -241,6 +241,7 @@ Si una carta tiene la etiqueta `Ritual`, puedes lanzarla siguiendo estas reglas:
 
 - El lanzamiento requiere **10 minutos** de concentración ininterrumpida. Si eres interrumpido, debes comenzar de nuevo.
 - Al ser lanzado como un ritual, el conjuro **no gasta sus usos normales** (ni de recarga ni por descanso).
+- Fundamentalmente, puedes lanzar un conjuro como ritual **incluso si no está en una de tus Ranuras de Cartas Activas**. Esta es la principal ventaja de los rituales, permitiendo a los lanzadores de conjuros acceder a un amplio repertorio de utilidad sin sacrificar sus opciones de combate.
 
 Esta regla permite a los lanzadores de conjuros usar su magia para tareas de utilidad y preparación fuera del combate, como realizar una `Zona de la Verdad` para un interrogatorio prolongado o `Hablar con los Animales` antes de explorar un bosque, sin agotar sus recursos en caso de volver a necesitarlos en un apuro.
 

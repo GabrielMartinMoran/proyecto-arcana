@@ -90,11 +90,11 @@
 	.card {
 		position: relative;
 		display: flex;
-		width: 300px;
-		min-height: 450px;
+		width: 310px;
+		height: 450px;
 		border-radius: var(--radius-md);
 		border: 1px solid;
-		padding: var(--spacing-md);
+		padding: var(--spacing-sm);
 		box-shadow: var(--shadow-sm);
 		transition:
 			transform 0.2s ease,
@@ -141,6 +141,7 @@
 					justify-content: space-between;
 					gap: var(--spacing-sm);
 					width: 100%;
+					padding-top: var(--spacing-xs);
 				}
 
 				h3 {
@@ -163,6 +164,10 @@
 					margin: 0;
 					text-shadow: 1px 1px 1px #ded1b5;
 					mix-blend-mode: saturation;
+					height: 100px;
+					overflow-y: auto;
+					scrollbar-width: thin;
+					scrollbar-color: #888 transparent;
 
 					:global(p) {
 						margin: 0;
@@ -177,6 +182,7 @@
 					gap: var(--spacing-sm);
 					width: 100%;
 					flex-wrap: wrap;
+					margin-top: var(--spacing-sm);
 				}
 			}
 
