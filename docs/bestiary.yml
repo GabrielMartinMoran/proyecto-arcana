@@ -3,28 +3,32 @@ creatures:
     na: 1
     attributes:
       cuerpo: 1
-      reflejos: 3
+      reflejos: 2
       mente: 1
       instinto: 2
       presencia: 1
     stats:
       salud: 5 # Masilla
       esquiva:
-        value: 7
+        value: 6
         note: null
       mitigacion:
         value: 0
         note: null
       velocidad:
-        value: 9
+        value: 8
         note: null
     languages:
       - Goblin
       - 'Común (jerga rudimentaria)'
     attacks:
       - name: Cimitarra oxidada
-        bonus: 3
+        bonus: 2
         damage: 1d4 Cortante
+        note: null
+      - name: Arco Corto Improvisado
+        bonus: 2
+        damage: 1d4 Perforante
         note: null
     traits:
       - name: Visión en la Oscuridad
@@ -109,7 +113,7 @@ creatures:
     img: https://i.imgur.com/vwS87Yq.png
 
   - name: Espectro
-    na: 5
+    na: 4
     attributes:
       cuerpo: 1
       reflejos: 4
@@ -152,7 +156,7 @@ creatures:
     img: https://i.imgur.com/3LAtxZ4.png
 
   - name: Ogro
-    na: 8
+    na: 4
     attributes:
       cuerpo: 6
       reflejos: 1
@@ -175,7 +179,7 @@ creatures:
     attacks:
       - name: Gran Garrote
         bonus: 6
-        damage: 2d6+1 Contundente
+        damage: 2d6 Contundente
         note: null
     traits: []
     actions:
@@ -190,7 +194,7 @@ creatures:
     img: https://i.imgur.com/bZ1hNkv.png
 
   - name: Capitán de los Bandidos
-    na: 5
+    na: 4
     attributes:
       cuerpo: 3
       reflejos: 4
@@ -221,7 +225,7 @@ creatures:
         note: null
     traits:
       - name: Asalto Múltiple
-        detail: Puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Pesada (ignora recarga) en cualquier combinación.
+        detail: Puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Ligera (ignora recarga) en cualquier combinación.
     actions: []
     reactions:
       - name: Parada
@@ -407,7 +411,7 @@ creatures:
     img: https://i.imgur.com/yw8RtuI.png
 
   - name: Troll
-    na: 7
+    na: 6
     attributes:
       cuerpo: 7
       reflejos: 3
@@ -449,26 +453,26 @@ creatures:
     na: 1
     attributes:
       cuerpo: 2
-      reflejos: 2
+      reflejos: 1
       mente: 1
       instinto: 2
       presencia: 1
     stats:
       salud: 8 # Masilla
       esquiva:
-        value: 6
+        value: 5
         note: null
       mitigacion:
         value: 0
         note: null
       velocidad:
-        value: 8
+        value: 7
         note: null
     languages:
       - Umbral (comprende)
     attacks:
       - name: Mordisco
-        bonus: 3
+        bonus: 2
         damage: 1d4 Necrótico
         note: null
     traits:
