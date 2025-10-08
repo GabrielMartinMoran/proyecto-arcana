@@ -398,8 +398,8 @@ cards:
     requirements:
       - Instinto 3
     description: >-
-      Cuando usas una carta o un botiquín para restaurar Puntos de Salud
-      a una criatura, esta recupera 1d4 Puntos de Salud adicionales.
+      Tu conocimiento de la anatomía y la medicina potencia tus cuidados. Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera **1d4 Puntos de Salud adicionales**.<br>
+      Además, cuando superas una prueba de **Instinto** para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con **1 Punto de Salud**. No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.
     uses:
       type: null
       qty: 0
@@ -1726,6 +1726,7 @@ cards:
     description: >-
       Te transformas en una bestia Pequeña no combatiente (como un gato, una rata o un cuervo) durante 1 hora.
       En esta forma, no puedes atacar ni lanzar conjuros, pero adoptas los sentidos y las formas de movimiento de la criatura.
+      La transformación termina prematuramente si caes en el estado `Inconsciente`.
     uses:
       type: LONG_REST
       qty: 2
@@ -1878,10 +1879,11 @@ cards:
       - Hablar con los Animales
       - Instinto 4
     description: >-
-      Invocas el espíritu de una bestia depredadora que te envuelve. Durante 1 minuto,
-      obtienes uno de los siguientes beneficios: visión en la oscuridad (búho), ventaja en pruebas de
-      Percepción (águila); velocidad de trepa igual a tu velocidad normal (araña);
-      o tus ataques sin arma infligen 1d10 de daño (oso).
+      Como Acción, invocas el espíritu de una bestia primordial que te envuelve como un aura fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración. Al invocar el espíritu, eliges **dos** de los siguientes beneficios:<br>
+      - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en todas las pruebas de **Instinto (Percepción)**.<br>
+      - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y desarmados infligen **1d6 de daño Contundente adicional**.<br>
+      - **Celeridad del Halcón:** Tu **Velocidad** de movimiento aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br>
+      - **Piel del Jabalí:** Ganas **Puntos de Salud temporales** iguales a **dos veces tu puntuación de Instinto**.
     uses:
       type: RELOAD
       qty: 5
