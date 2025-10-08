@@ -21,7 +21,11 @@ export const useCreaturesService = () => {
 			console.error('Error parsing YAML:', e);
 		}
 
-		creaturesStore.set(rawCreatures.map((x) => mapCreature(x)));
+		creaturesStore.set(
+			rawCreatures
+				.map((x) => mapCreature(x))
+				.toSorted((a, b) => a.na - b.na || a.name.localeCompare(b.name)),
+		);
 	};
 
 	return {

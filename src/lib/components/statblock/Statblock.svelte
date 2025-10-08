@@ -192,9 +192,11 @@
 					<span>{creature.behavior}</span>
 				</div>
 			</div>
-			<div class="right">
-				<img src={creature.img} alt={creature.name} />
-			</div>
+			{#if creature.img}
+				<div class="right">
+					<img src={creature.img} alt={creature.name} />
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
