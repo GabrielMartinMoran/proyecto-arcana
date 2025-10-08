@@ -1,8 +1,8 @@
 [
 	{
-		"id": "5d4238c2-d31c-401b-8817-affbeb6b4136",
+		"id": "83b9950c-823c-4812-8606-8c4b920e74f6",
 		"name": "Maëliv Hojaverde [PJ Inicial]",
-		"attributes": { "presence": 1, "body": 2, "instinct": 3, "reflexes": 2, "mind": 2 },
+		"attributes": { "instinct": 3, "mind": 2, "body": 2, "presence": 1, "reflexes": 2 },
 		"cards": [
 			{
 				"level": 1,
@@ -28,7 +28,21 @@
 				"isActive": true,
 				"id": "7c15a2c077ce5b4d9ee304764400222156d97726"
 			},
-			{ "isActive": true, "level": 1, "id": "2601adef1ae62c5845599f934d12eb1550315cbc", "uses": 2 }
+			{ "isActive": true, "level": 1, "id": "2601adef1ae62c5845599f934d12eb1550315cbc", "uses": 2 },
+			{
+				"id": "d462b017e70c2b5023d80e51de3efaf92acdfb62",
+				"uses": null,
+				"isActive": false,
+				"level": 1,
+				"cardType": "efecto"
+			},
+			{
+				"id": "0dc88f8a1d948ee135b1a1b2124b0753d84f72ce",
+				"uses": 2,
+				"isActive": true,
+				"level": 1,
+				"cardType": "activable"
+			}
 		],
 		"ppHistory": [],
 		"goldHistory": [
@@ -131,7 +145,7 @@
 		"story": "Maëliv dejó su arboleda sagrada cuando sintió que una extraña corrupción enfermaba las tierras. Su viaje inicial fue una dura prueba de supervivencia, pero le enseñó a confiar en sus instintos y en el poder restaurador de la naturaleza. Ahora, entiende que el mundo más allá de los bosques necesita tanto a un guardián como a un sanador.",
 		"notes": [],
 		"languages": "Común, Silvano",
-		"quickInfo": "Gracia Silvana: Ventaja en percibir peligro\nTalento de Familia: Ventaja en naturaleza y perspicacia\nSintonía Primordial: Ventaja en supervivencia y trato con animales",
+		"quickInfo": "Gracia Élfica: Ventaja en iniciativa y no pueden sorprenderme\nTalento de Familia: Ventaja en naturaleza y perspicacia\nSintonía Primordial: Ventaja en supervivencia y trato con animales",
 		"attacks": [
 			{
 				"name": "Bastón",
@@ -161,97 +175,104 @@
 	{
 		"id": "57d4798e-dc0d-469e-ad7f-c04d5804e8c3",
 		"name": "Keldurr, Maza de Hierro [PJ Avanzado]",
-		"attributes": { "reflexes": 2, "body": 4, "instinct": 3, "mind": 1, "presence": 1 },
+		"attributes": { "body": 4, "mind": 1, "presence": 1, "reflexes": 2, "instinct": 3 },
 		"cards": [
 			{
-				"level": 1,
-				"isActive": false,
 				"uses": null,
-				"id": "c401c6c14d62bb74149e0b75bac24ef568eecd6f"
-			},
-			{
-				"id": "465239038da5be2412587f4cfe0e10d0778231f8",
-				"uses": null,
-				"level": 1,
-				"isActive": false
-			},
-			{
-				"uses": null,
-				"id": "e7c3f7586449b81902da1bc7479a463077a0e557",
+				"id": "c401c6c14d62bb74149e0b75bac24ef568eecd6f",
 				"isActive": false,
 				"level": 1
 			},
-			{ "level": 1, "uses": 1, "isActive": true, "id": "2a8d46598771dc9dcc91992dec7033c9efee553c" },
-			{ "uses": 1, "id": "1f49450e4b2de47bfc0aab65184d3ab8236ac03c", "isActive": true, "level": 1 },
-			{
-				"uses": null,
-				"level": 1,
-				"id": "f3bcd176b12b64b7554539bf6d27c32d76125395",
-				"isActive": false
-			},
 			{
 				"level": 1,
+				"id": "465239038da5be2412587f4cfe0e10d0778231f8",
 				"isActive": false,
-				"id": "d3866f9a311f1bd2756c1c787738c0187c466c87",
 				"uses": null
 			},
 			{
-				"id": "b7c37b66747a498175032891b26a47d11228e8b6",
-				"uses": null,
-				"level": 3,
-				"isActive": true
-			},
-			{
-				"level": 1,
-				"id": "591c9b98fcb403fb1697731f113169934c0516b0",
+				"id": "e7c3f7586449b81902da1bc7479a463077a0e557",
 				"isActive": false,
-				"uses": 1
+				"uses": null,
+				"level": 1
 			},
-			{ "isActive": true, "id": "d3ed7bff6d5bd84cb0af302a15fe2f46ff4aa097", "level": 2, "uses": 1 },
+			{ "id": "2a8d46598771dc9dcc91992dec7033c9efee553c", "uses": 1, "level": 1, "isActive": true },
+			{ "level": 1, "id": "1f49450e4b2de47bfc0aab65184d3ab8236ac03c", "uses": 1, "isActive": true },
+			{
+				"isActive": false,
+				"uses": null,
+				"id": "f3bcd176b12b64b7554539bf6d27c32d76125395",
+				"level": 1
+			},
 			{
 				"level": 1,
+				"id": "d3866f9a311f1bd2756c1c787738c0187c466c87",
 				"uses": null,
-				"id": "601a9e8c3f70e0013d2c3bde7e653a4e3ff3cca0",
 				"isActive": false
 			},
 			{
+				"isActive": true,
+				"level": 3,
+				"id": "b7c37b66747a498175032891b26a47d11228e8b6",
+				"uses": null
+			},
+			{
+				"id": "591c9b98fcb403fb1697731f113169934c0516b0",
+				"uses": 1,
+				"level": 1,
+				"isActive": false
+			},
+			{ "level": 2, "uses": 1, "id": "d3ed7bff6d5bd84cb0af302a15fe2f46ff4aa097", "isActive": true },
+			{
 				"isActive": false,
-				"level": 2,
-				"id": "f9120bdd094a802636a027b48c10acd0be4ff5fc",
 				"uses": null,
+				"level": 1,
+				"id": "601a9e8c3f70e0013d2c3bde7e653a4e3ff3cca0"
+			},
+			{
+				"level": 2,
+				"cardType": "efecto",
+				"uses": null,
+				"id": "f9120bdd094a802636a027b48c10acd0be4ff5fc",
+				"isActive": false
+			},
+			{
+				"id": "78492397e0343be2cc92cf1213936087d61efc7f",
+				"uses": null,
+				"isActive": false,
+				"level": 1,
 				"cardType": "efecto"
 			}
 		],
 		"ppHistory": [
 			{
-				"type": "subtract",
-				"value": 3,
 				"reason": "Compra carta: Atleta",
-				"id": "e67e611a-9a2e-4384-82f8-e967b8eb2c6e"
+				"id": "e67e611a-9a2e-4384-82f8-e967b8eb2c6e",
+				"type": "subtract",
+				"value": 3
 			},
 			{
 				"reason": "Compra carta: Golpe divino",
 				"type": "subtract",
-				"id": "7e49e8a2-6793-447b-a156-9ba5d4a06d50",
-				"value": 6
+				"value": 6,
+				"id": "7e49e8a2-6793-447b-a156-9ba5d4a06d50"
 			},
 			{
-				"value": 3,
-				"reason": "Compra carta: Llama sagrada",
+				"id": "3921a65d-bccf-4ab4-a052-8ecd683ab231",
 				"type": "subtract",
-				"id": "3921a65d-bccf-4ab4-a052-8ecd683ab231"
+				"value": 3,
+				"reason": "Compra carta: Llama sagrada"
 			},
 			{
+				"value": 6,
 				"reason": "Ranura de carta adicional (cuarta ranura)",
 				"id": "47779503-9ef9-40bd-bded-55c6e4fc6818",
-				"value": 6,
 				"type": "subtract"
 			},
 			{
-				"id": "c51daf27-1ecd-4e64-85e2-bce051f5d3f7",
-				"reason": "Compra carta: Ataque adicional",
 				"type": "subtract",
-				"value": 12
+				"value": 12,
+				"id": "c51daf27-1ecd-4e64-85e2-bce051f5d3f7",
+				"reason": "Compra carta: Ataque adicional"
 			},
 			{
 				"type": "subtract",
@@ -260,22 +281,22 @@
 				"id": "867a6211-6d16-4281-b8fa-d4ff37f466c3"
 			},
 			{
-				"reason": "Mejora de atributo: Cuerpo 4",
-				"value": 12,
 				"id": "1ffd58ac-f52f-42ac-ae58-421cfacdf16b",
+				"reason": "Mejora de atributo: Cuerpo 4",
+				"type": "subtract",
+				"value": 12
+			},
+			{
+				"id": "fbd69ef9-88be-4786-a9c1-61fb746c7736",
+				"value": 3,
+				"reason": "Compra carta: Vigor",
 				"type": "subtract"
 			},
 			{
-				"type": "subtract",
-				"reason": "Compra carta: Vigor",
-				"id": "fbd69ef9-88be-4786-a9c1-61fb746c7736",
-				"value": 3
-			},
-			{
-				"value": 50,
-				"reason": "Progreso de PJ",
+				"id": "2a97d675-206d-4710-be66-96d9daefeafa",
 				"type": "add",
-				"id": "2a97d675-206d-4710-be66-96d9daefeafa"
+				"value": 50,
+				"reason": "Progreso de PJ"
 			}
 		],
 		"goldHistory": [
@@ -286,48 +307,48 @@
 				"value": 135
 			},
 			{
-				"type": "add",
-				"id": "eab55461-17b8-4991-af19-a71e4efb3a47",
 				"value": 125,
+				"id": "eab55461-17b8-4991-af19-a71e4efb3a47",
+				"type": "add",
 				"reason": "Aventuras varias"
 			},
 			{
-				"reason": "Equipo inicial",
 				"type": "subtract",
+				"reason": "Equipo inicial",
 				"value": 85,
 				"id": "910086ea-ec72-4e12-9e1f-55d5c8f33585"
 			},
 			{
-				"reason": "Creación de personaje",
-				"value": 100,
 				"type": "add",
-				"id": "5bb06fb2-909d-42b1-92fe-59099c8c9e33"
+				"id": "5bb06fb2-909d-42b1-92fe-59099c8c9e33",
+				"reason": "Creación de personaje",
+				"value": 100
 			}
 		],
 		"equipment": [
 			{
+				"id": "e700c851-8601-48b2-a6f0-77c470e193cd",
 				"quantity": 1,
 				"notes": "Mitigación física +2, Esquiva -2, Sigilo -2",
-				"id": "e700c851-8601-48b2-a6f0-77c470e193cd",
 				"name": "Cota de mallas"
 			},
 			{
 				"name": "Maza (Arma Enriquecida)",
-				"id": "b32cc559-27cb-4755-b41a-94934470f76a",
+				"quantity": 1,
 				"notes": "1d6 Contundente",
+				"id": "b32cc559-27cb-4755-b41a-94934470f76a"
+			},
+			{
+				"name": "Mochila",
+				"notes": "-",
+				"id": "d4b9c90a-0d29-40ca-a2d3-bbe032fd8bbb",
 				"quantity": 1
 			},
 			{
-				"notes": "-",
-				"name": "Mochila",
-				"quantity": 1,
-				"id": "d4b9c90a-0d29-40ca-a2d3-bbe032fd8bbb"
-			},
-			{
-				"id": "768426f5-b969-45f1-90f0-ffeddc844348",
 				"name": "Odre de agua",
-				"quantity": 1,
-				"notes": "-"
+				"notes": "-",
+				"id": "768426f5-b969-45f1-90f0-ffeddc844348",
+				"quantity": 1
 			},
 			{
 				"quantity": 1,
@@ -336,47 +357,47 @@
 				"notes": "-"
 			},
 			{
-				"name": "Soga",
 				"quantity": 1,
 				"id": "3ff8e439-36d9-4eb4-b061-9f38e9a9c25d",
-				"notes": "De cáñamo (15 m)"
+				"notes": "De cáñamo (15 m)",
+				"name": "Soga"
 			}
 		],
 		"modifiers": [
 			{
-				"id": "a457d34c-4d06-4f0c-8634-cde1c3414e74",
+				"formula": "3",
+				"attribute": "maxHP",
 				"reason": "Fortaleza Rocosa",
-				"attribute": "maxHP",
 				"type": "add",
-				"formula": "3"
+				"id": "a457d34c-4d06-4f0c-8634-cde1c3414e74"
 			},
 			{
-				"formula": "cuerpo",
 				"id": "41cc1391-dcd1-48d3-806a-a5c637987f59",
-				"attribute": "maxHP",
+				"formula": "cuerpo",
+				"type": "add",
 				"reason": "Vigor",
-				"type": "add"
+				"attribute": "maxHP"
 			},
 			{
-				"reason": "Atleta",
-				"id": "c2dcc633-cd3b-4739-83bf-b5a47d6f7337",
-				"attribute": "speed",
 				"type": "add",
-				"formula": "2"
+				"reason": "Atleta",
+				"formula": "2",
+				"id": "c2dcc633-cd3b-4739-83bf-b5a47d6f7337",
+				"attribute": "speed"
 			},
 			{
 				"attribute": "evasion",
-				"reason": "Armadura",
-				"type": "add",
 				"id": "827342d7-4336-4f7d-8bee-3004592812cb",
-				"formula": "-2"
+				"type": "add",
+				"formula": "-2",
+				"reason": "Armadura"
 			},
 			{
-				"type": "add",
 				"id": "c6ee658d-a512-4513-a2d2-401789a6df53",
-				"attribute": "physicalMitigation",
+				"type": "add",
 				"formula": "2",
-				"reason": "Armadura"
+				"reason": "Armadura",
+				"attribute": "physicalMitigation"
 			}
 		],
 		"currentHP": 25,
@@ -389,10 +410,10 @@
 		"quickInfo": "Visión en la oscuridad\n\nFortaleza Rocosa: Ventaja para resistir ser derribado o movido contra tu voluntad.\nFe Inspiradora: Ventaja en pruebas de asociadas a temas religiosos y en pruebas de Presencia para interactuar con fieles de tu misma fe.\nSintonía con el Acero: Ventaja en Pruebas de Atletismo.",
 		"attacks": [
 			{
-				"id": "45df08a8-aa7a-48e1-a128-6fbc4f518d01",
-				"dmgFormula": "1d6+1",
 				"name": "Maza",
 				"atkFormula": "1d6e+cuerpo+1",
+				"dmgFormula": "1d6+1",
+				"id": "45df08a8-aa7a-48e1-a128-6fbc4f518d01",
 				"notes": "Contuntende"
 			}
 		],
