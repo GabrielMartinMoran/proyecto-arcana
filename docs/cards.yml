@@ -799,7 +799,7 @@ cards:
       Además, en caso de no recibir una agresión o agredir a alguien durante una ronda, el efecto termina.
     uses:
       type: LONG_REST
-      qty: 3
+      qty: 2
   - name: Ataque de Oportunidad
     level: 2
     type: activable
