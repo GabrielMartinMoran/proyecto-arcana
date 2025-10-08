@@ -485,3 +485,578 @@ creatures:
     behavior: |
       Avanza lentamente hacia el ser vivo más cercano para golpearlo sin cesar hasta que deje de moverse. No reacciona a peligros del entorno.
     img: https://i.imgur.com/ZVpBSZ6.png
+
+  - name: Lobo
+    na: 2
+    attributes:
+      cuerpo: 2
+      reflejos: 4
+      mente: 1
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 11 # Balanceado
+      esquiva:
+        value: 8
+        note: null
+      mitigacion:
+        value: 0
+        note: null
+      velocidad:
+        value: 10
+        note: null
+    languages: []
+    attacks:
+      - name: Mordisco
+        bonus: 4
+        damage: 1d6 Perforante
+        note: null
+    traits:
+      - name: Sentidos Agudos
+        detail: Tiene Ventaja en pruebas de Instinto (Percepción) que dependan del olfato o el oído.
+      - name: Tácticas de Manada
+        detail: El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si al menos uno de sus aliados está adyacente a la criatura y no está incapacitado.
+    actions: []
+    reactions: []
+    behavior: |
+      Caza en manada, rodeando a su presa y enfocándose en los objetivos aislados o que parezcan más débiles.
+    img: null
+
+  - name: Araña Gigante
+    na: 3
+    attributes:
+      cuerpo: 3
+      reflejos: 4
+      mente: 1
+      instinto: 2
+      presencia: 1
+    stats:
+      salud: 14 # Balanceado
+      esquiva:
+        value: 8
+        note: null
+      mitigacion:
+        value: 1
+        note: exoesqueleto
+      velocidad:
+        value: 10
+        note: puede trepar
+    languages: []
+    attacks:
+      - name: Mordisco Venenoso
+        bonus: 4
+        damage: 1d6 Perforante
+        note: El objetivo debe superar una TS de Cuerpo (ND 9) o quedar Envenenado durante 1 minuto.
+    traits: []
+    actions:
+      - name: Telaraña
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una TS de Reflejos (ND 9) o quedar Inmovilizado. Puede usar su Acción para intentar liberarse superando una Tirada Enfrentada de su Cuerpo contra el Cuerpo de la araña.
+    reactions: []
+    behavior: |
+      Prepara emboscadas con sus redes, inmovilizando a sus presas desde la distancia antes de acercarse para inyectar su veneno.
+    img: null
+
+  - name: Oso
+    na: 4
+    attributes:
+      cuerpo: 5
+      reflejos: 2
+      mente: 1
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 20 # Balanceado
+      esquiva:
+        value: 6
+        note: null
+      mitigacion:
+        value: 2
+        note: piel gruesa
+      velocidad:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Garras
+        bonus: 5
+        damage: 1d8 Cortante
+        note: null
+    traits:
+      - name: Asalto Múltiple
+        detail: Puede realizar dos ataques de Garras con su Acción.
+    actions:
+      - name: Abrazo Aplastante
+        uses:
+          type: null
+          qty: 0
+        detail: Si el oso impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para intentar apresarlo. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del oso o quedar Inmovilizado.
+    reactions: []
+    behavior: |
+      Territorial y agresivo. Carga contra la amenaza más cercana y usa su imponente fuerza para neutralizarla rápidamente.
+    img: null
+
+  - name: Mimeto
+    na: 3
+    attributes:
+      cuerpo: 4
+      reflejos: 2
+      mente: 2
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 17 # Balanceado
+      esquiva:
+        value: 6
+        note: null
+      mitigacion:
+        value: 2
+        note: forma amorfa
+      velocidad:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Pseudópodo
+        bonus: 4
+        damage: 1d8 Contundente
+        note: null
+    traits:
+      - name: Forma de Objeto
+        detail: Mientras permanece inmóvil, es indistinguible de un objeto inanimado. Se requiere una Prueba de Instinto (Percepción) con un ND 9 para notar su verdadera naturaleza.
+      - name: Adhesivo
+        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque queda Inmovilizada. Un arma que lo impacte se queda pegada si su portador no supera una TS de Cuerpo (ND 8). Se requiere una Acción y superar una Tirada Enfrentada de Cuerpo (contra el Cuerpo del mimeto) para liberarse a uno mismo o a un objeto.
+      - name: Asalto Múltiple
+        detail: Puede realizar dos ataques de Pseudópodo con su Acción.
+    actions: []
+    reactions: []
+    behavior: |
+      Permanece inmóvil hasta que una criatura lo toca, momento en el que ataca por sorpresa, intentando adherir a su víctima para devorarla.
+    img: null
+
+  - name: Basilisco
+    na: 6
+    attributes:
+      cuerpo: 4
+      reflejos: 2
+      mente: 1
+      instinto: 4
+      presencia: 2
+    stats:
+      salud: 32 # Tanque
+      esquiva:
+        value: 6
+        note: null
+      mitigacion:
+        value: 3
+        note: piel pétrea
+      velocidad:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Mordisco
+        bonus: 4
+        damage: 2d6 Perforante
+        note: null
+    traits: []
+    actions:
+      - name: Mirada Petrificadora
+        uses:
+          type: null
+          qty: 0
+        detail: El basilisco fija su mirada en una criatura a distancia Cercana que pueda verlo. El objetivo debe superar una TS de Cuerpo (ND 9). Si falla por 4 o menos, queda Inmovilizado (comienza a convertirse en piedra). Si falla por 5 o más, queda Petrificado. Una criatura Inmovilizada debe repetir la TS al final de cada uno de sus turnos, quedando Petrificada si vuelve a fallar.
+    reactions: []
+    behavior: |
+      Se mueve lentamente, confiando en su mirada petrificadora para neutralizar las amenazas. Si se ve acorralado, muerde.
+    img: null
+
+  - name: Jabalí
+    na: 2
+    attributes:
+      cuerpo: 3
+      reflejos: 3
+      mente: 1
+      instinto: 2
+      presencia: 1
+    stats:
+      salud: 14 # Balanceado
+      esquiva:
+        value: 7
+        note: null
+      mitigacion:
+        value: 1
+        note: piel dura
+      velocidad:
+        value: 9
+        note: null
+    languages: []
+    attacks:
+      - name: Cornada
+        bonus: 3
+        damage: 1d6 Perforante
+        note: null
+    traits:
+      - name: Carga Imprudente
+        detail: Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una TS de Cuerpo (ND 7) o ser Derribado.
+    actions: []
+    reactions: []
+    behavior: |
+      Ignora el peligro y carga en línea recta contra el primer enemigo que ve, atacando con furia hasta que él o su objetivo caiga.
+    img: null
+
+  - name: Guerrero Tribal
+    na: 3
+    attributes:
+      cuerpo: 3
+      reflejos: 3
+      mente: 2
+      instinto: 3
+      presencia: 2
+    stats:
+      salud: 14 # Balanceado
+      esquiva:
+        value: 7
+        note: null
+      mitigacion:
+        value: 1
+        note: pieles y madera
+      velocidad:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Lanza
+        bonus: 3
+        damage: 1d6 Perforante
+        note: null
+      - name: Jabalina
+        bonus: 3
+        damage: 1d4 Perforante
+        note: Arrojadiza, Cercana
+    traits:
+      - name: Asalto Múltiple
+        detail: Puede realizar dos ataques de Lanza con su Acción.
+    actions: []
+    reactions: []
+    behavior: |
+      Lucha con una ferocidad disciplinada, protegiendo a sus compañeros y flanqueando a los enemigos para abrumarlos.
+    img: null
+
+  - name: Cíclope
+    na: 4
+    attributes:
+      cuerpo: 7
+      reflejos: 1
+      mente: 1
+      instinto: 2
+      presencia: 2
+    stats:
+      salud: 36 # Tanque
+      esquiva:
+        value: 5
+        note: null
+      mitigacion:
+        value: 3
+        note: piel gruesa
+      velocidad:
+        value: 7
+        note: null
+    languages:
+      - Gigante
+    attacks:
+      - name: Gran Garrote
+        bonus: 7
+        damage: 2d8 Contundente
+        note: null
+      - name: Arrojar Roca
+        bonus: 7
+        damage: 2d6 Contundente
+        note: Ataque a distancia (Alcance Largo).
+    traits: []
+    actions: []
+    reactions: []
+    behavior: |
+      Lento y predecible, pero increíblemente destructivo. Aplasta lo que tenga delante con su garrote o arroja rocas a los objetivos lejanos.
+    img: null
+
+  - name: Elemental de Tierra
+    na: 5
+    attributes:
+      cuerpo: 6
+      reflejos: 1
+      mente: 1
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 28 # Balanceado
+      esquiva:
+        value: 5
+        note: null
+      mitigacion:
+        value: 4
+        note: cuerpo de piedra
+      velocidad:
+        value: 7
+        note: null
+    languages:
+      - Terran
+    attacks:
+      - name: Golpe Sísmico
+        bonus: 6
+        damage: 1d10+1 Contundente
+        note: null
+    traits:
+      - name: Deslizarse por la Tierra
+        detail: Puede moverse a través de piedra y tierra como si fuera terreno normal.
+    actions: []
+    reactions: []
+    behavior: |
+      Lento pero implacable. Avanza sin detenerse, golpeando con la fuerza de un terremoto.
+    img: null
+
+  - name: Elemental de Fuego
+    na: 5
+    attributes:
+      cuerpo: 2
+      reflejos: 5
+      mente: 1
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 26 # Excepcional
+      esquiva:
+        value: 9
+        note: null
+      mitigacion:
+        value: 0
+        note: null
+      velocidad:
+        value: 11
+        note: null
+    languages:
+      - Ignan
+    attacks:
+      - name: Toque Ardiente
+        bonus: 5
+        damage: 2d6 Fuego
+        note: null
+    traits:
+      - name: Aura de Fuego
+        detail: Al final de su turno, toda criatura a distancia Inmediata recibe 1d4 de daño de Fuego.
+      - name: Forma Ígnea
+        detail: Puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
+      - name: Inmunidad (Fuego)
+        detail: Es inmune al daño de Fuego.
+    actions: []
+    reactions: []
+    behavior: |
+      Rápido y errático. Se mueve por el campo de batalla incendiando todo lo que toca.
+    img: null
+
+  - name: Elemental de Agua
+    na: 5
+    attributes:
+      cuerpo: 4
+      reflejos: 4
+      mente: 1
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 27 # Balanceado
+      esquiva:
+        value: 8
+        note: null
+      mitigacion:
+        value: 1
+        note: null
+      velocidad:
+        value: 10
+        note: puede nadar
+    languages:
+      - Aquan
+    attacks:
+      - name: Golpe Acuático
+        bonus: 4
+        damage: 1d8 Contundente
+        note: null
+    traits: []
+    actions:
+      - name: Engullir
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Si impacta con su Golpe Acuático, el elemental puede intentar engullir al objetivo. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del elemental o quedar Inmovilizado y sin poder respirar dentro de él. La criatura engullida puede usar su Acción para repetir la Tirada Enfrentada y tratar de escapar.
+    reactions: []
+    behavior: |
+      Fluye por el campo de batalla, atrapando a sus enemigos para ahogarlos.
+    img: null
+
+  - name: Elemental de Aire
+    na: 5
+    attributes:
+      cuerpo: 1
+      reflejos: 6
+      mente: 1
+      instinto: 3
+      presencia: 1
+    stats:
+      salud: 25 # Excepcional
+      esquiva:
+        value: 10
+        note: null
+      mitigacion:
+        value: 0
+        note: null
+      velocidad:
+        value: 12
+        note: Vuela
+    languages:
+      - Auran
+    attacks:
+      - name: Ráfaga de Viento
+        bonus: 6
+        damage: 1d8 Contundente
+        note: Si impacta, el objetivo debe superar una TS de Cuerpo (ND 9) o ser empujado 3 metros hacia atrás.
+    traits:
+      - name: Forma Gaseosa
+        detail: Puede moverse a través de cualquier abertura por la que pueda pasar el aire.
+    actions: []
+    reactions: []
+    behavior: |
+      Vuela fuera del alcance, hostigando a sus enemigos con ráfagas de viento.
+    img: null
+
+  - name: Guardia
+    na: 2
+    attributes:
+      cuerpo: 3
+      reflejos: 3
+      mente: 2
+      instinto: 2
+      presencia: 2
+    stats:
+      salud: 14 # Balanceado
+      esquiva:
+        value: 6
+        note: Cota de mallas y Escudo
+      mitigacion:
+        value: 2
+        note: Cota de mallas
+      velocidad:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Espada Larga
+        bonus: 3
+        damage: 1d6 Cortante
+        note: null
+    traits: []
+    actions: []
+    reactions: []
+    behavior: |
+      Mantiene la formación, protege a sus compañeros y usa su autoridad para controlar la situación.
+    img: null
+
+  - name: Mago
+    na: 4
+    attributes:
+      cuerpo: 2
+      reflejos: 3
+      mente: 5
+      instinto: 3
+      presencia: 2
+    stats:
+      salud: 11 # Balanceado
+      esquiva:
+        value: 7
+        note: null
+      mitigacion:
+        value: 0
+        note: null
+      velocidad:
+        value: 9
+        note: null
+    languages:
+      - Común
+      - Dracónico
+    attacks:
+      - name: Daga
+        bonus: 3
+        damage: 1d4 Perforante
+        note: null
+    traits: []
+    actions:
+      - name: Rayo Gélido
+        uses:
+          type: RELOAD
+          qty: 2
+        detail: Realiza un ataque de conjuro a distancia (+5 para impactar) contra un objetivo a distancia Cercana. Si impacta, inflige 1d8 de daño de Frío y la Velocidad del objetivo se reduce a la mitad hasta su próximo turno.
+      - name: Paso Brumoso
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Usa su Interacción para teletransportarse a un espacio desocupado que pueda ver a distancia Cercana.
+      - name: Asalto Psíquico
+        uses:
+          type: RELOAD
+          qty: 3
+        detail: Elige un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 9) o recibir 1d6 de daño Psíquico y sufrir Desventaja (-1d4) en su próxima tirada de ataque.
+    reactions:
+      - name: Escudo Arcano
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Cuando es impactado por un ataque, puede usar su Reacción para añadir +2 a su Esquiva contra ese ataque, pudiendo hacer que falle.
+    behavior: |
+      Se mantiene a distancia, usando su magia para controlar el campo de batalla y explotar las debilidades del enemigo. Es inteligente pero frágil.
+    img: null
+
+  - name: Mantícora
+    na: 7
+    attributes:
+      cuerpo: 5
+      reflejos: 4
+      mente: 1
+      instinto: 3
+      presencia: 2
+    stats:
+      salud: 35 # Balanceado
+      esquiva:
+        value: 8
+        note: null
+      mitigacion:
+        value: 2
+        note: piel dura
+      velocidad:
+        value: 10
+        note: Vuela
+    languages:
+      - 'Común (comprende)'
+    attacks:
+      - name: Garras
+        bonus: 5
+        damage: 1d8 Cortante
+        note: null
+      - name: Mordisco
+        bonus: 5
+        damage: 1d10 Perforante
+        note: null
+    traits:
+      - name: Asalto Múltiple
+        detail: Puede realizar dos ataques de Garras y un ataque de Mordisco con su Acción.
+    actions:
+      - name: Disparar Púas
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: La mantícora dispara una andanada de púas de su cola. Realiza tres ataques a distancia (+4 para impactar) contra uno o varios objetivos a distancia Cercana. Cada púa que impacta inflige 1d6 de daño Perforante.
+    reactions: []
+    behavior: |
+      Vuela sobre sus presas, debilitándolas con una lluvia de púas antes de descender para rematarlas con sus garras y fauces.
+    img: null
