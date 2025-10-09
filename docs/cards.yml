@@ -63,7 +63,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      No necesitas dormir. Puedes entrar en un estado de meditación durante 4 horas para obtener los beneficios de un día de descanso. Además, la magia no puede dormirte.
+      No necesitas dormir. Puedes entrar en un estado de meditación durante 4 horas para obtener los beneficios de un día de descanso. Además, la magia y los venenos no pueden dormirte.
     uses:
       type: null
       qty: 0
@@ -90,7 +90,8 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos y enfermedades.
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos y enfermedades.<br>
+      Además, tu capacidad para sobreponerte al dolor es legendaria. Una vez por día de descanso, al final de tu turno, si estás bajo un efecto causado por una Tirada de Salvación de Cuerpo fallida, y dicho efecto permita realizar otra Tirada de Salvación de Cuerpo para finalizarlo, puedes terminar el efecto sobre ti inmediatamente.
     uses:
       type: null
       qty: 0
@@ -264,7 +265,7 @@ cards:
     uses:
       type: null
       qty: 0
-  - name: Atleta Nato
+  - name: Porte de Gigante
     level: 1
     type: efecto
     tags:
@@ -273,7 +274,8 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Tu poderío físico es legendario. Cuando realizas una prueba de Cuerpo (Atletismo) para saltar, obtienes una bonificación de +2 metros a la distancia de tu salto largo y +1 metro a la altura de tu salto vertical. Además, puedes cargar el doble de peso de lo que podrías normalmente.
+      Tu estatura y físico imponentes son un arma en sí mismos. Puedes cargar el doble de peso de lo que podrías normalmente.<br>
+      Además, una vez por turno, si te mueves por lo menos 5 metros para llegar a un enemigo y atacarlo, en caso de que el ataque impacte, puedes forzar al objetivo a superar una Tirada de Salvación de Cuerpo (ND 4+Cuerpo) o caer Derribado.
     uses:
       type: null
       qty: 0
@@ -287,6 +289,62 @@ cards:
       - Solo Creación de Personaje
     description: >-
       Tu linaje de gigante te ha adaptado a los entornos más extremos. Al elegir este linaje, selecciona un clima: Frío o Calor. Obtienes Mitigación Mágica contra el daño del tipo elemental correspondiente (Frío o Fuego) igual a la mitad de tu puntuación de Cuerpo (redondeando hacia arriba). Además, no sufres los efectos negativos de las temperaturas extremas asociadas a tu clima elegido.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ DRACÓNIDO ------------------------------
+  - name: Mirada Dracónica
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Dracónido
+    requirements:
+      - Solo Creación de Personaje
+    description: >-
+      Tus ojos brillan con una intensidad de otro mundo. Obtienes Visión en la Oscuridad.<br>
+      Adicionalmente, tu mirada refleja la ancestral sabiduría y poder de tu linaje. Al finalizar un día de descanso, eliges uno de los siguientes focos para tu mirada. Hasta tu próximo día de descanso, obtienes Ventaja (+1d4) en todas las pruebas de habilidad de la pericia elegida:<br>
+      - **Foco del Terror:** Intimidación.<br>
+      - **Foco de la Verdad:** Perspicacia.<br>
+      - **Foco del Cazador:** Percepción.
+    uses:
+      type: null
+      qty: 0
+  - name: Herencia Draconiana
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Dracónido
+    requirements:
+      - Solo Creación de Personaje
+    description: >-
+      Al elegir esta carta, seleccionas un tipo de ancestro dracónico de la siguiente lista. Tus escamas te protegen contra la energía elemental de tu linaje, otorgándote Mitigación Mágica 2 contra el tipo de daño asociado.<br>
+      - **Rojo, Dorado o Latón:** Fuego<br>
+      - **Azul o Bronce:** Eléctrico<br>
+      - **Blanco o Plateado:** Frío<br>
+      - **Negro o Cobre:** Ácido<br>
+      - **Verde:** Veneno
+    uses:
+      type: null
+      qty: 0
+  - name: Castigo Elemental
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Dracónido
+    requirements:
+      - Solo Creación de Personaje
+    description: >-
+      Puedes canalizar la energía de tu ancestro para castigar a tus enemigos. Al elegir esta carta, debes seleccionar un tipo de ancestro dracónico de la siguiente lista para determinar tu tipo de daño.<br>
+      - **Rojo, Dorado o Latón:** Fuego<br>
+      - **Azul o Bronce:** Eléctrico<br>
+      - **Blanco o Plateado:** Frío<br>
+      - **Negro o Cobre:** Ácido<br>
+      - **Verde:** Veneno<br>
+      Cuando impactas a un objetivo con un ataque cuerpo a cuerpo, puedes decidir imbuir el golpe con energía elemental, infligiendo 1d6 de daño adicional del tipo elemental elegido.
+      Puedes usar esta habilidad un número de veces igual a tu puntuación de Cuerpo por día de descanso.
     uses:
       type: null
       qty: 0
