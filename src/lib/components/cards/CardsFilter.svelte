@@ -10,9 +10,16 @@
 		filters: CardFilters;
 		onFiltersChange: (filters: CardFilters) => void;
 		onResetFilters: () => void;
+		includeOnlyAvailablesFilter?: boolean;
 	};
 
-	let { cards, filters: receivedFilters, onFiltersChange, onResetFilters }: Props = $props();
+	let {
+		cards,
+		filters: receivedFilters,
+		onFiltersChange,
+		onResetFilters,
+		includeOnlyAvailablesFilter = false,
+	}: Props = $props();
 
 	let filters = $derived(receivedFilters);
 
@@ -69,6 +76,21 @@
 				onFiltersChange({ ...filters });
 			}}
 		/>
+		{#if includeOnlyAvailablesFilter}
+			<div class="only-availables-field">
+				<label for="only-availables"
+					><input
+						type="checkbox"
+						id="only-availables"
+						checked={filters.onlyAvailables}
+						oninput={(event: Event) => {
+							filters.onlyAvailables = (event.target as HTMLInputElement).checked;
+							onFiltersChange({ ...filters });
+						}}
+					/>Ver Solo disponibles
+				</label>
+			</div>
+		{/if}
 		<button onclick={() => onResetFilters()}>Limpiar Filtros</button>
 	</div>
 </Container>
@@ -91,6 +113,20 @@
 		select {
 			width: 200px;
 			padding: var(--spacing-sm);
+		}
+
+		.only-availables-field {
+			label {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: start;
+				gap: var(--spacing-sm);
+				cursor: pointer;
+				input {
+					min-width: auto;
+				}
+			}
 		}
 	}
 </style>

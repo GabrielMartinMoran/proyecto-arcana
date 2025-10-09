@@ -34,4 +34,17 @@ export const CONFIG = {
 	GM_MANUAL_PATH: '/docs/gm.md',
 
 	BASE_URL: 'https://gabrielmartinmoran.github.io/proyecto-arcana',
+
+	ATTR_NAME_MAP: {
+		body: 'Cuerpo',
+		reflexes: 'Reflejos',
+		mind: 'Mente',
+		instinct: 'Instinto',
+		presence: 'Presencia',
+	},
+
+	LINEAGE_REQUIREMENT: 'Solo Creación de Personaje',
+	MAX_CARDS_TO_INCLUDE_LINEAGES: 4,
+	MAX_LINEAGE_CARDS: 2,
+	LINEAGE_CARD_TAG: 'Linaje',
 };

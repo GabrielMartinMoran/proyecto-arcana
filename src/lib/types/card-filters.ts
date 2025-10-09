@@ -3,4 +3,5 @@ export type CardFilters = {
 	level: number[];
 	tags: string[];
 	type: string;
+	onlyAvailables?: boolean;
 };

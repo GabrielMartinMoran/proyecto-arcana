@@ -3,11 +3,18 @@ import { page } from '$app/state';
 import type { CardFilters } from '$lib/types/card-filters';
 
 export const useCardFiltersService = () => {
-	const buildEmptyFilters = (): CardFilters => ({
+	const buildEmptyFilters = (
+		{
+			onlyAvailables,
+		}: {
+			onlyAvailables?: boolean;
+		} = { onlyAvailables: undefined },
+	): CardFilters => ({
 		name: '',
 		level: [],
 		tags: [],
 		type: '',
+		onlyAvailables,
 	});
 
 	const getFiltersFromURL = (): CardFilters => {

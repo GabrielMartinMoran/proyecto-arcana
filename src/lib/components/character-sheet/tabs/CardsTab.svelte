@@ -33,7 +33,7 @@
 
 	const { buildEmptyFilters } = useCardFiltersService();
 
-	let filters: CardFilters = $state(buildEmptyFilters());
+	let filters: CardFilters = $state(buildEmptyFilters({ onlyAvailables: true }));
 
 	let allCards: Card[] = $state([]);
 
@@ -87,12 +87,12 @@
 		filters = newFilters;
 		addCardModalState = {
 			...addCardModalState,
-			filteredCards: filterCards(addCardModalState.allCards, filters),
+			filteredCards: filterCards(addCardModalState.allCards, filters, character),
 		};
 	};
 
 	const onResetFilters = () => {
-		onFiltersChange(buildEmptyFilters());
+		onFiltersChange(buildEmptyFilters({ onlyAvailables: true }));
 	};
 
 	const openAddCardModal = (type: 'ability' | 'item') => {
@@ -100,7 +100,7 @@
 			const modalCards = type === 'ability' ? get(abilityCardsStore) : get(itemCardsStore);
 			addCardModalState = {
 				opened: true,
-				filteredCards: modalCards,
+				filteredCards: filterCards(modalCards, filters, character),
 				allCards: modalCards,
 			};
 		}, 0);
@@ -172,6 +172,7 @@
 			{onFiltersChange}
 			{onResetFilters}
 			{filters}
+			includeOnlyAvailablesFilter={true}
 		/>
 		<div class="cards-viewport">
 			{#if addCardModalState.filteredCards.length > 0}
@@ -192,6 +193,10 @@
 		</div>
 	</div>
 	<div class="footer">
+		<span class="results-count"
+			>{addCardModalState.filteredCards.length}
+			{addCardModalState.filteredCards.length === 1 ? 'resultado' : 'resultados'}</span
+		>
 		<button onclick={closeAddCardModal}>Cerrar</button>
 	</div>
 </div>
@@ -231,6 +236,10 @@
 			gap: var(--spacing-md);
 			padding-top: var(--spacing-md);
 
+			.results-count {
+				padding: var(--spacing-xs);
+			}
+
 			.cards-viewport {
 				height: 400px;
 				overflow-y: scroll;
@@ -240,7 +249,7 @@
 		.footer {
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
+			justify-content: space-between;
 			align-items: center;
 			padding: var(--spacing-sm);
 		}

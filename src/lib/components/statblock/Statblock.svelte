@@ -3,15 +3,8 @@
 	import type { Creature, CreatureAttack } from '$lib/types/creature';
 	import { parseCreatureDamageExpression } from '$lib/utils/dice-rolling';
 	import { capitalize } from '$lib/utils/formatting';
+	import { CONFIG } from '../../../config';
 	import CreatureAction from './CreatureAction.svelte';
-
-	const ATTR_NAME_MAP = {
-		body: 'Cuerpo',
-		reflexes: 'Reflejos',
-		mind: 'Mente',
-		instinct: 'Instinto',
-		presence: 'Presencia',
-	};
 
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
@@ -64,12 +57,15 @@
 		<div class="attributes">
 			{#each ['body', 'reflexes', 'mind', 'instinct', 'presence'] as attribute (attribute)}
 				<div class="attribute">
-					<strong>{ATTR_NAME_MAP[attribute]}</strong>
+					<strong>{CONFIG.ATTR_NAME_MAP[attribute]}</strong>
 					<div class="score">
 						<span>{creature.attributes[attribute]}</span>
 						<button
 							onclick={() =>
-								roll(`1d6e+${ATTR_NAME_MAP[attribute]}`, capitalize(ATTR_NAME_MAP[attribute]))}
+								roll(
+									`1d6e+${CONFIG.ATTR_NAME_MAP[attribute]}`,
+									capitalize(CONFIG.ATTR_NAME_MAP[attribute]),
+								)}
 							title="Tirar"
 						>
 							🎲
