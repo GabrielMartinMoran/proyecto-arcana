@@ -71,6 +71,12 @@
 		await rollExpression({ expression });
 	};
 
+	const copyLog = (log: RollLog) => {
+		const toCopy = `${log.total} (${log.detail})`.replace(/<\/?[^>]+(>|$)/g, '');
+		navigator.clipboard.writeText(toCopy);
+		alert('Resultado copiado al portapapeles');
+	};
+
 	onMount(() => {
 		// Scroll to bottom on initial mount
 		setTimeout(() => {
@@ -89,11 +95,13 @@
 		{#each $rollLogs as log (log.id)}
 			<div class="log-item">
 				<span class="title">{log.title}</span>
-				{#if log.formattedTotal}
-					{@html log.formattedTotal}
-				{:else}
-					<span class="total">{log.total}</span>
-				{/if}
+				<div class="total-container" onclick={() => copyLog(log)} title="Copiar resultado">
+					{#if log.formattedTotal}
+						{@html log.formattedTotal}
+					{:else}
+						<span class="total">{log.total}</span>
+					{/if}
+				</div>
 				<span class="detail">{@html log.detail}</span>
 			</div>
 		{:else}
@@ -183,26 +191,30 @@
 					font-size: 0.9rem;
 				}
 
-				:global(.total) {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					border-radius: var(--radius-md);
-					border: 1px solid var(--border-color);
-					padding: var(--spacing-xs);
-					font-weight: 600;
-					background-color: var(--disabled-bg);
+				.total-container {
+					cursor: pointer;
 
-					&.success {
-						/* Used by the children when custom formatting the total */
-						color: var(--success-color);
+					:global(.total) {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border-radius: var(--radius-md);
+						border: 1px solid var(--border-color);
+						padding: var(--spacing-xs);
 						font-weight: 600;
-					}
+						background-color: var(--disabled-bg);
 
-					&.failure {
-						/* Used by the children when custom formatting the total */
-						color: var(--failure-color);
-						font-weight: 600;
+						&.success {
+							/* Used by the children when custom formatting the total */
+							color: var(--success-color);
+							font-weight: 600;
+						}
+
+						&.failure {
+							/* Used by the children when custom formatting the total */
+							color: var(--failure-color);
+							font-weight: 600;
+						}
 					}
 				}
 

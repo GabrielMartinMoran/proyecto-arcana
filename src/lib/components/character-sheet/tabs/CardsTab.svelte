@@ -241,7 +241,7 @@
 			}
 
 			.cards-viewport {
-				height: 400px;
+				height: 600px;
 				overflow-y: scroll;
 			}
 		}
@@ -255,6 +255,18 @@
 		}
 	}
 
+	@media screen and (max-width: 850px) {
+		.cards-viewport {
+			height: 500px !important;
+		}
+	}
+
+	@media screen and (max-width: 640px) {
+		.cards-viewport {
+			height: 400px !important;
+		}
+	}
+
 	@media screen and (max-width: 1280px) {
 		.add-card-modal {
 			width: 95%;
@@ -264,6 +276,12 @@
 	@media screen and (min-width: 1600px) {
 		.add-card-modal {
 			width: 1000px;
+		}
+	}
+
+	@media screen and (min-width: 1800px) {
+		.add-card-modal {
+			width: 1200px;
 		}
 	}
 
