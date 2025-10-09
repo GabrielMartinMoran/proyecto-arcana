@@ -26,19 +26,23 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 
 **Cuerpo:**
 
-- **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias, nadar en aguas turbulentas o forzar un obstáculo físico.
+- **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias o nadar en aguas turbulentas.
+- **Fuerza Bruta:** Se usa para aplicar tu poderío físico sin refinamiento para superar un obstáculo. Incluye actos de fuerza explosiva como derribar una puerta, levantar un portón pesado o doblar barrotes.
+- **Aguante:** Mide tu capacidad para soportar el agotamiento, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para realizar marchas forzadas durante días, soportar climas extremos sin el equipo adecuado, aguantar la respiración bajo el agua, resistir los efectos del alcohol o el cansancio para no quedarte dormido, y para sobreponerse al dolor en un interrogatorio físico.
 
 **Reflejos:**
 
 - **Acrobacias:** Mide tu capacidad para mantener el equilibrio, realizar piruetas, caer de pie y escapar de ataduras.
 - **Juego de Manos:** Para acciones que requieren destreza manual fina y discreta, como robar bolsillos, plantar un objeto en alguien o realizar trucos de prestidigitación.
 - **Sigilo:** Determina tu éxito al moverte en silencio y evitar ser visto.
+- **Pilotaje:** Mide tu pericia para controlar monturas y vehículos, especialmente bajo presión. Se utiliza para guiar un carruaje en una persecución a alta velocidad por las calles de una ciudad, para maniobrar una embarcación en aguas turbulentas, o para realizar giros cerrados y maniobras complejas con una montura en el fragor de la batalla.
 
 **Mente:**
 
-- **Arcano:** Mide tu conocimiento sobre conjuros, objetos mágicos, tradiciones arcanas, planos de existencia y las criaturas que los habitan.
+- **Conocimiento Arcano:** Mide tu conocimiento sobre conjuros, objetos mágicos, tradiciones arcanas, planos de existencia y las criaturas que los habitan.
 - **Historia:** Refleja tu conocimiento sobre eventos pasados, reinos legendarios, dinastías antiguas y personajes históricos.
 - **Investigación:** Representa tu capacidad para deducir, encontrar pistas ocultas, descifrar códigos y conectar información a partir de la evidencia.
+- **Naturaleza:** Mide tu conocimiento sobre flora y fauna, ecosistemas, venenos naturales y remedios herbales.
 
 **Instinto:**
 
@@ -65,15 +69,41 @@ A partir de tus atributos, se calculan otros valores esenciales para tu personaj
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
 - **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
 
-## Paso 4: Cartas Iniciales
+## Paso 4: Definiendo tu Linaje
+
+En ARCANA, tu herencia no está escrita en piedra; se forja con tus elecciones. No existen "razas" fijas, sino ancestros cuyo poder fluye a través de las Cartas de Linaje. Las etiquetas de estas cartas (como Humano, Elfo, Dracónido, etc.) son los bloques con los que construirás la historia de tus orígenes.
+
+Durante la creación, puedes elegir hasta dos cartas de linaje. La combinación que elijas define narrativamente la naturaleza de tu herencia:
+
+### Linaje Puro
+
+Esto ocurre si eliges una única carta de linaje, o dos cartas que comparten la misma etiqueta de ancestro (por ejemplo, ambas con la etiqueta Elfo).
+En este caso, tu personaje es un representante arquetípico de su pueblo. Sus rasgos son puros y fácilmente reconocibles, y probablemente fue criado inmerso en la cultura y las tradiciones de su gente.
+Por ejemplo, un personaje con Gracia Élfica y Trance Élfico es, sin duda, un elfo de linaje puro, alguien que encarna las virtudes ancestrales de su pueblo.
+
+### Linaje Híbrido
+
+Este tipo de linaje se da cuando eliges dos cartas de linaje con etiquetas de ancestro diferentes (por ejemplo, una Humano y otra Enano).
+Aquí, tu personaje es un puente entre dos mundos. Quizás eres un "semi-elfo" literal, un humano criado por enanos, el resultado de un pacto ancestral o alguien cuya sangre mixta es una fuente tanto de fortaleza como de conflicto. Esta es una oportunidad para crear una historia de origen única.
+Por ejemplo, personaje con Ambición Tenaz (Humano) y Voluntad de Hierro (Enano) podría ser un humano que creció en una ciudadela enana, adoptando la tenacidad y resiliencia de sus mentores.
+
+### Linaje Desconocido o Mundano
+
+Esto ocurre si decides no elegir ninguna carta de linaje durante la creación del personaje, prefiriendo usar tus 5 elecciones iniciales en otras cartas.
+En esta ocasión, tu personaje es un lienzo en blanco, definido por sus talentos y su entrenamiento, no por su sangre. Podría ser un huérfano sin conocimiento de sus padres, un ser creado artificialmente, o simplemente alguien cuya familia no poseía rasgos extraordinarios. Tu poder es tuyo, forjado, no heredado.
+Por ejemplo, un personaje que ignora las cartas de linaje para elegir Vigor y Peleador Callejero es un individuo definido por su propia dureza y experiencia en las calles, no por un ancestro mágico.
+
+La elección es tuya, y define el punto de partida de la historia de tu personaje.
+
+## Paso 5: Cartas Iniciales
 
 Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empezar, elige o recibe del DJ **5 cartas iniciales de Nivel 1**. Estas 5 cartas forman tu **Colección** inicial. Al crear el personaje, solo se pueden adquirir cartas de Nivel 1.
 
-## Paso 5: Equipo Inicial
+## Paso 6: Equipo Inicial
 
 Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#8 Equipo y Economía** encontrarás una lista de precios y objetos.
 
-## Paso 6: Lenguas
+## Paso 7: Lenguas
 
 Las lenguas determinan con quién puedes comunicarte y qué textos puedes comprender.
 
