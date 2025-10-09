@@ -1816,8 +1816,8 @@ cards:
     requirements:
       - Bálsamo Natural
     description: >-
-      Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:
-      - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.
+      Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br>
+      - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.<br>
       - **Bendición Protectora:** La criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Veneno y Enfermedad durante los próximos 10 minutos.
     uses:
       type: RELOAD
