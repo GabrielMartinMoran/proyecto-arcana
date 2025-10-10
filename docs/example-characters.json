@@ -138,7 +138,7 @@
 				"reason": "Gracia Silvana"
 			}
 		],
-		"currentHP": 12,
+		"currentHP": 11,
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/PowTha4.png",
@@ -400,7 +400,7 @@
 				"attribute": "physicalMitigation"
 			}
 		],
-		"currentHP": 25,
+		"currentHP": 24,
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/fTHFBLs.png",
