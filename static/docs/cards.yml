@@ -2027,7 +2027,7 @@ cards:
       - Don del Elocuente
     description: >-
       Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.
-      El aliado obtiene un dado de 1d4 (dado de inspiración) que puede añadir a una
+      El aliado obtiene un dado de 1d2 (dado de inspiración) que puede añadir a una
       Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación en los próximos 10 minutos.
     uses:
       type: RELOAD
@@ -2057,7 +2057,7 @@ cards:
       - Canto de Inspiración
       - Presencia 3
     description: >-
-      El dado de tu _Canto de Inspiración_ aumenta a 1d6.
+      El dado de tu _Canto de Inspiración_ aumenta a 1d4.
     uses:
       type: null
       qty: 0
@@ -2100,7 +2100,7 @@ cards:
       - Inspiración Mejorada
       - Presencia 4
     description: >-
-      Ahora puedes utilizar tu _Canto de Inspiración_ como una reacción con un aliado que falle una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación.<br>
+      La dificultad de recarga de tu _Canto de Inspiración_ se reduce a 2+.<br>
       Además, si alguien usa tu dado de inspiración y aun así falla la tirada, no lo pierde.
     uses:
       type: null
@@ -2133,7 +2133,7 @@ cards:
       - Presencia 4
       - Mente 3
     description: >-
-      Elige una carta de Conjuro de Nivel 2 o inferior de la lista del Arcanista, Sacerdote o Druida.
+      Elige una carta de Conjuro de Nivel 3 o inferior de la lista del Arcanista, Sacerdote o Druida.
       Añades esa carta a tu colección. Cuenta como una carta de Bardo para ti y usa Presencia
       como tu atributo principal para lanzarla. Debes cumplir cualquier requisito de Atributo que tenga la carta elegida.
     uses:
@@ -2151,7 +2151,7 @@ cards:
       - Cuerpo 2
     description: >-
       Puedes usar armaduras de Cota de Mallas sin sufrir su penalizador a la Esquiva.
-      Además, puedes usar tu Canto de Inspiración en ti mismo.
+      Además, puedes usar tu _Canto de Inspiración_ en ti mismo.
     uses:
       type: null
       qty: 0
@@ -2165,7 +2165,7 @@ cards:
       - Inspiración Marcial
       - Canto de Inspiración
     description: >-
-      Cuando un aliado (o tú mismo) vaya a usar tu dado de Canto de Inspiración en una tirada de
+      Cuando un aliado (o tú mismo) vaya a usar tu dado de _Canto de Inspiración_ en una tirada de
       ataque con arma, puede elegir añadir el resultado a la tirada de daño en su lugar.
     uses:
       type: null
@@ -2196,7 +2196,7 @@ cards:
       - Inspiración Marcial
     description: >-
       Tu arte y tu acero son uno. Una vez por turno, cuando impactas a un enemigo con un ataque con arma, puedes gastar
-      un uso de tu `Canto de Inspiración` para realizar un segundo ataque con arma como parte de la misma Acción.
+      un uso de tu _Canto de Inspiración_ para realizar un segundo ataque con arma como parte de la misma Acción.
     uses:
       type: null
       qty: 0
