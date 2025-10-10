@@ -244,10 +244,13 @@ El funcionamiento de las cartas se divide en dos conceptos clave:
 - **La Colección:** Es el repertorio completo de habilidades que tu personaje ha aprendido a lo largo de sus aventuras.
 - **Cartas Activas:** De tu Colección, eliges un número limitado de cartas para tener "activas" y listas para usar. Este número es igual a tus **Ranuras de Cartas Activas**.
 
-> **Regla de Oro:**
+> **Regla de Oro: Los Tipos de Carta**
 >
-> - Las cartas de **Efecto** funcionan de forma pasiva mientras estén en tu **Colección**.
-> - Las cartas **Activables** requieren estar en una **Ranura de Carta Activa** para poder usarse.
+> Hay dos tipos de cartas que se diferencian principalmente en su modo de funcionamiento:
+>
+> **Efecto:** Una carta de Efecto está **siempre disponible** con solo tenerla en tu **Colección**. Puede proporcionar un beneficio pasivo y constante (como aumentar tu Salud) o darte una capacidad que puedes usar en momentos específicos (como un truco de magia menor). No consume Ranuras de Cartas Activas.
+>
+> **Activable:** Una carta Activable representa una habilidad que requiere preparación y enfoque para ser usada con rapidez. Para poder utilizarla, **debe estar equipada en una de tus Ranuras de Cartas Activas**.
 
 ## Activar y Cambiar Cartas
 

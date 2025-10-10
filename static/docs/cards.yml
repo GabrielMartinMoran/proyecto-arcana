@@ -574,8 +574,7 @@ cards:
     requirements:
       - Reflejos 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Habilidad relacionadas con Sigilo
-      y Juegos de Manos.
+      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.
     uses:
       type: null
       qty: 0
@@ -823,7 +822,7 @@ cards:
     requirements:
       - Cuerpo 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Atletismo.
+      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.
     uses:
       type: null
       qty: 0
@@ -1122,13 +1121,13 @@ cards:
     requirements:
       - Mente 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de conocimiento mágico (Arcano).
+      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.
     uses:
       type: null
       qty: 0
   - name: Prestidigitación Arcana
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Arcanista
       - Conjuro
@@ -1181,7 +1180,7 @@ cards:
     requirements:
       - Afinidad Arcana
     description: >-
-      Usas tu Interacción para crear una ilusión menor no tangible (un sonido, una imagen estática, un olor).
+      Usas tu Interacción para crear una ilusión menor no tangible (un sonido, una imagen estática, un olor).<br>
       Alternativamente, como Acción, puedes cubrir a un aliado en un velo de sombras para otorgarle Ventaja (+1d4)
       en la próxima prueba de Sigilo que realice en el próximo minuto, siempre que esté a distancia Cercana de ti.
     uses:
@@ -1427,14 +1426,13 @@ cards:
     requirements:
       - Instinto 2
     description: >-
-      Obtienes Ventaja en pruebas de asociadas a temas religiosos y en pruebas de Presencia
-      para interactuar con fieles de tu misma fe.
+      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.
     uses:
       type: null
       qty: 0
   - name: Taumaturgia Divina
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Sacerdote
       - Conjuro
@@ -1709,13 +1707,13 @@ cards:
     requirements:
       - Instinto 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Trato con Animales.
+      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.
     uses:
       type: null
       qty: 0
   - name: Truco Druídico
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Druida
       - Conjuro
@@ -2030,10 +2028,10 @@ cards:
     description: >-
       Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.
       El aliado obtiene un dado de 1d4 (dado de inspiración) que puede añadir a una
-      Prueba de Habilidad, ataque o Tirada de Salvación en los próximos 10 minutos.
+      Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación en los próximos 10 minutos.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Palabras Hirientes
     level: 1
     type: activable
@@ -2059,7 +2057,7 @@ cards:
       - Canto de Inspiración
       - Presencia 3
     description: >-
-      El dado de tu Canto de Inspiración aumenta a 1d6.
+      El dado de tu _Canto de Inspiración_ aumenta a 1d6.
     uses:
       type: null
       qty: 0
@@ -2102,8 +2100,8 @@ cards:
       - Inspiración Mejorada
       - Presencia 4
     description: >-
-      El dado de tu Canto de Inspiración aumenta a 1d8. Además, si un aliado usa
-      tu dado de inspiración y aun así falla la tirada, no lo pierde.
+      Ahora puedes utilizar tu _Canto de Inspiración_ como una reacción con un aliado que falle una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación.<br>
+      Además, si alguien usa tu dado de inspiración y aun así falla la tirada, no lo pierde.
     uses:
       type: null
       qty: 0
