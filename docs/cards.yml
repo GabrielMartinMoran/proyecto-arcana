@@ -733,7 +733,7 @@ cards:
     requirements:
       - Senda del Bribón
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Juego de Manos para abrir cerraduras o desactivar mecanismos.
+      Cuando fallas una prueba de Juego de Manos para tratar de hurtar, abrir una cerradura o desactivar una trampa, en caso de pifia, solamente fallas, sin obtener consecuencias negativas adicionales.
     uses:
       type: null
       qty: 0
@@ -747,8 +747,9 @@ cards:
       - Manos Hábiles
       - Mente 2
     description: >-
-      Tienes Ventaja en las pruebas de Instinto (Percepción) para detectar trampas. Si fallas una prueba
-      para desarmar una trampa por 4 o menos, evitas que se active.
+      Tienes Ventaja en las pruebas de Instinto (Percepción) para detectar trampas.<br>
+      Además, tienes la capacidad de desarmar trampas temporalmente (tu decides aproximadamante cuanto tiempo dura la desactivacón).
+      Pasado ese tiempo, la trampa vuelve a estar activa y no hay rastro de tu trabajo.
     uses:
       type: null
       qty: 0
