@@ -1780,9 +1780,13 @@ cards:
     requirements:
       - Sintonía Primordial
     description: >-
-      Te transformas en una bestia Pequeña no combatiente (como un gato, una rata o un cuervo) durante 1 hora.
-      En esta forma, no puedes atacar ni lanzar conjuros, pero adoptas los sentidos y las formas de movimiento de la criatura.
-      La transformación termina prematuramente si caes en el estado `Inconsciente`.
+      Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo) durante 1 hora. Tu equipo se funde con tu nueva forma y no puedes usarlo.
+      En esta forma:<br>
+      - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**.<br>
+      - Tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - No puedes hablar, atacar ni lanzar conjuros, pero conservas los beneficios de tus cartas de **Efecto** y de las cartas **Activables** que ya tuvieras activas antes de transformarte.<br>
+      - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un olfato agudo).<br>
+      La transformación termina antes si caes Inconsciente o si decides revertirla (no requiere acción).
     uses:
       type: LONG_REST
       qty: 2
@@ -1794,13 +1798,17 @@ cards:
     requirements:
       - Forma Salvaje
     description: >-
-      Cuando usas tu _Forma Salvaje_, ahora también puedes elegir transformarte en una bestia de combate Mediana (como un lobo, jabalí o pantera) durante 1 minuto.
-      Al hacerlo, eliges dos de los siguientes beneficios que se ajusten a la bestia elegida:<br>
-      - **Vitalidad Primitiva:** Ganas 10 Puntos de Salud temporales.<br>
-      - **Armas Naturales:** Tus ataques sin arma usan tu Instinto para impactar e infligen 1d8 de daño.<br>
+      Tu dominio sobre la transformación te permite adoptar una forma de combate. Esta carta mejora tu _Forma Salvaje_ de las siguientes maneras:<br>
+      - Obtienes **un uso adicional** de _Forma Salvaje_ por día de descanso.<br>
+      - Puedes activar tu _Forma Salvaje_ para transformarte en una bestia de combate Mediana usando tu **Interacción** en lugar de tu Acción. La duración es de 1 minuto.<br>
+      - En esta forma de combate, tanto tu **Cuerpo** como tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - Tus ataques sin arma (garras, fauces, etc.) infligen **1d6** de daño (puedes elegir Contundente, Cortante o Perforante al transformarte).<br>
+      Además, al transformarte en tu aspecto combativo, eliges **dos** de los siguientes beneficios:<br>
+      - **Vitalidad Primitiva:** Ganas Puntos de Salud temporales igula a dos veces tu puntuación de **Instinto**.<br>
+      - **Ataque Brutal:** El daño de tus ataques sin arma aumenta a **1d8**.<br>
       - **Pellejo Grueso:** Ganas +1 de Mitigación Física.<br>
-      - **Agilidad Depredadora:** Tu Velocidad base aumenta en 2 metros y el terreno difícil no te cuesta movimiento extra.<br>
-      - **Embestida Feroz:** Si te mueves al menos 5 metros en línea recta hacia un objetivo, tu siguiente ataque contra él en ese turno tiene Ventaja (+1d4).
+      - **Agilidad Depredadora:** Tu Velocidad aumenta en 2 metros y el terreno difícil no te cuesta movimiento extra.<br>
+      - **Embestida Feroz:** Si te mueves al menos 5 metros en línea recta hacia un objetivo, tu siguiente ataque contra él ese turno tiene Ventaja (+1d4).
     uses:
       type: null
       qty: 0
@@ -1997,7 +2005,7 @@ cards:
     requirements:
       - Aspecto Combativo
     description: >-
-      Cuando usas _Forma Salvaje_ para transformarte en una bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las siguientes opciones adicionales:<br>
+      Adquieres un uso adicional de tu _Forma Salvaje_. Además, cuando usas tu _Forma Salvaje_ para transformarte en una bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las siguientes opciones adicionales:<br>
       - **Furia Primordial:** Puedes realizar dos ataques con tu Acción en lugar de uno.<br>
       - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas +10 Puntos de Salud temporales adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br>
       - **Rugido Aterrador (Recarga 5+):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una TS de Instinto (ND 4 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br>
