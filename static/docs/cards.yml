@@ -672,7 +672,7 @@ cards:
     requirements:
       - Estilo Audaz
     description: >-
-      Como Acción, eliges a un enemigo que pueda verte a distancia Cercana y lo desafías.
+      Como interacción, eliges a un enemigo que pueda verte a distancia Cercana y lo desafías.
       Debe superar una TS de Instinto (ND 4+Presencia) o tener Desventaja (-1d4)
       en todos sus ataques contra objetivos que no seas tú hasta tu próximo turno.
     uses:
