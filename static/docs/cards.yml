@@ -851,9 +851,9 @@ cards:
       Entras en furia por 1 minuto o hasta que quedes inconsciente.
       Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.
       Además, mientras dure la furia, puedes usar tu atributo de **Cuerpo** en lugar de
-      **Presencia** para las pruebas de **Intimidación**.
+      **Presencia** para las pruebas de **Intimidación**.<br>
       No puedes razonar correctamente, mantener concentración ni usar cartas de Magia mientras dure.
-      Además, en caso de no recibir una agresión o agredir a alguien durante una ronda, el efecto termina.
+      En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, el efecto termina.
     uses:
       type: LONG_REST
       qty: 2
