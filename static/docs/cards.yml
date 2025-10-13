@@ -733,7 +733,7 @@ cards:
     requirements:
       - Senda del Bribón
     description: >-
-      Cuando fallas una prueba de Juego de Manos para tratar de hurtar, abrir una cerradura o desactivar una trampa, en caso de pifia, solamente fallas, sin obtener consecuencias negativas adicionales.
+      Cuando fallas una prueba de Juego de Manos para tratar de hurtar, abrir una cerradura o desactivar una trampa (incluso en caso de pifia), no ocurren consecuencias negativas adicionales.
     uses:
       type: null
       qty: 0
