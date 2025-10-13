@@ -620,7 +620,7 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 | Brigantina      | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 150 o  |
 | Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 3              | 400 o  |
 | Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
-| Escudo          | 0                 | +1      | 0                   | Cuerpo 2 y Mano libre | 10 o   |
+| Escudo          | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
 
 ## Equipo de Aventura y Servicios
 

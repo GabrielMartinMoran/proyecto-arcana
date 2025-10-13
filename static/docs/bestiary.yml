@@ -329,7 +329,7 @@ creatures:
     img: https://i.imgur.com/w5QQCP6.png
 
   - name: Esqueleto
-    na: 2
+    na: 1
     attributes:
       cuerpo: 2
       reflejos: 3
@@ -339,8 +339,8 @@ creatures:
     stats:
       salud: 8 # Masilla
       esquiva:
-        value: 8
-        note: Escudo
+        value: 7
+        note: null
       mitigacion:
         value: 0
         note: null
