@@ -835,8 +835,7 @@ cards:
     requirements:
       - Sintonía con el Acero
     description: >-
-      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d6
-      + tu valor de Cuerpo.
+      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Cuerpo.
     uses:
       type: LONG_REST
       qty: 2
@@ -1233,6 +1232,22 @@ cards:
     uses:
       type: RELOAD
       qty: 3
+  - name: Coraza Vital
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Abjuración
+      - Ritual
+    requirements:
+      - Afinidad Arcana
+    description: >-
+      Concentras tu poder arcano en una coraza espectral que absorbe el daño que recibes.
+      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Mente.
+    uses:
+      type: RELOAD
+      qty: 5
   - name: Detectar Magia
     level: 1
     type: activable
@@ -1328,7 +1343,7 @@ cards:
       - Armadura de Mago
     description: >-
       Como Reacción, cuando eres objetivo de un ataque de conjuro o efecto mágico que te infligiría daño,
-      puedes crear un escudo temporal. Ganas Mitigación Mágica igual a 5 + tu Mente contra ese efecto.
+      puedes crear un escudo temporal. Ganas Mitigación Mágica igual a dos veces tu puntuación de Mente contra ese daño.
     uses:
       type: RELOAD
       qty: 4
@@ -1455,7 +1470,7 @@ cards:
     requirements:
       - Fe Inspiradora
     description: >-
-      Tocas a una criatura y esta recupera 1d6 Puntos de Salud. Alternativamente,
+      Tocas a una criatura y esta recupera 1d8 Puntos de Salud. Alternativamente,
       puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
     uses:
       type: RELOAD
