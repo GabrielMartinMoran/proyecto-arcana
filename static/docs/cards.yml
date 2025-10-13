@@ -672,7 +672,7 @@ cards:
     requirements:
       - Estilo Audaz
     description: >-
-      Como interacción, eliges a un enemigo que pueda verte a distancia Cercana y lo desafías.
+      Como Interacción, eliges a un enemigo que pueda verte a distancia Cercana y lo desafías.
       Debe superar una TS de Instinto (ND 4+Presencia) o tener Desventaja (-1d4)
       en todos sus ataques contra objetivos que no seas tú hasta tu próximo turno.
     uses:
@@ -2084,8 +2084,21 @@ cards:
     uses:
       type: LONG_REST
       qty: 3
+  - name: Palabra de Esperanza
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements:
+      - Don del Elocuente
+    description: >-
+      Como Interacción, le dices una frase corta esperanzadora a una criatura a distancia Cercana que pueda oirte. La criatura recupera 1d4 puntos de salud.
+    uses:
+      type: RELOAD
+      qty: 3
   - name: Hechizar Persona
-    level: 2
+    level: 1
     type: activable
     tags:
       - Bardo
@@ -2093,10 +2106,10 @@ cards:
       - Concentración
     requirements:
       - Don del Elocuente
-      - Presencia 3
     description: >-
       Intentas encantar a un humanoide a distancia Cercana. Debe superar una TS de Instinto
-      (ND 4+Presencia) o quedar Encantado por ti durante 1 hora.
+      (ND 4+Presencia, con ventaja si tu o tus compañeros estan combatiendo contra la criatura) o quedar Encantado por ti durante 10 minutos.
+      Mientras este bajo este efecto, su postura hacia ti es amigable y como mínino tendra en cuenta tus peticiones o sugerencias.
     uses:
       type: LONG_REST
       qty: 2
