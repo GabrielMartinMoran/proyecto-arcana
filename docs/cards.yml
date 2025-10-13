@@ -14,7 +14,7 @@ cards:
     uses:
       type: null
       qty: 0
-  - name: Ambición Tenaz
+  - name: Enfoque Adaptable
     level: 1
     type: efecto
     tags:
@@ -23,7 +23,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Aprendes de tus experiencias a una velocidad asombrosa. Cada vez que gastas Puntos de Progreso (PP), reduces el coste total en 1 PP (hasta un mínimo de 1 PP).
+      Tu mente es flexible y se adapta rápidamente a nuevos desafíos. Una vez por día de descanso, puedes tomarte 10 minutos de concentración para cambiar una de tus cartas activas por otra de tu Colección.
     uses:
       type: null
       qty: 0
