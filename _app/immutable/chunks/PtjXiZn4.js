@@ -1,4 +1,4 @@
-import{m as c}from"./DemwCk8g.js";import{l as $}from"./CGjaQNWU.js";import{m as r,a as d}from"./BtSkwSql.js";import{r as g}from"./BYSwqH0p.js";const i=async s=>await(await fetch(g(s))).text(),p=s=>{let t="";return t+=`# ${s.name}
+import{m as c}from"./DemwCk8g.js";import{l as $}from"./CGjaQNWU.js";import{m as r,a as d}from"./BtSkwSql.js";import{r as g}from"./C0Eb1h3l.js";const i=async s=>await(await fetch(g(s))).text(),p=s=>{let t="";return t+=`# ${s.name}
 
 `,t+=`**NA:** ${s.na}
 

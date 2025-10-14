@@ -138,6 +138,12 @@ Lenguas de planos, lo salvaje o tradiciones arcanas. Suelen requerir estudio, gu
 - **Umbral**: Lengua de sombras y espectros; vinculada al Plano de la Penumbra y a la necromancia.
 - **Arcaico**: Antigua lengua erudita de reinos perdidos; frecuente en inscripciones y crónicas.
 
+### Lenguas Secretas o de Oficio
+
+No son idiomas completos, sino sistemas de comunicación especializados usados por gremios, sociedades secretas u organizaciones para ocultar información a simple vista.
+
+- **Jerga de Ladrones**: No es un idioma formal que se hable abiertamente, sino una compleja mezcla de argot, gestos sutiles y símbolos crípticos que se usan para transmitir información de forma encubierta. Se integra en conversaciones en Común, haciendo que los mensajes pasen desapercibidos para los no iniciados. Permite señalar un negocio corrupto, advertir de la presencia de la guardia, identificar a un posible objetivo o reconocer a otro miembro del gremio. Conocerla implica poder entender y usar estos códigos, pero no leer o escribir textos complejos.
+
 ## Paso 7: Dando Vida a tu Personaje
 
 Ya tenés definidos los números y las cartas que representan las capacidades de tu personaje, pero, ¿quién es realmente? ARCANA es un juego centrado en la historia, y los personajes más memorables son aquellos que se sienten como personas reales.
