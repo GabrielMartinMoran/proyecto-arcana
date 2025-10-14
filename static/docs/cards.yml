@@ -10,7 +10,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Elige dos habilidades de la lista de ejemplos (como Atletismo, Persuasión, etc.) que representen tu crianza. Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.
+      Elige tres habilidades (como Atletismo, Persuasión, etc.) que representen tu crianza. Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas tres habilidades.
     uses:
       type: null
       qty: 0
@@ -23,7 +23,9 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Tu mente es flexible y se adapta rápidamente a nuevos desafíos. Una vez por día de descanso, puedes tomarte 10 minutos de concentración para cambiar una de tus cartas activas por otra de tu Colección.
+      Tu mente es flexible y se adapta rápidamente a nuevos desafíos. Adquieres los siguientes beneficios:<br>
+      - Una vez por día de descanso, puedes tomarte 10 minutos para cambiar una de tus cartas activas por otra de tu Colección.<br>
+      - Una vez por día de descanso, puedes utilizar una carta Activable de **Nivel 1 o 2** que no tengas activada pero que poseas en tu Colección.
     uses:
       type: null
       qty: 0
@@ -50,7 +52,8 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Reaccionas al peligro con una celeridad antinatural, anticipando las amenazas antes de que se manifiesten. Obtienes Ventaja (+1d4) en todas tus tiradas de Iniciativa. Además, no pueden sorprenderte mientras estás consciente.
+      Te mueves y reaccionas al peligro con una celeridad antinatural, anticipando las amenazas antes de que se manifiesten.
+      Tu velocidad de movimiento aumenta en 1 metro, obtienes Ventaja (+1d4) en todas tus tiradas de Iniciativa, y no pueden sorprenderte mientras estás consciente.
     uses:
       type: null
       qty: 0
@@ -63,7 +66,8 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      No necesitas dormir. Puedes entrar en un estado de meditación durante 4 horas para obtener los beneficios de un día de descanso. Además, la magia y los venenos no pueden dormirte.
+      No necesitas dormir. Puedes entrar en un estado de meditación durante 4 horas para obtener los beneficios de un día de descanso. Además, la magia y los venenos no pueden dormirte.<br>
+      Además, al finalizar tu trance, elige una habilidad en la que no tengas Ventaja. Adquieres Ventaja (+1d4) en pruebas relacionadas esa habilidad.
     uses:
       type: null
       qty: 0
@@ -205,16 +209,19 @@ cards:
       type: null
       qty: 0
   # ------------------------------ TIEFLING ------------------------------
-  - name: Sangre Guardiana
+  - name: Reprensión Infernal
     level: 1
     type: efecto
     tags:
       - Linaje
       - Tiefling
+      - Reacción
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Elige un tipo de daño elemental o mágico (como Fuego, Necrótico, etc.). Obtienes Mitigación Mágica contra ese tipo de daño igual a tu puntuación de Cuerpo.
+      Tu sangre infernal responde al dolor con fuego. Cuando una criatura que puedas ver a distancia Cercana te inflige daño, puedes usar tu **Reacción** para desatar una llamarada de Fuego profano contra ella.<br>
+      El atacante debe superar una Tirada de Salvación de **Reflejos** (ND 4 + tu Presencia). Si falla, recibe **1d6 de daño de Fuego**. Si tiene éxito, recibe la mitad del daño.<br>
+      Puedes usar esta habilidad un número de veces por día de descanso igual a tu puntuación de **Presencia**.
     uses:
       type: null
       qty: 0
@@ -319,7 +326,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Al elegir esta carta, seleccionas un tipo de ancestro dracónico de la siguiente lista. Tus escamas te protegen contra la energía elemental de tu linaje, otorgándote Mitigación Mágica 2 contra el tipo de daño asociado.<br>
+      Al elegir esta carta, seleccionas un tipo de ancestro dracónico de la siguiente lista. Tus escamas te protegen contra la energía elemental de tu linaje, otorgándote Mitigación Mágica contra el tipo de daño asociado igual a tu puntuación de **Cuerpo**.<br>
       - **Rojo, Dorado o Latón:** Fuego<br>
       - **Azul o Bronce:** Eléctrico<br>
       - **Blanco o Plateado:** Frío<br>
@@ -393,9 +400,9 @@ cards:
       - Dote
     requirements: []
     description: >-
-      Elige una habilidad (ej: Atletismo, Sigilo, etc.). Obtienes Ventaja
-      (+1d4) en las Pruebas de Habilidad que realices con ella. Debes tener al menos
-      un valor de 2 en el Atributo asociado a la habilidad elegida. Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.
+      Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de 2 o más.
+      Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br>
+      Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.
     uses:
       type: null
       qty: 0
@@ -494,7 +501,7 @@ cards:
     requirements:
       - Reflejos 3
     description: >-
-      Ignoras la propiedad Recarga de las ballestas.
+      Ignoras la propiedad Recarga de las ballestas. Además, tus ataques con ballestas ignoran el bono por cobertura parcial.
     uses:
       type: null
       qty: 0
@@ -571,10 +578,14 @@ cards:
     type: efecto
     tags:
       - Pícaro
+      - Arquetipo
     requirements:
       - Reflejos 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.
+      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br>
+      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
+      Además, aprendes la lengua Jerga de Ladrones.
+      Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
       qty: 0
@@ -654,9 +665,8 @@ cards:
     type: efecto
     tags:
       - Pícaro
-      - Duelista
     requirements:
-      - Reflejos 2
+      - Senda del Bribón
       - Presencia 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Acrobacias e Intimidación.
@@ -668,7 +678,6 @@ cards:
     type: activable
     tags:
       - Pícaro
-      - Duelista
     requirements:
       - Estilo Audaz
     description: >-
@@ -683,7 +692,6 @@ cards:
     type: activable
     tags:
       - Pícaro
-      - Duelista
       - Reacción
     requirements:
       - Estilo Audaz
@@ -729,7 +737,6 @@ cards:
     type: efecto
     tags:
       - Pícaro
-      - Infiltrador
     requirements:
       - Senda del Bribón
     description: >-
@@ -742,7 +749,6 @@ cards:
     type: efecto
     tags:
       - Pícaro
-      - Infiltrador
     requirements:
       - Manos Hábiles
       - Mente 2
@@ -788,7 +794,6 @@ cards:
     type: activable
     tags:
       - Pícaro
-      - Infiltrador
     requirements:
       - Acción Astuta
     description: >-
@@ -803,7 +808,6 @@ cards:
     type: activable
     tags:
       - Pícaro
-      - Duelista
       - Reacción
     requirements:
       - Riposta
@@ -820,10 +824,15 @@ cards:
     type: efecto
     tags:
       - Combatiente
+      - Arquetipo
     requirements:
       - Cuerpo 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.
+      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +6.
+      Además, puedes usar tu puntuación de **Cuerpo** en lugar de tu puntuación de **Presencia** al realizar pruebas de habilidad
+      de **Intimidación**.
+      Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
       qty: 0
@@ -832,6 +841,7 @@ cards:
     type: activable
     tags:
       - Combatiente
+      - Curación
     requirements:
       - Sintonía con el Acero
     description: >-
@@ -844,15 +854,12 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Bárbaro
     requirements:
       - Sintonía con el Acero
     description: >-
       Entras en furia por 1 minuto o hasta que quedes inconsciente.
-      Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.
-      Además, mientras dure la furia, puedes usar tu atributo de **Cuerpo** en lugar de
-      **Presencia** para las pruebas de **Intimidación**.<br>
-      No puedes razonar correctamente, mantener concentración ni usar cartas de Magia mientras dure.
+      Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.<br>
+      Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.
       En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, el efecto termina.
     uses:
       type: LONG_REST
@@ -877,7 +884,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Estilo de Combate
     requirements:
       - Sintonía con el Acero
       - Reflejos 3
@@ -892,7 +898,6 @@ cards:
     type: efecto
     tags:
       - Combatiente
-      - Estilo de Combate
     requirements:
       - Sintonía con el Acero
       - Cuerpo 3
@@ -907,7 +912,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Caudillo
     requirements:
       - Presencia Inspiradora
     description: >-
@@ -923,7 +927,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Estilo de Combate
       - Reacción
     requirements:
       - Sintonía con el Acero
@@ -939,7 +942,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Estilo de Combate
       - Reacción
     requirements:
       - Sintonía con el Acero
@@ -981,13 +983,13 @@ cards:
     type: efecto
     tags:
       - Combatiente
-      - Bárbaro
     requirements:
       - Furia de Batalla
     description: >-
-      Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable. Cuando activas tu _Furia de Batalla_, esta se ve potenciada con los siguientes beneficios:<br>
+      Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable.
+      Adquieres un uso adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve potenciada con los siguientes beneficios:<br>
       - **Furia Desatada:** Tus ataques con armas cuerpo a cuerpo infligen **+2 de daño adicional**.<br>
-      - **Mente Inexpugnable:** Mientras dure la Furia, obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de **Instinto** para resistir los estados de `Encantado` o efectos de miedo.<br>
+      - **Mente Inexpugnable:** Obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de **Instinto** para resistir los estados de _Encantado_ o efectos de miedo.<br>
       - **Impulso Imparable:** Tu **Velocidad** de movimiento aumenta en **2 metros**.
     uses:
       type: null
@@ -1026,9 +1028,8 @@ cards:
     type: efecto
     tags:
       - Combatiente
-      - Caudillo
     requirements:
-      - Cuerpo 2
+      - Sintonía con el Acero
       - Presencia 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Persuasión. Aliados a distancia Cercana que
@@ -1041,7 +1042,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Caudillo
     requirements:
       - Presencia Inspiradora
     description: >-
@@ -1056,7 +1056,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Caudillo
     requirements:
       - Grito de Guerra
       - Presencia 3
@@ -1072,7 +1071,6 @@ cards:
     type: efecto
     tags:
       - Combatiente
-      - Tirador
     requirements:
       - Sintonía con el Acero
       - Reflejos 3
@@ -1088,7 +1086,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Tirador
     requirements:
       - Ojo de Halcón
     description: >-
@@ -1102,7 +1099,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Tirador
     requirements:
       - Ojo de Halcón
       - Reflejos 4
@@ -1118,10 +1114,17 @@ cards:
     type: efecto
     tags:
       - Arcanista
+      - Arquetipo
     requirements:
       - Mente 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.
+      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br>
+      **Beneficio de Arquetipo:** La primera vez que activas este Beneficio de Arquetipo,
+      eliges dos cartas de Nivel 1 que deben tener las etiquetas _Arcanista_ y _Ritual_.
+      Esta elección es permanente. Las dos cartas elegidas se añaden a tu Colección,
+      pero solo tienes acceso a ellas mientras este sea tu Beneficio de Arquetipo activo.
+      Además, aprendes dos idiomas adicionales.
+      Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
       qty: 0
@@ -1145,7 +1148,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Elemental
     requirements:
       - Afinidad Arcana
     description: >-
@@ -1161,7 +1163,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Nigromancia
     requirements:
       - Afinidad Arcana
     description: >-
@@ -1170,13 +1171,27 @@ cards:
     uses:
       type: RELOAD
       qty: 2
+  - name: Ruptura Mental
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Afinidad Arcana
+    description: >-
+      Generas una perturbación mental en una criatura que puedas ver a rango Cercano.
+      La criatura debe superar una Tirada de Salvación de Mente (NA 4+Mente) o sufrir 1d6 de daño Psíquico y tener desventaja
+      en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 3
   - name: Velo de Sombras
     level: 1
     type: activable
     tags:
       - Arcanista
       - Conjuro
-      - Ilusión
     requirements:
       - Afinidad Arcana
     description: >-
@@ -1192,11 +1207,11 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Transmutación
+      - Ritual
     requirements:
       - Afinidad Arcana
     description: >-
-      Una barrera de energía te protege. Mientras no lleves armadura, obtienes un +1 de mitigación Física y Mágica. El efecto dura 8 horas.
+      Una barrera de energía te protege. Mientras no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.
     uses:
       type: LONG_REST
       qty: 1
@@ -1206,7 +1221,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Transmutación
     requirements:
       - Afinidad Arcana
     description: >-
@@ -1232,13 +1246,47 @@ cards:
     uses:
       type: RELOAD
       qty: 3
+  - name: Alarma Mágica
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements:
+      - Afinidad Arcana
+    description: >-
+      Creas una alarma mágica e invisible que protege un área a tu elección dentro de una distancia Cercana. El área protegida no puede ser mayor a un cubo de 5 metros de lado y la alarma permanece activa durante 8 horas.<br>
+      Al lanzar el conjuro, designas cualquier número de criaturas que no activarán la alarma. También eliges si la alarma será audible o mental:<br>
+      - **Alarma Audible:** Una campana espectral suena con fuerza durante 6 segundos. El sonido puede oírse a una distancia de hasta 20 metros.<br>
+      - **Alarma Mental:** Recibes un pulso de alerta en tu mente si te encuentras a menos de 1 kilómetro de la alarma. La alerta te despierta si estás durmiendo.<br>
+      La alarma se activa si cualquier criatura que no hayas designado como segura entra en el área protegida.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Identificar Magia
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements:
+      - Afinidad Arcana
+    description: >-
+      Concentras tu percepción arcana en un objeto, criatura o área visible a distancia Inmediata. Tras 1 minuto de análisis ininterrumpido, realizas una Prueba de Mente (Conocimiento Arcano) para desvelar la naturaleza de cualquier magia presente.<br>
+      El Nivel de Dificultad (ND) lo establece el DJ, basándose en el poder de la magia.<br>
+      - **Con un Éxito:** Aprendes la función general de la fuente de magia.<br>
+      - **Con un Éxito Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del conjuro activo.
+    uses:
+      type: RELOAD
+      qty: 4
   - name: Coraza Vital
     level: 1
     type: activable
     tags:
       - Arcanista
       - Conjuro
-      - Abjuración
       - Ritual
     requirements:
       - Afinidad Arcana
@@ -1286,7 +1334,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Encantamiento
       - Concentración
     requirements:
       - Afinidad Arcana
@@ -1306,7 +1353,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Transmutación
     requirements:
       - Armadura de Mago
     description: >-
@@ -1321,7 +1367,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Ilusión
       - Concentración
     requirements:
       - Velo de Sombras
@@ -1337,7 +1382,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Abjuración
       - Reacción
     requirements:
       - Armadura de Mago
@@ -1353,7 +1397,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Elemental
     requirements:
       - Descarga Elemental
       - Mente 4
@@ -1386,7 +1429,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Transmutación
       - Concentración
     requirements:
       - Paso Brumoso
@@ -1419,7 +1461,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Abjuración
       - Concentración
       - Ritual
     requirements:
@@ -1439,10 +1480,14 @@ cards:
     type: efecto
     tags:
       - Sacerdote
+      - Arquetipo
     requirements:
       - Instinto 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.
+      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
+      Además, aprendes el idioma Celestial.
+      Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
       qty: 0
@@ -1466,7 +1511,6 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-      - Curación
     requirements:
       - Fe Inspiradora
     description: >-
@@ -1496,7 +1540,6 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-      - Radiante
     requirements:
       - Fe Inspiradora
     description: >-
@@ -1505,13 +1548,27 @@ cards:
     uses:
       type: RELOAD
       qty: 2
+  - name: Saeta Radiante
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements:
+      - Fe Inspiradora
+    description: >-
+      Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque
+      de conjuro (1d6+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
+      Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
+    uses:
+      type: RELOAD
+      qty: 3
   - name: Aura Protectora
     level: 2
     type: activable
     tags:
       - Sacerdote
       - Conjuro
-      - Curación
       - Reacción
     requirements:
       - Toque Restaurador
@@ -1526,7 +1583,6 @@ cards:
     type: activable
     tags:
       - Sacerdote
-      - Radiante
     requirements:
       - Llama Sagrada
       - Instinto 3
@@ -1610,7 +1666,6 @@ cards:
     type: activable
     tags:
       - Sacerdote
-      - Inquisidor
     requirements:
       - Sentencia del Hereje
     description: >-
@@ -1641,8 +1696,8 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-      - Radiante
       - Concentración
+      - Curación
     requirements:
       - Golpe Divino
     description: >-
@@ -1673,9 +1728,8 @@ cards:
     type: efecto
     tags:
       - Sacerdote
-      - Inquisidor
     requirements:
-      - Instinto 2
+      - Fe Inspiradora
       - Presencia 2
     description: >-
       Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras y en pruebas de Intimidación para interrogar u obtener información.
@@ -1687,7 +1741,6 @@ cards:
     type: activable
     tags:
       - Sacerdote
-      - Inquisidor
       - Concentración
     requirements:
       - Mirada Penetrante
@@ -1702,7 +1755,6 @@ cards:
     type: activable
     tags:
       - Sacerdote
-      - Inquisidor
       - Concentración
       - Ritual
     requirements:
@@ -1720,10 +1772,14 @@ cards:
     type: efecto
     tags:
       - Druida
+      - Arquetipo
     requirements:
       - Instinto 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.
+      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.<br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Trato con Animales.
+      Además, aprendes el idioma Silvano o Primordial.
+      Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
       qty: 0
@@ -1868,7 +1924,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Elemental
       - Concentración
     requirements:
       - Sintonía Primordial
@@ -1886,7 +1941,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Elemental
       - Concentración
     requirements:
       - Sintonía Primordial
@@ -1904,7 +1958,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Elemental
       - Concentración
     requirements:
       - Sintonía Primordial
@@ -2035,10 +2088,13 @@ cards:
     type: efecto
     tags:
       - Bardo
+      - Arquetipo
     requirements:
       - Presencia 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.
+      Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br>
+      **Beneficio de Arquetipo:** Aprendes dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las pruebas de habilidad de Perspicacia e Intimidación.
+      Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
       qty: 0
@@ -2066,9 +2122,9 @@ cards:
     requirements:
       - Don del Elocuente
     description: >-
-      Como Reacción cuando un enemigo a distancia Cercana te daña, puedes insultarle
-      psíquicamente. Debe superar una TS de Instinto (ND 4+Presencia) o recibir
-      1d4 de daño Psíquico y tener Desventaja en su próximo ataque.
+      Insultas a una criatura que puedas ver a distancia Cercana que pueda oírte.
+      El objetivo debe superar una TS de Instinto (ND 4+Presencia) o recibir
+      1d6 de daño Psíquico y tener Desventaja en su próximo ataque.
     uses:
       type: RELOAD
       qty: 2
@@ -2105,6 +2161,7 @@ cards:
     tags:
       - Bardo
       - Conjuro
+      - Curación
     requirements:
       - Don del Elocuente
     description: >-
@@ -2148,7 +2205,6 @@ cards:
     tags:
       - Bardo
       - Conjuro
-      - Ilusión
       - Ritual
     requirements:
       - Don del Elocuente
@@ -2182,9 +2238,8 @@ cards:
     type: efecto
     tags:
       - Bardo
-      - Colegio del Valor
     requirements:
-      - Presencia 2
+      - Don del Elocuente
       - Cuerpo 2
     description: >-
       Puedes usar armaduras de Cota de Mallas sin sufrir su penalizador a la Esquiva.
@@ -2197,7 +2252,6 @@ cards:
     type: efecto
     tags:
       - Bardo
-      - Colegio del Valor
     requirements:
       - Inspiración Marcial
       - Canto de Inspiración
@@ -2228,7 +2282,6 @@ cards:
     type: efecto
     tags:
       - Bardo
-      - Colegio del Valor
     requirements:
       - Inspiración Marcial
     description: >-

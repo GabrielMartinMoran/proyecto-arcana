@@ -149,7 +149,7 @@
 		/>
 	</Container>
 
-	<Container title="Colección">
+	<Container title={`Colección (${character.cards.length})`}>
 		<CardsList
 			cards={allCards.filter((x) => character.cards.some((y) => y.id === x.id))}
 			{readonly}
