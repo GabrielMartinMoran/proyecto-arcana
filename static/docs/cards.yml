@@ -655,7 +655,7 @@ cards:
       - Ataque Furtivo
       - Reflejos 3
     description: >-
-      El daño de tu Ataque Furtivo aumenta a +2d4.
+      El daño de tu Ataque Furtivo aumenta a 2d4.
     uses:
       type: null
       qty: 0
