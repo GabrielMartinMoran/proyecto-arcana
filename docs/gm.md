@@ -218,7 +218,7 @@ A continuación se presenta una tabla que facilita la creación de criaturas.
 
 - **NA:** Nivel de amenaza
 - **STA**: Suma total de atributos
-- **VAM**: Valor del atributo más alto
+- **VAA**: Valor del atributo de ataque (tanto si se utiliza para tiradas de ataque como para dificultad de Tiradas de Salvación)
 - **PS**: Puntos de salud
 - **ESQ**: Esquiva
 - **MIT**: Mitigación (el máximo entre mitigación física y mágica)
@@ -268,7 +268,7 @@ Si un valor se repite para una columna, se toma el NA más bajo con ese valor.
 
 ### Tabla de Criaturas
 
-| NA  | STA   | VAM | PS    | ESQ | MIT | DPT   | IH        |
+| NA  | STA   | VAA | PS    | ESQ | MIT | DPT   | IH        |
 | :-- | :---- | :-- | :---- | :-- | :-- | :---- | :-------- |
 | 0.5 | 5-7   | 1   | 1-5   | 1-4 | 0   | 1     | Ninguno   |
 | 1   | 8-9   | 2   | 6-9   | 5   | 0   | 2     | Ninguno   |

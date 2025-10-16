@@ -12,7 +12,10 @@ creatures:
       esquiva:
         value: 6
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -52,9 +55,12 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 9
         note: null
@@ -89,7 +95,10 @@ creatures:
       esquiva:
         value: 6
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -125,8 +134,11 @@ creatures:
       esquiva:
         value: 8
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
+        note: null
+      magicalMitigation:
+        value: 0
         note: null
       velocidad:
         value: 9
@@ -168,8 +180,11 @@ creatures:
       esquiva:
         value: 5
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
+        note: null
+      magicalMitigation:
+        value: 0
         note: null
       velocidad:
         value: 7
@@ -206,9 +221,12 @@ creatures:
       esquiva:
         value: 8
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 10
         note: null
@@ -247,9 +265,12 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 9
         note: null
@@ -286,9 +307,12 @@ creatures:
       esquiva:
         value: 5
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
         note: Cota de mallas
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 8
         note: null
@@ -341,7 +365,10 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -384,9 +411,12 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 9
         note: null
@@ -414,27 +444,30 @@ creatures:
     na: 6
     attributes:
       cuerpo: 7
-      reflejos: 3
+      reflejos: 2
       mente: 1
       instinto: 2
       presencia: 1
     stats:
       salud: 31 # Tanque
       esquiva:
-        value: 7
+        value: 6
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
         note: Piel dura
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
-        value: 9
+        value: 8
         note: null
     languages:
       - Gigante
     attacks:
       - name: Desgarrar
         bonus: 7
-        damage: 2d6 Cortante
+        damage: 2d8 Cortante
         note: null
     traits:
       - name: Visión en la Oscuridad
@@ -442,11 +475,11 @@ creatures:
       - name: Regeneración
         detail: Al inicio de su turno, recupera 10 de Salud. Si recibe daño por Fuego o Ácido, no regenera en su siguiente turno. Solo muere si empieza su turno con 0 de Salud y no puede regenerar.
       - name: Asalto Múltiple
-        detail: Realiza tres ataques de Desgarrar.
+        detail: Realiza dos ataques de Desgarrar.
     actions: []
     reactions: []
     behavior: |
-      Ataca sin pensar al enemigo más cercano, confiando en su regeneración. Evita el fuego o ácido cuando aprende su debilidad.
+      Ataca sin pensar al enemigo más cercano, confiando en su regeneración. Si alguien lo ataca con fuego o ácido, se vuelve su enemigo principal.
     img: https://i.imgur.com/5MAnITP.png
 
   - name: Zombi
@@ -462,7 +495,10 @@ creatures:
       esquiva:
         value: 5
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -499,7 +535,10 @@ creatures:
       esquiva:
         value: 8
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -535,9 +574,12 @@ creatures:
       esquiva:
         value: 8
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: exoesqueleto
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 10
         note: puede trepar
@@ -546,7 +588,9 @@ creatures:
       - name: Mordisco Venenoso
         bonus: 4
         damage: 1d6 Perforante
-        note: El objetivo debe superar una TS de Cuerpo (ND 9) o quedar Envenenado durante 1 minuto.
+        note: |-
+          El objetivo debe superar una TS de Cuerpo (ND 7) o quedar Envenenado durante 1 minuto.
+          Una criatura envenenada por este efecto, puede repetir la Tirada de Salvación al final de su turno, terminando el estado en caso de éxito.
     traits: []
     actions:
       - name: Telaraña
@@ -572,9 +616,12 @@ creatures:
       esquiva:
         value: 6
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
-        note: piel gruesa
+        note: natural
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 8
         note: null
@@ -611,9 +658,12 @@ creatures:
       esquiva:
         value: 6
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
         note: forma amorfa
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 8
         note: null
@@ -649,9 +699,12 @@ creatures:
       esquiva:
         value: 6
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 3
         note: piel pétrea
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 8
         note: null
@@ -686,9 +739,12 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: piel dura
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 9
         note: null
@@ -720,9 +776,12 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 1
         note: pieles y madera
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 9
         note: null
@@ -759,9 +818,12 @@ creatures:
       esquiva:
         value: 5
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 3
         note: piel gruesa
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 7
         note: null
@@ -796,9 +858,12 @@ creatures:
       esquiva:
         value: 5
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 4
         note: cuerpo de piedra
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 7
         note: null
@@ -831,7 +896,10 @@ creatures:
       esquiva:
         value: 9
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -870,7 +938,10 @@ creatures:
       esquiva:
         value: 8
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 1
+        note: null
+      magicalMitigation:
         value: 1
         note: null
       velocidad:
@@ -908,8 +979,11 @@ creatures:
       esquiva:
         value: 10
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 0
+        note: null
+      magicalMitigation:
+        value: 2
         note: null
       velocidad:
         value: 12
@@ -943,9 +1017,12 @@ creatures:
       esquiva:
         value: 6
         note: Cota de mallas y Escudo
-      mitigacion:
+      physicalMitigation:
         value: 2
         note: Cota de mallas
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 9
         note: null
@@ -976,7 +1053,10 @@ creatures:
       esquiva:
         value: 7
         note: null
-      mitigacion:
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
         value: 0
         note: null
       velocidad:
@@ -1030,9 +1110,12 @@ creatures:
       esquiva:
         value: 8
         note: null
-      mitigacion:
+      physicalMitigation:
         value: 2
         note: piel dura
+      magicalMitigation:
+        value: 0
+        note: null
       velocidad:
         value: 10
         note: Vuela
