@@ -93,7 +93,7 @@ creatures:
     stats:
       salud: 14 # Balanceado
       esquiva:
-        value: 6
+        value: 7
         note: null
       physicalMitigation:
         value: 0

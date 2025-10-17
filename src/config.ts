@@ -21,6 +21,7 @@ export const CONFIG = {
 		sacerdote: 'https://i.imgur.com/hB0g0sH.png',
 		druida: 'https://i.imgur.com/p3oNpuu.png',
 		bardo: 'https://i.imgur.com/CUduEjp.png',
+		monje: 'https://i.imgur.com/1wqMxoQ.png',
 		dote: 'https://i.imgur.com/KfwuOdi.png',
 		linaje: 'https://i.imgur.com/VKUcBoy.png',
 		default: 'https://i.imgur.com/ON6lmPC.png',
