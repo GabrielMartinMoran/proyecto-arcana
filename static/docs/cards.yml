@@ -966,7 +966,7 @@ cards:
       qty: 6
   - name: Ataque Adicional
     level: 3
-    type: activable
+    type: efecto
     tags:
       - Combatiente
     requirements:
