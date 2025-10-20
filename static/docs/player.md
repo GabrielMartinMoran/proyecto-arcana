@@ -270,7 +270,7 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 - **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
 - **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
-- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible. En caso de estar fuera de combate, un personaje puede tomarse 10 minutos para reponer energías y recargar un uso.
+- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible. En caso de estar fuera de combate, un personaje puede tomarse 10 minutos para reponer energías y recargar un uso. Alternativamente, en calquier momento, un personaje puede gastar una cantidad de Puntos de Suerte igual al valor de Recarga de la carta para recargarla.
 
 ## Lanzamiento Ritual: Magia sin Prisa
 
@@ -423,6 +423,7 @@ Algunos conjuros y habilidades requieren **Concentración** para mantener su efe
 - El Nivel de Dificultad de esta tirada es **ND = 5 + Nivel de la Carta**.
 - Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
 - Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
+- En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
 
 ## Tiradas de Salvación
 

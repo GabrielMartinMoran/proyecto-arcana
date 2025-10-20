@@ -19,49 +19,49 @@
 
 	const PUBLIC_ROUTES = [
 		{
-			path: '/',
+			path: resolve('/'),
 			label: '🚩 Inicio',
 		},
 		{
-			path: '/player',
+			path: resolve('/player'),
 			label: '📙 Manual del Jugador',
 		},
 		{
-			path: '/gm',
+			path: resolve('/gm'),
 			label: '📓 Manual del DJ',
 		},
 		{
-			path: '/cards',
+			path: resolve('/cards'),
 			label: '🃏 Galería de Cartas',
 		},
 		{
-			path: '/bestiary',
+			path: resolve('/bestiary'),
 			label: '🐦‍🔥 Bestiario',
 		},
 		{
-			path: '/magical-items',
+			path: resolve('/magical-items'),
 			label: '🔮 Objetos Mágicos',
 		},
 		{
-			path: '/characters/examples',
+			path: resolve('/characters/examples'),
 			label: '💡 PJs de Ejemplo',
 		},
 		{
-			path: '/agents',
+			path: resolve('/agents'),
 			label: '🤖 IA como DJ',
 		},
 	];
 
 	const PRIVATE_ROUTES = [
 		{
-			path: '/characters',
+			path: resolve('/characters'),
 			label: '🎭 Mis Personajes',
 		},
 	];
 
 	const navigateRoute = (event: MouseEvent, path: string) => {
 		event.preventDefault();
-		goto(resolve(path));
+		goto(path);
 		sideMenuExpandedStore.set(false);
 	};
 
