@@ -1157,6 +1157,19 @@ cards:
     uses:
       type: RELOAD
       qty: 2
+  - name: Proyectil Mágico
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Afinidad Arcana
+    description: >-
+      Lanzas un proyectil de energía arcana que no puede fallar a una criatura a distancia Cercana. Al impactar, este realiza 1d4 de daño de Fuerza.
+    uses:
+      type: RELOAD
+      qty: 2
   - name: Toque Entrópico
     level: 1
     type: activable
@@ -1172,16 +1185,17 @@ cards:
       type: RELOAD
       qty: 2
   - name: Ruptura Mental
-    level: 1
+    level: 2
     type: activable
     tags:
       - Arcanista
       - Conjuro
     requirements:
       - Afinidad Arcana
+      - Mente 3
     description: >-
       Generas una perturbación mental en una criatura que puedas ver a rango Cercano.
-      La criatura debe superar una Tirada de Salvación de Mente (NA 4+Mente) o sufrir 1d6 de daño Psíquico y tener desventaja
+      La criatura debe superar una Tirada de Salvación de Mente (NA 4+Mente) o sufrir 2d6 de daño Psíquico y tener desventaja
       en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
     uses:
       type: RELOAD
@@ -1263,7 +1277,7 @@ cards:
       La alarma se activa si cualquier criatura que no hayas designado como segura entra en el área protegida.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 3
   - name: Identificar Magia
     level: 1
     type: activable
@@ -1280,7 +1294,7 @@ cards:
       - **Con un Éxito Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del conjuro activo.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 3
   - name: Coraza Vital
     level: 1
     type: activable
@@ -1295,7 +1309,7 @@ cards:
       Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Mente.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 3
   - name: Detectar Magia
     level: 1
     type: activable
@@ -1354,7 +1368,8 @@ cards:
       - Arcanista
       - Conjuro
     requirements:
-      - Armadura de Mago
+      - Afinidad Arcana
+      - Mente 3
     description: >-
       Usas tu Interacción para teletransportarte a un espacio desocupado
       que puedas ver a distancia Cercana.
@@ -1370,6 +1385,7 @@ cards:
       - Concentración
     requirements:
       - Velo de Sombras
+      - Mente 3
     description: >-
       Tocas a una criatura voluntaria y se vuelve invisible durante 10 minutos
       o hasta que ataque, lance un conjuro o pierdas la concentración.
@@ -1385,13 +1401,14 @@ cards:
       - Reacción
     requirements:
       - Armadura de Mago
+      - Mente 3
     description: >-
       Como Reacción, cuando eres objetivo de un ataque de conjuro o efecto mágico que te infligiría daño,
       puedes crear un escudo temporal. Ganas Mitigación Mágica igual a dos veces tu puntuación de Mente contra ese daño.
     uses:
       type: RELOAD
       qty: 4
-  - name: Rayo Abrasador
+  - name: Rayo Energético
     level: 2
     type: activable
     tags:
@@ -1402,21 +1419,22 @@ cards:
       - Mente 3
     description: >-
       Realizas un ataque de conjuro a distancia (1d6+Mente). Si impactas, el objetivo recibe 2d8
-      de daño de Fuego.
+      de daño de Fuego, Frío o Eléctrico.
     uses:
       type: RELOAD
       qty: 3
   - name: Manos Ardientes
-    level: 2
+    level: 1
     type: activable
     tags:
       - Arcanista
       - Conjuro
     requirements:
+      - Afinidad Arcana
       - Mente 3
     description: >-
       Todo enemigo en un cono de 5 metros frente a ti debe superar una TS de Reflejos (ND 4+Mente).
-      Si fallan, reciben 2d6 de daño de Fuego. Si tienen éxito, reciben la mitad.
+      Si fallan, reciben 1d6 de daño de Fuego. Si tienen éxito, la mitad.
     uses:
       type: RELOAD
       qty: 3
@@ -1428,15 +1446,16 @@ cards:
       - Conjuro
       - Concentración
     requirements:
+      - Afinidad Arcana
       - Mente 3
     description: >-
       Eliges un cubo de 2 metros de lado a distancia Cercana. El área se llena de dagas
       voladoras durante 1 minuto. La primera vez que una criatura entre en
-      el área en un turno o empiece su turno allí, recibe 2d4 de daño Cortante.<br>
-      En turnos subsequentes, puedes usar tu acción para mover el cubo a otra ubicación a distancia Cercana.
+      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 4+Mente). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
+      En turnos subsequentes, puedes usar tu Acción para mover el cubo a otra ubicación a distancia Cercana.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Tronar
     level: 2
     type: activable
@@ -1444,10 +1463,11 @@ cards:
       - Arcanista
       - Conjuro
     requirements:
+      - Afinidad Arcana
       - Mente 3
     description: >-
       Una onda de fuerza sónica explota desde ti en un cubo de 3 metros. Toda criatura
-      en el área debe superar una TS de Cuerpo (ND 4+Mente). Si falla, recibe 2d4 de
+      en el área debe superar una TS de Cuerpo (ND 4+Mente). Si falla, recibe 2d6 de
       daño Sónico y es empujada 2 metros lejos de ti. Si tiene éxito, recibe la mitad del daño y no es empujada.
     uses:
       type: RELOAD
@@ -1462,28 +1482,12 @@ cards:
       - Descarga Elemental
       - Mente 4
     description: >-
-      Explosión de Fuego, Frío o Eléctrico en un radio de 5m a distancia Larga.
+      Explosión de Fuego, Frío o Eléctrico en un radio de 5 metros a distancia Larga.
       Toda criatura en el área debe hacer una TS de Reflejos (ND 4+Mente). Si falla,
       recibe 4d6 de daño; si tiene éxito, la mitad.
     uses:
       type: RELOAD
       qty: 6
-  - name: Contraconjuro
-    level: 3
-    type: activable
-    tags:
-      - Arcanista
-      - Conjuro
-      - Reacción
-    requirements:
-      - Afinidad Arcana
-      - Mente 4
-    description: >-
-      Como Reacción cuando ves a otra criatura lanzar un conjuro, haz una Tirada Enfrentada
-      de tu Mente contra su atributo con el que lanzo el conjuro. Si ganas, su conjuro falla.
-    uses:
-      type: RELOAD
-      qty: 5
   - name: Volar
     level: 3
     type: activable
@@ -1492,13 +1496,14 @@ cards:
       - Conjuro
       - Concentración
     requirements:
+      - Afinidad Arcana
       - Mente 4
     description: >-
       Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual
       a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 5
   - name: Teoría Arcana Avanzada
     level: 3
     type: efecto
@@ -1526,8 +1531,9 @@ cards:
       - Ritual
     requirements:
       - Escudo Absorbente
+      - Mente 4
     description: >-
-      Creas un círculo mágico de 3m de radio en el suelo que dura 10 minutos.
+      Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos.
       Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo,
       una criatura del tipo elegido debe superar una tirada de Instinto (ND 4+Mente).
       Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de
@@ -1535,6 +1541,24 @@ cards:
     uses:
       type: RELOAD
       qty: 5
+  - name: Ráfaga Aniquiladora
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Afinidad Arcana
+      - Mente 4
+    description: >-
+      Realizas un ataque de conjuro a distancia (1d6+Mente) contra un objetivo. Si impactas,
+      el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente
+      tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera,
+      acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o
+      decidas detener la ráfaga.
+    uses:
+      type: RELOAD
+      qty: 4
   - name: Rayo Desintegrador
     level: 4
     type: activable
@@ -1542,14 +1566,189 @@ cards:
       - Arcanista
       - Conjuro
     requirements:
-      - Mente 4
+      - Afinidad Arcana
+      - Mente 5
     description: >-
       Realizas un ataque de conjuro a distancia (1d6+Mente). Si impactas, infliges 4d8 de daño
       de Fuerza. Si este daño reduce al objetivo a 0 Puntos de Salud, se convierte en un
       fino polvo gris y es desintegrado.
     uses:
       type: RELOAD
+      qty: 5
+  - name: Pulso Cinético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Afinidad Arcana
+      - Mente 3
+    description: >-
+      Como Acción, proyectas una ráfaga de fuerza telequinética invisible para **empujar, atraer o expandir** materia desde un punto a distancia Cercana.
+      La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br>
+      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 4+Mente)**.<br>
+      - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br>
+      - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Levitar
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Afinidad Arcana
+      - Mente 3
+    description: >-
+      Eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a distancia Cercana. El efecto dura hasta 10 minutos.<br>
+      - **Criatura:** Si no es voluntaria, debe superar una TS de Cuerpo. La criatura levita y puede ser movida verticalmente por ti (Interacción, hasta 3 metros).
+      No puede moverse horizontalmente por sí misma en el aire, debe impulsarse con superficies sólidas.<br>
+      - **Objeto:** Puede pesar hasta 50 kg por cada punto de tu Atributo de Mente.
+    uses:
+      type: RELOAD
+      qty: 3
+
+  - name: Silueta Ilusoria
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Afinidad Arcana
+      - Mente 3
+    description: >-
+      Te cubres con una ilusión que altera tu apariencia (ropa, rasgos faciales) y tu voz durante 1 hora. Puedes aparentar ser hasta medio metro más alto o más bajo.
+      Si una criatura usa su Acción para interactuar físicamente contigo, puede realizar una prueba de Instinto (Percepción) contra tu ND de conjuros para descubrir el engaño.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Transmutar Materia
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements:
+      - Afinidad Arcana
+      - Mente 4
+    description: >-
+      Tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades (dureza, peso, textura) o su forma. No puedes cambiar su masa total.
+      Por ejemplo, puedes volver una cerradura blanda como la cera, o esculpir una palanca a partir de un trozo de metal.
+    uses:
+      type: RELOAD
       qty: 4
+  - name: Visión Remota
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Afinidad Arcana
+      - Mente 4
+    description: >-
+      Creas un sensor invisible con forma de ojo espectral en un punto que puedas ver a distancia Cercana. El sensor es intangible pero no puede atravesar objetos sólidos. En tus turnos, puedes usar tu Acción para mover el sensor hasta 10 metros. Ves y oyes a través del sensor.
+      El sensor es detectable con magia o visión especial. Dura 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Zona Nula
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Afinidad Arcana
+      - Mente 3
+    description: >-
+      Eliges un punto a distancia Cercana, creando una esfera de 5 metros de radio que dura hasta 10 minutos.
+      Dentro de la esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido)
+      y toda fuente de luz, mágica o no, se reduce a una penumbra tenue.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Rompeconjuros
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+      - Ritual
+    requirements:
+      - Afinidad Arcana
+      - Mente 4
+    description: >-
+      Esta carta tiene dos modos de uso:<br>
+      - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada
+      de tu Mente contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br>
+      - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico.
+      Realizas una prueba de Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Santuario Arcano
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements:
+      - Afinidad Arcana
+      - Mente 4
+    description: >-
+      Trazas un círculo en el suelo, del que brota una cúpula de energía opaca desde fuera pero transparente desde dentro, de 3m de radio. Dura 8 horas.
+      Las criaturas que designes al lanzar el conjuro pueden usar una Acción para entrar o salir. Si tú, el lanzador, sales, el conjuro termina.
+      Cualquier ataque o conjuro dirigido a la cúpula debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Mente
+      con tu bonificador (1d6+Mente) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Barrera de Fuerza
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Afinidad Arcana
+      - Mente 5
+    description: >-
+      Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15 metros de largo y 5 de alto,
+      o puede ser una cúpula de 4m de radio. La barrera es inmune a todo daño físico, pero es destruida automáticamente por efectos mágicos de desintegración
+      y puede ser terminada prematuramente por efectos de disipación mágica. Dura hasta 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Pliegue Espacial
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Paso Brumoso
+      - Mente 5
+    description: >-
+      Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3m de diámetro.
+      Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías
+      que permanece abierta mientras te concentres, hasta por 1 minuto.
+    uses:
+      type: RELOAD
+      qty: 5
   # ------------------------------ SACERDOTE ------------------------------
   - name: Fe Inspiradora
     level: 1
