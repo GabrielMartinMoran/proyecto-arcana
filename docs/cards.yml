@@ -1391,6 +1391,67 @@ cards:
     uses:
       type: RELOAD
       qty: 4
+  - name: Rayo Abrasador
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Descarga Elemental
+      - Mente 3
+    description: >-
+      Realizas un ataque de conjuro a distancia (1d6+Mente). Si impactas, el objetivo recibe 2d8
+      de daño de Fuego.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Manos Ardientes
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Mente 3
+    description: >-
+      Todo enemigo en un cono de 5 metros frente a ti debe superar una TS de Reflejos (ND 4+Mente).
+      Si fallan, reciben 2d6 de daño de Fuego. Si tienen éxito, reciben la mitad.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Nube de Dagas
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Mente 3
+    description: >-
+      Eliges un cubo de 2 metros de lado a distancia Cercana. El área se llena de dagas
+      voladoras durante 1 minuto. La primera vez que una criatura entre en
+      el área en un turno o empiece su turno allí, recibe 2d4 de daño Cortante.<br>
+      En turnos subsequentes, puedes usar tu acción para mover el cubo a otra ubicación a distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Tronar
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Mente 3
+    description: >-
+      Una onda de fuerza sónica explota desde ti en un cubo de 3 metros. Toda criatura
+      en el área debe superar una TS de Cuerpo (ND 4+Mente). Si falla, recibe 2d4 de
+      daño Sónico y es empujada 2 metros lejos de ti. Si tiene éxito, recibe la mitad del daño y no es empujada.
+    uses:
+      type: RELOAD
+      qty: 3
   - name: Explosión Elemental
     level: 3
     type: activable
@@ -1406,7 +1467,7 @@ cards:
       recibe 4d6 de daño; si tiene éxito, la mitad.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Contraconjuro
     level: 3
     type: activable
@@ -1431,7 +1492,7 @@ cards:
       - Conjuro
       - Concentración
     requirements:
-      - Paso Brumoso
+      - Mente 4
     description: >-
       Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual
       a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.
@@ -1474,6 +1535,21 @@ cards:
     uses:
       type: RELOAD
       qty: 5
+  - name: Rayo Desintegrador
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Mente 4
+    description: >-
+      Realizas un ataque de conjuro a distancia (1d6+Mente). Si impactas, infliges 4d8 de daño
+      de Fuerza. Si este daño reduce al objetivo a 0 Puntos de Salud, se convierte en un
+      fino polvo gris y es desintegrado.
+    uses:
+      type: RELOAD
+      qty: 4
   # ------------------------------ SACERDOTE ------------------------------
   - name: Fe Inspiradora
     level: 1
@@ -1849,16 +1925,19 @@ cards:
     type: activable
     tags:
       - Druida
+      - Concentración
     requirements:
       - Sintonía Primordial
     description: >-
       Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo) durante 1 hora. Tu equipo se funde con tu nueva forma y no puedes usarlo.
       En esta forma:<br>
-      - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**.<br>
-      - Tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - Ganas 3 Puntos de Salud temporales.<br>
+      - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**, pero tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
       - No puedes hablar, atacar ni lanzar conjuros, pero conservas los beneficios de tus cartas de **Efecto** y de las cartas **Activables** que ya tuvieras activas antes de transformarte.<br>
       - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un olfato agudo).<br>
-      La transformación termina antes si caes Inconsciente o si decides revertirla (no requiere acción).
+      La transformación termina antes si pierdes la Concentración o si decides revertirla (no requiere acción).<br>
+      Mientras tengas al menos 1 Punto de Salud Temporal, no necesitas realizar pruebas para mantener la Concentración de tu forma salvaje.<br>
+      Mientras estes transformado, no puedes ganar Puntos de Salud Temporales.
     uses:
       type: LONG_REST
       qty: 2
@@ -1876,7 +1955,7 @@ cards:
       - En esta forma de combate, tanto tu **Cuerpo** como tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
       - Tus ataques sin arma (garras, fauces, etc.) infligen **1d6** de daño (puedes elegir Contundente, Cortante o Perforante al transformarte).<br>
       Además, al transformarte en tu aspecto combativo, eliges **dos** de los siguientes beneficios:<br>
-      - **Vitalidad Primitiva:** Ganas Puntos de Salud temporales igula a dos veces tu puntuación de **Instinto**.<br>
+      - **Vitalidad Primitiva:** Los Puntos de Salud temporales ganados por tu _Forma Salvaje_ se vuelven dos veces tu puntuación de **Instinto**.<br>
       - **Ataque Brutal:** El daño de tus ataques sin arma aumenta a **1d8**.<br>
       - **Pellejo Grueso:** Ganas +1 de Mitigación Física.<br>
       - **Agilidad Depredadora:** Tu Velocidad aumenta en 2 metros y el terreno difícil no te cuesta movimiento extra.<br>
@@ -2016,7 +2095,7 @@ cards:
       - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en todas las pruebas de **Instinto (Percepción)**.<br>
       - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y desarmados infligen **1d6 de daño Contundente adicional**.<br>
       - **Celeridad del Halcón:** Tu **Velocidad** de movimiento aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br>
-      - **Piel del Jabalí:** Ganas **Puntos de Salud temporales** iguales a **dos veces tu puntuación de Instinto**.
+      - **Piel del Jabalí:** Los Puntos de Salud temporales ganados por tu _Forma Salvaje_ se vuelven tres veces tu puntuación de **Instinto**.<br>
     uses:
       type: RELOAD
       qty: 5
