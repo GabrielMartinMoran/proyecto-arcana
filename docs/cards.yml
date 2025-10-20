@@ -2477,7 +2477,7 @@ cards:
     uses:
       type: null
       qty: 0
-  - name: Disfraz Mágico
+  - name: Impersonar
     level: 3
     type: activable
     tags:
@@ -2488,13 +2488,15 @@ cards:
       - Don del Elocuente
       - Presencia 4
     description: >-
-      Te cubres con una ilusión que te hace ver como otra persona de tamaño
-      y forma similar. Dura 1 hora. Una criatura que sospeche puede usar su Acción para hacer una Tirada
-      de Instinto enfrentada a tu Presencia para descubrir el engaño.
+      Tras 10 minutos de preparación ritual, alteras físicamente tu estatura (hasta medio metro más o menos),
+      rasgos faciales, color de piel y voz para adoptar una nueva apariencia humanoide. La transformación es física y dura hasta 8 horas.
+      Aunque no es una simple ilusión, su naturaleza mágica puede ser percibida por efectos como la Visión Verdadera.
+      Un observador que sospeche de ti puede usar su Acción para estudiar tu actuación. Para descubrirte, debe superar una Tirada Enfrentada
+      de su Instinto (Perspicacia) contra tu Presencia (Engaño).
     uses:
       type: LONG_REST
       qty: 1
-  - name: Secreto Arcano
+  - name: Secretos Mágicos
     level: 3
     type: efecto
     tags:
@@ -2504,9 +2506,14 @@ cards:
       - Presencia 4
       - Mente 3
     description: >-
-      Elige una carta de Conjuro de Nivel 3 o inferior de la lista del Arcanista, Sacerdote o Druida.
-      Añades esa carta a tu colección. Cuenta como una carta de Bardo para ti y usa Presencia
-      como tu atributo principal para lanzarla. Debes cumplir cualquier requisito de Atributo que tenga la carta elegida.
+      Tu estudio de diversas tradiciones te permite aprender magia ajena a tu disciplina. Eliges un total de 3 niveles de cartas de Conjuro
+      de las listas del Arcanista, Sacerdote o Druida (todas de la misma lista). Las combinaciones pueden ser:<br>
+      - Una carta de Nivel 3.<br>
+      - Una carta de Nivel 2 y una de Nivel 1.<br>
+      - Tres cartas de Nivel 1.<br>
+      Ignoras cualquier requisito que tengan las cartas elegidas. Estas se añaden a tu colección y usan Presencia como tu atributo principal para utilizarlas.<br>
+      **Reaprendizaje:** Durante una semana de tiempo de inactividad, puedes dedicarte a investigar. Al final de la semana, puedes reemplazar
+      una o varias de las cartas elegidas por otra, siempre que el coste total de niveles no supere 3.
     uses:
       type: null
       qty: 0
@@ -2578,8 +2585,145 @@ cards:
       - Inspiración Mejorada
     description: >-
       Como Acción, creas una explosión de sonido disonante en un punto a distancia Cercana. Toda criatura en un radio de 3 metros
-      debe superar una TS de Cuerpo (ND 4 + Presencia) o recibirá 3d6 de daño Sónico y no podrá usar Reacciones hasta el
-      final de tu próximo turno. Además, las criaturas que estén manteniendo Concentración y fallen la tirada, la pierden automáticamente.
+      debe superar una TS de Cuerpo (ND 4 + Presencia) o recibirá 2d6 de daño Sónico y no podrá usar Reacciones hasta el
+      final de tu próximo turno. Además, si una criatura estaba manteniendo Concentración al momento de fallar la tirada, pierde la concentración imediatamente.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Floritura Artística
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+      - Conjuro
+    requirements:
+      - Don del Elocuente
+    description: >-
+      Tu magia se manifiesta en los pequeños detalles de tu arte. Puedes usar esta habilidad para crear uno de los siguientes efectos a voluntad:<br>
+      - **Acento Dramático:** Proyectas tu voz o el sonido de tu instrumento para que se oiga claramente hasta a 50 metros de distancia.<br>
+      - **Banda Sonora Instantánea:** Creas una música de fondo sutil que acompaña una escena.<br>
+      - **Foco del Intérprete:** Creas un efecto visual menor: una lluvia de pétalos espectrales, un haz de luz tenue que te ilumina a ti o a un objetivo, o el brillo de tus ojos.<br>
+      - **Afinación Perfecta:** Afinas instantáneamente cualquier instrumento que toques.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Canto Heroico
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements:
+      - Don del Elocuente
+    description: >-
+      Como Acción, interpretas una breve y potente melodía. Eliges hasta tres aliados a distancia Cercana (puedes incluirte a ti mismo) que puedan oírte.
+      Los objetivos ganan una cantidad de Puntos de Salud temporales igual a 1d4 + tu puntuación de Presencia durante 1 minuto.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Risa Incontenible
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements:
+      - Don del Elocuente
+      - Presencia 3
+    description: >-
+      Como Acción, eliges una criatura a distancia Cercana que pueda verte y oírte. Debe superar una TS de Instinto (ND 4+Presencia).
+      Si falla, cae al suelo en un ataque de risa, quedando en los estados Derribado y Aturdido.
+      La criatura puede repetir la Tirada de Salvación al final de cada uno de sus turnos. El efecto también termina si recibe daño.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Himno de Batalla
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Don del Elocuente
+      - Presencia 3
+    description: >-
+      Como Acción, comienzas a interpretar un himno de guerra inspirador que dura hasta 1 minuto. Creas un aura de 3 metros de radio centrada en ti.
+      Los aliados (incluido tú) que comiencen su turno dentro del aura ganan un +1 a sus tiradas de ataque con armas hasta el inicio de su próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Balada de los Héroes
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Reacción
+    requirements:
+      - Don del Elocuente
+      - Presencia 4
+    description: >-
+      Como Reacción, cuando un aliado a distancia Cercana que puedas ver falla una tirada de ataque o una tirada de salvación,
+      puedes interpretar una nota de aliento para permitirle que vuelva a tirar el dado. Debe usar el nuevo resultado.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Lamento Confuso
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Don del Elocuente
+      - Presencia 4
+    description: >-
+      Como Acción, interpretas una melodía disonante que nubla la mente y dura hasta 1 minuto. Eliges un punto a distancia Cercana, creando una esfera de 3 metros de radio.
+      Una criatura hostil que empiece su turno en el área debe superar una TS de Instinto (ND 4+Presencia). Si falla, no puede distinguir amigo de enemigo y debe usar su Acción
+      para realizar un ataque cuerpo a cuerpo contra la criatura más cercana a ella.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Narrativa Cautivadora
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Don del Elocuente
+      - Presencia 4
+    description: >-
+      Como Acción, eliges un objetivo a distancia Cercana y comienzas a hablarle. Debe superar una TS de Instinto (ND 4+Presencia). Si falla,
+      durante 1 minuto, cree que tus afirmaciones son hechos, siempre que no sean directamente suicidas o contradigan una creencia fundamental.
+      Una vez que una criatura ha sido objetivo de este conjuro, es inmune a él durante un día de descanso, independientemente del resultado.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Patrón Hipnótico
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Don del Elocuente
+      - Presencia 4
+    description: >-
+      Como Acción, creas un patrón de luces y colores fascinantes que dura hasta 1 minuto. Eliges un punto a distancia Cercana. Todas las criaturas
+      en un cubo de 3 metros desde ese punto deben superar una TS de Instinto (ND 4+Presencia). Si fallan, quedan Encantadas por ti.
+      Mientras estén encantadas por este efecto, quedan Inmovilizadas en un estado de fascinación. El efecto termina para una criatura si recibe daño.
     uses:
       type: RELOAD
       qty: 5
