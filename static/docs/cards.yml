@@ -2485,7 +2485,7 @@ cards:
       - Instinto 2
     description: >-
       Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de NA 1 o inferior. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.
-      Para que tu compañero realice una acción (como Moverse o Atacar), debes usar tu Acción para darle una orden.
+      Para que tu compañero pueda actuar en su turno, debes usar tu Acción para darle una orden. Esta orden solo aplica para el próximo turno de tu compañero.
       El compañero usa su propio bloque de estadísticas, pero su salud máxima es igual a 3 + (tu Instinto x 2).
       Si tu compañero muere, puedes vincularte con una nueva bestia.
     uses:
