@@ -701,6 +701,53 @@ cards:
     uses:
       type: RELOAD
       qty: 3
+  - name: Duelista Audaz
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Estilo Audaz
+      - Presencia 3
+    description: >-
+      Tu confianza en el combate singular es tu mejor defensa. Ganas los siguientes beneficios:<br>
+      - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no haya ninguna otra criatura a 1 metro de ti o del objetivo.<br>
+      - **Vigor del Duelista:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo que cumple las condiciones de "Duelo de Ingenio", ganas una cantidad de Puntos de Salud temporales igual a tu puntuación de Presencia. Estos PH temporales duran 1 minuto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Maestría del Duelista
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Duelista Audaz
+      - Presencia 4
+    description: >-
+      Te mueves por el campo de batalla como en un baile mortal. Ganas los siguientes beneficios:<br>
+      - **Paso Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Este movimiento no consume tu Interacción y no puede ser interceptado por una Reacción del objetivo de tu ataque.<br>
+      - **Réplica Maestra:** Puedes usar tu carta Riposta una vez por ronda sin gastar su uso de recarga.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Parada del Duelista
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+      - Reacción
+    requirements:
+      - Riposta
+    description: >-
+      Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando un arma Precisa
+      (y ninguna otra arma), puedes añadir +2 a tu Esquiva contra ese ataque, pudiendo hacer que falle. Si el ataque falla
+      de esta manera, tu próximo ataque contra ese enemigo antes del final de tu próximo turno tiene Ventaja (+1d4).
+    uses:
+      type: RELOAD
+      qty: 4
   # --- Pícaro: Venenos ---
   - name: Frasquero
     level: 1
@@ -715,22 +762,37 @@ cards:
     uses:
       type: null
       qty: 0
-  - name: Toxinas Potenciadas
+  - name: Alquimia Instantánea
     level: 2
     type: activable
     tags:
       - Pícaro
     requirements:
       - Frasquero
+      - Mente 3
     description: >-
-      Al impactar con un arma envenenada, puedes elegir uno de los siguientes efectos. El objetivo debe
-      superar una TS de Cuerpo (ND 4+Reflejos) para evitarlo:
-      **Toxina Virulenta:** El objetivo sufre el estado Envenenado.
-      **Toxina Aturdidora:** El objetivo sufre Desventaja (-1d4) en su próxima Tirada de Salvación.
-      **Toxina Destructiva:** El objetivo sufre 1d6 de daño extra por veneno.
+      Has aprendido a crear y aplicar toxinas con una velocidad letal. Cuando impactas a una criatura con un arma, puedes usar tu Interacción para inyectar una de las siguientes toxinas (la criatura debe superar una TS de Cuerpo (ND 4+Mente) para resistir):<br>
+      - **Toxina Virulenta:** En caso de fallo, el objetivo sufre el estado Envenenado. La criatura puede repetir la Tirada de Salvación al final de cada uno de sus turnos para terminar el efecto.<br>
+      - **Toxina Agónica:** En caso de fallo, el objetivo sufre 1d6 de daño de Veneno adicional.
     uses:
-      type: LONG_REST
-      qty: 3
+      type: RELOAD
+      qty: 4
+
+  - name: Maestría Tóxica
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Alquimia Instantánea
+      - Mente 4
+    description: >-
+      Perfeccionas tus venenos. Añades las siguientes opciones a tu Alquimia Instantánea (TS de Cuerpo ND 4+Mente):<br>
+      - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br>
+      - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
   # --- Pícaro: Infiltrador ---
   - name: Manos Hábiles
     level: 1
@@ -803,21 +865,66 @@ cards:
     uses:
       type: RELOAD
       qty: 4
-  - name: Parada del Duelista
+
+  # --- Pícaro: Asesino ---
+  - name: Asesinar
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Senda del Bribón
+      - Reflejos 3
+    description: >-
+      Eres un maestro del primer golpe. Para preparar un ataque letal, debes usar tu Interacción en el mismo turno en que atacas. Si lo haces, y atacas a una criatura que no es consciente de tu presencia, tu primer impacto con un arma se considera automáticamente un golpe crítico.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Punto Vital
     level: 3
     type: activable
     tags:
       - Pícaro
-      - Reacción
     requirements:
-      - Riposta
+      - Asesinar
+      - Instinto 3
     description: >-
-      Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando un arma Precisa
-      (y ninguna otra arma), puedes añadir +2 a tu Esquiva contra ese ataque, pudiendo hacer que falle. Si el ataque falla
-      de esta manera, tu próximo ataque contra ese enemigo antes del final de tu próximo turno tiene Ventaja (+1d4).
+      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 4 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.
+      La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
+
+  # --- Pícaro: Ladrón ---
+  - name: Manos Rápidas
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Manos Hábiles
+      - Reflejos 3
+    description: >-
+      Tu destreza es legendaria. Puedes usar tu Interacción para realizar la acción de Usar un Objeto, incluso aquellos que normalmente requerirían una Acción para activarse.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Especialista Táctico
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Manos Rápidas
+      - Reflejos 4
+    description: >-
+      Tu eficiencia en el campo de batalla es inigualable. Ganas una segunda Interacción en cada uno de tus turnos. Esta interacción adicional solo puede usarse para tu Acción Astuta (Correr o Esconderse) o para tu Mano Rápida (Usar un Objeto).
+    uses:
+      type: null
+      qty: 0
+
   # ------------------------------ COMBATIENTE ------------------------------
   - name: Sintonía con el Acero
     level: 1
