@@ -1066,6 +1066,7 @@ cards:
       - Combatiente
     requirements:
       - Sintonía con el Acero
+      - Cuerpo 3
     description: >-
       Ganas una Acción extra en este turno.
     uses:
@@ -1123,7 +1124,7 @@ cards:
       - Combatiente
     requirements:
       - Sintonía con el Acero
-      - Instinto 3
+      - Instinto 4
     description: >-
       Puedes repetir una Tirada de Salvación fallida.
     uses:
@@ -1166,6 +1167,7 @@ cards:
       - Combatiente
     requirements:
       - Presencia Inspiradora
+      - Presencia 3
     description: >-
       Usas tu Interacción para inspirar a tus aliados. Elige un número de aliados igual a tu
       puntuación de Presencia a distancia Cercana. Ganan Puntos de Salud temporales
@@ -1196,10 +1198,11 @@ cards:
       - Combatiente
     requirements:
       - Grito de Guerra
-      - Presencia 3
+      - Presencia 4
     description: >-
       Como Acción, eliges a un aliado a distancia Cercana. Ese aliado puede usar
-      su Reacción para moverse hasta su velocidad o realizar un ataque único.
+      su Reacción para moverse hasta la mitad de su velocidad o realizar un ataque único.
+      En caso de moverse, este movimiento no puede ser interceptado por Reacciones enemigas.
     uses:
       type: RELOAD
       qty: 4
@@ -1211,7 +1214,7 @@ cards:
       - Combatiente
     requirements:
       - Sintonía con el Acero
-      - Reflejos 3
+      - Reflejos 2
     description: >-
       Tu visión es excepcionalmente aguda. Obtienes Ventaja (+1d4) en pruebas de Percepción para avistar
       enemigos lejanos. Además, los enemigos no se benefician del bono a la Esquiva por cobertura parcial
@@ -3207,6 +3210,7 @@ cards:
       - Reacción
     requirements:
       - Disciplina Monástica
+      - Reflejos 3
     description: >-
       Como **Reacción**, cuando eres impactado por un ataque a distancia con un arma de un atacante **que puedas ver**, puedes reducir el daño que recibes en una cantidad igual a **1d4 + tu puntuación de Reflejos**.<br>
       En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.
@@ -3220,6 +3224,7 @@ cards:
       - Monje
     requirements:
       - Golpes Energéticos
+      - Instinto 3
     description: >-
       Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un efecto adicional. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 4 + Instinto)**.<br>
       - **Golpe Radiante:** Si falla, el objetivo sufre **1d6 de daño de Radiante** adicional. Si tiene éxito, recibe la mitad de ese daño.<br>
@@ -3248,7 +3253,7 @@ cards:
       - Monje
     requirements:
       - Golpes Energéticos
-      - Instinto 3
+      - Instinto 4
     description: >-
       Tu control sobre el ki es absoluto. Tus ataques desarmados ahora ignoran una cantidad de **Mitigación Física** del objetivo igual a **la mitad de tu puntuación de Instinto** (redondeando hacia arriba).
     uses:
@@ -3313,6 +3318,7 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
+      - Instinto 4
     description: >-
       Usas tu **Interacción** para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad **Arrojadiza (Cercana)**.
     uses:
@@ -3325,6 +3331,7 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
+      - Reflejos 4
     description: >-
       Usas tu **Acción** para desatar un torbellino de ataques. Realizas **tres ataques desarmados**.
     uses:
@@ -3401,6 +3408,7 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
+      - Reflejos 3
     description: >-
       Usas tu **Interacción** para aligerar tu cuerpo con ki. Hasta el final de tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.
     uses:
@@ -3414,6 +3422,7 @@ cards:
       - Reacción
     requirements:
       - Disciplina Monástica
+      - Instinto 3
     description: >-
       Como **Reacción** cuando caes, puedes usar tu ki para aligerar tu cuerpo. Reduces el daño por caída como si la distancia de la caída fuera 10 metros menor. Si esto reduce el daño a 0, aterrizas de pie sin sufrir daño.
     uses:
@@ -3426,6 +3435,7 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
+      - Instinto 3
     description: >-
       Tu disciplina te permite ignorar las debilidades del cuerpo. Obtienes **Ventaja (+1d4)** en todas las pruebas de **Cuerpo (Aguante)**, como las que se realizan para resistir los efectos del cansancio, el hambre, la sed o las temperaturas extremas.
     uses:
@@ -3482,3 +3492,63 @@ cards:
     uses:
       type: null
       qty: 0
+  - name: Paso Etéreo
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements:
+      - Disciplina Monástica
+      - Instinto 3
+    description: >-
+      Tu movimiento no se ve afectado por terreno difícil. Además, puedes moverte a través del espacio de criaturas hostiles sin impedimento.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Gracia del Viento
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements:
+      - Paso Etéreo
+      - Instinto 4
+    description: >-
+      Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto. Debes terminar cada uno de tus turnos en una superficie sólida o caerás.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Trance de Piedra
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Ritual
+    requirements:
+      - Disciplina Monástica
+      - Instinto 3
+    description: >-
+      Tras 10 minutos de meditación ininterrumpida, puedes hacer una pregunta sobre el entorno inmediato (una habitación, un claro).
+      Recibes una respuesta sensorial y críptica del "espíritu del lugar" (a discreción del DJ), como el eco de una emoción fuerte,
+      la sensación de una presencia oculta o la imagen de un evento significativo que ocurrió allí.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Limpiar Energías
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements:
+      - Trance de Piedra
+      - Instinto 4
+    description: >-
+      Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br>
+      - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu `Instinto` contra el atributo del encantador para romper el efecto.<br>
+      - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.
+    uses:
+      type: RELOAD
+      qty: 5
