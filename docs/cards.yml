@@ -1071,6 +1071,21 @@ cards:
     uses:
       type: RELOAD
       qty: 6
+  - name: Barrido de Piernas
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements:
+      - Sintonía con el Acero
+      - Cuerpo 3
+    description: >-
+      Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando
+      un arma a dos manos o un arma Versátil con ambas manos. Todas las criaturas a 1 metro de ti deben superar una
+      TS de Cuerpo (ND 4+Cuerpo) o caer en el estado Derribado.
+    uses:
+      type: RELOAD
+      qty: 3
   - name: Ataque Adicional
     level: 3
     type: efecto
@@ -1158,6 +1173,22 @@ cards:
     uses:
       type: RELOAD
       qty: 4
+  - name: Comando de Batalla
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements:
+      - Presencia Inspiradora
+      - Presencia 3
+    description: >-
+      Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu puntuación de Presencia.
+      Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad. Este movimiento no puede ser
+      interceptado por Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su
+      próximo turno obtiene Ventaja (+1d4).
+    uses:
+      type: RELOAD
+      qty: 4
   - name: Maniobra Táctica
     level: 3
     type: activable
@@ -1215,6 +1246,38 @@ cards:
     uses:
       type: RELOAD
       qty: 4
+  # --- Combatiente: Explorador Veterano ---
+  - name: Marcha Incansable
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements:
+      - Sintonía con el Acero
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas.
+      Además, cuando lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a
+      tu capacidad para marcar el ritmo y elegir las mejores rutas.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Ojo Táctico
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+    requirements:
+      - Marcha Incansable
+      - Instinto 3
+    description: >-
+      Tu experiencia en incontables batallas y marchas te ha enseñado a leer tanto a la gente como al terreno.
+      Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br>
+      - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br>
+      - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>
+    uses:
+      type: null
+      qty: 0
   # ------------------------------ ARCANISTA ------------------------------
   - name: Afinidad Arcana
     level: 1
