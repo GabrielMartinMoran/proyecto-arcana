@@ -2282,6 +2282,7 @@ cards:
       - Curación
     requirements:
       - Bálsamo Natural
+      - Instinto 3
     description: >-
       Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br>
       - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.<br>
@@ -2368,6 +2369,7 @@ cards:
       - Concentración
     requirements:
       - Látigo de Espinas
+      - Instinto 3
     description: >-
       En un área de 5m a distancia Cercana, brotan enredaderas. El área es
       terreno difícil. Quien entre o empiece su turno ahí debe superar una
@@ -2447,7 +2449,8 @@ cards:
       - Druida
       - Conjuro
     requirements:
-      - Furia Elemental
+      - Sintonía Primordial
+      - Instinto 3
     description: >-
       Creas un cono de viento de 5m. Las criaturas en el área deben superar una TS de Cuerpo
       (ND 4+Instinto) o ser empujadas 3 metros hacia atrás. Si chocan con un objeto sólido
@@ -2465,12 +2468,131 @@ cards:
     description: >-
       Adquieres un uso adicional de tu _Forma Salvaje_. Además, cuando usas tu _Forma Salvaje_ para transformarte en una bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las siguientes opciones adicionales:<br>
       - **Furia Primordial:** Puedes realizar dos ataques con tu Acción en lugar de uno.<br>
-      - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas +10 Puntos de Salud temporales adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br>
+      - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas 5 Puntos de Salud temporales adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br>
       - **Rugido Aterrador (Recarga 5+):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una TS de Instinto (ND 4 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br>
       - **Presa Incapacitante:** Cuando impactas a una criatura de un tamaño igual o inferior al tuyo, puedes intentar apresarla. El objetivo debe superar una TS de Reflejos (ND 4 + tu Instinto) o quedar **Inmovilizado**. Mientras mantengas la presa (no requiere acción), tú también estás Inmovilizado. La criatura apresada puede usar su Acción para intentar escapar repitiendo la Tirada de Salvación.
     uses:
       type: null
       qty: 0
+  - name: Vínculo Animal
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Ritual
+    requirements:
+      - Hablar con los Animales
+      - Instinto 2
+    description: >-
+      Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de NA 1 o inferior. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.
+      Para que tu compañero realice una acción (como Moverse o Atacar), debes usar tu Acción para darle una orden.
+      El compañero usa su propio bloque de estadísticas, pero su salud máxima es igual a 3 + (tu Instinto x 2).
+      Si tu compañero muere, puedes vincularte con una nueva bestia.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Compañero Veterano
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements:
+      - Vínculo Animal
+      - Instinto 3
+    description: >-
+      Tu vínculo se fortalece. Ahora puedes comandar a tu compañero usando tu Interacción en lugar de tu Acción.
+      Su Salud Máxima aumenta a 5 + (tu Instinto x 3) y sus ataques se consideran mágicos para el propósito de superar resistencias.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Vínculo Primordial
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements:
+      - Compañero Veterano
+      - Instinto 4
+    description: >-
+      Tu vínculo con tu compañero es ahora una extensión de tu alma. Eliges una de las siguientes especializaciones para tu compañero:
+      - **Guardián:** La Salud Máxima de tu compañero aumenta a 8 + (tu Instinto x 4). Además, como Reacción, cuando un enemigo a 1 metro de él ataca a un objetivo que no eres tú, puede imponer Desventaja (-1d4) en esa tirada.
+      - **Vínculo de Caza:** Tu compañero y tú os convertís en una unidad de caza letal. Tú ganas Ventaja (+1d4) en tus tiradas de ataque contra una criatura si tu compañero está adyacente a ella. Tu compañero gana Ventaja (+1d4) en sus tiradas de ataque contra una criatura si tú estás adyacente a ella.
+      - **Rastreador:** El compañero obtiene Ventaja (+1d4) en Percepción y Sigilo. Como Acción, puedes usar los sentidos de tu compañero (ver y oír) mientras permanezcas a distancia Larga de él.
+      Puedes cambiar la especialización cuando te vinculas con una nueva bestia.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Crecimiento Regenerativo
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+      - Concentración
+    requirements:
+      - Bálsamo Natural
+      - Instinto 4
+    description: >-
+      Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas,
+      recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Hablar con las Plantas
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements:
+      - Sintonía Primordial
+      - Instinto 3
+    description: >-
+      Obtienes la capacidad de comunicarte con las plantas durante 10 minutos. Puedes preguntarles sobre criaturas que han pasado cerca recientemente,
+      el clima local, o dónde encontrar agua. La información obtenida es simple y literal, basada en la percepción de la planta.
+    uses:
+      type: RELOAD
+      qty: 3
+
+  - name: Lazo Natural
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements:
+      - Sintonía Primordial
+      - Instinto 2
+    description: >-
+      Haces brotar una enredadera flexible del suelo en un punto a distancia Cercana, que dura 1 minuto. Puedes usar tu Interacción
+      para dirigir la enredadera hasta 5 metros. Puede manipular un objeto, tirar de una palanca, o entregar un objeto pequeño.
+      No puede atacar, pero puedes usarla para intentar una maniobra de Zancadilla contra un enemigo (usando tu Instinto para la Tirada Enfrentada).
+    uses:
+      type: RELOAD
+      qty: 2
+
+  - name: Pasar sin Rastro
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements:
+      - Sintonía Primordial
+      - Instinto 3
+    description: >-
+      Durante 1 hora, tú y hasta cinco criaturas aliadas que elijas no dejáis huellas ni olor. El rastreo por medios no mágicos se vuelve imposible.
+      Además, todos los afectados obtienen Ventaja (+1d4) en todas las pruebas de Sigilo.
+    uses:
+      type: RELOAD
+      qty: 4
   # ------------------------------ BARDO ------------------------------
   - name: Don del Elocuente
     level: 1
