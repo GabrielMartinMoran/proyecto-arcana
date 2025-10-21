@@ -1789,7 +1789,7 @@ cards:
     requirements:
       - Fe Inspiradora
     description: >-
-      Tocas a una criatura y esta recupera 1d8 Puntos de Salud. Alternativamente,
+      Tocas a una criatura y esta recupera 1d4 más tu Instinto en Puntos de Salud. Alternativamente,
       puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
     uses:
       type: RELOAD
@@ -1800,12 +1800,12 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-      - Concentración
     requirements:
       - Fe Inspiradora
     description: >-
-      Eliges una criatura a distancia Cercana. Obtiene un +1 de Mitigación Física y Mágica durante
-      1 minuto.
+      Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de energía divina.
+      El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación de Instinto justo antes de recibir el daño.
+      Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
     uses:
       type: RELOAD
       qty: 4
@@ -1818,11 +1818,12 @@ cards:
     requirements:
       - Fe Inspiradora
     description: >-
-      Una llama celestial desciende sobre un enemigo a distancia Cercana. Debe superar una
-      TS de Reflejos (ND 4+Instinto) o recibir 1d8 de daño Radiante.
+      Realizas un ataque de conjuro a distancia (1d6+Instinto) contra un objetivo a distancia Cercana.
+      Si impactas, infliges 1d6 de daño Radiante y el objetivo queda envuelto en una luz trémula hasta el final de tu próximo turno.
+      El próximo ataque que se realice contra el objetivo obtiene Ventaja (+1d4).
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Saeta Radiante
     level: 1
     type: activable
@@ -1838,6 +1839,22 @@ cards:
     uses:
       type: RELOAD
       qty: 3
+  - name: Amparo Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements:
+      - Fe Inspiradora
+      - Instinto 3
+    description: >-
+      Como Reacción, cuando un enemigo ataca a un aliado que puedas ver a distancia Cercana, puedes interponer tu poder divino
+      e imponer Desventaja (-1d4) en esa tirada de ataque.
+    uses:
+      type: RELOAD
+      qty: 4
   - name: Aura Protectora
     level: 2
     type: activable
@@ -1847,6 +1864,7 @@ cards:
       - Reacción
     requirements:
       - Toque Restaurador
+      - Instinto 3
     description: >-
       Como Reacción cuando un aliado a distancia Cercana es reducido a 0 Puntos de Salud,
       puedes hacer que quede con 1 Punto de Salud en su lugar.
@@ -1866,7 +1884,7 @@ cards:
     uses:
       type: RELOAD
       qty: 3
-  - name: Silencio
+  - name: Santuario Silencioso
     level: 2
     type: activable
     tags:
@@ -1878,8 +1896,9 @@ cards:
       - Fe Inspiradora
       - Instinto 3
     description: >-
-      Creas una esfera de silencio de 5m de radio a distancia Cercana durante 10 minutos.
-      Dentro de ella no se puede oír ningún sonido y es imposible usar cartas o habilidades que requieran palabras.
+      Creas una esfera de 5 metros de radio. Dentro de la esfera, el sonido se apaga por completo.
+      Además, el área se considera terreno consagrado, y las criaturas impías (no-muertos, demonios, etc.)
+      que entren o empiecen su turno allí sufren Desventaja (-1d4) en todas sus tiradas de ataque y salvación.
     uses:
       type: RELOAD
       qty: 4
@@ -1909,14 +1928,15 @@ cards:
       - Concentración
     requirements:
       - Fe Inspiradora
+      - Instinto 3
     description: >-
-      Tocas un arma, escudo o armadura. Durante 10 minutos, el objeto obtiene una bendición. Elige uno:
-      **Arma:** Se considera mágica e inflige +1d4 de daño Radiante.
-      **Escudo:** Otorga a su portador +1 a la Esquiva.
-      **Armadura:** Otorga a su portador +1 a la Mitigación Física y Mágica.
+      Tocas un arma, escudo, armadura o herramienta. Durante 10 minutos, el objeto obtiene una bendición. Elige uno:<br>
+      - **Arma:** Adquiere un +1 en las tiradas de ataque.<br>
+      - **Escudo o Armadura:** Otorga a su portador +1 a la Mitigación Física y Mágica.<br>
+      - **Herramienta:** Otorga un +1 a las Pruebas de Habilidad que se realicen con esta.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Aura Divina
     level: 2
     type: activable
@@ -1929,9 +1949,9 @@ cards:
       - Instinto 3
     description: >-
       Como Acción, emites un aura divina de 5 metros de radio que dura 1 minuto. Al activar el aura,
-      eliges uno de los siguientes efectos persistentes:
-      - **Aura de Santuario:** Tú y tus aliados que comiencen su turno dentro del aura recuperan 1 Punto de Salud.
-      - **Aura de Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una TS de Instinto (ND 4 + tu Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).
+      eliges uno de los siguientes efectos persistentes:<br>
+      - **Aura de Protección:** Cuando un enemigo dentro del aura ataca a un aliado, puedes usar tu Reacción para imponer Desventaja (-1d4) en esa tirada de ataque.<br>
+      - **Aura de Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una TS de Reflejos (ND 4 + tu Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).<br>
       - **Aura de Fortaleza:** Tú y tus aliados dentro del aura obtenéis un +1 a todas las Tiradas de Salvación.
     uses:
       type: RELOAD
@@ -1961,7 +1981,7 @@ cards:
       - Toque Restaurador
       - Instinto 4
     description: >-
-      Tú y hasta 5 aliados a distancia Cercana recuperan 1d6 + tu valor de Instinto en Puntos de Salud.
+      Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.
     uses:
       type: RELOAD
       qty: 5
@@ -1974,7 +1994,8 @@ cards:
       - Concentración
       - Curación
     requirements:
-      - Golpe Divino
+      - Fe Inspiradora
+      - Instinto 4
     description: >-
       Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que
       entre o empiece su turno ahí debe superar una TS de Instinto (ND 4+Instinto)
@@ -1989,7 +2010,7 @@ cards:
       - Sacerdote
       - Conjuro
     requirements:
-      - Aura Protectora
+      - Toque Restaurador
       - Instinto 4
     description: >-
       Tocas a una criatura que haya muerto en el último minuto. Vuelve a
@@ -2021,7 +2042,7 @@ cards:
       - Mirada Penetrante
     description: >-
       Como Interacción, marcas a un enemigo a distancia Cercana hasta el final del combate (o hasta que muera).
-      Tus ataques (y los de tus aliados) contra ese enemigo infligen +1d4 de daño radiante adicional.
+      Siempre puedas ver al enemigo, tus ataques y los de tus aliados contra ese enemigo ignoran su mitigación física y mágica en una cantidad igual a la mitad de tu atributo de Instinto (redondeado hacia abajo).
     uses:
       type: RELOAD
       qty: 4
@@ -2033,14 +2054,104 @@ cards:
       - Concentración
       - Ritual
     requirements:
-      - Mirada Penetrante
+      - Fe Inspiradora
+      - Instinto 3
     description: >-
-      Creas una zona de 5m de radio a distancia Cercana por 10 minutos. Quien
+      Creas una zona de 5 metros de radio a distancia Cercana por 10 minutos. Quien
       esté dentro debe superar una TS de Instinto (ND 4+Instinto) para poder
       decir una mentira deliberada.
     uses:
       type: RELOAD
       qty: 2
+  - name: Curar
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements:
+      - Toque Restaurador
+      - Instinto 4
+    description: >-
+      Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br>
+      - **Restauración Vital:** La criatura recupera 2d6 + tu puntuación de Instinto en Puntos de Salud.<br>
+      - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Detectar el Bien y el Mal
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements:
+      - Fe Inspiradora
+    description: >-
+      Como Acción o Ritual, abres tus sentidos al mundo espiritual durante 10 minutos. Mientras te concentras,
+      eres consciente de la presencia y ubicación general de cualquier criatura Celestial, Infernal o No-muerta a distancia Cercana.
+      Además, puedes sentir si un área o un objeto ha sido consagrado o profanado mágicamente.
+    uses:
+      type: RELOAD
+      qty: 3
+
+  - name: Santuario
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements:
+      - Fe Inspiradora
+      - Instinto 3
+    description: >-
+      Trazas un círculo de 5 metros de radio en el suelo. Durante 8 horas, el área se considera terreno consagrado.<br>
+      Cualquier criatura Infernal o No-muerta que intente entrar al área debe superar primero una Tirada de Salvación de Instinto (ND 4+Instinto).
+      Si falla, no puede entrar voluntariamente en este turno. Si cualquier otra criatura que no hayas designado como segura entra en el área,
+      recibes una alerta mental que te despierta si estás durmiendo. No te revela quien entro, pero sí que alguien no esperado lo ha hecho.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Palabra de Autoridad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements:
+      - Fe Inspiradora
+      - Instinto 3
+    description: >-
+      Como Acción, eliges a una criatura a distancia Cercana. Le das una orden de una o dos palabras (ej: "¡Suéltalo!", "¡Arrodíllate!").
+      El objetivo debe superar una Tirada de Salvación de Instinto (ND 4+Presencia). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
+      Una criatura inmune al estado Encantado no se ve afectada por este conjuro.
+    uses:
+      type: RELOAD
+      qty: 3
+
+  - name: Eco del Pasado
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements:
+      - Fe Inspiradora
+      - Instinto 4
+    description: >-
+      Trazas un símbolo sagrado sobre un objeto inanimado o una criatura fallecida.
+      Recibes una visión breve y sensorial (imágenes, sonidos, emociones fuertes) del último evento significativo en el que el objetivo estuvo involucrado.
+      La visión es críptica y está sujeta a la interpretación. No puedes usar esta habilidad sobre el mismo objetivo más de una vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+
   # ------------------------------ DRUIDA ------------------------------
   - name: Sintonía Primordial
     level: 1
