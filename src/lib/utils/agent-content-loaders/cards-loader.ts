@@ -40,15 +40,7 @@ const cardToMarkdownRow = (card: Card): string => {
 };
 
 const cardsToMarkdownTable = (cards: Card[]): string => {
-	const columns = [
-		'Nombre',
-		'Nivel',
-		'Tipo',
-		'Tipo de carta',
-		'Etiquetas',
-		'Requerimientos',
-		'Usos',
-	];
+	const columns = ['Nombre', 'Nivel', 'Tipo', 'Descripción', 'Etiquetas', 'Requerimientos', 'Usos'];
 
 	if (cards[0].cardType === 'item') {
 		columns.push('Costo (oro)');
