@@ -727,7 +727,7 @@ cards:
       - Presencia 4
     description: >-
       Te mueves por el campo de batalla como en un baile mortal. Ganas los siguientes beneficios:<br>
-      - **Paso Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Este movimiento no consume tu Interacción y no puede ser interceptado por una Reacción del objetivo de tu ataque.<br>
+      - **Paso Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Durante este movimiento, no puede ser interceptado por una Reacción del objetivo de tu ataque.<br>
       - **Réplica Maestra:** Puedes usar tu carta Riposta una vez por ronda sin gastar su uso de recarga.
     uses:
       type: null
