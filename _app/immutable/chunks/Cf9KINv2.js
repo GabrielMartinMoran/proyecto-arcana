@@ -1,4 +1,4 @@
-import{m as $}from"./DemwCk8g.js";import{l as m}from"./CGjaQNWU.js";import{m as p,a as d}from"./DFTEz3Mi.js";import{r as g}from"./3GtotJs9.js";const n=async s=>await(await fetch(g(s))).text(),y=s=>{let t="";return t+=`# ${s.name}
+import{m as $}from"./DemwCk8g.js";import{l as m}from"./CGjaQNWU.js";import{m as p,a as d}from"./DFTEz3Mi.js";import{r as g}from"./B3Ps0Ex4.js";const o=async s=>await(await fetch(g(s))).text(),y=s=>{let t="";return t+=`# ${s.name}
 
 `,t+=`**NA:** ${s.na}
 
@@ -34,9 +34,9 @@ import{m as $}from"./DemwCk8g.js";import{l as m}from"./CGjaQNWU.js";import{m as 
 `),s.reactions&&s.reactions.length>0&&(t+=`## Reacciones
 `,s.reactions.forEach(a=>{t+=`- **${a.name}:** ${a.detail}${a.uses?` (Usos: ${l(a.uses)})`:""}
 `}),t+=`
-`),t},l=s=>{switch(s?.type){case"RELOAD":return`${s.qty} [Recarga ${s.qty}+]`;case"USES":case"LONG_REST":return`${s.qty}`;default:return""}},A="/docs/bestiary.yml",R=async()=>{const s=await n(A);let t=[];try{t=m(s).creatures??[]}catch(o){console.error("Error parsing YAML:",o)}return t.map(o=>$(o)).map(y).join(`---
+`),t},l=s=>{switch(s?.type){case"RELOAD":return`${s.qty} [Recarga ${s.qty}+]`;case"USES":case"LONG_REST":return`${s.qty}`;default:return""}},A="/docs/bestiary.yml",R=async()=>{const s=await o(A);let t=[];try{t=m(s).creatures??[]}catch(n){console.error("Error parsing YAML:",n)}return t.map(n=>$(n)).map(y).join(`---
 
-`)},h="/docs/cards.yml",M="/docs/magical-items.yml",f=s=>{if(!s||!s.type)return"N/A";switch(s.type){case"LONG_REST":return`${s.qty??"—"} por día de descanso`;case"RELOAD":return`1 (Recarga ${s.qty??"—"}+)`;case"USES":return`${s.qty??"—"}`;default:return"—"}},u=s=>{const t=[];return t.push(s.name),t.push(s.level.toString()),t.push(s.type),t.push(s.description),t.push(s.tags?s.tags.join(", "):"—"),t.push(s.requirements?s.requirements.join(", "):"—"),t.push(f(s.uses)),s.cardType==="item"&&t.push(s.cost.toString()),`| ${t.join(" | ")} |`},E=s=>{const t=["Nombre","Nivel","Tipo","Tipo de carta","Etiquetas","Requerimientos","Usos"];s[0].cardType==="item"&&t.push("Costo (oro)");const a=s.map(u);return`| **${t.join("** | **")}** |
+`)},h="/docs/cards.yml",M="/docs/magical-items.yml",f=s=>{if(!s||!s.type)return"N/A";switch(s.type){case"LONG_REST":return`${s.qty??"—"} por día de descanso`;case"RELOAD":return`1 (Recarga ${s.qty??"—"}+)`;case"USES":return`${s.qty??"—"}`;default:return"—"}},u=s=>{const t=[];return t.push(s.name),t.push(s.level.toString()),t.push(s.type),t.push(s.description),t.push(s.tags?s.tags.join(", "):"—"),t.push(s.requirements?s.requirements.join(", "):"—"),t.push(f(s.uses)),s.cardType==="item"&&t.push(s.cost.toString()),`| ${t.join(" | ")} |`},E=s=>{const t=["Nombre","Nivel","Tipo","Descripción","Etiquetas","Requerimientos","Usos"];s[0].cardType==="item"&&t.push("Costo (oro)");const a=s.map(u);return`| **${t.join("** | **")}** |
 | --- | --- | --- | --- | --- | --- | --- |
 ${a.join(`
-`)}`},r=async(s,t,a)=>{const o=await n(s);let e=[];try{e=m(o)[a]??[]}catch(i){console.error("Error parsing YAML:",i)}const c=e.map(i=>t(i));return E(c)},v=async()=>await r(h,p,"cards"),I=async()=>await r(M,d,"items"),b="/docs/gm.md",q=async()=>await n(b),L="/docs/player.md",S=async()=>await n(L);export{S as a,q as b,R as c,v as d,I as e,n as l};
+`)}`},c=async(s,t,a)=>{const n=await o(s);let e=[];try{e=m(n)[a]??[]}catch(i){console.error("Error parsing YAML:",i)}const r=e.map(i=>t(i));return E(r)},v=async()=>await c(h,p,"cards"),I=async()=>await c(M,d,"items"),b="/docs/gm.md",q=async()=>await o(b),L="/docs/player.md",S=async()=>await o(L);export{S as a,q as b,R as c,v as d,I as e,o as l};
