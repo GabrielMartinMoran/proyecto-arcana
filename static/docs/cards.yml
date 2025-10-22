@@ -1020,7 +1020,8 @@ cards:
     tags:
       - Combatiente
     requirements:
-      - Presencia Inspiradora
+      - Sintonía con el Acero
+      - Presencia 3
     description: >-
       Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo desafías.
       Realizas una Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el objetivo está
@@ -1188,21 +1189,6 @@ cards:
       Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad. Este movimiento no puede ser
       interceptado por Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su
       próximo turno obtiene Ventaja (+1d4).
-    uses:
-      type: RELOAD
-      qty: 4
-  - name: Maniobra Táctica
-    level: 3
-    type: activable
-    tags:
-      - Combatiente
-    requirements:
-      - Grito de Guerra
-      - Presencia 4
-    description: >-
-      Como Acción, eliges a un aliado a distancia Cercana. Ese aliado puede usar
-      su Reacción para moverse hasta la mitad de su velocidad o realizar un ataque único.
-      En caso de moverse, este movimiento no puede ser interceptado por Reacciones enemigas.
     uses:
       type: RELOAD
       qty: 4
@@ -1496,8 +1482,8 @@ cards:
       Durante 10 minutos, tus ojos brillan con una luz azulada. Puedes percibir un aura tenue alrededor de cualquier
       criatura u objeto visible a distancia Cercana que porte magia.
     uses:
-      type: null
-      qty: 0
+      type: RELOAD
+      qty: 3
   - name: Augurio
     level: 2
     type: activable
@@ -1604,13 +1590,12 @@ cards:
       - Conjuro
     requirements:
       - Afinidad Arcana
-      - Mente 3
     description: >-
-      Todo enemigo en un cono de 5 metros frente a ti debe superar una TS de Reflejos (ND 4+Mente).
+      Todo enemigo en un cono de 3 metros frente a ti debe superar una TS de Reflejos (ND 4 + Mente).
       Si fallan, reciben 1d6 de daño de Fuego. Si tienen éxito, la mitad.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 2
   - name: Nube de Dagas
     level: 2
     type: activable
@@ -1991,21 +1976,6 @@ cards:
     requirements:
       - Fe Inspiradora
     description: >-
-      Realizas un ataque de conjuro a distancia (1d6+Instinto) contra un objetivo a distancia Cercana.
-      Si impactas, infliges 1d6 de daño Radiante y el objetivo queda envuelto en una luz trémula hasta el final de tu próximo turno.
-      El próximo ataque que se realice contra el objetivo obtiene Ventaja (+1d4).
-    uses:
-      type: RELOAD
-      qty: 3
-  - name: Saeta Radiante
-    level: 1
-    type: activable
-    tags:
-      - Sacerdote
-      - Conjuro
-    requirements:
-      - Fe Inspiradora
-    description: >-
       Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque
       de conjuro (1d6+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
       Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
@@ -2301,7 +2271,7 @@ cards:
       - Instinto 3
     description: >-
       Como Acción, eliges a una criatura a distancia Cercana. Le das una orden de una o dos palabras (ej: "¡Suéltalo!", "¡Arrodíllate!").
-      El objetivo debe superar una Tirada de Salvación de Instinto (ND 4+Presencia). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
+      El objetivo debe superar una Tirada de Salvación de Instinto (ND 4 + Instinto). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
       Una criatura inmune al estado Encantado no se ve afectada por este conjuro.
     uses:
       type: RELOAD
@@ -3330,7 +3300,7 @@ cards:
     tags:
       - Monje
     requirements:
-      - Disciplina Monástica
+      - Ráfaga de Golpes
       - Reflejos 4
     description: >-
       Usas tu **Acción** para desatar un torbellino de ataques. Realizas **tres ataques desarmados**.
