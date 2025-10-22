@@ -925,6 +925,36 @@ cards:
       type: null
       qty: 0
 
+  - name: Golpe Letal
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Ataque Furtivo Mejorado
+      - Reflejos 4
+    description: >-
+      Has aprendido a identificar y explotar las vulnerabilidades más críticas. El daño adicional de tu Ataque Furtivo aumenta a 3d4.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Esquiva Sobrenatural
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Evasión
+      - Reflejos 4
+    description: >-
+      Te mueves como un fantasma a través del peligro. Ganas los siguientes beneficios:<br>
+      - Tu carta Evasión ahora también se aplica a Tiradas de Salvación de Cuerpo e Instinto.<br>
+      - Cuando tienes éxito en cualquier Tirada de Salvación para recibir la mitad de daño (y por ende no recibes daño gracias a Evasión), puedes usar tu Reacción para moverte hasta la mitad de tu velocidad.
+    uses:
+      type: null
+      qty: 0
+
   # ------------------------------ COMBATIENTE ------------------------------
   - name: Sintonía con el Acero
     level: 1
@@ -1146,6 +1176,36 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
+  - name: Maestría Marcial Superior
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements:
+      - Ataque Adicional
+      - Cuerpo 4
+    description: >-
+      Tu dominio del arma es tal que cada golpe abre una oportunidad para el siguiente. Ganas los siguientes beneficios:<br>
+      - Cuando usas Ataque Adicional y el primer ataque impacta, obtienes Ventaja (+1d4) en la tirada del segundo ataque.<br>
+      - Una vez por turno, si ambos ataques impactan al mismo objetivo, infliges 1d6 de daño adicional.
+    uses:
+      type: null
+      qty: 0
+  - name: Bastión Inamovible
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements:
+      - Sintonía con el Acero
+      - Cuerpo 4
+    description: >-
+      Eres una montaña inamovible en el campo de batalla. Ganas los siguientes beneficios:<br>
+      - Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br>
+      - Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+    uses:
+      type: null
+      qty: 0
   # --- Combatiente: Caudillo ---
   - name: Presencia Inspiradora
     level: 1
@@ -1724,7 +1784,7 @@ cards:
       - Conjuro
     requirements:
       - Afinidad Arcana
-      - Mente 5
+      - Mente 4
     description: >-
       Realizas un ataque de conjuro a distancia (1d6+Mente). Si impactas, infliges 4d8 de daño
       de Fuerza. Si este daño reduce al objetivo a 0 Puntos de Salud, se convierte en un
@@ -1881,7 +1941,7 @@ cards:
       - Concentración
     requirements:
       - Afinidad Arcana
-      - Mente 5
+      - Mente 4
     description: >-
       Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15 metros de largo y 5 de alto,
       o puede ser una cúpula de 4m de radio. La barrera es inmune a todo daño físico, pero es destruida automáticamente por efectos mágicos de desintegración
@@ -1898,11 +1958,42 @@ cards:
       - Concentración
     requirements:
       - Paso Brumoso
-      - Mente 5
+      - Mente 4
     description: >-
       Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3m de diámetro.
       Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías
       que permanece abierta mientras te concentres, hasta por 1 minuto.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Dominio Elemental
+    level: 4
+    type: efecto
+    tags:
+      - Arcanista
+    requirements:
+      - Explosión Elemental
+      - Mente 4
+    description: >-
+      Al adquirir esta carta, elige un tipo de daño: Fuego, Frío o Eléctrico. Ganas los siguientes beneficios para conjuros de Arcanista de ese tipo:<br>
+      - Puedes volver a tirar cualquier dado de daño que resulte en un 1 (debes usar el nuevo resultado).<br>
+      - Las criaturas tienen Desventaja (-1d4) en las Tiradas de Salvación contra tus conjuros de ese tipo.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Sugestión Mayor
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements:
+      - Maledicción
+      - Mente 4
+    description: >-
+      Como Acción, eliges a una criatura humanoide a distancia Cercana. Debe superar una TS de Instinto (ND 4+Mente). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente"). La orden no puede ser obviamente suicida. La criatura obedece lo mejor que puede mientras te concentres.
     uses:
       type: RELOAD
       qty: 5
@@ -2293,6 +2384,35 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
+
+  - name: Sanación Verdadera
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements:
+      - Curar
+      - Instinto 4
+    description: >-
+      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu puntuación de Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Destruir Impíos
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements:
+      - Expulsar Impíos
+      - Instinto 4
+    description: >-
+      Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior falla su Tirada de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.
+    uses:
+      type: null
+      qty: 0
 
   # ------------------------------ DRUIDA ------------------------------
   - name: Sintonía Primordial
@@ -2735,6 +2855,39 @@ cards:
     uses:
       type: RELOAD
       qty: 4
+
+  - name: Forma Salvaje Mayor
+    level: 4
+    type: efecto
+    tags:
+      - Druida
+    requirements:
+      - Maestría Salvaje
+      - Instinto 4
+    description: >-
+      Tu carta Aspecto Combativo se potencia:<br>
+      - Ahora puedes elegir transformarte en una bestia de combate Grande.<br>
+      - Cuando estás en forma de bestia Grande, tus ataques sin arma infligen 1d8 de daño base (o 1d10 con Ataque Brutal), obtienes 10 Puntos de Salud temporales adicionales, y tus ataques cuerpo a cuerpo tienen Ventaja (+1d4) contra criaturas de tamaño Mediano o inferior.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Dominio del Clima
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements:
+      - Sintonía Primordial
+      - Instinto 4
+    description: >-
+      Tras 10 minutos de ritual, eliges un punto a distancia Larga. Creas un efecto climático en un radio de 100 metros que dura hasta 1 hora. Eliges uno: Niebla Densa (visibilidad limitada), Lluvia Torrencial (Desventaja Percepción/ataques distancia), Vientos Fuertes (terreno difícil volador, Desventaja ataques distancia), o Crecimiento Descontrolado (terreno difícil y cobertura parcial en toda el área).
+    uses:
+      type: LONG_REST
+      qty: 1
   # ------------------------------ BARDO ------------------------------
   - name: Don del Elocuente
     level: 1
@@ -2761,7 +2914,7 @@ cards:
     description: >-
       Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.
       El aliado obtiene un dado de 1d2 (dado de inspiración) que puede añadir a una
-      Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación en los próximos 10 minutos.
+      Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que realice en el próximo minuto.
     uses:
       type: RELOAD
       qty: 3
@@ -2891,6 +3044,35 @@ cards:
     uses:
       type: null
       qty: 0
+  - name: Inspiración Superior
+    level: 4
+    type: efecto
+    tags:
+      - Bardo
+    requirements:
+      - Maestría de Bardo
+      - Presencia 4
+    description: >-
+      Tu música alcanza cotas de genialidad. El dado de tu Canto de Inspiración aumenta a 1d6.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Dominar Persona
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Hechizar Persona
+      - Presencia 4
+    description: >-
+      Como Acción, eliges a un humanoide a distancia Cercana. Debe superar una TS de Instinto (ND 4+Presencia). Si falla, queda Encantado por ti durante 1 minuto. Tienes un vínculo telepático con él y puedes usar tu Acción para darle órdenes que obedecerá (tiene Ventaja en la TS si la orden es suicida).
+    uses:
+      type: RELOAD
+      qty: 6
   # --- Bardo: Colegio del Valor ---
   - name: Inspiración Marcial
     level: 1
@@ -3520,6 +3702,33 @@ cards:
     uses:
       type: RELOAD
       qty: 5
+  - name: Toque Disruptor
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements:
+      - Golpe Aturdidor
+      - Instinto 4
+    description: >-
+      Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo (ND 4+Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus 'Acciones' o 'Reacciones' que especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Paso del Vacío
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements:
+      - Paso del Viento
+      - Reflejos 4
+    description: >-
+      Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.
+    uses:
+      type: RELOAD
+      qty: 4
   # ------- CARTAS DE SINERGIA ------
   # ------------------------------ 1. Combatiente + Pícaro ------------------------------
   - name: Maestro de la Danza Letal
