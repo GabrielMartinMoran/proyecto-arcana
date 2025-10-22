@@ -955,6 +955,48 @@ cards:
       type: null
       qty: 0
 
+  - name: Paso Sombrío Letal
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements:
+      - Asesinar
+      - Reflejos 5
+    description: >-
+      Como **Interacción**, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se **maximiza** (cada dado cuenta como su valor máximo).
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Golpe Fantasma
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements:
+      - Ataque Furtivo Mejorado
+      - Reflejos 5
+    description: >-
+      Tu golpe es tan rápido y preciso que atraviesa las defensas. Como Acción, realizas un único ataque con un arma Precisa o a distancia. Este ataque ignora toda Mitigación Física y Puntos de Salud temporales. Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Ataque Furtivo Maestro
+    level: 5
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Ataque Furtivo Mejorado
+      - Reflejos 5
+    description: >-
+      Tu precisión es legendaria. El daño adicional de tu Ataque Furtivo aumenta a 4d4.
+    uses:
+      type: null
+      qty: 0
+
   # ------------------------------ COMBATIENTE ------------------------------
   - name: Sintonía con el Acero
     level: 1
@@ -1206,6 +1248,34 @@ cards:
     uses:
       type: null
       qty: 0
+  - name: Torrente de Acero
+    level: 5
+    type: efecto
+    tags:
+      - Combatiente
+    requirements:
+      - Ataque Adicional
+      - Cuerpo 5
+    description: >-
+      Tu maestría marcial alcanza la perfección. Cuando usas tu Acción para Atacar, ahora puedes realizar **tres ataques** en lugar de dos.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Último Bastión
+    level: 5
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements:
+      - Inquebrantable
+      - Cuerpo 5
+    description: >-
+      Eres la definición de la resistencia. Como Reacción, cuando tú o un aliado a 1 metro vais a recibir daño, puedes interponer tu cuerpo o escudo. **Anulas completamente el daño** de ese ataque o efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
   # --- Combatiente: Caudillo ---
   - name: Presencia Inspiradora
     level: 1
@@ -1997,6 +2067,35 @@ cards:
     uses:
       type: RELOAD
       qty: 5
+
+  - name: Maestría Arcana
+    level: 5
+    type: efecto
+    tags:
+      - Arcanista
+    requirements:
+      - Teoría Arcana Avanzada
+      - Mente 5
+    description: >-
+      Tu dominio de la Urdimbre es absoluto. Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un sistema de Recarga, puedes elegir lanzarlo sin gastar su uso.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Palabra de Poder: Aturdir'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements:
+      - Sugestión Mayor
+      - Mente 5
+    description: >-
+      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 50 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 6+Mente) para terminar el efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
   # ------------------------------ SACERDOTE ------------------------------
   - name: Fe Inspiradora
     level: 1
@@ -2413,6 +2512,37 @@ cards:
     uses:
       type: null
       qty: 0
+
+  - name: Gracia Salvadora
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements:
+      - Aura Protectora # O Curar
+      - Instinto 5
+    description: >-
+      Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Juicio Celestial
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements:
+      - Espíritus Guardianes # O Castigo Inapelable
+      - Instinto 5
+    description: >-
+      Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 6+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno). Las criaturas Celestiales superan automáticamente la salvación.
+    uses:
+      type: RELOAD
+      qty: 6
 
   # ------------------------------ DRUIDA ------------------------------
   - name: Sintonía Primordial
@@ -2888,6 +3018,40 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
+
+  - name: Mil Formas
+    level: 5
+    type: efecto
+    tags:
+      - Druida
+    requirements:
+      - Forma Salvaje Mayor
+      - Instinto 5
+    description: >-
+      Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br>
+      - Puedes usar tu Forma Salvaje un número ilimitado de veces.<br>
+      - Puedes transformarte en bestias de tamaño Enorme.<br>
+      - Tus ataques en Forma Salvaje ignoran toda Mitigación Física.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Ira de la Naturaleza
+    level: 5
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements:
+      - Muro de Espinas
+      - Dominio del Clima
+      - Instinto 5
+    description: >-
+      Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto. El terreno se vuelve difícil, la visibilidad se reduce a penumbra. Al final de cada turno de una criatura hostil en el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos ND 4+Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.
+    uses:
+      type: LONG_REST
+      qty: 1
   # ------------------------------ BARDO ------------------------------
   - name: Don del Elocuente
     level: 1
@@ -3283,6 +3447,39 @@ cards:
     uses:
       type: RELOAD
       qty: 5
+
+  - name: Sinfonía Heroica
+    level: 5
+    type: efecto
+    tags:
+      - Bardo
+    requirements:
+      - Inspiración Superior
+      - Presencia 5
+    description: >-
+      Tu arte alcanza cotas legendarias. Ganas los siguientes beneficios:<br>
+      - El dado de tu Canto de Inspiración se mantiene en 1d6.<br>
+      - Cuando un aliado usa tu dado de Canto de Inspiración, también gana una cantidad de Puntos de Salud temporales igual al resultado del dado de inspiración + tu puntuación de Presencia.<br>
+      - Puedes usar Canto de Inspiración dos veces por Interacción (en dos aliados diferentes).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Canción de la Creación
+    level: 5
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Ritual
+    requirements:
+      - Secretos Mágicos # O Impersonar
+      - Presencia 5
+    description: >-
+      Tras 10 minutos de interpretación, tejes una ilusión semi-real y duradera a partir de la música. Puedes crear un objeto no mágico de hasta 10 metros cúbicos (una casa pequeña, un puente) que dura hasta ser disipado, O puedes alterar permanentemente la memoria de una criatura sobre un evento específico (requiere TS de Instinto si es reacia).
+    uses:
+      type: LONG_REST
+      qty: 1
   # --- Monje ------------------------------
   - name: Disciplina Monástica
     level: 1
@@ -3729,6 +3926,37 @@ cards:
     uses:
       type: RELOAD
       qty: 4
+
+  - name: Palma Vibratoria
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements:
+      - Golpe Aturdidor
+      - Instinto 5
+    description: >-
+      Como Acción, realizas un ataque desarmado. Si impactas, aplicas una vibración letal (dura Instinto días). Durante ese tiempo, puedes usar tu Acción para terminar el efecto. Si lo haces, el objetivo debe superar una TS de Cuerpo (ND 8 + Instinto). Si falla, cae a 0 PH. Si tiene éxito, recibe 5d10 daño Necrótico.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Aspecto del Dragón Energético
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements:
+      - Mente Adamantina
+      - Instinto 5
+    description: >-
+      Como Acción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante durante 1 minuto. Mientras dure el aspecto, ganas los siguientes beneficios:<br>
+      - Tus ataques desarmados infligen 1d8 de daño base y todo el daño se considera de Fuerza.<br>
+      - Ganas una Reacción adicional en cada turno, que solo puede usarse para tus cartas de Reacción de Monje.<br>
+      - Obtienes una velocidad de vuelo igual a tu velocidad normal.
+    uses:
+      type: LONG_REST
+      qty: 1
   # ------- CARTAS DE SINERGIA ------
   # ------------------------------ 1. Combatiente + Pícaro ------------------------------
   - name: Maestro de la Danza Letal
