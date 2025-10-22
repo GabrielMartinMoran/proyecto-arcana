@@ -24,6 +24,7 @@ export const CONFIG = {
 		monje: 'https://i.imgur.com/1wqMxoQ.png',
 		dote: 'https://i.imgur.com/KfwuOdi.png',
 		linaje: 'https://i.imgur.com/VKUcBoy.png',
+		sinergia: 'https://i.imgur.com/8mY31nD.png',
 		default: 'https://i.imgur.com/ON6lmPC.png',
 	},
 
