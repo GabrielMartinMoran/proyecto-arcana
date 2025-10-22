@@ -22,30 +22,41 @@ const formatUses = (uses: Uses | null): string => {
 	}
 };
 
-const cardToMarkdown = (card: Card): string => {
-	let md = ``;
-	md += `# ${card.name}\n\n`;
-	md += `**Nivel:** ${card.level}\n\n`;
-	md += `**Tipo:** ${card.type.charAt(0).toUpperCase() + card.type.slice(1)}\n\n`;
+const cardToMarkdownRow = (card: Card): string => {
+	const columns: string[] = [];
 
+	columns.push(card.name);
+	columns.push(card.level.toString());
+	columns.push(card.type);
+	columns.push(card.description);
+	columns.push(card.tags ? card.tags.join(', ') : '—');
+	columns.push(card.requirements ? card.requirements.join(', ') : '—');
+	columns.push(formatUses(card.uses));
 	if (card.cardType === 'item') {
-		md += `**Costo:** ${(card as any).cost} de oro\n\n`;
+		columns.push((card as any).cost.toString());
 	}
 
-	md += `**Descripción:**\n${card.description}\n\n`;
+	return `| ${columns.join(' | ')} |`;
+};
 
-	if (card.tags && card.tags.length > 0) {
-		md += `**Etiquetas:** ${card.tags ? card.tags.join(', ') : '—'}\n\n`;
+const cardsToMarkdownTable = (cards: Card[]): string => {
+	const columns = [
+		'Nombre',
+		'Nivel',
+		'Tipo',
+		'Tipo de carta',
+		'Etiquetas',
+		'Requerimientos',
+		'Usos',
+	];
+
+	if (cards[0].cardType === 'item') {
+		columns.push('Costo (oro)');
 	}
 
-	md += `**Requerimientos:** ${card.requirements && card.requirements.length > 0 ? card.requirements.join(', ') : '—'}\n\n`;
+	const rows = cards.map(cardToMarkdownRow);
 
-	const usesText = formatUses(card.uses);
-	if (usesText !== 'N/A') {
-		md += `**Usos:** ${usesText}\n\n`;
-	}
-
-	return md;
+	return `| **${columns.join('** | **')}** |\n| --- | --- | --- | --- | --- | --- | --- |\n${rows.join('\n')}`;
 };
 
 const loadCards = async (
@@ -64,7 +75,7 @@ const loadCards = async (
 
 	const cards = rawCards.map((x) => mapper(x));
 
-	return cards.map(cardToMarkdown).join('---\n\n');
+	return cardsToMarkdownTable(cards);
 };
 
 export const loadAbilityCardsAsMD = async () => {
