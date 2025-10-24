@@ -1361,11 +1361,11 @@ creatures:
         detail: Puede realizar dos ataques de Garras y un ataque de Pico con su Acción.
       - name: Sentidos Agudos
         detail: Tiene Ventaja en pruebas de Instinto (Percepción) que dependan de la vista o el oído.
-    actions:
+    actions: []
+    reactions: []
+    interactions:
       - name: Despedazar y Apresar
         detail: Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente al inicio de cada uno de sus turnos mientras la presa se mantenga.
-    reactions: []
-    interactions: []
     behavior: |-
       Una monstruosidad territorial de furia explosiva. Considera cualquier criatura en su territorio como una amenaza o una comida. No tiene tácticas complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con una violencia abrumadora hasta que deja de moverse.
     img: null
