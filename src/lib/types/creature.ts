@@ -12,6 +12,7 @@ export interface Creature {
 	traits: CreatureTrait[];
 	actions: CreatureAction[];
 	reactions: CreatureAction[];
+	interactions: CreatureAction[];
 	behavior: string;
 	img: string | null;
 }

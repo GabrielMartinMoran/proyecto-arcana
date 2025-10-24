@@ -2136,7 +2136,7 @@ cards:
     requirements:
       - Fe Inspiradora
     description: >-
-      Tocas a una criatura y esta recupera 1d4 más tu Instinto en Puntos de Salud. Alternativamente,
+      Tocas a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente,
       puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
     uses:
       type: RELOAD

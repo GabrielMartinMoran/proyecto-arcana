@@ -183,6 +183,18 @@
 						</ul>
 					</div>
 				{/if}
+				{#if creature.interactions.length > 0}
+					<div class="actions">
+						<strong>Interacciones</strong>
+						<ul>
+							{#each creature.interactions as interaction (interaction.name)}
+								<li>
+									<CreatureAction action={interaction} />
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
 				<div class="behavior">
 					<strong>Comportamiento: </strong>
 					<span>{creature.behavior}</span>

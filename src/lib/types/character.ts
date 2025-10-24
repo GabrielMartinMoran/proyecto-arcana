@@ -62,7 +62,9 @@ export class Character {
 	}
 
 	get maxHP() {
-		const base = CONFIG.BASE_HEALTH + this.attributes.body * CONFIG.HEALTH_BODY_MULTIPIER;
+		const progressFactor = Math.round(this.spentPP / CONFIG.PP_TO_HP_FACTOR);
+		const base =
+			CONFIG.BASE_HEALTH + this.attributes.body * CONFIG.HEALTH_BODY_MULTIPIER + progressFactor;
 		return this.calculateAttrModifiers('maxHP', base);
 	}
 
@@ -115,10 +117,15 @@ export class Character {
 	}
 
 	get pjPower() {
-		// Get the level of the max card
-		const maxCardLevel = this.cards.reduce((acc, card) => Math.max(acc, card.level), 0);
+		const topCardLevels = this.cards
+			.map((card) => card.level)
+			.sort((a, b) => b - a)
+			.slice(0, CONFIG.TOP_N_CARDS_TO_CALCULATE_PJ_POWER);
+		console.log(topCardLevels);
+		const averageCardLevel =
+			topCardLevels.reduce((acc, level) => acc + level, 0) / topCardLevels.length;
 		const ppFactor = this.spentPP / CONFIG.PJ_POWER_SPENT_PP_DIVIDER;
-		return Math.round(maxCardLevel + ppFactor);
+		return Math.round(averageCardLevel + ppFactor);
 	}
 
 	get numActiveCards() {

@@ -132,157 +132,240 @@ Una vez que tienes un ND base en mente, ajústalo +/- 1 o 2 puntos basándote en
 
 # Diseñar Criaturas y Encuentros
 
-La filosofía de diseño de criaturas en ARCANA se basa en la simplicidad, la utilidad y la narrativa.
+La esencia de una aventura emocionante a menudo reside en los desafíos que presenta. Esta sección te guiará en la creación de criaturas memorables y en el diseño de encuentros de combate que sean justos, desafiantes y divertidos, utilizando el sistema de **Nivel de Amenaza (NA)** y **Poder del Grupo (PG)**.
 
-## La Anatomía de un Statblock
+## La Anatomía de un Bloque de Estadísticas (Statblock)
 
-Un bloque de estadísticas (statblock) se compone de:
+Un bloque de estadísticas eficaz debe ser conciso y contener toda la información necesaria para dirigir a la criatura en combate. Sus componentes clave son:
 
-- **[NOMBRE DE LA CRIATURA]**
-- **Nivel de Amenaza (NA):** Un número que representa su poder general.
-- **Salud:** La cantidad de daño que puede soportar.
-- **Esquiva:** El número a superar en una tirada de ataque.
-- **Mitigación:** La cantidad de daño físico que la criatura ignora de cada golpe.
-- **Lenguas:** Idiomas que la criatura comprende y/o puede hablar.
-- **Ataque:** `[Nombre] +[Modificador] ([Daño] [Tipo])`
-- **Habilidades Especiales:** Rasgos pasivos y Acciones activas.
-- **Comportamiento:** Una frase corta que resume su actitud en combate.
+1.  **\[NOMBRE DE LA CRIATURA]**
+2.  **NA:** Nivel de Amenaza, calculado según las directrices.
+3.  **Comportamiento:** Resumen táctico breve.
+4.  **Lenguas:** Idiomas conocidos.
+5.  **Atributos:** Listado de Cuerpo, Reflejos, Mente, Instinto, Presencia.
+6.  **Estadísticas:**
+    - Salud Máxima (PS)
+    - Esquiva
+    - Mitigación Física
+    - Mitigación Mágica
+    - Velocidad
+    - Iniciativa (Generalmente `1d6 + Reflejos`, pero puede variar)
+7.  **Ataques:** Listado detallado de cada ataque disponible.
+8.  **Rasgos:** Habilidades pasivas (`Efecto`) que están siempre activas.
+9.  **Acciones:** Habilidades activas (`Activable`) que la criatura puede usar en su turno.
+10. **Reacciones:** Habilidades (`Reacción`) que la criatura puede usar en respuesta a un desencadenante.
 
-## Habilidades con Recarga
+## Cálculo del Nivel de Amenaza (NA)
 
-Algunas **Acciones** potentes tienen una nota de **Recarga (X+)**. Tras usarla, al comienzo de cada turno de la criatura, tira **1d6**. Si el resultado es X o más, la habilidad se recarga y puede volver a usarse.
+El NA es una guía para medir el poder relativo de una criatura. Su cálculo se realiza en tres pasos, centrándose primero en sus estadísticas base (separando evasión de resistencia) y luego ajustando según el impacto de sus habilidades especiales.
 
-## Medir la Dificultad del Combate
+### Paso 1: Calcular la Salud Efectiva
 
-Para medir de forma balanceada la dificultad de un combate, se deben seguir una serie de pasos descritos a continuación.
-
-### Paso 1: Calcula el poder de los personajes
-
-Para medir el poder de un personaje de forma más precisa, su valor se calcula combinando su pico de poder
-(el nivel de su carta más alta) con su experiencia acumulada (los Puntos de Progreso que ha gastado en total).
-
-La fórmula es la siguiente:
-
-**Poder del Personaje = (Nivel de la Carta más Alta) + (Total de PP Gastados / 10)**
-
-_El resultado final se redondea al entero más cercano._
-
-Este método proporciona una medida más gradual del poder, reflejando tanto la adquisición de habilidades de
-alto nivel como la experiencia general y la optimización del personaje a través de la compra de nuevas cartas
-o la mejora de atributos.
-
-> **Ejemplo de Progresión:**
->
-> Imaginemos a un personaje en diferentes etapas de su carrera:
->
-> - **Recién Creado:** Su carta más alta es de Nivel 1 y ha gastado 0 PP.
->   - Su Poder es `1 + (0 / 10) = 1`.
-> - **Tras algunas aventuras:** Compra su primera carta de Nivel 2 y ha gastado un total de 12 PP en su progreso.
->   - Su Poder es `2 + (12 / 10) = 3.2`, que se redondea a **3**.
-> - **Un Héroe Veterano:** Adquiere una carta de Nivel 3 y ha gastado un total de 40 PP a lo largo de sus aventuras.
->   - Su Poder es `3 + (40 / 10) = 7`.
-
-### Paso 2: Calcula el poder del grupo
-
-El **Poder del Grupo (PG)** se calcula de la siguiente manera:
-
-- **Poder de Grupo = Suma del poder de cada personaje del grupo**
-
-### Paso 3: Construye el Encuentro con tu Presupuesto de NA
-
-Compara el **Total de NA** de las criaturas con el **Poder del Grupo** actualizado.
-
-| Dificultad del Encuentro | Total de NA vs. Poder del Grupo                              |
-| :----------------------- | :----------------------------------------------------------- |
-| **Fácil**                | Total de NA es la mitad del Poder del Grupo (o menos).       |
-| **Normal**               | Total de NA es aproximadamente igual al Poder del Grupo.     |
-| **Difícil**              | Total de NA es aproximadamente 1.5 veces el Poder del Grupo. |
-| **Épico**                | Total de NA es el doble del Poder del Grupo (o más).         |
-
-### Consideraciones extra
-
-Si bien el calculo ayuda a aproximar un encuentro balanceado, es importante tener en cuenta que exponer
-criaturas de **NA** muy alto (aunque el **PG** lo permita) puede resultar un combate injusto dado que los
-personajes podrían recibir demasiado daño con cada ataque, no llegar a poder golpear a la criatura dada
-la diferencia de Evasión comparada con sus tiradas, o incluso la mitigación de daño podría ser demasiado alta.
-
-Es preferible, enfrentar al grupo a más enemigos pero con un **NA** menor por criatura. Sin embargo, se debe tener en cuenta
-la economía de acciones del grupo comparado con la de los enemigos. Una diferencia significativa puede hacer que el combate se desequilibre,
-provocando un efecto bola de nieve.
-
-## Creación de Criaturas
-
-A continuación se presenta una tabla que facilita la creación de criaturas.
-
-### Significado de las columnas
-
-- **NA:** Nivel de amenaza
-- **STA**: Suma total de atributos
-- **VAA**: Valor del atributo de ataque (tanto si se utiliza para tiradas de ataque como para dificultad de Tiradas de Salvación)
-- **PS**: Puntos de salud
-- **ESQ**: Esquiva
-- **MIT**: Mitigación (el máximo entre mitigación física y mágica)
-- **DPT**: Daño por turno (promedio del daño medio por turno durante 3 turnos)
-- **IH**: Impacto de habilidades (si la criatura posee habilidades que no realicen daño pero generen efectos negativos al grupo,
-  se debe tener en cuenta la criticidad de esos efectos)
-
-### Calculo de los Puntos de Salud de una criatura
+#### Calculo de los Puntos de Salud base de una criatura
 
 Para calcular los Puntos de Salud de una criatura, se debe considerar el propósito de la criatura en el combate. Algunos ejemplos de propósitos son:
 
 - **Masilla**: Diseñada para resistir muy pocos golpes.
+
 - **Balanceado**: Su salud se asemeja a la que tendría un personaje con los mismos atributos.
-- **Tanque**: Esta diseñado para resistir muchos golpes.
+
+- **Robusto**: Esta diseñado para resistir muchos golpes.
+
+- **Muro**: Su principal objetivo es ser extremadamente defícil de derrotar.
 
 Dependiendo del propósito, la salud se calcula de la siguiente manera:
 
 | Propósito  | Puntos de Salud |
-| :--------- | :-------------- |
+| ---------- | --------------- |
 | Masilla    | 2 + Cuerpo x 3  |
 | Balanceado | 5 + Cuerpo x 3  |
-| Tanque     | 10 + Cuerpo x 3 |
+| Robusto    | 10 + Cuerpo x 3 |
+| Muro       | 15 + Cuerpo x 4 |
 
 También es posible que enemigos que no tengan un valor de Cuerpo alto, tengan valores de salud mayores a los calculados.
-Este caso no es tan común, pero es posible. Un ejemplo de esto es el _Espectro_, que tiene 20 puntos de salud a pesar
-de tener un valor de Cuerpo de 1. A este tipo de enemigos, se los denomina como **Excepcional**.
 
-### Calculo de los Puntos de Salud de una criatura
+Este caso no es tan común, pero es posible. Un ejemplo de esto es el _Espectro_, que tiene 20 puntos de salud a pesar de tener un valor de Cuerpo de 1. A este tipo de enemigos, se los denomina como **Excepcional**.
 
-Para calcular los Puntos de Salud de una criatura, se debe considerar el propósito de la criatura en el combate. Algunos ejemplos de propósitos son:
+#### Calculando la Salud Efectiva
 
-### Calculo del Impacto de Habilidades
+La Mitigación no hace que una criatura sea más difícil de golpear, sino que le permite soportar más castigo. Por ello, la integramos en su supervivencia a través de la **Salud Efectiva**.
 
-- **Ninguno**: No hay impacto de habilidades o no tiene habilidades.
-- **Mínimo**: Bufos al ataque (ya calculados en **DPT**)
-- **Bajo**: Reducción de mobilidad, recuperación de salud leve, bufos a la defensa.
-- **Medio**: Mermado de un miembro del grupo. Recuperación de salud moderada.
-- **Alto**: Mermado de multiples miembros del grupo. Recuperación de salud alta.
-- **Muy Alto**: Inhabilitacion de un miembro del grupo
-- **Desmedido**: Inhabilitacion de multiples miembros del grupo
+- **Fórmula:** `Salud Efectiva = Salud Máxima × (1 + (Mitigación más alta × 0.15))`
 
-### Calculo de NA
+_El multiplicador de 0.15 representa que por cada punto de mitigación, la criatura gana un 15% de salud efectiva adicional._
 
-La manera de obtener el valor correcto de NA consta en sacar un promedio del NA resultante para cada columna de la tabla. El resultado del promedio, en caso de no ser un numero entero, se redondea hacia el entero más cercano.
+### Paso 2: Calcular el NA Base (Estadísticas Puras)
 
-Si un valor se repite para una columna, se toma el NA más bajo con ese valor.
+Utiliza la **Tabla de Referencia para Criaturas (Revisada)** para encontrar el NA correspondiente a cada una de estas cuatro estadísticas clave:
 
-### Tabla de Criaturas
+1.  **NA por Supervivencia:** Basado en la **Salud Efectiva**.
+2.  **NA por Defensa:** Basado **únicamente en la Esquiva**.
+3.  **NA por Ataque:** Basado en el Bono de Ataque / ND de Habilidad.
+4.  **NA por Daño:** Basado en el Daño Por Turno (DPT) promedio.
 
-| NA  | STA   | VAA | PS    | ESQ | MIT | DPT   | IH        |
-| :-- | :---- | :-- | :---- | :-- | :-- | :---- | :-------- |
-| 0.5 | 5-7   | 1   | 1-5   | 1-4 | 0   | 1     | Ninguno   |
-| 1   | 8-9   | 2   | 6-9   | 5   | 0   | 2     | Ninguno   |
-| 2   | 10-11 | 3   | 10-14 | 6   | 1   | 3     | Mínimo    |
-| 3   | 12-13 | 4   | 15-19 | 7   | 2   | 4-5   | Mínimo    |
-| 4   | 14-15 | 4   | 20-24 | 7   | 3   | 6-7   | Bajo      |
-| 5   | 16-17 | 5   | 25-29 | 8   | 3   | 8-9   | Bajo      |
-| 6   | 18-19 | 5   | 30-34 | 8   | 4   | 10-11 | Medio     |
-| 7   | 20-21 | 6   | 35-39 | 9   | 4   | 12-13 | Medio     |
-| 8   | 22-23 | 6   | 40-44 | 9   | 5   | 14-15 | Alto      |
-| 9   | 24-25 | 7   | 45-49 | 10  | 5   | 16-17 | Alto      |
-| 10  | 26-27 | 8   | 50-54 | 10  | 6   | 18-19 | Muy Alto  |
-| 11  | 28-29 | 9   | 55-59 | 11  | 6   | 20-21 | Muy Alto  |
-| 12  | 30-31 | 10  | 60-64 | 11  | 7   | 22-23 | Desmedido |
+El **NA Base** de la criatura es el **promedio de los DOS valores de NA más altos** obtenidos entre estas cuatro categorías.
+_(Ejemplo: Si una criatura tiene NA 7 por Ataque, NA 4 por Supervivencia, NA 3 por Daño y NA 1 por Defensa, sus dos NAs más altos son 7 y 4. El NA Base sería (7+4)/2 = 5.5). Este valor luego se redondeara al aplicar el modificador por IH (ver más abajo)._
+
+### Paso 3: Aplicar el Modificador por Impacto de Habilidades (IH)
+
+Las Habilidades Especiales (rasgos, acciones, reacciones) magnifican la amenaza de una criatura. Para evaluar su impacto de forma consistente, primero debemos entender la jerarquía del control en combate.
+
+#### La Jerarquía del Impacto de los Estados
+
+- **Tier 1 (Debilitantes):** Imponen una desventaja táctica, pero no eliminan la agencia del jugador.
+  - _Ejemplos: Envenenado, Cegado, Ensordecido._
+- **Tier 2 (Control Blando):** Limitan severamente las opciones del jugador, principalmente el movimiento o posicionamiento.
+  - _Ejemplos: Inmovilizado, Derribado._
+- **Tier 3 (Control Duro / Anulación):** Niegan la capacidad del personaje para actuar de forma efectiva durante un turno completo.
+  - _Ejemplos: Aturdido, Dormido, Encantado (en combate)._
+- **Tier 4 (Fin del Juego):** Efectos que eliminan a un personaje del combate de forma semipermanente o permanente.
+  - _Ejemplo: Petrificado._
+
+#### Umbrales de Impacto de Habilidades (Revisados y Definidos)
+
+Usa el impacto de la **habilidad más fuerte** de la criatura para determinar el multiplicador.
+
+- **Bajo (x 1.1):**
+  - Utilidad Menor: Vuelo simple, resistencia a un tipo de daño, curación propia menor (hasta 4 PS).
+- **Medio (x 1.25):**
+  - Debuffs Debilitantes (Tier 1).
+  - Regeneración Leve (5-9 PS/turno).
+  - Inmunidad a un tipo de daño.
+- **Alto (x 1.5):**
+  - Control Blando (Tier 2).
+  - Regeneración Moderada (10-14 PS/turno).
+  - Reacción Ofensiva (permite un ataque fuera de turno).
+- **Muy Alto (x 1.75):**
+  - Control Duro / Anulación (Tier 3).
+  - Regeneración Alta (15+ PS/turno).
+- **Desmedido (x 2.0+):**
+  - Fin del Juego (Tier 4).
+  - Control Duro de Área (AoE).
+
+#### La Regla de Sinergia
+
+1.  Identifica la habilidad con el **Impacto más alto** de la criatura. Este será tu multiplicador de IH base.
+2.  Si la criatura posee una segunda habilidad de impacto **Medio (x1.25) o superior** que **sinergiza directamente** con su habilidad principal, **aumenta el multiplicador de IH base en un paso** (ej. de Alto a Muy Alto). Esta regla solo se puede aplicar una vez.
+
+**NA Final = (NA Base × Multiplicador IH)** _Redondeado al entero más cercano._
+
+### **Tabla de Referencia para Criaturas (Revisada)**
+
+Esta tabla ha sido ajustada para eliminar solapamientos y proporcionar rangos claros para cada Nivel de Amenaza.
+
+| **NA**   | **Salud Efectiva (SE)** | **Defensa (Esquiva)** | **Ataque (Bono / ND)** | **DPT (Presupuesto Total)** |
+| :------- | :---------------------- | :-------------------- | :--------------------- | :-------------------------- |
+| **0.25** | 1-4                     | 5                     | +0 / ND 5              | 1                           |
+| **0.5**  | 5-8                     | 6                     | +1 / ND 5              | 2                           |
+| **1**    | 9-13                    | 6                     | +2 / ND 6              | 3-4                         |
+| **2**    | 14-20                   | 7                     | +3 / ND 7              | 5-6                         |
+| **3**    | 21-28                   | 7                     | +3 / ND 7              | 7-8                         |
+| **4**    | 29-34                   | 7                     | +4 / ND 8              | 9                           |
+| **5**    | 35-40                   | 8                     | +4 / ND 8              | 10-11                       |
+| **6**    | 41-46                   | 8                     | +5 / ND 9              | 12-13                       |
+| **7**    | 47-52                   | 8                     | +5 / ND 9              | 14                          |
+| **8**    | 53-58                   | 8                     | +5 / ND 9              | 15-16                       |
+| **9**    | 59-64                   | 9                     | +6 / ND 10             | 17-18                       |
+| **10**   | 65-70                   | 9                     | +6 / ND 10             | 19-20                       |
+| **11**   | 71-75                   | 9                     | +6 / ND 10             | 21                          |
+| **12**   | 76-80                   | 9                     | +6 / ND 10             | 22-23                       |
+| **13**   | 81-85                   | 10                    | +7 / ND 11             | 24                          |
+| **14**   | 86-90                   | 10                    | +7 / ND 11             | 25-26                       |
+| **15**   | 91-95                   | 10                    | +7 / ND 11             | 27                          |
+| **16**   | 96-100                  | 10                    | +7 / ND 11             | 28-29                       |
+| **17**   | 101-105                 | 11                    | +8 / ND 12             | 30                          |
+| **18**   | 106-110                 | 11                    | +8 / ND 12             | 31-32                       |
+| **19**   | 111-115                 | 11                    | +8 / ND 12             | 33-34                       |
+| **20**   | 116-120                 | 11                    | +8 / ND 12             | 35-36                       |
+| **21**   | 121-125                 | 12                    | +9 / ND 13             | 37-39                       |
+| **22**   | 126-130                 | 12                    | +9 / ND 13             | 40-42                       |
+| **23**   | 131-135                 | 12                    | +9 / ND 13             | 43-45                       |
+| **24**   | 136-140                 | 12                    | +9 / ND 13             | 46-48                       |
+| **25**   | 141-145                 | 13                    | +9 / ND 13             | 49-51                       |
+| **26**   | 146-150                 | 13                    | +10 / ND 14            | 52-54                       |
+| **27**   | 151-155                 | 13                    | +10 / ND 14            | 55-56                       |
+| **28**   | 156-160                 | 13                    | +10 / ND 14            | 57-58                       |
+| **29**   | 161-165                 | 13                    | +10 / ND 14            | 59                          |
+| **30**   | 166-170                 | 14                    | +10 / ND 14            | 60                          |
+
+### **Cálculo Detallado del Daño Por Turno (DPT)**
+
+El DPT estima el daño promedio que una criatura inflige a lo largo de **3 rondas** de combate.
+
+1.  **Daño Base:** Calcula el daño promedio de sus ataques normales (incluyendo multi-ataques).
+2.  **Daño de Habilidades:** Calcula el daño promedio de sus habilidades activas de daño.
+3.  **Para Habilidades AoE:** Asume que golpeará a un número base de **2 objetivos**.
+4.  **Simulación de 3 Rondas:** Estima el daño total infligido en cada una de las 3 rondas, considerando usos limitados y recargas.
+    - `DPT = (Daño Ronda 1 + Daño Ronda 2 + Daño Ronda 3) / 3`.
+
+## Medir la Dificultad del Combate
+
+Una vez que tienes el **NA Final** de cada criatura, puedes diseñar encuentros con un nivel de desafío apropiado para tu grupo.
+
+### Paso 1: Calcula el Poder del Grupo (PG)
+
+Recuerda la fórmula: **Poder del Personaje = (Promedio de las 3 Cartas de mayor Nivel) + (Total de PP Gastados / 10)** (redondeado al entero más cercano).
+
+**Poder de Grupo (PG) = Suma del poder de cada personaje del grupo.**
+
+### Paso 2: Elegir la Dificultad Deseada y Calcular el Presupuesto Base
+
+Decide qué tan desafiante quieres que sea el encuentro.
+
+| **Dificultad** | **Descripción**                                  | **Factor de PG** |
+| :------------- | :----------------------------------------------- | :--------------- |
+| Fácil          | Desgaste menor de recursos, bajo riesgo.         | x 0.75           |
+| Normal         | Desafío estándar, requiere gasto de recursos.    | x 1.0            |
+| Difícil        | Riesgo significativo, posible baja de personaje. | x 1.5            |
+| Épico          | Riesgo de TPK (Total Party Kill) muy alto.       | x 2.0            |
+
+**Presupuesto de NA Base = Poder del Grupo (PG) × Factor de PG**
+
+### Paso 3: Ajustar el Presupuesto con la Matriz de Multiplicador
+
+La economía de acciones es crucial. Usa esta matriz para ajustar tu presupuesto de NA según cuántas criaturas enfrentarán los PJs.
+
+| **Nº de Criaturas vs. Tamaño del Grupo** | **-2 PJs (Ej: 2 PJs vs X)** | **-1 PJ (Ej: 3 PJs vs X)** | **Igual (Ej: 4 PJs vs 4)** | **+1 PJ (Ej: 5 PJs vs X)** | **+2 PJs (Ej: 6 PJs vs X)** |
+| :--------------------------------------- | :-------------------------- | :------------------------- | :------------------------- | :------------------------- | :-------------------------- |
+| **1 Criatura**                           | x 1.5                       | x 1.25                     | x 1.0                      | x 0.8                      | x 0.7                       |
+| **2 Criaturas**                          | x 1.25                      | x 1.1                      | x 1.0                      | x 0.9                      | x 0.8                       |
+| **3 Criaturas**                          | x 1.1                       | x 1.0                      | x 0.9                      | x 0.8                      | x 0.7                       |
+| **4 Criaturas**                          | x 1.0                       | x 0.9                      | x 0.8                      | x 0.7                      | x 0.6                       |
+| **5-6 Criaturas**                        | x 0.9                       | x 0.8                      | x 0.7                      | x 0.6                      | x 0.5                       |
+| **7+ Criaturas (Horda)**                 | x 0.8                       | x 0.7                      | x 0.6                      | x 0.5                      | x 0.4                       |
+
+**Presupuesto Final Ajustado = Presupuesto Base × Multiplicador de Matriz**
+
+### Paso 4: Construir el Encuentro
+
+Elige criaturas (calculando su **NA Final** individualmente) cuya suma total se aproxime a tu **Presupuesto Final Ajustado**.
+
+**Guías Adicionales:**
+
+- **Sinergia Enemiga:** Si las criaturas elegidas tienen habilidades que se potencian fuertemente entre sí, considera apuntar a un NA Total ligeramente _inferior_ al presupuesto.
+- **Terreno y Táctica:** Un terreno ventajoso para los enemigos o una emboscada bien planeada pueden aumentar la dificultad real sin cambiar el NA.
+- **Poder del Grupo Alto (PG 10+):** Para grupos muy experimentados y optimizados, considera usar el Factor de PG del siguiente nivel de dificultad como base (ej: usa el factor "Difícil" para un encuentro "Normal").
+
+### Más Allá de los Números: Multiplicadores de Fuerza y Desafíos "Puzzle"
+
+El sistema de NA es una herramienta excelente para medir la dificultad de los encuentros estándar, pero como DJ, debes aprender a identificar dos tipos de situaciones especiales donde los números por sí solos no cuentan toda la historia:
+
+**1. Multiplicadores de Fuerza (Control + Secuaces):**
+
+Ten especial cuidado al combinar una criatura con **habilidades de control de área (AoE)**, como `Barrido` o `Zarzas`, con un gran número de **secuaces**. Estas habilidades no solo suman su propia amenaza, sino que _multiplican_ la letalidad de los enemigos menores al dejar a los héroes vulnerables o robarles sus acciones.
+
+- **Regla General:** Al construir un encuentro que dependa de esta sinergia, considera que su dificultad real será **un nivel más alto** de lo que el presupuesto de NA sugiere (un encuentro "Normal" se sentirá "Difícil"; uno "Difícil" se sentirá "Épico").
+
+**2. Desafíos "Puzzle" (Mecánicas Binarias):**
+
+Criaturas como el **Troll** (con `Regeneración`) o el **Basilisco** (con `Petrificación`) son menos un combate y más un acertijo táctico. Su amenaza es binaria: o el grupo tiene la "solución", o no la tiene. El NA listado en el bestiario siempre asume que el grupo tiene acceso a dicha solución.
+
+Si crees que tu grupo no tiene las herramientas para contrarrestar estas mecánicas (por ejemplo, no tienen acceso a daño de Fuego o Ácido para el Troll), debes hacer uno de los siguientes ajustes:
+
+- **Ajustar la Dificultad:** Considera que el encuentro es **dos niveles más difícil** (un "Normal" se convierte en "Épico" o casi imposible).
+- **Integrar la Solución:** La mejor opción es integrar la solución en el entorno de la batalla. Coloca braseros encendidos en la guarida del Troll, estatuas con superficies reflectantes en la del Basilisco, o proporciona pistas claras sobre sus debilidades en la aventura previa al combate.
+
+Un buen DJ usa el NA como su base, pero aprende a reconocer estas situaciones especiales para crear desafíos que sean duros pero justos, en lugar de frustrantes o imposibles.
 
 # Guía de Diseño de Conjuros
 

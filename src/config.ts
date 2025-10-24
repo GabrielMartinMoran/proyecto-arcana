@@ -9,6 +9,9 @@ export const CONFIG = {
 	BASE_MAX_ACTIVE_CARDS: 3,
 	RELOAD_CARD_USES: 1,
 
+	TOP_N_CARDS_TO_CALCULATE_PJ_POWER: 3,
+	PP_TO_HP_FACTOR: 5,
+
 	MOBILE_MAX_WIDTH: 1280,
 
 	STANDARD_DICES: ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'],
