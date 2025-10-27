@@ -4,7 +4,7 @@ import type { Uses } from '$lib/types/uses';
 export const serializeStatblockAsMD = (creature: Creature): string => {
 	let md = ``;
 	md += `# ${creature.name}\n\n`;
-	md += `**NA:** ${creature.na}\n\n`;
+	md += `**NA:** ${creature.tier}\n\n`;
 	if (creature.behavior) {
 		md += `**Comportamiento:** ${creature.behavior}\n\n`;
 	}

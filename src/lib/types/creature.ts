@@ -4,7 +4,7 @@ import type { Uses } from './uses';
 export interface Creature {
 	id: string;
 	name: string;
-	na: number;
+	tier: number;
 	attributes: Attributes;
 	stats: CreatureStats;
 	languages: string[];

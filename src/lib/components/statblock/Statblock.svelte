@@ -50,8 +50,8 @@
 		<div class="header">
 			<h2>{creature.name}</h2>
 			<span>
-				<strong>NA</strong>
-				<span>{creature.na}</span>
+				<strong>Rango</strong>
+				<span>{creature.tier}</span>
 			</span>
 		</div>
 		<div class="attributes">

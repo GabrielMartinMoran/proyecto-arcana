@@ -24,6 +24,10 @@ export const mapCreature = (data: any): Creature => {
 					data.stats.mitigacionMagica ?? { value: 0, note: null },
 				speed: data.stats.speed ?? data.stats.velocidad ?? { value: 0, note: null },
 			},
+			interactions: data.interactions ?? [],
+			traits: data.traits ?? [],
+			actions: data.actions ?? [],
+			reactions: data.reactions ?? [],
 		};
 	} catch (error) {
 		console.error(error);

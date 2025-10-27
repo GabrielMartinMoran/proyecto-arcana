@@ -24,7 +24,7 @@ export const useCreaturesService = () => {
 		creaturesStore.set(
 			rawCreatures
 				.map((x) => mapCreature(x))
-				.toSorted((a, b) => a.na - b.na || a.name.localeCompare(b.name)),
+				.toSorted((a, b) => a.tier - b.tier || a.name.localeCompare(b.name)),
 		);
 	};
 

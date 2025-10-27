@@ -61,8 +61,8 @@
 			<strong class="number">{character.spentPP}</strong>
 		</div>
 		<div class="indicator">
-			<span>Poder de PJ</span>
-			<strong class="number">{character.pjPower}</strong>
+			<span>Rango del PJ</span>
+			<strong class="number">{character.tier}</strong>
 		</div>
 	</div>
 </Container>

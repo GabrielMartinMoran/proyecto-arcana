@@ -9,6 +9,12 @@ export const CONFIG = {
 	BASE_MAX_ACTIVE_CARDS: 3,
 	RELOAD_CARD_USES: 1,
 
+	CHARACTER_TIERS: [
+		{ tier: 1, minPP: 0, maxPP: 25 },
+		{ tier: 2, minPP: 26, maxPP: 60 },
+		{ tier: 3, minPP: 61, maxPP: Infinity },
+	],
+
 	TOP_N_CARDS_TO_CALCULATE_PJ_POWER: 3,
 	PP_TO_HP_FACTOR: 5,
 

@@ -128,6 +128,15 @@ export class Character {
 		return Math.round(averageCardLevel + ppFactor);
 	}
 
+	get tier() {
+		for (const tier of CONFIG.CHARACTER_TIERS) {
+			if (this.spentPP >= tier.minPP && this.spentPP <= tier.maxPP) {
+				return tier.tier;
+			}
+		}
+		return 0;
+	}
+
 	get numActiveCards() {
 		return this.cards.filter((card) => card.isActive).length;
 	}

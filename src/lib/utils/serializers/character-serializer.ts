@@ -70,7 +70,7 @@ export const serializeCharacterAsMD = (character: Character, cards: Card[]): str
 	md += `## Progreso\n`;
 	md += `- **PP Actuales:** ${character.currentPP}\n`;
 	md += `- **PP Gastados:** ${character.spentPP}\n`;
-	md += `- **Poder de Personaje:** ${character.pjPower}\n`;
+	md += `- **Rango del Personaje:** ${character.tier}\n`;
 	md += '\n';
 
 	if (character.story) {

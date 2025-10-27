@@ -132,240 +132,294 @@ Una vez que tienes un ND base en mente, ajústalo +/- 1 o 2 puntos basándote en
 
 # Diseñar Criaturas y Encuentros
 
-La esencia de una aventura emocionante a menudo reside en los desafíos que presenta. Esta sección te guiará en la creación de criaturas memorables y en el diseño de encuentros de combate que sean justos, desafiantes y divertidos, utilizando el sistema de **Nivel de Amenaza (NA)** y **Poder del Grupo (PG)**.
+La esencia de una aventura emocionante reside en los desafíos que presenta. Esta guía te proporcionará un sistema de reglas ligeras, rápido e intuitivo para diseñar encuentros que sean justos, desafiantes y divertidos, alineados con la filosofía de ARCANA.
+
+Este capítulo está dividido en dos partes. La primera, **Diseñar Encuentro**, es la guía fundamental que usarás en cada sesión. La segunda, **Diseño Avanzado de Criaturas**, es una sección opcional para aquellos Directores de Juego que deseen crear sus propios monstruos desde cero.
 
-## La Anatomía de un Bloque de Estadísticas (Statblock)
+# Parte 1: Diseñar Encuentros
 
-Un bloque de estadísticas eficaz debe ser conciso y contener toda la información necesaria para dirigir a la criatura en combate. Sus componentes clave son:
+Este sistema te permite preparar un encuentro balanceado rápidamente, basándose en el poder promedio de tu grupo y la dificultad deseada. Empodera al Director de Juego (DJ) para tomar decisiones informadas, guiado por principios en lugar de reglas estrictas.
 
-1.  **\[NOMBRE DE LA CRIATURA]**
-2.  **NA:** Nivel de Amenaza, calculado según las directrices.
-3.  **Comportamiento:** Resumen táctico breve.
-4.  **Lenguas:** Idiomas conocidos.
-5.  **Atributos:** Listado de Cuerpo, Reflejos, Mente, Instinto, Presencia.
-6.  **Estadísticas:**
-    - Salud Máxima (PS)
-    - Esquiva
-    - Mitigación Física
-    - Mitigación Mágica
-    - Velocidad
-    - Iniciativa (Generalmente `1d6 + Reflejos`, pero puede variar)
-7.  **Ataques:** Listado detallado de cada ataque disponible.
-8.  **Rasgos:** Habilidades pasivas (`Efecto`) que están siempre activas.
-9.  **Acciones:** Habilidades activas (`Activable`) que la criatura puede usar en su turno.
-10. **Reacciones:** Habilidades (`Reacción`) que la criatura puede usar en respuesta a un desencadenante.
+### Paso 1: Calcular el Poder Promedio del Grupo (PP Promedio)
 
-## Cálculo del Nivel de Amenaza (NA)
+Primero, necesitas una medida del poder actual de tu grupo.
 
-El NA es una guía para medir el poder relativo de una criatura. Su cálculo se realiza en tres pasos, centrándose primero en sus estadísticas base (separando evasión de resistencia) y luego ajustando según el impacto de sus habilidades especiales.
+**PP Promedio = (Suma total de PP gastados por todos los personajes) / (Número de personajes)**
 
-### Paso 1: Calcular la Salud Efectiva
+### Paso 2: Consultar la Tabla Maestra de Presupuesto por Personaje
 
-#### Calculo de los Puntos de Salud base de una criatura
+Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la siguiente tabla. Esta tabla te dará el **Presupuesto Base de Puntos de Amenaza por Personaje (PA Base/PJ)** para cada nivel de dificultad. También te ofrece una **sugerencia** sobre el Rango máximo de monstruo apropiado para encuentros estándar en ese nivel de poder.
 
-Para calcular los Puntos de Salud de una criatura, se debe considerar el propósito de la criatura en el combate. Algunos ejemplos de propósitos son:
+| PP Promedio | Rango Nominal (Ref.) | PA Base/PJ (Fácil) | PA Base/PJ (Normal) | PA Base/PJ (Difícil) | PA Base/PJ (Épico) | Rango Máx. Monstruo Sugerido (Estándar) |
+| :---------- | :------------------- | :----------------- | :------------------ | :------------------- | :----------------- | :-------------------------------------- |
+| **0-7**     | R1 (Inicio)          | 1                  | 1.5                 | 2                    | 2.5                | Rango 1                                 |
+| **8-15**    | R1 (Medio)           | 1.25               | 1.75                | 2.5                  | 3.25               | Rango 1                                 |
+| **16-25**   | R1 (Avanzado)        | 1.5                | 2.25                | 3.25                 | 4.25               | Rango 1 (_Considerar 1x R2_)            |
+| **26-38**   | R2 (Inicio)          | 2                  | 3                   | 4.5                  | 6                  | Rango 2                                 |
+| **39-50**   | R2 (Medio)           | 2.5                | 3.75                | 5.5                  | 7.25               | Rango 2                                 |
+| **51-60**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
+| **61-75**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
+| **76-90**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
+| **91+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
 
-- **Masilla**: Diseñada para resistir muy pocos golpes.
+_(Nota: "Rango Nominal (Ref.)" es solo una etiqueta de referencia para entender en qué etapa de poder se encuentra el grupo)_
 
-- **Balanceado**: Su salud se asemeja a la que tendría un personaje con los mismos atributos.
+### Paso 3: Calcular el Presupuesto Total del Encuentro (PA Total)
 
-- **Robusto**: Esta diseñado para resistir muchos golpes.
+Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu grupo. Redondea el resultado final al entero más cercano si obtienes decimales.
 
-- **Muro**: Su principal objetivo es ser extremadamente defícil de derrotar.
+`Presupuesto Total (PA) = Redondear( (PA Base por PJ de la Tabla) x (Número de Jugadores) )`
 
-Dependiendo del propósito, la salud se calcula de la siguiente manera:
+> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "91+"). Quieren dificultad **Difícil**.
+>
+> - PA Base/PJ (Tabla v5.2): 10.5 PA
+> - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
 
-| Propósito  | Puntos de Salud |
-| ---------- | --------------- |
-| Masilla    | 2 + Cuerpo x 3  |
-| Balanceado | 5 + Cuerpo x 3  |
-| Robusto    | 10 + Cuerpo x 3 |
-| Muro       | 15 + Cuerpo x 4 |
-
-También es posible que enemigos que no tengan un valor de Cuerpo alto, tengan valores de salud mayores a los calculados.
-
-Este caso no es tan común, pero es posible. Un ejemplo de esto es el _Espectro_, que tiene 20 puntos de salud a pesar de tener un valor de Cuerpo de 1. A este tipo de enemigos, se los denomina como **Excepcional**.
-
-#### Calculando la Salud Efectiva
-
-La Mitigación no hace que una criatura sea más difícil de golpear, sino que le permite soportar más castigo. Por ello, la integramos en su supervivencia a través de la **Salud Efectiva**.
-
-- **Fórmula:** `Salud Efectiva = Salud Máxima × (1 + (Mitigación más alta × 0.15))`
-
-_El multiplicador de 0.15 representa que por cada punto de mitigación, la criatura gana un 15% de salud efectiva adicional._
-
-### Paso 2: Calcular el NA Base (Estadísticas Puras)
-
-Utiliza la **Tabla de Referencia para Criaturas (Revisada)** para encontrar el NA correspondiente a cada una de estas cuatro estadísticas clave:
-
-1.  **NA por Supervivencia:** Basado en la **Salud Efectiva**.
-2.  **NA por Defensa:** Basado **únicamente en la Esquiva**.
-3.  **NA por Ataque:** Basado en el Bono de Ataque / ND de Habilidad.
-4.  **NA por Daño:** Basado en el Daño Por Turno (DPT) promedio.
+### Paso 4: Construir el Encuentro - Compra de Enemigos
 
-El **NA Base** de la criatura es el **promedio de los DOS valores de NA más altos** obtenidos entre estas cuatro categorías.
-_(Ejemplo: Si una criatura tiene NA 7 por Ataque, NA 4 por Supervivencia, NA 3 por Daño y NA 1 por Defensa, sus dos NAs más altos son 7 y 4. El NA Base sería (7+4)/2 = 5.5). Este valor luego se redondeara al aplicar el modificador por IH (ver más abajo)._
+Gasta tu Presupuesto Total (PA) comprando enemigos usando la siguiente tabla de costes.
 
-### Paso 3: Aplicar el Modificador por Impacto de Habilidades (IH)
+| Rango de Amenaza | Coste en PA |
+| :--------------- | :---------- |
+| **Rango 1**      | 1 PA        |
+| **Rango 2**      | 2 PA        |
+| **Rango 3**      | 3 PA        |
+| **Rango 4**      | 5 PA        |
+| **Rango 5**      | 8 PA        |
+| **Rango 6**      | 13 PA       |
 
-Las Habilidades Especiales (rasgos, acciones, reacciones) magnifican la amenaza de una criatura. Para evaluar su impacto de forma consistente, primero debemos entender la jerarquía del control en combate.
+_(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para esto, usa la misma filosofía y ten mucho cuidado al balancear las oportunidades de esos nuevos rangos)_
 
-#### La Jerarquía del Impacto de los Estados
+**No hay límites estrictos sobre qué Rangos puedes usar**, pero tu elección debe estar guiada por tu criterio y los principios detallados en la siguiente **Guía Estratégica**.
 
-- **Tier 1 (Debilitantes):** Imponen una desventaja táctica, pero no eliminan la agencia del jugador.
-  - _Ejemplos: Envenenado, Cegado, Ensordecido._
-- **Tier 2 (Control Blando):** Limitan severamente las opciones del jugador, principalmente el movimiento o posicionamiento.
-  - _Ejemplos: Inmovilizado, Derribado._
-- **Tier 3 (Control Duro / Anulación):** Niegan la capacidad del personaje para actuar de forma efectiva durante un turno completo.
-  - _Ejemplos: Aturdido, Dormido, Encantado (en combate)._
-- **Tier 4 (Fin del Juego):** Efectos que eliminan a un personaje del combate de forma semipermanente o permanente.
-  - _Ejemplo: Petrificado._
-
-#### Umbrales de Impacto de Habilidades (Revisados y Definidos)
-
-Usa el impacto de la **habilidad más fuerte** de la criatura para determinar el multiplicador.
-
-- **Bajo (x 1.1):**
-  - Utilidad Menor: Vuelo simple, resistencia a un tipo de daño, curación propia menor (hasta 4 PS).
-- **Medio (x 1.25):**
-  - Debuffs Debilitantes (Tier 1).
-  - Regeneración Leve (5-9 PS/turno).
-  - Inmunidad a un tipo de daño.
-- **Alto (x 1.5):**
-  - Control Blando (Tier 2).
-  - Regeneración Moderada (10-14 PS/turno).
-  - Reacción Ofensiva (permite un ataque fuera de turno).
-- **Muy Alto (x 1.75):**
-  - Control Duro / Anulación (Tier 3).
-  - Regeneración Alta (15+ PS/turno).
-- **Desmedido (x 2.0+):**
-  - Fin del Juego (Tier 4).
-  - Control Duro de Área (AoE).
-
-#### La Regla de Sinergia
-
-1.  Identifica la habilidad con el **Impacto más alto** de la criatura. Este será tu multiplicador de IH base.
-2.  Si la criatura posee una segunda habilidad de impacto **Medio (x1.25) o superior** que **sinergiza directamente** con su habilidad principal, **aumenta el multiplicador de IH base en un paso** (ej. de Alto a Muy Alto). Esta regla solo se puede aplicar una vez.
-
-**NA Final = (NA Base × Multiplicador IH)** _Redondeado al entero más cercano._
-
-### **Tabla de Referencia para Criaturas (Revisada)**
-
-Esta tabla ha sido ajustada para eliminar solapamientos y proporcionar rangos claros para cada Nivel de Amenaza.
-
-| **NA**   | **Salud Efectiva (SE)** | **Defensa (Esquiva)** | **Ataque (Bono / ND)** | **DPT (Presupuesto Total)** |
-| :------- | :---------------------- | :-------------------- | :--------------------- | :-------------------------- |
-| **0.25** | 1-4                     | 5                     | +0 / ND 5              | 1                           |
-| **0.5**  | 5-8                     | 6                     | +1 / ND 5              | 2                           |
-| **1**    | 9-13                    | 6                     | +2 / ND 6              | 3-4                         |
-| **2**    | 14-20                   | 7                     | +3 / ND 7              | 5-6                         |
-| **3**    | 21-28                   | 7                     | +3 / ND 7              | 7-8                         |
-| **4**    | 29-34                   | 7                     | +4 / ND 8              | 9                           |
-| **5**    | 35-40                   | 8                     | +4 / ND 8              | 10-11                       |
-| **6**    | 41-46                   | 8                     | +5 / ND 9              | 12-13                       |
-| **7**    | 47-52                   | 8                     | +5 / ND 9              | 14                          |
-| **8**    | 53-58                   | 8                     | +5 / ND 9              | 15-16                       |
-| **9**    | 59-64                   | 9                     | +6 / ND 10             | 17-18                       |
-| **10**   | 65-70                   | 9                     | +6 / ND 10             | 19-20                       |
-| **11**   | 71-75                   | 9                     | +6 / ND 10             | 21                          |
-| **12**   | 76-80                   | 9                     | +6 / ND 10             | 22-23                       |
-| **13**   | 81-85                   | 10                    | +7 / ND 11             | 24                          |
-| **14**   | 86-90                   | 10                    | +7 / ND 11             | 25-26                       |
-| **15**   | 91-95                   | 10                    | +7 / ND 11             | 27                          |
-| **16**   | 96-100                  | 10                    | +7 / ND 11             | 28-29                       |
-| **17**   | 101-105                 | 11                    | +8 / ND 12             | 30                          |
-| **18**   | 106-110                 | 11                    | +8 / ND 12             | 31-32                       |
-| **19**   | 111-115                 | 11                    | +8 / ND 12             | 33-34                       |
-| **20**   | 116-120                 | 11                    | +8 / ND 12             | 35-36                       |
-| **21**   | 121-125                 | 12                    | +9 / ND 13             | 37-39                       |
-| **22**   | 126-130                 | 12                    | +9 / ND 13             | 40-42                       |
-| **23**   | 131-135                 | 12                    | +9 / ND 13             | 43-45                       |
-| **24**   | 136-140                 | 12                    | +9 / ND 13             | 46-48                       |
-| **25**   | 141-145                 | 13                    | +9 / ND 13             | 49-51                       |
-| **26**   | 146-150                 | 13                    | +10 / ND 14            | 52-54                       |
-| **27**   | 151-155                 | 13                    | +10 / ND 14            | 55-56                       |
-| **28**   | 156-160                 | 13                    | +10 / ND 14            | 57-58                       |
-| **29**   | 161-165                 | 13                    | +10 / ND 14            | 59                          |
-| **30**   | 166-170                 | 14                    | +10 / ND 14            | 60                          |
-
-### **Cálculo Detallado del Daño Por Turno (DPT)**
-
-El DPT estima el daño promedio que una criatura inflige a lo largo de **3 rondas** de combate.
-
-1.  **Daño Base:** Calcula el daño promedio de sus ataques normales (incluyendo multi-ataques).
-2.  **Daño de Habilidades:** Calcula el daño promedio de sus habilidades activas de daño.
-3.  **Para Habilidades AoE:** Asume que golpeará a un número base de **2 objetivos**.
-4.  **Simulación de 3 Rondas:** Estima el daño total infligido en cada una de las 3 rondas, considerando usos limitados y recargas.
-    - `DPT = (Daño Ronda 1 + Daño Ronda 2 + Daño Ronda 3) / 3`.
-
-## Medir la Dificultad del Combate
-
-Una vez que tienes el **NA Final** de cada criatura, puedes diseñar encuentros con un nivel de desafío apropiado para tu grupo.
-
-### Paso 1: Calcula el Poder del Grupo (PG)
-
-Recuerda la fórmula: **Poder del Personaje = (Promedio de las 3 Cartas de mayor Nivel) + (Total de PP Gastados / 10)** (redondeado al entero más cercano).
-
-**Poder de Grupo (PG) = Suma del poder de cada personaje del grupo.**
-
-### Paso 2: Elegir la Dificultad Deseada y Calcular el Presupuesto Base
-
-Decide qué tan desafiante quieres que sea el encuentro.
-
-| **Dificultad** | **Descripción**                                  | **Factor de PG** |
-| :------------- | :----------------------------------------------- | :--------------- |
-| Fácil          | Desgaste menor de recursos, bajo riesgo.         | x 0.75           |
-| Normal         | Desafío estándar, requiere gasto de recursos.    | x 1.0            |
-| Difícil        | Riesgo significativo, posible baja de personaje. | x 1.5            |
-| Épico          | Riesgo de TPK (Total Party Kill) muy alto.       | x 2.0            |
-
-**Presupuesto de NA Base = Poder del Grupo (PG) × Factor de PG**
-
-### Paso 3: Ajustar el Presupuesto con la Matriz de Multiplicador
-
-La economía de acciones es crucial. Usa esta matriz para ajustar tu presupuesto de NA según cuántas criaturas enfrentarán los PJs.
-
-| **Nº de Criaturas vs. Tamaño del Grupo** | **-2 PJs (Ej: 2 PJs vs X)** | **-1 PJ (Ej: 3 PJs vs X)** | **Igual (Ej: 4 PJs vs 4)** | **+1 PJ (Ej: 5 PJs vs X)** | **+2 PJs (Ej: 6 PJs vs X)** |
-| :--------------------------------------- | :-------------------------- | :------------------------- | :------------------------- | :------------------------- | :-------------------------- |
-| **1 Criatura**                           | x 1.5                       | x 1.25                     | x 1.0                      | x 0.8                      | x 0.7                       |
-| **2 Criaturas**                          | x 1.25                      | x 1.1                      | x 1.0                      | x 0.9                      | x 0.8                       |
-| **3 Criaturas**                          | x 1.1                       | x 1.0                      | x 0.9                      | x 0.8                      | x 0.7                       |
-| **4 Criaturas**                          | x 1.0                       | x 0.9                      | x 0.8                      | x 0.7                      | x 0.6                       |
-| **5-6 Criaturas**                        | x 0.9                       | x 0.8                      | x 0.7                      | x 0.6                      | x 0.5                       |
-| **7+ Criaturas (Horda)**                 | x 0.8                       | x 0.7                      | x 0.6                      | x 0.5                      | x 0.4                       |
-
-**Presupuesto Final Ajustado = Presupuesto Base × Multiplicador de Matriz**
-
-### Paso 4: Construir el Encuentro
-
-Elige criaturas (calculando su **NA Final** individualmente) cuya suma total se aproxime a tu **Presupuesto Final Ajustado**.
-
-**Guías Adicionales:**
-
-- **Sinergia Enemiga:** Si las criaturas elegidas tienen habilidades que se potencian fuertemente entre sí, considera apuntar a un NA Total ligeramente _inferior_ al presupuesto.
-- **Terreno y Táctica:** Un terreno ventajoso para los enemigos o una emboscada bien planeada pueden aumentar la dificultad real sin cambiar el NA.
-- **Poder del Grupo Alto (PG 10+):** Para grupos muy experimentados y optimizados, considera usar el Factor de PG del siguiente nivel de dificultad como base (ej: usa el factor "Difícil" para un encuentro "Normal").
-
-### Más Allá de los Números: Multiplicadores de Fuerza y Desafíos "Puzzle"
-
-El sistema de NA es una herramienta excelente para medir la dificultad de los encuentros estándar, pero como DJ, debes aprender a identificar dos tipos de situaciones especiales donde los números por sí solos no cuentan toda la historia:
-
-**1. Multiplicadores de Fuerza (Control + Secuaces):**
-
-Ten especial cuidado al combinar una criatura con **habilidades de control de área (AoE)**, como `Barrido` o `Zarzas`, con un gran número de **secuaces**. Estas habilidades no solo suman su propia amenaza, sino que _multiplican_ la letalidad de los enemigos menores al dejar a los héroes vulnerables o robarles sus acciones.
-
-- **Regla General:** Al construir un encuentro que dependa de esta sinergia, considera que su dificultad real será **un nivel más alto** de lo que el presupuesto de NA sugiere (un encuentro "Normal" se sentirá "Difícil"; uno "Difícil" se sentirá "Épico").
-
-**2. Desafíos "Puzzle" (Mecánicas Binarias):**
-
-Criaturas como el **Troll** (con `Regeneración`) o el **Basilisco** (con `Petrificación`) son menos un combate y más un acertijo táctico. Su amenaza es binaria: o el grupo tiene la "solución", o no la tiene. El NA listado en el bestiario siempre asume que el grupo tiene acceso a dicha solución.
-
-Si crees que tu grupo no tiene las herramientas para contrarrestar estas mecánicas (por ejemplo, no tienen acceso a daño de Fuego o Ácido para el Troll), debes hacer uno de los siguientes ajustes:
-
-- **Ajustar la Dificultad:** Considera que el encuentro es **dos niveles más difícil** (un "Normal" se convierte en "Épico" o casi imposible).
-- **Integrar la Solución:** La mejor opción es integrar la solución en el entorno de la batalla. Coloca braseros encendidos en la guarida del Troll, estatuas con superficies reflectantes en la del Basilisco, o proporciona pistas claras sobre sus debilidades en la aventura previa al combate.
-
-Un buen DJ usa el NA como su base, pero aprende a reconocer estas situaciones especiales para crear desafíos que sean duros pero justos, en lugar de frustrantes o imposibles.
+### Guía Estratégica para el DJ: Balance y Composición
+
+El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave final**. Usa estos principios para interpretar el presupuesto y construir encuentros memorables y balanceados:
+
+1.  **Conoce a tu Grupo (Regla de Oro):** Adapta la composición (número vs. Rango de enemigos) a _tu_ mesa específica. ¿Son tácticos? ¿Tienen AoE (efecto en área)? ¿Les falta curación? El "Rango Máx. Sugerido" de la Tabla Maestra es un buen punto de partida para encuentros _estándar_, pero si tu grupo tiene debilidades claras (ej. nula respuesta a voladores), sé cauto al explotarlas, incluso si el presupuesto lo permite. Un encuentro Fácil para un grupo optimizado puede ser Normal o Difícil para otro. **Tu objetivo es desafiar, no frustrar.**
+2.  **Calidad sobre Cantidad (Cantidad Adecuada de Enemigos):**
+    - **Objetivo:** Intenta que la mayoría de tus encuentros (Normal, Difícil) tengan una cantidad de enemigos que estre entre el numero de personajes y el doble de este valor (por ejemplo, entre 4 y 8 criaturas para un grupo de 4 personajes). Esto suele generar el mejor equilibrio entre desafío táctico y fluidez del combate, evitando turnos excesivamente largos.
+    - **Gestión del Presupuesto:** Si tu presupuesto te permite comprar muchos monstruos de bajo rango (>10-12), **considera activamente gastar _menos_ del presupuesto total** o (preferiblemente) **sustituir** grupos de enemigos de bajo Rango por **uno o dos de Rango superior** (respetando las guías sobre Rangos Superiores). El coste exponencial de R4+ te ayudará naturalmente a mantener bajo el número total de enemigos en niveles altos.
+    - **Hordas Intencionales:** Si buscas una sensación de asedio, puedes usar hordas (>10 R1), pero sé consciente de que alargará el combate y la economía de acciones puede ser brutal. Resérvalo para momentos clave y considera usar monstruos R1 con _muy_ baja salud (menos PPF invertidos en PS) para acelerar su resolución.
+3.  **Economía de Acciones:** El bando con más acciones suele tener ventaja. Compensa la desventaja numérica de Jefes solitarios (R4+) asegurándote de que tengan buena Salud/Mitigación y **Rasgos Tácticos clave** (especialmente Reacciones, Control AoE o habilidades de Movilidad Superior) que les permitan impactar el combate significativamente más allá de su único turno.
+4.  **El Peligro (y Oportunidad) de Rangos Superiores:**
+    - **Coste Elevado:** Incluir monstruos R4 (5 PA), R5 (8 PA) o R6 (13 PA) consume una porción significativa de tu presupuesto. Esto limita naturalmente su número y los posiciona como amenazas centrales.
+    - **Advertencia Fuerte (R+2 o más):** Usar monstruos con un Rango _dos o más niveles por encima_ del Rango Nominal del grupo es **extremadamente peligroso** y debe ser una decisión **consciente, justificada narrativamente** y reservada para encuentros **Épicos** o climáticos. Realiza siempre la **Evaluación Crítica Obligatoria** antes de hacerlo:
+      - _Viabilidad:_ ¿Pueden los PJs interactuar _significativamente_ (impactar con >20% chance, superar Mitigación, sobrevivir 1-2 golpes estándar)? Un enemigo invulnerable o que mata de un golpe no es un desafío interesante.
+      - _Letalidad:_ ¿Hay riesgo real de muerte _instantánea_ con ataques normales o habilidades recargables? Si es así, ¿es apropiado? ¿Puedes _telegrafiar_ (anunciar o dar pistas claras) esos ataques devastadores para dar oportunidad de reacción?
+      - _Habilidades:_ ¿Son los NDs de sus habilidades _desafiantes_ (requieren 4+/5+ en d6) o _efectivamente imposibles_ para las salvaciones del grupo?
+    - **Representando Jefes:** Incluir **un solo** monstruo R+1 o R+2 es la forma natural de crear un "Jefe". Su alto coste en PA reflejará su estatus.
+      - _Jefe Solitario:_ Gasta gran parte o todo tu presupuesto en él. El grupo tiene ventaja de acciones, creando un duelo tenso. Suele ser apropiado para **Difícil** o **Épico**.
+      - _Jefe con Secuaces:_ Gasta una parte del presupuesto en el Jefe (R+1 o R+2) y el resto en monstruos de Rango 1 (o Rango base del grupo) para dividir la atención. Es inherentemente **Épico**. Limita el número de secuaces (quizás usando un presupuesto Fácil para ellos) para no eclipsar al jefe ni alargar excesivamente el combate.
+    - **Inclusión Opcional R+1:** La nota "_Considerar 1x R(N+1)_" en la Tabla Maestra indica el punto (generalmente en la segunda mitad del rango de PP) donde incluir _un solo_ enemigo del siguiente nivel en encuentros **Normales o Difíciles** empieza a ser razonable y añade variedad. Es una excelente forma de usar el presupuesto creciente sin recurrir solo a más enemigos del mismo Rango.
+5.  **Sinergia Enemiga:** Criaturas cuyas habilidades se potencian entre sí (ej. uno derriba, otro ataca con ventaja a los derribados; un líder que da bonos; un controlador que agrupa enemigos para un AoE) valen "más" que la suma de sus costes individuales. Tenlo en cuenta al construir el encuentro y considera quizás gastar un poco menos del presupuesto si la sinergia es muy fuerte.
+6.  **Entorno y Táctica:** No los subestimes. Úsalos activamente para modular la dificultad sin tocar el presupuesto. Una emboscada, terreno difícil para los PJs, cobertura abundante para los enemigos, peligros ambientales u objetivos secundarios (proteger a un PNJ, desactivar un artefacto) pueden hacer que un encuentro Normal se sienta Difícil o Épico.
+7.  **Iteración y Flexibilidad (Tu Poder como DJ):** El presupuesto es tu punto de partida, no un grillete. **Observa a tu grupo y ajusta sobre la marcha.**
+    - **Demasiado Fácil:** Introduce una segunda oleada de enemigos (gastando PA "imaginarios" si es necesario), haz que un enemigo revele una habilidad táctica inesperada (un Rasgo Táctico que no habías planeado usar), o haz que el entorno cambie (se derrumba parte del techo, se inunda la sala).
+    - **Demasiado Difícil:** Haz que los enemigos cometan errores tácticos (focusear al tanque en lugar del sanador), que uno huya presa del pánico (especialmente si es un líder), o introduce un factor externo que ayude al grupo (un PNJ aliado interviene, el artefacto que buscan debilita al jefe).
+    - **La Meta:** La diversión, el ritmo narrativo y un desafío apropiado para _tu_ mesa son más importantes que la adherencia matemática estricta al presupuesto calculado. Usa el sistema como tu guía, pero confía en tu instinto como DJ.
+8.  **Prioriza el Desgaste sobre el "Todo o Nada":**
+    - **Diseña la Jornada, no Solo el Encuentro:** Piensa en la secuencia de desafíos que el grupo enfrentará antes de su próximo descanso. Una serie de encuentros "Fáciles" y "Normales" puede ser mucho más desafiante a largo plazo que un único encuentro "Épico", ya que consumirán gradualmente los recursos limitados del grupo (usos de cartas, Puntos de Suerte, Puntos de Salud).
+    - **Tensión Sostenida:** El desgaste fomenta la toma de decisiones significativas sobre cuándo usar habilidades poderosas, cuándo descansar y cómo gestionar el riesgo. Un solo combate binario (ganar o morir) puede ser emocionante, pero a la vez muy riesgoso. Pero una jornada llena de pequeños desafíos (no solo de combate) que merman al grupo crea una tensión más profunda y realista.
+    - **Reserva lo Épico:** Guarda los encuentros "Difíciles" y "Épicos" para momentos climáticos (jefes de mazmorra, finales de arco argumental). No satures la aventura con picos de dificultad constantes; permite que el grupo gestione sus recursos a través de desafíos moderados. Un encuentro "Normal" se sentirá "Difícil" si el grupo ya llega sin Puntos de Suerte y con la mitad de sus cartas agotadas.
+
+> **Ejemplo Final:** Grupo de **4 Jugadores**, **PP Promedio 95** (R3 Avanzado), Dificultad **Difícil**.
+>
+> - Presupuesto Total: **42 PA**. Rango Máx. Sugerido: R3 (_Considerar 1x R4_).
+> - **Opción 1 (Horda R3 - Evitar):** 14x Monstruos R3 (42 PA). _Análisis: Demasiados enemigos (14), combate probablemente largo y repetitivo._
+> - **Opción 2 (Jefe R4 + Élites - Recomendado):** 1x Troll R4 (5 PA) + 7x Ogros R3 (21 PA) + 8x Bandidos R2 (16 PA) = 42 PA. (16 enemigos). _Análisis: Número aún alto. Podríamos reducir._
+> - **Opción 3 (Calidad sobre Cantidad):** 1x Troll R4 (5 PA) + 5x Ogros R3 (15 PA) + 6x Bandidos R2 (12 PA) = 32 PA (12 enemigos). _Análisis: Gasta menos del presupuesto, pero tiene menos enemigos y sigue siendo muy desafiante._
+> - **Opción 4 (Doble Jefe R4):** 2x Troll R4 (10 PA) + 6x Ogros R3 (18 PA) + 7x Bandidos R2 (14 PA) = 42 PA. (15 enemigos). _Análisis: Muy difícil, al borde de Épico._
+
+### Paso 5: Diseño Avanzado de Criaturas (Resumen)
+
+Si deseas crear tus propios monstruos, la Parte 2 (detallada a continuación) te guía usando un sistema de **Puntos de Perfil (PPF)**. Cada Rango de Monstruo (1 a 6) tiene un presupuesto de PPF y tablas calibradas para "comprar" sus estadísticas y Rasgos Tácticos, asegurando que se alineen con el balance general del sistema.
+
+# Parte 2: Diseño Avanzado de Criaturas
+
+Si bien el bestiario proporcionado ofrece una amplia variedad de enemigos, puede que desees crear tus propias criaturas únicas para poblar tu mundo o representar amenazas específicas de tu campaña. Esta sección te guiará a través de un sistema flexible para diseñar monstruos desde cero, asegurando que se integren de manera balanceada con el sistema de Rangos y Presupuestos de Encuentro.
+
+Utilizaremos un método de "compra" de estadísticas y habilidades llamado **Puntos de Perfil (PPF)**. Cada Rango de Monstruo tiene un presupuesto de PPF que puedes gastar para definir sus capacidades, permitiéndote crear desde frágiles "cañones de cristal" hasta resistentes "tanques" o astutos "controladores", todo dentro de un marco equilibrado.
+
+### Paso 1: Concepto, Rol y Rango
+
+Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
+
+| Rango del Monstruo | Presupuesto (PPF) | Rol Sugerido                                                |
+| :----------------- | :---------------- | :---------------------------------------------------------- |
+| **Rango 1**        | 8 PPF             | Secuaces, hordas, bestias menores.                          |
+| **Rango 2**        | 12 PPF            | Infantería de élite, tenientes, monstruos peligrosos.       |
+| **Rango 3**        | 17 PPF            | Jefes de mazmorra, guardianes poderosos, amenazas de élite. |
+| **Rango 4**        | 23 PPF            | Jefes de arco argumental, monstruos legendarios menores.    |
+| **Rango 5**        | 30 PPF            | Amenazas de final de campaña, avatares del apocalipsis.     |
+| **Rango 6**        | 38 PPF            | Jefes finales épicos, diseñados a medida.                   |
+
+### Paso 2: Distribuir PPF en Estadísticas (Tablas de Constructor Calibradas v5)
+
+Usa la tabla del Rango correspondiente. Recuerda los **Límites de Gasto (Cotas)** por atributo.
+
+#### Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Límite por Atributo: 4 PPF)
+
+| Coste (PPF)  | Salud (+4/PPF) | Esquiva | Ataque / ND | Daño Prom. (ST) (+1/PPF) | Mit. Física | Mit. Mágica |
+| :----------- | :------------- | :------ | :---------- | :----------------------- | :---------- | :---------- |
+| **0 (Base)** | 0              | 5       | +1/5        | 0                        | 0           | 0           |
+| **1**        | 4              | 6       | +2/6        | 1                        | 1           | -           |
+| **2**        | 8              | -       | -           | 2                        | 2           | 1           |
+| **3**        | 12             | 7       | +3/7        | 3                        | -           | -           |
+| **4**        | 16             | -       | -           | 4                        | -           | -           |
+
+#### Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Límite por Atributo: 6 PPF)
+
+| Coste (PPF)  | Salud (+6/PPF) | Esquiva | Ataque / ND | Daño Prom. (ST) (+1.5/PPF) | Mit. Física | Mit. Mágica |
+| :----------- | :------------- | :------ | :---------- | :------------------------- | :---------- | :---------- |
+| **0 (Base)** | 0              | 6       | +2/6        | 0                          | 0           | 0           |
+| **1**        | 6              | 7       | +3/7        | 2                          | 1           | -           |
+| **2**        | 12             | -       | +4/8        | 3                          | 2           | 1           |
+| **3**        | 18             | 8       | -           | 4                          | 3           | -           |
+| **4**        | 24             | -       | +5/9        | 6                          | 4           | 2           |
+| **5**        | 30             | 9       | -           | 7                          | 5           | -           |
+| **6**        | 36             | -       | -           | 9                          | 6           | 3           |
+
+_(Daño redondeado al entero más cercano)_
+
+#### Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Límite por Atributo: 8 PPF)
+
+| Coste (PPF)  | Salud (+8/PPF) | Esquiva | Ataque / ND | Daño Prom. (ST) (+2/PPF) | Mit. Física | Mit. Mágica |
+| :----------- | :------------- | :------ | :---------- | :----------------------- | :---------- | :---------- |
+| **0 (Base)** | 0              | 7       | +4/8        | 0                        | 0           | 0           |
+| **1**        | 8              | 8       | +5/9        | 2                        | 1           | -           |
+| **2**        | 16             | -       | +6/10       | 4                        | 2           | 1           |
+| **3**        | 24             | 9       | -           | 6                        | 3           | -           |
+| **4**        | 32             | -       | +7/11       | 8                        | 4           | 2           |
+| **5**        | 40             | 10      | -           | 10                       | 5           | -           |
+| **6**        | 48             | -       | -           | 12                       | 6           | 3           |
+| **7**        | 56             | 11      | -           | 14                       | 7           | -           |
+| **8**        | 64             | -       | -           | 16                       | 8           | 4           |
+
+#### Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Límite por Atributo: 10 PPF)
+
+| Coste (PPF)  | Salud (+15/PPF) | Esquiva | Ataque / ND | Daño Prom. (ST) (+2.5/PPF) | Mit. Física | Mit. Mágica |
+| :----------- | :-------------- | :------ | :---------- | :------------------------- | :---------- | :---------- |
+| **0 (Base)** | 0               | 8       | +5/9        | 0                          | 0           | 0           |
+| **1**        | 15              | 9       | +6/10       | 3                          | 1           | -           |
+| **2**        | 30              | -       | +7/11       | 5                          | 2           | 1           |
+| **3**        | 45              | 10      | -           | 8                          | 3           | -           |
+| **4**        | 60              | -       | +8/12       | 10                         | 4           | 2           |
+| **5**        | 75              | 11      | -           | 13                         | 5           | -           |
+| **6**        | 90              | -       | -           | 15                         | 6           | 3           |
+| **7**        | 105             | 12      | -           | 18                         | 7           | -           |
+| **8**        | 120             | -       | -           | 20                         | 8           | 4           |
+| **9**        | 135             | 13      | -           | 23                         | 9           | -           |
+| **10**       | 150             | -       | -           | 25                         | 10          | 5           |
+
+#### Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Límite por Atributo: 12 PPF)
+
+| Coste (PPF)  | Salud (+25/PPF) | Esquiva | Ataque / ND | Daño Prom. (ST) (+3/PPF) | Mit. Física | Mit. Mágica |
+| :----------- | :-------------- | :------ | :---------- | :----------------------- | :---------- | :---------- |
+| **0 (Base)** | 0               | 9       | +6/10       | 0                        | 0           | 0           |
+| **1**        | 25              | 10      | +7/11       | 3                        | 1           | -           |
+| **2**        | 50              | -       | +8/12       | 6                        | 2           | 1           |
+| **3**        | 75              | 11      | -           | 9                        | 3           | -           |
+| **4**        | 100             | -       | +9/13       | 12                       | 4           | 2           |
+| **5**        | 125             | 12      | -           | 15                       | 5           | -           |
+| **6**        | 150             | -       | -           | 18                       | 6           | 3           |
+| **7**        | 175             | 13      | -           | 21                       | 7           | -           |
+| **8**        | 200             | -       | -           | 24                       | 8           | 4           |
+| **9**        | 225             | 14      | -           | 27                       | 9           | -           |
+| **10**       | 250             | -       | -           | 30                       | 10          | 5           |
+| **11**       | 275             | 15      | -           | 33                       | 11          | -           |
+| **12**       | 300             | -       | -           | 36                       | 12          | 6           |
+
+#### Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Límite por Atributo: 14 PPF)
+
+_(Para Jefes Finales Épicos)_
+
+| Coste (PPF)  | Salud (+30/PPF) | Esquiva | Ataque / ND | Daño Prom. (ST) (+3.5/PPF) | Mit. Física | Mit. Mágica |
+| :----------- | :-------------- | :------ | :---------- | :------------------------- | :---------- | :---------- |
+| **0 (Base)** | 0               | 10      | +7/11       | 0                          | 0           | 0           |
+| **1**        | 30              | 11      | +8/12       | 4                          | 1           | -           |
+| **2**        | 60              | -       | +9/13       | 7                          | 2           | 1           |
+| **3**        | 90              | 12      | -           | 11                         | 3           | -           |
+| **4**        | 120             | -       | +10/14      | 14                         | 4           | 2           |
+| **5**        | 150             | 13      | -           | 18                         | 5           | -           |
+| **6**        | 180             | -       | -           | 21                         | 6           | 3           |
+| **7**        | 210             | 14      | -           | 25                         | 7           | -           |
+| **8**        | 240             | -       | +11/15      | 28                         | 8           | 4           |
+| **9**        | 270             | 15      | -           | 32                         | 9           | -           |
+| **10**       | 300             | -       | -           | 35                         | 10          | 5           |
+| **11**       | 330             | 16      | -           | 39                         | 11          | -           |
+| **12**       | 360             | -       | +12/16      | 42                         | 12          | 6           |
+| **13**       | 390             | 17      | -           | 46                         | 13          | -           |
+| **14**       | 420             | -       | -           | 49                         | 14          | 7           |
+
+### Paso 3: Comprar Habilidades
+
+Gasta los PPF restantes de tu presupuesto en habilidades, diferenciando entre Sabor y Táctica.
+
+#### A. Habilidades de Sabor (Coste: 0 PPF)
+
+Describen _cómo_ se aplica el daño o añaden elementos narrativos. No tienen coste si no alteran la táctica del combate.
+
+- **Ejemplos:** `Asalto Múltiple` (si solo divide el Daño Promedio comprado), `Furia` (si el bono de daño ya está promediado en el Daño Promedio), `Ataque Venenoso` (si el daño del veneno está incluido en el Daño Promedio), `Visión en la Oscuridad`, tipo de daño elemental.
+
+#### B. Rasgos Tácticos (Coste en PPF)
+
+Habilidades que cambian las reglas del combate: Control, Movimiento Superior, Defensas Especiales, Reacciones, etc.
+
+**Reglas de Compra:**
+
+1.  **Límite de Rango:** Un monstruo **no puede** comprar un Rasgo Táctico de un Rango superior al suyo.
+2.  **Comprar "Hacia Abajo":** Sí puede comprar Rasgos de Rangos inferiores.
+3.  **Coste Fijo:** El coste depende del Rango del Rasgo.
+
+**Tabla de Costes de Rasgos Tácticos:**
+
+| Tipo de Habilidad            | Coste en PPF | Quién puede comprarlo       |
+| :--------------------------- | :----------- | :-------------------------- |
+| **Rasgo Táctico de Rango 1** | 2 PPF        | Monstruos de Rango 1, 2, 3+ |
+| **Rasgo Táctico de Rango 2** | 3 PPF        | Monstruos de Rango 2, 3+    |
+| **Rasgo Táctico de Rango 3** | 4 PPF        | Monstruos de Rango 3+       |
+| **Rasgo Táctico de Rango 4** | 5 PPF        | Monstruos de Rango 4+       |
+| **Rasgo Táctico de Rango 5** | 6 PPF        | Monstruos de Rango 5+       |
+| **Rasgo Táctico de Rango 6** | 7 PPF        | Solo Monstruos de Rango 6   |
+
+### Paso 4: La Filosofía de Rasgos Tácticos por Rango
+
+- **Rasgos R1:** Efectos simples (Control blando menor, debuff simple, reacción defensiva, resistencia).
+- **Rasgos R2:** Impacto táctico (Control blando, AoE táctico, movilidad táctica, puzzle, reacción).
+- **Rasgos R3:** Alteran el campo (Control duro, AoE control, movilidad superior, negación recursos).
+- **Rasgos R4:** Alteran reglas (Control duro AoE, invisibilidad+, muerte condicional, entorno).
+- **Rasgos R5:** Alteran campaña (Manipulación acciones, inmunidades, ignora-defensas, mecánicas complejas).
+- **Rasgos R6:** Poderes divinos o cósmicos, alteración masiva de la realidad, múltiples fases.
+
+### Paso 5: Nota sobre Daño de Área (AoE)
+
+- El `Daño Promedio (ST)` de las tablas es referencia **single-target**.
+- El daño _por objetivo_ de un ataque AoE debería ser aproximadamente **60-70%** de esa referencia.
+- Al calcular los PPF para un atacante AoE, usa el daño _por objetivo_ (asumiendo 2-3 objetivos) para determinar el `Daño Promedio (ST)` efectivo que estás comprando.
+
+### Paso 6: Poniéndolo en Práctica (Ejemplos Finales)
+
+> **Ejemplo 1: Berserker R2 (12 PPF / Límite 6)**
+>
+> - **Habilidad (3 PPF):** `Ataque Temerario` (Rasgo R2) -> 3 PPF.
+> - **Sabor (0 PPF):** `Asalto Múltiple` (2 ataques), `Furia`.
+> - **Stats (9 PPF):**
+>   - Daño: 4 PPF -> 6 Daño Prom. ST (2x Atq de 3 Dmg base, Furia añade +2).
+>   - Ataque: 4 PPF -> +5 / ND 9
+>   - Salud: 1 PPF -> 6 PS
+> - **Total:** 3(Hab) + 4(Dmg) + 4(Atq) + 1(PS) = 12 PPF.
+> - **Final:** PS 6, Esq 6, Mit 0, Atq +5, Daño 6 (2x3, +2 con Furia). Rasgo: `Ataque Temerario`.
+
+> **Ejemplo 2: Guardia Tanque R2 (12 PPF / Límite 6)**
+>
+> - **Habilidad (3 PPF):** `Protección` (Rasgo R2) -> 3 PPF.
+> - **Stats (9 PPF):**
+>   - Salud: 5 PPF -> 30 PS
+>   - Mit. Física: 3 PPF -> 3 Mit. Física
+>   - Esquiva: 1 PPF -> 7 Esq
+> - **Total:** 3(Hab) + 5(PS) + 3(MitF) + 1(Esq) = 12 PPF.
+> - **Final:** PS 30, Esq 7, Mit 3, Atq +2/ND 6 (base), Daño 0 (base). Rasgo: `Protección`.
 
 # Guía de Diseño de Conjuros
 
@@ -374,8 +428,6 @@ Un buen DJ usa el NA como su base, pero aprende a reconocer estas situaciones es
 El diseño de un conjuro o habilidad en ARCANA se equilibra sobre tres pilares fundamentales: **Poder** (su impacto bruto, generalmente el daño), **Utilidad** (los efectos adicionales que aplica) y **Fiabilidad** (la frecuencia con la que puede usarse). Para crear una habilidad justa, emocionante y balanceada, estos tres elementos deben estar en equilibrio.
 
 Un conjuro no puede sobresalir en los tres pilares. Si es extremadamente potente y tiene un gran efecto, debe ser poco fiable. Si es muy fiable, su poder o utilidad deben ser moderados. Esta guía te proporcionará un marco de trabajo paso a paso para diseñar tus propios conjuros o para evaluar y modificar los existentes.
-
----
 
 ### Paso 1: Establecer el Daño Base por Nivel
 
