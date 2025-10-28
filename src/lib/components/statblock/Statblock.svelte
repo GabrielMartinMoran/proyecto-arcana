@@ -124,7 +124,11 @@
 				<div class="languages">
 					<strong>Lenguas</strong>
 					<span>
-						{creature.languages.join(', ')}
+						{#if creature.languages.length > 0}
+							{creature.languages.join(', ')}
+						{:else}
+							Ninguna
+						{/if}
 					</span>
 				</div>
 				{#if creature.traits.length > 0}
