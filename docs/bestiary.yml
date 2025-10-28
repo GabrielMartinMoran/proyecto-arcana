@@ -1519,7 +1519,7 @@ creatures:
     img: null
 
   - name: Thulu
-    tier: 5 # Rango 5 (Presupuesto 30 PPF / Límite 12) - Mantenido Rango 5
+    tier: 5 # Rango 5 (Presupuesto 30 PPF / Límite 12)
     attributes:
       body: 3
       reflexes: 4
@@ -1529,46 +1529,47 @@ creatures:
     stats:
       maxHealth: 50 # 2 PPF Salud
       evasion:
-        value: 11 # 3 PPF Esquiva
+        value: 10 # 1 PPF Esquiva
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
         note: null
       magicalMitigation:
         value: 2 # 4 PPF MitM
-        note: Defensa Psíquica
+        note: Defensa Psiónica
       speed:
         value: 10
-        note: null
+        note: Levita
     languages:
       - Habla Profunda
       - 'Telepatía (Larga)'
     attacks:
-      - name: Tentáculos Psiónicos # Ataque + Habilidad
-        bonus: 9 # 4 PPF Ataque (+9/13)
-        damage: 4d8 Psíquico # 0 PPF Daño (Base R5 = 0) - El daño está en las habilidades
-        note: null
+      - name: Choque Psiónico
+        bonus: 7 # 1 PPF Ataque (+7/11)
+        damage: 3d8 Psíquico # 4 PPF Daño
+        note: Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, puedes iniciar una Tirada Enfrentada de tu Mente contra la Mente del objetivo. Si ganas, el objetivo queda Inmovilizado hasta que te muevas o ataques a otro objetivo. # 2 PPF Habilidad Condicional
     traits:
-      - name: Resistencia Mágica # Rasgo Táctico R3 (4 PPF - Defensa Mágica)
-        detail: El Thulu tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
-      - name: Control Tentacular (parte de Ataque) # Rasgo Táctico R2 (3 PPF - Control Blando)
-        detail: Si el Thulu impacta con sus Tentáculos Psiónicos, el objetivo debe superar una Tirada Enfrentada de su Mente contra la Mente del Thulu o quedará Inmovilizado mientras el Thulu mantenga la presa (no requiere acción).
+      - name: Resistencia Psíquica # Rasgo Táctico R1 (2 PPF)
+        detail: El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
+      - name: Vuelo (Levitar) # Rasgo Táctico R3 (4 PPF)
+        detail: El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
     actions:
-      - name: Ráfaga Mental # Rasgo Táctico R4 (5 PPF - AoE Control Duro)
+      - name: Ráfaga Mental # Rasgo Táctico R5 (6 PPF)
         uses:
           type: RELOAD
-          qty: 4 # ND Ajustado
-        detail: El Thulu emite una onda de energía psíquica en un cono de 5 metros. Toda criatura en el área debe superar una Tirada de Salvación de Instinto (ND 13) o quedar Aturdida hasta el final del próximo turno del Thulu.
-      - name: Devorar Cerebro # Rasgo Táctico R4 (5 PPF - Muerte Condicional)
-        detail: El Thulu inicia una Tirada Enfrentada de su Mente contra la Mente de una criatura que tenga Inmovilizada con sus tentáculos. Si el Thulu gana, el objetivo sufre 5d6 de daño Psíquico (17.5 prom). Si este daño reduce al objetivo a 0 Puntos de Salud, muere instantáneamente al ser su cerebro devorado.
-    reactions: []
-    interactions: []
-    # PPF Total: 2(Sal) + 3(Esq) + 4(MitM) + 4(Atq) + 4(Hab Res) + 3(Hab Con) + 5(Hab Raf) + 5(Hab Dev) = 30 PPF. Correcto.
-    # *** FICHA FINAL ***
+          qty: 4
+        detail: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 11). Si falla, sufre 3d6 de daño Psíquico y queda Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.
+      - name: Devorar Cerebro # Rasgo Táctico R3 (4 PPF)
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El Thulu ataca la mente de una criatura Inmovilizada por él. El objetivo debe superar una TS de Mente (ND 11). Si falla, sufre 5d6 de daño Psíquico. Si este daño reduce al objetivo a 0 Puntos de Salud, muere automáticamente. Si tiene éxito, recibe la mitad del daño.
+    # PPF Total: 2(Sal) + 1(Esq) + 0(MitF) + 4(MitM) + 1(Atq) + 4(Daño) + 2(HabAtq) + 2(Hab Res) + 4(Hab Vuelo) + 6(Hab Raf) + 4(Hab Dev) = 30 PPF. Correcto.
+    # *** FICHA FINAL (APROBADA) ***
     # Rango 5 (8 PA)
-    # 50 PS, 11 Esq, 0 MitF, 2 MitM, +9 Atq, 0 Dmg ST (solo habs), Res Magia, Tentáculos Control, Ráfaga Mental ND 13, Devorar Cerebro
+    # 50 PS, 10 Esq, 0 MitF, 2 MitM, +7 Atq, 13.5 Dmg ST (con Control), Vuela, Res Psíquica, Ráfaga Mental (3d6+Aturdir), Devorar Cerebro (Recarga 5+)
     behavior: |
-      Un depredador psíquico alienígena que ve a todas las demás criaturas como ganado. No lucha con fuerza bruta, sino con poder mental. Usa su Ráfaga Mental para incapacitar a los grupos y luego se enfoca en un único objetivo Aturdido, apresándolo con sus tentáculos para alimentarse. Es un estratega frío y calculador.
+      Un depredador psíquico que flota sobre el campo de batalla, bombardeando a sus enemigos con devastadores choques de poder mental. Cualquiera que se acerque demasiado es atrapado por su mente, quedando inmovilizado y vulnerable a su asalto psíquico definitivo.
     img: null
 
   - name: Liche
