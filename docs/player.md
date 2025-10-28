@@ -468,6 +468,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 
 # 8. Estados y Condiciones
 
+- **Asustado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y pruebas de habilidad mientras la fuente del miedo esta en tu rango de visión.
 - **Aturdido:** No puedes realizar **Acciones** ni **Reacciones**. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 - **Cegado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y fallas las pruebas que dependan de la vista.
 - **Derribado:** Estás tumbado en el suelo. Tus ataques cuerpo a cuerpo tienen **Desventaja**. Los ataques cuerpo a cuerpo contra ti tienen **Ventaja**. Levantarse consume la mitad de tu movimiento.

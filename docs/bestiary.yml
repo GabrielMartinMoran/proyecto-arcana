@@ -150,17 +150,17 @@ creatures:
     img: https://i.imgur.com/vwS87Yq.png
 
   - name: Espectro
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - BAJADO DE RANGO 4
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 1
-      reflexes: 4
+      reflexes: 3
       mind: 2
-      instinct: 5
-      presence: 4
+      instinct: 3
+      presence: 5
     stats:
       maxHealth: 24 # 3 PPF Salud
       evasion:
-        value: 9 # 3 PPF Esquiva
+        value: 8 # 1 PPF Esquiva
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -176,28 +176,27 @@ creatures:
       - 'Común (comprende)'
     attacks:
       - name: Toque Gélido
-        bonus: 6 # 2 PPF Ataque (+6/10)
-        damage: 1d6 Necrótico # 1 PPF Daño (Promedio 2 Dmg ST)
+        bonus: 5 # 1 PPF Ataque (+5/9)
+        damage: 2d6 Necrótico # 3 PPF Daño (Promedio 6 Dmg ST)
         note: null
     traits:
       - name: Visión Verdadera # Habilidad Sabor (0 PPF)
         detail: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
-      - name: Drenar Vida # Habilidad Sabor (0 PPF)
-        detail: Cuando el espectro inflige daño con su Toque Gélido, recupera una cantidad de Puntos de Salud igual al daño infligido.
+      - name: Drenar Vida # Rasgo Táctico R1 (2 PPF)
+        detail: Cuando el espectro inflige daño con su Toque Gélido, recupera una cantidad de Puntos de Salud igual a la mitad del daño infligido (redondeado hacia abajo).
       - name: Movimiento Incorpóreo # Rasgo Táctico R3 (4 PPF)
         detail: El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
-    actions:
-      - name: Mirada Aterradora # Rasgo Táctico R3 (4 PPF - Control Duro)
+    actions: []
+    reactions: []
+    interactions:
+      - name: Mirada Aterradora # Rasgo Táctico R2 (3 PPF - Debuff)
         uses:
           type: RELOAD
-          qty: 6 # ND ajustado
-        detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 10) o quedar Aturdido hasta el final del próximo turno del espectro.
-    reactions: []
-    interactions: []
-    # PPF Total: 3(Salud) + 3(Esq) + 2(Atq) + 1(Daño) + 4(Hab Inc) + 4(Hab Mir) = 17 PPF. Correcto.
+          qty: 4
+          detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 9) o quedar Asustado hasta el final del próximo turno del espectro.
     # *** FICHA FINAL ***
     # Rango 3 (3 PA)
-    # 24 PS, 9 Esq, 0 Mit, +6 Atq, 2 Dmg ST (1d6), Drenar Vida, Incorpóreo, Mirada Aterradora ND 10
+    # 24 PS, 8 Esq, 0 Mit, +5 Atq, 7 Dmg ST (2d6), Drenar Vida (mitad), Incorpóreo, Mirada Aterradora (Asustado) ND 9
     behavior: |
       Una entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Drenar Vida para prolongar su macabra existencia.
     img: https://i.imgur.com/3LAtxZ4.png
@@ -254,14 +253,14 @@ creatures:
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - BAJADO DE RANGO 3
     attributes:
       body: 3
-      reflexes: 4
+      reflexes: 3
       mind: 2
       instinct: 2
       presence: 3
     stats:
-      maxHealth: 6 # 1 PPF Salud
+      maxHealth: 18 # 3 PPF Salud
       evasion:
-        value: 8 # 3 PPF Esquiva
+        value: 7 # 1 PPF Esquiva
         note: null
       physicalMitigation:
         value: 1 # 1 PPF MitF
@@ -270,14 +269,14 @@ creatures:
         value: 0 # 0 PPF MitM
         note: null
       speed:
-        value: 10
+        value: 9
         note: null
     languages:
       - Común
     attacks:
       - name: Cimitarra
         bonus: 3 # 1 PPF Ataque (+3/7)
-        damage: 1d6 Cortante # 1 PPF Daño (Promedio 2 Dmg ST - Asalto Múltiple lo dobla)
+        damage: 1d6 Cortante # 4 PPF - 6 Daño (Incluyendo Asalto Múltiple)
         note: null
       - name: Ballesta ligera
         bonus: 3 # (Compartido)
@@ -287,18 +286,12 @@ creatures:
       - name: Asalto Múltiple # Habilidad Sabor (0 PPF)
         detail: El capitán puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
     actions:
-      - name: ¡A por él, inútiles! # Rasgo Táctico R2 (3 PPF - Economía Acción)
-        detail: Como una Acción, el capitán puede renunciar a sus propios ataques para comandar a sus aliados. Elige hasta dos bandidos (u otros aliados apropiados) a distancia Cercana que puedan oírlo. Esos aliados pueden usar inmediatamente su Reacción para realizar un único ataque cuerpo a cuerpo contra un enemigo que el capitán designe.
-    reactions:
-      - name: Parada # Rasgo Táctico R1 (2 PPF - Reacción Def)
-        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el capitán añade +2 a su Esquiva contra ese ataque específico, lo que podría hacer que falle.
+      - name: ¡Mátalo! # Rasgo Táctico R1 (2 PPF - Economía Acción)
+        detail: Como una Acción, el capitán puede dar una orden a uno de sus aliados a distancia Cercana que pueda oírlo. Ese aliado puede usar inmediatamente su Reacción para realizar un único ataque (con arma o conjuro) contra un enemigo que el capitán designe, y el aliado pueda ver.
+    reactions: []
     interactions: []
-    # PPF Total: 1(Salud) + 3(Esq) + 1(MitF) + 1(Atq) + 1(Daño) + 3(Hab Apor) + 2(Hab Par) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 6 PS, 8 Esq, 1 MitF, +3 Atq, 2 Dmg ST (2x 1d6), ¡A por él!, Parada
     behavior: |
-      Un líder astuto y egoísta. A diferencia de sus secuaces, piensa tácticamente. Se mantiene a distancia, usando a sus bandidos como una barrera de carne mientras dispara su ballesta. Si un héroe logra acercarse, usará Parada para defenderse y gritará órdenes para que sus hombres lo protejan. Siempre tiene una ruta de escape planeada.
+      Un líder astuto y egoísta. Piensa tácticamente, manteniéndose a distancia y usando a sus aliados como barrera mientras dispara su ballesta o grita órdenes para que sus hombres ataquen. Siempre tiene una ruta de escape planeada.
     img: https://i.imgur.com/k3QVNis.png
 
   - name: Cultista
@@ -351,12 +344,17 @@ creatures:
     img: https://i.imgur.com/VBT0h7Z.png
 
   - name: Sacerdote
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - BAJADO DE RANGO 4
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
+    # ASESOR: Esta versión reintroduce 'Asalto Múltiple' para un rol de "Invocador Agresivo", sacrificando fiabilidad por versatilidad ofensiva.
+    # 1. El daño total por Acción (2x 1d6 = 7 prom.) se costea correctamente en 4 PPF.
+    # 2. Para financiar esto, el 'Ataque' y la 'Esquiva' se han mantenido en sus valores base de Rango 3 (coste 0 PPF).
+    # 3. El resultado es un lanzador de conjuros híbrido, capaz de controlar el campo con 'Espíritus Guardianes' o de realizar dos ataques por turno,
+    #    lo que lo convierte en una amenaza ofensiva y de control muy versátil, aunque menos precisa. El diseño es matemáticamente perfecto (17/17 PPF).
     attributes:
       body: 4
       reflexes: 2
       mind: 2
-      instinct: 5
+      instinct: 4
       presence: 2
     stats:
       maxHealth: 32 # 4 PPF Salud
@@ -377,35 +375,35 @@ creatures:
       - Celestial
     attacks:
       - name: Maza
-        bonus: 7 # 4 PPF Ataque (+7/11 - Usa Instinto 5)
-        damage: 1d6 Contundente + 1d6 Radiante # 3 PPF Daño (Promedio 6 Dmg ST - Asalto Múltiple lo dobla)
+        bonus: 4 # 0 PPF Ataque (+4/8 - Base R3)
+        damage: 1d6 Contundente # 4 PPF Daño (Total de 7 prom. con Asalto Múltiple)
         note: null
       - name: Llama Radiante
-        bonus: 7 # (Compartido)
-        damage: 2d6 Radiante # (Compartido)
+        bonus: 4 # (Compartido)
+        damage: 1d6 Radiante # (Compartido)
         note: Alcance Cercano
     traits:
-      - name: Asalto Múltiple # Habilidad Sabor (0 PPF)
+      - name: Asalto Múltiple # Sabor (0 PPF)
         detail: El sacerdote puede realizar dos ataques con su Acción, usando Maza o Llama Radiante en cualquier combinación.
     actions:
-      - name: Toque Sanador # Rasgo Táctico R1 (2 PPF - Curación)
+      - name: Espíritus Guardianes # Rasgo Táctico R3 (4 PPF)
         uses:
           type: RELOAD
-          qty: 3
-        detail: Toca a una criatura y esta recupera 1d6 Puntos de Salud (3.5 promedio).
-      - name: Restablecimiento # Rasgo Táctico R1 (2 PPF - Soporte)
+          qty: 5
+        detail: Como Acción, invoca espíritus que revolotean a su alrededor (radio 3m) durante 1 minuto. Requiere Concentración. Un enemigo que entre o empiece su turno en el aura debe superar una TS de Instinto (ND 8) o sufrir 2d6 de daño Radiante (la mitad si tiene éxito).
+      - name: Toque Sanador # Rasgo Táctico R2 (3 PPF)
         uses:
           type: RELOAD
-          qty: 3
-        detail: Toca a una criatura y elimina sobre ella el estado Cegado, Ensordecido o Envenenado.
+          qty: 4
+        detail: Toca a una criatura y esta recupera 2d6 Puntos de Salud.
     reactions: []
     interactions: []
-    # PPF Total: 4(Salud) + 2(MitF) + 4(Atq) + 3(Daño) + 2(Hab Cur) + 2(Hab Res) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
+    # PPF Total: 4(Salud) + 2(MitF) + 0(Atq) + 4(Daño) + 4(Hab Esp) + 3(Hab Cur) = 17 PPF. Correcto.
+    # *** FICHA FINAL (RECOMENDADA) ***
     # Rango 3 (3 PA)
-    # 32 PS, 7 Esq, 2 MitF, 0 MitM, +7 Atq, 6 Dmg ST (2x Ataques), Cura, Restablece
+    # 32 PS, 7 Esq, 2 MitF, +4 Atq, 7 Dmg ST (2x1d6), Espíritus Guardianes (2d6 AoE), Toque Sanador
     behavior: |
-      El pilar estratégico y espiritual de su grupo. Evita el combate directo, posicionándose detrás de sus protectores. Usa Espíritus Guardianes si los enemigos se acercan demasiado, Llama Radiante para castigar a los impíos desde la distancia, y sus habilidades de curación para mantener en pie a los aliados más valiosos. Es un objetivo prioritario y lo sabe.
+      El pilar estratégico y espiritual de su grupo. Alterna entre activar sus Espíritus Guardianes para crear una zona de peligro, castigar a los impíos desde la distancia con ráfagas de llamas sagradas, o mantener en pie a los aliados más valiosos con su Toque Sanador. Es un objetivo prioritario y lo sabe.
     img: https://i.imgur.com/w5QQCP6.png
 
   - name: Esqueleto
@@ -702,10 +700,10 @@ creatures:
     stats:
       maxHealth: 24 # 4 PPF Salud
       evasion:
-        value: 7 # 1 PPF Esquiva
+        value: 6 # 0 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 2 # 2 PPF MitF
+        value: 1 # 1 PPF MitF
         note: natural
       magicalMitigation:
         value: 0 # 0 PPF MitM
@@ -715,26 +713,22 @@ creatures:
         note: null
     languages: []
     attacks:
-      - name: Garras
+      - name: Garra
         bonus: 4 # 2 PPF Ataque (+4/8)
-        damage: 1d8 Cortante # 3 PPF Daño (Promedio 5 Dmg ST - Asalto Múltiple lo dobla)
+        damage: 1d6 Cortante # 3 PPF Daño (Promedio 3.5 Dmg ST - Asalto Múltiple lo dobla)
         note: null
     traits:
       - name: Asalto Múltiple # Sabor (0 PPF)
-        detail: El oso puede realizar dos ataques de Garras con su Acción.
+        detail: El oso puede realizar dos ataques de Garra con su Acción.
     actions: []
     reactions: []
     interactions: []
-    # PPF Total: 4(Salud) + 1(Esq) + 2(MitF) + 2(Atq) + 3(Daño) = 12 PPF. Correcto. (Abrazo quitado).
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 24 PS, 7 Esq, 2 MitF, +4 Atq, 5 Dmg ST (2x 1d8)
     behavior: |
       Una encarnación de la furia territorial. No es malvado, es una fuerza de la naturaleza defendiendo su hogar. Su táctica es una explosión de violencia: un rugido ensordecedor para intimidar, seguido de una carga imparable contra la amenaza más cercana o más grande. Una vez en combate, desata un torbellino de garras hasta que la amenaza es neutralizada.
     img: https://i.imgur.com/4hVydOL.jpeg
 
   - name: Mimeto
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - Mantenido Rango 3
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 4
       reflexes: 2
@@ -742,12 +736,12 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 32 # 4 PPF Salud
+      maxHealth: 48 # 6 PPF Salud (AUMENTADO desde 32)
       evasion:
         value: 8 # 1 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 2 # 2 PPF MitF
+        value: 3 # 3 PPF MitF (AUMENTADO desde 2)
         note: forma amorfa
       magicalMitigation:
         value: 0 # 0 PPF MitM
@@ -758,14 +752,14 @@ creatures:
     languages: []
     attacks:
       - name: Pseudópodo
-        bonus: 7 # 4 PPF Ataque (+7/11)
-        damage: 1d8 Contundente # 1 PPF Daño (Promedio 2 Dmg ST - Asalto Múltiple lo dobla)
+        bonus: 5 # 1 PPF Ataque (+5/9) (REDUCIDO desde +7)
+        damage: 1d4 Contundente # 1 PPF Daño (Total de 5 prom. con Asalto Múltiple 2x1d4)
         note: null
     traits:
       - name: Forma de Objeto # Rasgo Táctico R1 (2 PPF - Defensa/Emboscada)
         detail: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 9 para notar su verdadera naturaleza antes de tocarlo.
       - name: Adhesivo # Rasgo Táctico R2 (3 PPF - Control Blando)
-        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada. Un arma que lo impacte cuerpo a cuerpo se queda pegada si su portador no supera una Tirada de Salvación de Cuerpo (ND 11). Se requiere una Acción y superar una Tirada Enfrentada de Cuerpo (contra el Cuerpo del mimeto) para liberarse a uno mismo o a un objeto pegado.
+        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada. Un arma que lo impacte cuerpo a cuerpo se queda pegada si su portador no supera una Tirada de Salvación de Cuerpo (ND 9). Se requiere una Acción y superar una Tirada Enfrentada de Cuerpo (contra el Cuerpo del mimeto) para liberarse a uno mismo o a un objeto pegado.
       - name: Asalto Múltiple # Sabor (0 PPF)
         detail: El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
     actions: []
@@ -774,7 +768,7 @@ creatures:
     # PPF Total: 4(Salud) + 1(Esq) + 2(MitF) + 4(Atq) + 1(Daño) + 2(Hab For) + 3(Hab Adh) = 17 PPF. Correcto.
     # *** FICHA FINAL ***
     # Rango 3 (3 PA)
-    # 32 PS, 8 Esq, 2 MitF, +7 Atq, 2 Dmg ST (2x 1d8), Forma Objeto, Adhesivo ND 11
+    # 48 PS, 8 Esq, 3 MitF, +5 Atq, 5 Dmg ST (2x 1d4), Forma Objeto ND 9, Adhesivo ND 9
     behavior: |
       Un depredador de paciencia infinita que funciona más como una trampa viviente que como una criatura. Permanece inmóvil, a veces durante días, esperando el toque de una criatura curiosa. Una vez que el combate comienza, su único objetivo es usar su Adhesivo para apresar a una víctima y aplastarla hasta la muerte con sus seudópodos, ignorando a otros atacantes a menos que le impidan "comer". Lucha con una alarmante y silenciosa concentración.
     img: https://i.imgur.com/gvIIjJk.jpeg
