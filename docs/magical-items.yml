@@ -334,7 +334,7 @@ items:
       type: PER_DAY
       qty: 1
 
-  - name: 'Capa del Mantoarácnido'
+  - name: 'Manto Arácnido'
     level: 2
     cost: 350
     type: 'efecto'
@@ -365,7 +365,7 @@ items:
       puedes liberar una onda de fuerza. El atacante debe superar una Tirada de
       Salvación de Cuerpo (ND 8) o ser empujado 3 metros hacia atrás en línea recta.
     uses:
-      type: RECHARGE
+      type: RELOAD
       qty: 4
 
   - name: 'Amuleto de Salud'
@@ -854,6 +854,282 @@ items:
       perfecto notario de tus propias experiencias. Puedes usar una Interacción
       para que la pluma comience o deje de escribir. El diario tiene páginas
       ilimitadas, que se limpian mágicamente al cerrar y reabrir el libro.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Medallón del Vínculo Fiel'
+    level: 4
+    cost: 1400
+    type: 'activable'
+    tags:
+      - Invocación
+    requirements:
+      - 'Instinto 3'
+    description: >-
+      Como una Acción, puedes lanzar este medallón al suelo, que se transforma en un
+      **Lobo** (usa el bloque de estadísticas del bestiario). El lobo es amistoso
+      contigo y tus compañeros y actúa en tu misma iniciativa, justo después de ti.
+      Entiende y obedece tus órdenes verbales (no requiere acción). La transformación
+      dura 1 minuto o hasta que el lobo es reducido a 0 Puntos de Salud, momento
+      en el que se revierte a su forma de medallón.
+    uses:
+      type: PER_DAY
+      qty: 1
+
+  - name: 'Espejo de la Memoria Reciente'
+    level: 3
+    cost: 800
+    type: 'activable'
+    tags:
+      - Adivinación
+      - Investigación
+    requirements:
+      - 'Instinto 3'
+    description: >-
+      Como una Acción, puedes enfocar el espejo en un punto a distancia Inmediata.
+      El espejo revela una imagen silenciosa y fantasmal del evento más significativo
+      o emocionalmente cargado que ocurrió en ese punto en las últimas 24 horas.
+      La visión dura 10 segundos y es desde la perspectiva del espejo.
+    uses:
+      type: PER_DAY
+      qty: 1
+
+  - name: 'Brazalete del Guardián Resentido'
+    level: 2
+    cost: 400
+    type: 'activable'
+    tags:
+      - Reacción
+      - Daño
+    requirements:
+      - 'Cuerpo 2'
+    description: >-
+      Como Reacción cuando eres impactado por un ataque cuerpo a cuerpo de un enemigo
+      que puedas ver, puedes hacer que el brazalete libere una onda de fuerza.
+      El atacante debe superar una Tirada de Salvación de Reflejos (ND 8). Si falla,
+      recibe 1d6 de daño de Fuerza; si tiene éxito, recibe la mitad del daño.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: 'Filo Entorpecedor'
+    level: 2
+    cost: 450
+    type: 'efecto'
+    tags:
+      - Arma
+      - Debuff
+    requirements: []
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo). Cuando
+      obtienes un golpe crítico con esta arma, el objetivo es imbuido con una
+      energía entorpecedora. Hasta el final de tu próximo turno, la Velocidad
+      del objetivo se reduce a la mitad.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Piedra de Anulación'
+    level: 3
+    cost: 750
+    type: 'activable'
+    tags:
+      - Control
+      - Utilidad
+    requirements:
+      - 'Mente 3'
+    description: >-
+      Como una Acción, arrojas esta piedra de obsidiana a un punto a distancia
+      Cercana, donde flota en el aire. Eliges uno de los siguientes efectos,
+      que crea una esfera de 5 metros de radio y dura 1 minuto (requiere Concentración):
+      - **Silencio:** No se puede originar ni pasar sonido a través de la esfera.
+        Cualquier criatura u objeto dentro de ella es inmune al daño Sónico, y
+        están ensordecidos.
+      - **Oscuridad:** La esfera se llena de oscuridad mágica, bloqueando la visión
+        (incluso la Visión en la Oscuridad).
+    uses:
+      type: PER_DAY
+      qty: 1
+
+  - name: 'Amuleto del Caminante Acuático'
+    level: 2
+    cost: 350
+    type: 'efecto'
+    tags:
+      - Movimiento
+      - Utilidad
+    requirements: []
+    description: >-
+      Mientras lleves este amuleto con forma de libélula, puedes moverte sobre
+      cualquier superficie líquida (como agua, ácido o lodo) como si fuera
+      terreno sólido.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Armadura de la Víbora Dentada'
+    # NOTA DE DISEÑO (Revisada): Se añade aclaración sobre la mitigación para
+    # asegurar el balance. El daño no es gratuito, es un intercambio que el enemigo
+    # debe sopesar, especialmente contra objetivos con alta mitigación.
+    level: 3
+    cost: 800
+    type: 'efecto'
+    tags:
+      - Armadura
+      - Daño
+    requirements:
+      - 'Cuerpo 2'
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o
+      superior). Las placas o anillas de esta armadura están cubiertas de filos
+      mágicos. Cada vez que una criatura a distancia Inmediata te impacta con
+      un ataque cuerpo a cuerpo, recibe 1d4 de daño Cortante.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Cota de Sombras Danzantes'
+    # NOTA DE DISEÑO (Revisada): Texto actualizado para usar la terminología correcta
+    # del sistema ARCANA.
+    level: 2
+    cost: 450
+    type: 'activable'
+    tags:
+      - Armadura
+      - Reacción
+      - Movimiento
+    requirements:
+      - 'Reflejos 2'
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Cuero). Como Reacción
+      cuando eres impactado por un ataque, puedes hacer que la cota se disuelva
+      en sombras por un instante, permitiéndote moverte hasta la mitad de tu
+      Velocidad. Este movimiento no puede ser interceptado por Reacciones enemigas.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Túnica del Recuerdo Arcano'
+    # NOTA DE DISEÑO (Revisada): Formato de requisitos actualizado.
+    level: 3
+    cost: 900
+    type: 'activable'
+    tags:
+      - Armadura
+      - Conjuro
+      - Utilidad
+    requirements:
+      - 'Mente 3'
+      - 'o Instinto 3'
+      - 'o Presencia 3'
+    description: >-
+      (Esta propiedad se aplica a ropa o túnicas, no otorga mitigación). Durante
+      un día de descanso, puedes realizar un ritual de 10 minutos para almacenar
+      una de tus cartas de Conjuro de Nivel 1 o 2 en la túnica. Mientras esta carta
+      esté activa, puedes lanzar el conjuro almacenado como si lo tuvieras en una
+      ranura, sin gastar su uso normal. Una vez lanzado, el conjuro se desvanece
+      de la túnica y debes realizar el ritual de nuevo para almacenar otro.
+    uses:
+      type: PER_DAY
+      qty: 1
+
+  - name: 'Coraza del Guardián Elemental'
+    level: 4
+    cost: 1700
+    type: 'efecto'
+    tags:
+      - Armadura
+      - Defensa
+    requirements:
+      - 'Cuerpo 3'
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Placas Parcial o
+      superior). Durante un día de descanso, puedes pasar una hora realizando un
+      ritual para sintonizar la coraza con un tipo de energía elemental: Fuego,
+      Frío o Eléctrico. Mientras estés sintonizado, obtienes Mitigación Mágica +3
+      contra ese tipo de daño específico. Puedes cambiar la sintonía realizando
+      el ritual de nuevo.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Cuerda de Anclaje Certero'
+    # NOTA DE DISEÑO: Nombre actualizado para reflejar mejor su función de
+    # anclaje preciso en lugar de velocidad. La mecánica se mantiene.
+    level: 2
+    cost: 350
+    type: 'activable'
+    tags:
+      - Utilidad
+      - Movimiento
+    requirements: []
+    description: >-
+      Como una Acción, puedes lanzar la punta de esta cuerda de seda de 15 metros
+      hacia un punto que puedas ver dentro del alcance. La cuerda se anima y se
+      ancla firmemente a ese punto. La cuerda puede soportar hasta 250 kg y
+      permanece anclada hasta que pronuncias la palabra de mando para que se suelte.
+    uses:
+      type: PER_DAY
+      qty: 3
+
+  - name: 'Vara del Alivio'
+    # NOTA DE DISEÑO: Herramienta de curación de Nivel 2, crucial para grupos sin
+    # un sanador dedicado. La curación (1d6+2) es ligeramente superior a una Poción
+    # Menor. El sistema de cargas que se regeneran parcialmente (1d2+1) la hace
+    # fiable pero no inagotable, manteniendo el valor de los Sacerdotes/Druidas.
+    level: 2
+    cost: 400
+    type: 'activable'
+    tags:
+      - Curación
+      - Vara
+    requirements: []
+    description: >-
+      Esta vara de madera de abedul contiene 3 cargas. Como una Acción, puedes
+      gastar una carga para tocar a una criatura y hacer que recupere 1d6+2 Puntos
+      de Salud. La vara recupera 1d2+1 cargas gastadas cada día al amanecer.
+    uses:
+      type: NULL # El sistema de cargas está en la descripción.
+      qty: 0
+
+  - name: 'Gemas del Eco Mental'
+    # NOTA DE DISEÑO: Rediseñado con un sistema de cargas diarias compartidas para
+    # limitar su uso y convertir la comunicación en un recurso táctico. Se aclara
+    # que responder también consume una carga y una Acción.
+    level: 3
+    cost: 550
+    type: 'efecto'
+    tags:
+      - Comunicación
+      - Utilidad
+    requirements: []
+    description: >-
+      Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema
+      posee 3 cargas en total, que se recuperan cada día al amanecer.
+      Mientras sostienes una gema, puedes usar tu Acción y gastar 1 carga para
+      enviar un mensaje telepático de hasta 25 palabras al portador de la otra
+      gema, quien puede responder de con un mensaje de la misma longitud sin necesidad de gastar una carga.
+      El receptor oye el mensaje en su mente, siempre que ambos estéis en el
+      mismo plano de existencia.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma del Retorno'
+    # NOTA DE DISEÑO: Nombre actualizado a uno más evocador. La mecánica se
+    # mantiene intacta, ya que la vuelta "al final del turno" está bien balanceada.
+    level: 2
+    cost: 300
+    type: 'efecto'
+    tags:
+      - Arma
+      - Propiedad
+    requirements: []
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza).
+      Después de realizar un ataque Arrojadizo con esta arma, esta vuela de regreso
+      a tu mano al final de tu turno, siempre que tengas una mano libre para recibirla.
     uses:
       type: NULL
       qty: 0
