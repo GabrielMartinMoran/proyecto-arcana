@@ -1,10 +1,10 @@
 items:
   - name: 'Botas de Velocidad'
-    # REVISIÓN: 3 usos/día era excesivo. Reducido a 1 uso/día para que sea un recurso táctico clave.
     level: 3
     cost: 650
     type: 'activable'
-    tags: []
+    tags:
+      - 'Movimiento'
     requirements:
       - 'Reflejos 3'
     description: >-
@@ -19,7 +19,8 @@ items:
     level: 2
     cost: 300
     type: 'efecto'
-    tags: []
+    tags:
+      - 'Utilidad'
     requirements: []
     description: >-
       Esta capa tejida con sombras y susurros te ayuda a camuflarte con el entorno.
@@ -33,7 +34,8 @@ items:
     level: 4
     cost: 1500
     type: 'activable'
-    tags: []
+    tags:
+      - 'Cuerpo'
     requirements:
       - 'Cuerpo 3'
     description: >-
@@ -50,7 +52,8 @@ items:
     level: 3
     cost: 700
     type: 'efecto'
-    tags: []
+    tags:
+      - 'Defensa'
     requirements: []
     description: >-
       Este simple anillo de plata genera un campo de fuerza sutil a tu alrededor.
@@ -60,11 +63,11 @@ items:
       qty: 0
 
   - name: 'Varita de Proyectiles Mágicos'
-    # REVISIÓN: Rediseñado a un sistema de cargas más táctico y tradicional.
     level: 3
     cost: 600
     type: 'activable'
-    tags: []
+    tags:
+      - 'Vara'
     requirements:
       - 'Mente 2'
     description: >-
@@ -75,15 +78,15 @@ items:
       los dardos a uno o varios objetivos. La varita recupera 1d6+1 cargas
       gastadas cada día al amanecer.
     uses:
-      type: NULL # La descripción ahora contiene el sistema de cargas.
+      type: NULL
       qty: 0
 
   - name: 'Bolsa Contenedora'
-    # REVISIÓN: Nivel rebajado a 2 para mayor accesibilidad temprana.
     level: 2
     cost: 300
     type: 'efecto'
-    tags: []
+    tags:
+      - 'Utilidad'
     requirements: []
     description: >-
       El interior de esta bolsa de lona es un espacio extra-dimensional. Puede
@@ -97,7 +100,8 @@ items:
     level: 5
     cost: 4000
     type: 'activable'
-    tags: []
+    tags:
+      - 'Utilidad'
     requirements: []
     description: >-
       Como una Acción, te vuelves invisible. El efecto dura hasta que atacas,
@@ -111,7 +115,8 @@ items:
     level: 3
     cost: 600
     type: 'efecto'
-    tags: []
+    tags:
+      - 'Utilidad'
     requirements: []
     description: >-
       Mientras llevas este yelmo, comprendes el significado literal de cualquier
@@ -126,7 +131,7 @@ items:
     cost: 700
     type: 'efecto'
     tags:
-      - Esquiva
+      - 'Esquiva'
     requirements: []
     description: >-
       Este anillo te envuelve en una brisa protectora casi imperceptible.
@@ -136,7 +141,6 @@ items:
       qty: 0
 
   - name: 'Hoja del Alba'
-    # REVISIÓN: Cambiado a 'efecto' para que no consuma una ranura de carta activa.
     level: 1
     cost: 100
     type: 'efecto'
@@ -156,7 +160,7 @@ items:
     cost: 1600
     type: 'activable'
     tags:
-      - Escudo
+      - 'Escudo'
     requirements:
       - 'Cuerpo 3'
     description: >-
@@ -173,7 +177,8 @@ items:
     level: 5
     cost: 4500
     type: 'activable'
-    tags: []
+    tags:
+      - 'Movimiento'
     requirements: []
     description: >-
       Mientras tengas esta carta activa, obtienes una velocidad de vuelo igual
@@ -187,7 +192,7 @@ items:
     cost: 1500
     type: 'activable'
     tags:
-      - Mente
+      - 'Mente'
     requirements: []
     description: >-
       Mientras tengas esta carta activa, tu agudeza mental es legendaria.
@@ -202,7 +207,7 @@ items:
     cost: 1500
     type: 'activable'
     tags:
-      - Instinto
+      - 'Instinto'
     requirements: []
     description: >-
       Mientras tengas esta carta activa, tus sentidos se agudizan al máximo.
@@ -217,7 +222,7 @@ items:
     cost: 1500
     type: 'activable'
     tags:
-      - Presencia
+      - 'Presencia'
     requirements: []
     description: >-
       Mientras tengas esta carta activa, proyectas un aura de autoridad natural.
@@ -232,7 +237,7 @@ items:
     cost: 1500
     type: 'activable'
     tags:
-      - Reflejos
+      - 'Reflejos'
     requirements: []
     description: >-
       Mientras tengas esta carta activa, te mueves con una gracia sobrenatural.
@@ -247,10 +252,10 @@ items:
     cost: 350
     type: 'efecto'
     tags:
-      - Arma
+      - 'Arma'
     requirements: []
     description: >-
-      Esta propiedad se puede aplicar a cualquier arma. El arma está imbuída y enriquecida
+      Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida
       mágicamente para golpear con más certeza y hacer más daño. Obtienes un +1 a tus tiradas
       de ataque y +1 al daño infligido con esta arma.
     uses:
@@ -258,11 +263,11 @@ items:
       qty: 0
 
   - name: 'Perla de Resonancia Arcana'
-    level: 4
-    cost: 1800
-    type: 'activable'
+    level: 5
+    cost: 2800
+    type: 'efecto'
     tags:
-      - Habilidades
+      - 'Habilidades'
     requirements: []
     description: >-
       Como una Interacción, puedes tocar esta perla para recuperar el aliento
@@ -278,7 +283,7 @@ items:
     cost: 250
     type: 'efecto'
     tags:
-      - Salud
+      - 'Salud'
     requirements: []
     description: >-
       Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta
@@ -290,9 +295,9 @@ items:
   - name: 'Escarabajo de la Fortuna'
     level: 2
     cost: 300
-    type: 'activable'
+    type: 'efecto'
     tags:
-      - Suerte
+      - 'Suerte'
     requirements: []
     description: >-
       Como una Interacción, puedes frotar este escarabajo de jade para que la
@@ -306,7 +311,7 @@ items:
     cost: 125
     type: 'efecto'
     tags:
-      - Visión
+      - 'Visión'
     requirements: []
     description: >-
       Los cristales de estas gafas están ahumados y son casi opacos a la luz
@@ -321,7 +326,7 @@ items:
     cost: 3500
     type: 'activable'
     tags:
-      - Visión
+      - 'Visión'
     requirements:
       - 'Instinto 4'
     description: >-
@@ -339,7 +344,7 @@ items:
     cost: 350
     type: 'efecto'
     tags:
-      - Movimiento
+      - 'Movimiento'
     requirements: []
     description: >-
       Esta capa gris y pegajosa al tacto te permite adherirte a las superficies.
@@ -355,8 +360,8 @@ items:
     cost: 400
     type: 'activable'
     tags:
-      - Escudo
-      - Reacción
+      - 'Escudo'
+      - 'Reacción'
     requirements:
       - 'Cuerpo 2'
     description: >-
@@ -373,8 +378,8 @@ items:
     cost: 800
     type: 'efecto'
     tags:
-      - Curación
-      - Supervivencia
+      - 'Curación'
+      - 'Supervivencia'
     requirements: []
     description: >-
       Este amuleto de jaspe rojo late con una suave calidez. Mientras lo lleves
@@ -390,7 +395,7 @@ items:
     cost: 750
     type: 'efecto'
     tags:
-      - Concentración
+      - 'Concentración'
     requirements: []
     description: >-
       Este broche de hierro te ayuda a mantener la calma bajo presión. Obtienes
@@ -405,7 +410,7 @@ items:
     cost: 850
     type: 'efecto'
     tags:
-      - Arma
+      - 'Arma'
     requirements: []
     description: >-
       (Esta propiedad se puede aplicar a cualquier arma Cortante o Perforante).
@@ -418,9 +423,9 @@ items:
   - name: 'Talisman del Estratega'
     level: 4
     cost: 1200
-    type: 'activable'
+    type: 'efecto'
     tags:
-      - Habilidades
+      - 'Habilidades'
     requirements: []
     description: >-
       Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para
@@ -436,7 +441,7 @@ items:
     cost: 1900
     type: 'activable'
     tags:
-      - Visión
+      - 'Visión'
     requirements:
       - 'Instinto 3'
     description: >-
@@ -454,7 +459,7 @@ items:
     cost: 3000
     type: 'activable'
     tags:
-      - Suerte
+      - 'Suerte'
     requirements: []
     description: >-
       Como una Interacción, puedes activar estos guanteletes de hierro meteórico.
@@ -467,13 +472,13 @@ items:
   - name: 'Anillo de Enfoque Arcano'
     level: 5
     cost: 4500
-    type: 'activable'
+    type: 'efecto'
     tags:
-      - Habilidades
+      - 'Habilidades'
     requirements: []
     description: >-
       Este anillo te permite organizar y acceder a tus habilidades de forma más
-      eficiente. Mientras tengas esta carta activa, ganas una Ranura de Carta
+      eficiente. Mientras lo lleves puesto, ganas una Ranura de Carta
       Activa adicional.
     uses:
       type: NULL
@@ -484,8 +489,8 @@ items:
     cost: Incalculable
     type: 'efecto'
     tags:
-      - Cuerpo
-      - Artefacto
+      - 'Cuerpo'
+      - 'Artefacto'
     requirements: []
     description: >-
       Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias.
@@ -502,8 +507,8 @@ items:
     cost: Incalculable
     type: 'efecto'
     tags:
-      - Reflejos
-      - Artefacto
+      - 'Reflejos'
+      - 'Artefacto'
     requirements: []
     description: >-
       Escrito en seda y con tinta invisible, este tratado enseña el arte del
@@ -521,8 +526,8 @@ items:
     cost: Incalculable
     type: 'efecto'
     tags:
-      - Mente
-      - Artefacto
+      - 'Mente'
+      - 'Artefacto'
     requirements: []
     description: >-
       Este libro sin título contiene paradojas y acertijos que expanden la conciencia.
@@ -539,8 +544,8 @@ items:
     cost: Incalculable
     type: 'efecto'
     tags:
-      - Instinto
-      - Artefacto
+      - 'Instinto'
+      - 'Artefacto'
     requirements: []
     description: >-
       Estas tablillas de marfil describen meditaciones para unificar los sentidos
@@ -557,8 +562,8 @@ items:
     cost: Incalculable
     type: 'efecto'
     tags:
-      - Presencia
-      - Artefacto
+      - 'Presencia'
+      - 'Artefacto'
     requirements: []
     description: >-
       Este tomo contiene ensayos y observaciones de los más grandes líderes de
@@ -576,8 +581,8 @@ items:
     cost: 50
     type: 'consumible'
     tags:
-      - Poción
-      - Curación
+      - 'Poción'
+      - 'Curación'
     requirements: []
     description: >-
       Al beber esta poción, un líquido rojo y viscoso con sabor a bayas,
@@ -591,8 +596,8 @@ items:
     cost: 250
     type: 'consumible'
     tags:
-      - Poción
-      - Curación
+      - 'Poción'
+      - 'Curación'
     requirements: []
     description: >-
       Este brebaje carmesí y brillante cierra heridas más graves. Al beberla,
@@ -606,8 +611,8 @@ items:
     cost: 700
     type: 'consumible'
     tags:
-      - Poción
-      - Curación
+      - 'Poción'
+      - 'Curación'
     requirements: []
     description: >-
       La poción emite un suave calor antes de ser bebida. Al consumirla,
@@ -621,8 +626,8 @@ items:
     cost: 1800
     type: 'consumible'
     tags:
-      - Poción
-      - Curación
+      - 'Poción'
+      - 'Curación'
     requirements: []
     description: >-
       Este elixir dorado re teje la carne y detiene hemorragias al instante.
@@ -636,7 +641,7 @@ items:
     cost: 300
     type: 'consumible'
     tags:
-      - Poción
+      - 'Poción'
     requirements: []
     description: >-
       Este líquido plateado y ligero te otorga una gracia sobrenatural.
@@ -651,7 +656,7 @@ items:
     cost: 300
     type: 'consumible'
     tags:
-      - Poción
+      - 'Poción'
     requirements: []
     description: >-
       Una poción espesa y terrosa que calienta los músculos. Durante 1 minuto,
@@ -666,7 +671,7 @@ items:
     cost: 800
     type: 'consumible'
     tags:
-      - Poción
+      - 'Poción'
     requirements: []
     description: >-
       Al beber este líquido cristalino, tu cuerpo se desvanece de la vista.
@@ -681,7 +686,7 @@ items:
     cost: 250
     type: 'consumible'
     tags:
-      - Poción
+      - 'Poción'
     requirements: []
     description: >-
       Un líquido azulado con burbujas que nunca se detienen. Al beberlo, puedes
@@ -695,7 +700,7 @@ items:
     cost: 650
     type: 'consumible'
     tags:
-      - Poción
+      - 'Poción'
     requirements: []
     description: >-
       Al crear esta poción, se elige un tipo de daño elemental (Fuego, Frío o Eléctrico).
@@ -710,7 +715,7 @@ items:
     cost: 1500
     type: 'consumible'
     tags:
-      - Poción
+      - 'Poción'
     requirements: []
     description: >-
       Este líquido dorado y burbujeante te llena de un coraje divino. Durante
@@ -725,7 +730,7 @@ items:
     cost: 100
     type: 'efecto'
     tags:
-      - Utilidad
+      - 'Utilidad'
     requirements: []
     description: >-
       Esta piedra lisa y gris se siente cálida al tacto. Como una Interacción,
@@ -741,7 +746,7 @@ items:
     cost: 125
     type: 'efecto'
     tags:
-      - Herramienta
+      - 'Herramienta'
     requirements: []
     description: >-
       Esta elegante pluma de cuervo nunca necesita ser mojada en tinta. Escribe
@@ -756,7 +761,7 @@ items:
     cost: 150
     type: 'efecto'
     tags:
-      - Estético
+      - 'Estético'
     requirements: []
     description: >-
       Los hilos de esta capa cambian sutilmente de color para armonizar con
@@ -773,8 +778,8 @@ items:
     cost: 100
     type: 'efecto'
     tags:
-      - Supervivencia
-      - Utilidad
+      - 'Supervivencia'
+      - 'Utilidad'
     requirements: []
     description: >-
       Este odre de cuero siempre parece estar medio lleno. Cada día al amanecer,
@@ -790,8 +795,8 @@ items:
     cost: 75
     type: 'efecto'
     tags:
-      - Estético
-      - Narrativo
+      - 'Estético'
+      - 'Narrativo'
     requirements: []
     description: >-
       Tallada en madera de sauce, esta pipa produce un humo inofensivo y aromático
@@ -805,10 +810,10 @@ items:
   - name: 'Aguja e Hilo de la Remendadora'
     level: 1
     cost: 125
-    type: 'activable'
+    type: 'efecto'
     tags:
-      - Herramienta
-      - Utilidad
+      - 'Herramienta'
+      - 'Utilidad'
     requirements: []
     description: >-
       Esta aguja de plata y su carrete de hilo dorado pueden reparar cualquier
@@ -824,8 +829,8 @@ items:
     cost: 150
     type: 'efecto'
     tags:
-      - Comunicación
-      - Narrativo
+      - 'Comunicación'
+      - 'Narrativo'
     requirements: []
     description: >-
       Este objeto es en realidad un par de monedas de cobre idénticas. Cuando el
@@ -837,16 +842,12 @@ items:
       qty: 0
 
   - name: 'Diario del Recuerdo Fiel'
-    # REVISIÓN: Rediseñado para evitar el espionaje. Ahora es una herramienta de memoria
-    # personal, no un dispositivo de vigilancia. Requiere que el portador sea
-    # quien escuche la conversación, convirtiéndolo en un asistente perfecto para
-    # tomar notas, no en una forma de saltarse desafíos.
     level: 1
     cost: 150
     type: 'efecto'
     tags:
-      - Herramienta
-      - Narrativo
+      - 'Herramienta'
+      - 'Narrativo'
     requirements: []
     description: >-
       Mientras este diario está abierto, su pluma encantada transcribe de forma
@@ -863,7 +864,7 @@ items:
     cost: 1400
     type: 'activable'
     tags:
-      - Invocación
+      - 'Invocación'
     requirements:
       - 'Instinto 3'
     description: >-
@@ -882,8 +883,8 @@ items:
     cost: 800
     type: 'activable'
     tags:
-      - Adivinación
-      - Investigación
+      - 'Adivinación'
+      - 'Investigación'
     requirements:
       - 'Instinto 3'
     description: >-
@@ -900,8 +901,8 @@ items:
     cost: 400
     type: 'activable'
     tags:
-      - Reacción
-      - Daño
+      - 'Reacción'
+      - 'Daño'
     requirements:
       - 'Cuerpo 2'
     description: >-
@@ -918,8 +919,8 @@ items:
     cost: 450
     type: 'efecto'
     tags:
-      - Arma
-      - Debuff
+      - 'Arma'
+      - 'Debuff'
     requirements: []
     description: >-
       (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo). Cuando
@@ -935,8 +936,8 @@ items:
     cost: 750
     type: 'activable'
     tags:
-      - Control
-      - Utilidad
+      - 'Control'
+      - 'Utilidad'
     requirements:
       - 'Mente 3'
     description: >-
@@ -957,8 +958,8 @@ items:
     cost: 350
     type: 'efecto'
     tags:
-      - Movimiento
-      - Utilidad
+      - 'Movimiento'
+      - 'Utilidad'
     requirements: []
     description: >-
       Mientras lleves este amuleto con forma de libélula, puedes moverte sobre
@@ -969,15 +970,12 @@ items:
       qty: 0
 
   - name: 'Armadura de la Víbora Dentada'
-    # NOTA DE DISEÑO (Revisada): Se añade aclaración sobre la mitigación para
-    # asegurar el balance. El daño no es gratuito, es un intercambio que el enemigo
-    # debe sopesar, especialmente contra objetivos con alta mitigación.
     level: 3
     cost: 800
     type: 'efecto'
     tags:
-      - Armadura
-      - Daño
+      - 'Armadura'
+      - 'Daño'
     requirements:
       - 'Cuerpo 2'
     description: >-
@@ -990,15 +988,13 @@ items:
       qty: 0
 
   - name: 'Cota de Sombras Danzantes'
-    # NOTA DE DISEÑO (Revisada): Texto actualizado para usar la terminología correcta
-    # del sistema ARCANA.
     level: 2
     cost: 450
     type: 'activable'
     tags:
-      - Armadura
-      - Reacción
-      - Movimiento
+      - 'Armadura'
+      - 'Reacción'
+      - 'Movimiento'
     requirements:
       - 'Reflejos 2'
     description: >-
@@ -1011,14 +1007,13 @@ items:
       qty: 5
 
   - name: 'Túnica del Recuerdo Arcano'
-    # NOTA DE DISEÑO (Revisada): Formato de requisitos actualizado.
     level: 3
     cost: 900
     type: 'activable'
     tags:
-      - Armadura
-      - Conjuro
-      - Utilidad
+      - 'Armadura'
+      - 'Conjuro'
+      - 'Utilidad'
     requirements:
       - 'Mente 3'
       - 'o Instinto 3'
@@ -1039,8 +1034,8 @@ items:
     cost: 1700
     type: 'efecto'
     tags:
-      - Armadura
-      - Defensa
+      - 'Armadura'
+      - 'Defensa'
     requirements:
       - 'Cuerpo 3'
     description: >-
@@ -1055,14 +1050,12 @@ items:
       qty: 0
 
   - name: 'Cuerda de Anclaje Certero'
-    # NOTA DE DISEÑO: Nombre actualizado para reflejar mejor su función de
-    # anclaje preciso en lugar de velocidad. La mecánica se mantiene.
     level: 2
     cost: 350
-    type: 'activable'
+    type: 'efecto'
     tags:
-      - Utilidad
-      - Movimiento
+      - 'Utilidad'
+      - 'Movimiento'
     requirements: []
     description: >-
       Como una Acción, puedes lanzar la punta de esta cuerda de seda de 15 metros
@@ -1074,57 +1067,47 @@ items:
       qty: 3
 
   - name: 'Vara del Alivio'
-    # NOTA DE DISEÑO: Herramienta de curación de Nivel 2, crucial para grupos sin
-    # un sanador dedicado. La curación (1d6+2) es ligeramente superior a una Poción
-    # Menor. El sistema de cargas que se regeneran parcialmente (1d2+1) la hace
-    # fiable pero no inagotable, manteniendo el valor de los Sacerdotes/Druidas.
     level: 2
     cost: 400
     type: 'activable'
     tags:
-      - Curación
-      - Vara
+      - 'Curación'
+      - 'Vara'
     requirements: []
     description: >-
       Esta vara de madera de abedul contiene 3 cargas. Como una Acción, puedes
       gastar una carga para tocar a una criatura y hacer que recupere 1d6+2 Puntos
       de Salud. La vara recupera 1d2+1 cargas gastadas cada día al amanecer.
     uses:
-      type: NULL # El sistema de cargas está en la descripción.
+      type: NULL
       qty: 0
 
   - name: 'Gemas del Eco Mental'
-    # NOTA DE DISEÑO: Rediseñado con un sistema de cargas diarias compartidas para
-    # limitar su uso y convertir la comunicación en un recurso táctico. Se aclara
-    # que responder también consume una carga y una Acción.
     level: 3
-    cost: 550
+    cost: 600
     type: 'efecto'
     tags:
-      - Comunicación
-      - Utilidad
+      - 'Comunicación'
+      - 'Utilidad'
     requirements: []
     description: >-
       Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema
       posee 3 cargas en total, que se recuperan cada día al amanecer.
       Mientras sostienes una gema, puedes usar tu Acción y gastar 1 carga para
       enviar un mensaje telepático de hasta 25 palabras al portador de la otra
-      gema, quien puede responder de con un mensaje de la misma longitud sin necesidad de gastar una carga.
-      El receptor oye el mensaje en su mente, siempre que ambos estéis en el
-      mismo plano de existencia.
+      gema. El receptor oye el mensaje en su mente y puede usar su propia Acción para
+      responder con un mensaje de la misma longitud, sin gastar una carga,
+      siempre que ambos estén en el mismo plano de existencia.
     uses:
       type: NULL
       qty: 0
 
   - name: 'Arma del Retorno'
-    # NOTA DE DISEÑO: Nombre actualizado a uno más evocador. La mecánica se
-    # mantiene intacta, ya que la vuelta "al final del turno" está bien balanceada.
     level: 2
     cost: 300
     type: 'efecto'
     tags:
-      - Arma
-      - Propiedad
+      - 'Arma'
     requirements: []
     description: >-
       (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza).
