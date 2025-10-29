@@ -367,12 +367,13 @@ iniciativa (+1d4), y quienes son sorprendidos, tendran desventaja (-1d4).
 
 Una vez llegado tu turno, puedes realizar lo siguiente:
 
-- **1 Acción:** Atacar, usar una carta accionable, realizar una maniobra compleja o **Correr**.
-- **1 Interacción:** Abrir una puerta, desenvainar un arma, pasar un objeto a un aliado.
+- **1 Acción:** Atacar, usar una carta accionable, realizar una maniobra compleja, utilizar un objeto mágico, **Correr** o **Ponerte en Guardia**.
+- **1 Interacción:** Abrir una puerta, desenvainar un arma, pasar un objeto a un aliado, beber una poción.
 - **Movimiento:** Puedes desplazarte una distancia en metros igual a tu valor de **Velocidad**. Puedes dividir este movimiento como quieras, antes y después de tu Acción.
 - **Reaccion:** Se puede utilizar para disparar una acción preparada o actuar frente a un evento (esto podría ocurrir incluso fuera de tu turno).
 
 La acción de **Correr** te permite usar tu Acción para moverte una distancia adicional igual a tu Velocidad.
+La acción de **Ponerte en Guardia** te otorga un +1 a tu Esquiva hasta el inicio de tu siguiente turno.
 
 **Levantarse:** Si estás en el estado Derribado, levantarte consume la mitad de tu movimiento total del turno.
 
