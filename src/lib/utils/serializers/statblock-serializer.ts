@@ -4,12 +4,14 @@ import type { Uses } from '$lib/types/uses';
 export const serializeStatblockAsMD = (creature: Creature): string => {
 	let md = ``;
 	md += `# ${creature.name}\n\n`;
-	md += `**NA:** ${creature.tier}\n\n`;
+	md += `**Rango:** ${creature.tier}\n\n`;
 	if (creature.behavior) {
 		md += `**Comportamiento:** ${creature.behavior}\n\n`;
 	}
 	if (creature.languages && creature.languages.length > 0) {
 		md += `**Lenguas:** ${creature.languages.join(', ')}\n\n`;
+	} else {
+		md += `**Lenguas:** Ninguna\n\n`;
 	}
 
 	md += `## Atributos\n`;
@@ -21,7 +23,7 @@ export const serializeStatblockAsMD = (creature: Creature): string => {
 
 	md += `## Estadísticas\n`;
 	md += `- **Salud Máxima:** ${creature.stats.maxHealth}\n`;
-	md += `- **Exquiva:** ${creature.stats.evasion.value}${creature.stats.evasion.note ? ` (${creature.stats.evasion.note})` : ''}\n`;
+	md += `- **Esquiva:** ${creature.stats.evasion.value}${creature.stats.evasion.note ? ` (${creature.stats.evasion.note})` : ''}\n`;
 	md += `- **Mitigación Física:** ${creature.stats.physicalMitigation.value}${creature.stats.physicalMitigation.note ? ` (${creature.stats.physicalMitigation.note})` : ''}\n`;
 	md += `- **Mitigación Mágica:** ${creature.stats.magicalMitigation.value}${creature.stats.magicalMitigation.note ? ` (${creature.stats.magicalMitigation.note})` : ''}\n`;
 	md += `- **Velocidad:** ${creature.stats.speed.value}${creature.stats.speed.note ? ` (${creature.stats.speed.note})` : ''}\n\n`;
@@ -30,7 +32,7 @@ export const serializeStatblockAsMD = (creature: Creature): string => {
 	if (creature.attacks && creature.attacks.length > 0) {
 		md += `## Ataques\n`;
 		creature.attacks.forEach((attack: CreatureAttack) => {
-			md += `- **${attack.name}:** Modificador de ataque: +${attack.bonus}. Daño: ${attack.damage}${attack.note ? ` (${attack.note})` : ''}\n`;
+			md += `- **${attack.name}:** +${attack.bonus} para golpear. Daño: ${attack.damage}${attack.note ? ` (${attack.note})` : ''}\n`;
 		});
 		md += `\n`;
 	}
@@ -55,6 +57,14 @@ export const serializeStatblockAsMD = (creature: Creature): string => {
 		md += `## Reacciones\n`;
 		creature.reactions.forEach((reaction: CreatureAction) => {
 			md += `- **${reaction.name}:** ${reaction.detail}${reaction.uses ? ` (Usos: ${formatUses(reaction.uses)})` : ''}\n`;
+		});
+		md += `\n`;
+	}
+
+	if (creature.interactions && creature.interactions.length > 0) {
+		md += `## Interacciones\n`;
+		creature.interactions.forEach((interaction: CreatureAction) => {
+			md += `- **${interaction.name}:** ${interaction.detail}${interaction.uses ? ` (Usos: ${formatUses(interaction.uses)})` : ''}\n`;
 		});
 		md += `\n`;
 	}
