@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Characters
+    // - Public read allowed for all character documents.
+    // - Create allowed only to the character owner (authenticated user whose uid == userId).
+    // - Update/Delete allowed to the character owner OR to the party owner as stored in
+    //   the existing character document (resource.data.party.ownerId).
+    match /users/{userId}/characters/{characterId} {
+      // Public read
+      allow read: if true;
+
+      // Create/Delete: only the authenticated user may create their own character
+      allow create, delete: if request.auth != null && request.auth.uid == userId;
+
+      // Update: character owner OR party owner as recorded in the stored character doc.
+      // NOTE: this checks resource.data.party.ownerId (the stored value). Because this value
+      // can be client-provided in the current setup, this grants the party owner rights only
+      // when the stored document indicates that owner. If you later denormalize this field
+      // via a trusted backend, the rules will be stronger.
+      allow update: if request.auth != null && (
+        request.auth.uid == userId ||
+        (resource.data.party != null && resource.data.party.ownerId == request.auth.uid)
+      );
+    }
+
+    // Roll logs - strictly per-user
+    match /users/{userId}/rollLogs/{logId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Parties
+    // - Authenticated users may 'get' a party by id (knowing the id acts as invite).
+    // - Listing the collection is allowed for authenticated users (note: this is permissive).
+    // - Creating a party requires the incoming ownerId to match the authenticated user.
+    // - Updating/deleting a party doc is restricted to the party owner.
+    match /parties/{partyId} {
+      allow get: if request.auth != null;
+      allow list: if request.auth != null;
+
+      allow create: if request.auth != null && request.resource.data.ownerId == request.auth.uid;
+      allow update: if request.auth != null && resource.data.ownerId == request.auth.uid;
+      allow delete: if request.auth != null && resource.data.ownerId == request.auth.uid;
+
+      // Members subcollection: per-user documents that list character ids for that user in the party.
+      // Document path: parties/{partyId}/members/{memberId}
+      // - read: any authenticated user (so party UI can read members)
+      // - create/update: only the member themself may create or update their entry
+      // - delete: the member themself or the party owner may delete an entry
+      match /members/{memberId} {
+        allow read: if request.auth != null;
+
+        // A user may create or update their own membership document
+        allow create, update: if request.auth != null && request.auth.uid == memberId;
+
+        // Delete may be performed by the member or by the party owner
+        allow delete: if request.auth != null && (
+          request.auth.uid == memberId ||
+          // partyId is in scope from the parent match, use get() to check owner
+          get(/databases/$(database)/documents/parties/$(partyId)).data.ownerId == request.auth.uid
+        );
+      }
+    }
+  }
+}

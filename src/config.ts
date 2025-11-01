@@ -23,6 +23,9 @@ export const CONFIG = {
 	STANDARD_DICES: ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'],
 	CLEAR_3D_DICES_DELAY: 3000,
 
+	DEFAULT_CHARACTER_SHEET_TAB: 'general',
+	DEFAULT_PARTY_SHEET_TAB: 'members',
+
 	ABILITY_CARD_BACKGROUNDS: {
 		arcanista: 'https://i.imgur.com/qZ79oFt.png',
 		combatiente: 'https://i.imgur.com/Y1Nj73K.png',

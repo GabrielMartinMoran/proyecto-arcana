@@ -57,6 +57,10 @@
 			path: resolve('/characters'),
 			label: '🎭 Mis Personajes',
 		},
+		{
+			path: resolve('/parties'),
+			label: '👥 Grupos',
+		},
 	];
 
 	const navigateRoute = (event: MouseEvent, path: string) => {

@@ -1,6 +1,7 @@
 import { calculateModifierFormula } from '$lib/utils/modifiers-calculator';
 import { CONFIG } from '../../config';
 import type { Attributes } from './attributes';
+import type { PartyReference } from './party-reference';
 
 export class Character {
 	id: string;
@@ -22,6 +23,7 @@ export class Character {
 	attacks: Attack[];
 	maxActiveCards: number;
 	version: number;
+	party: PartyReference;
 
 	constructor(props: any) {
 		this.id = props.id;
@@ -36,6 +38,10 @@ export class Character {
 		this.tempHP = props.tempHP;
 		this.currentLuck = props.currentLuck;
 		this.img = props.img;
+		this.party = props.party ?? {
+			partyId: null,
+			ownerId: null,
+		};
 		this.story = props.story;
 		this.notes = props.notes;
 		this.languages = props.languages;
