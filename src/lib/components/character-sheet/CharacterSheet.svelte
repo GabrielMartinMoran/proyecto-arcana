@@ -17,9 +17,17 @@
 		onChange: (character: Character) => void;
 		currentTab: string;
 		onTabChange: (tab: string) => void;
+		allowPartyChange: boolean;
 	};
 
-	let { character, readonly, onChange, currentTab, onTabChange }: Props = $props();
+	let {
+		character,
+		readonly,
+		onChange,
+		currentTab,
+		onTabChange,
+		allowPartyChange = true,
+	}: Props = $props();
 
 	type Tab = {
 		name: string;
@@ -121,7 +129,12 @@
 			{/if}
 		{/each}
 	</div>
-	<currentTabReference.component {character} {readonly} onChange={onCharacterChange} />
+	<currentTabReference.component
+		{character}
+		{readonly}
+		onChange={onCharacterChange}
+		{allowPartyChange}
+	/>
 </div>
 
 <style>

@@ -1,40 +1,80 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
 	import { get } from 'svelte/store';
 
 	import Container from '$lib/components/ui/Container.svelte';
 
+	import { resolve } from '$app/paths';
 	import PartySheet from '$lib/components/party-sheet/PartySheet.svelte';
 	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { usePartiesService } from '$lib/services/parties-service';
 	import { Party } from '$lib/types/party';
+	import { CONFIG } from '../../../config';
 
 	// Services
 	const firebase = useFirebaseService();
-	const partiesSvc = usePartiesService();
 
-	// Stores
-	const parties = partiesSvc.parties;
-	const user = firebase.user;
+	let {
+		parties,
+		loadParties,
+		deleteParty: deletePartyInSvc,
+		saveParty: savePartyInSvc,
+		createParty: createPartyInSvc,
+	} = usePartiesService();
+
+	// Destructure only the stores we need for UI subscription
+	const { user, firebaseReady } = firebase;
 
 	// URL sync: reflect ?partyId= in the page
 	let selectedPartyId: string | null = $derived(page.url.searchParams.get('partyId'));
 
 	// Local UI state
-	let editingParty: Party | null = $state(null);
+	let selectedParty: Party | undefined = $derived($parties.find((p) => p.id === selectedPartyId));
 	let membersUnsub: (() => void) | null = null;
 	let isSaving = $state(false);
+	let isDeleting = $state(false);
+
+	// -------------------------------
+	const onUserChange = async () => {
+		if (!get(firebaseReady)) return;
+		if (!get(user)) {
+			goto(resolve('/'));
+			return;
+		}
+		await loadParties();
+	};
+
+	const unsubscribeFromUser = user.subscribe(async () => await onUserChange());
+	const unsubscribeFromFirebaseReady = firebaseReady.subscribe(async (firebaseReady) => {
+		if (!firebaseReady) return;
+		setTimeout(() => {
+			onUserChange();
+		}, CONFIG.NO_USER_REDIRECT_DELAY);
+	});
+	const unsubscribeFromPartiesStore = parties.subscribe(async (parties) => {
+		console.log('Parties change detected in page');
+		if (!selectedPartyId) return;
+		selectedParty = parties.find((p) => p.id === selectedPartyId);
+		console.log('Selected party', selectedParty);
+	});
+
+	onDestroy(() => {
+		unsubscribeFromUser();
+		unsubscribeFromFirebaseReady();
+		unsubscribeFromPartiesStore();
+	});
+	// -------------------------------
 
 	// Handler for sheet tab changes (keeps URL in sync)
 
 	// Debounced auto-save
 	let saveTimer: ReturnType<typeof setTimeout> | null = null;
-	const AUTOSAVE_DELAY = 700;
+	const AUTOSAVE_DELAY = 500;
 
 	function scheduleSave() {
-		if (!editingParty) return;
+		if (!selectedParty) return;
 		if (saveTimer) clearTimeout(saveTimer);
 		saveTimer = setTimeout(async () => {
 			saveTimer = null;
@@ -43,18 +83,18 @@
 	}
 
 	async function doSaveParty() {
-		if (!editingParty) return;
+		if (!selectedParty) return;
 		isSaving = true;
 		try {
 			// Ensure ownerId set if logged
 			const u = get(user);
-			if (u && (!editingParty.ownerId || editingParty.ownerId === '')) {
-				editingParty.ownerId = u.uid;
+			if (u && (!selectedParty.ownerId || selectedParty.ownerId === '')) {
+				selectedParty.ownerId = u.uid;
 			}
-			await partiesSvc.saveParty(editingParty);
+			await savePartyInSvc(selectedParty);
 			// refresh from store (to get normalized server form)
-			const fresh = get(parties).find((p) => p.id === editingParty!.id);
-			editingParty = fresh ? new Party(fresh) : new Party(editingParty as any);
+			const fresh = get(parties).find((p) => p.id === selectedParty!.id);
+			selectedParty = fresh ? fresh.copy() : selectedParty.copy();
 		} catch (err) {
 			console.error('[parties-page] save failed', err);
 		} finally {
@@ -62,190 +102,49 @@
 		}
 	}
 
-	// Load parties initially and start listeners
-	onMount(async () => {
-		await partiesSvc.loadParties();
-		// If URL has a partyId, select it
-		const pid = $derived(page.url.searchParams.get('partyId'));
-		if (pid) {
-			selectedPartyId = pid;
-			const p = get(parties).find((x) => x.id === pid);
-			if (p) editingParty = new Party(p);
-		}
-	});
-
-	// When user clicks a party in list: update URL and selection
-	async function openParty(party: Party) {
-		// cleanup any previous members listener
-		try {
-			if (membersUnsub) {
-				membersUnsub();
-				membersUnsub = null;
-			}
-		} catch {
-			/* ignore */
-		}
-
-		if (!party) {
-			editingParty = null;
-			selectedPartyId = null;
-			// remove partyId from URL
-			page.url.searchParams.delete('partyId');
-			goto(`?${page.url.searchParams.toString()}`);
-			return;
-		}
-
+	const openParty = (party: Party) => {
 		selectedPartyId = party.id;
-		editingParty = new Party(party);
+		selectedParty = party;
 
-		// update URL
 		page.url.searchParams.set('partyId', party.id);
+		page.url.searchParams.delete('characterId');
+		page.url.searchParams.delete('sheetTab');
+		page.url.searchParams.delete('tab');
 		goto(`?${page.url.searchParams.toString()}`);
-
-		// Best-effort: include characters that have been joined to this party by setting partyId
-		// in their character documents. We query across users to find characters referencing this party
-		// and merge them into the party.members map so they appear in the UI immediately.
-		try {
-			// Try to load characters that reference this party across users
-			const items = await firebase.loadCharactersByParty(party.id);
-			// items: { userId, character }
-			for (const it of items) {
-				const uid = it.userId ?? '';
-				const ch = it.character;
-				if (!uid || !ch || !ch.id) continue;
-				const arr = editingParty.members[uid] ?? [];
-				if (!arr.includes(ch.id)) arr.push(ch.id);
-				editingParty.members[uid] = arr;
-			}
-			// refresh reactive object
-			editingParty = new Party(editingParty as any);
-		} catch (err) {
-			console.warn('[parties-page] loadCharactersByParty failed (non-blocking):', err);
-			// Fallback: try to read party.members subcollection or top-level members directly and merge
-			try {
-				// Try reading subcollection members documents first
-				const membersMap = (firebase as any).loadPartyMembers
-					? await (firebase as any).loadPartyMembers(party.id)
-					: null;
-				if (membersMap && typeof membersMap === 'object' && Object.keys(membersMap).length > 0) {
-					for (const uid of Object.keys(membersMap)) {
-						const ids = Array.isArray(membersMap[uid]) ? membersMap[uid] : [];
-						const arr = editingParty.members[uid] ?? [];
-						for (const cid of ids) {
-							if (!arr.includes(cid)) arr.push(cid);
-						}
-						editingParty.members[uid] = arr;
-					}
-					editingParty = new Party(editingParty as any);
-				} else {
-					// fallback to reading top-level members map in party doc
-					const pd = await firebase.loadParty(party.id);
-					if (pd && pd.members) {
-						for (const uid of Object.keys(pd.members)) {
-							const ids = Array.isArray(pd.members[uid]) ? pd.members[uid] : [];
-							const arr = editingParty.members[uid] ?? [];
-							for (const cid of ids) {
-								if (!arr.includes(cid)) arr.push(cid);
-							}
-							editingParty.members[uid] = arr;
-						}
-						editingParty = new Party(editingParty as any);
-					} else {
-						// No members found in fallback; original error already logged above
-					}
-				}
-			} catch (fallbackErr) {
-				console.warn('[parties-page] fallback load of party.members failed:', fallbackErr);
-			}
-		}
-
-		// Attach real-time listener to members subcollection so new member docs are observed immediately.
-		try {
-			if ((firebase as any).listenPartyMembers) {
-				membersUnsub = (firebase as any).listenPartyMembers(
-					party.id,
-					(membersMap: Record<string, string[]>) => {
-						// merge membersMap into editingParty.members
-						if (!editingParty) return;
-						for (const uid of Object.keys(membersMap)) {
-							const ids = Array.isArray(membersMap[uid]) ? membersMap[uid] : [];
-							const arr = editingParty.members[uid] ?? [];
-							for (const cid of ids) {
-								if (!arr.includes(cid)) arr.push(cid);
-							}
-							editingParty.members[uid] = arr;
-						}
-						// refresh reactive object
-						editingParty = new Party(editingParty as any);
-					},
-				);
-			}
-		} catch (listenErr) {
-			console.warn('[parties-page] failed to attach members subcollection listener:', listenErr);
-		}
-	}
+	};
 
 	// Create party
 	async function createParty() {
-		const created = await partiesSvc.createParty('Nuevo Grupo');
+		const created = await createPartyInSvc('Nuevo Grupo');
 		openParty(created);
 	}
 
 	// Delete party
 	async function deleteParty() {
-		if (!editingParty) return;
-		const ok = confirm(`¿Eliminar el grupo "${editingParty.name}"?`);
+		if (!selectedParty) return;
+		const ok = confirm(`¿Eliminar el grupo "${selectedParty.name}"?`);
 		if (!ok) return;
-		isDeleting = true;
 		try {
-			await partiesSvc.deleteParty(editingParty.id);
-
-			// cleanup attached members listener if any
-			try {
-				if (membersUnsub) {
-					membersUnsub();
-					membersUnsub = null;
-				}
-			} catch {
-				/* ignore */
-			}
-
-			editingParty = null;
-			page.url.searchParams.delete('partyId');
-			goto(`?${page.url.searchParams.toString()}`);
+			await deletePartyInSvc(selectedParty.id);
 		} catch (err) {
 			console.error('[parties-page] delete failed', err);
 			alert('Error al eliminar el grupo');
-		} finally {
-			isDeleting = false;
 		}
+		selectedPartyId = null;
+		selectedParty = undefined;
+		page.url.searchParams.delete('partyId');
+		goto(`?${page.url.searchParams.toString()}`);
 	}
-
-	// Members: the party stores members as map userId -> [charId,...]
-
-	// When selecting a different party id externally (URL change), update editingParty
-	$effect(() => {
-		const pid = page.url.searchParams.get('partyId');
-		if (pid && (!editingParty || editingParty.id !== pid)) {
-			const p = get(parties).find((x) => x.id === pid);
-			if (p) {
-				editingParty = new Party(p);
-				selectedPartyId = pid;
-			} else {
-				// if not in local store, clear selection
-				editingParty = null;
-				selectedPartyId = null;
-			}
-		}
-	});
 </script>
 
 <section class="parties-page">
 	<div class="list" role="navigation" aria-label="Lista de grupos">
 		<div class="header">
 			<button onclick={createParty} title="Crear">➕</button>
-			<button onclick={deleteParty} title="Eliminar" disabled={$user?.uid !== editingParty?.ownerId}
-				>🗑️</button
+			<button
+				onclick={deleteParty}
+				title="Eliminar"
+				disabled={$user?.uid !== selectedParty?.ownerId}>🗑️</button
 			>
 		</div>
 
@@ -269,13 +168,13 @@
 	</div>
 
 	<div class="viewport">
-		{#if editingParty}
+		{#if selectedParty}
 			<PartySheet
-				party={editingParty}
-				readonly={$user?.uid !== editingParty?.ownerId}
+				party={selectedParty}
+				readonly={$user?.uid !== selectedParty?.ownerId}
 				onChange={(party) => {
-					if (!editingParty) return;
-					editingParty = party;
+					if (!selectedParty) return;
+					selectedParty = party;
 					scheduleSave();
 				}}
 			/>

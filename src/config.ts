@@ -26,6 +26,8 @@ export const CONFIG = {
 	DEFAULT_CHARACTER_SHEET_TAB: 'general',
 	DEFAULT_PARTY_SHEET_TAB: 'members',
 
+	NO_USER_REDIRECT_DELAY: 500,
+
 	ABILITY_CARD_BACKGROUNDS: {
 		arcanista: 'https://i.imgur.com/qZ79oFt.png',
 		combatiente: 'https://i.imgur.com/Y1Nj73K.png',

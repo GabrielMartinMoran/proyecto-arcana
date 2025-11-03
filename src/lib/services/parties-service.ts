@@ -14,15 +14,18 @@
 
 import { createParty as factoryCreateParty } from '$lib/factories/party-factory';
 import { useFirebaseService } from '$lib/services/firebase-service';
+import type { Character } from '$lib/types/character';
 import { Party } from '$lib/types/party';
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 
 const STORAGE_KEY = 'arcana:parties';
 const PENDING_DELETES_KEY = 'arcana:pendingPartyDeletes';
+const UPDATE_STORE_DEBOUNCE_MS = 100;
 
 const state = {
 	partiesStore: writable<Party[]>([]),
 	partiesAlreadyLoaded: false,
+	scheduledStoreUpdate: null as NodeJS.Timeout | null,
 };
 
 let currentUserId: string | null = null;
@@ -130,6 +133,32 @@ const stopPersistence = () => {
 	}
 };
 
+const updatePartiesStore = (newParties: Party[]) => {
+	for (const p of get(state.partiesStore)) {
+		p.unsubscribeCharacterListener();
+		p.unsubscribeCharacterListener = () => {};
+	}
+	if (!currentUserId) return;
+	const accessibleParties = newParties.filter((p) => p.isAccessible(currentUserId!));
+	for (const p of accessibleParties) {
+		p.unsubscribeCharacterListener = firebase.listenCharactersByIds(
+			p.getCharactersFullIdentifiers(),
+			(characters: Character[]) => {
+				console.log('[parties-service] detected character change for party', p.id);
+				state.partiesStore.update((parties) => {
+					const index = parties.findIndex((x) => x.id === p.id);
+					if (index !== -1) {
+						parties[index].characters = characters;
+						parties[index] = parties[index].copy();
+					}
+					return [...parties];
+				});
+			},
+		);
+	}
+	state.partiesStore.set(newParties);
+};
+
 /**
  * Start listening to remote parties for the given user id.
  * Replaces local store when snapshots are received.
@@ -159,7 +188,13 @@ const startRemoteListener = (userId: string) => {
 			}
 			applyingRemoteUpdate = true;
 			try {
-				state.partiesStore.set(parties.map((p) => new Party(p)));
+				if (state.scheduledStoreUpdate) {
+					clearTimeout(state.scheduledStoreUpdate);
+				}
+				state.scheduledStoreUpdate = setTimeout(() => {
+					state.scheduledStoreUpdate = null;
+					updatePartiesStore(parties);
+				}, UPDATE_STORE_DEBOUNCE_MS);
 			} finally {
 				applyingRemoteUpdate = false;
 				console.debug('[parties-service] applied remote snapshot for user', userId);
@@ -173,6 +208,9 @@ const startRemoteListener = (userId: string) => {
 const stopRemoteListener = () => {
 	if (unsubscribeRemote) {
 		try {
+			for (const p of get(state.partiesStore)) {
+				p.unsubscribeCharacterListener();
+			}
 			unsubscribeRemote();
 		} catch {
 			/* ignore */
@@ -369,6 +407,10 @@ export const usePartiesService = () => {
 
 		// Remove from local store
 		state.partiesStore.update((parties) => {
+			const toDelete = parties.find((p) => p.id === partyId);
+			if (toDelete) {
+				toDelete.unsubscribeCharacterListener();
+			}
 			const out = parties.filter((p) => p.id !== partyId);
 			try {
 				console.debug('[parties-service] local parties count after delete', out.length);

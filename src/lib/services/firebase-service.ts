@@ -222,21 +222,27 @@ function createFirebaseService() {
 		if (!isBrowser()) return;
 		await ensureFirestore();
 
-		// Use modular firestore helpers. We'll also need getDoc to read parties.
 		const { doc, writeBatch, getDoc } = await import('firebase/firestore');
 
-		// Deep-clone characters to plain objects so we can safely add denormalized fields.
-		const plain = characters.map((c) => JSON.parse(JSON.stringify(c || {})));
+		let plain: any[] = characters.map((c) => JSON.parse(JSON.stringify(c || {})));
 
-		// Denormalize party owner id: for characters that reference a partyId,
-		// fetch the party document ownerId and store it on the character as `partyOwnerId`.
-		// We fetch each party at most once per call.
+		// Skip invalid ids to avoid building invalid Firestore paths
+		const invalid = plain.filter((p) => !p || typeof p.id !== 'string' || p.id.trim() === '');
+		if (invalid.length > 0) {
+			console.warn(
+				'[firebase-service] saveCharactersForUser: skipping characters without valid id:',
+				invalid.map((p) => p && p.id),
+			);
+		}
+		plain = plain.filter((p) => p && typeof p.id === 'string' && p.id.trim() !== '');
+		if (plain.length === 0) return;
+
+		// Denormalize party owner id (using canónico nested party.partyId; fallback legacy partyId)
 		try {
 			const partyIds = new Set<string>();
 			for (const p of plain) {
-				if (p && p.partyId) {
-					partyIds.add(p.partyId);
-				}
+				const pid = (p?.party && p.party.partyId) ?? p?.partyId ?? null;
+				if (pid) partyIds.add(pid);
 			}
 			if (partyIds.size > 0) {
 				const partyOwnerMap = new Map<string, string | null>();
@@ -244,10 +250,8 @@ function createFirebaseService() {
 					try {
 						const snap = await getDoc(doc(db, 'parties', partyId));
 						const data = snap && snap.exists ? snap.data() : snap?.data?.();
-						const ownerId = data ? (data.ownerId ?? null) : null;
-						partyOwnerMap.set(partyId, ownerId);
+						partyOwnerMap.set(partyId, data ? (data.ownerId ?? null) : null);
 					} catch (err) {
-						// Log and keep null so we don't block saving characters if party read fails.
 						console.warn(
 							'[firebase-service] Failed to read party for denormalization',
 							partyId,
@@ -256,97 +260,54 @@ function createFirebaseService() {
 						partyOwnerMap.set(partyId, null);
 					}
 				}
-				// Attach denormalized owner id to characters
 				for (const p of plain) {
-					if (!p) continue;
+					const pid = (p?.party && p.party.partyId) ?? p?.partyId ?? null;
 					if (!p.party) {
 						p.party = {
-							partyId: null,
-							ownerId: null,
+							partyId: pid ?? null,
+							ownerId: pid ? (partyOwnerMap.get(pid) ?? null) : null,
 						};
-					} else if (p.party.partyId) {
-						p.party.ownerId = partyOwnerMap.get(p.party.partyId) ?? null;
+					} else if (pid) {
+						p.party.partyId = pid;
+						p.party.ownerId = partyOwnerMap.get(pid) ?? null;
 					} else {
-						p.party = {
-							partyId: null,
-							ownerId: null,
-						};
+						p.party = { partyId: null, ownerId: null };
 					}
 				}
 			} else {
-				// No partyIds present: ensure partyOwnerId exists (set null) for consistency
 				for (const p of plain) {
-					if (!p) continue;
-					if (!p.party) {
-						p.party = {
-							partyId: null,
-							ownerId: null,
-						};
-					} else {
-						p.party.ownerId = p.party.ownerId ?? null;
-					}
+					if (!p.party) p.party = { partyId: null, ownerId: null };
+					else p.party.ownerId = p.party.ownerId ?? null;
 				}
 			}
 		} catch (err) {
-			// If denormalization step fails unexpectedly, continue without denormalized field
-			console.warn(
-				'[firebase-service] Party denormalization step failed, proceeding without party.ownerId:',
-				err,
-			);
+			console.warn('[firebase-service] Party denormalization step failed:', err);
 			for (const p of plain) {
-				if (!p) continue;
-				if (!p.party) {
-					p.party = {
-						partyId: null,
-						ownerId: null,
-					};
-				} else {
-					p.party.ownerId = p.party.ownerId ?? null;
-				}
+				if (!p.party) p.party = { partyId: null, ownerId: null };
+				else p.party.ownerId = p.party.ownerId ?? null;
 			}
 		}
 
-		// batch commit with retry (unchanged pattern) but first perform a best-effort
-		// cleanup for characters that cleared their partyId: if a character previously had
-		// a partyId and now it's removed, attempt to remove it from that party's members
-		// subcollection before committing the updated character doc.
+		// Best-effort cleanup: if partyId cleared/changed, remove from previous party members
 		const MAX_ATTEMPTS = 3;
 		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
 			try {
-				// Best-effort: for each character we'll check the existing server doc to see
-				// if the partyId was cleared. If so, attempt to remove the membership entry.
 				for (const p of plain) {
+					if (!p || !p.id || typeof p.id !== 'string') continue;
 					try {
-						// Read current stored doc to compare previous partyId
 						const charRef = doc(db, 'users', userId, 'characters', p.id);
 						const existingSnap = await getDoc(charRef);
 						if (existingSnap && existingSnap.exists()) {
 							const existingData: any = existingSnap.data() || {};
-							const prevPartyId = existingData.partyId ?? null;
-							const newPartyId = p.partyId ?? null;
-							// If previously belonged to a party and now partyId is cleared (or changed away),
-							// attempt to remove the character id from the previous party members mapping.
+							const prevPartyId =
+								(existingData?.party && existingData.party.partyId) ??
+								existingData?.partyId ??
+								null;
+							const newPartyId = (p?.party && p.party.partyId) ?? p?.partyId ?? null;
 							if (prevPartyId && (!newPartyId || newPartyId !== prevPartyId)) {
 								try {
-									// Call the local helper to remove the character from previous party members.
-									// This is a best-effort cleanup; any failure should not block saving characters.
-									try {
-										await removePartyMember(prevPartyId, userId, p.id);
-									} catch (cleanupErr) {
-										// Do not fail the whole save if cleanup fails; log and continue.
-										console.warn('[firebase-service] best-effort removePartyMember failed for', {
-											prevPartyId,
-											userId,
-											cid: p.id,
-											err: cleanupErr,
-										});
-									}
-									console.debug(
-										'[firebase-service] removed character from previous party members (best-effort)',
-										{ prevPartyId, userId, cid: p.id },
-									);
+									await removePartyMember(prevPartyId, userId, p.id);
 								} catch (cleanupErr) {
-									// Do not fail the whole save if cleanup fails; log and continue.
 									console.warn('[firebase-service] best-effort removePartyMember failed for', {
 										prevPartyId,
 										userId,
@@ -357,10 +318,9 @@ function createFirebaseService() {
 							}
 						}
 					} catch (readErr) {
-						// If reading existing doc fails, continue; we still attempt to save characters.
 						console.warn(
-							'[firebase-service] failed to read existing character doc during party cleanup (continuing):',
-							p.id,
+							'[firebase-service] failed to read existing character doc (continuing):',
+							p?.id,
 							readErr,
 						);
 					}
@@ -368,6 +328,7 @@ function createFirebaseService() {
 
 				const batch = writeBatch(db);
 				for (const p of plain) {
+					if (!p || !p.id || typeof p.id !== 'string') continue;
 					const ref = doc(db, 'users', userId, 'characters', p.id);
 					batch.set(ref, p, { merge: true });
 				}
@@ -375,9 +336,7 @@ function createFirebaseService() {
 				return;
 			} catch (err) {
 				console.error(`[firebase-service] saveCharactersForUser attempt ${attempt} failed:`, err);
-				if (attempt === MAX_ATTEMPTS) {
-					throw err;
-				}
+				if (attempt === MAX_ATTEMPTS) throw err;
 				await new Promise((res) => setTimeout(res, 200 * attempt));
 			}
 		}
@@ -510,13 +469,6 @@ function createFirebaseService() {
 
 	/* ---------------------- Firestore helpers - parties - member helpers ---------------------- */
 
-	/**
-	 * Add a character id to the members subcollection of a party:
-	 * parties/{partyId}/members/{userId} with document { characterIds: string[] }.
-	 *
-	 * Use a per-user document inside the members subcollection instead of editing a map field
-	 * on the party doc. This is less error-prone and easier to authorize from client rules.
-	 */
 	async function setPartyMember(
 		partyId: string,
 		userId: string,
@@ -528,39 +480,55 @@ function createFirebaseService() {
 		if (!isBrowser()) return;
 		await ensureFirestore();
 
-		const { doc, getDoc, setDoc } = await import('firebase/firestore');
-		const memberRef = doc(db, 'parties', partyId, 'members', userId);
+		const { doc, runTransaction, getDoc, updateDoc, setDoc } = await import('firebase/firestore');
+		const partyRef = doc(db, 'parties', partyId);
 
-		// Read current characterIds for this member document and update deterministically.
 		try {
-			const snap = await getDoc(memberRef);
-			let arr: string[] = [];
-			if (snap.exists()) {
-				const data = snap.data() || {};
-				arr = Array.isArray(data.characterIds) ? data.characterIds : [];
-			}
-			if (!arr.includes(characterId)) {
-				arr.push(characterId);
-				await setDoc(memberRef, { characterIds: arr }, { merge: true });
-			}
+			await runTransaction(db, async (tx: any) => {
+				const partySnap = await tx.get(partyRef);
+				// If party doesn't exist, create minimal doc with members map
+				if (!partySnap || !partySnap.exists()) {
+					const initial: Record<string, any> = {};
+					initial[userId] = [characterId];
+					tx.set(partyRef, { members: initial }, { merge: true });
+					return;
+				}
+
+				const pdata = partySnap.data() || {};
+				const existing = pdata.members && typeof pdata.members === 'object' ? pdata.members : {};
+				const arr = Array.isArray(existing[userId]) ? existing[userId].slice() : [];
+				if (!arr.includes(characterId)) {
+					arr.push(characterId);
+					// Update only the nested field members.<userId> so security rules for members modifications pass
+					const field: any = {};
+					field[`members.${userId}`] = arr;
+					tx.update(partyRef, field);
+				}
+			});
 		} catch (err) {
-			console.error('[firebase-service] setPartyMember failed:', err);
-			throw err;
+			console.error('[firebase-service] setPartyMember transaction failed:', err);
+			// Fallback: non-transactional update of the nested field
+			try {
+				// Read current doc
+				const snap = await getDoc(partyRef);
+				if (!snap || !snap.exists()) {
+					await setDoc(partyRef, { members: { [userId]: [characterId] } }, { merge: true });
+					return;
+				}
+				const pdata = snap.data() || {};
+				const existing = pdata.members && typeof pdata.members === 'object' ? pdata.members : {};
+				const arr = Array.isArray(existing[userId]) ? existing[userId].slice() : [];
+				if (!arr.includes(characterId)) {
+					arr.push(characterId);
+					await updateDoc(partyRef, { [`members.${userId}`]: arr });
+				}
+			} catch (fallbackErr) {
+				console.error('[firebase-service] setPartyMember fallback failed:', fallbackErr);
+				throw err;
+			}
 		}
 	}
 
-	/**
-	 * Remove a character id from the members subcollection of a party:
-	 * parties/{partyId}/members/{userId} with document { characterIds: string[] }.
-	 *
-	 * If the character id exists in the array it will be removed. If the resulting
-	 * array is empty the member document will be deleted.
-	 *
-	 * Additionally, as a best-effort cleanup, attempt to remove the corresponding
-	 * entry under the top-level party document `members` map (i.e. delete the key
-	 * for `userId` if its array becomes empty). This keeps both representations
-	 * reasonably in sync for clients that still rely on the map shape.
-	 */
 	async function removePartyMember(
 		partyId: string,
 		userId: string,
@@ -572,159 +540,55 @@ function createFirebaseService() {
 		if (!isBrowser()) return;
 		await ensureFirestore();
 
-		const { doc, getDoc, setDoc, deleteDoc } = await import('firebase/firestore');
-		const memberRef = doc(db, 'parties', partyId, 'members', userId);
+		const { doc, runTransaction, getDoc, updateDoc, deleteField } = await import(
+			'firebase/firestore'
+		);
 		const partyRef = doc(db, 'parties', partyId);
 
 		try {
-			// Read member subdoc
-			const snap = await getDoc(memberRef);
-			if (!snap.exists()) {
-				// Member subdoc missing: still attempt to clean top-level party.members map (best-effort)
-				try {
-					const partySnap = await getDoc(partyRef);
-					if (partySnap && partySnap.exists()) {
-						const partyData: any = partySnap.data() || {};
-						const members: Record<string, any> = partyData.members ?? {};
-						if (members && typeof members === 'object' && Array.isArray(members[userId])) {
-							const arr: string[] = Array.isArray(members[userId])
-								? members[userId].filter((cid: string) => cid !== characterId)
-								: [];
-							if (arr.length === 0) {
-								delete members[userId];
-							} else {
-								members[userId] = arr;
-							}
-							await setDoc(partyRef, { members }, { merge: true });
-						}
+			await runTransaction(db, async (tx: any) => {
+				const partySnap = await tx.get(partyRef);
+				if (!partySnap || !partySnap.exists()) {
+					// nada que hacer
+					return;
+				}
+				const pdata = partySnap.data() || {};
+				const existing = pdata.members && typeof pdata.members === 'object' ? pdata.members : {};
+				const arr = Array.isArray(existing[userId]) ? existing[userId].slice() : [];
+				const idx = arr.indexOf(characterId);
+				if (idx !== -1) {
+					arr.splice(idx, 1);
+					if (arr.length === 0) {
+						// elimina por completo la key para que no siga contando como miembro
+						tx.update(partyRef, { [`members.${userId}`]: deleteField() });
+					} else {
+						tx.update(partyRef, { [`members.${userId}`]: arr });
 					}
-				} catch (cleanupErr) {
-					console.warn(
-						'[firebase-service] best-effort cleanup of top-level members map failed:',
-						cleanupErr,
-					);
 				}
-				return;
-			}
-
-			const data = snap.data() || {};
-			const arr: string[] = Array.isArray(data.characterIds) ? data.characterIds : [];
-			const idx = arr.indexOf(characterId);
-			if (idx !== -1) {
-				arr.splice(idx, 1);
-				if (arr.length === 0) {
-					await deleteDoc(memberRef);
-				} else {
-					await setDoc(memberRef, { characterIds: arr }, { merge: true });
-				}
-
-				// Also attempt to remove/cleanup the top-level members map on the party doc (best-effort)
-				try {
-					const partySnap = await getDoc(partyRef);
-					if (partySnap && partySnap.exists()) {
-						const partyData: any = partySnap.data() || {};
-						const members: Record<string, any> = partyData.members ?? {};
-						if (members && typeof members === 'object') {
-							const userArr: string[] = Array.isArray(members[userId])
-								? members[userId].filter((cid: string) => cid !== characterId)
-								: [];
-							if (userArr.length === 0) {
-								delete members[userId];
-							} else {
-								members[userId] = userArr;
-							}
-							await setDoc(partyRef, { members }, { merge: true });
-						}
-					}
-				} catch (cleanupErr) {
-					console.warn(
-						'[firebase-service] best-effort cleanup of top-level members map failed:',
-						cleanupErr,
-					);
-				}
-			}
-		} catch (err) {
-			console.error('[firebase-service] removePartyMember failed:', err);
-			throw err;
-		}
-	}
-
-	/**
-	 * Listen to party members map changes for a given party id.
-	 * Calls cb with a normalized map: { userId: string[] } (empty map if none).
-	 */
-	function listenPartyMembers(
-		partyId: string,
-		cb: (members: Record<string, string[]>) => void,
-	): Unsubscribe {
-		if (!isBrowser()) {
-			cb({});
-			return () => {};
-		}
-		let unsub: Unsubscribe = () => {};
-		(async () => {
-			try {
-				await ensureFirestore();
-				// Listen the members subcollection under parties/{partyId}/members
-				const { collection, onSnapshot } = await import('firebase/firestore');
-				const membersCol = collection(db, 'parties', partyId, 'members');
-				unsub = onSnapshot(
-					membersCol,
-					(snapshot: any) => {
-						const map: Record<string, string[]> = {};
-						snapshot.forEach((docSnap: any) => {
-							const data = docSnap.data() || {};
-							map[docSnap.id] = Array.isArray(data.characterIds) ? data.characterIds : [];
-						});
-						cb(map);
-					},
-					(error: any) => {
-						console.error(
-							'[firebase-service] listenPartyMembers snapshot error (members subcollection):',
-							error,
-						);
-						cb({});
-					},
-				);
-			} catch (err) {
-				console.error(
-					'[firebase-service] listenPartyMembers setup error (members subcollection):',
-					err,
-				);
-				cb({});
-			}
-		})();
-		return () => {
-			try {
-				if (unsub) unsub();
-			} catch {
-				/* ignore */
-			}
-		};
-	}
-
-	/**
-	 * Load the members list for a given party id from the members subcollection.
-	 * Returns a map { userId: string[] } where each document id under parties/{partyId}/members
-	 * is a userId and the doc contains { characterIds: string[] }.
-	 */
-	async function loadPartyMembers(partyId: string): Promise<Record<string, string[]>> {
-		if (!partyId) throw new Error('partyId required');
-		if (!isBrowser()) return {};
-		await ensureFirestore();
-		const { collection, getDocs } = await import('firebase/firestore');
-		const col = collection(db, 'parties', partyId, 'members');
-		try {
-			const snap = await getDocs(col);
-			const out: Record<string, string[]> = {};
-			snap.forEach((d: any) => {
-				const data = d.data() || {};
-				out[d.id] = Array.isArray(data.characterIds) ? data.characterIds : [];
 			});
-			return out;
 		} catch (err) {
-			console.error('[firebase-service] loadPartyMembers failed:', err);
-			return {};
+			console.error('[firebase-service] removePartyMember transaction failed:', err);
+			// fallback best-effort
+			try {
+				const { deleteField: df } = await import('firebase/firestore');
+				const snap = await getDoc(partyRef);
+				if (!snap || !snap.exists()) return;
+				const pdata = snap.data() || {};
+				const existing = pdata.members && typeof pdata.members === 'object' ? pdata.members : {};
+				const arr = Array.isArray(existing[userId]) ? existing[userId].slice() : [];
+				const idx = arr.indexOf(characterId);
+				if (idx !== -1) {
+					arr.splice(idx, 1);
+					if (arr.length === 0) {
+						await updateDoc(partyRef, { [`members.${userId}`]: df() });
+					} else {
+						await updateDoc(partyRef, { [`members.${userId}`]: arr });
+					}
+				}
+			} catch (fallbackErr) {
+				console.error('[firebase-service] removePartyMember fallback failed:', fallbackErr);
+				throw err;
+			}
 		}
 	}
 
@@ -746,7 +610,7 @@ function createFirebaseService() {
 		await ensureFirestore();
 
 		const { doc, setDoc } = await import('firebase/firestore');
-		const plain = JSON.parse(JSON.stringify(party || {}));
+		const plain = party.asPlain();
 
 		// Retry to improve robustness (mirror pattern used for characters)
 		const MAX_ATTEMPTS = 3;
@@ -794,225 +658,171 @@ function createFirebaseService() {
 			return () => {};
 		}
 
-		// We'll maintain three kinds of listeners:
-		//  - ownerQuery listener (parties where ownerId == userId)
-		//  - memberQuery listener (parties where the user appears in members)
-		//  - character-based per-party listeners: watch the user's characters subcollection;
-		//    when a character has a partyId, attach an onSnapshot to that party doc so joining
-		//    by setting character.partyId works in real-time.
-		let ownerUnsub: Unsubscribe = () => {};
-		let memberUnsub: Unsubscribe = () => {};
-		let charUnsub: Unsubscribe = () => {};
-		const partyDocUnsubMap: Record<string, Unsubscribe> = {};
-		const partyDocCache: Record<string, Party> = {};
+		let ownerQueryUnsub: Unsubscribe = () => {};
+		let memberQueryUnsub: Unsubscribe = () => {};
 
-		// Helper to merge sources (ownerSet, memberSet, partyDocCache) into a unique array
-		const mergeAndCb = (ownerSet: Party[], memberSet: Party[]) => {
+		const ownerDocUnsubMap: Record<string, Unsubscribe> = {};
+		const ownerPartyCache: Record<string, Party> = {};
+
+		const memberDocUnsubMap: Record<string, Unsubscribe> = {};
+		const memberPartyCache: Record<string, Party> = {};
+
+		const emit = () => {
 			const map = new Map<string, Party>();
-			for (const p of ownerSet) {
+			for (const id of Object.keys(ownerPartyCache)) {
+				const p = ownerPartyCache[id];
 				if (p && p.id) map.set(p.id, new Party(p));
 			}
-			for (const p of memberSet) {
+			for (const id of Object.keys(memberPartyCache)) {
+				const p = memberPartyCache[id];
 				if (p && p.id && !map.has(p.id)) map.set(p.id, new Party(p));
 			}
-			for (const id of Object.keys(partyDocCache)) {
-				const p = partyDocCache[id];
-				if (p && p.id && !map.has(p.id)) map.set(p.id, new Party(p));
-			}
-			const out = Array.from(map.values());
-			cb(out);
+			cb(Array.from(map.values()));
 		};
 
-		// Attach listener asynchronously (non-blocking)
 		(async () => {
 			try {
 				await ensureFirestore();
 				const { collection, doc, onSnapshot, query, where } = await import('firebase/firestore');
-
 				const partiesCol = collection(db, 'parties');
 
-				// Query 1: parties where user is owner
-				const ownerQuery = query(partiesCol, where('ownerId', '==', userId));
-				// Query 2: parties where the user appears in members map (attempt); fallback to collection if needed
-				let memberQuery;
+				// 1) Owner query -> attach per-doc listeners
 				try {
-					memberQuery = query(partiesCol, where(`members.${userId}`, '!=', null));
-				} catch (err) {
-					memberQuery = partiesCol;
-				}
+					const ownerQ = query(partiesCol, where('ownerId', '==', userId));
+					ownerQueryUnsub = onSnapshot(
+						ownerQ,
+						(snapshot: any) => {
+							const ids = new Set<string>();
+							snapshot.forEach((d: any) => ids.add(d.id));
 
-				const ownerSet: Party[] = [];
-				const memberSet: Party[] = [];
-
-				ownerUnsub = onSnapshot(
-					ownerQuery,
-					(snapshot: any) => {
-						ownerSet.length = 0;
-						snapshot.forEach((d: any) => {
-							const data = d.data();
-							if (!data) return;
-							if (!data.id) data.id = d.id;
-							ownerSet.push(new (Party as any)(data));
-						});
-						mergeAndCb(ownerSet, memberSet);
-					},
-					(error: any) => {
-						console.error('[firebase-service] listenToUserParties owner snapshot error:', error);
-						cb([]);
-					},
-				);
-
-				memberUnsub = onSnapshot(
-					memberQuery,
-					(snapshot: any) => {
-						memberSet.length = 0;
-						snapshot.forEach((d: any) => {
-							const data = d.data();
-							if (!data) return;
-							if (!data.id) data.id = d.id;
-
-							// If members is an array or a map, detect membership.
-							// Require non-empty arrays for membership so empty arrays don't grant access.
-							let include = false;
-							if (Array.isArray(data.members)) {
-								// Only consider membership if the array is non-empty and contains the userId
-								include = data.members.length > 0 && data.members.includes(userId);
-							} else if (data.members && typeof data.members === 'object') {
-								// Prefer explicit per-user arrays (members[userId]) and require them to be non-empty
-								const direct = data.members[userId];
-								if (Array.isArray(direct)) {
-									include = direct.length > 0;
-								} else if (direct === true) {
-									// Legacy boolean flag - accept it (backwards compatibility)
-									include = true;
-								} else {
-									// Defensive fallback: scan values for arrays that include userId,
-									// but require those arrays to be non-empty to count as membership.
-									for (const k in data.members) {
-										const val = data.members[k];
-										if (Array.isArray(val) && val.length > 0 && val.includes(userId)) {
-											include = true;
-											break;
-										}
-									}
-								}
-							}
-							if (include) memberSet.push(new (Party as any)(data));
-						});
-						mergeAndCb(ownerSet, memberSet);
-					},
-					(error: any) => {
-						console.error('[firebase-service] listenToUserParties member snapshot error:', error);
-						cb([]);
-					},
-				);
-
-				// Now attach a listener to the user's characters subcollection to detect joins by partyId.
-				const charsCol = collection(db, 'users', userId, 'characters');
-				const charListener = onSnapshot(
-					charsCol,
-					(snapshot: any) => {
-						// compute set of partyIds referenced by user's characters
-						const partyIds = new Set<string>();
-						snapshot.forEach((d: any) => {
-							const c = d.data();
-							if (c && c.partyId) partyIds.add(c.partyId);
-						});
-
-						// Attach per-party document listeners for any partyId not yet subscribed
-						for (const pid of partyIds) {
-							if (!partyDocUnsubMap[pid]) {
-								try {
-									const partyDocRef = doc(db, 'parties', pid);
-									const unsub = onSnapshot(
-										partyDocRef,
+							// Attach nuevos
+							for (const id of ids) {
+								if (!ownerDocUnsubMap[id]) {
+									ownerDocUnsubMap[id] = onSnapshot(
+										doc(db, 'parties', id),
 										(docSnap: any) => {
 											const data = docSnap.data();
 											if (!data) {
-												// if doc deleted, remove from cache
-												delete partyDocCache[pid];
-												mergeAndCb(ownerSet, memberSet);
+												delete ownerPartyCache[id];
+												emit();
 												return;
 											}
 											data.id = docSnap.id;
-											partyDocCache[pid] = new (Party as any)(data);
-											mergeAndCb(ownerSet, memberSet);
+											ownerPartyCache[id] = new (Party as any)(data);
+											emit();
 										},
-										(error: any) => {
-											console.error('[firebase-service] party doc listener error for', pid, error);
+										(err: any) => {
+											console.error('[firebase-service] owner party doc listener error', id, err);
 										},
-									);
-									partyDocUnsubMap[pid] = unsub;
-								} catch (err) {
-									console.warn(
-										'[firebase-service] failed to attach per-party listener for',
-										pid,
-										err,
 									);
 								}
 							}
-						}
-
-						// Remove listeners for parties no longer referenced
-						for (const existingPid of Object.keys(partyDocUnsubMap)) {
-							if (!partyIds.has(existingPid)) {
-								try {
-									partyDocUnsubMap[existingPid]();
-								} catch {}
-								delete partyDocUnsubMap[existingPid];
-								delete partyDocCache[existingPid];
+							// Remove los que ya no están
+							for (const existingId of Object.keys(ownerDocUnsubMap)) {
+								if (!ids.has(existingId)) {
+									try {
+										ownerDocUnsubMap[existingId]();
+									} catch {}
+									delete ownerDocUnsubMap[existingId];
+									delete ownerPartyCache[existingId];
+								}
 							}
-						}
+							emit();
+						},
+						(err: any) => {
+							console.error('[firebase-service] listenToUserParties owner query error:', err);
+						},
+					);
+				} catch (err) {
+					console.error('[firebase-service] owner query setup failed:', err);
+				}
 
-						// Recompute merged results after any change
-						mergeAndCb(ownerSet, memberSet);
-					},
-					(error: any) => {
-						console.error('[firebase-service] characters subcollection snapshot error:', error);
-					},
-				);
-
-				// Combined unsubscriber will remove all listeners
-				const combinedUnsub = () => {
+				// 2) Member query -> attach per-doc listeners
+				try {
+					let memberQ: any;
 					try {
-						ownerUnsub();
-					} catch {}
-					try {
-						memberUnsub();
-					} catch {}
-					try {
-						charListener();
-					} catch {}
-					for (const pid in partyDocUnsubMap) {
-						try {
-							partyDocUnsubMap[pid]();
-						} catch {}
+						memberQ = query(partiesCol, where(`members.${userId}`, '!=', null));
+					} catch {
+						// Fallback: escuchar toda la colección y filtrar client-side
+						memberQ = partiesCol;
 					}
-				};
-				// replace charUnsub for outer cleanup
-				charUnsub = combinedUnsub;
+					memberQueryUnsub = onSnapshot(
+						memberQ,
+						(snapshot: any) => {
+							const ids = new Set<string>();
+							snapshot.forEach((d: any) => {
+								const data = d.data();
+								if (!data) return;
+								if (data.members && typeof data.members === 'object' && userId in data.members) {
+									ids.add(d.id);
+								}
+							});
+
+							for (const id of ids) {
+								if (!memberDocUnsubMap[id]) {
+									memberDocUnsubMap[id] = onSnapshot(
+										doc(db, 'parties', id),
+										(docSnap: any) => {
+											const data = docSnap.data();
+											if (!data) {
+												delete memberPartyCache[id];
+												emit();
+												return;
+											}
+											data.id = docSnap.id;
+											memberPartyCache[id] = new (Party as any)(data);
+											emit();
+										},
+										(err: any) => {
+											console.error('[firebase-service] member party doc listener error', id, err);
+										},
+									);
+								}
+							}
+							// Remove los que ya no están
+							for (const existingId of Object.keys(memberDocUnsubMap)) {
+								if (!ids.has(existingId)) {
+									try {
+										memberDocUnsubMap[existingId]();
+									} catch {}
+									delete memberDocUnsubMap[existingId];
+									delete memberPartyCache[existingId];
+								}
+							}
+							emit();
+						},
+						(err: any) => {
+							console.error('[firebase-service] listenToUserParties member query error:', err);
+						},
+					);
+				} catch (err) {
+					console.error('[firebase-service] member query setup failed:', err);
+				}
 			} catch (err) {
 				console.error('[firebase-service] listenToUserParties setup error:', err);
 				cb([]);
 			}
 		})();
+
 		return () => {
 			try {
-				// Attempt to tear down all listeners
-				if (ownerUnsub)
-					try {
-						ownerUnsub();
-					} catch {}
-				if (memberUnsub)
-					try {
-						memberUnsub();
-					} catch {}
-				if (charUnsub)
-					try {
-						charUnsub();
-					} catch {}
-			} catch {
-				/* ignore */
+				ownerQueryUnsub();
+			} catch {}
+			try {
+				memberQueryUnsub();
+			} catch {}
+
+			for (const id of Object.keys(ownerDocUnsubMap)) {
+				try {
+					ownerDocUnsubMap[id]();
+				} catch {}
+				delete ownerDocUnsubMap[id];
+			}
+			for (const id of Object.keys(memberDocUnsubMap)) {
+				try {
+					memberDocUnsubMap[id]();
+				} catch {}
+				delete memberDocUnsubMap[id];
 			}
 		};
 	}
@@ -1110,6 +920,121 @@ function createFirebaseService() {
 		await deleteDoc(doc(db, 'users', userId, 'rollLogs', logId));
 	}
 
+	/**
+	 * Listen to a specific set of characters identified by owner userId + characterId.
+	 *
+	 * The caller provides an array of items { userId, charId } and a callback that will be
+	 * invoked with the current list of Character instances whenever any of the listened
+	 * documents change. Returns an unsubscribe function that removes all listeners.
+	 *
+	 * Note: This is intentionally a narrow listener (per-document watchers) to avoid loading
+	 * all characters for a user. It does not provide reactivity if the caller later wants
+	 * to change the list of ids; the caller should call this function again with the new list.
+	 */
+	function listenCharactersByIds(
+		items: { userId: string; characterId: string }[],
+		cb: (characters: Character[]) => void,
+	): Unsubscribe {
+		if (!isBrowser()) {
+			cb([]);
+			return () => {};
+		}
+
+		let unsubMap: Record<string, Unsubscribe> = {};
+		const results: Record<string, Character | null> = {};
+
+		(async () => {
+			try {
+				await ensureFirestore();
+				const { doc, onSnapshot } = await import('firebase/firestore');
+
+				// Attach a listener for each requested character doc
+				for (const it of items) {
+					if (!it || !it.userId || !it.characterId) continue;
+					const key = `${it.userId}/${it.characterId}`;
+					// Skip if already attached (defensive)
+					if (unsubMap[key]) continue;
+
+					try {
+						const ref = doc(db, 'users', it.userId, 'characters', it.characterId);
+						const unsub = onSnapshot(
+							ref,
+							(docSnap: any) => {
+								if (docSnap && docSnap.exists()) {
+									const data = docSnap.data() || {};
+									// Ensure id present
+									if (!data.id) data.id = docSnap.id;
+									results[key] = new (Character as any)(data);
+								} else {
+									results[key] = null;
+								}
+								// Compose current characters and call back
+								const out: Character[] = [];
+								for (const k of Object.keys(results)) {
+									const c = results[k];
+									if (c) out.push(c);
+								}
+								try {
+									cb(out);
+								} catch (err) {
+									console.error('[firebase-service] listenCharactersByIds callback error:', err);
+								}
+							},
+							(error: any) => {
+								console.error(
+									'[firebase-service] listenCharactersByIds snapshot error for',
+									key,
+									error,
+								);
+								// On error for a specific doc, clear that entry and still callback with others
+								results[key] = null;
+								const out: Character[] = [];
+								for (const k of Object.keys(results)) {
+									const c = results[k];
+									if (c) out.push(c);
+								}
+								try {
+									cb(out);
+								} catch (err) {
+									console.error(
+										'[firebase-service] listenCharactersByIds callback error after snapshot error:',
+										err,
+									);
+								}
+							},
+						);
+						unsubMap[key] = unsub;
+					} catch (attachErr) {
+						console.error(
+							'[firebase-service] listenCharactersByIds attach error for',
+							it,
+							attachErr,
+						);
+					}
+				}
+			} catch (err) {
+				console.error('[firebase-service] listenCharactersByIds setup error:', err);
+				try {
+					cb([]);
+				} catch (e) {
+					/* ignore */
+				}
+			}
+		})();
+
+		// Return unsubscriber: remove all listeners
+		return () => {
+			for (const k of Object.keys(unsubMap)) {
+				try {
+					unsubMap[k]();
+				} catch {
+					/* ignore */
+				}
+			}
+			unsubMap = {};
+		};
+	}
+
 	/* ---------------------- Public API ---------------------- */
 
 	return {
@@ -1134,8 +1059,12 @@ function createFirebaseService() {
 		// party members helpers
 		setPartyMember,
 		removePartyMember,
-		loadPartyMembers,
-		listenPartyMembers,
+		// character listeners
+		// Listen to a specific set of characters by id. This is intended to provide a fine-grained
+		// real-time subscription for characters that belong to a party without loading all characters
+		// for a user. Implementation is provided in the service and exported here so callers can
+		// subscribe with a callback receiving Character[] on updates.
+		listenCharactersByIds,
 		// roll logs
 		saveRollLogsForUser,
 		loadRollLogsForUser,

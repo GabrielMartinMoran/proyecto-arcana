@@ -9,9 +9,10 @@
 	type Props = {
 		character: Character;
 		onChange: (character: Character) => void;
+		allowPartyChange;
 	};
 
-	let { character, onChange }: Props = $props();
+	let { character, onChange, allowPartyChange }: Props = $props();
 
 	// Firebase helper used to fetch party metadata (ownerId) when Party ID is entered.
 	const firebase = useFirebaseService();
@@ -167,17 +168,19 @@
 				onChange(character);
 			}}
 		/>
-		<InputField
-			label="Party ID"
-			value={character.party.partyId ?? ''}
-			fullWidth={true}
-			placeholder="ID del grupo (opcional)"
-			textAlign="left"
-			onChange={(value) => {
-				// When party id changes, set partyId. partyOwnerId will be denormalized on save.
-				onPartyIdChange(String(value));
-			}}
-		/>
+		{#if allowPartyChange}
+			<InputField
+				label="ID del Grupo"
+				value={character.party.partyId ?? ''}
+				fullWidth={true}
+				placeholder="Pídele te tu DJ el valor"
+				textAlign="left"
+				onChange={(value) => {
+					// When party id changes, set partyId. partyOwnerId will be denormalized on save.
+					onPartyIdChange(String(value));
+				}}
+			/>
+		{/if}
 	</div>
 </Container>
 <Container title="Modificadores">

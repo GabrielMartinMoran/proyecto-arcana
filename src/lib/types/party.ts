@@ -13,7 +13,7 @@
  * The implementation follows the style used by other types in the project (e.g. Character).
  */
 
-import type { Note } from './character';
+import type { Character, Note } from './character';
 
 export type PartyMembers = Record<string, string[]>;
 
@@ -23,6 +23,8 @@ export class Party {
 	ownerId: string;
 	notes: Note[];
 	members: PartyMembers;
+	characters: Character[];
+	unsubscribeCharacterListener: () => void;
 
 	constructor(props: any) {
 		this.id = props?.id ?? '';
@@ -30,6 +32,8 @@ export class Party {
 		this.ownerId = props?.ownerId ?? '';
 		this.notes = Array.isArray(props?.notes) ? props.notes : [];
 		this.members = props?.members && typeof props.members === 'object' ? props.members : {};
+		this.characters = props?.characters ?? [];
+		this.unsubscribeCharacterListener = props?.unsubscribeCharacterListener ?? (() => {});
 	}
 
 	/**
@@ -65,6 +69,7 @@ export class Party {
 		} else {
 			this.members[userId] = arr;
 		}
+		this.characters = this.characters.filter((c) => c.id !== characterId);
 	}
 
 	/**
@@ -120,14 +125,44 @@ export class Party {
 		return out;
 	}
 
+	getCharactersFullIdentifiers(): { userId: string; characterId: string }[] {
+		const out: { userId: string; characterId: string }[] = [];
+		for (const key of Object.keys(this.members)) {
+			const arr = this.members[key] ?? [];
+			for (const id of arr) {
+				out.push({ userId: key, characterId: id });
+			}
+		}
+		return out;
+	}
+
+	isAccessible(userId: string) {
+		return this.ownerId === userId || this.members[userId]?.length > 0;
+	}
+
 	/**
 	 * Create a deep copy of the Party instance.
 	 */
 	copy(): Party {
 		// Use structured cloning via JSON for simplicity and to produce plain data suitable for storage.
 		// This matches the project's approach in other factories/types.
-		const plain = JSON.parse(JSON.stringify(this));
-		return new Party(plain);
+		const plain = JSON.parse(JSON.stringify(this.asPlain()));
+		const party = new Party(plain);
+		party.characters = this.characters.filter(
+			(c) => c.party.partyId === this.id && party.getAllCharacterIds().includes(c.id),
+		);
+		party.unsubscribeCharacterListener = this.unsubscribeCharacterListener;
+		return party;
+	}
+
+	asPlain(): PartyData {
+		return {
+			id: this.id,
+			name: this.name,
+			ownerId: this.ownerId,
+			notes: this.notes,
+			members: this.members,
+		};
 	}
 }
 
