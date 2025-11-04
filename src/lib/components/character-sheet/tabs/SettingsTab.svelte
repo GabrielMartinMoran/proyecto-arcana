@@ -23,20 +23,22 @@
 	let partyName: string | null = $state(null);
 
 	// Cargar el nombre del grupo cuando hay un partyId inicial o cambie
-	$effect(async () => {
+	$effect(() => {
 		const pid = character?.party?.partyId ?? null;
 		if (!pid) {
 			partyName = null;
 			return;
 		}
-		try {
-			await firebase.initFirebase();
-			const party = await firebase.loadParty(pid);
-			console.log('[SettingsTab] Getting party name');
-			partyName = party?.name ?? null;
-		} catch {
-			partyName = null;
-		}
+		(async () => {
+			try {
+				await firebase.initFirebase();
+				const party = await firebase.loadParty(pid as string);
+				console.log('[SettingsTab] Getting party name');
+				partyName = party?.name ?? null;
+			} catch {
+				partyName = null;
+			}
+		})();
 	});
 
 	/**
@@ -45,7 +47,7 @@
 	 * `character.party` object. `partyOwnerId` is populated by the persistent save flow.
 	 */
 	async function onPartyIdChange(value: string | null) {
-		const pid = value?.toString()?.trim();
+		const pid: string | null = value?.toString()?.trim() || null;
 		// Capture previous partyId so we can attempt to remove the character from that party if needed.
 		const prevPid = character.party.partyId;
 
@@ -60,7 +62,7 @@
 			// Best-effort removal from party members subcollection (if any)
 			if (prevPid && character.id) {
 				try {
-					const current = get(firebase.user as any);
+					const current: any = get(firebase.user as any);
 					const uid = current ? current.uid : null;
 					// Prefer concrete helper if available
 					if (uid && typeof (firebase as any).removePartyMember === 'function') {
@@ -70,25 +72,6 @@
 							uid,
 							cid: character.id,
 						});
-					} else {
-						// Fallback: try to update the party document members map directly (best-effort)
-						try {
-							const partyDoc = await (firebase as any).loadParty(prevPid);
-							if (partyDoc) {
-								const existingMembers = partyDoc.members ?? {};
-								const arr = Array.isArray(existingMembers[uid]) ? existingMembers[uid] : [];
-								const idx = arr.indexOf(character.id);
-								if (idx !== -1) arr.splice(idx, 1);
-								if (arr.length === 0) delete existingMembers[uid];
-								else existingMembers[uid] = arr;
-								// Try to persist back to server; use saveParty if exposed
-								if (typeof (firebase as any).saveParty === 'function') {
-									await (firebase as any).saveParty({ ...partyDoc, members: existingMembers });
-								}
-							}
-						} catch (e2) {
-							console.warn('[SettingsTab] fallback removePartyMember/saveParty failed', e2);
-						}
 					}
 				} catch (e) {
 					console.warn('[SettingsTab] removePartyMember failed (awaited)', e);
@@ -124,7 +107,7 @@
 			// Best-effort: add this character to the party.members mapping so it appears in the party UI.
 			// This call will be awaited so we can surface an error if it fails (visible feedback).
 			try {
-				const current = get(firebase.user as any);
+				const current: any = get(firebase.user as any);
 				const uid = current ? current.uid : null;
 				if (uid && pid && character.id) {
 					// call the service helper and await it; surface error if happens
@@ -137,38 +120,13 @@
 								uid,
 								cid: character.id,
 							});
-						} else {
-							// Fallback: try to update the party document members map directly
-							try {
-								const partyDoc = await (firebase as any).loadParty(pid);
-								if (partyDoc) {
-									// If the party doc exposes members map, merge locally and try save via parties service
-									const existingMembers = partyDoc.members ?? {};
-									const arr = Array.isArray(existingMembers[uid]) ? existingMembers[uid] : [];
-									if (!arr.includes(character.id)) {
-										arr.push(character.id);
-										existingMembers[uid] = arr;
-										// Try to persist back to server; use saveParty if exposed
-										if (typeof (firebase as any).saveParty === 'function') {
-											await (firebase as any).saveParty({ ...partyDoc, members: existingMembers });
-										}
-									}
-								}
-							} catch (e2) {
-								console.warn('[SettingsTab] fallback setPartyMember/saveParty failed', e2);
-								try {
-									alert('No se pudo añadir el personaje a la lista de miembros del grupo.');
-								} catch {}
-							}
 						}
 					} catch (e) {
 						console.warn('[SettingsTab] setPartyMember failed (awaited)', e);
-						try {
-							alert('No se pudo registrar el personaje en el grupo (permiso denegado o error).');
-						} catch {}
+						alert('No se pudo registrar el personaje en el grupo (permiso denegado o error).');
 					}
 				}
-			} catch (e) {
+			} catch {
 				/* ignore errors in best-effort background task */
 			}
 		}

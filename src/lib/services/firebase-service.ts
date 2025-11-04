@@ -450,45 +450,6 @@ function createFirebaseService() {
 
 	/* ---------------------- Firestore helpers - additional helpers ---------------------- */
 
-	/**
-	 * Load all characters across users that reference the given partyId.
-	 * Returns an array of objects { userId, character } where userId is the owner folder id
-	 * (extracted from the document path) and character is a Character instance.
-	 */
-	async function loadCharactersByParty(
-		partyId: string,
-	): Promise<{ userId: string; character: Character }[]> {
-		if (!partyId) throw new Error('partyId required');
-		if (!isBrowser()) return [];
-		await ensureFirestore();
-		const { collectionGroup, query, where, getDocs } = await import('firebase/firestore');
-		try {
-			const q = query(collectionGroup(db, 'characters'), where('partyId', '==', partyId));
-			const snap = await getDocs(q);
-			__incRead(snap?.size ?? 0);
-			const out: { userId: string; character: Character }[] = [];
-			snap.forEach((d: any) => {
-				const data = d.data();
-				if (!data) return;
-				let userId = '';
-				try {
-					// doc.ref is .../users/{userId}/characters/{charId}
-					// parent => characters collection, parent.parent => users/{userId}
-					const charsCollectionRef = d.ref.parent;
-					const userRef = charsCollectionRef ? charsCollectionRef.parent : null;
-					userId = userRef ? userRef.id : '';
-				} catch {
-					userId = '';
-				}
-				out.push({ userId, character: new (Character as any)(data) });
-			});
-			return out;
-		} catch (err) {
-			console.error('[firebase-service] loadCharactersByParty failed:', err);
-			return [];
-		}
-	}
-
 	/* ---------------------- Firestore helpers - roll logs ---------------------- */
 
 	async function loadParty(partyId: string): Promise<Party | null> {
@@ -1013,7 +974,6 @@ function createFirebaseService() {
 		// characters
 		saveCharactersForUser,
 		loadCharactersForUser,
-		loadCharactersByParty,
 		deleteCharacterForUser,
 		listenCharactersForUser,
 		// parties

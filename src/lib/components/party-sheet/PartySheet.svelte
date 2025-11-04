@@ -48,7 +48,6 @@
 		page.url.searchParams.set('sheetTab', CONFIG.DEFAULT_CHARACTER_SHEET_TAB);
 		goto(`?${page.url.searchParams.toString()}`);
 		selectedCharacterId = charId;
-		selectedCharacter = party.characters.find((c) => c.id === charId);
 	};
 
 	const onCharacterSheetTabChange = (tab: string) => {
@@ -112,7 +111,7 @@
 
 		// 4) Limpiar selección de la UI/URL
 		selectedCharacterId = null;
-		selectedCharacter = undefined;
+
 		page.url.searchParams.delete('characterId');
 		page.url.searchParams.delete('tab');
 		goto(`?${page.url.searchParams.toString()}`);
