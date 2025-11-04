@@ -75,6 +75,34 @@ function createFirebaseService() {
 	let initialized = false;
 	let initializingPromise: Promise<void> | null = null;
 
+	// Firestore operation counters (debug/diagnostics)
+	let __reads = 0;
+	let __writes = 0;
+	let __opsLogScheduled: any = null;
+	const __scheduleOpsLog = () => {
+		if (__opsLogScheduled) return;
+		try {
+			__opsLogScheduled = setTimeout(() => {
+				__opsLogScheduled = null;
+				try {
+					console.debug('[firebase-service] ops:', { reads: __reads, writes: __writes });
+				} catch {
+					/* ignore */
+				}
+			}, 1000);
+		} catch {
+			/* ignore */
+		}
+	};
+	const __incRead = (n: number = 1) => {
+		__reads += n;
+		__scheduleOpsLog();
+	};
+	const __incWrite = (n: number = 1) => {
+		__writes += n;
+		__scheduleOpsLog();
+	};
+
 	const ready: Writable<boolean> = writable(false);
 	const user: Writable<FirebaseUserLite | null> = writable(null);
 
@@ -249,7 +277,13 @@ function createFirebaseService() {
 				for (const partyId of partyIds) {
 					try {
 						const snap = await getDoc(doc(db, 'parties', partyId));
-						const data = snap && snap.exists ? snap.data() : snap?.data?.();
+						__incRead();
+						let data: any;
+						if (snap && typeof snap.exists === 'function' && snap.exists()) {
+							data = snap.data();
+						} else {
+							data = undefined;
+						}
 						partyOwnerMap.set(partyId, data ? (data.ownerId ?? null) : null);
 					} catch (err) {
 						console.warn(
@@ -297,6 +331,7 @@ function createFirebaseService() {
 					try {
 						const charRef = doc(db, 'users', userId, 'characters', p.id);
 						const existingSnap = await getDoc(charRef);
+						__incRead();
 						if (existingSnap && existingSnap.exists()) {
 							const existingData: any = existingSnap.data() || {};
 							const prevPartyId =
@@ -333,6 +368,7 @@ function createFirebaseService() {
 					batch.set(ref, p, { merge: true });
 				}
 				await batch.commit();
+				__incWrite(plain.length);
 				return;
 			} catch (err) {
 				console.error(`[firebase-service] saveCharactersForUser attempt ${attempt} failed:`, err);
@@ -349,6 +385,7 @@ function createFirebaseService() {
 		await ensureFirestore();
 		const { doc, deleteDoc } = await import('firebase/firestore');
 		await deleteDoc(doc(db, 'users', userId, 'characters', characterId));
+		__incWrite();
 	}
 
 	async function loadCharactersForUser(userId: string): Promise<Character[]> {
@@ -358,6 +395,7 @@ function createFirebaseService() {
 		const { collection, getDocs } = await import('firebase/firestore');
 		const col = collection(db, 'users', userId, 'characters');
 		const snap = await getDocs(col);
+		__incRead(snap?.size ?? 0);
 		const out: Character[] = [];
 		snap.forEach((d: any) => {
 			const data = d.data();
@@ -384,6 +422,7 @@ function createFirebaseService() {
 				unsub = onSnapshot(
 					col,
 					(snapshot: any) => {
+						__incRead(snapshot?.size ?? 0);
 						const arr: Character[] = [];
 						snapshot.forEach((docSnap: any) => {
 							arr.push(new (Character as any)(docSnap.data()));
@@ -426,6 +465,7 @@ function createFirebaseService() {
 		try {
 			const q = query(collectionGroup(db, 'characters'), where('partyId', '==', partyId));
 			const snap = await getDocs(q);
+			__incRead(snap?.size ?? 0);
 			const out: { userId: string; character: Character }[] = [];
 			snap.forEach((d: any) => {
 				const data = d.data();
@@ -458,6 +498,7 @@ function createFirebaseService() {
 		const { doc, getDoc } = await import('firebase/firestore');
 		try {
 			const snap = await getDoc(doc(db, 'parties', partyId));
+			__incRead();
 			if (!snap.exists()) return null;
 			const data = snap.data();
 			return new Party(data);
@@ -486,11 +527,13 @@ function createFirebaseService() {
 		try {
 			await runTransaction(db, async (tx: any) => {
 				const partySnap = await tx.get(partyRef);
+				__incRead();
 				// If party doesn't exist, create minimal doc with members map
 				if (!partySnap || !partySnap.exists()) {
 					const initial: Record<string, any> = {};
 					initial[userId] = [characterId];
 					tx.set(partyRef, { members: initial }, { merge: true });
+					__incWrite();
 					return;
 				}
 
@@ -503,6 +546,7 @@ function createFirebaseService() {
 					const field: any = {};
 					field[`members.${userId}`] = arr;
 					tx.update(partyRef, field);
+					__incWrite();
 				}
 			});
 		} catch (err) {
@@ -511,8 +555,10 @@ function createFirebaseService() {
 			try {
 				// Read current doc
 				const snap = await getDoc(partyRef);
+				__incRead();
 				if (!snap || !snap.exists()) {
 					await setDoc(partyRef, { members: { [userId]: [characterId] } }, { merge: true });
+					__incWrite();
 					return;
 				}
 				const pdata = snap.data() || {};
@@ -521,6 +567,7 @@ function createFirebaseService() {
 				if (!arr.includes(characterId)) {
 					arr.push(characterId);
 					await updateDoc(partyRef, { [`members.${userId}`]: arr });
+					__incWrite();
 				}
 			} catch (fallbackErr) {
 				console.error('[firebase-service] setPartyMember fallback failed:', fallbackErr);
@@ -548,6 +595,7 @@ function createFirebaseService() {
 		try {
 			await runTransaction(db, async (tx: any) => {
 				const partySnap = await tx.get(partyRef);
+				__incRead();
 				if (!partySnap || !partySnap.exists()) {
 					// nada que hacer
 					return;
@@ -561,8 +609,10 @@ function createFirebaseService() {
 					if (arr.length === 0) {
 						// elimina por completo la key para que no siga contando como miembro
 						tx.update(partyRef, { [`members.${userId}`]: deleteField() });
+						__incWrite();
 					} else {
 						tx.update(partyRef, { [`members.${userId}`]: arr });
+						__incWrite();
 					}
 				}
 			});
@@ -572,6 +622,7 @@ function createFirebaseService() {
 			try {
 				const { deleteField: df } = await import('firebase/firestore');
 				const snap = await getDoc(partyRef);
+				__incRead();
 				if (!snap || !snap.exists()) return;
 				const pdata = snap.data() || {};
 				const existing = pdata.members && typeof pdata.members === 'object' ? pdata.members : {};
@@ -581,8 +632,10 @@ function createFirebaseService() {
 					arr.splice(idx, 1);
 					if (arr.length === 0) {
 						await updateDoc(partyRef, { [`members.${userId}`]: df() });
+						__incWrite();
 					} else {
 						await updateDoc(partyRef, { [`members.${userId}`]: arr });
+						__incWrite();
 					}
 				}
 			} catch (fallbackErr) {
@@ -617,6 +670,7 @@ function createFirebaseService() {
 		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
 			try {
 				await setDoc(doc(db, 'parties', plain.id), plain, { merge: true });
+				__incWrite();
 				return;
 			} catch (err) {
 				// Provide more context in logs to help debugging production failures.
@@ -650,6 +704,7 @@ function createFirebaseService() {
 		await ensureFirestore();
 		const { doc, deleteDoc } = await import('firebase/firestore');
 		await deleteDoc(doc(db, 'parties', partyId));
+		__incWrite();
 	}
 
 	function listenToUserParties(userId: string, cb: (parties: Party[]) => void): Unsubscribe {
@@ -658,146 +713,45 @@ function createFirebaseService() {
 			return () => {};
 		}
 
-		let ownerQueryUnsub: Unsubscribe = () => {};
-		let memberQueryUnsub: Unsubscribe = () => {};
-
-		const ownerDocUnsubMap: Record<string, Unsubscribe> = {};
-		const ownerPartyCache: Record<string, Party> = {};
-
-		const memberDocUnsubMap: Record<string, Unsubscribe> = {};
-		const memberPartyCache: Record<string, Party> = {};
-
-		const emit = () => {
-			const map = new Map<string, Party>();
-			for (const id of Object.keys(ownerPartyCache)) {
-				const p = ownerPartyCache[id];
-				if (p && p.id) map.set(p.id, new Party(p));
-			}
-			for (const id of Object.keys(memberPartyCache)) {
-				const p = memberPartyCache[id];
-				if (p && p.id && !map.has(p.id)) map.set(p.id, new Party(p));
-			}
-			cb(Array.from(map.values()));
-		};
+		let unsub: Unsubscribe = () => {};
 
 		(async () => {
 			try {
 				await ensureFirestore();
-				const { collection, doc, onSnapshot, query, where } = await import('firebase/firestore');
+				const { collection, onSnapshot } = await import('firebase/firestore');
 				const partiesCol = collection(db, 'parties');
 
-				// 1) Owner query -> attach per-doc listeners
-				try {
-					const ownerQ = query(partiesCol, where('ownerId', '==', userId));
-					ownerQueryUnsub = onSnapshot(
-						ownerQ,
-						(snapshot: any) => {
-							const ids = new Set<string>();
-							snapshot.forEach((d: any) => ids.add(d.id));
-
-							// Attach nuevos
-							for (const id of ids) {
-								if (!ownerDocUnsubMap[id]) {
-									ownerDocUnsubMap[id] = onSnapshot(
-										doc(db, 'parties', id),
-										(docSnap: any) => {
-											const data = docSnap.data();
-											if (!data) {
-												delete ownerPartyCache[id];
-												emit();
-												return;
-											}
-											data.id = docSnap.id;
-											ownerPartyCache[id] = new (Party as any)(data);
-											emit();
-										},
-										(err: any) => {
-											console.error('[firebase-service] owner party doc listener error', id, err);
-										},
-									);
-								}
+				// Single collection listener; filter client-side by owner or membership
+				unsub = onSnapshot(
+					partiesCol,
+					(snapshot: any) => {
+						try {
+							__incRead(snapshot?.size ?? 0);
+						} catch {
+							/* ignore */
+						}
+						const out: Party[] = [];
+						snapshot.forEach((d: any) => {
+							const data = d.data();
+							if (!data) return;
+							data.id = d.id;
+							const isOwner = data.ownerId === userId;
+							const isMember =
+								data.members &&
+								typeof data.members === 'object' &&
+								Array.isArray(data.members[userId]) &&
+								data.members[userId].length > 0;
+							if (isOwner || isMember) {
+								out.push(new (Party as any)(data));
 							}
-							// Remove los que ya no están
-							for (const existingId of Object.keys(ownerDocUnsubMap)) {
-								if (!ids.has(existingId)) {
-									try {
-										ownerDocUnsubMap[existingId]();
-									} catch {}
-									delete ownerDocUnsubMap[existingId];
-									delete ownerPartyCache[existingId];
-								}
-							}
-							emit();
-						},
-						(err: any) => {
-							console.error('[firebase-service] listenToUserParties owner query error:', err);
-						},
-					);
-				} catch (err) {
-					console.error('[firebase-service] owner query setup failed:', err);
-				}
-
-				// 2) Member query -> attach per-doc listeners
-				try {
-					let memberQ: any;
-					try {
-						memberQ = query(partiesCol, where(`members.${userId}`, '!=', null));
-					} catch {
-						// Fallback: escuchar toda la colección y filtrar client-side
-						memberQ = partiesCol;
-					}
-					memberQueryUnsub = onSnapshot(
-						memberQ,
-						(snapshot: any) => {
-							const ids = new Set<string>();
-							snapshot.forEach((d: any) => {
-								const data = d.data();
-								if (!data) return;
-								if (data.members && typeof data.members === 'object' && userId in data.members) {
-									ids.add(d.id);
-								}
-							});
-
-							for (const id of ids) {
-								if (!memberDocUnsubMap[id]) {
-									memberDocUnsubMap[id] = onSnapshot(
-										doc(db, 'parties', id),
-										(docSnap: any) => {
-											const data = docSnap.data();
-											if (!data) {
-												delete memberPartyCache[id];
-												emit();
-												return;
-											}
-											data.id = docSnap.id;
-											memberPartyCache[id] = new (Party as any)(data);
-											emit();
-										},
-										(err: any) => {
-											console.error('[firebase-service] member party doc listener error', id, err);
-										},
-									);
-								}
-							}
-							// Remove los que ya no están
-							for (const existingId of Object.keys(memberDocUnsubMap)) {
-								if (!ids.has(existingId)) {
-									try {
-										memberDocUnsubMap[existingId]();
-									} catch {}
-									delete memberDocUnsubMap[existingId];
-									delete memberPartyCache[existingId];
-								}
-							}
-							emit();
-						},
-						(err: any) => {
-							console.error('[firebase-service] listenToUserParties member query error:', err);
-						},
-					);
-				} catch (err) {
-					console.error('[firebase-service] member query setup failed:', err);
-				}
+						});
+						cb(out);
+					},
+					(err: any) => {
+						console.error('[firebase-service] listenToUserParties error:', err);
+						cb([]);
+					},
+				);
 			} catch (err) {
 				console.error('[firebase-service] listenToUserParties setup error:', err);
 				cb([]);
@@ -806,23 +760,9 @@ function createFirebaseService() {
 
 		return () => {
 			try {
-				ownerQueryUnsub();
-			} catch {}
-			try {
-				memberQueryUnsub();
-			} catch {}
-
-			for (const id of Object.keys(ownerDocUnsubMap)) {
-				try {
-					ownerDocUnsubMap[id]();
-				} catch {}
-				delete ownerDocUnsubMap[id];
-			}
-			for (const id of Object.keys(memberDocUnsubMap)) {
-				try {
-					memberDocUnsubMap[id]();
-				} catch {}
-				delete memberDocUnsubMap[id];
+				if (unsub) unsub();
+			} catch {
+				/* ignore */
 			}
 		};
 	}
@@ -846,6 +786,7 @@ function createFirebaseService() {
 					batch.set(ref, p, { merge: true });
 				}
 				await batch.commit();
+				__incWrite(plain.length);
 				return;
 			} catch (err) {
 				console.error(`[firebase-service] saveRollLogsForUser attempt ${attempt} failed:`, err);
@@ -864,6 +805,7 @@ function createFirebaseService() {
 		const { collection, getDocs } = await import('firebase/firestore');
 		const col = collection(db, 'users', userId, 'rollLogs');
 		const snap = await getDocs(col);
+		__incRead(snap?.size ?? 0);
 		const out: RollLog[] = [];
 		// Include Firestore document id along with the data so callers have stable ids
 		snap.forEach((d: any) => out.push({ ...(d.data() || {}), id: d.id }));
@@ -884,6 +826,7 @@ function createFirebaseService() {
 				unsub = onSnapshot(
 					col,
 					(snapshot: any) => {
+						__incRead(snapshot?.size ?? 0);
 						const arr: RollLog[] = [];
 						// Include Firestore document id so logs retain their document identity client-side
 						snapshot.forEach((docSnap: any) => {
@@ -918,6 +861,7 @@ function createFirebaseService() {
 		await ensureFirestore();
 		const { doc, deleteDoc } = await import('firebase/firestore');
 		await deleteDoc(doc(db, 'users', userId, 'rollLogs', logId));
+		__incWrite();
 	}
 
 	/**
@@ -931,6 +875,89 @@ function createFirebaseService() {
 	 * all characters for a user. It does not provide reactivity if the caller later wants
 	 * to change the list of ids; the caller should call this function again with the new list.
 	 */
+	// Shared per-character subscription hub (single Firestore listener per character)
+	type CharacterSubscriber = (c: Character | null) => void;
+	const __characterHub: Record<
+		string,
+		{
+			subscribers: Set<CharacterSubscriber>;
+			unsubscribe: Unsubscribe | null;
+			latest: Character | null;
+		}
+	> = {};
+
+	function subscribeCharacter(
+		item: { userId: string; characterId: string },
+		onUpdate: (c: Character | null) => void,
+	): Unsubscribe {
+		if (!isBrowser()) return () => {};
+		const key = `${item.userId}/${item.characterId}`;
+		let entry = __characterHub[key];
+		if (!entry) {
+			entry = { subscribers: new Set(), unsubscribe: null, latest: null };
+			__characterHub[key] = entry;
+		}
+		entry.subscribers.add(onUpdate);
+
+		if (!entry.unsubscribe) {
+			(async () => {
+				try {
+					await ensureFirestore();
+					const { doc, onSnapshot } = await import('firebase/firestore');
+					const ref = doc(db, 'users', item.userId, 'characters', item.characterId);
+					entry.unsubscribe = onSnapshot(
+						ref,
+						(docSnap: any) => {
+							__incRead();
+							if (docSnap && docSnap.exists()) {
+								const data = docSnap.data() || {};
+								if (!data.id) data.id = docSnap.id;
+								entry.latest = new (Character as any)(data);
+							} else {
+								entry.latest = null;
+							}
+							for (const fn of Array.from(entry.subscribers)) {
+								try {
+									fn(entry.latest);
+								} catch (err) {
+									console.error('[firebase-service] subscribeCharacter subscriber error:', err);
+								}
+							}
+						},
+						(error: any) => {
+							console.error('[firebase-service] subscribeCharacter snapshot error for', key, error);
+						},
+					);
+				} catch (err) {
+					console.error('[firebase-service] subscribeCharacter setup error for', key, err);
+				}
+			})();
+		}
+
+		// Deliver last known value immediately to new subscriber
+		if (entry.latest !== null) {
+			try {
+				onUpdate(entry.latest);
+			} catch (err) {
+				console.error('[firebase-service] subscribeCharacter immediate callback error:', err);
+			}
+		}
+
+		return () => {
+			const e = __characterHub[key];
+			if (!e) return;
+			e.subscribers.delete(onUpdate);
+			if (e.subscribers.size === 0) {
+				try {
+					if (e.unsubscribe) e.unsubscribe();
+				} catch {
+					/* ignore */
+				}
+				delete __characterHub[key];
+			}
+		};
+	}
+
 	function listenCharactersByIds(
 		items: { userId: string; characterId: string }[],
 		cb: (characters: Character[]) => void,
@@ -940,98 +967,36 @@ function createFirebaseService() {
 			return () => {};
 		}
 
-		let unsubMap: Record<string, Unsubscribe> = {};
 		const results: Record<string, Character | null> = {};
+		const unsubs: Unsubscribe[] = [];
 
-		(async () => {
-			try {
-				await ensureFirestore();
-				const { doc, onSnapshot } = await import('firebase/firestore');
-
-				// Attach a listener for each requested character doc
-				for (const it of items) {
-					if (!it || !it.userId || !it.characterId) continue;
-					const key = `${it.userId}/${it.characterId}`;
-					// Skip if already attached (defensive)
-					if (unsubMap[key]) continue;
-
-					try {
-						const ref = doc(db, 'users', it.userId, 'characters', it.characterId);
-						const unsub = onSnapshot(
-							ref,
-							(docSnap: any) => {
-								if (docSnap && docSnap.exists()) {
-									const data = docSnap.data() || {};
-									// Ensure id present
-									if (!data.id) data.id = docSnap.id;
-									results[key] = new (Character as any)(data);
-								} else {
-									results[key] = null;
-								}
-								// Compose current characters and call back
-								const out: Character[] = [];
-								for (const k of Object.keys(results)) {
-									const c = results[k];
-									if (c) out.push(c);
-								}
-								try {
-									cb(out);
-								} catch (err) {
-									console.error('[firebase-service] listenCharactersByIds callback error:', err);
-								}
-							},
-							(error: any) => {
-								console.error(
-									'[firebase-service] listenCharactersByIds snapshot error for',
-									key,
-									error,
-								);
-								// On error for a specific doc, clear that entry and still callback with others
-								results[key] = null;
-								const out: Character[] = [];
-								for (const k of Object.keys(results)) {
-									const c = results[k];
-									if (c) out.push(c);
-								}
-								try {
-									cb(out);
-								} catch (err) {
-									console.error(
-										'[firebase-service] listenCharactersByIds callback error after snapshot error:',
-										err,
-									);
-								}
-							},
-						);
-						unsubMap[key] = unsub;
-					} catch (attachErr) {
-						console.error(
-							'[firebase-service] listenCharactersByIds attach error for',
-							it,
-							attachErr,
-						);
-					}
+		for (const it of items) {
+			if (!it || !it.userId || !it.characterId) continue;
+			const key = `${it.userId}/${it.characterId}`;
+			const unsub = subscribeCharacter(it, (value) => {
+				results[key] = value;
+				const out: Character[] = [];
+				for (const k of Object.keys(results)) {
+					const c = results[k];
+					if (c) out.push(c);
 				}
-			} catch (err) {
-				console.error('[firebase-service] listenCharactersByIds setup error:', err);
 				try {
-					cb([]);
-				} catch (e) {
-					/* ignore */
+					cb(out);
+				} catch (err) {
+					console.error('[firebase-service] listenCharactersByIds callback error:', err);
 				}
-			}
-		})();
+			});
+			unsubs.push(unsub);
+		}
 
-		// Return unsubscriber: remove all listeners
 		return () => {
-			for (const k of Object.keys(unsubMap)) {
+			for (const u of unsubs) {
 				try {
-					unsubMap[k]();
+					u();
 				} catch {
 					/* ignore */
 				}
 			}
-			unsubMap = {};
 		};
 	}
 
@@ -1064,12 +1029,22 @@ function createFirebaseService() {
 		// real-time subscription for characters that belong to a party without loading all characters
 		// for a user. Implementation is provided in the service and exported here so callers can
 		// subscribe with a callback receiving Character[] on updates.
+		subscribeCharacter,
 		listenCharactersByIds,
 		// roll logs
 		saveRollLogsForUser,
 		loadRollLogsForUser,
 		deleteRollLogForUser,
 		listenRollLogsForUser,
+
+		// diagnostics
+		getReadCount: () => __reads,
+		getWriteCount: () => __writes,
+		resetOpCounters: () => {
+			__reads = 0;
+			__writes = 0;
+		},
+		getOpCounters: () => ({ reads: __reads, writes: __writes }),
 	};
 }
 

@@ -93,6 +93,8 @@ const processPendingDeletes = async (userId: string) => {
  */
 const subscribePersistence = () => {
 	if (storeUnsub) return;
+	// Minimal change detection to avoid redundant writes
+	const __lastSavedParties: Record<string, string> = {};
 	storeUnsub = state.partiesStore.subscribe(async (parties: Party[]) => {
 		// If the update originated from remote snapshot, do not echo back
 		if (applyingRemoteUpdate) return;
@@ -107,11 +109,28 @@ const subscribePersistence = () => {
 		// Attempt to persist to Firestore when signed in and firebase enabled
 		if (currentUserId && firebase.isEnabled()) {
 			try {
+				// Compute changed parties by comparing payload hashes
+				const changed: { id: string; payload: string; party: Party }[] = [];
 				for (const p of parties) {
+					if (!p || !p.id) continue;
+					let payload = '';
 					try {
-						await firebase.saveParty(p);
+						payload = JSON.stringify(p.asPlain());
+					} catch {
+						// Defensive: if p was not a Party instance for some reason
+						payload = JSON.stringify(new Party(p as any).asPlain());
+					}
+					if (__lastSavedParties[p.id] !== payload) {
+						changed.push({ id: p.id, payload, party: p });
+					}
+				}
+
+				for (const item of changed) {
+					try {
+						await firebase.saveParty(item.party);
+						__lastSavedParties[item.id] = item.payload;
 					} catch (err) {
-						console.error('[parties-service] Failed saving party', p?.id, err);
+						console.error('[parties-service] Failed saving party', item?.id, err);
 						// continue with other parties
 					}
 				}
@@ -186,19 +205,20 @@ const startRemoteListener = (userId: string) => {
 			} catch {
 				/* ignore debug formatting errors */
 			}
-			applyingRemoteUpdate = true;
-			try {
-				if (state.scheduledStoreUpdate) {
-					clearTimeout(state.scheduledStoreUpdate);
-				}
-				state.scheduledStoreUpdate = setTimeout(() => {
-					state.scheduledStoreUpdate = null;
-					updatePartiesStore(parties);
-				}, UPDATE_STORE_DEBOUNCE_MS);
-			} finally {
-				applyingRemoteUpdate = false;
-				console.debug('[parties-service] applied remote snapshot for user', userId);
+			if (state.scheduledStoreUpdate) {
+				clearTimeout(state.scheduledStoreUpdate);
 			}
+			state.scheduledStoreUpdate = setTimeout(() => {
+				state.scheduledStoreUpdate = null;
+				// Mantener la marca durante la actualización real para evitar eco a Firestore
+				applyingRemoteUpdate = true;
+				try {
+					updatePartiesStore(parties);
+				} finally {
+					applyingRemoteUpdate = false;
+					console.debug('[parties-service] applied remote snapshot for user', userId);
+				}
+			}, UPDATE_STORE_DEBOUNCE_MS);
 		});
 	} catch (err) {
 		console.error('[parties-service] listenToUserParties setup failed for', userId, err);
@@ -335,24 +355,13 @@ export const usePartiesService = () => {
 			const out = [...parties, new Party(p)];
 			try {
 				console.debug('[parties-service] local parties count after create', out.length);
-			} catch {}
+			} catch {
+				/* ignore */
+			}
 			return out;
 		});
 
-		// Attempt immediate cloud save (best-effort)
-		if (currentUserId && firebase.isEnabled()) {
-			try {
-				console.debug('[parties-service] attempting immediate cloud save for party', p.id);
-				await firebase.saveParty(p);
-				console.debug('[parties-service] immediate cloud save successful for party', p.id);
-			} catch (err) {
-				console.warn(
-					'[parties-service] Failed to save party immediately, will rely on background sync:',
-					p.id,
-					err,
-				);
-			}
-		}
+		// Cloud save handled by background persistence subscription to avoid duplicate writes
 
 		return new Party(p);
 	};
@@ -383,20 +392,13 @@ export const usePartiesService = () => {
 					'partyId=',
 					party.id,
 				);
-			} catch {}
+			} catch {
+				/* ignore */
+			}
 			return out;
 		});
 
-		// Attempt cloud save
-		if (currentUserId && firebase.isEnabled()) {
-			try {
-				console.debug('[parties-service] attempting cloud save for party', party.id);
-				await firebase.saveParty(party);
-				console.debug('[parties-service] cloud save successful for party', party.id);
-			} catch (err) {
-				console.error('[parties-service] Error saving party to cloud for', party.id, err);
-			}
-		}
+		// Cloud save handled by background persistence subscription to avoid duplicate writes
 	};
 
 	/**
@@ -414,7 +416,9 @@ export const usePartiesService = () => {
 			const out = parties.filter((p) => p.id !== partyId);
 			try {
 				console.debug('[parties-service] local parties count after delete', out.length);
-			} catch {}
+			} catch {
+				/* ignore */
+			}
 			return out;
 		});
 
