@@ -54,10 +54,8 @@
 		}, CONFIG.NO_USER_REDIRECT_DELAY);
 	});
 	const unsubscribeFromPartiesStore = parties.subscribe(async (parties) => {
-		console.log('Parties change detected in page');
 		if (!selectedPartyId) return;
 		selectedParty = parties.find((p) => p.id === selectedPartyId);
-		console.log('Selected party', selectedParty);
 	});
 
 	onDestroy(() => {

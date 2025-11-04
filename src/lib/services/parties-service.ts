@@ -175,7 +175,7 @@ const updatePartiesStore = (newParties: Party[]) => {
 			},
 		);
 	}
-	state.partiesStore.set(newParties);
+	state.partiesStore.set(accessibleParties);
 };
 
 /**
