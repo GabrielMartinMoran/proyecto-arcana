@@ -1,6 +1,7 @@
 import { mapRollLog } from '$lib/mappers/roll-log-mapper';
 import { serializeRollLog } from '$lib/serializers/roll-log-serializer';
 import { useFirebaseService } from '$lib/services/firebase-service';
+import { useRollTargetService } from '$lib/services/roll-target-service';
 import type { DiceResult } from '$lib/types/dice-result';
 import type { DiceRoll } from '$lib/types/dice-roll';
 import type { RollLog } from '$lib/types/roll-log';
@@ -9,7 +10,8 @@ import { buildRollsDetail, calculateTotal, parseDiceExpression } from '$lib/util
 import { get, writable, type Writable } from 'svelte/store';
 import { CONFIG } from '../../config';
 
-const STORAGE_KEY = 'arcana:rollLogs';
+const PERSONAL_STORAGE_KEY = 'arcana:rollLogs:personal';
+const PARTY_STORAGE_KEY_PREFIX = 'arcana:rollLogs:party:';
 const MAX_LOGS_TO_KEEP = 100;
 
 const state: {
@@ -31,6 +33,7 @@ const state: {
 };
 
 const firebase = useFirebaseService();
+const rollTargetSvc = useRollTargetService();
 let currentUserId: string | null = null;
 let unsubscribeRemoteLogs: (() => void) | null = null;
 let applyingRemoteLogsUpdate = false;
@@ -38,7 +41,13 @@ let savingToCloud = false;
 
 const loadRollLogs = (): RollLog[] => {
 	try {
-		const logs = localStorage.getItem(STORAGE_KEY);
+		const key = (() => {
+			const t = rollTargetSvc.getTarget();
+			return t && t.type === 'party'
+				? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+				: PERSONAL_STORAGE_KEY;
+		})();
+		const logs = localStorage.getItem(key);
 		const rawLogs = logs ? JSON.parse(logs) : [];
 		const trimmed = Array.isArray(rawLogs) ? rawLogs.slice(-MAX_LOGS_TO_KEEP) : rawLogs;
 		return trimmed.map((x: any) => mapRollLog(x));
@@ -69,7 +78,13 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 		try {
 			const trimmed = Array.isArray(logs) ? logs.slice(-MAX_LOGS_TO_KEEP) : [];
 			const serialized = trimmed.map((x: any) => serializeRollLog(x));
-			localStorage.setItem(STORAGE_KEY, JSON.stringify(serialized));
+			const key = (() => {
+				const t = rollTargetSvc.getTarget();
+				return t && t.type === 'party'
+					? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+					: PERSONAL_STORAGE_KEY;
+			})();
+			localStorage.setItem(key, JSON.stringify(serialized));
 		} catch (err) {
 			console.error('[dice-roller-service] Error persisting locally during concurrent save:', err);
 		}
@@ -100,7 +115,24 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 				savingToCloud = true;
 				const serializedPending = pendingLogs.map((x: any) => serializeRollLog(x));
 
-				await firebase.saveRollLogsForUser(currentUserId, serializedPending);
+				{
+					const target = rollTargetSvc.getTarget();
+					if (target && target.type === 'party') {
+						const current: any = get(firebase.user as any);
+						const author = {
+							id: current?.uid,
+							name: current?.displayName ?? current?.email ?? 'Usuario',
+							photoURL: current?.photoURL ?? undefined,
+						};
+						await (firebase as any).saveGroupRollLogsForParty(
+							target.partyId,
+							serializedPending,
+							author,
+						);
+					} else {
+						await firebase.saveRollLogsForUser(currentUserId, serializedPending);
+					}
+				}
 
 				// Clear pending flags for successfully saved entries
 				const savedIds = serializedPending.map((s: any) => s.id).filter(Boolean);
@@ -118,7 +150,13 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 					const serializedUpdated = (
 						Array.isArray(updatedLogs) ? updatedLogs.slice(-MAX_LOGS_TO_KEEP) : []
 					).map((x) => serializeRollLog(x));
-					localStorage.setItem(STORAGE_KEY, JSON.stringify(serializedUpdated));
+					const key = (() => {
+						const t = rollTargetSvc.getTarget();
+						return t && t.type === 'party'
+							? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+							: PERSONAL_STORAGE_KEY;
+					})();
+					localStorage.setItem(key, JSON.stringify(serializedUpdated));
 				}
 			} catch (cloudErr) {
 				console.error(
@@ -133,7 +171,13 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 		// Always persist to localStorage for durability
 		try {
 			const serializedLogs = trimmedLogs.map((x: any) => serializeRollLog(x));
-			localStorage.setItem(STORAGE_KEY, JSON.stringify(serializedLogs));
+			const key = (() => {
+				const t = rollTargetSvc.getTarget();
+				return t && t.type === 'party'
+					? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+					: PERSONAL_STORAGE_KEY;
+			})();
+			localStorage.setItem(key, JSON.stringify(serializedLogs));
 		} catch (lsErr) {
 			console.error('Error saving roll logs to localStorage:', lsErr);
 		}
@@ -174,15 +218,24 @@ const logRolls = (
 	resultFormatter?: (result: number) => string | undefined,
 ) => {
 	const total = calculateTotal(rolls);
-	const log: RollLog & { pending?: boolean } = {
+	const log: RollLog & { pending?: boolean } & { authorId?: string; authorName?: string } = {
 		id: crypto.randomUUID(),
 		timestamp: new Date(),
-		title: title || 'Tirada anónima',
+		title: title || 'Tirada rápida',
 		total: total,
 		formattedTotal: resultFormatter ? resultFormatter(total) : undefined,
 		pending: true, // Mark as pending for cloud sync
 		detail: buildRollsDetail(rolls),
 	};
+	// If target is a party, attach author info so the roller sees "Tú" immediately in group logs
+	const t = rollTargetSvc.getTarget();
+	if (t && t.type === 'party') {
+		const current: any = get(firebase.user as any);
+		if (current?.uid) {
+			(log as any).authorId = current.uid;
+			(log as any).authorName = current.displayName ?? current.email ?? undefined;
+		}
+	}
 
 	state.logs.update((x) => {
 		const newArr = [...x, log];
@@ -285,29 +338,63 @@ export const useDiceRollerService = () => {
 					if (currentUserId && firebase.isEnabled()) {
 						// Start listening to remote roll logs
 						try {
-							unsubscribeRemoteLogs = firebase.listenRollLogsForUser(
-								currentUserId,
-								(remoteLogs) => {
-									applyingRemoteLogsUpdate = true;
-									try {
-										const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
-										const local = get(state.logs) || [];
-										const merged = mergeRemoteAndLocalLogs(mapped, local);
-										state.logs.set(merged);
-									} catch (applyErr) {
-										console.error('[dice-roller-service] Error applying remote logs:', applyErr);
-									} finally {
-										applyingRemoteLogsUpdate = false;
-									}
-								},
-							);
+							{
+								const target = rollTargetSvc.getTarget();
+								if (target && target.type === 'party') {
+									unsubscribeRemoteLogs = (firebase as any).listenGroupRollLogsForParty(
+										target.partyId,
+										(remoteLogs: any[]) => {
+											applyingRemoteLogsUpdate = true;
+											try {
+												const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
+												const local = get(state.logs) || [];
+												const merged = mergeRemoteAndLocalLogs(mapped, local);
+												state.logs.set(merged);
+											} catch (applyErr) {
+												console.error(
+													'[dice-roller-service] Error applying remote logs:',
+													applyErr,
+												);
+											} finally {
+												applyingRemoteLogsUpdate = false;
+											}
+										},
+									);
+								} else {
+									unsubscribeRemoteLogs = firebase.listenRollLogsForUser(
+										currentUserId,
+										(remoteLogs) => {
+											applyingRemoteLogsUpdate = true;
+											try {
+												const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
+												const local = get(state.logs) || [];
+												const merged = mergeRemoteAndLocalLogs(mapped, local);
+												state.logs.set(merged);
+											} catch (applyErr) {
+												console.error(
+													'[dice-roller-service] Error applying remote logs:',
+													applyErr,
+												);
+											} finally {
+												applyingRemoteLogsUpdate = false;
+											}
+										},
+									);
+								}
+							}
 						} catch (listenErr) {
 							console.error('[dice-roller-service] Error starting remote listener:', listenErr);
 						}
 					} else {
 						// Load local cached logs when not authenticated
 						try {
-							const raw = localStorage.getItem(STORAGE_KEY);
+							const key = (() => {
+								const t = rollTargetSvc.getTarget();
+								return t && t.type === 'party'
+									? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+									: PERSONAL_STORAGE_KEY;
+							})();
+							const raw = localStorage.getItem(key);
 							if (raw) {
 								const parsed = JSON.parse(raw) as any[];
 								const mappedLocal = parsed.map((x: any) => mapRollLog(x));
@@ -325,6 +412,94 @@ export const useDiceRollerService = () => {
 				);
 			}
 		})();
+		// React to roll target changes: switch listener on the fly
+		rollTargetSvc.target.subscribe((t) => {
+			// Immediately reload local logs for the new target so the panel reflects only that source
+			try {
+				const key =
+					t && t.type === 'party'
+						? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+						: PERSONAL_STORAGE_KEY;
+				const raw = localStorage.getItem(key);
+				if (raw) {
+					const parsed = JSON.parse(raw) as any[];
+					const mappedLocal = parsed.map((x: any) => mapRollLog(x));
+					state.logs.set(mappedLocal);
+				} else {
+					state.logs.set([]);
+				}
+			} catch {
+				state.logs.set([]);
+			}
+			// Stop previous listener
+			if (unsubscribeRemoteLogs) {
+				try {
+					unsubscribeRemoteLogs();
+				} catch {
+					/* ignore */
+				}
+				unsubscribeRemoteLogs = null;
+			}
+			// Start new listener depending on target and auth state
+			if (currentUserId && firebase.isEnabled()) {
+				try {
+					if (t && t.type === 'party') {
+						unsubscribeRemoteLogs = (firebase as any).listenGroupRollLogsForParty(
+							t.partyId,
+							(remoteLogs: any[]) => {
+								applyingRemoteLogsUpdate = true;
+								try {
+									const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
+									const local = get(state.logs) || [];
+									const merged = mergeRemoteAndLocalLogs(mapped, local);
+									state.logs.set(merged);
+								} catch (applyErr) {
+									console.error('[dice-roller-service] Error applying remote logs:', applyErr);
+								} finally {
+									applyingRemoteLogsUpdate = false;
+								}
+							},
+						);
+					} else {
+						unsubscribeRemoteLogs = firebase.listenRollLogsForUser(currentUserId, (remoteLogs) => {
+							applyingRemoteLogsUpdate = true;
+							try {
+								const mapped = (remoteLogs || []).map((r: any) => mapRollLog(r));
+								const local = get(state.logs) || [];
+								const merged = mergeRemoteAndLocalLogs(mapped, local);
+								state.logs.set(merged);
+							} catch (applyErr) {
+								console.error('[dice-roller-service] Error applying remote logs:', applyErr);
+							} finally {
+								applyingRemoteLogsUpdate = false;
+							}
+						});
+					}
+				} catch (listenErr) {
+					console.error('[dice-roller-service] Error starting remote listener:', listenErr);
+				}
+			} else {
+				// Fallback to local logs when not authenticated
+				try {
+					const key = (() => {
+						const t = rollTargetSvc.getTarget();
+						return t && t.type === 'party'
+							? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
+							: PERSONAL_STORAGE_KEY;
+					})();
+					const raw = localStorage.getItem(key);
+					if (raw) {
+						const parsed = JSON.parse(raw) as any[];
+						const mappedLocal = parsed.map((x: any) => mapRollLog(x));
+						state.logs.set(mappedLocal);
+					} else {
+						state.logs.set([]);
+					}
+				} catch (localErr) {
+					console.error('[dice-roller-service] Error loading local logs:', localErr);
+				}
+			}
+		});
 	}
 
 	const openRollModal = ({

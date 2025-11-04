@@ -71,7 +71,7 @@
 	const AUTOSAVE_DELAY = 500;
 
 	function scheduleSave() {
-		if (!selectedParty) return;
+		if (!selectedParty || get(user)?.uid !== selectedParty.ownerId) return;
 		if (saveTimer) clearTimeout(saveTimer);
 		saveTimer = setTimeout(async () => {
 			saveTimer = null;

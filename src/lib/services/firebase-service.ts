@@ -759,6 +759,107 @@ function createFirebaseService() {
 		}
 	}
 
+	// ---------------------- Group roll logs (under parties/{partyId}/rollLogs) ----------------------
+
+	async function saveGroupRollLogsForParty(
+		partyId: string,
+		logs: any[],
+		author?: { id?: string; name?: string; photoURL?: string },
+	): Promise<void> {
+		if (!partyId) throw new Error('partyId required');
+		if (!isBrowser()) return;
+		await ensureFirestore();
+
+		const { doc, writeBatch } = await import('firebase/firestore');
+		// Normalize and enrich with author info if provided
+		const plain = logs.map((l) => {
+			const p = JSON.parse(JSON.stringify(l || {}));
+			if (author) {
+				if (author.id) p.authorId = author.id;
+				if (author.name) p.authorName = author.name;
+				if (author.photoURL) p.authorPhotoURL = author.photoURL;
+			}
+			return p;
+		});
+
+		const MAX_ATTEMPTS = 3;
+		for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+			try {
+				const batch = writeBatch(db);
+				for (const p of plain) {
+					const ref = doc(db, 'parties', partyId, 'rollLogs', p.id);
+					batch.set(ref, p, { merge: true });
+				}
+				await batch.commit();
+				__incWrite(plain.length);
+				return;
+			} catch (err) {
+				console.error(
+					`[firebase-service] saveGroupRollLogsForParty attempt ${attempt} failed:`,
+					err,
+				);
+				if (attempt === MAX_ATTEMPTS) {
+					throw err;
+				}
+				await new Promise((res) => setTimeout(res, 200 * attempt));
+			}
+		}
+	}
+
+	function listenGroupRollLogsForParty(
+		partyId: string,
+		cb: (logs: RollLog[]) => void,
+	): Unsubscribe {
+		if (!isBrowser()) {
+			cb([]);
+			return () => {};
+		}
+		let unsub: Unsubscribe = () => {};
+		(async () => {
+			try {
+				await ensureFirestore();
+				const { collection, onSnapshot } = await import('firebase/firestore');
+				const col = collection(db, 'parties', partyId, 'rollLogs');
+				unsub = onSnapshot(
+					col,
+					(snapshot: any) => {
+						__incRead(snapshot?.size ?? 0);
+						const arr: RollLog[] = [];
+						snapshot.forEach((docSnap: any) => {
+							const data = { ...(docSnap.data() || {}), id: docSnap.id };
+							arr.push(data);
+						});
+						cb(arr);
+					},
+					(error: any) => {
+						console.error('[firebase-service] listenGroupRollLogsForParty snapshot error:', error);
+						cb([]);
+					},
+				);
+			} catch (err) {
+				console.error('[firebase-service] listenGroupRollLogsForParty setup error:', err);
+				cb([]);
+			}
+		})();
+		return () => {
+			try {
+				if (unsub) unsub();
+			} catch {
+				/* ignore */
+			}
+		};
+	}
+
+	async function deleteGroupRollLogForParty(partyId: string, logId: string): Promise<void> {
+		if (!partyId) throw new Error('partyId required');
+		if (!logId) throw new Error('logId required');
+		if (!isBrowser()) return;
+		await ensureFirestore();
+		const { doc, deleteDoc } = await import('firebase/firestore');
+		await deleteDoc(doc(db, 'parties', partyId, 'rollLogs', logId));
+		__incWrite();
+	}
+
 	async function loadRollLogsForUser(userId: string): Promise<RollLog[]> {
 		if (!userId) throw new Error('userId required');
 		if (!isBrowser()) return [];
@@ -996,6 +1097,10 @@ function createFirebaseService() {
 		loadRollLogsForUser,
 		deleteRollLogForUser,
 		listenRollLogsForUser,
+		// group roll logs
+		saveGroupRollLogsForParty,
+		deleteGroupRollLogForParty,
+		listenGroupRollLogsForParty,
 
 		// diagnostics
 		getReadCount: () => __reads,

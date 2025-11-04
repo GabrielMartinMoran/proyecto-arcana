@@ -2,6 +2,30 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    // Helpers
+    function isSignedIn() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    function partyDoc(partyId) {
+      return get(/databases/$(database)/documents/parties/$(partyId));
+    }
+
+    function isPartyOwner(partyId) {
+      return isSignedIn() && partyDoc(partyId).data.ownerId == request.auth.uid;
+    }
+
+    // A member if members[uid] key exists. Change >= 0 to > 0 to require at least one character.
+    function isPartyMember(partyId) {
+      return isSignedIn()
+        && partyDoc(partyId).data.members != null
+        && (request.auth.uid in partyDoc(partyId).data.members);
+    }
+
+    function canAccessParty(partyId) {
+      return isPartyOwner(partyId) || isPartyMember(partyId);
+    }
+
     // Characters
     match /users/{userId}/characters/{characterId} {
       allow read: if true;
@@ -14,6 +38,18 @@ service cloud.firestore {
 
     match /users/{userId}/rollLogs/{logId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Group roll logs under parties
+    match /parties/{partyId}/rollLogs/{logId} {
+      // Read: owner or member can read
+      allow read: if canAccessParty(partyId);
+
+      // Write operations: allow for any user that can access the party (owner or member)
+      // NOTE: No field shape/type validation for now (relaxed while integrating feature)
+      allow create: if canAccessParty(partyId);
+      allow update: if canAccessParty(partyId);
+      allow delete: if canAccessParty(partyId);
     }
 
     match /parties/{partyId} {
