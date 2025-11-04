@@ -8,6 +8,7 @@
 	import { CONFIG } from '../../../config';
 	import CharacterSheet from '../character-sheet/CharacterSheet.svelte';
 	import Notes from '../character-sheet/elements/Notes.svelte';
+	import Container from '../ui/Container.svelte';
 	import TitleField from '../ui/TitleField.svelte';
 
 	type Props = {
@@ -79,6 +80,10 @@
 	// appropriate permissions (UI already limits visibility).
 	async function removeSelectedCharacterFromParty() {
 		if (!party || !selectedCharacterId || !selectedCharacter) return;
+		const proceed = confirm(
+			`¿Seguro que quieres eliminar a '${selectedCharacter.name}' del grupo?`,
+		);
+		if (!proceed) return;
 		const owner = getCharacterOwner(selectedCharacterId);
 		const u = get(user);
 		if (!owner || !u || u.uid !== party.ownerId) return;
@@ -164,13 +169,10 @@
 	</div>
 
 	{#if currentPartySheetTab === 'members'}
-		<!-- Members layout: single column showing horizontal tabs and the selected character sheet -->
-		<div class="members-layout">
-			<div class="members-sheePts">
-				<h3>Hojas de Miembros</h3>
-
+		<div class="members-tab">
+			<Container title="Miembros">
 				<!-- Horizontal character tabs above the character sheet.
-							 Use the same .tabs / .tab classes as the character sheet so styles match. -->
+						 Use the same .tabs / .tab classes as the character sheet so styles match. -->
 				<div class="tabs">
 					{#each party.characters as character (character.id)}
 						<button
@@ -184,7 +186,7 @@
 				</div>
 
 				{#if selectedCharacter}
-					<div class="character-sheet-wrap">
+					<Container>
 						<CharacterSheet
 							character={selectedCharacter}
 							readonly={readonly && getCharacterOwner(selectedCharacter.id) !== $user?.uid}
@@ -208,25 +210,28 @@
 							allowPartyChange={false}
 						/>
 						{#if !readonly}
-							<button
-								class="remove-from-group"
-								onclick={async () => {
-									await removeSelectedCharacterFromParty();
-								}}
-							>
-								Eliminar del grupo
-							</button>
+							<div class="actions">
+								<button
+									class="danger"
+									onclick={async () => {
+										await removeSelectedCharacterFromParty();
+									}}
+								>
+									Eliminar del grupo
+								</button>
+							</div>
 						{/if}
-					</div>
+					</Container>
 				{:else}
 					<div class="empty">Selecciona un personaje arriba para ver su ficha aquí.</div>
 				{/if}
-			</div>
+			</Container>
 		</div>
 	{:else}
-		<!-- Notes tab: reuse existing Notes component -->
 		<div class="notes-tab">
-			<Notes notes={party.notes} {readonly} onChange={(notes) => onNotesChange(notes)} />
+			<Container title="Notas">
+				<Notes notes={party.notes} {readonly} onChange={(notes) => onNotesChange(notes)} />
+			</Container>
 		</div>
 	{/if}
 </div>
@@ -243,6 +248,25 @@
 			flex-direction: row;
 			flex-wrap: wrap;
 			gap: var(--spacing-sm);
+		}
+
+		.members-tab {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-md);
+
+			.tabs {
+				margin-bottom: var(--spacing-sm);
+			}
+
+			.actions {
+				display: flex;
+				flex-direction: row;
+				justify-content: end;
+				align-items: center;
+				gap: var(--spacing-md);
+				margin-top: var(--spacing-md);
+			}
 		}
 
 		.spacer {

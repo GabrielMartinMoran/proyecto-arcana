@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import { useFirebaseService } from '$lib/services/firebase-service';
@@ -17,6 +19,26 @@
 	// Firebase helper used to fetch party metadata (ownerId) when Party ID is entered.
 	const firebase = useFirebaseService();
 
+	// Estado local: nombre del grupo (si existe)
+	let partyName: string | null = $state(null);
+
+	// Cargar el nombre del grupo cuando hay un partyId inicial o cambie
+	$effect(async () => {
+		const pid = character?.party?.partyId ?? null;
+		if (!pid) {
+			partyName = null;
+			return;
+		}
+		try {
+			await firebase.initFirebase();
+			const party = await firebase.loadParty(pid);
+			console.log('[SettingsTab] Getting party name');
+			partyName = party?.name ?? null;
+		} catch {
+			partyName = null;
+		}
+	});
+
 	/**
 	 * When the Party ID field changes we set only the canonical `partyId`.
 	 * We may read the party document to show information, but we DO NOT write a nested
@@ -32,6 +54,7 @@
 			// Clear local fields so UI reflects the change immediately
 			character.party.partyId = null;
 			character.party.ownerId = null;
+			partyName = null;
 			onChange(character);
 
 			// Best-effort removal from party members subcollection (if any)
@@ -82,7 +105,8 @@
 			await firebase.initFirebase();
 			const party = await firebase.loadParty(pid);
 			character.party.ownerId = party?.ownerId ?? null;
-			// Read-only: we fetched party info for UX only. We DO NOT persist a nested object here.
+			partyName = party?.name ?? null;
+			// Read-only: we fetched party info for UX only. We DO NOT persist a nested
 			// The canonical field `character.partyId` is set above; `partyOwnerId` will be denormalized
 			// by the save flow (server/service) when the character is persisted.
 		} catch (err) {
@@ -92,6 +116,7 @@
 				partyId: null,
 				ownerId: null,
 			};
+			partyName = null;
 		} finally {
 			// Notify parent about the change so the character is persisted like other fields
 			onChange(character);
@@ -160,6 +185,10 @@
 		if (!proceed) return;
 		onPartyIdChange(null);
 	};
+
+	const goToParty = () => {
+		goto(resolve(`/parties?partyId=${character.party.partyId}`));
+	};
 </script>
 
 {#if allowPartyChange}
@@ -167,16 +196,19 @@
 		<div class="party">
 			<InputField
 				label="Grupo Actual"
-				placeholder="Sin grupo. Pidele a tu DJ el ID del grupo"
-				value={character.party.partyId ?? ''}
+				placeholder="Ninguno, pidele a tu DJ el ID del grupo"
+				value={partyName ?? character.party.partyId ?? ''}
 				readonly={true}
 				fullWidth={true}
 			/>
-			{#if !character.party.partyId}
-				<button onclick={joinParty}>Unirse a un Grupo</button>
-			{:else}
-				<button onclick={leaveParty}>Abandonar Grupo</button>
-			{/if}
+			<div class="buttons">
+				{#if !character.party.partyId}
+					<button onclick={joinParty}>Unirse a un Grupo</button>
+				{:else}
+					<button onclick={leaveParty}>Abandonar Grupo</button>
+					<button onclick={goToParty}>Ver Grupo</button>
+				{/if}
+			</div>
 		</div>
 	</Container>
 {/if}
@@ -219,10 +251,19 @@
 <style>
 	.party {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: var(--spacing-md);
+
+		.buttons {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+			width: 100%;
+			gap: var(--spacing-md);
+		}
 	}
 
 	.general {

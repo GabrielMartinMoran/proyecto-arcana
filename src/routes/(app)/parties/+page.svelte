@@ -32,9 +32,8 @@
 
 	// Local UI state
 	let selectedParty: Party | undefined = $derived($parties.find((p) => p.id === selectedPartyId));
-	let membersUnsub: (() => void) | null = null;
+
 	let isSaving = $state(false);
-	let isDeleting = $state(false);
 
 	// -------------------------------
 	const onUserChange = async () => {
