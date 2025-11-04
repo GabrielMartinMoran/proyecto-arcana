@@ -185,7 +185,15 @@
 					{/each}
 				</div>
 
-				{#if selectedCharacter}
+				{#if Object.keys(party?.members ?? {}).length === 0}
+					<div class="empty">
+						<p>No hay miembros en este grupo!</p>
+						<p>
+							Pueder invitar a otros personajes copiando el ID de invitación y compartiendolo con
+							ellos.
+						</p>
+					</div>
+				{:else if selectedCharacter}
 					<Container>
 						<CharacterSheet
 							character={selectedCharacter}
