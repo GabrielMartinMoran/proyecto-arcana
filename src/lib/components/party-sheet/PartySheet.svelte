@@ -6,6 +6,7 @@
 	import TitleField from '../ui/TitleField.svelte';
 	import PartyMembersTab from './tabs/PartyMembersTab.svelte';
 	import PartyNotesTab from './tabs/PartyNotesTab.svelte';
+	import PartySeeAsMDTab from './tabs/PartySeeAsMDTab.svelte';
 
 	type Props = {
 		party: Party;
@@ -156,12 +157,20 @@
 		>
 			Notas
 		</button>
+		<button
+			class:selected={currentPartySheetTab === 'see_as_md'}
+			onclick={() => onPartySheetTabChange('see_as_md')}
+		>
+			Ver como MD
+		</button>
 		<span class="spacer"></span>
 		<button onclick={copyPartyId}> Copiar ID de invitación </button>
 	</div>
 
 	{#if currentPartySheetTab === 'members'}
 		<PartyMembersTab {party} {readonly} {onChange} />
+	{:else if currentPartySheetTab === 'see_as_md'}
+		<PartySeeAsMDTab {party} {readonly} {onChange} />
 	{:else}
 		<PartyNotesTab {party} {readonly} {onChange} />
 	{/if}
