@@ -127,8 +127,13 @@ const subscribePersistence = () => {
 
 				for (const item of changed) {
 					try {
-						await firebase.saveParty(item.party);
-						__lastSavedParties[item.id] = item.payload;
+						// Persist only if the current user is the owner to avoid permission errors for members
+						if (currentUserId === item.party.ownerId) {
+							await firebase.saveParty(item.party);
+							__lastSavedParties[item.id] = item.payload;
+						} else {
+							// Skip cloud save for non-owners; they still receive updates via listeners
+						}
 					} catch (err) {
 						console.error('[parties-service] Failed saving party', item?.id, err);
 						// continue with other parties
