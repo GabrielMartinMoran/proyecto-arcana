@@ -20,7 +20,7 @@ import { get, writable } from 'svelte/store';
 
 const STORAGE_KEY = 'arcana:parties';
 const PENDING_DELETES_KEY = 'arcana:pendingPartyDeletes';
-const UPDATE_STORE_DEBOUNCE_MS = 100;
+const UPDATE_STORE_DEBOUNCE_MS = 500;
 
 const state = {
 	partiesStore: writable<Party[]>([]),
