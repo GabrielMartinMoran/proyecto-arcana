@@ -4,8 +4,7 @@
 	import CharacterSheet from '$lib/components/character-sheet/CharacterSheet.svelte';
 	import type { Character } from '$lib/types/character';
 	import type { Writable } from 'svelte/store';
-
-	const DEFAULT_TAB = 'general';
+	import { CONFIG } from '../../../config';
 
 	type Props = {
 		characters: Writable<Character[]>;
@@ -40,12 +39,14 @@
 	}: Props = $props();
 
 	let selectedCharacterId: string | null = $derived(page.url.searchParams.get('characterId'));
-	let currentTab: string = $derived(page.url.searchParams.get('tab') ?? DEFAULT_TAB);
+	let currentTab: string = $derived(
+		page.url.searchParams.get('tab') ?? CONFIG.DEFAULT_CHARACTER_SHEET_TAB,
+	);
 
 	const selectCharacter = (character: Character | null) => {
 		if (character !== null) {
 			page.url.searchParams.set('characterId', character.id);
-			page.url.searchParams.set('tab', DEFAULT_TAB);
+			page.url.searchParams.set('tab', CONFIG.DEFAULT_CHARACTER_SHEET_TAB);
 		} else {
 			page.url.searchParams.delete('characterId');
 			page.url.searchParams.delete('tab');

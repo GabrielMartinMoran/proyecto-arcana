@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
+	import { useFirebaseService } from '$lib/services/firebase-service';
+	import { usePartiesService } from '$lib/services/parties-service';
+	import { useRollTargetService } from '$lib/services/roll-target-service';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 	import type { RollLog } from '$lib/types/roll-log';
@@ -16,7 +19,28 @@
 
 	let { rollLogs, rollExpression } = useDiceRollerService();
 
+	const rollTarget = useRollTargetService();
+	const { parties, loadParties } = usePartiesService();
+	const { target } = rollTarget;
+
+	const firebase = useFirebaseService();
+	const { user } = firebase;
+
+	const onTargetSelect = (val: string) => {
+		if (!val) return;
+		if (val === 'personal') {
+			rollTarget.setPersonalTarget();
+			return;
+		}
+		if (val.startsWith('party:')) {
+			const partyId = val.slice('party:'.length);
+			const p = ($parties || []).find((pp) => pp.id === partyId);
+			rollTarget.setPartyTarget(partyId, p ? p.name : undefined);
+		}
+	};
+
 	let currentExpression = $state('');
+	let displayedLogs: RollLog[] = $state([]);
 
 	let logList: HTMLElement | undefined;
 
@@ -32,6 +56,7 @@
 			// First subscription - just initialize tracking
 			lastLogIds = new Set(logs.map((log) => log.id).filter(Boolean));
 			hasInitialized = true;
+			displayedLogs = logs;
 			return;
 		}
 
@@ -48,17 +73,36 @@
 		}
 
 		lastLogIds = currentIds;
+		displayedLogs = logs;
 	});
 
 	// Watch for panel expansion to scroll to bottom when opened
 	dicePanelExpandedStore.subscribe((expanded) => {
 		if (expanded && !wasPanelExpanded && hasInitialized) {
-			// Panel just opened - scroll to bottom after a short delay
+			// Panel just opened - scroll to bottom when opened
 			setTimeout(() => {
 				logList?.scroll({ top: logList.scrollHeight, behavior: 'smooth' });
 			}, SCROLL_DELAY);
 		}
 		wasPanelExpanded = expanded;
+	});
+
+	// Reconcile roll target accessibility whenever the accessible parties list changes
+	parties.subscribe((ps) => {
+		try {
+			const ids = (ps || []).map((p) => p.id);
+			rollTarget.reconcileAccessibility(ids);
+		} catch {
+			/* ignore */
+		}
+	});
+
+	// When target changes, clear current displayed logs so the list reflects only the new source
+	target.subscribe(() => {
+		displayedLogs = [];
+		// Reset detection so first emission from new source doesn't auto-scroll as "new"
+		hasInitialized = false;
+		lastLogIds = new Set();
 	});
 
 	const onBodyClick = (event: MouseEvent) => {
@@ -77,7 +121,13 @@
 		alert('Resultado copiado al portapapeles');
 	};
 
-	onMount(() => {
+	onMount(async () => {
+		// Ensure parties service is loaded so the target selector is populated and reacts to changes
+		try {
+			await loadParties();
+		} catch {
+			/* ignore load errors */
+		}
 		// Scroll to bottom on initial mount
 		setTimeout(() => {
 			logList?.scroll({ top: logList.scrollHeight, behavior: 'instant' });
@@ -92,7 +142,7 @@
 	onclick={onBodyClick}
 >
 	<div class="log" bind:this={logList}>
-		{#each $rollLogs as log (log.id)}
+		{#each displayedLogs as log (log.id)}
 			<div class="log-item">
 				<span class="title">{log.title}</span>
 				<div class="total-container" onclick={() => copyLog(log)} title="Copiar resultado">
@@ -103,6 +153,11 @@
 					{/if}
 				</div>
 				<span class="detail">{@html log.detail}</span>
+				{#if (log as any).authorId && (log as any).authorId === $user?.uid}
+					<span class="roll-author">Tú</span>
+				{:else if (log as any).authorName}
+					<span class="roll-author">{(log as any).authorName}</span>
+				{/if}
 			</div>
 		{:else}
 			<div class="empty">
@@ -111,6 +166,23 @@
 		{/each}
 	</div>
 	<div class="controls">
+		<div class="target-select">
+			<label for="roll-target">Canal</label>
+			<select
+				id="roll-target"
+				onchange={(e) => onTargetSelect((e.target as HTMLSelectElement).value)}
+			>
+				<option value="personal" selected={$target.type === 'personal'}>👤 Personal</option>
+				{#each $parties as p (p.id)}
+					<option
+						value={`party:${p.id}`}
+						selected={$target.type === 'party' && $target.partyId === p.id}
+					>
+						👥 {p.name}
+					</option>
+				{/each}
+			</select>
+		</div>
 		<div class="quick-dices">
 			{#each CONFIG.STANDARD_DICES as dice (dice)}
 				<button class="quick-dice-btn" onclick={() => onExpressionRoll(`1${dice}`)}>{dice}</button>
@@ -237,12 +309,25 @@
 						font-weight: 600;
 					}
 				}
+
+				.roll-author {
+					font-size: 0.75rem;
+					color: var(--text-secondary);
+					text-align: center;
+				}
 			}
 		}
 
 		.controls {
 			margin: var(--spacing-sm);
 
+			.target-select {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: var(--spacing-sm);
+				margin-bottom: var(--spacing-sm);
+			}
 			.quick-dices {
 				display: flex;
 				flex-direction: row;

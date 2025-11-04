@@ -4,6 +4,7 @@ import { Character } from '$lib/types/character';
 import { writable } from 'svelte/store';
 
 const STORAGE_KEY = 'arcana:characters';
+const PENDING_DELETES_KEY = 'arcana:pendingCharacterDeletes';
 
 const state = {
 	charactersStore: writable<Character[]>([]),
@@ -18,8 +19,9 @@ let unsubscribeRemote: (() => void) | null = null;
 let storeUnsub: (() => void) | null = null;
 let applyingRemoteUpdate = false;
 
+const firebase = useFirebaseService();
+
 // pending deletes queue persisted locally so deletions survive reloads
-const PENDING_DELETES_KEY = 'arcana:pendingCharacterDeletes';
 const pendingDeletes: string[] = (() => {
 	try {
 		const raw = (() => {
@@ -69,8 +71,6 @@ const processPendingDeletes = async (userId: string) => {
 		}
 	}
 };
-
-const firebase = useFirebaseService();
 
 /**
  * Subscribe persistence for the characters store.
@@ -193,7 +193,7 @@ export const useCharactersService = () => {
 							console.warn('[characters-service] processPendingDeletes failed:', err);
 						});
 					} catch (err) {
-						console.error('Error starting remote listener:', err);
+						console.error('[characters-service] Error starting remote listener:', err);
 					}
 				} else {
 					// No remote user: stop any remote listener and load local cached characters

@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helpers
+    function isSignedIn() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    function partyDoc(partyId) {
+      return get(/databases/$(database)/documents/parties/$(partyId));
+    }
+
+    function isPartyOwner(partyId) {
+      return isSignedIn() && partyDoc(partyId).data.ownerId == request.auth.uid;
+    }
+
+    // A member if members[uid] key exists. Change >= 0 to > 0 to require at least one character.
+    function isPartyMember(partyId) {
+      return isSignedIn()
+        && partyDoc(partyId).data.members != null
+        && (request.auth.uid in partyDoc(partyId).data.members);
+    }
+
+    function canAccessParty(partyId) {
+      return isPartyOwner(partyId) || isPartyMember(partyId);
+    }
+
+    // Characters
+    match /users/{userId}/characters/{characterId} {
+      allow read: if true;
+      allow create, delete: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && (
+        request.auth.uid == userId ||
+        (resource.data.party != null && resource.data.party.ownerId == request.auth.uid)
+      );
+    }
+
+    match /users/{userId}/rollLogs/{logId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Group roll logs under parties
+    match /parties/{partyId}/rollLogs/{logId} {
+      // Read: owner or member can read
+      allow read: if canAccessParty(partyId);
+
+      // Write operations: allow for any user that can access the party (owner or member)
+      // NOTE: No field shape/type validation for now (relaxed while integrating feature)
+      allow create: if canAccessParty(partyId);
+      allow update: if canAccessParty(partyId);
+      allow delete: if canAccessParty(partyId);
+    }
+
+    match /parties/{partyId} {
+      allow get, list: if request.auth != null;
+
+      // create: sólo dueño; no validamos members aquí para evitar falsos negativos
+      allow create: if request.auth != null
+        && request.resource.data.ownerId == request.auth.uid;
+
+      // update:
+      // - dueño: todo
+      // - miembro: sólo su ruta anidada members.<uid>
+      allow update: if request.auth != null && (
+        request.auth.uid == resource.data.ownerId
+        ||
+        request.writeFields.hasOnly(['members.' + request.auth.uid])
+      );
+
+      // delete: sólo dueño
+      allow delete: if request.auth != null && resource.data.ownerId == request.auth.uid;
+    }
+  }
+}

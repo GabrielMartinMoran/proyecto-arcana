@@ -57,6 +57,10 @@
 			path: resolve('/characters'),
 			label: '🎭 Mis Personajes',
 		},
+		{
+			path: resolve('/parties'),
+			label: '👥 Grupos',
+		},
 	];
 
 	const navigateRoute = (event: MouseEvent, path: string) => {
@@ -99,19 +103,9 @@
 		</div>
 	{/if}
 
-	<div class="public-routes">
-		{#each PUBLIC_ROUTES as route (route.path)}
-			<a
-				href={route.path}
-				class:active={path === route.path}
-				onclick={(event) => navigateRoute(event, route.path)}>{route.label}</a
-			>
-		{/each}
-	</div>
-
-	{#if $user}
-		<div class="private-routes">
-			{#each PRIVATE_ROUTES as route (route.path)}
+	<div class="routes">
+		<div class="public-routes">
+			{#each PUBLIC_ROUTES as route (route.path)}
 				<a
 					href={route.path}
 					class:active={path === route.path}
@@ -119,7 +113,19 @@
 				>
 			{/each}
 		</div>
-	{/if}
+
+		{#if $user}
+			<div class="private-routes">
+				{#each PRIVATE_ROUTES as route (route.path)}
+					<a
+						href={route.path}
+						class:active={path === route.path}
+						onclick={(event) => navigateRoute(event, route.path)}>{route.label}</a
+					>
+				{/each}
+			</div>
+		{/if}
+	</div>
 
 	<span class="spacer"></span>
 
@@ -197,17 +203,24 @@
 			margin-left: var(--spacing-md);
 		}
 
-		.public-routes {
+		.routes {
 			display: flex;
 			flex-direction: column;
-		}
+			overflow-y: auto;
+			scrollbar-width: thin;
 
-		.private-routes {
-			display: flex;
-			flex-direction: column;
-			border-top: 1px solid var(--border-color);
-			margin-top: var(--spacing-sm);
-			padding-top: var(--spacing-sm);
+			.public-routes {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.private-routes {
+				display: flex;
+				flex-direction: column;
+				border-top: 1px solid var(--border-color);
+				margin-top: var(--spacing-sm);
+				padding-top: var(--spacing-sm);
+			}
 		}
 
 		.spacer {

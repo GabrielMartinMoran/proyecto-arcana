@@ -7,9 +7,8 @@
 	import { Character } from '$lib/types/character';
 	import { onDestroy } from 'svelte';
 	import { get } from 'svelte/store';
+	import { CONFIG } from '../../../config';
 	import CharactersPageLayout from './CharactersPageLayout.svelte';
-
-	const NO_USER_REDIRECT_DELAY = 500;
 
 	// Characters service (now cloud-aware)
 	let { characters, loadCharacters, deleteCharacter } = useCharactersService();
@@ -31,7 +30,7 @@
 		if (!firebaseReady) return;
 		setTimeout(() => {
 			onUserChange();
-		}, NO_USER_REDIRECT_DELAY);
+		}, CONFIG.NO_USER_REDIRECT_DELAY);
 	});
 
 	onDestroy(() => {
