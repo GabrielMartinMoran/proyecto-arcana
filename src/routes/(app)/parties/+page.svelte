@@ -156,7 +156,11 @@
 					onclick={() => openParty(party)}
 				>
 					{#if party.ownerId}
-						<span class="owner" title="Owner">{party.ownerId === $user?.uid ? '👑' : '👥'}</span>
+						<span
+							class="owner"
+							title={`${party.ownerId === $user?.uid ? 'Dueño' : 'Miembro'} del grupo`}
+							>{party.ownerId === $user?.uid ? '👑' : '👤'}</span
+						>
 					{/if}
 					<span class="name">{party.name}</span>
 				</button>
