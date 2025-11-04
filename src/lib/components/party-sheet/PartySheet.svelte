@@ -122,6 +122,13 @@
 		}
 		return null;
 	};
+
+	const copyPartyId = () => {
+		navigator.clipboard.writeText(party.id);
+		alert(
+			'ID de invitación copiado al portapapeles!\n\nPásaselo a tus jugadores para que agreguen sus personajes al grupo desde la pestaña de configuración de las hojas de personaje.',
+		);
+	};
 </script>
 
 <div class="party-sheet">
@@ -152,6 +159,8 @@
 		>
 			Notas
 		</button>
+		<span class="spacer"></span>
+		<button onclick={copyPartyId}> Copiar ID de invitación </button>
 	</div>
 
 	{#if currentPartySheetTab === 'members'}
@@ -234,6 +243,10 @@
 			flex-direction: row;
 			flex-wrap: wrap;
 			gap: var(--spacing-sm);
+		}
+
+		.spacer {
+			flex-grow: 1;
 		}
 	}
 </style>

@@ -22,7 +22,7 @@
 	 * We may read the party document to show information, but we DO NOT write a nested
 	 * `character.party` object. `partyOwnerId` is populated by the persistent save flow.
 	 */
-	async function onPartyIdChange(value: string) {
+	async function onPartyIdChange(value: string | null) {
 		const pid = value?.toString()?.trim();
 		// Capture previous partyId so we can attempt to remove the character from that party if needed.
 		const prevPid = character.party.partyId;
@@ -148,7 +148,38 @@
 			}
 		}
 	}
+
+	const joinParty = async () => {
+		const partyId = prompt('Introduce el ID del grupo al que quieres unirte:');
+		if (!partyId) return;
+		onPartyIdChange(partyId);
+	};
+
+	const leaveParty = async () => {
+		const proceed = confirm('¿Seguro que quieres abandonar el grupo actual?');
+		if (!proceed) return;
+		onPartyIdChange(null);
+	};
 </script>
+
+{#if allowPartyChange}
+	<Container title="Grupo">
+		<div class="party">
+			<InputField
+				label="Grupo Actual"
+				placeholder="Sin grupo. Pidele a tu DJ el ID del grupo"
+				value={character.party.partyId ?? ''}
+				readonly={true}
+				fullWidth={true}
+			/>
+			{#if !character.party.partyId}
+				<button onclick={joinParty}>Unirse a un Grupo</button>
+			{:else}
+				<button onclick={leaveParty}>Abandonar Grupo</button>
+			{/if}
+		</div>
+	</Container>
+{/if}
 
 <Container title="General">
 	<div class="general">
@@ -168,19 +199,6 @@
 				onChange(character);
 			}}
 		/>
-		{#if allowPartyChange}
-			<InputField
-				label="ID del Grupo"
-				value={character.party.partyId ?? ''}
-				fullWidth={true}
-				placeholder="Pídele te tu DJ el valor"
-				textAlign="left"
-				onChange={(value) => {
-					// When party id changes, set partyId. partyOwnerId will be denormalized on save.
-					onPartyIdChange(String(value));
-				}}
-			/>
-		{/if}
 	</div>
 </Container>
 <Container title="Modificadores">
@@ -199,6 +217,14 @@
 </Container>
 
 <style>
+	.party {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
 	.general {
 		display: flex;
 		flex-direction: column;
