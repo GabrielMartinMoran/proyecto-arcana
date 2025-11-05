@@ -43,6 +43,7 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 - **Historia:** Refleja tu conocimiento sobre eventos pasados, reinos legendarios, dinastías antiguas y personajes históricos.
 - **Investigación:** Representa tu capacidad para deducir, encontrar pistas ocultas, descifrar códigos y conectar información a partir de la evidencia.
 - **Naturaleza:** Mide tu conocimiento sobre flora y fauna, ecosistemas, venenos naturales y remedios herbales.
+- **Religión:** Representa tu conocimiento acerca de los panteones, sus dogmas, sus rituales y sus conflictos.
 
 **Instinto:**
 
