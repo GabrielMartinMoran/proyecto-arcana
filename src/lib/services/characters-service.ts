@@ -5,6 +5,7 @@ import { writable } from 'svelte/store';
 
 const STORAGE_KEY = 'arcana:characters';
 const PENDING_DELETES_KEY = 'arcana:pendingCharacterDeletes';
+const UPDATE_STORE_DEBOUNCE_MS = 500;
 
 const state = {
 	charactersStore: writable<Character[]>([]),
@@ -18,6 +19,7 @@ let unsubscribeAuth: (() => void) | null = null;
 let unsubscribeRemote: (() => void) | null = null;
 let storeUnsub: (() => void) | null = null;
 let applyingRemoteUpdate = false;
+let scheduledStoreUpdate = null as NodeJS.Timeout | null;
 
 const firebase = useFirebaseService();
 
@@ -98,7 +100,13 @@ const subscribePersistance = () => {
 		try {
 			if (currentUserId && firebase.isEnabled()) {
 				// Save into Firestore, non-blocking
-				await firebase.saveCharactersForUser(currentUserId, characters);
+				if (scheduledStoreUpdate) {
+					clearTimeout(scheduledStoreUpdate);
+				}
+				scheduledStoreUpdate = setTimeout(async () => {
+					scheduledStoreUpdate = null;
+					await firebase.saveCharactersForUser(currentUserId!, characters);
+				}, UPDATE_STORE_DEBOUNCE_MS);
 			}
 		} catch (error) {
 			console.error('Error persisting characters to cloud:', error);

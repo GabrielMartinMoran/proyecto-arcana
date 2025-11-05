@@ -17,7 +17,7 @@
 		onChange: (character: Character) => void;
 		currentTab: string;
 		onTabChange: (tab: string) => void;
-		allowPartyChange: boolean;
+		allowPartyChange?: boolean;
 	};
 
 	let {
@@ -95,21 +95,10 @@
 	);
 	let currentTabReference: Tab = $derived(TABS.find((tab) => tab.name === currentTab) ?? TABS[0]);
 
-	let __saveTimeout: ReturnType<typeof setTimeout> | null = null;
-	const SAVE_DEBOUNCE_MS = 500;
-
-	const onCharacterChangeDebounced = (chara: Character) => {
+	const onCharacterChange = (chara: Character) => {
 		const newChara = chara.copy();
-		// Update local state immediately for UX responsiveness
 		character = newChara;
-		// Debounce the external save emission
-		if (__saveTimeout) {
-			clearTimeout(__saveTimeout);
-		}
-		__saveTimeout = setTimeout(() => {
-			__saveTimeout = null;
-			onChange(newChara);
-		}, SAVE_DEBOUNCE_MS);
+		onChange(newChara);
 	};
 
 	const changeTab = (index: number) => {
@@ -125,7 +114,7 @@
 			{readonly}
 			onChange={(value) => {
 				character.name = value;
-				onCharacterChangeDebounced(character);
+				onCharacterChange(character);
 			}}
 		/>
 	</div>
@@ -143,7 +132,7 @@
 	<currentTabReference.component
 		{character}
 		{readonly}
-		onChange={onCharacterChangeDebounced}
+		onChange={onCharacterChange}
 		{allowPartyChange}
 	/>
 </div>
