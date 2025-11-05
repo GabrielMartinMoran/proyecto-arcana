@@ -104,8 +104,10 @@ const subscribePersistance = () => {
 					clearTimeout(scheduledStoreUpdate);
 				}
 				scheduledStoreUpdate = setTimeout(async () => {
+					applyingRemoteUpdate = true;
 					scheduledStoreUpdate = null;
 					await firebase.saveCharactersForUser(currentUserId!, characters);
+					applyingRemoteUpdate = false;
 				}, UPDATE_STORE_DEBOUNCE_MS);
 			}
 		} catch (error) {
