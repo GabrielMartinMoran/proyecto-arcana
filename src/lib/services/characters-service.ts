@@ -1,11 +1,12 @@
 import { resolve } from '$app/paths';
 import { useFirebaseService } from '$lib/services/firebase-service';
 import { Character } from '$lib/types/character';
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 
 const STORAGE_KEY = 'arcana:characters';
 const PENDING_DELETES_KEY = 'arcana:pendingCharacterDeletes';
 const UPDATE_STORE_DEBOUNCE_MS = 500;
+const LOCAL_EDIT_GUARD_MS = 1500;
 
 const state = {
 	charactersStore: writable<Character[]>([]),
@@ -20,6 +21,10 @@ let unsubscribeRemote: (() => void) | null = null;
 let storeUnsub: (() => void) | null = null;
 let applyingRemoteUpdate = false;
 let scheduledStoreUpdate = null as NodeJS.Timeout | null;
+
+// Track last local edit timestamps per character to guard against remote snapshot overwrites
+const lastLocalEditAt: Record<string, number> = {};
+const prevSnapshotById: Map<string, string> = new Map();
 
 const firebase = useFirebaseService();
 
@@ -87,6 +92,30 @@ const subscribePersistance = () => {
 		// If the update originated from remote snapshot, do not echo back
 		if (applyingRemoteUpdate) return;
 
+		// Mark locally edited characters (by comparing with previous snapshots)
+		try {
+			const now = Date.now();
+			for (const c of characters) {
+				if (!c || !c.id) continue;
+				const snap = JSON.stringify(c);
+				const prev = prevSnapshotById.get(c.id);
+				if (prev !== snap) {
+					lastLocalEditAt[c.id] = now;
+					prevSnapshotById.set(c.id, snap);
+				}
+			}
+			// Cleanup entries for characters that are no longer present
+			const currentIds = new Set(characters.map((c) => c.id));
+			for (const key of Array.from(prevSnapshotById.keys())) {
+				if (!currentIds.has(key)) {
+					prevSnapshotById.delete(key);
+					delete lastLocalEditAt[key];
+				}
+			}
+		} catch {
+			/* ignore marking errors */
+		}
+
 		// Serialize once and always persist locally first so reloads reflect the latest local state
 		const serialized = JSON.stringify(characters);
 		try {
@@ -149,7 +178,30 @@ const startRemoteListener = (userId: string) => {
 		// Avoid triggering the persistance subscription while applying remote update
 		applyingRemoteUpdate = true;
 		try {
-			state.charactersStore.set(characters.map((c) => new Character(c)));
+			// Merge remote snapshot with local edits: preserve locally edited characters for a short window
+			const local = get(state.charactersStore) as Character[];
+			const now = Date.now();
+			const merged = characters.map((c: any) => {
+				const id = c?.id;
+				const recentLocalEdit =
+					id &&
+					lastLocalEditAt[id] !== undefined &&
+					now - lastLocalEditAt[id] < LOCAL_EDIT_GUARD_MS;
+				if (recentLocalEdit) {
+					const localEnt = local.find((l: any) => l?.id === id);
+					if (localEnt) {
+						return localEnt;
+					}
+				}
+				const inst = new Character(c);
+				// Update snapshot tracker with the applied value
+				if (id) {
+					prevSnapshotById.set(id, JSON.stringify(inst));
+				}
+				return inst;
+			});
+			// Apply merged result
+			state.charactersStore.set(merged);
 		} finally {
 			// Small safeguard: allow future local modifications to persist
 			applyingRemoteUpdate = false;
