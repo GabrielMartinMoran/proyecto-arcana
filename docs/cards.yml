@@ -251,7 +251,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Puedes hacer un pacto con tu propia sangre para forzar el destino, a un precio. Obtienes Visión en la Oscuridad. Además, una vez por día de descanso, puedes elegir tener éxito automático en una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado).<br>
+      Puedes hacer un pacto con tu propia sangre para forzar el destino, a un precio. Obtienes Visión en la Oscuridad. Además, una vez por día de descanso, puedes elegir sacar un 6 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br>
       Al hacerlo, obtienes un "Dado de Deuda" (un d6). Mientras tengas este dado, la próxima vez que debas realizar una tirada de ataque, prueba de habilidad o tirada de salvación, debes lanzar el Dado de Deuda junto con tu tirada normal.<br>
       - Si el Dado de Deuda resulta en un 1, tu tirada se considera un fallo crítico independientemente de tu resultado, y la deuda se salda (el dado se retira).<br>
       - Si el resultado es cualquier otro número, no ocurre nada adicional y conservas el Dado de Deuda para tu siguiente tirada.
