@@ -1410,7 +1410,8 @@ cards:
       **Beneficio de Arquetipo:** La primera vez que activas este Beneficio de Arquetipo,
       eliges dos cartas de Nivel 1 que deben tener las etiquetas _Arcanista_ y _Ritual_.
       Esta elección es permanente. Las dos cartas elegidas se añaden a tu Colección,
-      pero solo tienes acceso a ellas mientras este sea tu Beneficio de Arquetipo activo.
+      y tienes acceso a ellas mientras este sea tu Beneficio de Arquetipo activo.
+      Sin embargo, solo puedes utilizar estas cartas en forma de ritual a menos que las adquieras de otro modo.
       Además, aprendes dos idiomas adicionales.
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
@@ -1515,8 +1516,8 @@ cards:
     description: >-
       Una barrera de energía te protege. Mientras no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.
     uses:
-      type: LONG_REST
-      qty: 1
+      type: RELOAD
+      qty: 6
   - name: Mano de Mago
     level: 1
     type: activable
@@ -1589,7 +1590,6 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-      - Ritual
     requirements:
       - Afinidad Arcana
     description: >-
@@ -3063,7 +3063,7 @@ cards:
       - Presencia 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br>
-      **Beneficio de Arquetipo:** Aprendes dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las pruebas de habilidad de Perspicacia e Intimidación.
+      **Beneficio de Arquetipo:** Aprendes dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las pruebas de habilidad de Engaño y Perspicacia.
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
