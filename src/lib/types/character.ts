@@ -154,6 +154,16 @@ export class Character {
 	copy() {
 		return new Character({ ...this });
 	}
+
+	getExportableData() {
+		return {
+			...this,
+			party: {
+				partyId: null,
+				ownerId: null,
+			},
+		};
+	}
 }
 
 export interface CharacterCard {

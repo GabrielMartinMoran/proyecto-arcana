@@ -1441,7 +1441,7 @@ cards:
       - Afinidad Arcana
     description: >-
       Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
-      de conjuro a distancia (1d6+Mente) contra un objetivo a distancia Cercana. Si
+      de conjuro (1d6+Mente) a distancia Cercana contra un objetivo. Si
       impactas, infliges 1d8 de daño del tipo elegido.
     uses:
       type: RELOAD
@@ -1483,7 +1483,7 @@ cards:
       - Afinidad Arcana
       - Mente 3
     description: >-
-      Generas una perturbación mental en una criatura que puedas ver a rango Cercano.
+      Generas una perturbación mental en una criatura que puedas ver a distancia Cercana.
       La criatura debe superar una Tirada de Salvación de Mente (NA 4+Mente) o sufrir 2d6 de daño Psíquico y tener desventaja
       en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
     uses:

@@ -68,7 +68,8 @@
 		});
 
 	const onExportCharacter = async (character: Character) => {
-		const blob = new Blob([JSON.stringify(character)], { type: 'application/json' });
+		const exportableData = character.getExportableData();
+		const blob = new Blob([JSON.stringify(exportableData)], { type: 'application/json' });
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement('a');
 		a.href = url;

@@ -1,22 +1,849 @@
 [
 	{
-		"id": "83b9950c-823c-4812-8606-8c4b920e74f6",
-		"name": "Maëliv Hojaverde [PJ Inicial]",
-		"attributes": { "instinct": 3, "mind": 2, "body": 2, "presence": 1, "reflexes": 2 },
+		"id": "3f11b6b3-0c45-4957-ab28-5f1ca5c310f0",
+		"name": "Borin Hierroardiente",
+		"attributes": { "presence": 2, "instinct": 3, "mind": 1, "body": 3, "reflexes": 1 },
 		"cards": [
 			{
-				"level": 1,
+				"id": "c8e35358933b4ea6f4547d28bcb235ad205acd37",
 				"isActive": false,
+				"level": 1,
 				"uses": null,
-				"id": "ae7cec3c7868e7a1283045e8c5c896624fa401c9"
+				"cardType": "efecto"
 			},
 			{
-				"id": "161a4290d194746de99f60f5aeceabdd27695146",
+				"cardType": "efecto",
 				"uses": null,
 				"level": 1,
+				"id": "e7c3f7586449b81902da1bc7479a463077a0e557",
 				"isActive": false
 			},
 			{
+				"cardType": "activable",
+				"id": "2a8d46598771dc9dcc91992dec7033c9efee553c",
+				"level": 1,
+				"isActive": true,
+				"uses": 1
+			},
+			{
+				"id": "ab9b86caa28a283deaaf6a05fc395ac8da0a153c",
+				"uses": null,
+				"isActive": false,
+				"cardType": "efecto",
+				"level": 1
+			},
+			{
+				"uses": 1,
+				"cardType": "activable",
+				"level": 1,
+				"id": "591c9b98fcb403fb1697731f113169934c0516b0",
+				"isActive": true
+			}
+		],
+		"ppHistory": [],
+		"goldHistory": [
+			{
+				"value": 100,
+				"reason": "Equipo Inicial",
+				"type": "subtract",
+				"id": "5f6ad2f9-421e-4673-b3e5-80075b42bffb"
+			},
+			{
+				"type": "add",
+				"value": 100,
+				"reason": "Oro Inicial",
+				"id": "c259696e-691b-4e4c-8bbb-fa6ac0be692d"
+			}
+		],
+		"equipment": [
+			{
+				"notes": "Mitigación física +2, Sigilo -2",
+				"name": "Cota de mallas",
+				"id": "eebdf3c3-6ab0-4b2d-95da-51b2e67df017",
+				"quantity": 1
+			},
+			{
+				"notes": "Esquiva +1",
+				"id": "348e9a31-6127-4ea8-892b-2c9a1b121546",
+				"name": "Escudo",
+				"quantity": 1
+			},
+			{
+				"quantity": 1,
+				"notes": "1d6 Contundente",
+				"id": "201ea81c-c1db-4e11-8362-a3f64856e0e2",
+				"name": "Maza"
+			},
+			{
+				"notes": "Hecho de hierro",
+				"quantity": 1,
+				"name": "Símbolo sagrado de Moradin",
+				"id": "ad114ebf-6781-4ba9-9f3c-e7990eb8f7a1"
+			}
+		],
+		"modifiers": [
+			{
+				"type": "add",
+				"attribute": "maxHP",
+				"formula": "3",
+				"id": "73418f9d-7bc5-41b6-9de6-4bf1a7485c0b",
+				"reason": "Fe Inspiradora"
+			},
+			{
+				"attribute": "physicalMitigation",
+				"id": "5b30391e-e6b2-4ed9-9486-9b1768c7647e",
+				"type": "add",
+				"reason": "Cota de Mallas",
+				"formula": "2"
+			},
+			{
+				"id": "54868270-13da-424b-9f40-905d9ba6088a",
+				"type": "add",
+				"formula": "1",
+				"attribute": "evasion",
+				"reason": "Escudo"
+			}
+		],
+		"currentHP": 17,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/Cinzqq5.jpeg",
+		"story": "Borin no es un clérigo de biblioteca; es un capataz de la fe. Pasó su primera centuria sirviendo en la Gran Forja del templo, donde aprendió que la fe, como el acero, debe ser golpeada y templada para ser fuerte. Para él, un cuerpo roto es solo metal que necesita ser reforjado.\n\nMoradin le habló no en un susurro, sino en el rugido del fuelle, ordenándole que fuera al mundo de la superficie. Su misión es proteger a las \"creaciones\" (la gente) de las fuerzas que buscan corromperlas o destruirlas.\n\nSu ideal es la Creación: Proteger lo que se ha construido, ya sea un muro, una comunidad o el alma de un compañero, es el acto de devoción más sagrado.",
+		"notes": [],
+		"languages": "Común, Enano y Celestial",
+		"quickInfo": "Ventaja en:  Religión, Perpicacia",
+		"attacks": [
+			{
+				"name": "Maza",
+				"atkFormula": "1d6e+cuerpo",
+				"id": "1f6fdb15-0373-43ca-a1d9-5d192ac855e1",
+				"dmgFormula": "1d6",
+				"notes": "Contundente"
+			},
+			{
+				"id": "9529c605-a7d4-4cca-b29e-ad70b8823f08",
+				"dmgFormula": "1d6",
+				"name": "Llama Sagrada",
+				"notes": "Radiante",
+				"atkFormula": "1d6e+instinto"
+			}
+		],
+		"maxActiveCards": 3,
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
+	},
+	{
+		"id": "ee5a9ad8-7f8d-44f4-96ff-f56aec7b118b",
+		"name": "Elara \"La Suertuda\"",
+		"attributes": { "body": 2, "reflexes": 3, "presence": 2, "mind": 1, "instinct": 2 },
+		"cards": [
+			{
+				"cardType": "efecto",
+				"uses": null,
+				"level": 1,
+				"isActive": false,
+				"id": "9966cd23ee07dbfd580ce4501269c57601fb932b"
+			},
+			{
+				"level": 1,
+				"uses": null,
+				"isActive": false,
+				"id": "c63bb98a72bc0a6317dadee396de749aac690e6e",
+				"cardType": "efecto"
+			},
+			{
+				"isActive": false,
+				"uses": null,
+				"id": "24fa331417ddfe40a0c50cd2844b745f286d8026",
+				"level": 1,
+				"cardType": "activable"
+			},
+			{
+				"level": 1,
+				"isActive": true,
+				"uses": 1,
+				"id": "98090d9c750528d3025eb7fd13e32dbef4950195",
+				"cardType": "activable"
+			},
+			{
+				"cardType": "efecto",
+				"isActive": false,
+				"uses": null,
+				"level": 1,
+				"id": "850acabbe3fe632d06958a0356c25ccd09231cf8"
+			},
+			{
+				"cardType": "efecto",
+				"uses": null,
+				"isActive": false,
+				"level": 1,
+				"id": "e79f14268ca199f9087d131aded8b481d5d77831"
+			}
+		],
+		"ppHistory": [],
+		"goldHistory": [
+			{
+				"reason": "Equipo inicial",
+				"id": "8d64c2fc-6088-449a-b1b6-76ca2023cf20",
+				"value": 100,
+				"type": "subtract"
+			},
+			{
+				"value": 100,
+				"reason": "Oro inicial",
+				"type": "add",
+				"id": "fb57f27e-9479-408c-a716-63df0baf373c"
+			}
+		],
+		"equipment": [
+			{
+				"notes": "Mitigación física +1",
+				"id": "5a29672a-416b-43b6-b342-6f5c9308ff48",
+				"quantity": 1,
+				"name": "Armadura de Cuero"
+			},
+			{
+				"quantity": 1,
+				"id": "4892da41-f7e5-43bb-b2bc-79dca018b009",
+				"notes": "1d6 Cortante, Precisa",
+				"name": "Espada corta"
+			},
+			{
+				"quantity": 1,
+				"id": "5ac0ebdf-08c9-42d1-b5a5-21d691bc8267",
+				"notes": "1d6 Perforante, A dos manos, Rango (Larga)",
+				"name": "Arco corto"
+			},
+			{
+				"id": "7d6814da-3184-4223-8263-0be18b1cf2c1",
+				"quantity": 10,
+				"name": "Flechas",
+				"notes": "-"
+			},
+			{
+				"id": "5af60411-0542-4d4d-94c6-a8ad54d384e6",
+				"quantity": 1,
+				"name": "Ganzúas",
+				"notes": "-"
+			},
+			{
+				"name": "Mochila",
+				"notes": "-",
+				"quantity": 1,
+				"id": "fb510569-c022-4c17-9c82-2f4516d33d81"
+			},
+			{
+				"quantity": 3,
+				"id": "e4a48537-8b28-4c8f-a0a7-3214cd44e2f0",
+				"name": "Raciones",
+				"notes": "-"
+			}
+		],
+		"modifiers": [
+			{
+				"formula": "1",
+				"attribute": "physicalMitigation",
+				"reason": "Armadura de Cuero",
+				"type": "add",
+				"id": "1bf36fa6-6afc-4100-af83-1fe4369fc9f0"
+			}
+		],
+		"currentHP": 11,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/xzS5pBU.jpeg",
+		"story": "Elara nunca tuvo la intención de ser una aventurera. Simplemente \"tomó prestada\" una daga ornamental de un magistrado local, que resultó ser un artefacto buscado por un gremio de asesinos. Huyó de su ciudad natal y no ha parado de correr desde entonces.\n\nSe ha dado cuenta de que el mundo es mucho más grande de lo que pensaba y que está lleno de bolsillos que saquear y trampas que esquivar. Vive el momento, confiando en su increíble suerte para salir de los líos en los que su boca la mete.\n\nSu ideal es la Libertad: No soporta estar atada, ya sea por la ley, un juramento o un calabozo. Hará cualquier cosa para asegurarse de que siempre tenga una ruta de escape.",
+		"notes": [],
+		"languages": "Común, Mediano y Jerga de Ladrones",
+		"quickInfo": "Ventaja en:  Sigilo, Juego de Manos, Acrobacias e Intimidación",
+		"attacks": [
+			{
+				"dmgFormula": "1d6",
+				"id": "f4cec439-b1cb-473c-9b2c-91839203c9f8",
+				"atkFormula": "1d6e+reflejos",
+				"notes": "Cortante",
+				"name": "Espada Corta"
+			},
+			{
+				"notes": "Perforante",
+				"dmgFormula": "1d4",
+				"id": "dc6fde80-cf18-416d-8d0d-8d212b526445",
+				"name": "Arco Corto",
+				"atkFormula": "1d6e+reflejos"
+			}
+		],
+		"maxActiveCards": 3,
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
+	},
+	{
+		"id": "0049ba7c-2b29-466f-9bd4-9d12ff896ca3",
+		"name": "Finnian Lenguaplateada",
+		"attributes": { "mind": 2, "instinct": 1, "reflexes": 2, "body": 2, "presence": 3 },
+		"cards": [
+			{
+				"cardType": "efecto",
+				"level": 1,
+				"uses": null,
+				"id": "161a4290d194746de99f60f5aeceabdd27695146",
+				"isActive": false
+			},
+			{
+				"cardType": "efecto",
+				"id": "0d25b94212a51e3663a5cbf6e2ae3b5e9a130e71",
+				"uses": null,
+				"isActive": false,
+				"level": 1
+			},
+			{
+				"id": "5862346a05b760d88994c3829f6d35299fb2a5ba",
+				"uses": 1,
+				"level": 1,
+				"isActive": true,
+				"cardType": "activable"
+			},
+			{
+				"uses": 1,
+				"cardType": "activable",
+				"level": 1,
+				"isActive": true,
+				"id": "33cc5cf3e4bc637bdef0e311aeb45ee634978e1e"
+			},
+			{
+				"id": "645c14ca825fab26060cf33f79b71f28fba932d1",
+				"cardType": "activable",
+				"isActive": true,
+				"level": 1,
+				"uses": 1
+			}
+		],
+		"ppHistory": [],
+		"goldHistory": [
+			{
+				"value": 96,
+				"type": "subtract",
+				"id": "f71a2906-33a1-4fd3-9c76-ab43e11d59a6",
+				"reason": "Equipo Inicial"
+			},
+			{
+				"id": "f6549584-0159-4fa1-8375-566b52929db8",
+				"reason": "Oro Inicial",
+				"type": "add",
+				"value": 100
+			}
+		],
+		"equipment": [
+			{
+				"notes": "Mitigación física +1",
+				"quantity": 1,
+				"name": "Armadura de Cuero",
+				"id": "2efb37ae-32ed-4ca9-95d4-57464a2240f2"
+			},
+			{
+				"id": "55bb78d3-b7e3-4751-bfb5-76f4f548e231",
+				"notes": "1d6 Cortante, Precisa",
+				"name": "Espada Corta",
+				"quantity": 1
+			},
+			{
+				"quantity": 1,
+				"notes": "1d6 Perforante, A dos manos, Rango (Larga)",
+				"id": "d7016f1d-8876-4937-b7db-ce698714c81b",
+				"name": "Arco Corto"
+			},
+			{
+				"quantity": 20,
+				"name": "Flechas",
+				"notes": "-",
+				"id": "02d8c1a4-73a8-4dc2-a62c-f85ae3606f76"
+			},
+			{
+				"name": "Flauta",
+				"notes": "-",
+				"id": "d2987b72-c56d-40b0-bcd0-6748d6025ae7",
+				"quantity": 1
+			},
+			{
+				"name": "Mochila",
+				"quantity": 1,
+				"id": "0331731b-0603-47d0-981a-7b6ac3176392",
+				"notes": "-"
+			},
+			{
+				"notes": "-",
+				"name": "Raciones",
+				"quantity": 3,
+				"id": "25c2c5a7-1cb7-421e-b9ce-d1029b6b4058"
+			},
+			{
+				"id": "7e4140d7-a652-46bb-a448-5e0327ee89bc",
+				"notes": "-",
+				"name": "Odre de agua",
+				"quantity": 1
+			},
+			{
+				"quantity": 1,
+				"id": "5876f553-b92c-43ca-b01b-5272dc7877e4",
+				"name": "Soga",
+				"notes": "De cáñamo (15 metros)"
+			},
+			{
+				"quantity": 5,
+				"notes": "-",
+				"name": "Antorchas",
+				"id": "6c5a2f14-dabd-4073-9789-363f2cd820d9"
+			},
+			{
+				"name": "Yesquero y pedernal",
+				"notes": "-",
+				"id": "0deca176-ce11-4bf0-b503-b1967f4dda50",
+				"quantity": 1
+			},
+			{
+				"notes": "1d6 Perforante, Precisa, Arrojadiza (Cercana)",
+				"id": "271d6131-6e9e-48f5-b87e-c91b3d6e75bf",
+				"quantity": 1,
+				"name": "Daga"
+			}
+		],
+		"modifiers": [
+			{
+				"type": "add",
+				"formula": "1",
+				"id": "e2c3209c-e95a-40a3-9c60-516da1918c55",
+				"reason": "Armadura de Cuero",
+				"attribute": "physicalMitigation"
+			}
+		],
+		"currentHP": 11,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/krfd4Zh.jpeg",
+		"story": "Finnian creció en una pequeña aldea, siempre observando, siempre aprendiendo. Un día, un bardo viajero pasó por su pueblo, y Finnian quedó fascinado no solo con su música, sino con su capacidad para adaptarse a cualquier situación, ya fuera negociando con un posadero o improvisando una ruta de escape.\n\nDecidió que ese era su camino. No es el mejor en nada, pero es decente en todo. Su memoria es prodigiosa, y su ingenio, más rápido que su espada. Viaja para coleccionar historias y, quizás, para descubrir qué es lo que realmente lo apasiona.\n\nSu ideal es la Adaptabilidad: Un buen bardo no solo canta, sino que sobrevive. Se enorgullece de poder encontrar una solución, un verso o una distracción en cualquier circunstancia, creyendo que la improvisación es la clave para la vida y la aventura.",
+		"notes": [],
+		"languages": "Común, Élifico, Enano y Goblin",
+		"quickInfo": "Ventaja en: Interpretación, Persuasión, Engaño, Perspicacia, Intimidación, Historia, Investigación (estos últimos 3 por Talento de Familia)\n\nInstrumentos musicales: Flauta y Laúd",
+		"attacks": [
+			{
+				"id": "7d309067-fb5b-4027-b18f-e1f71c8f1740",
+				"dmgFormula": "1d6",
+				"notes": "Cortante",
+				"atkFormula": "1d6e+reflejos",
+				"name": "Espada Corta"
+			},
+			{
+				"notes": "Perforante",
+				"atkFormula": "1d6e+reflejos",
+				"id": "d5da87e8-8268-4455-b52e-6c8c9868e5da",
+				"name": "Arco Corto",
+				"dmgFormula": "1d4"
+			},
+			{
+				"id": "8e572e6a-72ce-4463-a4b6-510731e42070",
+				"name": "Daga",
+				"dmgFormula": "1d4",
+				"notes": "Perforante",
+				"atkFormula": "1d6e+reflejos"
+			}
+		],
+		"maxActiveCards": 3,
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
+	},
+	{
+		"id": "ccc40739-5ffa-49bd-b16f-e968b35dc672",
+		"name": "Kaelus",
+		"attributes": { "reflexes": 3, "mind": 1, "presence": 1, "instinct": 3, "body": 2 },
+		"cards": [
+			{
+				"id": "f4fc0cd08c0b3f2d91a3192cebfc6a9edfd0eaa9",
+				"level": 1,
+				"uses": null,
+				"isActive": false,
+				"cardType": "efecto"
+			},
+			{
+				"isActive": false,
+				"cardType": "efecto",
+				"id": "ac654915759f13fc95579f62f646b91c388afebe",
+				"level": 1,
+				"uses": null
+			},
+			{
+				"cardType": "activable",
+				"uses": null,
+				"isActive": false,
+				"id": "94a9e2f9de039aa0296a722e8c6ae855c1fdde91",
+				"level": 1
+			},
+			{
+				"cardType": "activable",
+				"uses": 1,
+				"level": 1,
+				"isActive": true,
+				"id": "c3c0700582cbb2283d8c383245ab8157aa987608"
+			},
+			{
+				"id": "f116d39baf01b586c782ac1b2e0d5408d8687d48",
+				"level": 1,
+				"cardType": "activable",
+				"uses": 1,
+				"isActive": true
+			},
+			{
+				"id": "8c33d0e8a8859576602bf34d824efa83488155da",
+				"cardType": "activable",
+				"level": 1,
+				"uses": 2,
+				"isActive": true
+			}
+		],
+		"ppHistory": [],
+		"goldHistory": [
+			{
+				"value": 98,
+				"reason": "Equipo Inicial",
+				"type": "subtract",
+				"id": "74e060fe-6cfa-47ee-8bd0-edaafaea7f2c"
+			},
+			{
+				"value": 100,
+				"reason": "Oro Inicial",
+				"id": "29eb0135-ff19-4c0d-88b8-c9bfff8fc91a",
+				"type": "add"
+			}
+		],
+		"equipment": [
+			{
+				"name": "Bastón",
+				"notes": "1d4/1d6 Contundente (Versatil)",
+				"id": "5cbe4f44-6b1c-4b82-9b94-60a35ccecdd3",
+				"quantity": 1
+			},
+			{
+				"name": "Arco largo",
+				"quantity": 1,
+				"notes": "A dos manos, Rango (Larga)",
+				"id": "252af03e-bca4-4159-90e2-80d3195dccd3"
+			},
+			{
+				"notes": "-",
+				"name": "Flechas",
+				"quantity": 20,
+				"id": "626c30b5-9355-443b-bbbd-a6aad6ffb11f"
+			},
+			{
+				"name": "Mochila",
+				"notes": "-",
+				"id": "c1df808e-f242-4de4-a3a0-2d8117d6b8b9",
+				"quantity": 1
+			},
+			{
+				"id": "fb8218bd-5a96-4e91-a9de-36bcb1dde8a9",
+				"name": "Raciones",
+				"quantity": 1,
+				"notes": "-"
+			},
+			{
+				"quantity": 1,
+				"id": "79e52151-6a36-4c0c-8c02-0eb57a820a88",
+				"name": "Odre de agua",
+				"notes": "-"
+			},
+			{
+				"name": "Antorchas",
+				"notes": "-",
+				"quantity": 5,
+				"id": "4aa268c9-43b4-4d5c-9297-dd013a660d5e"
+			},
+			{
+				"id": "ce3492e9-fc57-48da-a6bb-5ba9dce31aab",
+				"quantity": 1,
+				"name": "Yesquero y pedernal",
+				"notes": "-"
+			},
+			{
+				"name": "Soga",
+				"quantity": 1,
+				"notes": "Hecha de cáñamo (15 m)",
+				"id": "3a0eaccc-44ae-4cb0-9c60-ff3b0cdedecb"
+			}
+		],
+		"modifiers": [
+			{
+				"formula": "3",
+				"reason": "Disciplina Monástica",
+				"id": "5069d0db-2cf1-43a3-a409-d618c3e565f9",
+				"attribute": "maxHP",
+				"type": "add"
+			},
+			{
+				"type": "add",
+				"reason": "Artes Marciales",
+				"attribute": "evasion",
+				"id": "068e05a5-3118-467b-ac16-5718838a19d0",
+				"formula": "Math.floor(instinto/2)"
+			}
+		],
+		"currentHP": 14,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/miUp0Ag.jpeg",
+		"story": "Kaelus fue criado en un monasterio aislado en la cima de una montaña. Allí, los monjes le enseñaron a controlar la furia elemental de su sangre dracónida (Linaje de Dragón Blanco/Frío) y a canalizarla no como ira, sino como energía ki disciplinada.\n\nHa descendido de la montaña por orden de su maestro para probar su temple en el mundo caótico. Ve el conflicto no como algo a evitar, sino como la piedra de afilar que pule su espíritu. Es sereno, observador y extremadamente rápido.\n\nSu ideal es la Perfección: Cada acción, desde tomar el té hasta un combate a muerte, debe realizarse con intención y precisión absolutas. Busca alcanzar un estado de armonía perfecta entre su mente, su cuerpo y su ki.",
+		"notes": [],
+		"languages": "Común, Dracónico y Arcaico",
+		"quickInfo": "Ventaja en: Acrobacias, Percepción\n\nTipo de ancestro dragón: Blanco (frío)\n\nUsos de castigo elemental: 2/2",
+		"attacks": [
+			{
+				"name": "Ataque Desarmado",
+				"atkFormula": "1d6e+reflejos",
+				"dmgFormula": "1d4",
+				"id": "193fd542-689c-4a81-84ae-f0a724d59ba8",
+				"notes": "Contundente"
+			},
+			{
+				"atkFormula": "1d6e+cuerpo",
+				"id": "f23f61ab-1a1b-442a-a8b1-2a5cffc10a32",
+				"name": "Bastón",
+				"notes": "Contundente",
+				"dmgFormula": "1d4"
+			},
+			{
+				"notes": "Contundente",
+				"name": "Bastón (2 manos)",
+				"atkFormula": "1d6e+cuerpo",
+				"id": "a7bcb72e-5d0e-4515-b4f1-90fec9448a0d",
+				"dmgFormula": "1d6"
+			},
+			{
+				"atkFormula": "1d6e+cuerpo",
+				"id": "a2f4d11c-04ca-4bd9-981e-ad447f18edfc",
+				"notes": "Perforante",
+				"dmgFormula": "1d8",
+				"name": "Arco Largo"
+			}
+		],
+		"maxActiveCards": 3,
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
+	},
+	{
+		"id": "3d0f1b06-c7c8-410f-bd2a-d4017562d30f",
+		"name": "Lyra \"La Erudita\"",
+		"attributes": { "mind": 3, "body": 1, "presence": 2, "instinct": 2, "reflexes": 2 },
+		"cards": [
+			{
+				"level": 1,
+				"uses": null,
+				"cardType": "efecto",
+				"isActive": false,
+				"id": "69edbca2bf5bf7c82bb676a4ec24791629cbf907"
+			},
+			{
+				"cardType": "efecto",
+				"level": 1,
+				"id": "eb9c2d46aad820f60cd4281130cb64f266942ec6",
+				"uses": null,
+				"isActive": false
+			},
+			{
+				"level": 1,
+				"cardType": "activable",
+				"uses": 1,
+				"isActive": false,
+				"id": "66b833ce1d7106500f753eaca5f09ad13ab9d777"
+			},
+			{
+				"isActive": false,
+				"level": 1,
+				"id": "d5ab51d6129fdfd26b74c73471a04758de5dc7a7",
+				"uses": 1,
+				"cardType": "activable"
+			},
+			{
+				"id": "e6dd796221eaecac504f9d928e19651064802215",
+				"cardType": "activable",
+				"level": 1,
+				"uses": 1,
+				"isActive": true
+			},
+			{
+				"uses": 1,
+				"cardType": "activable",
+				"id": "8f75b7197e75e847564e7637f9b63aab55a4fec2",
+				"isActive": true,
+				"level": 1
+			},
+			{
+				"level": 1,
+				"uses": null,
+				"id": "e96af170272add9de2d5100e0ac57024e400f347",
+				"cardType": "efecto",
+				"isActive": false
+			}
+		],
+		"ppHistory": [],
+		"goldHistory": [
+			{
+				"id": "a3e4ca45-d022-4a75-a9d6-db4da173b9d1",
+				"value": 76,
+				"reason": "Equipo Inicial",
+				"type": "subtract"
+			},
+			{
+				"id": "6a18aaaf-5e3b-47f7-a564-6a7f5ab384de",
+				"reason": "Oro Inicial",
+				"type": "add",
+				"value": 100
+			}
+		],
+		"equipment": [
+			{
+				"notes": "1d4/1d6 Contundente (Versatil)",
+				"id": "1851cb30-6ab9-4ed4-b7e0-127de9c20a7c",
+				"quantity": 1,
+				"name": "Bastón"
+			},
+			{
+				"id": "1e0b4403-3e29-40a2-9867-9b5d261e1bc7",
+				"name": "Ballesta ligera",
+				"quantity": 1,
+				"notes": "1d6 Perforante, A dos manos, Rango (Larga), Recarga"
+			},
+			{
+				"notes": "-",
+				"name": "Virotes",
+				"id": "30a17198-d820-4fb5-8008-559dfaddab9a",
+				"quantity": 20
+			},
+			{
+				"id": "86e1225a-f080-45dc-ba25-286878dfa107",
+				"notes": "-",
+				"name": "Mochila",
+				"quantity": 1
+			},
+			{
+				"quantity": 3,
+				"name": "Raciones",
+				"id": "4f700c52-b1e6-43ed-8d1c-bf20fdb67b90",
+				"notes": "-"
+			},
+			{
+				"name": "Odre de agua",
+				"notes": "-",
+				"quantity": 1,
+				"id": "6769fddb-db23-41ed-9557-680fd596a625"
+			},
+			{
+				"notes": "-",
+				"quantity": 1,
+				"id": "e0196aa2-a6eb-49f1-9b75-c9e3b6e2d758",
+				"name": "Yesquero y pedernal"
+			},
+			{
+				"id": "bf8f0500-720e-4346-80fd-48e2d1c883e3",
+				"name": "Libro en blanco y tinta",
+				"quantity": 1,
+				"notes": "-"
+			},
+			{
+				"notes": "De cáñamo (15 metros)",
+				"name": "Soga",
+				"id": "163aa31d-5b19-494f-839c-83885d45fd73",
+				"quantity": 1
+			},
+			{
+				"notes": "-",
+				"name": "Antorchas",
+				"quantity": 5,
+				"id": "69c7deb1-8b96-4b93-bc71-22966567bdfd"
+			},
+			{
+				"id": "e10a9784-a94f-4bd0-9723-042a8e00bc3b",
+				"quantity": 1,
+				"notes": "1d4 Perforante, Precisa, Arrojadiza (Cercana)",
+				"name": "Daga"
+			}
+		],
+		"modifiers": [
+			{
+				"reason": "Armadura de Mago",
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"id": "43fd58a6-cd2d-43df-98fd-9bde3107209e",
+				"formula": "1"
+			},
+			{
+				"attribute": "magicalMitigation",
+				"id": "0729947f-0242-47a2-8f24-92201347c699",
+				"formula": "1",
+				"type": "add",
+				"reason": "Armadura de Mago"
+			}
+		],
+		"currentHP": 8,
+		"tempHP": 0,
+		"currentLuck": 2,
+		"img": "https://i.imgur.com/3nVmGwm.jpeg",
+		"story": "Lyra siempre ha creído que el universo es un rompecabezas esperando ser resuelto. Creció en los pasillos de la Gran Biblioteca, leyendo tomos que advertían sobre el peligro de la magia, lo que solo aumentó su curiosidad.\n\nPara ella, la magia no es un don, es una ciencia. Salió al mundo no por gloria, sino para probar sus hipótesis. Considera que las ruinas antiguas son laboratorios y los monstruos, sujetos de prueba fascinantes, aunque peligrosos.\n\nSu ideal es el Conocimiento: No existe la magia \"prohibida\", solo el conocimiento que aún no se ha catalogado correctamente. Hará casi cualquier cosa por descubrir un secreto arcano perdido.",
+		"notes": [],
+		"languages": "Común, Gnomo, Élifico y Arcaico",
+		"quickInfo": "Ventaja en: Conocimiento Arcano e Investigación.\n\nRituales de Afinidad Arcana: Armadura de Mago y Detectar Magia",
+		"attacks": [
+			{
+				"name": "Descarga Elemental",
+				"notes": "Fuego, Frío o Eléctrico",
+				"id": "12b6c97c-987e-4bc5-be63-1c7b4601518e",
+				"dmgFormula": "1d8",
+				"atkFormula": "1d6e+mente"
+			},
+			{
+				"name": "Bastón",
+				"notes": "Contundente",
+				"id": "402f80fa-d6f4-43ff-8579-5d016bbdd18a",
+				"atkFormula": "1d6e+cuerpo",
+				"dmgFormula": "1d4"
+			},
+			{
+				"dmgFormula": "1d6",
+				"notes": "Contundente",
+				"name": "Bastón (2 manos)",
+				"atkFormula": "1d6e+cuerpo",
+				"id": "66585a4b-32a6-46f5-bfbe-d45606f4b991"
+			},
+			{
+				"notes": "Perforante",
+				"id": "1e5c54ea-d17f-4aa9-bf49-5c3d0bc64f88",
+				"name": "Ballesta Ligera",
+				"atkFormula": "1d6e+reflejos",
+				"dmgFormula": "1d6"
+			},
+			{
+				"name": "Daga",
+				"atkFormula": "1d6e+reflejos",
+				"id": "7137e5ca-cee6-4b26-ac77-650782c64bce",
+				"notes": "Perforante",
+				"dmgFormula": "1d4"
+			}
+		],
+		"maxActiveCards": 3,
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
+	},
+	{
+		"id": "c83cca73-aed2-46be-818d-a0a38c9bb2ce",
+		"name": "Maëliv Hojaverde",
+		"attributes": { "instinct": 3, "presence": 1, "body": 2, "mind": 2, "reflexes": 2 },
+		"cards": [
+			{
+				"level": 1,
+				"uses": null,
+				"cardType": "efecto",
+				"isActive": false,
+				"id": "d462b017e70c2b5023d80e51de3efaf92acdfb62"
+			},
+			{
+				"cardType": "efecto",
 				"isActive": false,
 				"id": "3464978f669d360c22f58591e55dd56ba2408ec6",
 				"level": 1,
@@ -24,400 +851,330 @@
 			},
 			{
 				"level": 1,
-				"uses": null,
-				"isActive": true,
-				"id": "7c15a2c077ce5b4d9ee304764400222156d97726"
-			},
-			{ "isActive": true, "level": 1, "id": "2601adef1ae62c5845599f934d12eb1550315cbc", "uses": 2 },
-			{
-				"id": "d462b017e70c2b5023d80e51de3efaf92acdfb62",
-				"uses": null,
-				"isActive": false,
-				"level": 1,
-				"cardType": "efecto"
-			},
-			{
-				"id": "0dc88f8a1d948ee135b1a1b2124b0753d84f72ce",
 				"uses": 2,
+				"cardType": "activable",
+				"id": "0dc88f8a1d948ee135b1a1b2124b0753d84f72ce",
+				"isActive": true
+			},
+			{
 				"isActive": true,
+				"cardType": "activable",
+				"id": "1d58f8eb7a088af6ffc08f45767b01577e66da0f",
 				"level": 1,
-				"cardType": "activable"
+				"uses": 1
+			},
+			{
+				"uses": 1,
+				"cardType": "activable",
+				"id": "9e53c05352b1cc20913bdf2ef13917eb7f82882e",
+				"isActive": true,
+				"level": 1
 			}
 		],
 		"ppHistory": [],
 		"goldHistory": [
 			{
-				"value": 66,
-				"type": "subtract",
-				"reason": "Equipo inicial",
-				"id": "4e5ebc14-7d0e-413c-a646-3e20a81595d7"
+				"id": "a997f76f-c8d3-417a-9344-d10afac55074",
+				"value": 70,
+				"reason": "Equipo Inicial",
+				"type": "subtract"
 			},
 			{
 				"reason": "Oro inicial",
 				"value": 100,
-				"id": "078af3b9-9f79-4676-97cc-780cfe14f6a3",
-				"type": "add"
+				"type": "add",
+				"id": "078af3b9-9f79-4676-97cc-780cfe14f6a3"
 			}
 		],
 		"equipment": [
 			{
-				"name": "Bastón",
 				"id": "48103c95-6e52-45db-acb9-d95d1dbdbf43",
 				"notes": "1d4/1d6 Contundente (Versatil)",
+				"name": "Bastón",
 				"quantity": 1
 			},
 			{
-				"quantity": 1,
 				"id": "b6a3269f-1d67-4071-8801-ed731086eac5",
+				"name": "Armadura de Cuero",
 				"notes": "+1 Mitigación Física",
-				"name": "Arm. de cuero"
+				"quantity": 1
 			},
 			{
 				"quantity": 1,
 				"name": "Mochila",
-				"id": "aaf765e4-fdca-4fd9-951c-8e47ced11c0c",
+				"notes": "-",
+				"id": "aaf765e4-fdca-4fd9-951c-8e47ced11c0c"
+			},
+			{
+				"id": "99daf40d-0096-4a6b-bd04-a4114e6105cf",
+				"notes": "Hecha de cáñamo (15m)",
+				"quantity": 1,
+				"name": "Soga"
+			},
+			{
+				"id": "a9665198-61ef-4ac0-bf8f-691beb5ecdbb",
+				"quantity": 1,
+				"notes": "1d4 Perforante (A dos manos, Rango [Larga])",
+				"name": "Arco corto"
+			},
+			{
+				"quantity": 20,
+				"name": "Flechas",
+				"id": "9d8576b3-125d-424e-be91-d7185671dfce",
 				"notes": "-"
 			},
 			{
-				"name": "Soga",
-				"quantity": 1,
-				"notes": "Hecha de cáñamo (15m)",
-				"id": "99daf40d-0096-4a6b-bd04-a4114e6105cf"
-			},
-			{
-				"notes": "1d4 Perforante (A dos manos, Rango [Larga])",
-				"quantity": 1,
-				"name": "Arco corto",
-				"id": "a9665198-61ef-4ac0-bf8f-691beb5ecdbb"
-			},
-			{
 				"notes": "-",
-				"name": "Flechas",
-				"id": "9d8576b3-125d-424e-be91-d7185671dfce",
-				"quantity": 20
-			},
-			{
 				"quantity": 1,
-				"id": "565d42c2-5f0d-4792-a227-642a36251c0d",
-				"notes": "-",
-				"name": "Saco de dormir"
-			},
-			{
-				"quantity": 1,
-				"notes": "-",
 				"name": "Odre de agua",
 				"id": "99a64f86-ea1b-43de-a67f-900038c3977a"
 			},
 			{
+				"name": "Antorchas",
+				"quantity": 5,
 				"notes": "-",
-				"name": "Escudo",
-				"id": "9f6d502d-ccbc-444d-9955-afbdc742dda0",
-				"quantity": 1
+				"id": "cdf8c6bb-e781-4228-94fd-079653d9f3e4"
+			},
+			{
+				"notes": "-",
+				"quantity": 1,
+				"name": "Yesquero y pedernal",
+				"id": "d230a516-b4e8-4a0a-8dba-8c60c80f344d"
+			},
+			{
+				"name": "Daga",
+				"quantity": 1,
+				"id": "e8be9aad-8ad1-458c-ba64-aa4fa57b9dd7",
+				"notes": "Precisa, Arrojadiza (Cercana)"
+			},
+			{
+				"notes": "-",
+				"quantity": 5,
+				"id": "4bdacb60-fcac-4933-a529-8164453c5eb9",
+				"name": "Raciones"
 			}
 		],
 		"modifiers": [
 			{
 				"formula": "1",
 				"attribute": "physicalMitigation",
-				"id": "013d1d0d-6f9d-4b00-8f3a-2556b3b0065a",
+				"reason": "Armadura de Cuero",
 				"type": "add",
-				"reason": "Armadura"
+				"id": "013d1d0d-6f9d-4b00-8f3a-2556b3b0065a"
 			},
 			{
 				"formula": "1",
-				"attribute": "evasion",
-				"reason": "Escudo",
-				"type": "add",
-				"id": "f7c5f31c-6ddd-41cc-91c6-ef09ef8e6a40"
-			},
-			{
-				"formula": "1",
+				"attribute": "speed",
 				"id": "095ae5e3-28e2-4290-b5ad-33a1c630d34a",
 				"type": "add",
-				"attribute": "speed",
-				"reason": "Gracia Silvana"
+				"reason": "Gracia Élfica"
+			},
+			{
+				"id": "d7834b42-9ca8-4bcc-a3ff-ac2b4041034a",
+				"formula": "3",
+				"type": "add",
+				"attribute": "maxHP",
+				"reason": "Sintonía Primordial"
 			}
 		],
-		"currentHP": 11,
+		"currentHP": 14,
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/PowTha4.png",
-		"story": "Maëliv dejó su arboleda sagrada cuando sintió que una extraña corrupción enfermaba las tierras. Su viaje inicial fue una dura prueba de supervivencia, pero le enseñó a confiar en sus instintos y en el poder restaurador de la naturaleza. Ahora, entiende que el mundo más allá de los bosques necesita tanto a un guardián como a un sanador.",
+		"story": "Maëliv siempre encontró más compañía en el susurro del viento entre los árboles que en las charlas de los suyos. Pasó su juventud aprendiendo los secretos del bosque, cómo rastrear a una presa sin dejar rastro y cómo sentir el equilibrio de la vida y la muerte en cada hoja que cae.\n\nLos ecos de la civilización y sus conflictos la alcanzaron, y ahora siente que una \"enfermedad\" se extiende por la tierra (la trama del one-shot). Ha decidido dejar la tranquilidad de su hogar para actuar como un anticuerpo de la naturaleza, dispuesta a desatar su furia para restaurar el orden.\n\nSu ideal es el Equilibrio: La naturaleza es un ciclo de crecimiento violento y calma pacífica. Ella encarna ambos y no dudará en desatar la fuerza de la tormenta para proteger la quietud del bosque, o en ser el silencio antes de la caza.",
 		"notes": [],
-		"languages": "Común, Silvano",
-		"quickInfo": "Gracia Élfica: Ventaja en iniciativa y no pueden sorprenderme\nTalento de Familia: Ventaja en naturaleza y perspicacia\nSintonía Primordial: Ventaja en supervivencia y trato con animales",
+		"languages": "Común, Élifico y Silvano",
+		"quickInfo": "Ventaja en: Iniciativa, Supervivencia, Naturaleza, Trato con Animales.",
 		"attacks": [
 			{
 				"name": "Bastón",
-				"id": "9a0acd01-5f16-462f-ab20-596907e386a0",
 				"notes": "Contundente",
-				"atkFormula": "1d6e+cuerpo",
-				"dmgFormula": "1d4"
+				"id": "9a0acd01-5f16-462f-ab20-596907e386a0",
+				"dmgFormula": "1d4",
+				"atkFormula": "1d6e+cuerpo"
 			},
 			{
-				"atkFormula": "1d6e+cuerpo",
-				"name": "Bastón (2 manos)",
-				"notes": "Contundente",
 				"id": "5f1a42cd-d143-4103-958b-6c5715ccb5d7",
+				"name": "Bastón (2 manos)",
+				"atkFormula": "1d6e+cuerpo",
+				"notes": "Contundente",
 				"dmgFormula": "1d6"
 			},
 			{
 				"name": "Arco corto",
 				"atkFormula": "1d6e+reflejos",
 				"notes": "Perforante",
-				"id": "2faf6f9d-4772-4c9b-a8c0-0ae16da2813f",
-				"dmgFormula": "1d4"
+				"dmgFormula": "1d4",
+				"id": "2faf6f9d-4772-4c9b-a8c0-0ae16da2813f"
+			},
+			{
+				"atkFormula": "1d6e+instinto",
+				"name": "Látigo de Espinas",
+				"notes": "Cortante",
+				"id": "1cd55d48-1764-405f-a70e-addc1ea46c8a",
+				"dmgFormula": "1d6"
 			}
 		],
 		"maxActiveCards": 3,
-		"version": 1
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
 	},
 	{
-		"id": "57d4798e-dc0d-469e-ad7f-c04d5804e8c3",
-		"name": "Keldurr, Maza de Hierro [PJ Avanzado]",
-		"attributes": { "body": 4, "mind": 1, "presence": 1, "reflexes": 2, "instinct": 3 },
+		"id": "2533e46c-e23f-4716-ab45-a29e14f6466a",
+		"name": "Orfhein \"La Montaña\"",
+		"attributes": { "presence": 1, "reflexes": 3, "instinct": 2, "body": 3, "mind": 1 },
 		"cards": [
 			{
-				"uses": null,
-				"id": "c401c6c14d62bb74149e0b75bac24ef568eecd6f",
-				"isActive": false,
-				"level": 1
-			},
-			{
 				"level": 1,
-				"id": "465239038da5be2412587f4cfe0e10d0778231f8",
-				"isActive": false,
-				"uses": null
-			},
-			{
-				"id": "e7c3f7586449b81902da1bc7479a463077a0e557",
-				"isActive": false,
+				"id": "0f1e85e350cd29913d2f9aeeb5d5c8a1edf24075",
 				"uses": null,
-				"level": 1
-			},
-			{ "id": "2a8d46598771dc9dcc91992dec7033c9efee553c", "uses": 1, "level": 1, "isActive": true },
-			{ "level": 1, "id": "1f49450e4b2de47bfc0aab65184d3ab8236ac03c", "uses": 1, "isActive": true },
-			{
 				"isActive": false,
-				"uses": null,
-				"id": "f3bcd176b12b64b7554539bf6d27c32d76125395",
-				"level": 1
+				"cardType": "efecto"
 			},
 			{
-				"level": 1,
 				"id": "d3866f9a311f1bd2756c1c787738c0187c466c87",
+				"level": 1,
+				"cardType": "efecto",
 				"uses": null,
 				"isActive": false
 			},
 			{
 				"isActive": true,
-				"level": 3,
-				"id": "b7c37b66747a498175032891b26a47d11228e8b6",
-				"uses": null
-			},
-			{
-				"id": "591c9b98fcb403fb1697731f113169934c0516b0",
-				"uses": 1,
 				"level": 1,
-				"isActive": false
+				"cardType": "activable",
+				"uses": 2,
+				"id": "009b3d369dc13a39a42bf8c00fd124351871b96d"
 			},
-			{ "level": 2, "uses": 1, "id": "d3ed7bff6d5bd84cb0af302a15fe2f46ff4aa097", "isActive": true },
 			{
-				"isActive": false,
-				"uses": null,
+				"uses": 2,
 				"level": 1,
-				"id": "601a9e8c3f70e0013d2c3bde7e653a4e3ff3cca0"
+				"cardType": "activable",
+				"id": "247e65ba8308bdeea8b6b50f9ef031b41094c06a",
+				"isActive": true
 			},
 			{
-				"level": 2,
+				"level": 1,
+				"id": "465239038da5be2412587f4cfe0e10d0778231f8",
 				"cardType": "efecto",
-				"uses": null,
-				"id": "f9120bdd094a802636a027b48c10acd0be4ff5fc",
-				"isActive": false
-			},
-			{
-				"id": "78492397e0343be2cc92cf1213936087d61efc7f",
-				"uses": null,
 				"isActive": false,
-				"level": 1,
-				"cardType": "efecto"
+				"uses": null
 			}
 		],
-		"ppHistory": [
-			{
-				"reason": "Compra carta: Atleta",
-				"id": "e67e611a-9a2e-4384-82f8-e967b8eb2c6e",
-				"type": "subtract",
-				"value": 3
-			},
-			{
-				"reason": "Compra carta: Golpe divino",
-				"type": "subtract",
-				"value": 6,
-				"id": "7e49e8a2-6793-447b-a156-9ba5d4a06d50"
-			},
-			{
-				"id": "3921a65d-bccf-4ab4-a052-8ecd683ab231",
-				"type": "subtract",
-				"value": 3,
-				"reason": "Compra carta: Llama sagrada"
-			},
-			{
-				"value": 6,
-				"reason": "Ranura de carta adicional (cuarta ranura)",
-				"id": "47779503-9ef9-40bd-bded-55c6e4fc6818",
-				"type": "subtract"
-			},
-			{
-				"type": "subtract",
-				"value": 12,
-				"id": "c51daf27-1ecd-4e64-85e2-bce051f5d3f7",
-				"reason": "Compra carta: Ataque adicional"
-			},
-			{
-				"type": "subtract",
-				"value": 3,
-				"reason": "Compra carta: Sintonía con el Acero",
-				"id": "867a6211-6d16-4281-b8fa-d4ff37f466c3"
-			},
-			{
-				"id": "1ffd58ac-f52f-42ac-ae58-421cfacdf16b",
-				"reason": "Mejora de atributo: Cuerpo 4",
-				"type": "subtract",
-				"value": 12
-			},
-			{
-				"id": "fbd69ef9-88be-4786-a9c1-61fb746c7736",
-				"value": 3,
-				"reason": "Compra carta: Vigor",
-				"type": "subtract"
-			},
-			{
-				"id": "2a97d675-206d-4710-be66-96d9daefeafa",
-				"type": "add",
-				"value": 50,
-				"reason": "Progreso de PJ"
-			}
-		],
+		"ppHistory": [],
 		"goldHistory": [
 			{
 				"type": "subtract",
-				"reason": "Maza mágica (Arma Enriquecida)",
-				"id": "fc3a8b87-0bd0-4809-bfaa-e8a079f11459",
-				"value": 135
-			},
-			{
-				"value": 125,
-				"id": "eab55461-17b8-4991-af19-a71e4efb3a47",
-				"type": "add",
-				"reason": "Aventuras varias"
-			},
-			{
-				"type": "subtract",
 				"reason": "Equipo inicial",
-				"value": 85,
-				"id": "910086ea-ec72-4e12-9e1f-55d5c8f33585"
+				"id": "968def6d-e6c0-4cd6-81e9-542cbcf66761",
+				"value": 92
 			},
 			{
-				"type": "add",
-				"id": "5bb06fb2-909d-42b1-92fe-59099c8c9e33",
-				"reason": "Creación de personaje",
-				"value": 100
+				"id": "205cfcfe-e6cf-4fbb-9ec6-177f597d2990",
+				"reason": "Oro inicial",
+				"value": 100,
+				"type": "add"
 			}
 		],
 		"equipment": [
 			{
-				"id": "e700c851-8601-48b2-a6f0-77c470e193cd",
+				"notes": "Mitigación física +1",
 				"quantity": 1,
-				"notes": "Mitigación física +2, Esquiva -2, Sigilo -2",
-				"name": "Cota de mallas"
+				"name": "Armadura de Cuero",
+				"id": "fdf4ccaa-89cf-4240-ad04-392f0b31401d"
 			},
 			{
-				"name": "Maza (Arma Enriquecida)",
-				"quantity": 1,
-				"notes": "1d6 Contundente",
-				"id": "b32cc559-27cb-4755-b41a-94934470f76a"
+				"notes": "Versatil 1d6 | 1d8",
+				"id": "8c995b54-6b1f-471b-8cf5-4f51df6107b2",
+				"name": "Espada Larga",
+				"quantity": 1
 			},
 			{
+				"notes": "Arrojadiza (Cercana)",
+				"quantity": 3,
+				"id": "4e451e4c-2750-4e62-934f-514c6b2f68dd",
+				"name": "Jabalinas"
+			},
+			{
+				"id": "6071bf4d-2b5f-4aa0-a889-a9d5f580cd43",
+				"notes": "-",
 				"name": "Mochila",
-				"notes": "-",
-				"id": "d4b9c90a-0d29-40ca-a2d3-bbe032fd8bbb",
 				"quantity": 1
 			},
 			{
+				"id": "2c3eb47c-1a97-4bb1-9b51-476d373181f9",
+				"name": "Soga de cáñamo",
+				"notes": "15 metros",
+				"quantity": 1
+			},
+			{
+				"notes": "-",
+				"quantity": 5,
+				"id": "f750e5fd-925b-4d0e-9990-2352e6ec7a75",
+				"name": "Raciones"
+			},
+			{
+				"notes": "-",
 				"name": "Odre de agua",
-				"notes": "-",
-				"id": "768426f5-b969-45f1-90f0-ffeddc844348",
+				"id": "a58230d4-8d8e-49bc-8942-f00e4edaa155",
 				"quantity": 1
-			},
-			{
-				"quantity": 1,
-				"id": "08f546b8-56ef-4be6-9fa2-ede49081d498",
-				"name": "Saco de dormir",
-				"notes": "-"
-			},
-			{
-				"quantity": 1,
-				"id": "3ff8e439-36d9-4eb4-b061-9f38e9a9c25d",
-				"notes": "De cáñamo (15 m)",
-				"name": "Soga"
 			}
 		],
 		"modifiers": [
 			{
-				"formula": "3",
+				"formula": "6",
+				"attribute": "maxHP",
+				"reason": "Sintonía con el Acero",
+				"id": "c992bcb8-bc94-4dc6-a7a4-1f394f6c085c",
+				"type": "add"
+			},
+			{
 				"attribute": "maxHP",
 				"reason": "Fortaleza Rocosa",
-				"type": "add",
-				"id": "a457d34c-4d06-4f0c-8634-cde1c3414e74"
+				"formula": "3",
+				"id": "3857cea1-d5b9-47e7-93b3-2b0eaaf5bcc4",
+				"type": "add"
 			},
 			{
-				"id": "41cc1391-dcd1-48d3-806a-a5c637987f59",
-				"formula": "cuerpo",
+				"id": "ac997006-30a9-4d19-b4b4-b3b566a38823",
+				"formula": "1",
 				"type": "add",
-				"reason": "Vigor",
-				"attribute": "maxHP"
-			},
-			{
-				"type": "add",
-				"reason": "Atleta",
-				"formula": "2",
-				"id": "c2dcc633-cd3b-4739-83bf-b5a47d6f7337",
-				"attribute": "speed"
-			},
-			{
-				"attribute": "evasion",
-				"id": "827342d7-4336-4f7d-8bee-3004592812cb",
-				"type": "add",
-				"formula": "-2",
-				"reason": "Armadura"
-			},
-			{
-				"id": "c6ee658d-a512-4513-a2d2-401789a6df53",
-				"type": "add",
-				"formula": "2",
-				"reason": "Armadura",
+				"reason": "Armadura de Cuero",
 				"attribute": "physicalMitigation"
 			}
 		],
-		"currentHP": 24,
+		"currentHP": 23,
 		"tempHP": 0,
 		"currentLuck": 2,
-		"img": "https://i.imgur.com/fTHFBLs.png",
-		"story": "Keldurr es un enano de Karak-Varr, un herrero y devoto Sacerdote de Moradin, el Forjador de Almas. Su vida cambió durante un gran temblor que atrapó a varios mineros en las profundidades. Guiado por la fe y empuñando una maza de hierro forjada por él mismo, Keldurr invocó la fuerza de Moradin para romper el bloqueo de rocas y rescatar a su gente. Desde entonces, se ganó el apodo de \"Maza de Hierro\" y juró proteger a los suyos con la misma tenacidad que el metal. Ahora viaja, buscando la mítica \"Forja del Alma\", un lugar sagrado que cree que restaurará la gloria de su pueblo bajo la mirada de Moradin.",
+		"img": "https://i.imgur.com/ife6HJU.jpeg",
+		"story": "Orfhein pertenece a la tribu del Pico Solitario, un clan Goliath que valora la resistencia por encima de la fuerza bruta. Se ganó su apodo \"La Montaña\" no porque no pueda ser movido, sino porque es igual de terco e impasible.\n\nHizo un juramento solemne de proteger un paso de montaña durante el invierno, pero una avalancha provocada por un temblor lo superó, y la ruta comercial quedó bloqueada. Aunque nadie resultó herido, Orfhein consideró esto un fracaso personal y una mancha en su honor.\n\nDejó su hogar en las alturas con un único ideal: la Resistencia. Busca vagar por las tierras bajas para probar su fuerza contra todos los desafíos que el mundo le arroje. Solo cuando haya construido un renombre tan pesado e inamovible como la montaña misma, se permitirá regresar.",
 		"notes": [],
-		"languages": "Común, Enano",
-		"quickInfo": "Visión en la oscuridad\n\nFortaleza Rocosa: Ventaja para resistir ser derribado o movido contra tu voluntad.\nFe Inspiradora: Ventaja en pruebas de asociadas a temas religiosos y en pruebas de Presencia para interactuar con fieles de tu misma fe.\nSintonía con el Acero: Ventaja en Pruebas de Atletismo.",
+		"languages": "Común y Gigante",
+		"quickInfo": "Ventaja en: Atletismo, Percepción",
 		"attacks": [
 			{
-				"name": "Maza",
-				"atkFormula": "1d6e+cuerpo+1",
-				"dmgFormula": "1d6+1",
-				"id": "45df08a8-aa7a-48e1-a128-6fbc4f518d01",
-				"notes": "Contuntende"
+				"atkFormula": "1d6e+cuerpo",
+				"id": "2c9c2152-438c-450a-a627-06ab736b0457",
+				"notes": "Cortante",
+				"name": "Espada Larga (a 1 mano)",
+				"dmgFormula": "1d6"
+			},
+			{
+				"atkFormula": "1d6e+cuerpo",
+				"id": "4fc0fdd9-2b17-440c-8963-ee1a3b49548e",
+				"dmgFormula": "1d8",
+				"notes": "Cortante",
+				"name": "Espada Larga (a 2 manos)"
+			},
+			{
+				"atkFormula": "1d6e+cuerpo",
+				"id": "8f9e4104-5111-421a-96fb-2414d9a734aa",
+				"dmgFormula": "1d4",
+				"notes": "Perforante, Arrojadiza (Cercana)",
+				"name": "Jabalina"
 			}
 		],
-		"maxActiveCards": 4,
-		"version": 1
+		"maxActiveCards": 3,
+		"version": 1,
+		"party": { "partyId": null, "ownerId": null }
 	}
 ]

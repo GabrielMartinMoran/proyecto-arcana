@@ -100,8 +100,11 @@ const subscribePersistance = () => {
 				const snap = JSON.stringify(c);
 				const prev = prevSnapshotById.get(c.id);
 				if (prev !== snap) {
+					// Record the local edit time so remote snapshots arriving shortly after
+					// will preserve the local edit. Do NOT update prevSnapshotById here:
+					// prevSnapshotById must reflect what was actually persisted to the backend
+					// so change detection for incremental saves stays accurate.
 					lastLocalEditAt[c.id] = now;
-					prevSnapshotById.set(c.id, snap);
 				}
 			}
 			// Cleanup entries for characters that are no longer present
@@ -132,11 +135,60 @@ const subscribePersistance = () => {
 				if (scheduledStoreUpdate) {
 					clearTimeout(scheduledStoreUpdate);
 				}
+				// Persist only characters that actually changed since the last saved snapshot.
+				// We detect changes by comparing the serialized snapshot stored in prevSnapshotById.
+				// This avoids sending the whole user characters array to Firestore when only a
+				// subset of characters were modified.
 				scheduledStoreUpdate = setTimeout(async () => {
-					applyingRemoteUpdate = true;
 					scheduledStoreUpdate = null;
-					await firebase.saveCharactersForUser(currentUserId!, characters);
-					applyingRemoteUpdate = false;
+					try {
+						console.debug('[characters-service] preparing changed characters save (debounced)');
+						const start = Date.now();
+						const toSave: Character[] = [];
+						const now = Date.now();
+						for (const c of characters) {
+							if (!c || !c.id) continue;
+							const snap = JSON.stringify(c);
+							const prev = prevSnapshotById.get(c.id);
+							if (prev !== snap) {
+								// Mark as changed locally; we'll update prevSnapshotById only when the save succeeds
+								toSave.push(c);
+								lastLocalEditAt[c.id] = now;
+							}
+						}
+						const ids = toSave.map((t) => t.id);
+						console.debug('[characters-service] changed characters detected', {
+							count: toSave.length,
+							ids,
+						});
+						// Only send changed characters to the backend; the backend performs upserts per-character.
+						if (toSave.length > 0 && currentUserId && firebase.isEnabled()) {
+							try {
+								await firebase.saveCharactersForUser(currentUserId!, toSave);
+								// On success, update prevSnapshotById for the saved characters so future diffs are minimal
+								for (const s of toSave) {
+									if (s?.id) prevSnapshotById.set(s.id, JSON.stringify(s));
+								}
+								const duration = Date.now() - start;
+								console.debug('[characters-service] saved changed characters to remote', {
+									count: toSave.length,
+									ids,
+									duration,
+								});
+							} catch (err) {
+								console.error(
+									'[characters-service] Error saving changed characters to remote:',
+									err,
+								);
+								// On failure, ensure these ids remain candidates for the next save attempt by
+								// not updating prevSnapshotById (we didn't set it yet), so they will be retried.
+							}
+						} else {
+							console.debug('[characters-service] no changed characters to save');
+						}
+					} catch (err) {
+						console.error('[characters-service] Error preparing changed characters save:', err);
+					}
 				}, UPDATE_STORE_DEBOUNCE_MS);
 			}
 		} catch (error) {
@@ -178,30 +230,56 @@ const startRemoteListener = (userId: string) => {
 		// Avoid triggering the persistance subscription while applying remote update
 		applyingRemoteUpdate = true;
 		try {
-			// Merge remote snapshot with local edits: preserve locally edited characters for a short window
+			// Merge remote snapshot with local edits: only update affected characters so UI is stable
 			const local = get(state.charactersStore) as Character[];
 			const now = Date.now();
-			const merged = characters.map((c: any) => {
+
+			// Build quick lookup of remote entries
+			const remoteById = new Map<string, any>();
+			for (const c of characters) {
+				if (c?.id) remoteById.set(c.id, c);
+			}
+
+			// Start from a copy of local array so we only modify affected entries
+			const updated = [...local];
+
+			// Update or add remote entries
+			for (const c of characters) {
 				const id = c?.id;
+				if (!id) continue;
 				const recentLocalEdit =
-					id &&
-					lastLocalEditAt[id] !== undefined &&
-					now - lastLocalEditAt[id] < LOCAL_EDIT_GUARD_MS;
+					lastLocalEditAt[id] !== undefined && now - lastLocalEditAt[id] < LOCAL_EDIT_GUARD_MS;
 				if (recentLocalEdit) {
-					const localEnt = local.find((l: any) => l?.id === id);
-					if (localEnt) {
-						return localEnt;
-					}
+					// Preserve recent local edit
+					continue;
 				}
 				const inst = new Character(c);
 				// Update snapshot tracker with the applied value
-				if (id) {
-					prevSnapshotById.set(id, JSON.stringify(inst));
+				prevSnapshotById.set(id, JSON.stringify(inst));
+				const idx = updated.findIndex((l) => l?.id === id);
+				if (idx !== -1) {
+					updated[idx] = inst;
+				} else {
+					updated.push(inst);
 				}
-				return inst;
-			});
-			// Apply merged result
-			state.charactersStore.set(merged);
+			}
+
+			// Remove local entries that no longer exist remotely (unless recently edited locally)
+			for (let i = updated.length - 1; i >= 0; i--) {
+				const id = updated[i]?.id;
+				if (!id) continue;
+				if (!remoteById.has(id)) {
+					const recentLocalEdit =
+						lastLocalEditAt[id] !== undefined && now - lastLocalEditAt[id] < LOCAL_EDIT_GUARD_MS;
+					if (!recentLocalEdit) {
+						updated.splice(i, 1);
+						prevSnapshotById.delete(id);
+					}
+				}
+			}
+
+			// Apply merged result (only changed items will cause component updates)
+			state.charactersStore.set(updated);
 		} finally {
 			// Small safeguard: allow future local modifications to persist
 			applyingRemoteUpdate = false;
@@ -343,15 +421,11 @@ export const useCharactersService = () => {
 				}
 			} catch (err) {
 				console.warn('[characters-service] Immediate cloud delete failed, queued for retry:', err);
-				// As a fallback attempt, sync full set to ensure server state converges:
-				try {
-					const current = await new Promise<Character[]>((resolve) => {
-						state.charactersStore.subscribe((v) => resolve(v))();
-					});
-					await firebase.saveCharactersForUser(currentUserId, current);
-				} catch (err2) {
-					console.error('[characters-service] Error syncing characters after failed delete:', err2);
-				}
+				// Do not attempt to sync the entire characters collection as a fallback here.
+				// The single failed delete is already queued in `pendingDeletes` and will be
+				// retried when the user signs in or when `processPendingDeletes` runs.
+				// Syncing the full set here could overwrite concurrent remote state and is
+				// an unnecessary heavy-handed operation for a single failed delete.
 			}
 		}
 	};
