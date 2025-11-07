@@ -13,6 +13,7 @@
 	import { clickOutsideDetector } from '$lib/utils/outside-click-detector';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
+	import { CONFIG } from '../../../../config';
 
 	type Props = {
 		character: Character;
@@ -36,6 +37,10 @@
 	let filters: CardFilters = $state(buildEmptyFilters({ onlyAvailables: true }));
 
 	let allCards: Card[] = $state([]);
+
+	let corruptedCharacterCards = $derived(
+		character.cards.filter((x) => !allCards.some((y) => y.id === x.id)),
+	);
 
 	let addCardModalState = $state({
 		opened: false,
@@ -62,6 +67,14 @@
 
 	const onCharacterCardsChange = (updatedCards: CharacterCard[]) => {
 		character.cards = updatedCards;
+		onChange(character);
+	};
+
+	const onCorruptedCardsChange = (updatedCorruptedCards: CharacterCard[]) => {
+		character.cards = [
+			...character.cards.filter((x) => allCards.some((y) => y.id === x.id)),
+			...updatedCorruptedCards,
+		];
 		onChange(character);
 	};
 
@@ -158,6 +171,37 @@
 			onChange={onCharacterCardsChange}
 		/>
 	</Container>
+
+	<!-- Filter all cards that no longer exist -->
+
+	{#if !readonly && corruptedCharacterCards.length > 0}
+		<Container title={`Cartas Corruptas (${corruptedCharacterCards.length})`}>
+			<CardsList
+				cards={corruptedCharacterCards.map(
+					(x) =>
+						({
+							id: x.id,
+							name: 'Carta Corrupta',
+							level: x.level,
+							tags: ['Corrupta'],
+							requirements: [],
+							description: 'Esta carta ya no existe. Por favor, eliminala.',
+							uses: {
+								qty: 0,
+								type: 'USES',
+							},
+							type: 'corrupta',
+							cardType: x.cardType,
+							img: CONFIG.ABILITY_CARD_BACKGROUNDS.default,
+						}) as Card,
+				)}
+				{readonly}
+				characterCards={corruptedCharacterCards}
+				listMode="collection"
+				onChange={onCorruptedCardsChange}
+			/>
+		</Container>
+	{/if}
 </div>
 
 <div

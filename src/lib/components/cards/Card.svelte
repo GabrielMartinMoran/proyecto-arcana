@@ -158,6 +158,7 @@
 				justify-content: start;
 				padding: var(--spacing-sm);
 				font-size: 0.8rem;
+				width: 100%;
 
 				.description {
 					flex-grow: 1;

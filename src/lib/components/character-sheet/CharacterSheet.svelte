@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { Character } from '$lib/types/character';
 	import type { Component } from 'svelte';
+	import { get } from 'svelte/store';
 	import TitleField from '../ui/TitleField.svelte';
 	import BioTab from './tabs/BioTab.svelte';
 	import CardsTab from './tabs/CardsTab.svelte';
@@ -28,6 +31,8 @@
 		onTabChange,
 		allowPartyChange = true,
 	}: Props = $props();
+
+	let { user } = useFirebaseService();
 
 	type Tab = {
 		name: string;
@@ -105,6 +110,16 @@
 		currentTabIndex = index;
 		onTabChange(TABS[index].name);
 	};
+
+	const copyPublicURL = () => {
+		const userId = get(user)?.uid;
+		if (!userId) return;
+		const publicURL = resolve(`/characters/shared/${userId}/${character.id}`);
+		navigator.clipboard.writeText(window.location.origin + publicURL);
+		alert(
+			'Se copio el enlace público del personaje al portapapeles!\n\nCompartelo con quien quieras que lo vea.',
+		);
+	};
 </script>
 
 <div class="character-sheet">
@@ -128,6 +143,10 @@
 				>
 			{/if}
 		{/each}
+		{#if !readonly}
+			<span class="spacer"></span>
+			<button onclick={copyPublicURL}>🔗 Compartir</button>
+		{/if}
 	</div>
 	<currentTabReference.component
 		{character}
@@ -149,6 +168,10 @@
 			flex-direction: row;
 			flex-wrap: wrap;
 			gap: var(--spacing-sm);
+		}
+
+		.spacer {
+			flex-grow: 1;
 		}
 	}
 </style>
