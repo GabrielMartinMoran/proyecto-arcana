@@ -2122,7 +2122,7 @@ cards:
     requirements:
       - Fe Inspiradora
     description: >-
-      Manifiestas una prueba menor de poder divino: tu voz retumba, creas un símbolo sagrado brillante,
+      Manifiestas una prueba menor de poder divino: tu voz retumba, haces brillar tu símbolo sagrado (transformandolo en una fuente de luz),
       abres una puerta sin seguro o alteras la apariencia de tus ojos.
     uses:
       type: null
@@ -3744,7 +3744,7 @@ cards:
     requirements:
       - Disciplina Monástica
     description: >-
-      Como **Acción**, tocas a una criatura **Moribunda** y estabilizas su flujo de ki. La criatura se estabiliza automáticamente. Si tú o el objetivo gastáis 1 Punto de Suerte, la criatura recupera 1 Punto de Salud en su lugar.
+      Como **Acción**, tocas a una criatura **Moribunda** y estabilizas su flujo de ki. La criatura se estabiliza automáticamente. Si tú o el objetivo gastan 1 Punto de Suerte, la criatura recupera 1 Punto de Salud en su lugar.
     uses:
       type: LONG_REST
       qty: 2
