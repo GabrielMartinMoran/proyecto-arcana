@@ -606,6 +606,7 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 | Ballesta ligera    | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
 | Espada larga       | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
 | Arco largo         | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
+| Estoque            | 1d8      | Perforante  | Reflejos 3            | 100 o  | Precisa                             |
 | Martillo de guerra | 1d8/1d10 | Contundente | Cuerpo 3              | 100 o  | Versátil                            |
 | Hacha de guerra    | 1d8/1d10 | Cortante    | Cuerpo 3              | 100 o  | Versátil                            |
 | Ballesta pesada    | 1d10     | Perforante  | Reflejos 3            | 150 o  | A dos manos, Rango (Larga), Recarga |
