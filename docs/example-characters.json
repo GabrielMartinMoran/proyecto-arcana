@@ -2,42 +2,42 @@
 	{
 		"id": "3f11b6b3-0c45-4957-ab28-5f1ca5c310f0",
 		"name": "Borin Hierroardiente",
-		"attributes": { "presence": 2, "instinct": 3, "mind": 1, "body": 3, "reflexes": 1 },
+		"attributes": { "presence": 2, "body": 3, "instinct": 3, "reflexes": 1, "mind": 1 },
 		"cards": [
 			{
-				"id": "c8e35358933b4ea6f4547d28bcb235ad205acd37",
-				"isActive": false,
-				"level": 1,
-				"uses": null,
-				"cardType": "efecto"
-			},
-			{
 				"cardType": "efecto",
-				"uses": null,
 				"level": 1,
-				"id": "e7c3f7586449b81902da1bc7479a463077a0e557",
-				"isActive": false
+				"uses": null,
+				"isActive": false,
+				"id": "e7c3f7586449b81902da1bc7479a463077a0e557"
 			},
 			{
-				"cardType": "activable",
-				"id": "2a8d46598771dc9dcc91992dec7033c9efee553c",
 				"level": 1,
 				"isActive": true,
+				"id": "2a8d46598771dc9dcc91992dec7033c9efee553c",
+				"cardType": "activable",
 				"uses": 1
 			},
 			{
-				"id": "ab9b86caa28a283deaaf6a05fc395ac8da0a153c",
-				"uses": null,
 				"isActive": false,
+				"id": "ab9b86caa28a283deaaf6a05fc395ac8da0a153c",
+				"level": 1,
 				"cardType": "efecto",
-				"level": 1
+				"uses": null
 			},
 			{
-				"uses": 1,
-				"cardType": "activable",
-				"level": 1,
 				"id": "591c9b98fcb403fb1697731f113169934c0516b0",
-				"isActive": true
+				"isActive": true,
+				"level": 1,
+				"cardType": "activable",
+				"uses": 1
+			},
+			{
+				"id": "91512235fcc1bea02da707a1e385dd2b9b6d781c",
+				"uses": null,
+				"isActive": false,
+				"level": 1,
+				"cardType": "efecto"
 			}
 		],
 		"ppHistory": [],
@@ -50,58 +50,58 @@
 			},
 			{
 				"type": "add",
-				"value": 100,
 				"reason": "Oro Inicial",
-				"id": "c259696e-691b-4e4c-8bbb-fa6ac0be692d"
+				"id": "c259696e-691b-4e4c-8bbb-fa6ac0be692d",
+				"value": 100
 			}
 		],
 		"equipment": [
 			{
-				"notes": "Mitigación física +2, Sigilo -2",
-				"name": "Cota de mallas",
 				"id": "eebdf3c3-6ab0-4b2d-95da-51b2e67df017",
-				"quantity": 1
+				"quantity": 1,
+				"name": "Cota de mallas",
+				"notes": "Mitigación física +2, Sigilo -2"
 			},
 			{
-				"notes": "Esquiva +1",
 				"id": "348e9a31-6127-4ea8-892b-2c9a1b121546",
 				"name": "Escudo",
+				"notes": "Esquiva +1",
 				"quantity": 1
 			},
 			{
+				"name": "Maza",
 				"quantity": 1,
 				"notes": "1d6 Contundente",
-				"id": "201ea81c-c1db-4e11-8362-a3f64856e0e2",
-				"name": "Maza"
+				"id": "201ea81c-c1db-4e11-8362-a3f64856e0e2"
 			},
 			{
-				"notes": "Hecho de hierro",
-				"quantity": 1,
+				"id": "ad114ebf-6781-4ba9-9f3c-e7990eb8f7a1",
 				"name": "Símbolo sagrado de Moradin",
-				"id": "ad114ebf-6781-4ba9-9f3c-e7990eb8f7a1"
+				"quantity": 1,
+				"notes": "Hecho de hierro"
 			}
 		],
 		"modifiers": [
 			{
-				"type": "add",
-				"attribute": "maxHP",
+				"reason": "Fe Inspiradora",
 				"formula": "3",
-				"id": "73418f9d-7bc5-41b6-9de6-4bf1a7485c0b",
-				"reason": "Fe Inspiradora"
+				"attribute": "maxHP",
+				"type": "add",
+				"id": "73418f9d-7bc5-41b6-9de6-4bf1a7485c0b"
 			},
 			{
-				"attribute": "physicalMitigation",
 				"id": "5b30391e-e6b2-4ed9-9486-9b1768c7647e",
-				"type": "add",
 				"reason": "Cota de Mallas",
-				"formula": "2"
+				"formula": "2",
+				"type": "add",
+				"attribute": "physicalMitigation"
 			},
 			{
-				"id": "54868270-13da-424b-9f40-905d9ba6088a",
-				"type": "add",
 				"formula": "1",
+				"id": "54868270-13da-424b-9f40-905d9ba6088a",
+				"reason": "Escudo",
 				"attribute": "evasion",
-				"reason": "Escudo"
+				"type": "add"
 			}
 		],
 		"currentHP": 17,
@@ -111,21 +111,21 @@
 		"story": "Borin no es un clérigo de biblioteca; es un capataz de la fe. Pasó su primera centuria sirviendo en la Gran Forja del templo, donde aprendió que la fe, como el acero, debe ser golpeada y templada para ser fuerte. Para él, un cuerpo roto es solo metal que necesita ser reforjado.\n\nMoradin le habló no en un susurro, sino en el rugido del fuelle, ordenándole que fuera al mundo de la superficie. Su misión es proteger a las \"creaciones\" (la gente) de las fuerzas que buscan corromperlas o destruirlas.\n\nSu ideal es la Creación: Proteger lo que se ha construido, ya sea un muro, una comunidad o el alma de un compañero, es el acto de devoción más sagrado.",
 		"notes": [],
 		"languages": "Común, Enano y Celestial",
-		"quickInfo": "Ventaja en:  Religión, Perpicacia",
+		"quickInfo": "Ventaja en:  Religión, Perpicacia, Tiradas de Salvación de Cuerpo contra venenos y enfermedades.",
 		"attacks": [
 			{
-				"name": "Maza",
+				"notes": "Contundente",
 				"atkFormula": "1d6e+cuerpo",
-				"id": "1f6fdb15-0373-43ca-a1d9-5d192ac855e1",
 				"dmgFormula": "1d6",
-				"notes": "Contundente"
+				"name": "Maza",
+				"id": "1f6fdb15-0373-43ca-a1d9-5d192ac855e1"
 			},
 			{
 				"id": "9529c605-a7d4-4cca-b29e-ad70b8823f08",
-				"dmgFormula": "1d6",
 				"name": "Llama Sagrada",
+				"atkFormula": "1d6e+instinto",
 				"notes": "Radiante",
-				"atkFormula": "1d6e+instinto"
+				"dmgFormula": "1d6"
 			}
 		],
 		"maxActiveCards": 3,
@@ -211,7 +211,7 @@
 			{
 				"quantity": 1,
 				"id": "5ac0ebdf-08c9-42d1-b5a5-21d691bc8267",
-				"notes": "1d6 Perforante, A dos manos, Rango (Larga)",
+				"notes": "1d6 Perforante, A dos manos, Rango (Media)",
 				"name": "Arco corto"
 			},
 			{
@@ -347,7 +347,7 @@
 			},
 			{
 				"quantity": 1,
-				"notes": "1d6 Perforante, A dos manos, Rango (Larga)",
+				"notes": "1d6 Perforante, A dos manos, Rango (Media)",
 				"id": "d7016f1d-8876-4937-b7db-ce698714c81b",
 				"name": "Arco Corto"
 			},
@@ -708,7 +708,7 @@
 				"id": "1e0b4403-3e29-40a2-9867-9b5d261e1bc7",
 				"name": "Ballesta ligera",
 				"quantity": 1,
-				"notes": "1d6 Perforante, A dos manos, Rango (Larga), Recarga"
+				"notes": "1d6 Perforante, A dos manos, Rango (Media), Recarga"
 			},
 			{
 				"notes": "-",

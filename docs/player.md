@@ -271,7 +271,7 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 - **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
 - **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
-- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible. En caso de estar fuera de combate, un personaje puede tomarse 10 minutos para reponer energías y recargar un uso. Alternativamente, en calquier momento, un personaje puede gastar una cantidad de Puntos de Suerte igual al valor de Recarga de la carta para recargarla.
+- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que dentro de combate, al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible. Fuera de combate, un personaje puede tomarse un tiempo de concentración para reponer energías y recargar un uso gastado. El tiempo requerido es igual a 5 minutos multiplicados por el valor de Recarga de la carta. Alternativamente, en cualquier momento, un personaje puede gastar una cantidad de Puntos de Suerte igual al valor de Recarga de la carta para recargarla instantáneamente.
 
 ## Lanzamiento Ritual: Magia sin Prisa
 
@@ -397,9 +397,10 @@ El objetivo no es tener una regla para cada situación, sino fomentar la creativ
 
 ## Alcance y Distancias
 
-- **Inmediata:** A tu alcance o a unos pocos pasos (aproximadamente 1 metro).
-- **Cercana:** En la misma habitación o a una distancia de lanzamiento corta (aproximadamente 10 metros).
-- **Larga:** Tan lejos como puedas ver con claridad.
+- **Inmediata:** A tu alcance o a unos pocos pasos (hasta 1 metro aproximadamente).
+- **Cercana:** En la misma habitación o a una distancia de lanzamiento corta (hasta 10 metros aproximadamente).
+- **Media:** Al otro lado de la calle, combate de proyectiles estándar (hasta 50 metros aproximadamente).
+- **Larga:** Tan lejos como puedas ver con claridad (hasta 100 metros aproximadamente).
 
 ## Realizar un Ataque
 
@@ -596,13 +597,13 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 | Porra              | 1d4      | Contundente | -                     | 2 o    | -                                   |
 | Jabalina           | 1d4      | Perforante  | Cuerpo 2              | 3 o    | Arrojadiza (Cercana)                |
 | Daga               | 1d4      | Perforante  | -                     | 5 o    | Precisa, Arrojadiza (Cercana)       |
-| Arco corto         | 1d4      | Perforante  | Reflejos 2            | 20 o   | A dos manos, Rango (Larga)          |
+| Arco corto         | 1d4      | Perforante  | Reflejos 2            | 20 o   | A dos manos, Rango (Media)          |
 | Bastón             | 1d4/1d6  | Contundente | -                     | 2 o    | Versátil                            |
 | Maza               | 1d6      | Contundente | Cuerpo 2              | 10 o   | -                                   |
 | Lanza              | 1d6      | Perforante  | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
 | Hacha de mano      | 1d6      | Cortante    | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
 | Espada corta       | 1d6      | Cortante    | Cuerpo 2 o Reflejos 2 | 25 o   | Precisa                             |
-| Ballesta ligera    | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Larga), Recarga |
+| Ballesta ligera    | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
 | Espada larga       | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
 | Arco largo         | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
 | Martillo de guerra | 1d8/1d10 | Contundente | Cuerpo 3              | 100 o  | Versátil                            |
@@ -626,10 +627,11 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 | Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
 | :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
 | Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
-| Cota de mallas  | 2                 | -1      | -2 (Muy ruidosa)    | Cuerpo 2              | 75 o   |
-| Brigantina      | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 150 o  |
-| Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 3              | 400 o  |
-| Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 1000 o |
+| Gambesón        | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
+| Cota de mallas  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
+| Brigantina      | 2                 | 0       | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
+| Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 4              | 400 o  |
+| Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 5              | 1000 o |
 | Escudo          | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
 
 ## Equipo de Aventura y Servicios
