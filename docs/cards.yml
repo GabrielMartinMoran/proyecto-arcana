@@ -3535,7 +3535,7 @@ cards:
     requirements:
       - Disciplina Monástica
     description: >-
-      Has aprendido a canalizar tu ki en tus puños. Tus ataques desarmados ignoran **1 punto de Mitigación Física** del objetivo.
+      Has aprendido a canalizar tu ki en tus puños. Tus ataques desarmados ignoran una cantidad de Mitigación Física igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba).
     uses:
       type: null
       qty: 0
@@ -3605,7 +3605,7 @@ cards:
       - Golpes Energéticos
       - Instinto 4
     description: >-
-      Tu control sobre el ki es absoluto. Tus ataques desarmados ahora ignoran una cantidad de **Mitigación Física** del objetivo igual a **la mitad de tu puntuación de Instinto** (redondeando hacia arriba).
+      Tu control sobre el ki es absoluto. Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del objetivo igual al total de tu puntuación de Instinto.
     uses:
       type: null
       qty: 0
