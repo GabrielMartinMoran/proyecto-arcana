@@ -678,7 +678,7 @@ creatures:
         uses:
           type: RELOAD
           qty: 4 # ND Ajustado
-        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Reflejos (ND 8) o quedar Inmovilizado. Una criatura inmovilizada puede usar su Acción para repetir la Tirada de Salvación de Reflejos e intentar liberarse si tiene éxito.
+        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Reflejos (ND 8) o quedar Inmovilizado. Una criatura inmovilizada puede usar su Acción para realizar una Prueba de Cuerpo (ND 8) e intentar liberarse en caso de éxito.
     reactions: []
     interactions: []
     # PPF Total: 3(Salud) + 1(Esq) + 1(MitF) + 2(Atq) + 2(Daño) + 3(Hab Tel) = 12 PPF. Correcto. (Veneno y Caminar Telaraña quitados).
