@@ -17,7 +17,7 @@ Este manual contiene reglas para personajes, creación de personajes, mecánicas
 ```
 <player_manual>
 {{player_manual}}
-<\player_manual>
+</player_manual>
 ```
 
 ### Manual del Director de Juego
@@ -27,7 +27,7 @@ Esta manual es una guía para dirigir aventuras, crear encuentros, diseñar cria
 ```
 <game_master_manual>
 {{game_master_manual}}
-<\game_master_manual>
+</game_master_manual>
 ```
 
 ### Bestiario
@@ -37,7 +37,7 @@ Este manual contiene bloques de estadísticas de algunas de las criaturas con la
 ```
 <bestiary>
 {{bestiary}}
-<\bestiary>
+</bestiary>
 ```
 
 ### Listado de Cartas
@@ -47,7 +47,7 @@ Listado completo de habilidades, conjuros y dotes existentes en Arcana.
 ```
 <cards_list>
 {{cards_list}}
-<\cards_list>
+</cards_list>
 ```
 
 ### Listado de Objetos Mágicos
@@ -57,7 +57,7 @@ Listado de algunos de los objetos mágicos existentes en Arcana.
 ```
 <magical_items>
 {{magical_items}}
-<\magical_items>
+</magical_items>
 ```
 
 ## La Regla de Oro: Cero Alucinaciones

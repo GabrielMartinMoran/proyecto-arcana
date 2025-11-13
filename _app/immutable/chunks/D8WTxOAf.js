@@ -1,4 +1,4 @@
-import{m as r}from"./W6WjCfrW.js";import{l as m}from"./CGjaQNWU.js";import{m as p,a as g}from"./DF-fq5rF.js";import{r as d}from"./DlBc2vZX.js";const o=async s=>await(await fetch(d(s))).text(),y=s=>{let t="";return t+=`# ${s.name}
+import{m as r}from"./W6WjCfrW.js";import{l as m}from"./CGjaQNWU.js";import{m as p,a as g}from"./DF-fq5rF.js";import{r as d}from"./f2DzeVQY.js";const o=async s=>await(await fetch(d(s))).text(),y=s=>{let t="";return t+=`# ${s.name}
 
 `,t+=`**Rango:** ${s.tier}
 

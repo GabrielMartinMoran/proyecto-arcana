@@ -163,7 +163,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Eres un maestro en el arte de la distracción. Obtienes Visión en la Oscuridad. Además, cuando un enemigo declara un ataque contra ti pero antes de que realice la tirada, puedes usar tu Reacción para crear una breve ilusión de ti mismo. El enemigo debe superar una TS de Instinto (ND 7). Si falla, el ataque se redirige a la ilusión y falla. Puedes usar esta habilidad un número de veces igual a tu puntuación de Presencia por día de descanso.
+      Eres un maestro en el arte de la distracción. Obtienes Visión en la Oscuridad. Además, cuando un enemigo declara un ataque contra ti pero antes de que realice la tirada, puedes usar tu Reacción para crear una breve ilusión de ti mismo. El enemigo debe superar una TS de Instinto (ND 5 + Mente). Si falla, el ataque se redirige a la ilusión y falla. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
     uses:
       type: null
       qty: 0
@@ -220,7 +220,7 @@ cards:
       - Solo Creación de Personaje
     description: >-
       Tu sangre infernal responde al dolor con fuego. Cuando una criatura que puedas ver a distancia Cercana te inflige daño, puedes usar tu **Reacción** para desatar una llamarada de Fuego profano contra ella.<br>
-      El atacante debe superar una Tirada de Salvación de **Reflejos** (ND 4 + tu Presencia). Si falla, recibe **1d6 de daño de Fuego**. Si tiene éxito, recibe la mitad del daño.<br>
+      El atacante debe superar una Tirada de Salvación de Reflejos (ND 5 + Presencia). Si falla, recibe **1d6 de daño de Fuego**. Si tiene éxito, recibe la mitad del daño.<br>
       Puedes usar esta habilidad un número de veces por día de descanso igual a tu puntuación de **Presencia**.
     uses:
       type: null
@@ -251,7 +251,7 @@ cards:
     requirements:
       - Solo Creación de Personaje
     description: >-
-      Puedes hacer un pacto con tu propia sangre para forzar el destino, a un precio. Obtienes Visión en la Oscuridad. Además, una vez por día de descanso, puedes elegir sacar un 6 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br>
+      Puedes hacer un pacto con tu propia sangre para forzar el destino, a un precio. Obtienes Visión en la Oscuridad. Además, una vez por día de descanso, puedes elegir sacar un 8 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br>
       Al hacerlo, obtienes un "Dado de Deuda" (un d6). Mientras tengas este dado, la próxima vez que debas realizar una tirada de ataque, prueba de habilidad o tirada de salvación, debes lanzar el Dado de Deuda junto con tu tirada normal.<br>
       - Si el Dado de Deuda resulta en un 1, tu tirada se considera un fallo crítico independientemente de tu resultado, y la deuda se salda (el dado se retira).<br>
       - Si el resultado es cualquier otro número, no ocurre nada adicional y conservas el Dado de Deuda para tu siguiente tirada.
@@ -282,7 +282,7 @@ cards:
       - Solo Creación de Personaje
     description: >-
       Tu estatura y físico imponentes son un arma en sí mismos. Puedes cargar el doble de peso de lo que podrías normalmente.<br>
-      Además, una vez por turno, si te mueves por lo menos 5 metros para llegar a un enemigo y atacarlo, en caso de que el ataque impacte, puedes forzar al objetivo a superar una Tirada de Salvación de Cuerpo (ND 4+Cuerpo) o caer Derribado.
+      Además, una vez por turno, si te mueves por lo menos 5 metros para llegar a un enemigo y atacarlo, en caso de que el ataque impacte, puedes forzar al objetivo a superar una Tirada de Salvación de Cuerpo (ND 5 + Cuerpo) o caer Derribado.
     uses:
       type: null
       qty: 0
@@ -492,7 +492,7 @@ cards:
       Como Reacción cuando recibes daño (ya sea físico o mágico), obtienes Mitigación +2 contra ese daño.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Experto en Ballestas
     level: 2
     type: efecto
@@ -612,11 +612,11 @@ cards:
       - Senda del Bribón
     description: >-
       Usas tu Interacción para arrojar arena o hacer una finta. Elige un
-      enemigo a distancia Inmediata. Este debe superar una TS de Reflejos (ND 4 + Reflejos) o
+      enemigo a distancia Inmediata. Este debe superar una TS de Reflejos (ND 5 + Reflejos) o
       tener Desventaja (-1d4) en el siguiente ataque que realice.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Acción Astuta
     level: 2
     type: activable
@@ -682,11 +682,11 @@ cards:
       - Estilo Audaz
     description: >-
       Como Interacción, eliges a un enemigo que pueda verte a distancia Cercana y lo desafías.
-      Debe superar una TS de Instinto (ND 4+Presencia) o tener Desventaja (-1d4)
+      Debe superar una TS de Instinto (ND 5 + Presencia) o tener Desventaja (-1d4)
       en todos sus ataques contra objetivos que no seas tú hasta tu próximo turno.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Riposta
     level: 2
     type: activable
@@ -700,7 +700,7 @@ cards:
       realizar un ataque cuerpo a cuerpo contra él con un arma Precisa.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Duelista Audaz
     level: 2
     type: efecto
@@ -747,7 +747,7 @@ cards:
       de esta manera, tu próximo ataque contra ese enemigo antes del final de tu próximo turno tiene Ventaja (+1d4).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   # --- Pícaro: Venenos ---
   - name: Frasquero
     level: 1
@@ -771,12 +771,12 @@ cards:
       - Frasquero
       - Mente 3
     description: >-
-      Has aprendido a crear y aplicar toxinas con una velocidad letal. Cuando impactas a una criatura con un arma, puedes usar tu Interacción para inyectar una de las siguientes toxinas (la criatura debe superar una TS de Cuerpo (ND 4+Mente) para resistir):<br>
+      Has aprendido a crear y aplicar toxinas con una velocidad letal. Cuando impactas a una criatura con un arma, puedes usar tu Interacción para inyectar una de las siguientes toxinas (la criatura debe superar una TS de Cuerpo (ND 5 + Mente) para resistir):
       - **Toxina Virulenta:** En caso de fallo, el objetivo sufre el estado Envenenado. La criatura puede repetir la Tirada de Salvación al final de cada uno de sus turnos para terminar el efecto.<br>
       - **Toxina Agónica:** En caso de fallo, el objetivo sufre 1d6 de daño de Veneno adicional.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Maestría Tóxica
     level: 3
@@ -787,7 +787,7 @@ cards:
       - Alquimia Instantánea
       - Mente 4
     description: >-
-      Perfeccionas tus venenos. Añades las siguientes opciones a tu Alquimia Instantánea (TS de Cuerpo ND 4+Mente):<br>
+      Perfeccionas tus venenos. Añades las siguientes opciones a tu Alquimia Instantánea (TS de Cuerpo ND 5 + Mente):<br>
       - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br>
       - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo turno.
     uses:
@@ -864,7 +864,7 @@ cards:
       realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   # --- Pícaro: Asesino ---
   - name: Asesinar
@@ -890,11 +890,11 @@ cards:
       - Asesinar
       - Instinto 3
     description: >-
-      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 4 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.
+      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.
       La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   # --- Pícaro: Ladrón ---
   - name: Manos Rápidas
@@ -967,7 +967,7 @@ cards:
       Como **Interacción**, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se **maximiza** (cada dado cuenta como su valor máximo).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Golpe Fantasma
     level: 5
@@ -981,7 +981,7 @@ cards:
       Tu golpe es tan rápido y preciso que atraviesa las defensas. Como Acción, realizas un único ataque con un arma Precisa o a distancia. Este ataque ignora toda Mitigación Física y Puntos de Salud temporales. Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
 
   - name: Ataque Furtivo Maestro
     level: 5
@@ -1057,7 +1057,7 @@ cards:
       puedes usar tu Reacción para realizar un único ataque cuerpo a cuerpo contra él.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: 'Estilo de Combate: Lucha con Dos Armas'
     level: 2
     type: activable
@@ -1101,7 +1101,7 @@ cards:
       cualquier tirada de ataque que realice contra un objetivo que no seas tú.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: 'Estilo de Combate: Duelo'
     level: 2
     type: activable
@@ -1144,7 +1144,7 @@ cards:
       Ganas una Acción extra en este turno.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
   - name: Barrido de Piernas
     level: 2
     type: activable
@@ -1156,10 +1156,10 @@ cards:
     description: >-
       Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando
       un arma a dos manos o un arma Versátil con ambas manos. Todas las criaturas a 1 metro de ti deben superar una
-      TS de Cuerpo (ND 4+Cuerpo) o caer en el estado Derribado.
+      TS de Cuerpo (ND 5 + Cuerpo) o caer en el estado Derribado.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Ataque Adicional
     level: 3
     type: efecto
@@ -1305,7 +1305,7 @@ cards:
       iguales a tu Presencia + 1d4.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Comando de Batalla
     level: 3
     type: activable
@@ -1320,7 +1320,7 @@ cards:
       próximo turno obtiene Ventaja (+1d4).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   # --- Combatiente: Tirador ---
   - name: Ojo de Halcón
     level: 1
@@ -1349,7 +1349,7 @@ cards:
       el ataque ignora la Mitigación del objetivo.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Lluvia de Flechas
     level: 3
     type: activable
@@ -1359,11 +1359,11 @@ cards:
       - Ojo de Halcón
       - Reflejos 4
     description: >-
-      Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3m
-      de ese punto deben superar una TS de Reflejos (ND 4 + Reflejos) o recibir 2d6 de daño Perforante.
+      Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3 metros
+      deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño Perforante.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   # --- Combatiente: Explorador Veterano ---
   - name: Marcha Incansable
     level: 1
@@ -1441,11 +1441,11 @@ cards:
       - Afinidad Arcana
     description: >-
       Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
-      de conjuro (1d6+Mente) a distancia Cercana contra un objetivo. Si
+      de conjuro (1d8+Mente) a distancia Cercana contra un objetivo. Si
       impactas, infliges 1d8 de daño del tipo elegido.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Proyectil Mágico
     level: 1
     type: activable
@@ -1458,7 +1458,7 @@ cards:
       Lanzas un proyectil de energía arcana que no puede fallar a una criatura a distancia Cercana. Al impactar, este realiza 1d4 de daño de Fuerza.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Toque Entrópico
     level: 1
     type: activable
@@ -1468,11 +1468,11 @@ cards:
     requirements:
       - Afinidad Arcana
     description: >-
-      Realizas un ataque de conjuro cuerpo a cuerpo (1d6+Mente) contra un objetivo.
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Mente) contra un objetivo.
       Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Ruptura Mental
     level: 2
     type: activable
@@ -1484,11 +1484,11 @@ cards:
       - Mente 3
     description: >-
       Generas una perturbación mental en una criatura que puedas ver a distancia Media.
-      La criatura debe superar una Tirada de Salvación de Mente (NA 4+Mente) o sufrir 2d6 de daño Psíquico y tener desventaja
+      La criatura debe superar una Tirada de Salvación de Mente (ND 5 + Mente) o sufrir 2d6 de daño Psíquico y tener desventaja
       en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Velo de Sombras
     level: 1
     type: activable
@@ -1517,7 +1517,7 @@ cards:
       Una barrera de energía te protege. Mientras no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
   - name: Mano de Mago
     level: 1
     type: activable
@@ -1548,7 +1548,7 @@ cards:
       Este efecto no te permite hablar ni escribir en idiomas que no conoces.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Alarma Mágica
     level: 1
     type: activable
@@ -1566,7 +1566,7 @@ cards:
       La alarma se activa si cualquier criatura que no hayas designado como segura entra en el área protegida.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Identificar Magia
     level: 1
     type: activable
@@ -1583,7 +1583,7 @@ cards:
       - **Con un Éxito Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del conjuro activo.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Coraza Vital
     level: 1
     type: activable
@@ -1597,7 +1597,7 @@ cards:
       Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Mente.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Detectar Magia
     level: 1
     type: activable
@@ -1612,7 +1612,7 @@ cards:
       criatura u objeto visible a distancia Cercana que porte magia.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Augurio
     level: 2
     type: activable
@@ -1641,14 +1641,14 @@ cards:
       - Afinidad Arcana
       - Mente 3
     description: >-
-      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 4+Mente).
+      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Mente).
       Si falla, le aplicas uno de los siguientes efectos durante 1 minuto:<br>
       - Le das desventaja en sus tiradas de ataque usando un atributo en específico.<br>
       - Le das desventaja en sus tiradas de salvación de un atributo en específico.<br>
       - Le das desventaja en sus tiradas de habilidad un atributo en específico.<br>
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Paso Brumoso
     level: 2
     type: activable
@@ -1663,7 +1663,7 @@ cards:
       que puedas ver a distancia Cercana.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Invisibilidad
     level: 2
     type: activable
@@ -1679,7 +1679,7 @@ cards:
       o hasta que ataque, lance un conjuro o pierdas la concentración.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Escudo Absorbente
     level: 2
     type: activable
@@ -1695,7 +1695,7 @@ cards:
       puedes crear un escudo temporal. Ganas Mitigación Mágica igual a dos veces tu puntuación de Mente contra ese daño.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Rayo Energético
     level: 2
     type: activable
@@ -1706,11 +1706,11 @@ cards:
       - Descarga Elemental
       - Mente 3
     description: >-
-      Realizas un ataque de conjuro (1d6+Mente) a distancia Media. Si impactas, el objetivo recibe 2d8
+      Realizas un ataque de conjuro (1d8 + Mente) a distancia Media. Si impactas, el objetivo recibe 2d8
       de daño de Fuego, Frío o Eléctrico.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Manos Ardientes
     level: 1
     type: activable
@@ -1720,11 +1720,11 @@ cards:
     requirements:
       - Afinidad Arcana
     description: >-
-      Todo enemigo en un cono de 3 metros frente a ti debe superar una TS de Reflejos (ND 4 + Mente).
+      Todo enemigo en un cono de 3 metros frente a ti debe superar una TS de Reflejos (ND 5 + Mente).
       Si fallan, reciben 1d6 de daño de Fuego. Si tienen éxito, la mitad.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Nube de Dagas
     level: 2
     type: activable
@@ -1738,11 +1738,11 @@ cards:
     description: >-
       Eliges un cubo de 2 metros de lado a distancia Media. El área se llena de dagas
       voladoras durante 1 minuto. La primera vez que una criatura entre en
-      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 4+Mente). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
+      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 5 + Mente). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
       En turnos subsequentes, puedes usar tu Acción para mover el cubo a otra ubicación a distancia Cercana.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Tronar
     level: 2
     type: activable
@@ -1754,11 +1754,11 @@ cards:
       - Mente 3
     description: >-
       Una onda de fuerza sónica explota desde ti en un cubo de 3 metros. Toda criatura
-      en el área debe superar una TS de Cuerpo (ND 4+Mente). Si falla, recibe 2d6 de
+      en el área debe superar una TS de Cuerpo (ND 5 + Mente). Si falla, recibe 2d6 de
       daño Sónico y es empujada 2 metros lejos de ti. Si tiene éxito, recibe la mitad del daño y no es empujada.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Explosión Elemental
     level: 3
     type: activable
@@ -1770,11 +1770,11 @@ cards:
       - Mente 4
     description: >-
       Explosión de Fuego, Frío o Eléctrico en un radio de 5 metros a distancia Larga.
-      Toda criatura en el área debe hacer una TS de Reflejos (ND 4+Mente). Si falla,
+      Toda criatura en el área debe hacer una TS de Reflejos (ND 5 + Mente). Si falla,
       recibe 4d6 de daño; si tiene éxito, la mitad.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
   - name: Volar
     level: 3
     type: activable
@@ -1790,7 +1790,7 @@ cards:
       a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Teoría Arcana Avanzada
     level: 3
     type: efecto
@@ -1822,12 +1822,12 @@ cards:
     description: >-
       Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos.
       Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo,
-      una criatura del tipo elegido debe superar una tirada de Instinto (ND 4+Mente).
+      una criatura del tipo elegido debe superar una tirada de Instinto (ND 5 + Mente).
       Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de
       Salvación contra efectos de criaturas del tipo declarado.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Ráfaga Aniquiladora
     level: 3
     type: activable
@@ -1838,14 +1838,14 @@ cards:
       - Afinidad Arcana
       - Mente 4
     description: >-
-      Realizas un ataque de conjuro a distancia (1d6+Mente) contra un objetivo. Si impactas,
+      Realizas un ataque de conjuro a distancia (1d8 + Mente) contra un objetivo. Si impactas,
       el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente
       tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera,
       acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o
       decidas detener la ráfaga.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Rayo Desintegrador
     level: 4
     type: activable
@@ -1856,12 +1856,12 @@ cards:
       - Afinidad Arcana
       - Mente 4
     description: >-
-      Realizas un ataque de conjuro a distancia (1d6+Mente). Si impactas, infliges 4d8 de daño
+      Realizas un ataque de conjuro a distancia (1d8 + Mente). Si impactas, infliges 4d8 de daño
       de Fuerza. Si este daño reduce al objetivo a 0 Puntos de Salud, se convierte en un
       fino polvo gris y es desintegrado.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Pulso Cinético
     level: 2
     type: activable
@@ -1874,12 +1874,12 @@ cards:
     description: >-
       Como Acción, proyectas una ráfaga de fuerza telequinética invisible para **empujar, atraer o expandir** materia desde un punto a distancia Media.
       La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br>
-      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 4+Mente)**.<br>
+      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Mente)**.<br>
       - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br>
       - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Levitar
     level: 2
     type: activable
@@ -1897,7 +1897,7 @@ cards:
       - **Objeto:** Puede pesar hasta 50 kg por cada punto de tu Atributo de Mente.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
 
   - name: Silueta Ilusoria
     level: 2
@@ -1914,7 +1914,7 @@ cards:
       Si una criatura usa su Acción para interactuar físicamente contigo, puede realizar una prueba de Instinto (Percepción) contra tu ND de conjuros para descubrir el engaño.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Transmutar Materia
     level: 3
     type: activable
@@ -1930,7 +1930,7 @@ cards:
       Por ejemplo, puedes volver una cerradura blanda como la cera, o esculpir una palanca a partir de un trozo de metal.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Visión Remota
     level: 3
     type: activable
@@ -1946,7 +1946,7 @@ cards:
       El sensor es detectable con magia o visión especial. Dura 10 minutos.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Zona Nula
     level: 2
     type: activable
@@ -1963,7 +1963,7 @@ cards:
       y toda fuente de luz, mágica o no, se reduce a una penumbra tenue.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Rompeconjuros
     level: 3
     type: activable
@@ -1983,7 +1983,7 @@ cards:
       Realizas una prueba de Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Santuario Arcano
     level: 3
     type: activable
@@ -1998,7 +1998,7 @@ cards:
       Trazas un círculo en el suelo, del que brota una cúpula de energía opaca desde fuera pero transparente desde dentro, de 3m de radio. Dura 8 horas.
       Las criaturas que designes al lanzar el conjuro pueden usar una Acción para entrar o salir. Si tú, el lanzador, sales, el conjuro termina.
       Cualquier ataque o conjuro dirigido a la cúpula debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Mente
-      con tu bonificador (1d6+Mente) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
+      con tu bonificador (1d8 + Mente) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
     uses:
       type: LONG_REST
       qty: 1
@@ -2018,7 +2018,7 @@ cards:
       y puede ser terminada prematuramente por efectos de disipación mágica. Dura hasta 10 minutos.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Pliegue Espacial
     level: 4
     type: activable
@@ -2035,7 +2035,7 @@ cards:
       que permanece abierta mientras te concentres, hasta por 1 minuto.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Dominio Elemental
     level: 4
     type: efecto
@@ -2063,10 +2063,10 @@ cards:
       - Maledicción
       - Mente 4
     description: >-
-      Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 4+Mente). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente"). La orden no puede ser obviamente suicida. La criatura obedece lo mejor que puede mientras te concentres.
+      Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Mente). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente"). La orden no puede ser obviamente suicida. La criatura obedece lo mejor que puede mientras te concentres.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Maestría Arcana
     level: 5
@@ -2092,7 +2092,7 @@ cards:
       - Sugestión Mayor
       - Mente 5
     description: >-
-      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 50 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 6+Mente) para terminar el efecto.
+      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 50 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7+Mente) para terminar el efecto.
     uses:
       type: LONG_REST
       qty: 1
@@ -2140,7 +2140,7 @@ cards:
       puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Escudo de Fe
     level: 1
     type: activable
@@ -2155,7 +2155,7 @@ cards:
       Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Llama Sagrada
     level: 1
     type: activable
@@ -2166,11 +2166,11 @@ cards:
       - Fe Inspiradora
     description: >-
       Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque
-      de conjuro (1d6+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
+      de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
       Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Amparo Divino
     level: 2
     type: activable
@@ -2186,7 +2186,7 @@ cards:
       e imponer Desventaja (-1d4) en esa tirada de ataque.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Aura Protectora
     level: 2
     type: activable
@@ -2215,7 +2215,7 @@ cards:
       Al impactar con un ataque con arma, puedes infligir 1d6 de daño Radiante adicional.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Santuario Silencioso
     level: 2
     type: activable
@@ -2233,7 +2233,7 @@ cards:
       que entren o empiecen su turno allí sufren Desventaja (-1d4) en todas sus tiradas de ataque y salvación.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Expulsar Impíos
     level: 2
     type: activable
@@ -2245,12 +2245,12 @@ cards:
       - Instinto 3
     description: >-
       Como Acción, presentas tu símbolo sagrado. Todo no-muerto o demonio a distancia Cercana
-      debe superar una TS de Instinto (ND 4 + Instinto). Si falla, debe usar su turno
+      debe superar una TS de Instinto (ND 5 + Instinto). Si falla, debe usar su turno
       para alejarse de ti y tiene Desventaja en sus ataques. La criatura puede repetir la
       Tirada de Salvación al final de cada uno de sus turnos para terminar el efecto.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Bendecir Objeto
     level: 2
     type: activable
@@ -2268,7 +2268,7 @@ cards:
       - **Herramienta:** Otorga un +1 a las Pruebas de Habilidad que se realicen con esta.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Aura Divina
     level: 2
     type: activable
@@ -2283,11 +2283,11 @@ cards:
       Como Acción, emites un aura divina de 5 metros de radio que dura 1 minuto. Al activar el aura,
       eliges uno de los siguientes efectos persistentes:<br>
       - **Aura de Protección:** Cuando un enemigo dentro del aura ataca a un aliado, puedes usar tu Reacción para imponer Desventaja (-1d4) en esa tirada de ataque.<br>
-      - **Aura de Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una TS de Reflejos (ND 4 + tu Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).<br>
+      - **Aura de Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).<br>
       - **Aura de Fortaleza:** Tú y tus aliados dentro del aura obtenéis un +1 a todas las Tiradas de Salvación.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Castigo Inapelable
     level: 3
     type: activable
@@ -2297,11 +2297,11 @@ cards:
       - Sentencia del Hereje
     description: >-
       Como Acción, eliges a un enemigo que esté bajo el efecto de tu `Sentencia del Hereje`.
-      El objetivo debe superar una TS de Instinto (ND 4 + Presencia) o sufrirá 3d6 de daño Radiante
+      El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o sufrirá 3d6 de daño Radiante
       y quedará Aturdido hasta el final de tu próximo turno. Si tiene éxito, solo recibe la mitad del daño.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Plegaria de Curación
     level: 3
     type: activable
@@ -2316,7 +2316,7 @@ cards:
       Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Espíritus Guardianes
     level: 3
     type: activable
@@ -2330,11 +2330,11 @@ cards:
       - Instinto 4
     description: >-
       Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que
-      entre o empiece su turno ahí debe superar una TS de Instinto (ND 4+Instinto)
+      entre o empiece su turno ahí debe superar una TS de Instinto (ND 5 + Instinto)
       o sufrir 2d6 daño Radiante (o la mitad con éxito).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Revivir
     level: 3
     type: activable
@@ -2377,7 +2377,7 @@ cards:
       Siempre puedas ver al enemigo, tus ataques y los de tus aliados contra ese enemigo ignoran su mitigación física y mágica en una cantidad igual a la mitad de tu atributo de Instinto (redondeado hacia abajo).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Zona de la Verdad
     level: 2
     type: activable
@@ -2390,11 +2390,11 @@ cards:
       - Instinto 3
     description: >-
       Creas una zona de 5 metros de radio a distancia Media por 10 minutos. Quien
-      esté dentro debe superar una TS de Instinto (ND 4+Instinto) para poder
+      esté dentro debe superar una TS de Instinto (ND 5 + Instinto) para poder
       decir una mentira deliberada.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Curar
     level: 3
     type: activable
@@ -2410,7 +2410,7 @@ cards:
       - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Detectar el Bien y el Mal
     level: 1
@@ -2428,7 +2428,7 @@ cards:
       Además, puedes sentir si un área o un objeto ha sido consagrado o profanado mágicamente.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
 
   - name: Santuario
     level: 2
@@ -2442,12 +2442,12 @@ cards:
       - Instinto 3
     description: >-
       Trazas un círculo de 5 metros de radio en el suelo. Durante 8 horas, el área se considera terreno consagrado.<br>
-      Cualquier criatura Infernal o No-muerta que intente entrar al área debe superar primero una Tirada de Salvación de Instinto (ND 4+Instinto).
+      Cualquier criatura Infernal o No-muerta que intente entrar al área debe superar primero una Tirada de Salvación de Instinto (ND 5 + Instinto).
       Si falla, no puede entrar voluntariamente en este turno. Si cualquier otra criatura que no hayas designado como segura entra en el área,
       recibes una alerta mental que te despierta si estás durmiendo. No te revela quien entro, pero sí que alguien no esperado lo ha hecho.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Palabra de Autoridad
     level: 2
@@ -2460,11 +2460,11 @@ cards:
       - Instinto 3
     description: >-
       Como Acción, eliges a una criatura a distancia Media. Le das una orden de una o dos palabras (ej: "¡Suéltalo!", "¡Arrodíllate!").
-      El objetivo debe superar una Tirada de Salvación de Instinto (ND 4 + Instinto). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
+      El objetivo debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
       Una criatura inmune al estado Encantado no se ve afectada por este conjuro.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
 
   - name: Eco del Pasado
     level: 3
@@ -2539,10 +2539,10 @@ cards:
       - Espíritus Guardianes # O Castigo Inapelable
       - Instinto 5
     description: >-
-      Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 6+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno). Las criaturas Celestiales superan automáticamente la salvación.
+      Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno). Las criaturas Celestiales superan automáticamente la salvación.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
 
   # ------------------------------ DRUIDA ------------------------------
   - name: Sintonía Primordial
@@ -2589,7 +2589,7 @@ cards:
       La extensión de la conversación depende de la inteligencia de la criatura.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Golpe Primordial
     level: 1
     type: activable
@@ -2599,14 +2599,14 @@ cards:
     requirements:
       - Sintonía Primordial
     description: >-
-      Realizas un ataque de conjuro cuerpo a cuerpo (1d6+Instinto). Si impactas, infliges 1d6 de daño y
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Instinto). Si impactas, infliges 1d6 de daño y
       eliges uno de los siguientes efectos elementales que te afecta a ti:<br>
       - **Tierra (Contundente):** Te recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
       - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
       - **Agua (Frío):** Una capa de escarcha te protege. Ganas +1 de Mitigación Mágica contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Látigo de Espinas
     level: 1
     type: activable
@@ -2617,11 +2617,11 @@ cards:
       - Sintonía Primordial
     description: >-
       Un látigo de espinas brota de tu mano hacia un objetivo a distancia Cercana. Realizas un ataque de conjuro
-      (1d6+Instinto). Si impactas, infliges 1d6 de daño Cortante. Inmediatamente después del impacto, puedes iniciar
+      (1d8+Instinto). Si impactas, infliges 1d6 de daño Cortante. Inmediatamente después del impacto, puedes iniciar
       una Tirada Enfrentada de tu Instinto contra el Cuerpo del objetivo. Si ganas, mueves al objetivo 1 metro en cualquier dirección.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Forma Salvaje
     level: 1
     type: activable
@@ -2681,7 +2681,7 @@ cards:
       - **Bendición Protectora:** La criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Veneno y Enfermedad durante los próximos 10 minutos.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Sintonía con el Entorno
     level: 2
     type: efecto
@@ -2713,10 +2713,10 @@ cards:
     description: >-
       Invocas una nube de tormenta de 10m de radio a distancia Larga que dura 1 minuto. El área está ligeramente oscurecida,
       imponiendo Desventaja (-1d4) en pruebas de Percepción. Como Acción, puedes hacer caer un relámpago en un punto de la nube.
-      Toda criatura en un radio de 2m debe superar una TS de Reflejos (ND 4+Instinto) o recibir 2d6 de daño Eléctrico (la mitad con éxito).
+      Toda criatura en un radio de 2m debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 2d6 de daño Eléctrico (la mitad con éxito).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Suelo Congelado
     level: 3
     type: activable
@@ -2729,11 +2729,11 @@ cards:
       - Instinto 4
     description: >-
       Eliges un punto a distancia Larga. El suelo en un radio de 5m se cubre de hielo quebradizo durante 1 minuto. El área se convierte
-      en terreno difícil. Toda criatura que termine su turno en el área debe superar una TS de Cuerpo (ND 4+Instinto). Recibirá 2d6
+      en terreno difícil. Toda criatura que termine su turno en el área debe superar una TS de Cuerpo (ND 5 + Instinto). Recibirá 2d6
       de daño de Frío (la mitad si tiene éxito). Si falla la tirada, además quedará Inmovilizada hasta el final de su próximo turno.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Muro de Fuego
     level: 3
     type: activable
@@ -2748,10 +2748,10 @@ cards:
       Creas un muro de llamas crepitantes sobre una superficie sólida a distancia Media. Puedes darle la forma que desees:
       una línea recta, una curva o un círculo, con un largo total de hasta 15 metros. El muro tiene 3 metros de alto, 1 metro
       de grosor y dura 1 minuto. El muro proporciona cobertura parcial. La primera vez que una criatura atraviese el muro
-      en un turno, debe superar una TS de Reflejos (ND 4+Instinto) o recibirá 2d6 de daño de Fuego (la mitad si tiene éxito).
+      en un turno, debe superar una TS de Reflejos (ND 5 + Instinto) o recibirá 2d6 de daño de Fuego (la mitad si tiene éxito).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Zarzas
     level: 2
     type: activable
@@ -2765,11 +2765,11 @@ cards:
     description: >-
       En un área de 5m a distancia Media, brotan enredaderas. El área es
       terreno difícil. Quien entre o empiece su turno ahí debe superar una
-      TS de Reflejos (ND 4+Instinto) o quedar Inmovilizado. Una criatura Inmovilizada
+      TS de Reflejos (ND 5 + Instinto) o quedar Inmovilizado. Una criatura Inmovilizada
       puede usar su Acción para repetir la Tirada de Salvación y intentar liberarse.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Piel de Roble
     level: 2
     type: efecto
@@ -2802,7 +2802,7 @@ cards:
       - **Piel del Jabalí:** Los Puntos de Salud temporales ganados por tu _Forma Salvaje_ se vuelven tres veces tu puntuación de **Instinto**.<br>
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Muro de Espinas
     level: 3
     type: activable
@@ -2818,7 +2818,7 @@ cards:
       1 minuto o hasta que pierdas la concentración.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Bálsamo Natural
     level: 1
     type: activable
@@ -2833,7 +2833,7 @@ cards:
       1d4 Puntos de Salud al inicio de cada uno de sus turnos.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Ráfaga de Viento
     level: 2
     type: activable
@@ -2845,11 +2845,11 @@ cards:
       - Instinto 3
     description: >-
       Creas un cono de viento de 5m. Las criaturas en el área deben superar una TS de Cuerpo
-      (ND 4+Instinto) o ser empujadas 3 metros hacia atrás. Si chocan con un objeto sólido
+      (ND 5 + Instinto) o ser empujadas 3 metros hacia atrás. Si chocan con un objeto sólido
       o una criatura, caen Derribados.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Maestría Salvaje
     level: 3
     type: efecto
@@ -2861,8 +2861,8 @@ cards:
       Adquieres un uso adicional de tu _Forma Salvaje_. Además, cuando usas tu _Forma Salvaje_ para transformarte en una bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las siguientes opciones adicionales:<br>
       - **Furia Primordial:** Puedes realizar dos ataques con tu Acción en lugar de uno.<br>
       - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas 5 Puntos de Salud temporales adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br>
-      - **Rugido Aterrador (Recarga 5+):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una TS de Instinto (ND 4 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br>
-      - **Presa Incapacitante:** Cuando impactas a una criatura de un tamaño igual o inferior al tuyo, puedes intentar apresarla. El objetivo debe superar una TS de Reflejos (ND 4 + tu Instinto) o quedar **Inmovilizado**. Mientras mantengas la presa (no requiere acción), tú también estás Inmovilizado. La criatura apresada puede usar su Acción para intentar escapar repitiendo la Tirada de Salvación.
+      - **Rugido Aterrador (Recarga 8):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una TS de Instinto (ND 5 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br>
+      - **Presa Incapacitante:** Cuando impactas a una criatura de un tamaño igual o inferior al tuyo, puedes intentar apresarla. El objetivo debe superar una TS de Reflejos (ND 5 + Instinto) o quedar **Inmovilizado**. Mientras mantengas la presa (no requiere acción), tú también estás Inmovilizado. La criatura apresada puede usar su Acción para intentar escapar repitiendo la Tirada de Salvación.
     uses:
       type: null
       qty: 0
@@ -2933,7 +2933,7 @@ cards:
       recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Hablar con las Plantas
     level: 2
@@ -2950,7 +2950,7 @@ cards:
       el clima local, o dónde encontrar agua. La información obtenida es simple y literal, basada en la percepción de la planta.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
 
   - name: Lazo Natural
     level: 1
@@ -2967,7 +2967,7 @@ cards:
       No puede atacar, pero puedes usarla para intentar una maniobra de Zancadilla contra un enemigo (usando tu Instinto para la Tirada Enfrentada).
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
 
   - name: Pasar sin Rastro
     level: 2
@@ -2984,7 +2984,7 @@ cards:
       Además, todos los afectados obtienen Ventaja (+1d4) en todas las pruebas de Sigilo.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Forma Salvaje Mayor
     level: 4
@@ -3048,7 +3048,7 @@ cards:
       - Dominio del Clima
       - Instinto 5
     description: >-
-      Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto. El terreno se vuelve difícil, la visibilidad se reduce a penumbra. Al final de cada turno de una criatura hostil en el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos ND 4+Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.
+      Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto. El terreno se vuelve difícil, la visibilidad se reduce a penumbra. Al final de cada turno de una criatura hostil en el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos ND 5 + Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.
     uses:
       type: LONG_REST
       qty: 1
@@ -3081,7 +3081,7 @@ cards:
       Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que realice en el próximo minuto.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Palabras Hirientes
     level: 1
     type: activable
@@ -3092,11 +3092,11 @@ cards:
       - Don del Elocuente
     description: >-
       Insultas a una criatura que puedas ver a distancia Cercana que pueda oírte.
-      El objetivo debe superar una TS de Instinto (ND 4+Presencia) o recibir
+      El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o recibir
       1d6 de daño Psíquico y tener Desventaja en su próximo ataque.
     uses:
       type: RELOAD
-      qty: 2
+      qty: 3
   - name: Inspiración Mejorada
     level: 2
     type: efecto
@@ -3137,7 +3137,7 @@ cards:
       Como Interacción, le dices una frase corta esperanzadora a una criatura a distancia Cercana que pueda oirte. La criatura recupera 1d4 puntos de salud.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Hechizar Persona
     level: 1
     type: activable
@@ -3149,7 +3149,7 @@ cards:
       - Don del Elocuente
     description: >-
       Intentas encantar a un humanoide a distancia Cercana. Debe superar una TS de Instinto
-      (ND 4+Presencia, con ventaja si tu o tus compañeros estan combatiendo contra la criatura) o quedar Encantado por ti durante 10 minutos.
+      (ND 5 + Presencia, con ventaja si tu o tus compañeros estan combatiendo contra la criatura) o quedar Encantado por ti durante 10 minutos.
       Mientras este bajo este efecto, su postura hacia ti es amigable y como mínino tendra en cuenta tus peticiones o sugerencias.
     uses:
       type: LONG_REST
@@ -3163,7 +3163,7 @@ cards:
       - Inspiración Mejorada
       - Presencia 4
     description: >-
-      La dificultad de recarga de tu _Canto de Inspiración_ se reduce a 2+.<br>
+      La dificultad de recarga de tu _Canto de Inspiración_ se reduce a 3+.<br>
       Además, si alguien usa tu dado de inspiración y aun así falla la tirada, no lo pierde.
     uses:
       type: null
@@ -3233,10 +3233,10 @@ cards:
       - Hechizar Persona
       - Presencia 4
     description: >-
-      Como Acción, eliges a un humanoide a distancia Media. Debe superar una TS de Instinto (ND 4+Presencia). Si falla, queda Encantado por ti durante 1 minuto. Tienes un vínculo telepático con él y puedes usar tu Acción para darle órdenes que obedecerá (tiene Ventaja en la TS si la orden es suicida).
+      Como Acción, eliges a un humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Presencia). Si falla, queda Encantado por ti durante 1 minuto. Tienes un vínculo telepático con él y puedes usar tu Acción para darle órdenes que obedecerá (tiene Ventaja en la TS si la orden es suicida).
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
   # --- Bardo: Colegio del Valor ---
   - name: Inspiración Marcial
     level: 1
@@ -3277,11 +3277,11 @@ cards:
       - Presencia 3
     description: >-
       Como Acción, realizas una interpretación imponente. Todo enemigo en un radio de 3 metros que pueda verte u oírte
-      debe superar una TS de Instinto (ND 4 + Presencia). Si falla, el objetivo debe usar su próximo turno para
+      debe superar una TS de Instinto (ND 5 + Presencia). Si falla, el objetivo debe usar su próximo turno para
       moverse lo más lejos posible de ti por la ruta más segura disponible.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Floritura Ofensiva
     level: 3
     type: efecto
@@ -3305,11 +3305,11 @@ cards:
       - Inspiración Mejorada
     description: >-
       Como Acción, creas una explosión de sonido disonante en un punto a distancia Cercana. Toda criatura en un radio de 3 metros
-      debe superar una TS de Cuerpo (ND 4 + Presencia) o recibirá 2d6 de daño Sónico y no podrá usar Reacciones hasta el
+      debe superar una TS de Cuerpo (ND 5 + Presencia) o recibirá 2d6 de daño Sónico y no podrá usar Reacciones hasta el
       final de tu próximo turno. Además, si una criatura estaba manteniendo Concentración al momento de fallar la tirada, pierde la concentración imediatamente.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Floritura Artística
     level: 1
     type: efecto
@@ -3341,7 +3341,7 @@ cards:
       Los objetivos ganan una cantidad de Puntos de Salud temporales igual a 1d4 + tu puntuación de Presencia durante 1 minuto.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Risa Incontenible
     level: 2
@@ -3353,12 +3353,12 @@ cards:
       - Don del Elocuente
       - Presencia 3
     description: >-
-      Como Acción, eliges una criatura a distancia Media que pueda verte y oírte. Debe superar una TS de Instinto (ND 4+Presencia).
+      Como Acción, eliges una criatura a distancia Media que pueda verte y oírte. Debe superar una TS de Instinto (ND 5 + Presencia).
       Si falla, cae al suelo en un ataque de risa, quedando en los estados Derribado y Aturdido.
       La criatura puede repetir la Tirada de Salvación al final de cada uno de sus turnos. El efecto también termina si recibe daño.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Himno de Batalla
     level: 2
@@ -3375,7 +3375,7 @@ cards:
       Los aliados (incluido tú) que comiencen su turno dentro del aura ganan un +1 a sus tiradas de ataque con armas hasta el inicio de su próximo turno.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Balada de los Héroes
     level: 3
@@ -3392,7 +3392,7 @@ cards:
       puedes interpretar una nota de aliento para permitirle que vuelva a tirar el dado. Debe usar el nuevo resultado.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Lamento Confuso
     level: 3
@@ -3407,12 +3407,12 @@ cards:
     description: >-
       Como Acción, interpretas una melodía disonante que nubla la mente y dura hasta 1 minuto.
       Eliges un punto a distancia Media, creando una esfera de 3 metros de radio.
-      Una criatura hostil que empiece su turno en el área debe superar una TS de Instinto (ND 4+Presencia).
+      Una criatura hostil que empiece su turno en el área debe superar una TS de Instinto (ND 5 + Presencia).
       Si falla, no puede distinguir amigo de enemigo y debe usar su Acción
       para realizar un ataque cuerpo a cuerpo contra la criatura más cercana a ella.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Narrativa Cautivadora
     level: 3
@@ -3425,12 +3425,12 @@ cards:
       - Don del Elocuente
       - Presencia 4
     description: >-
-      Como Acción, eliges un objetivo a distancia Media y comienzas a hablarle. Debe superar una TS de Instinto (ND 4+Presencia). Si falla,
+      Como Acción, eliges un objetivo a distancia Media y comienzas a hablarle. Debe superar una TS de Instinto (ND 5 + Presencia). Si falla,
       durante 1 minuto, cree que tus afirmaciones son hechos, siempre que no sean directamente suicidas o contradigan una creencia fundamental.
       Una vez que una criatura ha sido objetivo de este conjuro, es inmune a él durante un día de descanso, independientemente del resultado.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Patrón Hipnótico
     level: 3
@@ -3445,11 +3445,11 @@ cards:
     description: >-
       Como Acción, creas un patrón de luces y colores fascinantes que dura hasta 1 minuto.
       Eliges un punto a distancia Media. Todas las criaturas
-      en un cubo de 3 metros desde ese punto deben superar una TS de Instinto (ND 4+Presencia). Si fallan, quedan Encantadas por ti.
+      en un cubo de 3 metros desde ese punto deben superar una TS de Instinto (ND 5 + Presencia). Si fallan, quedan Encantadas por ti.
       Mientras estén encantadas por este efecto, quedan Inmovilizadas en un estado de fascinación. El efecto termina para una criatura si recibe daño.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Sinfonía Heroica
     level: 5
@@ -3510,7 +3510,7 @@ cards:
       - Disciplina Monástica
     description: >-
       Tu entrenamiento en artes marciales, te ha conferido las siguientes capacidades:<br>
-      - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 4 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br>
+      - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br>
       - **Golpes Diestros:** Tus ataques desarmados infligen **1d4 de daño Contundente** y se consideran armas con la propiedad **Precisa**.
     uses:
       type: null
@@ -3526,7 +3526,7 @@ cards:
       Cuando realizas la acción de Atacar con un ataque desarmado, puedes usar tu **Interacción** para realizar un ataque desarmado adicional contra el **mismo objetivo**.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Golpes Energéticos
     level: 1
     type: efecto
@@ -3562,11 +3562,11 @@ cards:
       - Disciplina Monástica
       - Reflejos 3
     description: >-
-      Como **Reacción**, cuando eres impactado por un ataque a distancia con un arma de un atacante **que puedas ver**, puedes reducir el daño que recibes en una cantidad igual a **1d4 + tu puntuación de Reflejos**.<br>
+      Como **Reacción**, cuando eres impactado por un ataque a distancia con un arma de un atacante **que puedas ver**, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br>
       En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Golpes Resonantes
     level: 2
     type: activable
@@ -3576,13 +3576,13 @@ cards:
       - Golpes Energéticos
       - Instinto 3
     description: >-
-      Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un efecto adicional. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 4 + Instinto)**.<br>
+      Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un efecto adicional. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 5 + Instinto)**.<br>
       - **Golpe Radiante:** Si falla, el objetivo sufre **1d6 de daño de Radiante** adicional. Si tiene éxito, recibe la mitad de ese daño.<br>
       - **Golpe Realentizante:** Si falla, la Velocidad del objetivo se reduce a la mitad hasta el final de tu próximo turno. Si tiene éxito, su Velocidad solo se reduce en **2 metros** hasta el final de tu próximo turno.<br>
       - **Golpe Desestabilizante:** El objetivo es empujado **1 metro** en línea recta lejos de ti. Si falla la tirada, además cae **Derribado**.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Defensa Impasible
     level: 2
     type: efecto
@@ -3630,10 +3630,10 @@ cards:
     requirements:
       - Disciplina Monástica
     description: >-
-      Usas tu **Interacción** para centrar tu energía en una barrera protectora. Ganas **1d4 + tu puntuación de Instinto** en Puntos de Salud temporales.
+      Usas tu **Interacción** para centrar tu energía en una barrera protectora. Ganas 1d4 + tu puntuación de Instinto en Puntos de Salud temporales.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Meditación Sanadora
     level: 1
     type: activable
@@ -3660,7 +3660,7 @@ cards:
       Como **Reacción**, cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes realizar un único ataque desarmado contra él.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Proyección de Ki
     level: 3
     type: activable
@@ -3673,7 +3673,7 @@ cards:
       Usas tu **Interacción** para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad **Arrojadiza (Cercana)**.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Tormenta de Golpes
     level: 3
     type: activable
@@ -3686,7 +3686,7 @@ cards:
       Usas tu **Acción** para desatar un torbellino de ataques. Realizas **tres ataques desarmados**.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Golpe Aturdidor
     level: 3
     type: activable
@@ -3696,10 +3696,10 @@ cards:
       - Disciplina Monástica
       - Instinto 4
     description: >-
-      Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 4 + Instinto)** o quedar **Aturdido** hasta el final de tu próximo turno.
+      Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 5 + Instinto)** o quedar **Aturdido** hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Visión del Ki
     level: 3
     type: activable
@@ -3738,7 +3738,7 @@ cards:
       Como **Acción**, intentas calmar a una criatura hostil o en pánico a distancia Cercana. Realiza una **Tirada Enfrentada** de tu **Instinto** contra el **Instinto** del objetivo. Si ganas, la criatura deja de ser activamente hostil durante 1 minuto o sale de su estado de pánico. El efecto termina si la criatura es atacada. Esta habilidad no puede usarse sobre una criatura que esté actualmente en combate contigo o con tus aliados.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Chispa de Vida
     level: 1
     type: activable
@@ -3763,7 +3763,7 @@ cards:
       Usas tu **Interacción** para aligerar tu cuerpo con ki. Hasta el final de tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Caída Ralentizada
     level: 2
     type: activable
@@ -3868,7 +3868,7 @@ cards:
       Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto. Debes terminar cada uno de tus turnos en una superficie sólida o caerás.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Trance de Piedra
     level: 2
@@ -3901,7 +3901,7 @@ cards:
       - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Toque Disruptor
     level: 4
     type: activable
@@ -3911,10 +3911,10 @@ cards:
       - Golpe Aturdidor
       - Instinto 4
     description: >-
-      Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo (ND 4+Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus 'Acciones' o 'Reacciones' que especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
+      Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus 'Acciones' o 'Reacciones' que especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: Paso del Vacío
     level: 4
@@ -3928,7 +3928,7 @@ cards:
       Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Palma Vibratoria
     level: 5
@@ -3939,7 +3939,7 @@ cards:
       - Golpe Aturdidor
       - Instinto 5
     description: >-
-      Como Acción, realizas un ataque desarmado. Si impactas, aplicas una vibración letal (dura Instinto días). Durante ese tiempo, puedes usar tu Acción para terminar el efecto. Si lo haces, el objetivo debe superar una TS de Cuerpo (ND 8 + Instinto). Si falla, cae a 0 PH. Si tiene éxito, recibe 5d10 daño Necrótico.
+      Como Acción, realizas un ataque desarmado. Si impactas, aplicas una vibración letal (dura Instinto días). Durante ese tiempo, puedes usar tu Acción para terminar el efecto. Si lo haces, el objetivo debe superar una TS de Cuerpo (ND 9 + Instinto). Si falla, cae a 0 PH. Si tiene éxito, recibe 5d10 daño Necrótico.
     uses:
       type: LONG_REST
       qty: 1
@@ -3997,7 +3997,7 @@ cards:
       Eres el faro de esperanza en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
       - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br>
       - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br>
-      - **Castigo Cegador:** Cuando infliges daño Radiante con Golpe Divino, el objetivo debe superar una TS de Cuerpo (ND 4+Instinto) o quedará Cegado hasta el final de tu próximo turno.
+      - **Castigo Cegador:** Cuando infliges daño Radiante con Golpe Divino, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedará Cegado hasta el final de tu próximo turno.
     uses:
       type: null
       qty: 0
@@ -4017,7 +4017,7 @@ cards:
     description: >-
       Tu disciplina marcial y tu fortaleza interior se fusionan. Ganas los siguientes beneficios permanentes:<br>
       - **Defensa Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br>
-      - **Voluntad Inquebrantable:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para volver a tirar el dado d6. Debes usar el nuevo resultado. Solo puedes usar esta habilidad una vez por Tirada de Salvación fallida.
+      - **Voluntad Inquebrantable:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para volver a tirar el dado d8. Debes usar el nuevo resultado. Solo puedes usar esta habilidad una vez por Tirada de Salvación fallida.
     uses:
       type: null
       qty: 0
@@ -4037,7 +4037,7 @@ cards:
     description: >-
       Has fusionado tu destreza marcial con el poder arcano. Ganas los siguientes beneficios permanentes:<br>
       - **Acero Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br>
-      - **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma cuerpo a cuerpo antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por Recarga 5+)
+      - **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por Recarga 6+)
     uses:
       type: null
       qty: 0
@@ -4057,7 +4057,7 @@ cards:
     description: >-
       Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero. Ganas los siguientes beneficios permanentes:<br>
       - **Defensa Natural:** Mientras no lleves armadura pesada, tu Mitigación Física aumenta en +1 y ganas Ventaja en TS de Cuerpo contra venenos y enfermedades.<br>
-      - **Disparo Enraizante:** Cuando obtienes un golpe crítico con un ataque de arma a distancia, raíces y zarzas brotan del suelo bajo el objetivo. Este debe superar una TS de Cuerpo (ND 4+Instinto) o quedará Inmovilizado hasta el final de tu próximo turno.
+      - **Disparo Enraizante:** Cuando obtienes un golpe crítico con un ataque de arma a distancia, raíces y zarzas brotan del suelo bajo el objetivo. Este debe superar una TS de Cuerpo (ND 5 + Instinto) o quedará Inmovilizado hasta el final de tu próximo turno.
     uses:
       type: null
       qty: 0
@@ -4176,7 +4176,7 @@ cards:
       - Presencia 4
     description: >-
       Tu letalidad se oculta tras una sonrisa encantadora. Ganas los siguientes beneficios permanentes:<br>
-      - **Filo Hipnótico:** Una vez por turno, al impactar con un arma, gasta un dado de Canto de Inspiración. Añade el resultado como daño Psíquico y fuerza TS Instinto (ND 4+Presencia) vs Encantado (1 turno).<br>
+      - **Filo Hipnótico:** Una vez por turno, al impactar con un arma, gasta un dado de Canto de Inspiración. Añade el resultado como daño Psíquico y fuerza TS Instinto (ND 5 + Presencia) vs Encantado (1 turno).<br>
       - **Explotar Confianza:** Puedes aplicar tu Ataque Furtivo contra criaturas Encantadas por ti, incluso si no cumples las condiciones normales.
     uses:
       type: null
@@ -4337,7 +4337,7 @@ cards:
     description: >-
       Tu arte trasciende las formas, permitiéndote encantar incluso en tu aspecto salvaje. Ganas los siguientes beneficios permanentes:<br>
       - **Forma Salvaje Parlante:** Mientras estás en Forma Salvaje (combatiente o no), conservas la capacidad de hablar y puedes intentar usar habilidades de Presencia.<br>
-      - **Actuación Primordial:** Mientras estás en Forma Salvaje, usa Acción para forzar TS Instinto (ND 4+Presencia) a enemigos Cercanos o quedan Encantados 1 min (se rompe si actúas hostilmente).
+      - **Actuación Primordial:** Mientras estás en Forma Salvaje, usa Acción para forzar TS Instinto (ND 5 + Presencia) a enemigos Cercanos o quedan Encantados 1 min (se rompe si actúas hostilmente).
     uses:
       type: null
       qty: 0
@@ -4376,7 +4376,7 @@ cards:
       - Presencia 4
     description: >-
       Tu movimiento es una performance letal, tu Ki una melodía cautivadora. Ganas los siguientes beneficios permanentes:<br>
-      - **Movimiento Fascinante:** Cuando un enemigo te falla c/c, usa Reacción para forzar TS Instinto (ND 4+Presencia) vs Encantado (1 min, se rompe si hostil).<br>
+      - **Movimiento Fascinante:** Cuando un enemigo te falla c/c, usa Reacción para forzar TS Instinto (ND 5 + Presencia) vs Encantado (1 min, se rompe si hostil).<br>
       - **Ki Resonante:** Una vez por turno, puedes gastar un uso de tu Canto de Inspiración (sin necesidad de activarlo en un objetivo) para imbuir tus golpes. Si lo haces, todos tus ataques desarmados infligen 1d4 de daño Psíquico adicional hasta el inicio de tu próximo turno.
     uses:
       type: null

@@ -177,11 +177,11 @@ Pide una tirada solo cuando tanto el éxito como el fracaso tienen consecuencias
 
 Recuerda siempre la base:
 
-- **ND 5 (Fácil):** Una tarea que un profesional esperaría lograr sin problemas.
-- **ND 7 (Normal):** Un desafío estándar. El éxito no está garantizado. **Este será tu ND más utilizado.**
-- **ND 9 (Difícil):** Una tarea que requiere habilidad y un poco de suerte.
-- **ND 11 (Muy Difícil):** Al borde de lo posible.
-- **ND 13+ (Épico):** Tareas legendarias.
+- **ND 6 (Fácil):** Una tarea que un profesional esperaría lograr sin problemas.
+- **ND 8 (Normal):** Un desafío estándar. El éxito no está garantizado. **Este será tu ND más utilizado.**
+- **ND 10 (Difícil):** Una tarea que requiere habilidad y un poco de suerte.
+- **ND 12 (Muy Difícil):** Al borde de lo posible.
+- **ND 14+ (Épico):** Tareas legendarias.
 
 ## Modificar el ND: El Contexto lo es Todo
 
@@ -268,7 +268,7 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
     - **Advertencia Fuerte (R+2 o más):** Usar monstruos con un Rango _dos o más niveles por encima_ del Rango Nominal del grupo es **extremadamente peligroso** y debe ser una decisión **consciente, justificada narrativamente** y reservada para encuentros **Épicos** o climáticos. Realiza siempre la **Evaluación Crítica Obligatoria** antes de hacerlo:
       - _Viabilidad:_ ¿Pueden los PJs interactuar _significativamente_ (impactar con >20% chance, superar Mitigación, sobrevivir 1-2 golpes estándar)? Un enemigo invulnerable o que mata de un golpe no es un desafío interesante.
       - _Letalidad:_ ¿Hay riesgo real de muerte _instantánea_ con ataques normales o habilidades recargables? Si es así, ¿es apropiado? ¿Puedes _telegrafiar_ (anunciar o dar pistas claras) esos ataques devastadores para dar oportunidad de reacción?
-      - _Habilidades:_ ¿Son los NDs de sus habilidades _desafiantes_ (requieren 4+/5+ en d6) o _efectivamente imposibles_ para las salvaciones del grupo?
+      - _Habilidades:_ ¿Son los NDs de sus habilidades _desafiantes_ (requieren 4+/5+ en d8) o _efectivamente imposibles_ para las salvaciones del grupo?
     - **Representando Jefes:** Incluir **un solo** monstruo R+1 o R+2 es la forma natural de crear un "Jefe". Su alto coste en PA reflejará su estatus.
       - _Jefe Solitario:_ Gasta gran parte o todo tu presupuesto en él. El grupo tiene ventaja de acciones, creando un duelo tenso. Suele ser apropiado para **Difícil** o **Épico**.
       - _Jefe con Secuaces:_ Gasta una parte del presupuesto en el Jefe (R+1 o R+2) y el resto en monstruos de Rango 1 (o Rango base del grupo) para dividir la atención. Es inherentemente **Épico**. Limita el número de secuaces (quizás usando un presupuesto Fácil para ellos) para no eclipsar al jefe ni alargar excesivamente el combate.
@@ -323,22 +323,22 @@ Usa la tabla del Rango correspondiente. Recuerda los **Límites de Gasto (Cotas)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Mit. Física | Mit. Mágica |
 | :----------- | :---- | :------ | :---------- | :--------------------------------------- | :---------- | :---------- |
-| **0 (Base)** | 0     | 5       | +1/5        | 0                                        | 0           | 0           |
-| **1**        | 4     | 6       | +2/6        | 1                                        | 1           | -           |
+| **0 (Base)** | 0     | 6       | +2/6        | 0                                        | 0           | 0           |
+| **1**        | 4     | 7       | +3/7        | 1                                        | 1           | -           |
 | **2**        | 8     | -       | -           | 2                                        | 2           | 1           |
-| **3**        | 12    | 7       | +3/7        | 3                                        | -           | -           |
+| **3**        | 12    | 8       | +4/8        | 3                                        | -           | -           |
 | **4**        | 16    | -       | -           | 4                                        | -           | -           |
 
 #### Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Límite por Atributo: 6 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Mit. Física | Mit. Mágica |
 | :----------- | :---- | :------ | :---------- | :--------------------------------------- | :---------- | :---------- |
-| **0 (Base)** | 0     | 6       | +2/6        | 0-1                                      | 0           | 0           |
-| **1**        | 6     | 7       | +3/7        | 2                                        | 1           | -           |
-| **2**        | 12    | -       | +4/8        | 3                                        | 2           | 1           |
-| **3**        | 18    | 8       | -           | 4-5                                      | 3           | -           |
-| **4**        | 24    | -       | +5/9        | 6                                        | 4           | 2           |
-| **5**        | 30    | 9       | -           | 7-8                                      | 5           | -           |
+| **0 (Base)** | 0     | 7       | +3/7        | 0-1                                      | 0           | 0           |
+| **1**        | 6     | 8       | +4/8        | 2                                        | 1           | -           |
+| **2**        | 12    | -       | +5/9        | 3                                        | 2           | 1           |
+| **3**        | 18    | 9       | -           | 4-5                                      | 3           | -           |
+| **4**        | 24    | -       | +6/10       | 6                                        | 4           | 2           |
+| **5**        | 30    | 10      | -           | 7-8                                      | 5           | -           |
 | **6**        | 36    | -       | -           | 9                                        | 6           | 3           |
 
 _(Daño redondeado al entero más cercano)_
@@ -347,48 +347,48 @@ _(Daño redondeado al entero más cercano)_
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Mit. Física | Mit. Mágica |
 | :----------- | :---- | :------ | :---------- | :--------------------------------------- | :---------- | :---------- |
-| **0 (Base)** | 0     | 7       | +4/8        | 0-1                                      | 0           | 0           |
-| **1**        | 8     | 8       | +5/9        | 2-3                                      | 1           | -           |
-| **2**        | 16    | -       | +6/10       | 4-5                                      | 2           | 1           |
-| **3**        | 24    | 9       | -           | 6-7                                      | 3           | -           |
-| **4**        | 32    | -       | +7/11       | 8-9                                      | 4           | 2           |
-| **5**        | 40    | 10      | -           | 10-11                                    | 5           | -           |
+| **0 (Base)** | 0     | 8       | +5/9        | 0-1                                      | 0           | 0           |
+| **1**        | 8     | 9       | +6/10       | 2-3                                      | 1           | -           |
+| **2**        | 16    | -       | +7/11       | 4-5                                      | 2           | 1           |
+| **3**        | 24    | 10      | -           | 6-7                                      | 3           | -           |
+| **4**        | 32    | -       | +8/12       | 8-9                                      | 4           | 2           |
+| **5**        | 40    | 11      | -           | 10-11                                    | 5           | -           |
 | **6**        | 48    | -       | -           | 12-13                                    | 6           | 3           |
-| **7**        | 56    | 11      | -           | 14-15                                    | 7           | -           |
+| **7**        | 56    | 12      | -           | 14-15                                    | 7           | -           |
 | **8**        | 64    | -       | -           | 16                                       | 8           | 4           |
 
 #### Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Límite por Atributo: 10 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Mit. Física | Mit. Mágica |
 | :----------- | :---- | :------ | :---------- | :--------------------------------------- | :---------- | :---------- |
-| **0 (Base)** | 0     | 8       | +5/9        | 0-2                                      | 0           | 0           |
-| **1**        | 15    | 9       | +6/10       | 3-4                                      | 1           | -           |
-| **2**        | 30    | -       | +7/11       | 5-7                                      | 2           | 1           |
-| **3**        | 45    | 10      | -           | 8-9                                      | 3           | -           |
-| **4**        | 60    | -       | +8/12       | 10-12                                    | 4           | 2           |
-| **5**        | 75    | 11      | -           | 13-14                                    | 5           | -           |
+| **0 (Base)** | 0     | 9       | +6/10       | 0-2                                      | 0           | 0           |
+| **1**        | 15    | 10      | +7/11       | 3-4                                      | 1           | -           |
+| **2**        | 30    | -       | +8/12       | 5-7                                      | 2           | 1           |
+| **3**        | 45    | 11      | -           | 8-9                                      | 3           | -           |
+| **4**        | 60    | -       | +9/13       | 10-12                                    | 4           | 2           |
+| **5**        | 75    | 12      | -           | 13-14                                    | 5           | -           |
 | **6**        | 90    | -       | -           | 15-17                                    | 6           | 3           |
-| **7**        | 105   | 12      | -           | 18-19                                    | 7           | -           |
+| **7**        | 105   | 13      | -           | 18-19                                    | 7           | -           |
 | **8**        | 120   | -       | -           | 20-22                                    | 8           | 4           |
-| **9**        | 135   | 13      | -           | 23-24                                    | 9           | -           |
+| **9**        | 135   | 14      | -           | 23-24                                    | 9           | -           |
 | **10**       | 150   | -       | -           | 25                                       | 10          | 5           |
 
 #### Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Límite por Atributo: 12 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Mit. Física | Mit. Mágica |
 | :----------- | :---- | :------ | :---------- | :--------------------------------------- | :---------- | :---------- |
-| **0 (Base)** | 0     | 9       | +6/10       | 0-2                                      | 0           | 0           |
-| **1**        | 25    | 10      | +7/11       | 3-5                                      | 1           | -           |
-| **2**        | 50    | -       | +8/12       | 6-8                                      | 2           | 1           |
-| **3**        | 75    | 11      | -           | 9-11                                     | 3           | -           |
-| **4**        | 100   | -       | +9/13       | 12-14                                    | 4           | 2           |
-| **5**        | 125   | 12      | -           | 15-17                                    | 5           | -           |
+| **0 (Base)** | 0     | 10      | +7/11       | 0-2                                      | 0           | 0           |
+| **1**        | 25    | 11      | +8/12       | 3-5                                      | 1           | -           |
+| **2**        | 50    | -       | +9/13       | 6-8                                      | 2           | 1           |
+| **3**        | 75    | 12      | -           | 9-11                                     | 3           | -           |
+| **4**        | 100   | -       | +10/14      | 12-14                                    | 4           | 2           |
+| **5**        | 125   | 13      | -           | 15-17                                    | 5           | -           |
 | **6**        | 150   | -       | -           | 18-20                                    | 6           | 3           |
-| **7**        | 175   | 13      | -           | 21-23                                    | 7           | -           |
+| **7**        | 175   | 14      | -           | 21-23                                    | 7           | -           |
 | **8**        | 200   | -       | -           | 24-26                                    | 8           | 4           |
-| **9**        | 225   | 14      | -           | 27-29                                    | 9           | -           |
+| **9**        | 225   | 15      | -           | 27-29                                    | 9           | -           |
 | **10**       | 250   | -       | -           | 30-32                                    | 10          | 5           |
-| **11**       | 275   | 15      | -           | 33-35                                    | 11          | -           |
+| **11**       | 275   | 16      | -           | 33-35                                    | 11          | -           |
 | **12**       | 300   | -       | -           | 36-38                                    | 12          | 6           |
 
 #### Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Límite por Atributo: 14 PPF)
@@ -397,20 +397,20 @@ _(Para Jefes Finales Épicos)_
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Mit. Física | Mit. Mágica |
 | :----------- | :---- | :------ | :---------- | :--------------------------------------- | :---------- | :---------- |
-| **0 (Base)** | 0     | 10      | +7/11       | 0-3                                      | 0           | 0           |
-| **1**        | 30    | 11      | +8/12       | 4-6                                      | 1           | -           |
-| **2**        | 60    | -       | +9/13       | 7-10                                     | 2           | 1           |
-| **3**        | 90    | 12      | -           | 11-13                                    | 3           | -           |
-| **4**        | 120   | -       | +10/14      | 14-17                                    | 4           | 2           |
-| **5**        | 150   | 13      | -           | 18-20                                    | 5           | -           |
+| **0 (Base)** | 0     | 11      | +8/12       | 0-3                                      | 0           | 0           |
+| **1**        | 30    | 12      | +9/13       | 4-6                                      | 1           | -           |
+| **2**        | 60    | -       | +10/14      | 7-10                                     | 2           | 1           |
+| **3**        | 90    | 13      | -           | 11-13                                    | 3           | -           |
+| **4**        | 120   | -       | +11/15      | 14-17                                    | 4           | 2           |
+| **5**        | 150   | 14      | -           | 18-20                                    | 5           | -           |
 | **6**        | 180   | -       | -           | 21-24                                    | 6           | 3           |
-| **7**        | 210   | 14      | -           | 25-27                                    | 7           | -           |
-| **8**        | 240   | -       | +11/15      | 28-31                                    | 8           | 4           |
-| **9**        | 270   | 15      | -           | 32-34                                    | 9           | -           |
+| **7**        | 210   | 15      | -           | 25-27                                    | 7           | -           |
+| **8**        | 240   | -       | +12/16      | 28-31                                    | 8           | 4           |
+| **9**        | 270   | 16      | -           | 32-34                                    | 9           | -           |
 | **10**       | 300   | -       | -           | 35-38                                    | 10          | 5           |
-| **11**       | 330   | 16      | -           | 39-41                                    | 11          | -           |
-| **12**       | 360   | -       | +12/16      | 42-45                                    | 12          | 6           |
-| **13**       | 390   | 17      | -           | 46-48                                    | 13          | -           |
+| **11**       | 330   | 17      | -           | 39-41                                    | 11          | -           |
+| **12**       | 360   | -       | +13/17      | 42-45                                    | 12          | 6           |
+| **13**       | 390   | 18      | -           | 46-48                                    | 13          | -           |
 | **14**       | 420   | -       | -           | 49-50                                    | 14          | 7           |
 
 ### Paso 3: Comprar Habilidades
@@ -547,15 +547,15 @@ El último pilar es la frecuencia con la que un conjuro puede usarse. Un conjuro
 
 #### **Recarga Base**
 
-Como regla general, la Recarga base de un conjuro es: **`Nivel del Conjuro + 1`**
+La siguiente tabla muetra los valores de recarga generales para los diferentes nivels de conjuros:
 
-| Nivel del Conjuro | Recarga Base | Probabilidad |
-| :---------------- | :----------- | :----------- |
-| **Nivel 1**       | Recarga 2+   | 83%          |
-| **Nivel 2**       | Recarga 3+   | 66%          |
-| **Nivel 3**       | Recarga 4+   | 50%          |
-| **Nivel 4**       | Recarga 5+   | 33%          |
-| **Nivel 5**       | Recarga 6+   | 17%          |
+| Nivel del Conjuro | Recarga Base (d8) | Probabilidad |
+| :---------------- | :---------------- | :----------- |
+| **Nivel 1**       | Recarga 3+        | 75%          |
+| **Nivel 2**       | Recarga 4+        | 62.5%        |
+| **Nivel 3**       | Recarga 5+        | 50%          |
+| **Nivel 4**       | Recarga 6+        | 37.5%        |
+| **Nivel 5**       | Recarga 8         | 12.5%        |
 
 #### **Modificadores de Recarga: El Intercambio de Poder**
 
@@ -577,21 +577,21 @@ Queremos crear un conjuro de **Nivel 2** para el Arcanista llamado `Prisión de 
 2.  **Daño Base:** Es Nivel 2, Single-Target. El daño base es **2d8**.
 3.  **Añadir Efecto:** Queremos que el objetivo quede `Inmovilizado`. Este es un **Efecto Fuerte**.
     - **Coste:** -1 Nivel de Daño. El daño se ajusta al de un conjuro de Nivel 1 ST: **1d8**.
-4.  **Establecer Recarga Base:** Es un conjuro de Nivel 2. La Recarga base es **3+**.
+4.  **Establecer Recarga Base:** Es un conjuro de Nivel 2. La Recarga base es **4+**.
 5.  **Conjuro Base Terminado:**
 
-    > **`Prisión de Hielo` (Nivel 2 ST):** El objetivo debe superar una TS de Cuerpo. Si falla, recibe **1d8 de daño de Frío** y queda `Inmovilizado`. Requiere `Concentración` para mantenerlo inmovilizado. **Recarga 3+**.
+    > **`Prisión de Hielo` (Nivel 2 ST):** El objetivo debe superar una TS de Cuerpo. Si falla, recibe **1d8 de daño de Frío** y queda `Inmovilizado`. Requiere `Concentración` para mantenerlo inmovilizado. **Recarga 4+**.
     - _Este conjuro ya está perfectamente balanceado._
 
 6.  **Crear Variantes:**
     - **Versión "Avalancha":** Queremos más daño, aunque sea menos fiable.
       - **Objetivo:** Aumentar el daño al nivel base (`2d8`). Esto equivale a saltar de un daño de Nivel 1 a uno de Nivel 2 (+1 Nivel de Daño).
       - **Coste:** +2 al Valor de Recarga. (3+2=5).
-      - **Resultado:** `Prisión de Hielo Glacial` (Nivel 2 ST): **2d8** de daño, `Inmovilizado`. **Recarga 5+**.
+      - **Resultado:** `Prisión de Hielo Glacial` (Nivel 2 ST): **2d8** de daño, `Inmovilizado`. **Recarga 6+**.
     - **Versión "Escarcha Persistente":** Queremos que sea más fiable, a costa de su poder inicial.
       - **Objetivo:** Bajar la Recarga a 2+.
       - **Coste:** -1 al Valor de Recarga. Esto requiere bajar el dado de daño de d8 a d6.
-      - **Resultado:** `Escarcha Persistente` (Nivel 2 ST): **1d6** de daño, `Inmovilizado`. **Recarga 2+**.
+      - **Resultado:** `Escarcha Persistente` (Nivel 2 ST): **1d6** de daño, `Inmovilizado`. **Recarga 3+**.
 
 ---
 
