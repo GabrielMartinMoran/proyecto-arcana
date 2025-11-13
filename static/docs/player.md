@@ -495,11 +495,11 @@ Para mejorar un Atributo, debes comprar cada punto de incremento de forma secuen
 
 | Mejora de Atributo | Coste en PP |
 | :----------------- | :---------- |
-| Subir de 1 a 2     | 5 PP        |
-| Subir de 2 a 3     | 10 PP       |
-| Subir de 3 a 4     | 15 PP       |
-| Subir de 4 a 5     | 20 PP       |
-| Subir de 5 a 6     | 25 PP       |
+| Subir de 1 a 2     | 3 PP        |
+| Subir de 2 a 3     | 6 PP        |
+| Subir de 3 a 4     | 9 PP        |
+| Subir de 4 a 5     | 12 PP       |
+| Subir de 5 a 6     | 15 PP       |
 
 ### Añadir Nueva Ranura de Carta Activa
 
