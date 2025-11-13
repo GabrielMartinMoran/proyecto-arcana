@@ -83,7 +83,7 @@
 		const card = allCards.find((card) => card.id === cardId);
 		if (characterCard && card && characterCard.uses !== null && card) {
 			const rollResult = await rollExpression({
-				expression: '1d6',
+				expression: '1d8',
 				variables: {},
 				title: `${character.name}: Recarga de carta ${card.name}`,
 				resultFormatter: (result) =>
