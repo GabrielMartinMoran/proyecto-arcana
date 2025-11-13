@@ -12,7 +12,7 @@ Este capítulo te guiará paso a paso para crear tu personaje, desde sus capacid
 
 ## Paso 1: Atributos
 
-Un personaje se define por cinco **Atributos** principales, que representan sus capacidades fundamentales. Estos tienen un valor que va de **1 (deficiente) a 5 (maestro)**. Durante la creación, dispones de **10 puntos** para repartir entre ellos. Ningún atributo puede empezar con un valor superior a 3 y el valor mínimo posible es 1.
+Un personaje se define por cinco **Atributos** principales, que representan sus capacidades fundamentales. Estos tienen un valor que va de **1 (deficiente) a 6 (legendario)**. Durante la creación, dispones de **10 puntos** para repartir entre ellos. Ningún atributo puede empezar con un valor superior a 3 y el valor mínimo posible es 1.
 
 - **Cuerpo:** Representa la fuerza bruta, la resistencia y la vitalidad física.
 - **Reflejos:** Mide la agilidad, la coordinación, la velocidad y la precisión.
@@ -188,21 +188,21 @@ Este capítulo detalla las reglas fundamentales para resolver acciones y situaci
 
 Cuando un personaje intenta realizar una acción cuyo resultado es incierto, debe realizar una **Prueba de Habilidad**. El objetivo es igualar o superar un **Nivel de Dificultad (ND)** establecido por el DJ. La fórmula básica es:
 
-**Tirada = 1d6 + Valor de Atributo**
+**Tirada = 1d8 + Valor de Atributo**
 
 | Dificultad  | ND Sugerido | Ejemplo                                        |
 | :---------- | :---------- | :--------------------------------------------- |
-| Fácil       | 5           | Escalar un muro con buenos agarres.            |
-| Normal      | 7           | Persuadir a un guardia para que te deje pasar. |
-| Difícil     | 9           | Descifrar un texto antiguo en otro idioma.     |
-| Muy Difícil | 11          | Saltar de un carruaje a otro en movimiento.    |
-| Imposible   | 13+         | Desviar una flecha con una daga.               |
+| Fácil       | 6           | Escalar un muro con buenos agarres.            |
+| Normal      | 8           | Persuadir a un guardia para que te deje pasar. |
+| Difícil     | 10          | Descifrar un texto antiguo en otro idioma.     |
+| Muy Difícil | 12          | Saltar de un carruaje a otro en movimiento.    |
+| Imposible   | 14+         | Desviar una flecha con una daga.               |
 
 En caso de superar la tirada por 5 o más, se considera un éxito crítico.
 
 ## Tiradas Enfrentadas
 
-Cuando dos personajes compiten directamente, se realiza una **Tirada Enfrentada**. Quien inicia la acción (el **iniciador**) y quien se defiende (el **defensor**) tiran **1d6 + el Atributo** más relevante para la situación.
+Cuando dos personajes compiten directamente, se realiza una **Tirada Enfrentada**. Quien inicia la acción (el **iniciador**) y quien se defiende (el **defensor**) tiran **1d8 + el Atributo** más relevante para la situación.
 
 - Si el resultado del **iniciador** supera al del defensor, el iniciador logra su objetivo.
 - Si el **defensor** iguala o supera el resultado del iniciador, el defensor resiste o tiene éxito en su acción.
@@ -217,15 +217,15 @@ Ciertas situaciones pueden modificar una tirada, añadiendo o restando un dado d
 
 ## Resultados Especiales de la Tirada
 
-- **Dado Explosivo:** Si el resultado de tu **d6** es un **6 natural**, el dado "explota". **Vuelve a tirar el d6 y suma el nuevo resultado a tu total**. Un dado puede explotar múltiples veces. Cada vez que esto ocurre, el personaje gana **1 Punto de Suerte**.
+- **Dado Explosivo:** Si el resultado de tu **d8** es un **8 natural**, el dado "explota". **Vuelve a tirar el d8 y suma el nuevo resultado a tu total**. Un dado puede explotar múltiples veces. Cada vez que esto ocurre, el personaje gana **1 Punto de Suerte**.
 - **Éxito Excepcional:** Si el resultado **total** de tu tirada supera el ND por 5 o más, no solo logras tu objetivo, sino que obtienes un beneficio adicional significativo, descrito por el DJ.
-- **Fallo Crítico (Pifia):** Si el resultado de tu **d6** es un **1 natural** en una **Prueba de Habilidad** o en un **Ataque**, la acción falla de la peor manera posible. El DJ introduce una complicación narrativa. Las **Tiradas de Salvación** no sufren fallos críticos.
+- **Fallo Crítico (Pifia):** Si el resultado de tu **d8** es un **1 natural** en una **Prueba de Habilidad** o en un **Ataque**, la acción falla de la peor manera posible. El DJ introduce una complicación narrativa. Las **Tiradas de Salvación** no sufren fallos críticos.
 
 ## El Sistema de Suerte
 
 La Suerte es un recurso que permite a los jugadores influir en el resultado de sus acciones.
 
-- **Ganar Suerte:** Cada vez que un dado explota (un 6 natural en el d6), el personaje gana **1 Punto de Suerte**.
+- **Ganar Suerte:** Cada vez que un dado explota (un 8 natural en el d8), el personaje gana **1 Punto de Suerte**.
 - **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.
 - **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir un **+1 al resultado final por cada punto gastado**.
 - **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 2.
@@ -271,7 +271,7 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 - **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
 - **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
-- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que dentro de combate, al inicio del turno, se puede tirar 1d6 y si el resultado iguala o supera el numero indicado en la recarga, la habilidad vuelve a estar disponible. Fuera de combate, un personaje puede tomarse un tiempo de concentración para reponer energías y recargar un uso gastado. El tiempo requerido es igual a 5 minutos multiplicados por el valor de Recarga de la carta. Alternativamente, en cualquier momento, un personaje puede gastar una cantidad de Puntos de Suerte igual al valor de Recarga de la carta para recargarla instantáneamente.
+- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que dentro de combate, al inicio del turno, se puede tirar 1d8 y si el resultado iguala o supera el número indicado en la recarga, la habilidad vuelve a estar disponible. Fuera de combate, un personaje puede tomarse un tiempo de concentración para reponer energías y recargar un uso gastado. El tiempo requerido es igual a 5 minutos multiplicados por el valor de Recarga de la carta. Alternativamente, en cualquier momento (para cartas que digan _Regarga n+_), un personaje puede gastar una cantidad de Puntos de Suerte igual al **Nivel de la Carta** para recargarla instantáneamente.
 
 ## Lanzamiento Ritual: Magia sin Prisa
 
@@ -297,7 +297,7 @@ Este capítulo te guiará sobre cómo usar las habilidades y atributos de tu per
 
 ## Las Herramientas del Explorador: Usando tus Atributos
 
-Cada atributo tiene un papel fundamental a la hora de superar los obstáculos que el mundo te presenta. La herramienta principal siempre será la **Prueba de Habilidad** (`1d6 + Atributo` vs. ND), pero saber qué atributo aplicar es la clave del éxito.
+Cada atributo tiene un papel fundamental a la hora de superar los obstáculos que el mundo te presenta. La herramienta principal siempre será la **Prueba de Habilidad** (`1d8 + Atributo` vs. ND), pero saber qué atributo aplicar es la clave del éxito.
 
 - **Mente (Análisis y Conocimiento):** Tu Mente te permite procesar información y entender el mundo que te rodea.
   - **Investigar:** Al examinar una escena del crimen, podrías hacer una prueba de Mente para conectar pistas que otros han pasado por alto.
@@ -362,7 +362,7 @@ Esta sección cubre las reglas para resolver enfrentamientos de forma estructura
 
 ## Iniciativa y Turnos
 
-Al inicio del combate, todos los participantes tiran **1d6 + Reflejos** para determinar el orden de actuación.
+Al inicio del combate, todos los participantes tiran **1d8 + Reflejos** para determinar el orden de actuación.
 En caso de que un bando este atacando al otro por sorpresa, quienes sorprenden tendran ventaja en la tirada de
 iniciativa (+1d4), y quienes son sorprendidos, tendran desventaja (-1d4).
 
@@ -406,9 +406,9 @@ El objetivo no es tener una regla para cada situación, sino fomentar la creativ
 
 Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.
 
-- **Tirada de Ataque:** 1d6 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
+- **Tirada de Ataque:** 1d8 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
 - **Esquiva:** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
-  - **Esquiva = 4 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
+  - **Esquiva = 5 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
 
 ## Cobertura
 
@@ -432,9 +432,9 @@ Algunos conjuros y habilidades requieren **Concentración** para mantener su efe
 
 Cuando un efecto (como un conjuro o una trampa) requiere que un personaje resista, este debe realizar una **Tirada de Salvación**. Se trata de una Prueba de Habilidad que el personaje realiza para mitigar o anular un efecto adverso.
 
-- El **objetivo** del efecto realiza la tirada: **1d6 + Atributo Defensivo** (indicado por la carta o el DJ).
+- El **objetivo** del efecto realiza la tirada: **1d8 + Atributo Defensivo** (indicado por la carta o el DJ).
 - La **Dificultad (ND)** a superar la establece el creador del efecto. Para los conjuros de los jugadores, se calcula así:
-  - **ND de Conjuros = 4 + Atributo de Magia del Lanzador**
+  - **ND de Conjuros = 5 + Atributo de Magia del Lanzador**
 
 Si el resultado de la tirada de salvación **iguala o supera** el ND, el personaje resiste el efecto con éxito.
 
@@ -462,9 +462,9 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 ## Heridas y Recuperación
 
 - **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
-  de Cuerpo (ND 7). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas
+  de Cuerpo (ND 8). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas
   1 punto de salud y ya no estas **Inconsciente**.
-  Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 7) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
+  Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
   Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.
   Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
 - **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.
@@ -491,7 +491,7 @@ El tiempo de descanso es el momento ideal para gastar estos puntos, representand
 
 ### Mejorar un Atributo
 
-Para mejorar un Atributo, debes comprar cada punto de incremento de forma secuencial. No puedes pasar de un valor de 2 a 4 directamente; primero debes comprar el aumento de 2 a 3, y solo después el de 3 a 4. El valor máximo para cualquier Atributo es 5.
+Para mejorar un Atributo, debes comprar cada punto de incremento de forma secuencial. No puedes pasar de un valor de 2 a 4 directamente; primero debes comprar el aumento de 2 a 3, y solo después el de 3 a 4. El valor máximo para cualquier Atributo es 6.
 
 | Mejora de Atributo | Coste en PP |
 | :----------------- | :---------- |
@@ -499,6 +499,7 @@ Para mejorar un Atributo, debes comprar cada punto de incremento de forma secuen
 | Subir de 2 a 3     | 10 PP       |
 | Subir de 3 a 4     | 15 PP       |
 | Subir de 4 a 5     | 20 PP       |
+| Subir de 5 a 6     | 25 PP       |
 
 ### Añadir Nueva Ranura de Carta Activa
 
@@ -548,7 +549,7 @@ Buscás información sobre una leyenda, la debilidad de un monstruo o la ubicaci
 
 - **Tiempo:** Generalmente una semana de estudio en una biblioteca o de buscar pistas por la ciudad.
 - **Costo:** Puede requerir el pago de informantes o el acceso a archivos privados (10-100 de Oro).
-- **Tirada:** Una Prueba de **Mente (Investigación)**. Un ND 7 podría revelar información común, mientras que un ND 11+ podría desvelar un secreto muy bien guardado.
+- **Tirada:** Una Prueba de **Mente (Investigación)**. Un ND 8 podría revelar información común, mientras que un ND 12+ podría desvelar un secreto muy bien guardado.
 
 #### Fabricar un Objeto
 
@@ -679,9 +680,9 @@ Los venenos se clasifican por su potencia, lo que determina su costo, la dificul
 
 | Calidad del Veneno | Costo Sugerido (dosis) | ND Típico |
 | :----------------- | :--------------------- | :-------- |
-| **Común**          | 25 - 75 de Oro         | 7         |
-| **Potente**        | 100 - 250 de Oro       | 9         |
-| **Exótico**        | 300+ de Oro            | 11+       |
+| **Común**          | 25 - 75 de Oro         | 8         |
+| **Potente**        | 100 - 250 de Oro       | 10        |
+| **Exótico**        | 300+ de Oro            | 12+       |
 
 El **efecto exacto** de un veneno lo define el DJ, pero aquí hay algunos ejemplos comunes para inspirar la creación de nuevas toxinas:
 
@@ -748,9 +749,9 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 **Elara:** "Un pasillo tan obvio en una tumba... me huele a trampa. Antes de avanzar, me detengo y reviso el suelo con mucho cuidado. Quiero buscar cualquier cosa fuera de lugar: baldosas flojas, agujeritos en las paredes, cualquier cosa sospechosa."
 
-> **DJ:** _Claro. Es una buena idea. Hacé una Prueba de Habilidad de Instinto (Percepción) para ver si encontrás algo. La dificultad es Normal, así que tenés que superar un ND 7._
+> **DJ:** _Claro. Es una buena idea. Hacé una Prueba de Habilidad de Instinto (Percepción) para ver si encontrás algo. La dificultad es Normal, así que tenés que superar un ND 8._
 
-**Elara:** "Perfecto. Tiro 1d6 más mi Instinto, que es 3. Saco un 5 en el dado... ¡un total de 8! Supero el ND."
+**Elara:** "Perfecto. Tiro 1d8 más mi Instinto, que es 3. Saco un 5 en el dado... ¡un total de 8! Supero el ND."
 
 > **DJ:** _Con ese resultado, tu ojo entrenado nota algo que Kaelen se hubiera perdido. Justo a la mitad del pasillo, una de las baldosas tiene un poco menos de polvo que las demás, como si tuviera un mecanismo debajo. Además, ves unas finas ranuras en las paredes a ambos lados del pasillo, a la altura del pecho._
 
@@ -758,9 +759,9 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 **Elara:** "Voy a intentar desarmarla. Me acerco con cuidado, esquivando esa baldosa, y saco mis herramientas. Quiero ver si puedo inutilizar el mecanismo sin que se active."
 
-> **DJ:** _Eso requiere una mano firme. Es una Prueba de Habilidad de Reflejos (Juego de Manos). Como tenés la carta `Manos Hábiles`, que te da Ventaja, podés tirar un d4 adicional. El ND también es 7._
+> **DJ:** _Eso requiere una mano firme. Es una Prueba de Habilidad de Reflejos (Juego de Manos). Como tenés la carta `Manos Hábiles`, que te da Ventaja, podés tirar un d4 adicional. El ND también es 8._
 
-**Elara:** "¡Genial! Tiro 1d6 más mis Reflejos (3), y le sumo 1d4 por la Ventaja. Saco un 3 en el d6 y un 3 en el d4. Mi total es 3 + 3 + 3... ¡un 9! Éxito."
+**Elara:** "¡Genial! Tiro 1d8 más mis Reflejos (3), y le sumo 1d4 por la Ventaja. Saco un 3 en el d8 y un 3 en el d4. Mi total es 3 + 3 + 3... ¡un 9! Éxito."
 
 > **DJ:** _Con una precisión increíble, metés una de tus ganzúas en la delgada línea entre las baldosas y, con un suave 'click', escuchás cómo un mecanismo interno se frena. Las ranuras de las paredes ya no parecen una amenaza. El camino hacia el pedestal parece seguro._
 
@@ -768,21 +769,21 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 > **DJ:** _Cuando Kaelen llega al pedestal y estira la mano para agarrar el casco, un sonido de huesos raspando contra la piedra retumba en la sala. De las pilas de escombros a los costados, se levantan cuatro figuras esqueléticas, con pedazos de armadura oxidada y espadas cortas en sus manos huesudas. ¡Tiren iniciativa!_
 
-**Elara:** "Tiro 1d6 más mis Reflejos (3). Saco un 4, total 7."
+**Elara:** "Tiro 1d8 más mis Reflejos (3). Saco un 4, total 7."
 
-**Kaelen:** "1d6 más mis Reflejos (2). Saco un 2, total 4."
+**Kaelen:** "1d8 más mis Reflejos (2). Saco un 2, total 4."
 
-> **DJ:** _Los esqueletos sacan un 5. El orden es: Esqueletos, Elara, Kaelen. Dos de los esqueletos se lanzan sobre Kaelen, que está al lado del pedestal. El primero ataca. Su tirada de ataque es un 8. Tu Esquiva es 6, así que te pega._
+> **DJ:** _Los esqueletos sacan un 5. El orden es: Esqueletos, Elara, Kaelen. Dos de los esqueletos se lanzan sobre Kaelen, que está al lado del pedestal. El primero ataca. Su tirada de ataque es un 8. Tu Esquiva es 7, así que te pega._
 
 **Kaelen:** "¡Rayos!"
 
 > **DJ:** _Te hace 3 puntos de daño Cortante. El segundo esqueleto también ataca, pero su tirada es solo un 5. Falla. Los otros dos esqueletos avanzan hacia Elara. Tu turno, Elara._
 
-**Elara:** "Estoy a distancia Cercana. Saco mi arco corto como Interacción. Como Acción, le disparo al esqueleto que tengo más cerca. Tiro 1d6 más mis Reflejos (3). ¡Saco un 6! ¡El dado explota!"
+**Elara:** "Estoy a distancia Cercana. Saco mi arco corto como Interacción. Como Acción, le disparo al esqueleto que tengo más cerca. Tiro 1d8 más mis Reflejos (3). ¡Saco un 8! ¡El dado explota!"
 
-> **DJ:** _¡Genial! Ganas 1 Punto de Suerte. Ahora tirá el d6 de nuevo y sumalo._
+> **DJ:** _¡Genial! Ganas 1 Punto de Suerte. Ahora tirá el d8 de nuevo y sumalo._
 
-**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 6 + 4 + 3... ¡un 15! Es un golpe crítico, ya que supera la Esquiva del esqueleto (8) por más de 5."
+**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 8 + 4 + 3... ¡un 15! Es un golpe crítico, ya que supera la Esquiva del esqueleto (7) por más de 5."
 
 > **DJ:** _¡Un impacto devastador! Tirás el doble de dados de daño. Tu arco corto hace 1d4 de daño Perforante, así que tirás 2d4._
 
@@ -802,6 +803,6 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 > **DJ:** _Me gusta. Es una Tirada Enfrentada de tu Cuerpo contra el suyo. El esqueleto tiene Cuerpo 2._
 
-**Kaelen:** "Tiro 1d6 más mi Cuerpo (3). Saco un 5, ¡total 8! El esqueleto tira 1d6 más su Cuerpo (2)... y saca un 2, ¡total 4! Le gano."
+**Kaelen:** "Tiro 1d8 más mi Cuerpo (3). Saco un 5, ¡total 8! El esqueleto tira 1d8 más su Cuerpo (2)... y saca un 2, ¡total 4! Le gano."
 
 > **DJ:** _Con un empujón brutal, lanzas al esqueleto para atrás. Cae aparatosamente en el pozo y escuchás cómo sus huesos se rompen contra los escombros. Ya no es una amenaza. El combate sigue..._

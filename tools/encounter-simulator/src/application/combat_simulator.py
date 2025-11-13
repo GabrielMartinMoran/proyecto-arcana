@@ -91,9 +91,9 @@ Primero, identifica TODAS las tiradas que necesitas para esta ronda completa.
 Escribe cada llamada con un ID único que identifique para qué es la tirada:
 
 ```
-ROLL[Elara_Initiative]: dice_roller('1d6e+3')
-ROLL[Kaelen_Initiative]: dice_roller('1d6e+2')
-ROLL[Elara_Attack]: dice_roller('1d6e+3')
+ROLL[Elara_Initiative]: dice_roller('1d8e+3')
+ROLL[Kaelen_Initiative]: dice_roller('1d8e+2')
+ROLL[Elara_Attack]: dice_roller('1d8e+3')
 ROLL[Elara_Damage]: dice_roller('1d4')
 ```
 
@@ -104,14 +104,14 @@ Espera a recibir TODOS los resultados antes de continuar.
 Solo DESPUÉS de recibir todos los resultados, genera el JSON final usando esos valores concretos.
 
 **Ejemplos válidos:**
-- `dice_roller('1d6e+3')`
+- `dice_roller('1d8e+3')`
 - dice_roller("2d10e")
 - TOOL_CALL: dice_roller("1d4+2")
 
 **INCORRECTO - NO hagas esto:**
-- dice_roller("1d6e+2, 1d6e+1, 1d4") ❌ (NO juntes fórmulas con comas)
+- dice_roller("1d8e+2, 1d8e+1, 1d4") ❌ (NO juntes fórmulas con comas)
 - Generar JSON antes de hacer las tiradas ❌
-- Inventar números (ej: "7 (1d6e [4] + 3)") sin haber llamado a dice_roller() ❌
+- Inventar números (ej: "7 (1d8e [4] + 3)") sin haber llamado a dice_roller() ❌
 
 **IMPORTANTE:**
 - **NUNCA inventes resultados de dados**. SIEMPRE usa dice_roller().
@@ -119,8 +119,8 @@ Solo DESPUÉS de recibir todos los resultados, genera el JSON final usando esos 
 - Si recibes un rechazo porque no hiciste tiradas, NO inventes los números. Ve al PASO 1 y llama a dice_roller().
 - **Cada tirada debe ser una llamada separada**, no juntes múltiples fórmulas con comas.
 - **NUNCA incluyas llamadas a dice_roller() dentro del JSON final**. Solo incluye los resultados ya ejecutados.
-- Ejemplo CORRECTO: Llamas `dice_roller('1d6e+3')` → recibes "7 (1d6e [4] + 3)" → en JSON escribes "Tirada: 7 (1d6e [4] + 3)"
-- Ejemplo INCORRECTO: Sin llamar a dice_roller(), escribes en JSON "Tirada: 7 (1d6e [4] + 3)"
+- Ejemplo CORRECTO: Llamas `dice_roller('1d8e+3')` → recibes "7 (1d8e [4] + 3)" → en JSON escribes "Tirada: 7 (1d8e [4] + 3)"
+- Ejemplo INCORRECTO: Sin llamar a dice_roller(), escribes en JSON "Tirada: 7 (1d8e [4] + 3)"
 
 ## FORMATO DE SALIDA REQUERIDO
 
@@ -291,7 +291,7 @@ NO incluyas ningún texto adicional fuera del JSON cuando termines el turno.
                         HumanMessage(
                             content="ERROR: Your JSON output contains dice_roller() calls. "
                             "You must execute ALL dice rolls BEFORE generating the final JSON. "
-                            "The JSON should only contain the results (e.g., '7 (1d6e [4] + 3)'), not calls to dice_roller(). "
+                            "The JSON should only contain the results (e.g., '7 (1d8e [4] + 3)'), not calls to dice_roller(). "
                             "Please make all necessary dice_roller() calls first, then provide the JSON with results."
                         )
                     )
@@ -304,7 +304,7 @@ NO incluyas ningún texto adicional fuera del JSON cuando termines el turno.
                     messages.append(
                         HumanMessage(
                             content="ERROR: You provided a JSON with dice results but you NEVER called dice_roller().\n\n"
-                            "You CANNOT invent results like '7 (1d6e [4] + 3)' without calling the tool first.\n\n"
+                            "You CANNOT invent results like '7 (1d8e [4] + 3)' without calling the tool first.\n\n"
                             "MANDATORY PROCESS:\n"
                             "1. First call dice_roller('formula') for EACH roll you need\n"
                             "2. Wait for the results\n"

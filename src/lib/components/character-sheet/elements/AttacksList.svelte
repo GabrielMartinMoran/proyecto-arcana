@@ -56,7 +56,7 @@
 				<InputField
 					value={attack.atkFormula}
 					{readonly}
-					placeholder="1d6e+cuerpo"
+					placeholder="1d8e+cuerpo"
 					fullWidth={true}
 					onChange={(value) => {
 						attack.atkFormula = value.toString();

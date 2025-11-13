@@ -31,7 +31,7 @@
 	};
 
 	const rollAttack = (attack: CreatureAttack) => {
-		roll(`1d6e+${attack.bonus}`, `Ataca con ${attack.name}`);
+		roll(`1d8e+${attack.bonus}`, `Ataca con ${attack.name}`);
 	};
 
 	const rollDamage = (attack: CreatureAttack) => {
@@ -63,7 +63,7 @@
 						<button
 							onclick={() =>
 								roll(
-									`1d6e+${CONFIG.ATTR_NAME_MAP[attribute]}`,
+									`1d8e+${CONFIG.ATTR_NAME_MAP[attribute]}`,
 									capitalize(CONFIG.ATTR_NAME_MAP[attribute]),
 								)}
 							title="Tirar"
@@ -115,7 +115,7 @@
 				<strong>Iniciativa</strong>
 				<div class="score">
 					<span>{creature.attributes.reflexes}</span>
-					<button onclick={() => roll(`1d6e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
+					<button onclick={() => roll(`1d8e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
 				</div>
 			</div>
 		</div>

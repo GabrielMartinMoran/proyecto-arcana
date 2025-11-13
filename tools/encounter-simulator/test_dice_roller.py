@@ -23,17 +23,17 @@ def test_basic_roll():
 
 def test_exploding_roll():
     """Test exploding dice"""
-    print("Test 2: Exploding 1d6e roll (may explode)")
+    print("Test 2: Exploding 1d8e roll (may explode)")
     for i in range(5):
-        result = DiceRoller.roll("1d6e")
+        result = DiceRoller.roll("1d8e")
         print(f"  Roll {i + 1}: {result}")
     print("  ✓ Passed (check for 💥 symbols)\n")
 
 
 def test_with_modifier():
     """Test roll with modifier"""
-    print("Test 3: 1d6e+3 roll")
-    result = DiceRoller.roll("1d6e+3")
+    print("Test 3: 1d8e+3 roll")
+    result = DiceRoller.roll("1d8e+3")
     print(f"  Result: {result}")
     assert 4 <= result.total <= 100, "Modified roll out of reasonable range"
     print("  ✓ Passed\n")

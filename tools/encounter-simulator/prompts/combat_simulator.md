@@ -81,7 +81,7 @@ Muestra las estadísticas COMPLETAS de todos los enemigos del encuentro:
 **Iniciativa (solo primera ronda):**
 
 1. Tira iniciativa para cada PJ individualmente y UNA VEZ por tipo de enemigo.
-2. Usa el formato: "Nombre: `dice_roller('1d6e')` = X + Modificador = Total".
+2. Usa el formato: "Nombre: `dice_roller('1d8e')` = X + Modificador = Total".
 3. Muestra el orden de iniciativa final.
 
 **Ejecución de Rondas (FLUJO ESTRICTO):**

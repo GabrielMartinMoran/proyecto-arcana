@@ -12,7 +12,7 @@ class DiceRollerInput(BaseModel):
     """Input schema for the dice roller tool"""
 
     formula: str = Field(
-        description="Dice roll formula in format XdYe[+Z], e.g., '1d6e+3' or '2d10e+1d4'"
+        description="Dice roll formula in format XdYe[+Z], e.g., '1d8e+3' or '2d10e+1d4'"
     )
 
 
@@ -27,8 +27,8 @@ class DiceRollerTool(BaseTool):
     description: str = (
         "Rolls dice using the formula XdYe[+Z]... where X is number of dice, "
         "Y is die size, 'e' means exploding (re-roll on max), and Z are modifiers. "
-        "Example: dice_roller('1d6e+3') or dice_roller('2d10e+1d4'). "
-        "Returns formatted result like '19 (1d6e [6💥 + 6💥 + 5] + 3)'"
+        "Example: dice_roller('1d8e+3') or dice_roller('2d10e+1d4'). "
+        "Returns formatted result like '19 (1d8e [6💥 + 6💥 + 5] + 3)'"
     )
     args_schema: Type[BaseModel] = DiceRollerInput
 

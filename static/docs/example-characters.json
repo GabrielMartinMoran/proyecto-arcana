@@ -115,7 +115,7 @@
 		"attacks": [
 			{
 				"notes": "Contundente",
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"dmgFormula": "1d6",
 				"name": "Maza",
 				"id": "1f6fdb15-0373-43ca-a1d9-5d192ac855e1"
@@ -123,7 +123,7 @@
 			{
 				"id": "9529c605-a7d4-4cca-b29e-ad70b8823f08",
 				"name": "Llama Sagrada",
-				"atkFormula": "1d6e+instinto",
+				"atkFormula": "1d8e+instinto",
 				"notes": "Radiante",
 				"dmgFormula": "1d6"
 			}
@@ -260,7 +260,7 @@
 			{
 				"dmgFormula": "1d6",
 				"id": "f4cec439-b1cb-473c-9b2c-91839203c9f8",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"notes": "Cortante",
 				"name": "Espada Corta"
 			},
@@ -269,7 +269,7 @@
 				"dmgFormula": "1d4",
 				"id": "dc6fde80-cf18-416d-8d0d-8d212b526445",
 				"name": "Arco Corto",
-				"atkFormula": "1d6e+reflejos"
+				"atkFormula": "1d8e+reflejos"
 			}
 		],
 		"maxActiveCards": 3,
@@ -428,12 +428,12 @@
 				"id": "7d309067-fb5b-4027-b18f-e1f71c8f1740",
 				"dmgFormula": "1d6",
 				"notes": "Cortante",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"name": "Espada Corta"
 			},
 			{
 				"notes": "Perforante",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"id": "d5da87e8-8268-4455-b52e-6c8c9868e5da",
 				"name": "Arco Corto",
 				"dmgFormula": "1d4"
@@ -443,7 +443,7 @@
 				"name": "Daga",
 				"dmgFormula": "1d4",
 				"notes": "Perforante",
-				"atkFormula": "1d6e+reflejos"
+				"atkFormula": "1d8e+reflejos"
 			}
 		],
 		"maxActiveCards": 3,
@@ -596,13 +596,13 @@
 		"attacks": [
 			{
 				"name": "Ataque Desarmado",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"dmgFormula": "1d4",
 				"id": "193fd542-689c-4a81-84ae-f0a724d59ba8",
 				"notes": "Contundente"
 			},
 			{
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "f23f61ab-1a1b-442a-a8b1-2a5cffc10a32",
 				"name": "Bastón",
 				"notes": "Contundente",
@@ -611,12 +611,12 @@
 			{
 				"notes": "Contundente",
 				"name": "Bastón (2 manos)",
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "a7bcb72e-5d0e-4515-b4f1-90fec9448a0d",
 				"dmgFormula": "1d6"
 			},
 			{
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "a2f4d11c-04ca-4bd9-981e-ad447f18edfc",
 				"notes": "Perforante",
 				"dmgFormula": "1d8",
@@ -795,32 +795,32 @@
 				"notes": "Fuego, Frío o Eléctrico",
 				"id": "12b6c97c-987e-4bc5-be63-1c7b4601518e",
 				"dmgFormula": "1d8",
-				"atkFormula": "1d6e+mente"
+				"atkFormula": "1d8e+mente"
 			},
 			{
 				"name": "Bastón",
 				"notes": "Contundente",
 				"id": "402f80fa-d6f4-43ff-8579-5d016bbdd18a",
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"dmgFormula": "1d4"
 			},
 			{
 				"dmgFormula": "1d6",
 				"notes": "Contundente",
 				"name": "Bastón (2 manos)",
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "66585a4b-32a6-46f5-bfbe-d45606f4b991"
 			},
 			{
 				"notes": "Perforante",
 				"id": "1e5c54ea-d17f-4aa9-bf49-5c3d0bc64f88",
 				"name": "Ballesta Ligera",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"dmgFormula": "1d6"
 			},
 			{
 				"name": "Daga",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"id": "7137e5ca-cee6-4b26-ac77-650782c64bce",
 				"notes": "Perforante",
 				"dmgFormula": "1d4"
@@ -991,24 +991,24 @@
 				"notes": "Contundente",
 				"id": "9a0acd01-5f16-462f-ab20-596907e386a0",
 				"dmgFormula": "1d4",
-				"atkFormula": "1d6e+cuerpo"
+				"atkFormula": "1d8e+cuerpo"
 			},
 			{
 				"id": "5f1a42cd-d143-4103-958b-6c5715ccb5d7",
 				"name": "Bastón (2 manos)",
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"notes": "Contundente",
 				"dmgFormula": "1d6"
 			},
 			{
 				"name": "Arco corto",
-				"atkFormula": "1d6e+reflejos",
+				"atkFormula": "1d8e+reflejos",
 				"notes": "Perforante",
 				"dmgFormula": "1d4",
 				"id": "2faf6f9d-4772-4c9b-a8c0-0ae16da2813f"
 			},
 			{
-				"atkFormula": "1d6e+instinto",
+				"atkFormula": "1d8e+instinto",
 				"name": "Látigo de Espinas",
 				"notes": "Cortante",
 				"id": "1cd55d48-1764-405f-a70e-addc1ea46c8a",
@@ -1152,21 +1152,21 @@
 		"quickInfo": "Ventaja en: Atletismo, Percepción",
 		"attacks": [
 			{
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "2c9c2152-438c-450a-a627-06ab736b0457",
 				"notes": "Cortante",
 				"name": "Espada Larga (a 1 mano)",
 				"dmgFormula": "1d6"
 			},
 			{
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "4fc0fdd9-2b17-440c-8963-ee1a3b49548e",
 				"dmgFormula": "1d8",
 				"notes": "Cortante",
 				"name": "Espada Larga (a 2 manos)"
 			},
 			{
-				"atkFormula": "1d6e+cuerpo",
+				"atkFormula": "1d8e+cuerpo",
 				"id": "8f9e4104-5111-421a-96fb-2414d9a734aa",
 				"dmgFormula": "1d4",
 				"notes": "Perforante, Arrojadiza (Cercana)",

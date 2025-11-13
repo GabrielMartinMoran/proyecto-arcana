@@ -32,7 +32,7 @@ class DiceRoller:
         Parse and execute a dice roll formula.
 
         Args:
-            formula: Dice formula like "1d6e+3" or "2d10e+1d4"
+            formula: Dice formula like "1d8e+3" or "2d10e+1d4"
 
         Returns:
             DiceRollResult with total and breakdown

@@ -368,10 +368,10 @@ items:
       (Esta propiedad se puede aplicar a cualquier escudo). Como Reacción cuando
       eres impactado por un ataque cuerpo a cuerpo de un enemigo a distancia Inmediata,
       puedes liberar una onda de fuerza. El atacante debe superar una Tirada de
-      Salvación de Cuerpo (ND 8) o ser empujado 3 metros hacia atrás en línea recta.
+      Salvación de Cuerpo (ND 10) o ser empujado 3 metros hacia atrás en línea recta.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: 'Amuleto de Salud'
     level: 3
@@ -463,8 +463,8 @@ items:
     requirements: []
     description: >-
       Como una Interacción, puedes activar estos guanteletes de hierro meteórico.
-      Durante 1 minuto, tus dados de d6 "explotan" con un resultado de 5 o 6,
-      en lugar de solo con un 6.
+      Durante 1 minuto, tus dados de d8 "explotan" con un resultado de 7 u 8,
+      en lugar de solo con un 8.
     uses:
       type: PER_DAY
       qty: 1
@@ -908,11 +908,11 @@ items:
     description: >-
       Como Reacción cuando eres impactado por un ataque cuerpo a cuerpo de un enemigo
       que puedas ver, puedes hacer que el brazalete libere una onda de fuerza.
-      El atacante debe superar una Tirada de Salvación de Reflejos (ND 8). Si falla,
+      El atacante debe superar una Tirada de Salvación de Reflejos (ND 10). Si falla,
       recibe 1d6 de daño de Fuerza; si tiene éxito, recibe la mitad del daño.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: 'Filo Entorpecedor'
     level: 2
@@ -1004,7 +1004,7 @@ items:
       Velocidad. Este movimiento no puede ser interceptado por Reacciones enemigas.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: 'Túnica del Recuerdo Arcano'
     level: 3

@@ -126,7 +126,7 @@ The simulator produces:
 
 The simulator uses exploding dice notation:
 - `XdYe`: Roll X dice of size Y, exploding on max value
-- Example: `1d6e+3` = Roll 1d6 (exploding) + 3
+- Example: `1d8e+3` = Roll 1d6 (exploding) + 3
 - Explosions: `6💥` indicates the die exploded and was re-rolled
 
 ## Dependencies

@@ -21,7 +21,7 @@
 
 	const onAttributeDiceRoll = (attributeName: string) => {
 		rollModal.openRollModal({
-			expression: `1d6e+${attributeName}`,
+			expression: `1d8e+${attributeName}`,
 			variables: {
 				cuerpo: character.attributes.body,
 				reflejos: character.attributes.reflexes,
