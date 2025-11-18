@@ -29,6 +29,28 @@ En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupu
 - **4 PP (Sesión Memorable):** Ocurrió algo épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o tuvo un momento de interpretación brillante que definió la sesión.
 - **+1 PP (Bono Individual):** Siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
 
+# El Pacto de Caos
+
+El Caos es un recurso narrativo que el DJ acumula cuando los jugadores eligen forzar su suerte.
+
+### Ganar Puntos de Caos
+
+Tal como esta descrito en el Manual de Jugador, el DJ gana **1 Punto de Caos** cada vez que un jugador declara que va a comprar **1 Punto de Suerte**.
+
+- Esta reserva de Puntos de Caos **no tiene límite máximo**.
+- Esta reserva **no se reinicia** al final de la sesión; es una "deuda" persistente de la campaña.
+
+### Gastar Puntos de Caos
+
+El DJ puede gastar Puntos de Caos en cualquier momento para influir en la narrativa, reflejando cómo el mundo reacciona a la manipulación del destino por parte de los jugadores.
+
+Hay dos formas principales de gastar Caos:
+
+- **Reflejo Hostil:** Gastar 1 Punto de Caos para añadir **+1d4** a cualquier tirada realizada por un PNJ o criatura (Ataque, Salvación o Prueba de Habilidad).
+- **Desafío Creciente:** Gastar 1 Punto de Caos para añadir **+1d4** al **Nivel de Dificultad (ND)** de una prueba de habilidad o tirada de salvación que uno o más jugadores estén a punto de realizar.
+
+**Filosofía de Uso:** Para evitar una sensación punitiva, el DJ no debería gastar Caos para contrarrestar *directamente* la misma acción para la cual el jugador acaba de comprar Suerte. El Caos es una *consecuencia* futura, no un "impuesto" inmediato.
+
 # Guía de Recompensas: Tesoro y Equipo
 
 Además de los Puntos de Progreso, las recompensas materiales son un motor clave de la aventura. Un tesoro bien administrado no solo permite a los personajes comprar mejor equipo, sino que también puede ser un objetivo narrativo en sí mismo. La filosofía de ARCANA es que los objetos mágicos son hallazgos extraordinarios y raros, trofeos de grandes hazañas, no artículos en el catálogo de una tienda.

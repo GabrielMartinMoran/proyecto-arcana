@@ -230,6 +230,10 @@ La Suerte es un recurso que permite a los jugadores influir en el resultado de s
 - **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir un **+1 al resultado final por cada punto gastado**.
 - **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 2.
 
+### Comprar Suerte
+
+En cualquier momento, un jugador puede declarar al Director de Juego (DJ) que desea **Comprar Suerte**. Entonces, el personaje gana imediatamente **1 Punto de Suerte** (no puede superar su máximo disponible). Sin embargo, a cambio de esto, el DJ gana **1 Punto de Caos** (cuyos usos estan detallados en la guía del Director de Juego).
+
 # 4. El Sistema de Cartas
 
 ### ¿Qué es una Carta en el Mundo?
