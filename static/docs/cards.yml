@@ -3513,7 +3513,7 @@ cards:
     description: >-
       Tu entrenamiento en artes marciales, te ha conferido las siguientes capacidades:<br>
       - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br>
-      - **Golpes Diestros:** Tus ataques desarmados infligen **1d4 de daño Contundente** y se consideran armas con la propiedad **Precisa**.
+      - **Golpes de Ki:** Tus ataques desarmados infligen 1d4 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque.
     uses:
       type: null
       qty: 0
@@ -3548,9 +3548,9 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
-      - Reflejos 3
+      - Instinto 3
     description: >-
-      Tu Velocidad total de movimiento aumenta en una cantidad igual a **la mitad de tu puntuación de Instinto** (redondeando hacia arriba). Además, levantarte del estado Derribado solo te cuesta 1 metro de tu movimiento.
+      Tu Velocidad total de movimiento aumenta en una cantidad igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba). Además, levantarte del estado Derribado solo te cuesta 1 metro de tu movimiento.
     uses:
       type: null
       qty: 0
@@ -3562,9 +3562,9 @@ cards:
       - Reacción
     requirements:
       - Disciplina Monástica
-      - Reflejos 3
+      - Instinto 3
     description: >-
-      Como **Reacción**, cuando eres impactado por un ataque a distancia con un arma de un atacante **que puedas ver**, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br>
+      Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br>
       En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.
     uses:
       type: RELOAD
@@ -3578,10 +3578,10 @@ cards:
       - Golpes Energéticos
       - Instinto 3
     description: >-
-      Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un efecto adicional. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 5 + Instinto)**.<br>
-      - **Golpe Radiante:** Si falla, el objetivo sufre **1d6 de daño de Radiante** adicional. Si tiene éxito, recibe la mitad de ese daño.<br>
-      - **Golpe Realentizante:** Si falla, la Velocidad del objetivo se reduce a la mitad hasta el final de tu próximo turno. Si tiene éxito, su Velocidad solo se reduce en **2 metros** hasta el final de tu próximo turno.<br>
-      - **Golpe Desestabilizante:** El objetivo es empujado **1 metro** en línea recta lejos de ti. Si falla la tirada, además cae **Derribado**.
+      Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un efecto adicional. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto).<br>
+      - **Golpe Radiante:** Si falla, el objetivo sufre 1d6 de daño de Radiante adicional. Si tiene éxito, recibe la mitad de ese daño.<br>
+      - **Golpe Realentizante:** Si falla, la Velocidad del objetivo se reduce a la mitad hasta el final de tu próximo turno. Si tiene éxito, su Velocidad solo se reduce en 2 metros hasta el final de tu próximo turno.<br>
+      - **Golpe Desestabilizante:** El objetivo es empujado 1 metro en línea recta lejos de ti. Si falla la tirada, además cae **Derribado**.
     uses:
       type: RELOAD
       qty: 5
@@ -3657,9 +3657,9 @@ cards:
       - Reacción
     requirements:
       - Disciplina Monástica
-      - Reflejos 3
+      - Instinto 3
     description: >-
-      Como **Reacción**, cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes realizar un único ataque desarmado contra él.
+      Como Reacción, cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes realizar un único ataque desarmado contra él.
     uses:
       type: RELOAD
       qty: 5
@@ -3672,20 +3672,20 @@ cards:
       - Disciplina Monástica
       - Instinto 4
     description: >-
-      Usas tu **Interacción** para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad **Arrojadiza (Cercana)**.
+      Usas tu Interacción para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad Arrojadiza (Cercana).
     uses:
       type: RELOAD
       qty: 4
   - name: Tormenta de Golpes
     level: 3
-    type: activable
+    type: efecto
     tags:
       - Monje
     requirements:
       - Ráfaga de Golpes
-      - Reflejos 4
+      - Instinto 4
     description: >-
-      Usas tu Acción para desatar un torbellino de ataques. Realizas tres ataques desarmados.
+      Tu fluidez en combate es absoluta. Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga. Además, cuando activas Ráfaga de Golpes, realizas dos ataques desarmados adicionales en lugar de uno.
     uses:
       type: RELOAD
       qty: 6
@@ -3760,9 +3760,9 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
-      - Reflejos 3
+      - Instinto 3
     description: >-
-      Usas tu **Interacción** para aligerar tu cuerpo con ki. Hasta el final de tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.
+      Usas tu Interacción para aligerar tu cuerpo con ki. Hasta el final de tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.
     uses:
       type: RELOAD
       qty: 5
@@ -3789,7 +3789,7 @@ cards:
       - Disciplina Monástica
       - Instinto 3
     description: >-
-      Tu disciplina te permite ignorar las debilidades del cuerpo. Obtienes **Ventaja (+1d4)** en todas las pruebas de **Cuerpo (Aguante)**, como las que se realizan para resistir los efectos del cansancio, el hambre, la sed o las temperaturas extremas.
+      Tu disciplina te permite ignorar las debilidades del cuerpo. Obtienes Ventaja (+1d4) en todas las pruebas de **Cuerpo (Aguante)**, como las que se realizan para resistir los efectos del cansancio, el hambre, la sed o las temperaturas extremas.
     uses:
       type: null
       qty: 0
@@ -3802,7 +3802,7 @@ cards:
       - Disciplina Monástica
       - Instinto 3
     description: >-
-      Siempre estás en sintonía con el estado emocional de los demás. Obtienes **Ventaja (+1d4)** en todas las pruebas de **Instinto (Perspicacia)**. Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
+      Siempre estás en sintonía con el estado emocional de los demás. Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia. Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
     uses:
       type: null
       qty: 0
@@ -3838,7 +3838,7 @@ cards:
       - Monje
     requirements:
       - Disciplina Monástica
-      - Reflejos 3
+      - Instinto 3
     description: >-
       Tu concentración es absoluta. Obtienes Ventaja (+1d4) en todas las pruebas de habilidad o Tiradas de Salvación para resistir ser Derribado o movido contra tu voluntad.
     uses:
@@ -3899,7 +3899,7 @@ cards:
       - Instinto 4
     description: >-
       Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br>
-      - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu `Instinto` contra el atributo del encantador para romper el efecto.<br>
+      - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br>
       - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.
     uses:
       type: RELOAD
@@ -3925,7 +3925,7 @@ cards:
       - Monje
     requirements:
       - Paso del Viento
-      - Reflejos 5
+      - Instinto 5
     description: >-
       Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.
     uses:
