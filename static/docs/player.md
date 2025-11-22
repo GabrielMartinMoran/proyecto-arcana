@@ -227,7 +227,7 @@ La Suerte es un recurso que permite a los jugadores influir en el resultado de s
 
 - **Ganar Suerte:** Cada vez que un dado explota (un 8 natural en el d8), el personaje gana **1 Punto de Suerte**.
 - **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.
-- **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir un **+1 al resultado final por cada punto gastado**.
+- **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir **+1d4 al resultado final por cada punto gastado**. Sin embargo, el jugador debe declarar la cantidad total de puntos que vas a gastar antes de lanzar los dados de bonificación. No puede lanzar los dados de suerte uno a uno y decidir sobre la marcha; debe hacer su apuesta de una sola vez.
 - **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 2.
 
 ### Comprar Suerte
