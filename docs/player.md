@@ -64,7 +64,7 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 A partir de tus atributos, se calculan otros valores esenciales para tu personaje:
 
 - **Salud:** Es la cantidad de daño que puedes soportar antes de quedar inconsciente.
-  - **Salud = 5 + (Cuerpo × 3) + (PP Gastados / 5)** (redondeado al entero más cercano)
+  - **Salud = 5 + (Cuerpo × 3)**
 - **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.
   - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.

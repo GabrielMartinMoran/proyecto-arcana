@@ -49,7 +49,7 @@ Hay dos formas principales de gastar Caos:
 - **Reflejo Hostil:** Gastar 1 Punto de Caos para añadir **+1d4** a cualquier tirada realizada por un PNJ o criatura (Ataque, Salvación o Prueba de Habilidad).
 - **Desafío Creciente:** Gastar 1 Punto de Caos para añadir **+1d4** al **Nivel de Dificultad (ND)** de una prueba de habilidad o tirada de salvación que uno o más jugadores estén a punto de realizar.
 
-**Filosofía de Uso:** Para evitar una sensación punitiva, el DJ no debería gastar Caos para contrarrestar *directamente* la misma acción para la cual el jugador acaba de comprar Suerte. El Caos es una *consecuencia* futura, no un "impuesto" inmediato.
+**Filosofía de Uso:** Para evitar una sensación punitiva, el DJ no debería gastar Caos para contrarrestar _directamente_ la misma acción para la cual el jugador acaba de comprar Suerte. El Caos es una _consecuencia_ futura, no un "impuesto" inmediato.
 
 # Guía de Recompensas: Tesoro y Equipo
 
@@ -266,10 +266,10 @@ Gasta tu Presupuesto Total (PA) comprando enemigos usando la siguiente tabla de 
 | :--------------- | :---------- |
 | **Rango 1**      | 1 PA        |
 | **Rango 2**      | 2 PA        |
-| **Rango 3**      | 3 PA        |
-| **Rango 4**      | 5 PA        |
-| **Rango 5**      | 8 PA        |
-| **Rango 6**      | 13 PA       |
+| **Rango 3**      | 6 PA        |
+| **Rango 4**      | 10 PA       |
+| **Rango 5**      | 20 PA       |
+| **Rango 6**      | 40 PA       |
 
 _(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para esto, usa la misma filosofía y ten mucho cuidado al balancear las oportunidades de esos nuevos rangos)_
 
@@ -337,7 +337,7 @@ Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 | **Rango 5**        | 30 PPF            | Amenazas de final de campaña, avatares del apocalipsis.     |
 | **Rango 6**        | 38 PPF            | Jefes finales épicos, diseñados a medida.                   |
 
-### Paso 2: Distribuir PPF en Estadísticas (Tablas de Constructor Calibradas v5)
+### Paso 2: Distribuir PPF en Estadísticas
 
 Usa la tabla del Rango correspondiente. Recuerda los **Límites de Gasto (Cotas)** por atributo.
 
@@ -504,125 +504,110 @@ Habilidades que cambian las reglas del combate: Control, Movimiento Superior, De
 > - **Total:** 3(Hab) + 5(PS) + 3(MitF) + 1(Esq) = 12 PPF.
 > - **Final:** PS 30, Esq 7, Mit 3, Atq +2/ND 6 (base), Daño 0 (base). Rasgo: `Protección`.
 
-# Guía de Diseño de Conjuros
+# Guía de Diseño de Conjuros y Habilidades
 
 ## El Triángulo del Balance
 
-El diseño de un conjuro o habilidad en ARCANA se equilibra sobre tres pilares fundamentales: **Poder** (su impacto bruto, generalmente el daño), **Utilidad** (los efectos adicionales que aplica) y **Fiabilidad** (la frecuencia con la que puede usarse). Para crear una habilidad justa, emocionante y balanceada, estos tres elementos deben estar en equilibrio.
-
-Un conjuro no puede sobresalir en los tres pilares. Si es extremadamente potente y tiene un gran efecto, debe ser poco fiable. Si es muy fiable, su poder o utilidad deben ser moderados. Esta guía te proporcionará un marco de trabajo paso a paso para diseñar tus propios conjuros o para evaluar y modificar los existentes.
+El diseño de un conjuro en ARCANA equilibra **Poder** (daño), **Utilidad** (efectos) y **Fiabilidad** (recarga). Un conjuro no puede tenerlo todo al máximo.
 
 ### Paso 1: Establecer el Daño Base por Nivel
 
-Todo conjuro de daño parte de una base. Esta tabla representa el punto de partida para un conjuro de daño puro, sin efectos adicionales significativos. Es el estándar de oro contra el cual se mide todo lo demás.
+Esta tabla muestra el daño para una **Acción** con **Recarga Estándar (4+/5+)**.
 
-| Nivel del Conjuro | Daño Single-Target (ST) | Daño en Área (AoE) |
-| :---------------- | :---------------------- | :----------------- |
-| **Nivel 1**       | 1d8                     | 1d6                |
-| **Nivel 2**       | 2d8                     | 2d6                |
-| **Nivel 3**       | 3d8                     | 3d6                |
-| **Nivel 4**       | 4d8                     | 4d6                |
-| **Nivel 5**       | 5d8                     | 5d6                |
-
----
-
-### Paso 2: Añadir Utilidad (Efectos) y Ajustar el Daño
-
-Aquí es donde reside el corazón táctico de un conjuro. Añadir un efecto adicional tiene un "coste" que se paga reduciendo el potencial de daño base del conjuro. Los efectos se clasifican en tres categorías según su impacto en el juego.
-
-#### **Efectos Leves (Coste 0)**
-
-Estos son beneficios menores, a menudo centrados en el lanzador, con un impacto narrativo más que mecánico, o con consecuencias muy específicas y situacionales. **No reducen el dado de daño del conjuro.**
-
-- **Ejemplos:**
-  - **Auto-Buff Menor:** El lanzador gana +1 a su Esquiva hasta el inicio de su próximo turno.
-  - **Movimiento Forzado Mínimo:** El objetivo es empujado 1 metro en una dirección.
-  - **Componente Narrativo:** El conjuro emite una luz brillante, un sonido ensordecedor o deja una marca cosmética en el objetivo.
-  - **Daño en el Tiempo (DoT) Mínimo:** El objetivo recibe `1d4` de daño adicional al inicio de su próximo turno.
-
-#### **Efectos Moderados (Coste: -1 Tamaño de Dado)**
-
-Estos son efectos tácticos significativos que alteran el campo de batalla o debilitan a un enemigo de forma notable. **Reducen el tamaño del dado de daño en un paso (d8 → d6, d6 → d4).** Si el efecto es sostenido, generalmente requiere `Concentración`.
-
-- **Ejemplos:**
-  - **Debuff de Estadísticas:** El objetivo sufre `Desventaja (-1d4)` en sus tiradas de ataque o de salvación durante un turno.
-  - **Reducción de Movimiento:** La Velocidad del objetivo se reduce a la mitad.
-  - **Control de Zona Menor:** Crea un área pequeña de terreno difícil o de daño persistente menor (`Concentración`).
-  - **Salto a Múltiples Objetivos:** Un conjuro ST golpea a un objetivo secundario con la mitad del daño.
-  - **Curación al Lanzador:** El lanzador recupera salud igual a la mitad del daño infligido.
-
-#### **Efectos Fuertes (Coste: -1 Nivel de Daño)**
-
-Estos son efectos que pueden anular por completo a un enemigo o cambiar drásticamente las reglas del enfrentamiento. **El conjuro inflige el daño de un conjuro del nivel inmediatamente inferior.** (Ej: un conjuro de Nivel 3 con un efecto Fuerte hace el daño de un conjuro de Nivel 2). A menudo no infligen daño en absoluto, dedicando todo su "presupuesto" al efecto. Casi siempre requieren `Concentración`.
-
-- **Ejemplos:**
-  - **Control Duro:** El objetivo queda `Aturdido`, `Encantado`, `Inmovilizado` o `Dormido`.
-  - **Control de Zona Mayor:** Crea un muro, una esfera de silencio o un área grande de terreno difícil con daño.
-  - **Invocación:** Invoca a una criatura para que luche a tu lado.
-  - **Teletransporte:** Mueve a un objetivo (aliado o enemigo) contra su voluntad.
+| Nivel | Daño Single-Target (ST) | Promedio ST | Daño en Área (AoE) | Promedio AoE | Rol Táctico                        |
+| :---- | :---------------------- | :---------- | :----------------- | :----------- | :--------------------------------- |
+| **1** | 1d8                     | 4.5         | 1d6                | 3.5          | Daño base.                         |
+| **2** | 2d8                     | 9           | 2d6                | 7            | Mejora lineal.                     |
+| **3** | 4d8                     | 18          | 4d6                | 14           | **Salto de Poder.**                |
+| **4** | 6d8                     | 27          | 6d6                | 21           | Daño fuerte. Recarga alta (6+).    |
+| **5** | 10d8                    | 45          | 8d6                | 28           | **Ultimate.** Recarga límite (8+). |
 
 ---
 
-### Paso 3: Ajustar la Fiabilidad (Recarga) y el Poder
+### Paso 2: Añadir Utilidad y Ajustar el Coste
 
-El último pilar es la frecuencia con la que un conjuro puede usarse. Un conjuro devastador que se puede usar todos los turnos rompería el juego. La Recarga nos permite equilibrar esto.
+Añadir efectos tiene un precio en daño o dificultad.
 
-#### **Recarga Base**
+#### **A. Efectos Leves (Coste: 0)**
 
-La siguiente tabla muetra los valores de recarga generales para los diferentes nivels de conjuros:
+Beneficios narrativos o menores. **No reducen el daño.**
 
-| Nivel del Conjuro | Recarga Base (d8) | Probabilidad |
-| :---------------- | :---------------- | :----------- |
-| **Nivel 1**       | Recarga 3+        | 75%          |
-| **Nivel 2**       | Recarga 4+        | 62.5%        |
-| **Nivel 3**       | Recarga 5+        | 50%          |
-| **Nivel 4**       | Recarga 6+        | 37.5%        |
-| **Nivel 5**       | Recarga 8         | 12.5%        |
+- _Ejemplos:_ Empujar 1m, cambiar elemento, luces/sonidos.
 
-#### **Modificadores de Recarga: El Intercambio de Poder**
+#### **B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)**
 
-Puedes modificar este valor base para crear variantes de conjuros. Esto te permite "comprar" más poder a cambio de fiabilidad, o viceversa. El valor de recarga no puede ser inferior a 2+ ni superior a 6+.
+Efectos tácticos breves.
 
-- **Aumentar la Fiabilidad (Menos Poder):**
-  - **-1 al Valor de Recarga:** Disminuye el dado de daño en un paso (d8→d6, d6→d4).
-- **Aumentar el Poder (Menos Fiabilidad):**
-  - **+1 al Valor de Recarga:** Aumenta el dado de daño en un paso (d4→d6, d6→d8).
-  - **+2 al Valor de Recarga:** Aumenta el daño al del nivel superior.
+- **Ajuste:** Reduce el tamaño del dado (**d8→d6**, **d6→d4**).
+  - _Nota:_ Un conjuro de Área (Base d6) con control pasa a hacer daño **d4**.
+- _Ejemplos:_ Terreno difícil, Ceguera (1 turno), Desventaja (1 ataque).
+
+#### **C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)**
+
+Control duro o daño que se repite cada turno (Zonas). Requieren **Concentración**.
+
+- **Ajuste:** Usa el daño base del **Nivel Inferior** (ej: Un Nivel 3 hace daño de Nivel 2).
+- _Ejemplos:_ Inmovilizar, Aturdir, Muros de daño, Invisibilidad.
+
+#### **D. Versatilidad (Coste: +1 Recarga)**
+
+Elegir modo/elemento al lanzar. Aumenta la Recarga base en +1.
+
+---
+
+### Paso 3: Ajustar la Fiabilidad (Recarga)
+
+- **Baja (3+):** Daño moderado/Spam. (75% éxito).
+- **Estándar (4+/5+):** Balance habitual Nivel 1-3. (50-62%).
+- **Alta (6+):** Efectos potentes o Nivel 4. (37%).
+- **Límite (8+):** Ultimates Nivel 5. (12.5%).
+
+**Nota sobre Economía de Acción:**
+
+- **Interacción:** Solo utilidad menor o daño residual (máx 1d4). Nunca control fuerte.
+- **Reacción:** Solo defensa o castigo inmediato. Recargas medias.
 
 ---
 
 ### Poniéndolo Todo Junto: Un Ejemplo de Diseño
 
-Queremos crear un conjuro de **Nivel 2** para el Arcanista llamado `Prisión de Hielo`.
+Este ejemplo ilustra el proceso mental para crear un conjuro nuevo usando las reglas v2.0. Queremos crear un conjuro de **Nivel 2** para el Arcanista llamado `Prisión de Hielo`.
 
-1.  **Concepto:** Un conjuro que daña y atrapa a un solo enemigo.
-2.  **Daño Base:** Es Nivel 2, Single-Target. El daño base es **2d8**.
-3.  **Añadir Efecto:** Queremos que el objetivo quede `Inmovilizado`. Este es un **Efecto Fuerte**.
-    - **Coste:** -1 Nivel de Daño. El daño se ajusta al de un conjuro de Nivel 1 ST: **1d8**.
-4.  **Establecer Recarga Base:** Es un conjuro de Nivel 2. La Recarga base es **4+**.
+1.  **Concepto:** Un conjuro que daña y atrapa a un solo enemigo (Single Target).
+2.  **Daño Base:** Consultamos la Tabla. Para Nivel 2 Single-Target (ST), el daño base es **2d8**.
+3.  **Añadir Efecto:** Queremos que el objetivo quede **Inmovilizado**.
+    - Consultamos la guía: Inmovilizar es un **Efecto Fuerte**.
+    - **Coste:** El daño se reduce al del nivel inferior (Nivel 1).
+    - **Ajuste:** El daño baja a **1d8**.
+4.  **Establecer Recarga:** Es un conjuro de Nivel 2 estándar. La Recarga base es **4+**.
 5.  **Conjuro Base Terminado:**
 
-    > **`Prisión de Hielo` (Nivel 2 ST):** El objetivo debe superar una TS de Cuerpo. Si falla, recibe **1d8 de daño de Frío** y queda `Inmovilizado`. Requiere `Concentración` para mantenerlo inmovilizado. **Recarga 4+**.
-    - _Este conjuro ya está perfectamente balanceado._
+    > **`Prisión de Hielo` (Nivel 2 ST):** El objetivo debe superar una TS de Cuerpo. Si falla, recibe **1d8 de daño de Frío** y queda **Inmovilizado**. Requiere **Concentración**. **Recarga 4+**.
 
-6.  **Crear Variantes:**
-    - **Versión "Avalancha":** Queremos más daño, aunque sea menos fiable.
-      - **Objetivo:** Aumentar el daño al nivel base (`2d8`). Esto equivale a saltar de un daño de Nivel 1 a uno de Nivel 2 (+1 Nivel de Daño).
-      - **Coste:** +2 al Valor de Recarga. (3+2=5).
-      - **Resultado:** `Prisión de Hielo Glacial` (Nivel 2 ST): **2d8** de daño, `Inmovilizado`. **Recarga 6+**.
-    - **Versión "Escarcha Persistente":** Queremos que sea más fiable, a costa de su poder inicial.
-      - **Objetivo:** Bajar la Recarga a 2+.
-      - **Coste:** -1 al Valor de Recarga. Esto requiere bajar el dado de daño de d8 a d6.
-      - **Resultado:** `Escarcha Persistente` (Nivel 2 ST): **1d6** de daño, `Inmovilizado`. **Recarga 3+**.
+6.  **Crear Variantes (Ajustando la Fiabilidad):**
+    - **Versión "Avalancha" (Más Poder):** Queremos recuperar el daño de 2d8. Pagamos el coste subiendo la dificultad de recarga (+2 pasos).
+      - _Resultado:_ **2d8** daño + Inmovilizado. **Recarga 6+**.
+    - **Versión "Escarcha Eterna" (Más Fiabilidad):** Queremos que sea muy fácil de recargar (3+). Pagamos el coste bajando el dado de daño (d8 -> d6).
+      - _Resultado:_ **1d6** daño + Inmovilizado. **Recarga 3+**.
 
 ---
 
-### Nota de Diseño: Combatiendo la "Inanición de Ranuras"
+### Nota de Diseño: ¿Carta de Efecto o Activable?
 
-Un miedo común para los lanzadores de conjuros es sentir que deben llenar todas sus ranuras activas con conjuros de daño para ser efectivos, ignorando la utilidad. Como DJ, puedes mitigar esto de varias maneras:
+Al crear nuevas habilidades u objetos mágicos, una de las decisiones más importantes es si deben ocupar una de las preciadas **Ranuras de Cartas Activas** del jugador o funcionar pasivamente desde la **Colección (Efecto)**.
 
-1.  **Fomenta el Uso de Rituales:** Recuerda constantemente a tus jugadores que cualquier conjuro con la etiqueta `Ritual` puede ser lanzado desde su Colección sin necesidad de estar activo, siempre que tengan 10 minutos. Esto libera sus ranuras para opciones de combate.
-2.  **Introduce "Cantrips de Efecto":** Considera crear o recompensar a los Arcanistas con conjuros de Nivel 1 de tipo `Efecto`. Un `Rayo Arcano` que haga `1d6` de daño y no ocupe una ranura le da al personaje una opción base fiable, permitiéndole experimentar con sus ranuras activas.
-3.  **Diseña Recompensas Inteligentes:** Ofrece objetos mágicos que alivien este problema, como un "Foco Arcano" que permita lanzar un conjuro de Nivel 1 como si estuviera activo, o un "Anillo de Ranura Adicional".
+El sistema ARCANA ya mitiga la falta de espacio otorgando ranuras extra a los lanzadores de conjuros, pero como DJ debes cuidar no saturar la economía del jugador.
 
-Usando este triángulo del balance, puedes crear un arsenal de conjuros para tus PNJ y recompensas para tus jugadores que se sientan únicos, justos y emocionantes.
+**Hazla Activable si:**
+
+- Inflige daño directo o aplica estados de combate (Aturdir, Cegar).
+- Otorga una ventaja táctica inmediata en el turno (Teletransporte, Curación, Escudos).
+- Es una habilidad que requiere una decisión táctica de "gastar un recurso" (Recarga).
+
+**Hazla de Efecto si:**
+
+- Es utilidad narrativa, social o de exploración (Luz, Idiomas, Detectar).
+- Es un bono pasivo constante (+1 a una habilidad, Visión en la Oscuridad).
+- Modifica una habilidad existente que ya ocupa ranura ("Tus bolas de fuego queman 1 turno extra").
+
+**La Regla de Oro:** Si el jugador lo usará para ganar en combate, es **Activable**. Si lo usará para resolver el mundo o personalizar su estilo, es **Efecto**.

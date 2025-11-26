@@ -585,6 +585,7 @@ cards:
       Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br>
       **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
       Además, aprendes la lengua Jerga de Ladrones.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 1 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -639,9 +640,10 @@ cards:
       - Pícaro
     requirements:
       - Ataque Furtivo
-      - Reflejos 3
+      - Reflejos 4
     description: >-
-      El daño de tu Ataque Furtivo aumenta a 2d4.
+      Tu conocimiento de la anatomía letal mejora.<br>
+      El daño adicional de tu Ataque Furtivo aumenta a 2d4.
     uses:
       type: null
       qty: 0
@@ -886,9 +888,10 @@ cards:
       - Pícaro
     requirements:
       - Ataque Furtivo Mejorado
-      - Reflejos 4
+      - Reflejos 5
     description: >-
-      Has aprendido a identificar y explotar las vulnerabilidades más críticas. El daño adicional de tu Ataque Furtivo aumenta a 3d4.
+      Has aprendido a identificar y explotar las vulnerabilidades más críticas.<br>
+      El daño adicional de tu Ataque Furtivo aumenta a 4d4.
     uses:
       type: null
       qty: 0
@@ -943,10 +946,11 @@ cards:
     tags:
       - Pícaro
     requirements:
-      - Ataque Furtivo Mejorado
+      - Golpe Letal
       - Reflejos 6
     description: >-
-      Tu precisión es legendaria. El daño de tu Ataque Furtivo aumenta a 6d4.
+      Tu precisión es legendaria, un solo corte basta para acabar el trabajo.<br>
+      El daño adicional de tu Ataque Furtivo aumenta a 6d4.
     uses:
       type: null
       qty: 0
@@ -964,7 +968,7 @@ cards:
       Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br>
       **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +6.
       Además, puedes usar tu puntuación de **Cuerpo** en lugar de tu puntuación de **Presencia** al realizar pruebas de habilidad
-      de **Intimidación**.
+      de **Intimidación**. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 3 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -1139,18 +1143,18 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
-  - name: Maestría Marcial Superior
+  - name: Reflejos de Combate
     level: 4
     type: efecto
     tags:
       - Combatiente
     requirements:
-      - Ataque Adicional
+      - Sintonía con el Acero
       - Cuerpo 5
     description: >-
-      Tu dominio del arma es tal que cada golpe abre una oportunidad para el siguiente. Ganas los siguientes beneficios:<br>
-      - Cuando usas Ataque Adicional y el primer ataque impacta, obtienes Ventaja (+1d4) en la tirada del segundo ataque.<br>
-      - Una vez por turno, si ambos ataques impactan al mismo objetivo, infliges 1d6 de daño adicional.
+      Tu conciencia del campo de batalla es absoluta.<br>
+      No puedes ser sorprendido mientres estes consciente.
+      Además, tienes una Reacción adicional en cada ronda de combate, que solo puedes usar para habilidades de cartas con la etiqueta _Combatiente_.
     uses:
       type: null
       qty: 0
@@ -1318,6 +1322,7 @@ cards:
       **Beneficio de Arquetipo:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de Mente (redondeado hacia arriba).
       Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas _Arcanista_ y _Conjuro_ (ambas).
       Además, aprendes dos idiomas adicionales.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 1 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -1610,12 +1615,14 @@ cards:
       - Descarga Elemental
       - Mente 4
     description: >-
-      Explosión de Fuego, Frío o Eléctrico en un radio de 5 metros a distancia Larga.
-      Toda criatura en el área debe hacer una TS de Reflejos (ND 5 + Mente). Si falla,
-      recibe 4d6 de daño; si tiene éxito, la mitad.
+      Provocas una detonación mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Mente). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br>
+      Al lanzar el conjuro, eliges la forma que adopta:<br>
+      - **Bola de Fuego (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br>
+      - **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br>
+      - **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>
     uses:
       type: RELOAD
-      qty: 7
+      qty: 6
   - name: Volar
     level: 3
     type: activable
@@ -1970,6 +1977,7 @@ cards:
       Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br>
       **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
       Además, aprendes el idioma Celestial.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 2 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -2421,6 +2429,7 @@ cards:
       **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Trato con Animales.
       Aprendes el idioma Silvano o Primordial.
       Además, posees la capacidad innata de comunicarte verbalmente con bestias y plantas. La información que obtengas está limitada por la inteligencia y los sentidos de la criatura.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 2 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -2819,6 +2828,7 @@ cards:
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br>
       **Beneficio de Arquetipo:** Aprendes dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las pruebas de habilidad de Engaño y Perspicacia.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 1 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -3239,6 +3249,7 @@ cards:
       Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br>
       **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +3 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
       Además, aprendes una lengua convencional.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 2 PS por cada 5 PP que hayas gastado.<br>
       Solo puedes tener un Beneficio de Arquetipo activo.
     uses:
       type: null
@@ -3253,7 +3264,7 @@ cards:
     description: >-
       Tu entrenamiento en artes marciales, te ha conferido las siguientes capacidades:<br>
       - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br>
-      - **Golpes de Ki:** Tus ataques desarmados infligen 1d4 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque.
+      - **Golpes de Ki:** Tus ataques desarmados infligen 1d6 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque.
     uses:
       type: null
       qty: 0
