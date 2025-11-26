@@ -68,9 +68,7 @@ export class Character {
 	}
 
 	get maxHP() {
-		const progressFactor = Math.round(this.spentPP / CONFIG.PP_TO_HP_FACTOR);
-		const base =
-			CONFIG.BASE_HEALTH + this.attributes.body * CONFIG.HEALTH_BODY_MULTIPIER + progressFactor;
+		const base = CONFIG.BASE_HEALTH + this.attributes.body * CONFIG.HEALTH_BODY_MULTIPIER;
 		return this.calculateAttrModifiers('maxHP', base);
 	}
 

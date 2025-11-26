@@ -11,6 +11,10 @@ const evaluateModifierExpression = (expression: string, context: any) => {
 			'mente',
 			'instinto',
 			'presencia',
+			'ppGastados',
+			'floor',
+			'ceil',
+			'round',
 			'Math',
 			`return (${expr});`,
 		);
@@ -22,6 +26,10 @@ const evaluateModifierExpression = (expression: string, context: any) => {
 					Number(context.mente) || 0,
 					Number(context.instinto) || 0,
 					Number(context.presencia) || 0,
+					Number(context.ppGastados) || 0,
+					Math.floor,
+					Math.ceil,
+					Math.round,
 					Math,
 				),
 			) || 0
@@ -39,6 +47,10 @@ export const calculateModifierFormula = (formula: string, character: Character) 
 		mente: character.attributes.mind,
 		instinto: character.attributes.instinct,
 		presencia: character.attributes.presence,
+		ppGastados: character.spentPP,
+		floor: Math.floor,
+		ceil: Math.ceil,
+		round: Math.round,
 		Math,
 	});
 };

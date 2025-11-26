@@ -201,7 +201,15 @@
 			}}
 		/>
 		<small class="available-variables">
-			<em>Varaibles disponibles: cuerpo, reflejos, mente, instinto, presencia.</em>
+			<em
+				><p>Varaibles disponibles: cuerpo, reflejos, mente, instinto, presencia, ppGastados.</p>
+				<p>
+					Funciones disponibles: floor, ceil, round, <a
+						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
+						>Math</a
+					>
+				</p>
+			</em>
 		</small>
 	</div>
 </Container>
@@ -236,5 +244,10 @@
 		.available-variables {
 			margin-top: var(--spacing-md);
 		}
+	}
+
+	a {
+		color: var(--color-primary);
+		text-decoration: underline;
 	}
 </style>
