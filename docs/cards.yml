@@ -582,11 +582,11 @@ cards:
     requirements:
       - Reflejos 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br>
+      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br><br>
       **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
       Además, aprendes la lengua Jerga de Ladrones.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 1 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -644,6 +644,20 @@ cards:
     description: >-
       Tu conocimiento de la anatomía letal mejora.<br>
       El daño adicional de tu Ataque Furtivo aumenta a 2d4.
+    uses:
+      type: null
+      qty: 0
+  - name: Celeridad de la Hoja
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements:
+      - Ataque Furtivo
+      - Reflejos 4
+    description: >-
+      Tu velocidad con las armas ligeras es imperceptible.<br>
+      Cuando realizas la acción de Atacar con un arma con la propiedad Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma Precisa.
     uses:
       type: null
       qty: 0
@@ -965,11 +979,11 @@ cards:
     requirements:
       - Cuerpo 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br>
+      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br>
       **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +6.
       Además, puedes usar tu puntuación de **Cuerpo** en lugar de tu puntuación de **Presencia** al realizar pruebas de habilidad
-      de **Intimidación**. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 3 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      de **Intimidación**. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -1318,12 +1332,12 @@ cards:
     requirements:
       - Mente 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br>
+      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br><br>
       **Beneficio de Arquetipo:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de Mente (redondeado hacia arriba).
       Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas _Arcanista_ y _Conjuro_ (ambas).
       Además, aprendes dos idiomas adicionales.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 1 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -1974,11 +1988,11 @@ cards:
     requirements:
       - Instinto 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br>
+      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br><br>
       **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
       Además, aprendes el idioma Celestial.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 2 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -2095,11 +2109,12 @@ cards:
     type: activable
     tags:
       - Sacerdote
+      - Conjuro
     requirements:
-      - Llama Sagrada
+      - Fe Inspiradora
       - Instinto 3
     description: >-
-      Cuando impactas a un enemigo con un ataque con arma, puedes liberar una descarga de energía sagrada.
+      Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de energía sagrada.
       El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el daño aumenta a 2d6.<br>
       Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.
     uses:
@@ -2384,6 +2399,56 @@ cards:
       type: null
       qty: 0
 
+  - name: Cadenas de Luz
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements:
+      - Fe Inspiradora
+      - Instinto 5
+    description: >-
+      Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Instinto). Si fallan, reciben 4d8 de daño Radiante y quedan Inmovilizadas por las cadenas durante 1 minuto.
+      Si tienen éxito en la salvación inicial, reciben la mitad del daño y no quedan atrapadas.<br>
+      Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5 + Instinto) para tratar de liberarse.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Arma Espiritual
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements:
+      - Fe Inspiradora
+      - Instinto 5
+    description: >-
+      Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8 + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
+      - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Poder Sagrado
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements:
+      - Fe Inspiradora
+      - Instinto 5
+    description: >-
+      Tu fe potencia la magnitud de tus milagros ofensivos.<br>
+      Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+    uses:
+      type: RELOAD
+      qty: 6
+
   - name: Gracia Salvadora
     level: 5
     type: activable
@@ -2425,12 +2490,12 @@ cards:
     requirements:
       - Instinto 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.<br>
+      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.<br><br>
       **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Trato con Animales.
       Aprendes el idioma Silvano o Primordial.
       Además, posees la capacidad innata de comunicarte verbalmente con bestias y plantas. La información que obtengas está limitada por la inteligencia y los sentidos de la criatura.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 2 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -2781,6 +2846,45 @@ cards:
       type: LONG_REST
       qty: 1
 
+  - name: Haz de los Astros
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements:
+      - Sintonía Primordial
+      - Instinto 5
+    description: >-
+      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una TS de Cuerpo (ND 5 + Instinto).<br>
+      Al lanzar el conjuro, eliges el astro:<br>
+      - **Rayo Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan Cegadas hasta el final de tu próximo turno.<br>
+      - **Rayo Lunar:** Inflige 6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o inferior que afecte o tenga como fuente al objetivo se ve afectado:<br>
+        - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>
+        - _Conjuros activos_: Los efectos terminan automáticamente.<br>
+      Una criatura que supera la TS, recibe mitad de daño y no se ve afectada por el efecto secundario.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Furia de la Tierra
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements:
+      - Sintonía Primordial
+      - Instinto 5
+    description: >-
+      Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br>
+      Si fallan, reciben 5d8 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno.
+      Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br>
+      El área afectada queda permanentemente convertida en terreno difícil.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+
   - name: Mil Formas
     level: 5
     type: efecto
@@ -2791,6 +2895,7 @@ cards:
       - Instinto 6
     description: >-
       Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br>
+      - **Mente Dual:** Puedes mantener la concentración en _Forma Salvaje_ y en otro conjuro de Druida simultáneamente (las TS para mantenerla se realizan por separado para cada habilidad).<br>
       - **Sintonía Natural:** Puedes realizar un ritual de meditación de 10 minutos. Al finalizarlo, recuperas todos los usos gastados de tu _Forma Salvaje_.<br>
       - **Avatar Titánico:** Cuando usas tu _Forma Salvaje_, puedes transformarte en bestias de tamaño Enorme.<br>
       - **Ferocidad Imparable:** Tus ataques en _Forma Salvaje_ ignoran una cantidad de puntos de Mitigación Física igual a tu puntuación de Instinto.
@@ -2826,10 +2931,10 @@ cards:
     requirements:
       - Presencia 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br>
+      Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br><br>
       **Beneficio de Arquetipo:** Aprendes dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las pruebas de habilidad de Engaño y Perspicacia.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 1 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -2998,25 +3103,25 @@ cards:
     tags:
       - Bardo
     requirements:
-      - Don del Elocuente
-      - Cuerpo 2
+      - Canto de Inspiración
     description: >-
-      Puedes usar armaduras de Gambesón sin sufrir su penalizador a la Esquiva.
+      Puedes usar armaduras de Gambesón sin sufrir su penalizador a la Esquiva.<br>
       Además, puedes usar tu _Canto de Inspiración_ en ti mismo.
     uses:
       type: null
       qty: 0
-  - name: Canto de Furia
+  - name: Danza de la Muerte
     level: 2
     type: efecto
     tags:
       - Bardo
     requirements:
       - Inspiración Marcial
-      - Canto de Inspiración
     description: >-
-      Cuando un aliado (o tú mismo) vaya a usar tu dado de _Canto de Inspiración_ en una tirada de
-      ataque con arma, puede elegir añadir el resultado a la tirada de daño en su lugar.
+      Tu actuación en combate se alimenta del caos y la victoria. Ganas los siguientes beneficios:<br>
+      - **Golpe Resonante:** Cuando una criatura vaya a gastar uno de tus dados de _Canto de Inspiración_ en un ataque, puede elegir sumar el resultado al daño en lugar de a la tirada de ataque.<br>
+      - **Ritmo de Batalla:** Cada vez que gastas un uso de tu _Canto de Inspiración_, ganas Puntos de Salud Temporales igual a tu puntuación de Presencia.<br>
+      - **Bis Sangriento:** Si reduces a un enemigo a 0 Puntos de Salud, recuperas inmediatamente un uso gastado de tu _Canto de Inspiración_.
     uses:
       type: null
       qty: 0
@@ -3043,9 +3148,11 @@ cards:
       - Bardo
     requirements:
       - Inspiración Marcial
+      - Presencia 4
     description: >-
-      Tu arte y tu acero son uno. Una vez por turno, cuando impactas a un enemigo con un ataque con arma, puedes gastar
-      un uso de tu _Canto de Inspiración_ para realizar un segundo ataque con arma como parte de la misma Acción.
+      Tu arte y tu acero son uno.<br>
+      Una vez por turno, cuando impactas a un enemigo con un ataque con arma, puedes gastar un uso de tu _Canto de Inspiración_.
+      Si lo haces, sumas el resultado del dado de inspiración al daño de ese ataque y puedes realizar un segundo ataque con arma como parte de la misma Acción.
     uses:
       type: null
       qty: 0
@@ -3206,6 +3313,46 @@ cards:
       type: RELOAD
       qty: 6
 
+  - name: Terror Primordial
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Don del Elocuente
+      - Presencia 5
+    description: >-
+      Liberas una onda psíquica de puro pavor en un cono de 5 metros. Las criaturas en el área deben superar una TS de Instinto (ND 5 + Presencia).<br>
+      Si fallan, reciben 4d6 de daño Psíquico y deben usar su Reacción (si la tienen disponible) para moverse lo más lejos posible de ti por la ruta más segura posible.<br>
+      Además, las criaturas que fallaron quedan Asustadas de ti durante 1 minuto. Pueden repetir la TS al final de cada uno de sus turnos para terminar el efecto.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Discordia
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements:
+      - Don del Elocuente
+      - Presencia 5
+    description: >-
+      Creas una distorsión psíquica en una esfera de 3 metros de radio a distancia Media. Las criaturas en el área deben superar una TS de Mente (ND 5 + Presencia).
+      Si fallan, quedan Confundidas durante 1 minuto.
+      Una criatura Confundida no puede usar Reacciones y debe tirar 1d4 al inicio de su turno para determinar su comportamiento:<br>
+      - **1-2:** No hace nada (balbucea).<br>
+      - **3:** Huye en una dirección aleatoria.<br>
+      - **4:** Ataca a la criatura más cercana.<br>
+      Pueden repetir la salvación al final de cada turno.
+    uses:
+      type: RELOAD
+      qty: 6
+
   - name: Sinfonía Heroica
     level: 5
     type: efecto
@@ -3235,6 +3382,23 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
+
+  - name: Danza de Magia y Acero
+    level: 5
+    type: efecto
+    tags:
+      - Bardo
+    requirements:
+      - Floritura Ofensiva
+      - Presencia 6
+    description: >-
+      Has alcanzado la cúspide del combate artístico, donde cada golpe es el componente somático de un hechizo.<br>
+      Cuando utilizas tu carta _Floritura Ofensiva_, puedes optar por lanzar un conjuro de Nivel 1 o 2 (con tiempo de lanzamiento de "1 Acción") en lugar de realizar el segundo ataque con arma.<br>
+      El conjuro elegido debe poseer las etiquetas _Bardo_ y _Conjuro_ (ambas), o haber sido aprendido mediante la carta _Secretos Mágicos_.
+    uses:
+      type: LONG_REST
+      qty: 1
+
   # --- Monje ------------------------------
   - name: Disciplina Monástica
     level: 1
@@ -3243,14 +3407,13 @@ cards:
       - Monje
       - Arquetipo
     requirements:
-      - Reflejos 2
       - Instinto 2
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br>
+      Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br>
       **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +3 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
       Además, aprendes una lengua convencional.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 2 PS por cada 5 PP que hayas gastado.<br>
-      Solo puedes tener un Beneficio de Arquetipo activo.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
       qty: 0
@@ -3731,7 +3894,7 @@ cards:
       Eres el faro de esperanza en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
       - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br>
       - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br>
-      - **Castigo Cegador:** Cuando infliges daño Radiante con Golpe Divino, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedará Cegado hasta el final de tu próximo turno.
+      - **Castigo Imponente:** Cuando activas tu carta Golpe Divino, puedes elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo haces, el objetivo debe superar una TS de Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final de tu próximo turno (en lugar de Cegado).
     uses:
       type: null
       qty: 0
@@ -3789,9 +3952,9 @@ cards:
       - Sintonía Primordial
       - Instinto 5
     description: >-
-      Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero. Ganas los siguientes beneficios permanentes:<br>
-      - **Defensa Natural:** Mientras no lleves armadura pesada, tu Mitigación Física aumenta en +1 y ganas Ventaja en TS de Cuerpo contra venenos y enfermedades.<br>
-      - **Disparo Enraizante:** Cuando obtienes un golpe crítico con un ataque de arma a distancia, raíces y zarzas brotan del suelo bajo el objetivo. Este debe superar una TS de Cuerpo (ND 5 + Instinto) o quedará Inmovilizado hasta el final de tu próximo turno.
+      Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero.<br>
+      - **Piel de Corteza:** Mientras no lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br>
+      - **Golpe Enredante:** Una vez por turno, cuando impactas a un enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas en el impacto. El objetivo queda Enredado hasta el inicio de tu próximo turno. Mientras esté enredado, sufre 1d4 de daño Perforante por cada 2 metros que se mueva.
     uses:
       type: null
       qty: 0
@@ -3971,7 +4134,7 @@ cards:
     description: >-
       Dominas tanto la lógica arcana como la fe divina. Ganas los siguientes beneficios permanentes:<br>
       - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Mente o tu Instinto como tu atributo de lanzamiento.<br>
-      - **Conocimiento Compartido:** Aprendes un conjuro adicional que tenga la etiqueta Ritual (de Nivel 3 o inferior) de la lista del Arcanista o del Sacerdote.
+      - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
     uses:
       type: null
       qty: 0
@@ -4030,8 +4193,8 @@ cards:
       - Instinto 5
     description: >-
       Canalizas la energía divina a través del ciclo natural de la vida y la muerte. Ganas los siguientes beneficios permanentes:<br>
-      - **Regeneración Persistente:** Cuando restauras PH a una criatura con un conjuro instantáneo (Sacerdote/Druida), esa criatura también recupera 1d4 PH al inicio de su próximo turno.<br>
-      - **Refugio Sanador:** La primera vez cada día que una criatura entra en el área de tu Santuario o Santuario Silencioso, recupera PH igual a tu Instinto.
+      - **Regeneración Persistente:** Cuando restauras Puntos de Salud a una criatura con un conjuro instantáneo, esa criatura también recupera 1d4 PS al inicio de su próximo turno.<br>
+      - **Refugio Sanador:** Tus conjuros de zona protegen la vida. Al inicio de cada uno de sus turnos, cualquier aliado que se encuentre dentro del área de tu Santuario o Santuario Silencioso gana Puntos de Salud Temporales igual a tu puntuación de Instinto.
     uses:
       type: null
       qty: 0
