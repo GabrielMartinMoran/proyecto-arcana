@@ -604,6 +604,22 @@ cards:
     uses:
       type: null
       qty: 0
+  - name: Sabotaje Táctico
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements:
+      - Senda del Bribón
+    description: >-
+      Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de sabotearlo:<br>
+      - **Jugar Sucio (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS de Reflejos (ND 5 + Reflejos) o
+      tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu próximo turno.<br>
+      - **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o tener Desventaja (-1d4)
+      en todos los ataques contra cualquier objetivo que no seas tú hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
   - name: Acción Astuta
     level: 2
     type: activable
@@ -671,26 +687,12 @@ cards:
       - Senda del Bribón
       - Presencia 2
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Acrobacias e Intimidación.
+      Tu forma de combatir es un espectáculo de agilidad y provocación.<br>
+      - **Acróbata:** Obtienes Ventaja (+1d4) en pruebas de Acrobacias.<br>
+      - **Apertura Temeraria:** Puedes usar tu Interacción para bajar la guardia y fintar. Obtienes Ventaja (+1d4) en tu próximo ataque cuerpo a cuerpo que hagas con un arma Precisa en este turno. A cambio, sufres un -2 a tu Esquiva hasta el inicio de tu próximo turno.
     uses:
       type: null
       qty: 0
-  - name: Sabotaje Táctico
-    level: 2
-    type: activable
-    tags:
-      - Pícaro
-    requirements:
-      - Estilo Audaz
-    description: >-
-      Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de sabotearlo:<br>
-      - **Jugar Sucio (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS de Reflejos (ND 5 + Reflejos) o
-      tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu próximo turno.<br>
-      - **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o tener Desventaja (-1d4)
-      en todos los ataques contra cualquier objetivo que no seas tú hasta el final de tu próximo turno.
-    uses:
-      type: RELOAD
-      qty: 4
   - name: Riposta
     level: 2
     type: activable
@@ -699,6 +701,7 @@ cards:
       - Reacción
     requirements:
       - Estilo Audaz
+      - Reflejos 3
     description: >-
       Como Reacción, cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes
       realizar un ataque cuerpo a cuerpo contra él con un arma Precisa.
@@ -712,7 +715,7 @@ cards:
       - Pícaro
     requirements:
       - Estilo Audaz
-      - Presencia 3
+      - Reflejos 3
     description: >-
       Tu confianza en el combate singular es tu mejor defensa. Ganas los siguientes beneficios:<br>
       - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no haya ninguna otra criatura a 1 metro de ti o del objetivo.<br>
@@ -728,7 +731,7 @@ cards:
       - Pícaro
     requirements:
       - Duelista Audaz
-      - Presencia 4
+      - Reflejos 4
     description: >-
       Te mueves por el campo de batalla como en un baile mortal. Ganas los siguientes beneficios:<br>
       - **Paso Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Durante este movimiento, no puede ser interceptado por una Reacción del objetivo de tu ataque.<br>
@@ -745,9 +748,10 @@ cards:
       - Reacción
     requirements:
       - Riposta
+      - Reflejos 4
     description: >-
       Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando un arma Precisa
-      (y ninguna otra arma), puedes añadir +2 a tu Esquiva contra ese ataque, pudiendo hacer que falle. Si el ataque falla
+      (y ninguna otra arma), puedes un bono a tu Esquiva contra ese ataque igual a tu puntuación de Presencia, pudiendo hacer que falle. Si el ataque falla
       de esta manera, tu próximo ataque contra ese enemigo antes del final de tu próximo turno tiene Ventaja (+1d4).
     uses:
       type: RELOAD
@@ -788,29 +792,29 @@ cards:
       qty: 0
   # --- Pícaro: Infiltrador ---
   - name: Infiltrador Experto
-    level: 2
+    level: 1
     type: efecto
     tags:
       - Pícaro
     requirements:
       - Senda del Bribón
+      - Mente 2
     description: >-
       Has perfeccionado las técnicas de seguridad y observación criminal.<br>
-      Obtienes Ventaja (+1d4) en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br>
-      Cuando fallas una prueba de Juego de Manos para tratar de hurtar, abrir una cerradura o desactivar una trampa (incluso en caso de pifia), no ocurren consecuencias negativas adicionales.<br>
-      Puedes usar tu Interacción para intentar hurtar, abrir una cerradura o desactivar una trampa.
+      - **Ojo Clínico:** Obtienes Ventaja (+1d4) en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br>
+      - **Seguridad:** Si fallas una prueba de Juego de Manos o una prueba para desactivar una trampa, el fallo no tiene consecuencias negativas (no eres descubierto, no rompes la herramienta ni activas la trampa).<br>
+      - **Rapidez:** Puedes usar tu Interacción para realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.
     uses:
       type: null
       qty: 0
   - name: Señor de los Bajos Fondos
-    level: 2
+    level: 1
     type: efecto
     tags:
       - Pícaro
     requirements:
       - Senda del Bribón
       - Presencia 2
-      - Instinto 2
     description: >-
       Te mueves por los bajos fondos como pez en el agua. Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener
       información en entornos urbanos y en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una ciudad.<br>
@@ -1355,7 +1359,7 @@ cards:
       enciendes una vela, etc. El efecto no puede infligir daño ni imponer un estado.<br>
       - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto.
       Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una
-      palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5Kg.
+      palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.
     uses:
       type: null
       qty: 0
@@ -1989,8 +1993,8 @@ cards:
       - Instinto 2
     description: >-
       Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br><br>
-      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
-      Además, aprendes el idioma Celestial.
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3, aprendes el idioma Celestial, y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
+      Además, como Interacción, puedes pedir a tu deidad que intervenga cuando tus fuerzas fallan. Eliges una carta agotada que requiera Recarga. La carta se recarga automáticamente. Sin embargo, ya no puedes vover a recargarla de ninguna manera hasta que finalices un día de descanso.
       Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
       _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
@@ -3410,7 +3414,7 @@ cards:
       - Instinto 2
     description: >-
       Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br>
-      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +3 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
+      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
       Además, aprendes una lengua convencional.
       Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
       _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
