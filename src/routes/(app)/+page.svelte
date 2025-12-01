@@ -14,7 +14,7 @@
 	<h2>Un vistazo rápido</h2>
 	<div class="video-container">
 		<iframe
-			src="https://www.youtube.com/embed/EhnoY3QU7vM?modestbranding=1"
+			src="https://www.youtube.com/embed/0Tmonze4ALQ?modestbranding=1"
 			title="Arcana - Guía Rápida"
 			frameborder="0"
 			allowfullscreen

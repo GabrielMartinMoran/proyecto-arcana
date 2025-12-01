@@ -21,6 +21,7 @@ import { get, writable } from 'svelte/store';
 const STORAGE_KEY = 'arcana:parties';
 const PENDING_DELETES_KEY = 'arcana:pendingPartyDeletes';
 const UPDATE_STORE_DEBOUNCE_MS = 500;
+const LOCAL_EDIT_GUARD_MS = 1500;
 
 const state = {
 	partiesStore: writable<Party[]>([]),
@@ -33,6 +34,9 @@ let unsubscribeAuth: (() => void) | null = null;
 let unsubscribeRemote: (() => void) | null = null;
 let storeUnsub: (() => void) | null = null;
 let applyingRemoteUpdate = false;
+// Track last local edit timestamps per party and previous saved snapshots (plain payload)
+const lastLocalPartyEditAt: Record<string, number> = {};
+const prevPartySnapshotById: Map<string, string> = new Map();
 
 const firebase = useFirebaseService();
 
@@ -94,7 +98,7 @@ const processPendingDeletes = async (userId: string) => {
 const subscribePersistence = () => {
 	if (storeUnsub) return;
 	// Minimal change detection to avoid redundant writes
-	const __lastSavedParties: Record<string, string> = {};
+	// Using prevPartySnapshotById for change detection; no local shadow needed
 	storeUnsub = state.partiesStore.subscribe(async (parties: Party[]) => {
 		// If the update originated from remote snapshot, do not echo back
 		if (applyingRemoteUpdate) return;
@@ -109,8 +113,9 @@ const subscribePersistence = () => {
 		// Attempt to persist to Firestore when signed in and firebase enabled
 		if (currentUserId && firebase.isEnabled()) {
 			try {
-				// Compute changed parties by comparing payload hashes
+				// Compute changed parties by comparing with previously saved snapshots
 				const changed: { id: string; payload: string; party: Party }[] = [];
+				const now = Date.now();
 				for (const p of parties) {
 					if (!p || !p.id) continue;
 					let payload = '';
@@ -120,8 +125,10 @@ const subscribePersistence = () => {
 						// Defensive: if p was not a Party instance for some reason
 						payload = JSON.stringify(new Party(p as any).asPlain());
 					}
-					if (__lastSavedParties[p.id] !== payload) {
+					const prev = prevPartySnapshotById.get(p.id);
+					if (prev !== payload) {
 						changed.push({ id: p.id, payload, party: p });
+						lastLocalPartyEditAt[p.id] = now;
 					}
 				}
 
@@ -130,7 +137,7 @@ const subscribePersistence = () => {
 						// Persist only if the current user is the owner to avoid permission errors for members
 						if (currentUserId === item.party.ownerId) {
 							await firebase.saveParty(item.party);
-							__lastSavedParties[item.id] = item.payload;
+							prevPartySnapshotById.set(item.id, item.payload);
 						} else {
 							// Skip cloud save for non-owners; they still receive updates via listeners
 						}
@@ -158,17 +165,90 @@ const stopPersistence = () => {
 };
 
 const updatePartiesStore = (newParties: Party[]) => {
-	for (const p of get(state.partiesStore)) {
-		p.unsubscribeCharacterListener();
-		p.unsubscribeCharacterListener = () => {};
-	}
+	const local = get(state.partiesStore);
 	if (!currentUserId) return;
-	const accessibleParties = newParties.filter((p) => p.isAccessible(currentUserId!));
-	for (const p of accessibleParties) {
+
+	// Filter only parties accessible by current user from the remote snapshot
+	const accessibleRemote = newParties.filter((p) => p.isAccessible(currentUserId!));
+
+	// Build remote map by id
+	const remoteById = new Map<string, Party>();
+	for (const rp of accessibleRemote) {
+		if (rp?.id) remoteById.set(rp.id, rp);
+	}
+
+	const now = Date.now();
+	// Start from local and apply minimal changes
+	const updated: Party[] = [...local];
+
+	// Update/insert remote entries
+	for (const rp of accessibleRemote) {
+		const id = rp?.id;
+		if (!id) continue;
+
+		const recentLocalEdit =
+			lastLocalPartyEditAt[id] !== undefined &&
+			now - lastLocalPartyEditAt[id] < LOCAL_EDIT_GUARD_MS;
+		if (recentLocalEdit) {
+			// Preserve locally edited party for a short window
+			continue;
+		}
+
+		const localIdx = updated.findIndex((x) => x.id === id);
+		const inst = new Party(rp);
+
+		// Preserve local characters and existing listener to avoid UI blink while listeners refresh
+		const localParty = localIdx !== -1 ? updated[localIdx] : null;
+		if (localParty) {
+			inst.characters = localParty.characters;
+			inst.unsubscribeCharacterListener = localParty.unsubscribeCharacterListener;
+		}
+
+		// Update snapshot tracker with the applied value (plain payload)
+		try {
+			prevPartySnapshotById.set(id, JSON.stringify(inst.asPlain()));
+		} catch {
+			prevPartySnapshotById.set(id, JSON.stringify(new Party(inst).asPlain()));
+		}
+
+		if (localIdx !== -1) {
+			updated[localIdx] = inst;
+		} else {
+			updated.push(inst);
+		}
+	}
+
+	// Remove local entries not present in remote snapshot (unless recently edited locally)
+	for (let i = updated.length - 1; i >= 0; i--) {
+		const id = updated[i]?.id;
+		if (!id) continue;
+		if (!remoteById.has(id)) {
+			const recentLocalEdit =
+				lastLocalPartyEditAt[id] !== undefined &&
+				now - lastLocalPartyEditAt[id] < LOCAL_EDIT_GUARD_MS;
+			if (!recentLocalEdit) {
+				try {
+					updated[i].unsubscribeCharacterListener?.();
+				} catch {
+					/* ignore */
+				}
+				updated.splice(i, 1);
+				prevPartySnapshotById.delete(id);
+				delete lastLocalPartyEditAt[id];
+			}
+		}
+	}
+
+	// Re-attach character listeners according to current membership map (preserving characters until first snapshot)
+	for (const p of updated) {
+		try {
+			p.unsubscribeCharacterListener?.();
+		} catch {
+			/* ignore */
+		}
 		p.unsubscribeCharacterListener = firebase.listenCharactersByIds(
 			p.getCharactersFullIdentifiers(),
 			(characters: Character[]) => {
-				console.log('[parties-service] detected character change for party', p.id);
 				state.partiesStore.update((parties) => {
 					const index = parties.findIndex((x) => x.id === p.id);
 					if (index !== -1) {
@@ -180,7 +260,8 @@ const updatePartiesStore = (newParties: Party[]) => {
 			},
 		);
 	}
-	state.partiesStore.set(accessibleParties);
+
+	state.partiesStore.set(updated);
 };
 
 /**
