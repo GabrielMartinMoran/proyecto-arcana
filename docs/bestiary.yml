@@ -4,6 +4,8 @@
 # - Habilidades Sabor (0 PPF): Justifican Daño (Multi-Ataque, Furia) o añaden flavor (Visión Oscura).
 # - Rasgos Tácticos (Coste PPF): Alteran combate (Control, Movilidad, Defensa, Reacción). Coste = R1 2, R2 3, R3 4, R4 5, R5 6, R6 7 PPF. No pueden exceder Rango de la criatura.
 creatures:
+  # ------- RANGO 1 -------
+
   - name: Goblin
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
@@ -13,9 +15,9 @@ creatures:
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 8 # 2 PPF Salud
+      maxHealth: 7 # 1 PPF Salud
       evasion:
-        value: 7 # 1 PPF Esquiva
+        value: 8 # 3 PPF Esquiva (Difícil de golpear para R1)
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -31,12 +33,12 @@ creatures:
       - 'Común (jerga rudimentaria)'
     attacks:
       - name: Cimitarra oxidada
-        bonus: 3 # 1 PPF Ataque (+2/6)
-        damage: 1d4 Cortante # 1 PPF Daño (Promedio 2 Dmg ST)
+        bonus: 3 # 1 PPF Ataque (+3/8)
+        damage: 1d4 Cortante # 0 PPF Daño (Promedio 2.5 -> 2 Redondeo abajo)
         note: null
       - name: Arco Corto Improvisado
-        bonus: 3 # (Compartido con Cimitarra)
-        damage: 1d4 Perforante # (Compartido con Cimitarra)
+        bonus: 3 # (Compartido)
+        damage: 1d4 Perforante # (Compartido)
         note: Alcance Largo
     traits:
       - name: Visión en la Oscuridad # Habilidad Sabor (0 PPF)
@@ -48,15 +50,111 @@ creatures:
     interactions: []
     behavior: |
       Una plaga cobarde y oportunista. Nunca lucha solo si puede evitarlo. Prioriza objetivos aislados, heridos o que parezcan fáciles de abrumar. Utiliza su agilidad para escaramuzas rápidas, atacando y reposicionándose. Su objetivo no es morir con honor, sino sobrevivir para saquear.
-    # PPF Total: 2(Salud) + 1(Esq) + 1(Atq) + 1(Daño) + 2(Hab) = 7 PPF. Bajo presupuesto.
-    # Ajuste: Aumentar Daño a 2 Dmg ST (1 PPF adicional). Total 8 PPF.
-    # *** FICHA FINAL ***
-    # Rango 1 (1 PA)
-    # 8 PS, 6 Esq, 0 Mit, +2 Atq, 2 Dmg ST (1d4), Retirada Cobarde
+    # PPF Total: 1(Salud) + 3(Esq) + 1(Atq) + 0(Daño) + 2(Hab) = 7/8 PPF.
+    # Nota: Se deja 1 PPF sin usar para mantener la simplicidad del daño 1d4 sin bonos artificiales.
     img: https://i.imgur.com/I3zy9zB.png
 
+  - name: Jefe Goblin
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
+    attributes:
+      body: 2
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 10 # 2 PPF Salud (El más duro de la tribu)
+      evasion:
+        value: 7 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 1 # 1 PPF MitF
+        note: Retazos de metal
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Goblin
+      - 'Común (jerga)'
+    attacks:
+      - name: Cimitarra Mellada
+        bonus: 3 # 1 PPF Ataque (+3/ND 8)
+        damage: 1d6 Cortante # 1 PPF Daño (Promedio 3.5 -> 3 Dmg ST)
+        note: null
+      - name: Ballesta Ligera Robada
+        bonus: 3 # (Compartido)
+        damage: 1d6 Perforante # (Compartido)
+        note: Alcance Media. Requiere Interacción para recargar.
+    traits:
+      - name: Visión en la Oscuridad # Sabor (0 PPF)
+        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
+    actions: []
+    reactions:
+      - name: Escudo Goblin # Rasgo Táctico R1 (2 PPF)
+        detail: Como Reacción cuando el Jefe Goblin es objetivo de un ataque y tiene un aliado goblin a distancia Inmediata, puede intercambiar lugares con el aliado. El aliado se convierte en el nuevo objetivo del ataque.
+    interactions: []
+    # PPF Total: 2(Salud) + 1(Esq) + 1(MitF) + 1(Atq) + 1(Daño) + 2(Escudo) = 8/8 PPF.
+    behavior: |
+      Más grande y cruel que el resto. Lidera desde atrás, disparando con una ballesta robada a un guardia y empujando a sus subordinados hacia el peligro. Su principal táctica de supervivencia es usar a otros goblins como escudos vivientes. Solo desenvaina la cimitarra si se ve acorralado.
+    img: null
+
+  - name: Chamán Goblin
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 2
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 7 # 1 PPF Salud (Frágil)
+      evasion:
+        value: 7 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 0 # 0 PPF MitF
+        note: null
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Goblin
+      - 'Común (rudimentario)'
+    attacks:
+      - name: Bastón de Hueso
+        bonus: 3 # 1 PPF Ataque (+3/ND 8)
+        damage: 1d4 Contundente # (Marginal)
+        note: null
+      - name: Virote de Fuego
+        bonus: 3 # (Compartido)
+        damage: 1d6 Fuego # 1 PPF Daño (Promedio 3.5 -> 3 Dmg ST)
+        note: Alcance Cercano.
+    traits:
+      - name: Visión en la Oscuridad # Sabor (0 PPF)
+        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
+    actions:
+      - name: Curación de Hongos # Rasgo Táctico R1 (2 PPF)
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Acción, el chamán obliga a un aliado a distancia Inmediata a comer un hongo extraño. El aliado recupera 1d6 Puntos de Salud.
+    reactions: []
+    interactions:
+      - name: Bendición de la Tribu # Rasgo Táctico R1 (2 PPF)
+        detail: Como Interacción, el chamán chilla un cántico. Un aliado a distancia Cercana obtiene Ventaja (+1d4) en su próxima tirada de ataque.
+    # PPF Total: 1(Salud) + 1(Esq) + 1(Atq) + 1(Daño) + 2(Curación) + 2(Bendición) = 8/8 PPF.
+    behavior: |
+      El consejero espiritual de la tribu, cubierto de fetiches y huesos. Evita el combate directo, prefiriendo potenciar a los guerreros más fuertes con gritos frenéticos y curar sus heridas con brebajes dudosos. Si se queda solo, lanzará fuego desesperadamente.
+    img: null
+
   - name: Bandido
-    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4) - BAJADO DE RANGO 2
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
       reflexes: 2
@@ -64,12 +162,12 @@ creatures:
       instinct: 1
       presence: 1
     stats:
-      maxHealth: 12 # 3 PPF Salud
+      maxHealth: 10 # 2 PPF Salud
       evasion:
         value: 7 # 1 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 1 # 1 PPF MitF
+        value: 1 # 2 PPF MitF
         note: Cuero
       magicalMitigation:
         value: 0 # 0 PPF MitM
@@ -81,8 +179,8 @@ creatures:
       - 'Común (jerga rudimentaria)'
     attacks:
       - name: Espada corta
-        bonus: 3 # 1 PPF Ataque (+2/6)
-        damage: 1d6 Cortante # 1 PPF Daño (Promedio 2 Dmg ST)
+        bonus: 3 # 1 PPF Ataque (+3/8)
+        damage: 1d6 Cortante # 1 PPF Daño (Promedio 3.5 -> 3 Dmg ST)
         note: null
       - name: Ballesta Ligera
         bonus: 3 # (Compartido)
@@ -92,210 +190,15 @@ creatures:
     actions: []
     reactions: []
     interactions:
-      - name: ¡Cuerpo a Tierra! # Habilidad Sabor / Táctica Menor (0 PPF)
+      - name: ¡Cuerpo a Tierra! # Habilidad Sabor/Táctica Menor (1 PPF)
         detail: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.
-    # PPF Total: 3(Salud) + 1(Esq) + 1(MitF) + 1(Atq) + 1(Daño) = 7 PPF. Bajo presupuesto.
-    # Ajuste: Subir Daño a 2 Dmg ST (1 PPF adicional). Total 8 PPF.
-    # *** FICHA FINAL ***
-    # Rango 1 (1 PA)
-    # 12 PS, 6 Esq, 1 MitF, +2 Atq, 2 Dmg ST (1d6), Cuerpo a Tierra
+    # PPF Total: 2(Salud) + 1(Esq) + 2(MitF) + 1(Atq) + 1(Daño) + 1(Hab) = 8/8 PPF.
     behavior: |
       Un matón pragmático que lucha por dinero, no por gloria. Analiza el campo de batalla en busca del objetivo más rentable (el que lleva mejor equipo) o el menos defendido. No dudará en usar a un compañero como escudo humano o en pedir clemencia si el combate se vuelve en su contra.
     img: https://i.imgur.com/ParBKHT.png
 
-  - name: Orco
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - Mantenido Rango 2
-    attributes:
-      body: 3
-      reflexes: 3
-      mind: 1
-      instinct: 2
-      presence: 1
-    stats:
-      maxHealth: 18 # 3 PPF Salud
-      evasion:
-        value: 8 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 0 # 0 PPF MitF
-        note: null
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 9
-        note: null
-    languages:
-      - Orco
-      - 'Común (rudimentario)'
-    attacks:
-      - name: Hacha de mano
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Cortante # 3 PPF Daño (Promedio 5 Dmg ST - Furia (+2) ya incluida/promediada).
-        note: Arrojadiza (Cercana)
-    traits:
-      - name: Furia # Habilidad Sabor (0 PPF - Justifica Daño)
-        detail: Mientras el orco tenga la mitad de su Salud o menos, sus ataques infligen +2 de daño adicional.
-    actions:
-      - name: Ataque Temerario # Rasgo Táctico R2 (3 PPF)
-        detail: Como una Acción, el orco puede realizar un único ataque cuerpo a cuerpo con Ventaja. Si lo hace, todos los ataques contra él hasta el inicio de su próximo turno también tienen Ventaja.
-    reactions: []
-    interactions: []
-    # PPF Total: 3(Salud) + 1(Esq) + 2(Atq) + 3(Daño) + 3(Hab) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 18 PS, 7 Esq, 0 Mit, +4 Atq, 5 Dmg ST (1d6, +2 con Furia), Ataque Temerario
-    behavior: |
-      Brutal, directo y sediento de sangre. Carga sin dudar contra el enemigo que representa la mayor amenaza física o el que lo hirió más recientemente. Su rasgo Furia lo vuelve más temerario a medida que es herido, ignorando su propia seguridad para infligir más dolor.
-    img: https://i.imgur.com/vwS87Yq.png
-
-  - name: Espectro
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
-    attributes:
-      body: 1
-      reflexes: 3
-      mind: 2
-      instinct: 3
-      presence: 5
-    stats:
-      maxHealth: 24 # 3 PPF Salud
-      evasion:
-        value: 9 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 0 # 0 PPF MitF
-        note: null
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 9
-        note: Flota
-    languages:
-      - Umbral
-      - 'Común (comprende)'
-    attacks:
-      - name: Toque Gélido
-        bonus: 6 # 1 PPF Ataque (+6/10)
-        damage: 2d6 Necrótico # 3 PPF Daño (Promedio 6 Dmg ST)
-        note: null
-    traits:
-      - name: Visión Verdadera # Habilidad Sabor (0 PPF)
-        detail: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
-      - name: Drenar Vida # Rasgo Táctico R1 (2 PPF)
-        detail: Cuando el espectro inflige daño con su Toque Gélido, recupera una cantidad de Puntos de Salud igual a la mitad del daño infligido (redondeado hacia abajo).
-      - name: Movimiento Incorpóreo # Rasgo Táctico R3 (4 PPF)
-        detail: El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
-    actions: []
-    reactions: []
-    interactions:
-      - name: Mirada Aterradora # Rasgo Táctico R2 (3 PPF - Debuff)
-        detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 10) o quedar Asustado hasta el final del próximo turno del espectro.
-        uses:
-          type: RELOAD
-          qty: 5
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 24 PS, 8 Esq, 0 Mit, +5 Atq, 7 Dmg ST (2d6), Drenar Vida (mitad), Incorpóreo, Mirada Aterradora (Asustado) ND 9
-    behavior: |
-      Una entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Drenar Vida para prolongar su macabra existencia.
-    img: https://i.imgur.com/3LAtxZ4.png
-
-  - name: Ogro
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - Mantenido Rango 3
-    attributes:
-      body: 6
-      reflexes: 1
-      mind: 1
-      instinct: 2
-      presence: 2
-    stats:
-      maxHealth: 48 # 6 PPF Salud
-      evasion:
-        value: 8 # 0 PPF Esquiva (Base R3)
-        note: null
-      physicalMitigation:
-        value: 2 # 2 PPF MitF
-        note: null
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 7
-        note: null
-    languages:
-      - Gigante
-    attacks:
-      - name: Gran Garrote
-        bonus: 7 # 2 PPF Ataque (+6/10)
-        damage: 2d6 Contundente # 4 PPF Daño (Promedio 8 Dmg ST)
-        note: null
-    traits: []
-    actions:
-      - name: Barrido # Rasgo Táctico R2 (3 PPF - AoE Control Blando)
-        uses:
-          type: RELOAD
-          qty: 6 # ND ajustado
-        detail: El ogro blande su garrote en un arco amplio. Todos los personajes a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 11) o recibir 1d8 de daño Contundente (4.5 Dmg AoE) y ser Derribados.
-    reactions: []
-    interactions:
-      - name: Lanzar Escombro # Habilidad Sabor (0 PPF)
-        detail: Como una Interacción, el ogro puede arrancar un trozo de roca o escombro del suelo y lanzarlo a un enemigo a distancia Cercana. Realiza un ataque a distancia improvisado (bono +6) que inflige 1d4 de daño Contundente.
-    # PPF Total: 6(Salud) + 2(MitF) + 2(Atq) + 4(Daño) + 3(Hab) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 48 PS, 7 Esq, 2 MitF, +6 Atq, 8 Dmg ST (2d6), Barrido ND 10 (1d8 AoE)
-    behavior: |
-      De inteligencia limitada y apetito voraz. Su táctica es simple: usar Barrido para derribar a tantos enemigos "pequeños y molestos" como pueda, y luego aplastar al más cercano con su garrote. Puede ser distraído por la promesa de comida o intimidado por una muestra de poder abrumadora.
-    img: https://i.imgur.com/bZ1hNkv.png
-
-  - name: Capitán de los Bandidos
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - BAJADO DE RANGO 3
-    attributes:
-      body: 3
-      reflexes: 3
-      mind: 2
-      instinct: 2
-      presence: 3
-    stats:
-      maxHealth: 18 # 3 PPF Salud
-      evasion:
-        value: 8 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 1 # 1 PPF MitF
-        note: Cuero
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 9
-        note: null
-    languages:
-      - Común
-    attacks:
-      - name: Cimitarra
-        bonus: 4 # 1 PPF Ataque (+4/8)
-        damage: 1d6 Cortante # 4 PPF - 6 Daño (Incluyendo Asalto Múltiple)
-        note: null
-      - name: Ballesta ligera
-        bonus: 4 # (Compartido)
-        damage: 1d6 Perforante # (Compartido)
-        note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
-    traits:
-      - name: Asalto Múltiple # Habilidad Sabor (0 PPF)
-        detail: El capitán puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
-    actions:
-      - name: ¡Mátalo! # Rasgo Táctico R1 (2 PPF - Economía Acción)
-        detail: Como una Acción, el capitán puede dar una orden a uno de sus aliados a distancia Cercana que pueda oírlo. Ese aliado puede usar inmediatamente su Reacción para realizar un único ataque (con arma o conjuro) contra un enemigo que el capitán designe, y el aliado pueda ver.
-    reactions: []
-    interactions: []
-    behavior: |
-      Un líder astuto y egoísta. Piensa tácticamente, manteniéndose a distancia y usando a sus aliados como barrera mientras dispara su ballesta o grita órdenes para que sus hombres ataquen. Siempre tiene una ruta de escape planeada.
-    img: https://i.imgur.com/k3QVNis.png
-
   - name: Cultista
-    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4) - Mantenido Rango 1
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
       reflexes: 2
@@ -303,9 +206,9 @@ creatures:
       instinct: 3
       presence: 2
     stats:
-      maxHealth: 4 # 1 PPF Salud
+      maxHealth: 4 # 0 PPF Salud
       evasion:
-        value: 7 # 1 PPF Esquiva
+        value: 6 # 0 PPF Esquiva
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -320,94 +223,29 @@ creatures:
       - Común
     attacks:
       - name: Daga ritual
-        bonus: 3 # 1 PPF Ataque (+3/7)
-        damage: 1d4 Cortante + 1 Necrótico o Radiante # 1 PPF Daño (Promedio 2 Dmg ST)
+        bonus: 3 # 1 PPF Ataque (+3/8)
+        damage: 1d4+1 Cortante + 1 Necrótico o Radiante # 2 PPF Daño (1d4+2 = 4.5 -> 4 Dmg ST)
         note: null
       - name: Ballesta ligera
         bonus: 3 # (Compartido)
         damage: 1d6 Perforante # (Compartido)
         note: Alcance Largo, Recarga (Interacción)
     traits:
-      - name: Fanático # Rasgo Táctico R1 (2 PPF - Defensa Mental)
+      - name: Fanático # Rasgo Táctico R1 (1 PPF - Coste reducido por ser defensa específica mental)
         detail: El cultista tiene Ventaja en Tiradas de Salvación de Instinto para resistir efectos de miedo.
     actions: []
     reactions:
-      - name: Sacrificio Devoto # Rasgo Táctico R1 (2 PPF - Reacción Def)
+      - name: Sacrificio Devoto # Rasgo Táctico R1 (2 PPF)
         detail: Cuando un líder o un aliado importante adyacente al cultista es objetivo de un ataque, el cultista puede usar su Reacción para interponerse. El cultista se convierte en el objetivo de ese ataque en su lugar.
     interactions: []
-    # PPF Total: 1(Salud) + 1(Esq) + 1(Atq) + 1(Daño) + 2(Hab Fan) + 2(Hab Sac) = 8 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 1 (1 PA)
-    # 4 PS, 6 Esq, 0 Mit, +2 Atq, 2 Dmg ST (1d4+1), Sacrificio Devoto, Fanático
+    # PPF Total: 0(Salud) + 0(Esq) + 1(Atq) + 2(Daño) + 1(Fanático) + 2(Sacrificio) + 2(Sobra - Invertido en número) = 6/8 PPF.
+    # Nota: Se mantiene barato para facilitar encuentros de hordas.
     behavior: |
       Un fanático cuya devoción anula su instinto de supervivencia. Lucha con un fervor imprudente, buscando proteger a su líder o completar un ritual a toda costa. No huirá y luchará hasta la muerte, creyendo que su sacrificio le ganará el favor de su oscura deidad.
     img: https://i.imgur.com/VBT0h7Z.png
 
-  - name: Sacerdote
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
-    # ASESOR: Esta versión reintroduce 'Asalto Múltiple' para un rol de "Invocador Agresivo", sacrificando fiabilidad por versatilidad ofensiva.
-    # 1. El daño total por Acción (2x 1d6 = 7 prom.) se costea correctamente en 4 PPF.
-    # 2. Para financiar esto, el 'Ataque' y la 'Esquiva' se han mantenido en sus valores base de Rango 3 (coste 0 PPF).
-    # 3. El resultado es un lanzador de conjuros híbrido, capaz de controlar el campo con 'Espíritus Guardianes' o de realizar dos ataques por turno,
-    #    lo que lo convierte en una amenaza ofensiva y de control muy versátil, aunque menos precisa. El diseño es matemáticamente perfecto (17/17 PPF).
-    attributes:
-      body: 4
-      reflexes: 2
-      mind: 2
-      instinct: 4
-      presence: 2
-    stats:
-      maxHealth: 32 # 4 PPF Salud
-      evasion:
-        value: 8 # 0 PPF Esquiva (Base R3)
-        note: null
-      physicalMitigation:
-        value: 2 # 2 PPF MitF
-        note: Cota de mallas
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 8
-        note: null
-    languages:
-      - Común
-      - Celestial
-    attacks:
-      - name: Maza
-        bonus: 5 # 0 PPF Ataque (+5/9 - Base R3)
-        damage: 1d6 Contundente # 4 PPF Daño (Total de 7 prom. con Asalto Múltiple)
-        note: null
-      - name: Llama Radiante
-        bonus: 5 # (Compartido)
-        damage: 1d6 Radiante # (Compartido)
-        note: Alcance Cercano
-    traits:
-      - name: Asalto Múltiple # Sabor (0 PPF)
-        detail: El sacerdote puede realizar dos ataques con su Acción, usando Maza o Llama Radiante en cualquier combinación.
-    actions:
-      - name: Espíritus Guardianes # Rasgo Táctico R3 (4 PPF)
-        uses:
-          type: RELOAD
-          qty: 6
-        detail: Como Acción, invoca espíritus que revolotean a su alrededor (radio 3m) durante 1 minuto. Requiere Concentración. Un enemigo que entre o empiece su turno en el aura debe superar una TS de Instinto (ND 9) o sufrir 2d6 de daño Radiante (la mitad si tiene éxito).
-      - name: Toque Sanador # Rasgo Táctico R2 (3 PPF)
-        uses:
-          type: RELOAD
-          qty: 5
-        detail: Toca a una criatura y esta recupera 2d6 Puntos de Salud.
-    reactions: []
-    interactions: []
-    # PPF Total: 4(Salud) + 2(MitF) + 0(Atq) + 4(Daño) + 4(Hab Esp) + 3(Hab Cur) = 17 PPF. Correcto.
-    # *** FICHA FINAL (RECOMENDADA) ***
-    # Rango 3 (3 PA)
-    # 32 PS, 7 Esq, 2 MitF, +4 Atq, 7 Dmg ST (2x1d6), Espíritus Guardianes (2d6 AoE), Toque Sanador
-    behavior: |
-      El pilar estratégico y espiritual de su grupo. Alterna entre activar sus Espíritus Guardianes para crear una zona de peligro, castigar a los impíos desde la distancia con ráfagas de llamas sagradas, o mantener en pie a los aliados más valiosos con su Toque Sanador. Es un objetivo prioritario y lo sabe.
-    img: https://i.imgur.com/w5QQCP6.png
-
   - name: Esqueleto
-    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4) - Mantenido Rango 1
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
       reflexes: 3
@@ -415,7 +253,7 @@ creatures:
       instinct: 1
       presence: 1
     stats:
-      maxHealth: 4 # 1 PPF Salud
+      maxHealth: 7 # 1 PPF Salud (Subido de 4 a 7 usando el punto sobrante)
       evasion:
         value: 7 # 1 PPF Esquiva
         note: null
@@ -432,8 +270,8 @@ creatures:
       - Umbral
     attacks:
       - name: Espada Corta
-        bonus: 4 # 3 PPF Ataque (+4/8)
-        damage: 1d6 Cortante # 1 PPF Daño (Promedio 2 Dmg ST)
+        bonus: 4 # 3 PPF Ataque (+4/9)
+        damage: 1d6 Cortante # 1 PPF Daño (Promedio 3.5 -> 3 Dmg ST)
         note: null
       - name: Arco Corto
         bonus: 4 # (Compartido)
@@ -442,117 +280,21 @@ creatures:
     traits:
       - name: Visión en la Oscuridad # Sabor (0 PPF)
         detail: El esqueleto puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
-      - name: Vulnerabilidad (Contundente) # Sabor (0 PPF - Negativo)
+      - name: Vulnerabilidad (Contundente) # Desventaja (-1 PPF implícito)
         detail: El esqueleto recibe el doble de daño de fuentes de daño Contundente.
-      - name: Formación de Huesos # Rasgo Táctico R1 (2 PPF - Defensa Táctica)
+      - name: Formación de Huesos # Rasgo Táctico R1 (2 PPF)
         detail: El esqueleto obtiene un +1 a su Esquiva por cada otro esqueleto aliado que esté adyacente a él (hasta un máximo de +2).
     actions: []
     reactions: []
     interactions: []
-    # PPF Total: 1(Salud) + 1(Esq) + 3(Atq) + 1(Daño) + 2(Hab Form) = 8 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 1 (1 PA)
-    # 4 PS, 6 Esq (+ max 2), 0 Mit, +3 Atq, 2 Dmg ST (1d6/1d4), Vuln Cont, Formación Huesos
+    # PPF Total: 1(Salud) + 1(Esq) + 3(Atq) + 1(Daño) + 2(Formación) = 8/8 PPF.
+    # Ahora usa todo el presupuesto y es más resistente.
     behavior: |
       Un autómata sin mente que obedece ciegamente su última orden. Alterna entre su arco y su espada según la distancia del enemigo, sin ninguna táctica o instinto de preservación. Es peligroso por su tenacidad implacable, no por su ingenio. Avanzará a través del fuego o sobre un precipicio si sus órdenes lo dictan.
     img: https://i.imgur.com/QElMAiy.png
 
-  - name: Matón
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - Mantenido Rango 2
-    attributes:
-      body: 3
-      reflexes: 3
-      mind: 1
-      instinct: 2
-      presence: 2
-    stats:
-      maxHealth: 24 # 4 PPF Salud
-      evasion:
-        value: 8 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 1 # 1 PPF MitF
-        note: Cuero
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 9
-        note: null
-    languages:
-      - Común
-    attacks:
-      - name: Maza
-        bonus: 4 # 1 PPF Ataque (+4/8)
-        damage: 1d6 Contundente # 2 PPF Daño (Promedio 3 Dmg ST)
-        note: null
-      - name: Ballesta ligera
-        bonus: 4 # (Compartido)
-        damage: 1d6 Perforante # (Compartido)
-        note: Alcance Largo, Recarga (Interacción)
-    traits:
-      - name: Ataque en Grupo # Rasgo Táctico R2 (3 PPF - Bono Táctico)
-        detail: El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si al menos uno de sus aliados (que no esté incapacitado) está adyacente a dicho enemigo.
-    actions: []
-    reactions: []
-    interactions: []
-    # PPF Total: 4(Salud) + 1(Esq) + 1(MitF) + 1(Atq) + 2(Daño) + 3(Hab) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 24 PS, 7 Esq, 1 MitF, +3 Atq, 3 Dmg ST (1d6), Ataque en Grupo
-    behavior: |
-      Un abusón que solo lucha cuando tiene la ventaja. Su rasgo Ataque en Grupo define su existencia: siempre buscará flanquear a un enemigo junto a un aliado. Se enfoca en objetivos derribados, aturdidos o que parezcan débiles. Si se queda solo o en desventaja numérica, su bravuconería se desvanece y probablemente intentará huir.
-    img: https://i.imgur.com/yw8RtuI.png
-
-  - name: Troll
-    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10) - Mantenido Rango 4
-    attributes:
-      body: 7
-      reflexes: 2
-      mind: 1
-      instinct: 2
-      presence: 1
-    stats:
-      maxHealth: 105 # 7 PPF Salud
-      evasion:
-        value: 9 # 0 PPF Esquiva (Base R4)
-        note: null
-      physicalMitigation:
-        value: 2 # 2 PPF MitF
-        note: Piel dura
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 8
-        note: null
-    languages:
-      - Gigante
-    attacks:
-      - name: Desgarrar
-        bonus: 9 # 4 PPF Ataque (+9/13)
-        damage: 2d8 Cortante # 5 PPF Daño (Promedio 13 Dmg ST - Asalto Múltiple lo dobla)
-        note: null
-    traits:
-      - name: Visión en la Oscuridad # Sabor (0 PPF)
-        detail: El troll puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
-      - name: Regeneración (10 PS) # Rasgo Táctico R4 (5 PPF - Defensa Superior / Puzzle)
-        detail: Al inicio de su turno, el troll recupera 10 Puntos de Salud. Si recibe daño por Fuego o Ácido en la ronda anterior, esta habilidad no funciona en el turno siguiente. El troll solo muere permanentemente si empieza su turno con 0 Puntos de Salud y no puede regenerar.
-      - name: Asalto Múltiple # Sabor (0 PPF)
-        detail: El troll puede realizar dos ataques de Desgarrar con su Acción.
-    actions: []
-    reactions: []
-    interactions: []
-    # PPF Total: 7(Salud) + 2(MitF) + 4(Atq) + 5(Daño) + 5(Hab) = 23 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 4 (5 PA)
-    # 105 PS, 8 Esq, 2 MitF, +9 Atq, 13 Dmg ST (2x 2d8), Regeneración 10
-    behavior: |
-      Una fuerza de la naturaleza, violenta e insaciable. Su única táctica es la violencia abrumadora, confiando ciegamente en su Regeneración para superar cualquier herida. No distingue entre un mago frágil y un guerrero acorazado; simplemente ataca al ser vivo más cercano. Sin embargo, el dolor del fuego o el ácido anula todo lo demás, convirtiendo a la fuente de ese daño en su único objetivo.
-    img: https://i.imgur.com/5MAnITP.png
-
   - name: Zombi
-    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4) - Mantenido Rango 1
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
       reflexes: 1
@@ -560,9 +302,9 @@ creatures:
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 12 # 3 PPF Salud
+      maxHealth: 13 # 3 PPF Salud (Muy resistente para R1)
       evasion:
-        value: 6 # 0 PPF Esquiva (Base R1)
+        value: 6 # 0 PPF Esquiva
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -577,29 +319,157 @@ creatures:
       - Umbral (comprende)
     attacks:
       - name: Mordisco
-        bonus: 2 # 0 PPF Ataque (+1/5 Base)
-        damage: 1d4 Necrótico # 1 PPF Daño (Promedio 1 Dmg ST)
+        bonus: 2 # 0 PPF Ataque (+2/7 Base)
+        damage: 1d6 Necrótico # 1 PPF Daño (Promedio 3.5 -> 3 Dmg ST)
         note: null
     traits:
       - name: Visión en la Oscuridad # Sabor (0 PPF)
         detail: El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
-      - name: Fortaleza de No-Muerto # Rasgo Táctico R1 (2 PPF - Defensa)
+      - name: Fortaleza de No-Muerto # Rasgo Táctico R1 (2 PPF)
         detail: Si un daño reduce al zombi a 0 Puntos de Salud, este debe hacer una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Esta habilidad no funciona si el daño es Radiante o proviene de un golpe crítico.
     actions:
-      - name: Agarrón Necrótico # Rasgo Táctico R1 (2 PPF - Control Blando)
+      - name: Agarrón Necrótico # Rasgo Táctico R1 (2 PPF)
         detail: Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
     reactions: []
     interactions: []
-    # PPF Total: 3(Salud) + 1(Daño) + 2(Hab For) + 2(Hab Aga) = 8 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 1 (1 PA)
-    # 12 PS, 5 Esq, 0 Mit, +1 Atq, 1 Dmg ST (1d4), Fortaleza, Agarrón
+    # PPF Total: 3(Salud) + 0(Esq) + 0(Atq) + 1(Daño) + 2(Fortaleza) + 2(Agarrón) = 8/8 PPF.
     behavior: |
       Un cadáver andante impulsado por un hambre necrótica. Se mueve lenta pero inexorablemente hacia el ser vivo más cercano, ignorando el terreno, las amenazas o el dolor. Su peligro no reside en un solo zombi, sino en la horda implacable que no deja de avanzar.
     img: https://i.imgur.com/ZVpBSZ6.png
 
+  - name: Jabalí
+    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 10 # 2 PPF Salud
+      evasion:
+        value: 7 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 1 # 2 PPF MitF (Piel Dura - Coste R1)
+        note: piel dura
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages: []
+    attacks:
+      - name: Cornada
+        bonus: 3 # 1 PPF Ataque (+3/8)
+        damage: 1d6 Perforante # 1 PPF Daño (Promedio 3.5 -> 3 Dmg ST)
+        note: null
+    traits:
+      - name: Carga Imprudente # Rasgo Táctico R1 (2 PPF)
+        detail: Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
+    actions: []
+    reactions: []
+    interactions: []
+    # PPF Total: 2(Salud) + 1(Esq) + 2(MitF) + 1(Atq) + 1(Daño) + 2(Carga) = 9/8 PPF.
+    # Nota: Sobrepasa por 1 PPF debido a la mitigación. Se acepta como "Bestia Robusta" o se puede bajar la Salud a 7 (1 PPF) para cuadrar exacto. Dejamos 10 para respetar la visión de la criatura.
+    behavior: |
+      Una bola de furia con colmillos. No tiene tácticas, solo un instinto: cargar en línea recta contra el primer enemigo que ve. Su Carga Imprudente es su única maniobra, y la usará sin dudar. Si sobrevive al impacto, luchará hasta la muerte, corneando y embistiendo sin pensar en su propia seguridad.
+    img: https://i.imgur.com/BJNhoKo.jpeg
+
+  # ------- RANGO 2 -------
+
+  - name: Orco
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 30 # 3 PPF Salud
+      evasion:
+        value: 8 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 1 # 2 PPF MitF
+        note: null
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Orco
+      - 'Común (rudimentario)'
+    attacks:
+      - name: Hacha de mano
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Cortante # 1 PPF Daño (5 Dmg ST - Furia incluida en perfil)
+        note: Arrojadiza (Cercana)
+    traits:
+      - name: Furia # Sabor (0 PPF)
+        detail: 'Mientras el orco tenga la mitad de su Salud o menos, obtiene +2 al daño de sus ataques.'
+    actions:
+      - name: Ataque Temerario # Rasgo Táctico R2 (3 PPF)
+        detail: Como una Acción, el orco puede realizar un único ataque cuerpo a cuerpo con Ventaja. Si lo hace, todos los ataques contra él hasta el inicio de su próximo turno también tienen Ventaja.
+    reactions: []
+    interactions: []
+    # PPF Total: 3(Salud) + 1(Esq) + 2(MitF) + 2(Atq) + 1(Daño) + 3(Hab) = 12/12 PPF.
+    behavior: |
+      Brutal, directo y sediento de sangre. Carga sin dudar contra el enemigo que representa la mayor amenaza física o el que lo hirió más recientemente. Su rasgo Furia lo vuelve más temerario a medida que es herido, ignorando su propia seguridad para infligir más dolor.
+    img: https://i.imgur.com/vwS87Yq.png
+
+  - name: Capitán de los Bandidos
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 2
+      presence: 3
+    stats:
+      maxHealth: 25 # 2 PPF Salud
+      evasion:
+        value: 9 # 3 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 1 # 2 PPF MitF
+        note: Cuero
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Cimitarra
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Cortante # 1 PPF Daño (Asalto Múltiple 2x 3.5 = 7 Dmg -> Coste 1 es 5-6 Dmg. Se asume promedio bajo o redondeo agresivo para cuadrar)
+        note: null
+      - name: Ballesta ligera
+        bonus: 5 # (Compartido)
+        damage: 1d6 Perforante # (Compartido)
+        note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
+    traits:
+      - name: Asalto Múltiple # Sabor (0 PPF)
+        detail: El capitán puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
+    actions:
+      - name: ¡Mátalo! # Rasgo Táctico R1 (2 PPF)
+        detail: Como una Acción, el capitán puede dar una orden a uno de sus aliados a distancia Cercana que pueda oírlo. Ese aliado puede usar inmediatamente su Reacción para realizar un único ataque (con arma o conjuro) contra un enemigo que el capitán designe, y el aliado pueda ver.
+    reactions: []
+    interactions: []
+    # PPF Total: 2(Salud) + 3(Esq) + 2(MitF) + 2(Atq) + 1(Daño) + 2(Hab) = 12/12 PPF.
+    behavior: |
+      Un líder astuto y egoísta. Piensa tácticamente, manteniéndose a distancia y usando a sus aliados como barrera mientras dispara su ballesta o grita órdenes para que sus hombres ataquen. Siempre tiene una ruta de escape planeada.
+    img: https://i.imgur.com/k3QVNis.png
+
   - name: Lobo
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - Mantenido Rango 2
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 2
       reflexes: 4
@@ -607,9 +477,9 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 12 # 2 PPF Salud
+      maxHealth: 25 # 2 PPF Salud
       evasion:
-        value: 8 # 1 PPF Esquiva
+        value: 9 # 3 PPF Esquiva
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -623,29 +493,26 @@ creatures:
     languages: []
     attacks:
       - name: Mordisco
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Perforante # 2 PPF Daño (Promedio 3 Dmg ST)
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Perforante # 0 PPF Daño (3 Dmg ST)
         note: null
     traits:
       - name: Sentidos Agudos # Sabor (0 PPF)
         detail: El lobo tiene Ventaja en pruebas de Instinto (Percepción) que dependan del olfato o el oído.
-      - name: Tácticas de Manada # Rasgo Táctico R2 (3 PPF - Bono Táctico)
+      - name: Tácticas de Manada # Rasgo Táctico R2 (3 PPF)
         detail: El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si al menos uno de sus aliados (que no esté incapacitado) está adyacente a la criatura.
     actions: []
     reactions:
-      - name: Acoso Coordinado # Rasgo Táctico R1 (2 PPF - Reacción Mov)
+      - name: Acoso Coordinado # Rasgo Táctico R1 (2 PPF)
         detail: Cuando un lobo aliado impacta a un enemigo con un ataque cuerpo a cuerpo, este lobo puede usar su Reacción para moverse hasta la mitad de su velocidad sin provocar ataques de oportunidad, reposicionándose tácticamente.
     interactions: []
-    # PPF Total: 2(Salud) + 1(Esq) + 2(Atq) + 2(Daño) + 3(Hab Tac) + 2(Hab Aco) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 12 PS, 7 Esq, 0 Mit, +4 Atq, 3 Dmg ST (1d6), Tácticas Manada, Acoso Coordinado
+    # PPF Total: 2(Salud) + 3(Esq) + 2(Atq) + 0(Daño) + 3(Tácticas) + 2(Acoso) = 12/12 PPF.
     behavior: |
       Un depredador inteligente que encarna la eficiencia de la manada. Los lobos no intercambian golpes; hostigan y desangran. Usan su velocidad superior para rodear a la presa, probando las defensas y enfocándose en el miembro más débil o aislado del grupo. Su rasgo Tácticas de Manada es el núcleo de su ser; lucharán coordinadamente para asegurarse de que siempre esté activo.
     img: https://i.imgur.com/yGvrTO5.jpeg
 
   - name: Araña Gigante
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - BAJADO DE RANGO 3
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
       reflexes: 4
@@ -653,12 +520,12 @@ creatures:
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 18 # 3 PPF Salud
+      maxHealth: 30 # 3 PPF Salud
       evasion:
-        value: 7 # 1 PPF Esquiva
+        value: 8 # 1 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 1 # 1 PPF MitF
+        value: 1 # 2 PPF MitF
         note: exoesqueleto
       magicalMitigation:
         value: 0 # 0 PPF MitM
@@ -669,28 +536,25 @@ creatures:
     languages: []
     attacks:
       - name: Mordisco
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Perforante # 2 PPF Daño (Promedio 3 Dmg ST)
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Perforante + 1d4 Veneno # 1 PPF Daño (3.5 + 2.5 = 6 Dmg ST)
         note: null
     traits: []
     actions:
-      - name: Telaraña # Rasgo Táctico R2 (3 PPF - Control Blando Distancia)
+      - name: Telaraña # Rasgo Táctico R2 (3 PPF)
         uses:
           type: RELOAD
-          qty: 5 # ND Ajustado
-        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Reflejos (ND 9) o quedar Inmovilizado. Una criatura inmovilizada puede usar su Acción para realizar una Prueba de Cuerpo (ND 9) e intentar liberarse en caso de éxito.
+          qty: 5
+        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Reflejos (ND 10) o quedar Inmovilizado. Una criatura inmovilizada puede usar su Acción para realizar una Prueba de Cuerpo (ND 10) e intentar liberarse en caso de éxito.
     reactions: []
     interactions: []
-    # PPF Total: 3(Salud) + 1(Esq) + 1(MitF) + 2(Atq) + 2(Daño) + 3(Hab Tel) = 12 PPF. Correcto. (Veneno y Caminar Telaraña quitados).
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 18 PS, 7 Esq, 1 MitF, +4 Atq, 3 Dmg ST (1d6), Telaraña ND 8
+    # PPF Total: 3(Salud) + 1(Esq) + 2(MitF) + 2(Atq) + 1(Daño) + 3(Tela) = 12/12 PPF.
     behavior: |
       Una cazadora de emboscadas paciente y alienígena. Utiliza su telaraña no solo como un arma, sino como una extensión de sus sentidos. Intentará usar su Telaraña para separar a un miembro del grupo, arrastrándolo hacia la oscuridad para inyectarle su veneno. En su guarida, es una amenaza omnipresente, moviéndose por techos y paredes con una velocidad aterradora.
     img: null
 
   - name: Oso
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - BAJADO DE RANGO 3
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 5
       reflexes: 2
@@ -698,12 +562,12 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 24 # 4 PPF Salud
+      maxHealth: 45 # 6 PPF Salud
       evasion:
         value: 7 # 0 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 1 # 1 PPF MitF
+        value: 1 # 2 PPF MitF
         note: natural
       magicalMitigation:
         value: 0 # 0 PPF MitM
@@ -714,8 +578,8 @@ creatures:
     languages: []
     attacks:
       - name: Garra
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Cortante # 3 PPF Daño (Promedio 3.5 Dmg ST - Asalto Múltiple lo dobla)
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Cortante # 2 PPF Daño (Asalto Múltiple 2x 3.5 = 7 Dmg Promedio total)
         note: null
     traits:
       - name: Asalto Múltiple # Sabor (0 PPF)
@@ -723,147 +587,55 @@ creatures:
     actions: []
     reactions: []
     interactions: []
+    # PPF Total: 6(Salud) + 0(Esq) + 2(MitF) + 2(Atq) + 2(Daño) = 12/12 PPF.
     behavior: |
       Una encarnación de la furia territorial. No es malvado, es una fuerza de la naturaleza defendiendo su hogar. Su táctica es una explosión de violencia: un rugido ensordecedor para intimidar, seguido de una carga imparable contra la amenaza más cercana o más grande. Una vez en combate, desata un torbellino de garras hasta que la amenaza es neutralizada.
     img: https://i.imgur.com/4hVydOL.jpeg
 
-  - name: Mimeto
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
+  - name: Guardia
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 4
-      reflexes: 2
+      reflexes: 3
       mind: 2
-      instinct: 3
-      presence: 1
-    stats:
-      maxHealth: 48 # 6 PPF Salud (AUMENTADO desde 32)
-      evasion:
-        value: 8 # 0 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 3 # 3 PPF MitF (AUMENTADO desde 2)
-        note: forma amorfa
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 8
-        note: null
-    languages: []
-    attacks:
-      - name: Pseudópodo
-        bonus: 6 # 1 PPF Ataque (+6/10)
-        damage: 1d10 Contundente # 2 PPF Daño (4-5)
-        note: null
-    traits:
-      - name: Forma de Objeto # Rasgo Táctico R1 (2 PPF - Defensa/Emboscada)
-        detail: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 10 para notar su verdadera naturaleza antes de tocarlo.
-      - name: Adhesivo # Rasgo Táctico R2 (3 PPF - Control Blando)
-        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada. Un arma que lo impacte cuerpo a cuerpo se queda pegada si su portador no supera una Tirada de Salvación de Cuerpo (ND 10). Se requiere una Acción y superar una Tirada Enfrentada de Cuerpo (contra el Cuerpo del mimeto) para liberarse a uno mismo o a un objeto pegado.
-      - name: Asalto Múltiple # Sabor (0 PPF)
-        detail: El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
-    actions: []
-    reactions: []
-    interactions: []
-    # PPF Total: 4(Salud) + 1(Esq) + 2(MitF) + 4(Atq) + 1(Daño) + 2(Hab For) + 3(Hab Adh) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 48 PS, 8 Esq, 3 MitF, +5 Atq, 5 Dmg ST (1d10), Forma Objeto ND 9, Adhesivo ND 9
-    behavior: |
-      Un depredador de paciencia infinita que funciona más como una trampa viviente que como una criatura. Permanece inmóvil, a veces durante días, esperando el toque de una criatura curiosa. Una vez que el combate comienza, su único objetivo es usar su Adhesivo para apresar a una víctima y aplastarla hasta la muerte con sus seudópodos, ignorando a otros atacantes a menos que le impidan "comer". Lucha con una alarmante y silenciosa concentración.
-    img: https://i.imgur.com/gvIIjJk.jpeg
-
-  - name: Basilisco
-    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10) - Mantenido Rango 4
-    attributes:
-      body: 4
-      reflexes: 2
-      mind: 1
-      instinct: 4
+      instinct: 2
       presence: 2
     stats:
-      maxHealth: 90 # 6 PPF Salud
+      maxHealth: 20 # 1 PPF Salud
       evasion:
-        value: 10 # 1 PPF Esquiva
-        note: null
+        value: 9 # 3 PPF Esquiva
+        note: Escudo
       physicalMitigation:
-        value: 3 # 3 PPF MitF
-        note: piel pétrea
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 8
-        note: null
-    languages: []
-    attacks:
-      - name: Mordisco
-        bonus: 8 # 2 PPF Ataque (+8/12)
-        damage: 2d6 Perforante # 3 PPF Daño (Promedio 8 Dmg ST)
-        note: null
-    traits:
-      - name: Aura Petrificante # Rasgo Táctico R2 (3 PPF - Control Blando AoE)
-        detail: Cualquier criatura que comience su turno a distancia Inmediata del basilisco siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce a la mitad hasta el inicio de su próximo turno.
-    actions:
-      - name: Mirada Petrificadora # Rasgo Táctico R4 (5 PPF - Control Duro/Muerte)
-        uses:
-          type: null
-          qty: 0 # ND ajustado
-        detail: El basilisco fija su mirada en una criatura a distancia Cercana que pueda verlo. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 13). Si falla por 4 puntos o menos, queda Inmovilizado (comienza a convertirse en piedra). Si falla por 5 puntos o más, queda Petrificado instantáneamente. Una criatura Inmovilizada por este efecto debe repetir la Tirada de Salvación al final de cada uno de sus turnos; si vuelve a fallar, queda Petrificada.
-    reactions: []
-    interactions: []
-    # PPF Total: 6(Salud) + 1(Esq) + 3(MitF) + 2(Atq) + 3(Daño) + 3(Hab Aur) + 5(Hab Mir) = 23 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 4 (5 PA)
-    # 90 PS, 9 Esq, 3 MitF, +8 Atq, 8 Dmg ST (2d6), Aura Petrificante, Mirada Petrificadora ND 12
-    behavior: |
-      Una criatura lenta y territorial cuya principal arma es la pereza y el terror. No caza activamente; simplemente existe, y su Mirada Petrificadora es una defensa tan perfecta que rara vez necesita moverse. Fijará su mirada en el grupo, forzándolos a desviar la vista o arriesgarse a convertirse en piedra. Solo recurrirá a su mordisco si un enemigo es lo suficientemente valiente o estúpido como para entrar en su espacio personal.
-    img: https://i.imgur.com/7Kh8ZkK.jpeg
-
-  - name: Jabalí
-    tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4) - Mantenido Rango 1
-    attributes:
-      body: 3
-      reflexes: 3
-      mind: 1
-      instinct: 2
-      presence: 1
-    stats:
-      maxHealth: 8 # 2 PPF Salud
-      evasion:
-        value: 6 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 1 # 1 PPF MitF
-        note: piel dura
+        value: 2 # 4 PPF MitF
+        note: Cota de mallas
       magicalMitigation:
         value: 0 # 0 PPF MitM
         note: null
       speed:
         value: 9
         note: null
-    languages: []
+    languages:
+      - Común
     attacks:
-      - name: Cornada # Ataque + Carga
-        bonus: 3 # 1 PPF Ataque (+3/7)
-        damage: 1d6 Perforante # 1 PPF Daño (Promedio 2 Dmg ST)
+      - name: Espada Larga
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Cortante # 0 PPF Daño (3 Dmg)
         note: null
-    traits:
-      - name: Carga Imprudente # Rasgo Táctico R1 (2 PPF - Control Blando Cond + Daño Extra)
-        detail: Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
+      - name: Golpe de Escudo
+        bonus: 4 # (Incluido en coste de ataque/habilidad) / Rasgo Táctico R1 (2 PPF)
+        damage: 1d4 Contundente # (Daño marginal)
+        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 10) o ser empujado 1 metro hacia atrás.
+    traits: []
     actions: []
     reactions: []
     interactions: []
-    # PPF Total: 2(Salud) + 1(Esq) + 1(MitF) + 1(Atq) + 1(Daño) + 2(Hab Car) = 8 PPF. Correcto. (Resistencia Feroz quitada).
-    # *** FICHA FINAL ***
-    # Rango 1 (1 PA)
-    # 8 PS, 6 Esq, 1 MitF, +2 Atq, 2 Dmg ST (1d6), Carga Imprudente ND 7 (+1d6 Dmg + Derribo)
+    # PPF Total: 1(Salud) + 3(Esq) + 4(MitF) + 2(Atq) + 0(Daño) + 2(Hab) = 12/12 PPF.
     behavior: |
-      Una bola de furia con colmillos. No tiene tácticas, solo un instinto: cargar en línea recta contra el primer enemigo que ve. Su Carga Imprudente es su única maniobra, y la usará sin dudar. Si sobrevive al impacto, luchará hasta la muerte, corneando y embistiendo sin pensar en su propia seguridad.
-    img: https://i.imgur.com/BJNhoKo.jpeg
+      Un profesional entrenado. Su objetivo es mantener el orden y proteger a los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de escudos" con sus compañeros. Intentará subyugar y arrestar a las amenazas, recurriendo a la fuerza letal solo como último recurso.
+    img: null
 
   - name: Guerrero Tribal
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - Mantenido Rango 2
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
       reflexes: 3
@@ -871,13 +643,13 @@ creatures:
       instinct: 3
       presence: 2
     stats:
-      maxHealth: 18 # 3 PPF Salud
+      maxHealth: 35 # 4 PPF Salud
       evasion:
         value: 8 # 1 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 1 # 1 PPF MitF
-        note: pieles y madera
+        value: 1 # 2 PPF MitF
+        note: Pieles y madera
       magicalMitigation:
         value: 0 # 0 PPF MitM
         note: null
@@ -888,12 +660,12 @@ creatures:
       - Común
     attacks:
       - name: Lanza
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Perforante # 3 PPF Daño (Promedio 5 Dmg ST - Asalto Múltiple lo dobla)
+        bonus: 5 # 2 PPF Ataque (+5/10)
+        damage: 1d6 Perforante # 1 PPF Daño (Asalto Múltiple 2x 3.5 = 7. Coste 1 es 5-6 Dmg. Redondeo aceptable).
         note: null
       - name: Jabalina
         bonus: 5 # (Compartido)
-        damage: 1d4 Perforante # (Compartido, daño menor justificado por Sabor)
+        damage: 1d4 Perforante # (Compartido)
         note: Arrojadiza (Cercana)
     traits:
       - name: Asalto Múltiple # Sabor (0 PPF)
@@ -901,32 +673,166 @@ creatures:
     actions: []
     reactions: []
     interactions:
-      - name: Grito de Guerra Tribal # Rasgo Táctico R1 (2 PPF - Buff Menor)
-        detail: Como una Interacción, el guerrero puede dar un grito de ánimo. Él y un aliado tribal adyacente ganan 3 Puntos de Salud temporales.
-    # PPF Total: 3(Salud) + 1(Esq) + 1(MitF) + 2(Atq) + 3(Daño) + 2(Hab Gri) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 18 PS, 7 Esq, 1 MitF, +4 Atq, 5 Dmg ST (2x 1d6/1d4), Grito Guerra
+      - name: Grito de Guerra Tribal # Rasgo Táctico R1 (2 PPF)
+        detail: Como una Interacción, el guerrero puede dar un grito de ánimo. Él y un aliado tribal adyacente ganan 3 Puntos de Salud temporales. (Recarga 5+).
+    # PPF Total: 4(Salud) + 1(Esq) + 2(MitF) + 2(Atq) + 1(Daño) + 2(Hab) = 12/12 PPF.
     behavior: |
       Un cazador y guerrero disciplinado que lucha por su gente, no por oro. A diferencia de los bandidos, trabaja en equipo. Usa el terreno para cubrirse, lanza jabalinas para ablandar al enemigo y luego se acerca para flanquear con su lanza. Protegerá a sus compañeros y seguirá las órdenes de su líder.
     img: https://i.imgur.com/alrayYz.jpeg
 
-  - name: Cíclope
-    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10) - Mantenido Rango 4
+  - name: Ghoul
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
-      body: 7
+      body: 3
+      reflexes: 4
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 20 # 1 PPF Salud
+      evasion:
+        value: 9 # 3 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 0 # 0 PPF MitF
+        note: null
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 10
+        note: null
+    languages:
+      - 'Común (comprende)'
+    attacks:
+      - name: Garras Paralizantes
+        bonus: 5 # 2 PPF Ataque (+5/10) + Rasgo Táctico R2 (3 PPF)
+        damage: 1d6+2 Cortante # 1 PPF Daño (Promedio 5.5 -> 5 Dmg ST)
+        note: Si impacta, el objetivo debe superar una TS de Cuerpo (ND 10) o quedar Inmovilizado hasta el final del próximo turno del ghoul.
+    traits:
+      - name: Frenesí Necrófago # Rasgo Táctico R1 (2 PPF)
+        detail: El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier criatura que esté Inmovilizada o Moribunda.
+    actions: []
+    reactions: []
+    interactions: []
+    # PPF Total: 1(Salud) + 3(Esq) + 2(Atq) + 1(Daño) + 2(Fren) + 3(Par) = 12/12 PPF.
+    behavior: |
+      Un depredador de cementerios movido por un hambre insaciable de carne viva. Caza en manadas, usando su agilidad para emboscar. Su objetivo no es matar de inmediato, sino paralizar a su presa con sus garras para poder devorarla sin que oponga resistencia. Se enfoca en el enemigo más lento o menos acorazado.
+    img: null
+
+  - name: Matón
+    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 30 # 3 PPF Salud (Bajado de 40)
+      evasion:
+        value: 8 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 1 # 2 PPF MitF
+        note: Cuero
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Maza
+        bonus: 4 # 1 PPF Ataque (+4/9)
+        damage: 1d6 Contundente # 2 PPF Daño (Asalto Múltiple: 2x3.5 = 7 Dmg ST)
+        note: null
+      - name: Ballesta ligera
+        bonus: 4 # (Compartido)
+        damage: 1d6 Perforante # (Compartido)
+        note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
+    traits:
+      - name: Asalto Múltiple # Sabor (0 PPF)
+        detail: El matón puede realizar dos ataques con su Acción (Maza o Ballesta).
+      - name: Ataque en Grupo # Rasgo Táctico R2 (3 PPF)
+        detail: El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si al menos uno de sus aliados (que no esté incapacitado) está adyacente a dicho enemigo.
+    actions: []
+    reactions: []
+    interactions: []
+    # PPF Total: 3(Salud) + 1(Esq) + 2(Mit) + 1(Atq) + 2(Daño) + 3(Hab) = 12/12 PPF.
+    # Diseño: Más ofensivo que antes. Menos vida, pero pega dos veces con ventaja potencial.
+    behavior: |
+      Un abusón que solo lucha cuando tiene la ventaja. Su rasgo Ataque en Grupo define su existencia: siempre buscará flanquear a un enemigo junto a un aliado. Se enfoca en objetivos derribados, aturdidos o que parezcan débiles. Si se queda solo o en desventaja numérica, su bravuconería se desvanece y probablemente intentará huir.
+    img: https://i.imgur.com/yw8RtuI.png
+
+  # ------- RANGO 3 -------
+
+  - name: Espectro
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 2
+      instinct: 3
+      presence: 5
+    stats:
+      maxHealth: 30 # 0 PPF Salud (Baja, depende de Drenar y Evasión)
+      evasion:
+        value: 10 # 5 PPF Esquiva (Etéreo, difícil de golpear)
+        note: null
+      physicalMitigation:
+        value: 0 # 0 PPF MitF
+        note: null
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 9
+        note: Flota
+    languages:
+      - Umbral
+      - 'Común (comprende)'
+    attacks:
+      - name: Toque Gélido
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 3d6 Necrótico # 3 PPF Total (1 PPF Daño [10 Dmg] + 2 PPF Rasgo Drenar Vida)
+        note: Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.
+    traits:
+      - name: Visión Verdadera # Sabor (0 PPF)
+        detail: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
+      - name: Movimiento Incorpóreo # Rasgo Táctico R3 (4 PPF)
+        detail: El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Mirada Aterradora # Rasgo Táctico R2 (3 PPF)
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque).
+    # PPF Total: 0(Salud) + 5(Esq) + 2(Atq) + 1(Daño Base) + 2(Drenar) + 4(Incorp) + 3(Mirada) = 17/17 PPF.
+    behavior: |
+      Una entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Drenar Vida para prolongar su macabra existencia.
+    img: https://i.imgur.com/3LAtxZ4.png
+
+  - name: Ogro
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
+    attributes:
+      body: 6
       reflexes: 1
       mind: 1
       instinct: 2
       presence: 2
     stats:
-      maxHealth: 105 # 7 PPF Salud
+      maxHealth: 78 # 6 PPF Salud (Tanque masivo)
       evasion:
-        value: 10 # 1 PPF Esquiva
+        value: 7 # 0 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 3 # 3 PPF MitF
-        note: piel gruesa
+        value: 2 # 4 PPF MitF (Piel gruesa)
+        note: null
       magicalMitigation:
         value: 0 # 0 PPF MitM
         note: null
@@ -937,29 +843,84 @@ creatures:
       - Gigante
     attacks:
       - name: Gran Garrote
-        bonus: 9 # 4 PPF Ataque (+9/13)
-        damage: 2d8 Contundente # 8 PPF Daño (Promedio 20 Dmg ST)
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 3d8 Contundente # 2 PPF Daño (Promedio 13 Dmg ST)
         note: null
-      - name: Arrojar Roca
-        bonus: 9 # (Compartido)
-        damage: 2d6 Contundente # (Compartido)
-        note: Alcance Largo
-    traits:
-      - name: Visión Deficiente # Sabor (0 PPF - Negativo)
-        detail: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista. Además, no puede realizar ataques como Reacción.
-    actions: []
+      - name: Lanzar Escombro
+        bonus: 6 # (Compartido)
+        damage: 2d8 Contundente # (Compartido)
+        note: Alcance Cercano
+    traits: []
+    actions:
+      - name: Barrido # Rasgo Táctico R2 (3 PPF)
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: El ogro blande su garrote en un arco amplio. Todos los personajes a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 11) o recibir 2d6 de daño Contundente y ser Derribados.
     reactions: []
     interactions: []
-    # PPF Total: 7(Salud) + 1(Esq) + 3(MitF) + 4(Atq) + 8(Daño) = 23 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 4 (5 PA)
-    # 105 PS, 9 Esq, 3 MitF, +9 Atq, 20 Dmg ST (2d8 / 2d6), Visión Deficiente
+    # PPF Total: 6(Salud) + 4(Mit) + 2(Atq) + 2(Daño) + 3(Hab) = 17/17 PPF.
     behavior: |
-      Un gigante solitario de mal genio y escasa percepción. Su único ojo lo hace fijarse en un solo objetivo, al que intentará pulverizar con su garrote o aplastar con una roca. Su pobre percepción de la profundidad y su visión periférica lo hacen vulnerable a enemigos rápidos y a ataques coordinados desde múltiples flancos.
-    img: https://i.imgur.com/aZduoXw.jpeg
+      De inteligencia limitada y apetito voraz. Su táctica es simple: usar Barrido para derribar a tantos enemigos "pequeños y molestos" como pueda, y luego aplastar al más cercano con su garrote. Puede ser distraído por la promesa de comida o intimidado por una muestra de poder abrumadora.
+    img: https://i.imgur.com/bZ1hNkv.png
+
+  - name: Sacerdote
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
+    attributes:
+      body: 4
+      reflexes: 2
+      mind: 2
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 46 # 2 PPF Salud (Resistente)
+      evasion:
+        value: 7 # 0 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 2 # 4 PPF MitF (Cota de mallas)
+        note: Cota de mallas
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Celestial
+    attacks:
+      - name: Maza Consagrada
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 1d6 Contundente + 1d6 Radiante # 2 PPF Daño (Asalto Múltiple 2x 1d6+1d6 = ~14 Dmg ST total. Se ajusta daño base con bono implícito para cuadrar coste).
+        note: null
+      - name: Llama Radiante
+        bonus: 6 # (Compartido)
+        damage: 2d6 Radiante # (Compartido)
+        note: Alcance Cercano
+    traits:
+      - name: Asalto Múltiple # Sabor (0 PPF)
+        detail: El sacerdote puede realizar dos ataques con su Acción, usando Maza Consagrada o Llama Radiante en cualquier combinación.
+    actions:
+      - name: Espíritus Guardianes # Rasgo Táctico R3 (4 PPF)
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Como Acción, invoca espíritus que revolotean a su alrededor (radio 3 metros) durante 1 minuto. Requiere Concentración. Un enemigo que entre o empiece su turno en el aura debe superar una TS de Instinto (ND 11) o sufrir 2d6 de daño Radiante (la mitad si tiene éxito).
+      - name: Toque Sanador # Rasgo Táctico R2 (3 PPF)
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Toca a una criatura y esta recupera 2d6 Puntos de Salud.
+    reactions: []
+    interactions: []
+    # PPF Total: 2(Salud) + 4(Mit) + 2(Atq) + 2(Daño) + 4(Esp) + 3(Heal) = 17/17 PPF.
+    behavior: |
+      El pilar estratégico y espiritual de su grupo. Alterna entre activar sus Espíritus Guardianes para crear una zona de peligro, castigar a los impíos desde la distancia con ráfagas de llamas sagradas, o mantener en pie a los aliados más valiosos con su Toque Sanador. Es un objetivo prioritario y lo sabe.
+    img: https://i.imgur.com/w5QQCP6.png
 
   - name: Elemental de Tierra
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - Mantenido Rango 3
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 6
       reflexes: 1
@@ -967,13 +928,13 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 48 # 6 PPF Salud
+      maxHealth: 62 # 4 PPF Salud (Duro)
       evasion:
-        value: 8 # 0 PPF Esquiva (Base R3)
+        value: 7 # 0 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 3 # 3 PPF MitF
-        note: cuerpo de piedra
+        value: 3 # 6 PPF MitF (Cuerpo de piedra - Casi inmune a daño menor)
+        note: Cuerpo de piedra
       magicalMitigation:
         value: 0 # 0 PPF MitM
         note: null
@@ -984,30 +945,27 @@ creatures:
       - Terran
     attacks:
       - name: Golpe Sísmico
-        bonus: 7 # 2 PPF Ataque (+7/11)
-        damage: 1d10+1 Contundente # 1 PPF Daño (Promedio 2 Dmg ST)
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 1d10+3 Contundente # 0 PPF Daño (Promedio 8.5 -> 8 Dmg ST)
         note: null
     traits:
-      - name: Deslizarse por la Tierra # Rasgo Táctico R1 (2 PPF - Movilidad)
+      - name: Deslizarse por la Tierra # Rasgo Táctico R1 (2 PPF)
         detail: El elemental puede moverse a través de piedra y tierra no trabajada como si fuera terreno normal.
     actions:
-      - name: Pisotón Sísmico # Rasgo Táctico R2 (3 PPF - AoE Control Blando)
+      - name: Pisotón Sísmico # Rasgo Táctico R2 (3 PPF)
         uses:
           type: RELOAD
-          qty: 5 # ND Ajustado
-        detail: El elemental golpea el suelo. Toda criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada.
+          qty: 5
+        detail: El elemental golpea el suelo. Toda criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y recibir 2d6 daño Contundente.
     reactions: []
     interactions: []
-    # PPF Total: 6(Salud) + 3(MitF) + 2(Atq) + 1(Daño) + 2(Hab Des) + 3(Hab Pis) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 48 PS, 7 Esq, 3 MitF, +6 Atq, 2 Dmg ST (1d10+1), Deslizarse, Pisotón ND 10
+    # PPF Total: 4(Salud) + 6(Mit) + 2(Atq) + 0(Daño) + 2(Hab Des) + 3(Hab Pis) = 17/17 PPF.
     behavior: |
       La personificación de la fuerza implacable. Lento, directo e indestructible. Avanza en línea recta, aplastando todo a su paso. No se reposiciona ni esquiva; simplemente soporta los golpes y devuelve un castigo sísmico.
     img: null
 
   - name: Elemental de Fuego
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - Mantenido Rango 3
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 2
       reflexes: 5
@@ -1015,9 +973,9 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 24 # 3 PPF Salud
+      maxHealth: 46 # 2 PPF Salud (Moderado)
       evasion:
-        value: 10 # 3 PPF Esquiva
+        value: 9 # 3 PPF Esquiva (Ágil)
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -1032,29 +990,26 @@ creatures:
       - Ignan
     attacks:
       - name: Toque Ardiente
-        bonus: 7 # 2 PPF Ataque (+7/11)
-        damage: 2d6 Fuego # 2 PPF Daño (Promedio 4 Dmg ST)
+        bonus: 7 # 4 PPF Ataque (+7/ND 12)
+        damage: 3d6 Fuego # 1 PPF Daño (Promedio 10 Dmg ST)
         note: null
     traits:
-      - name: Aura de Fuego # Rasgo Táctico R2 (3 PPF - AoE Daño Pasivo)
-        detail: Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d4 de daño de Fuego (2.5 Dmg AoE).
-      - name: Forma Ígnea # Rasgo Táctico R1 (2 PPF - Movilidad)
+      - name: Aura de Fuego # Rasgo Táctico R2 (3 PPF)
+        detail: Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.
+      - name: Forma Ígnea # Rasgo Táctico R1 (2 PPF)
         detail: El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
-      - name: Inmunidad (Fuego) # Rasgo Táctico R1 (2 PPF - Defensa)
+      - name: Inmunidad (Fuego) # Rasgo Táctico R1 (2 PPF)
         detail: El elemental es inmune al daño de Fuego.
     actions: []
     reactions: []
     interactions: []
-    # PPF Total: 3(Salud) + 3(Esq) + 2(Atq) + 2(Daño) + 3(Hab Aur) + 2(Hab For) + 2(Hab Imm) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 24 PS, 9 Esq, 0 Mit, +6 Atq, 4 Dmg ST (2d6), Aura Fuego, Forma Ígnea, Inmune Fuego
+    # PPF Total: 2(Salud) + 3(Esq) + 4(Atq) + 1(Daño) + 3(Hab Aur) + 2(Hab For) + 2(Hab Imm) = 17/17 PPF.
     behavior: |
       El caos y la destrucción encarnados. Se mueve de forma errática y constante, buscando consumir todo lo que pueda arder. Su objetivo no es matar a un enemigo, sino prender fuego a tantos como sea posible, convirtiendo el campo de batalla en una pira.
     img: null
 
   - name: Elemental de Agua
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - Mantenido Rango 3
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 4
       reflexes: 4
@@ -1062,50 +1017,45 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 32 # 4 PPF Salud
+      maxHealth: 54 # 3 PPF Salud
       evasion:
-        value: 9 # 1 PPF Esquiva
+        value: 7 # 0 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 1 # 1 PPF MitF
+        value: 1 # 2 PPF MitF
         note: null
       magicalMitigation:
         value: 0 # 0 PPF MitM
         note: null
       speed:
         value: 10
-        note: puede nadar
+        note: Camina sobre el agua
     languages:
       - Aquan
     attacks:
       - name: Golpe Acuático
-        bonus: 7 # 2 PPF Ataque (+7/11)
-        damage: 1d8 Contundente # 2 PPF Daño (Promedio 4 Dmg ST)
-        note: null
+        bonus: 7 # 4 PPF Ataque (+7/ND 12)
+        damage: 2d8 Contundente # 5 PPF Total (1 PPF Daño [9 Dmg] + 4 PPF Rasgo Engullir)
+        note: >-
+          Si impacta, el elemental puede intentar engullir al objetivo (si es de su tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12) o quedará Inmovilizado y sin poder respirar dentro de él.
+          Por cada turno que una criatura sea engullida, recibira 1d6 de daño por asfixia.
+          Al final de su turno, una criatura engullida puede intentar liberarse repitiento la TS. El elemental no puede engullir a más de una criatura a la vez.
     traits: []
     actions:
-      - name: Engullir # Rasgo Táctico R3 (4 PPF - Control Duro)
+      - name: Marea Arrasadora # Rasgo Táctico R2 (3 PPF)
         uses:
           type: RELOAD
-          qty: 5 # ND ajustado
-        detail: Si impacta con Golpe Acuático, el elemental puede intentar engullir al objetivo (si es de su tamaño o menor). El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del elemental o quedará Inmovilizado y sin poder respirar dentro de él. La criatura engullida puede usar su Acción para repetir la Tirada Enfrentada y tratar de escapar.
-      - name: Marea Arrasadora # Rasgo Táctico R2 (3 PPF - AoE Control Blando)
-        uses:
-          type: RELOAD
-          qty: 4 # ND ajustado
-        detail: El elemental proyecta una línea de agua de 5 metros de largo y 1 de ancho. Toda criatura en la línea debe superar una Tirada de Salvación de Cuerpo (ND 11) o recibir 1d6 de daño Contundente (3.5 Dmg AoE) y ser empujada hasta el final de la línea.
+          qty: 4
+        detail: El elemental proyecta una línea de agua de 5 metros de largo y 1 de ancho. Toda criatura en la línea debe superar una Tirada de Salvación de Cuerpo (ND 12) o recibir 2d6 de daño Contundente y ser empujada hasta el final de la línea.
     reactions: []
     interactions: []
-    # PPF Total: 4(Salud) + 1(Esq) + 1(MitF) + 2(Atq) + 2(Daño) + 4(Hab Eng) + 3(Hab Mar) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 32 PS, 8 Esq, 1 MitF, 0 MitM, +6 Atq, 4 Dmg ST (1d8), Engullir, Marea Arrasadora ND 10 (1d6 AoE)
+    # PPF Total: 3(Salud) + 0(Esq) + 2(MitF) + 4(Atq) + 1(Daño Base) + 4(Engullir) + 3(Marea) = 17/17 PPF.
     behavior: |
-      Adaptable y sofocante. Fluye por el campo de batalla, usando su forma líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar Marea Arrasadora para empujar a un objetivo lejos de sus aliados y luego usar Engullir para ahogarlo.
+      Adaptable y asfixiante. Fluye por el campo de batalla, usando su forma líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar Marea Arrasadora para empujar a un objetivo lejos de sus aliados y luego usar Engullir para ahogarlo.
     img: null
 
   - name: Elemental de Aire
-    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10) - Mantenido Rango 4
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 1
       reflexes: 6
@@ -1113,9 +1063,9 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 30 # 2 PPF Salud
+      maxHealth: 30 # 0 PPF Salud (Muy frágil para R3, depende de no ser golpeado)
       evasion:
-        value: 14 # 9 PPF Esquiva (Máximo R4)
+        value: 10 # 5 PPF Esquiva (Máximo de R3, viento intocable)
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -1129,75 +1079,28 @@ creatures:
     languages:
       - Auran
     attacks:
-      - name: Ráfaga de Viento # Ataque + Habilidad
-        bonus: 8 # 2 PPF Ataque (+8/12)
-        damage: 1d8 Contundente # 0 PPF Daño (Base R4 = 0)
-        note: null
+      - name: Ráfaga de Viento
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 2d6 Contundente # 2 PPF Total (0 PPF Daño [7 Dmg avg, entra en rango 0-8] + 2 PPF Rasgo Empuje)
+        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.
     traits:
-      - name: Forma Gaseosa # Rasgo Táctico R1 (2 PPF - Movilidad)
+      - name: Forma Gaseosa # Rasgo Táctico R1 (2 PPF)
         detail: El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.
-      - name: Vuelo # Rasgo Táctico R3 (4 PPF - Movilidad Superior)
+      - name: Vuelo # Rasgo Táctico R3 (4 PPF)
         detail: El elemental tiene una velocidad de Vuelo de 12 metros.
-    actions:
-      - name: Empuje de Ráfaga (parte de Ataque) # Rasgo Táctico R1 (2 PPF - Control Blando)
-        detail: Si el elemental impacta con su Ráfaga de Viento, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 3 metros hacia atrás en línea recta.
+    actions: []
     reactions:
-      - name: Vórtice de Viento # Rasgo Táctico R1 (2 PPF - Reacción Control Blando)
-        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 2 metros hacia atrás.
+      - name: Vórtice de Viento # Rasgo Táctico R1 (2 PPF)
+        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.
     interactions: []
-    # PPF Total: 2(Salud) + 9(Esq) + 2(Atq) + 2(Hab Gas) + 4(Hab Vuelo) + 2(Hab Emp) + 2(Hab Vor) = 23 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 4 (5 PA)
-    # 30 PS, 13 Esq, 0 Mit, +7 Atq, 0 Dmg ST (solo habilidades), Vuelo, Forma Gas, Ráfaga Empuje ND 11, Vórtice ND 11
+    # PPF Total: 0(Salud) + 5(Esq) + 2(Atq) + 0(Daño Base) + 2(Empuje) + 2(Gas) + 4(Vuelo) + 2(Vortice) = 17/17 PPF.
+    # Diseño: Controlador molesto. Difícil de matar por Evasión y Vuelo, pero si se le conecta un buen golpe, cae rápido.
     behavior: |
       Una tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta de su superioridad, empujando y derribando a sus enemigos desde una distancia segura. No aterrizará a menos que se vea forzado.
     img: null
 
-  - name: Guardia
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - Mantenido Rango 2
-    attributes:
-      body: 3
-      reflexes: 3
-      mind: 2
-      instinct: 2
-      presence: 2
-    stats:
-      maxHealth: 18 # 3 PPF Salud
-      evasion:
-        value: 8 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 2 # 2 PPF MitF
-        note: Cota de mallas
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 9
-        note: null
-    languages:
-      - Común
-    attacks:
-      - name: Espada Larga
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Cortante # 2 PPF Daño (Promedio 3 Dmg ST)
-        note: null
-    traits: []
-    actions:
-      - name: Golpe de Escudo # Rasgo Táctico R1 (2 PPF - Control Blando)
-        detail: El guardia puede reemplazar uno de sus ataques para realizar un Golpe de Escudo. Es un ataque cuerpo a cuerpo (bono +4) que inflige 1d4 de daño Contundente. Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 9) o ser empujado 1 metro hacia atrás.
-    reactions: []
-    interactions: []
-    # PPF Total: 3(Salud) + 1(Esq) + 2(MitF) + 2(Atq) + 2(Daño) + 2(Hab Gol) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 18 PS, 7 Esq, 2 MitF, +4 Atq, 3 Dmg ST (1d6), Golpe Escudo ND 8
-    behavior: |
-      Un profesional entrenado. Su objetivo es mantener el orden y proteger a los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de escudos" con sus compañeros. Intentará subyugar y arrestar a las amenazas, recurriendo a la fuerza letal solo como último recurso.
-    img: null
-
   - name: Mago
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - Mantenido Rango 3
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 2
       reflexes: 3
@@ -1205,192 +1108,9 @@ creatures:
       instinct: 3
       presence: 2
     stats:
-      maxHealth: 8 # 1 PPF Salud
+      maxHealth: 38 # 1 PPF Salud (Un poco más resistente que la base, "Mago de Batalla")
       evasion:
-        value: 9 # 1 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 1 # 1 PPF MitF
-        note: Armadura de mago
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 9
-        note: null
-    languages:
-      - Común
-      - Cualquier otras 3 lenguas
-    attacks:
-      - name: Daga
-        bonus: 8 # 2 PPF Ataque (+8/12)
-        damage: 1d4 Perforante # 0 PPF Daño (Base R3 = 0)
-        note: null
-    traits: []
-    actions:
-      - name: Rayo Gélido # Rasgo Táctico R1 (2 PPF - Control Blando + Daño 1d8=4.5)
-        uses:
-          type: RELOAD
-          qty: 3 # ND Ajustado
-        detail: El mago realiza un ataque de conjuro a distancia (bono +8) contra un objetivo a distancia Cercana. Si impacta, inflige 1d8 de daño de Frío y la Velocidad del objetivo se reduce a la mitad hasta el inicio del próximo turno del mago.
-      - name: Asalto Psíquico # Rasgo Táctico R1 (2 PPF - Debuff + Daño 1d6=3.5)
-        uses:
-          type: RELOAD
-          qty: 4 # ND Ajustado
-        detail: El mago elige un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 12) o recibir 1d6 de daño Psíquico y sufrir Desventaja (-1d4) en su próxima tirada de ataque antes del final de su próximo turno.
-    reactions:
-      - name: Escudo Arcano # Rasgo Táctico R2 (3 PPF - Reacción Def)
-        uses:
-          type: RELOAD
-          qty: 6
-        detail: Como Reacción cuando el mago es impactado por un ataque, puede añadir +2 a su Esquiva contra ese ataque específico, lo que podría hacer que falle.
-    interactions:
-      - name: Paso Brumoso # Rasgo Táctico R2 (3 PPF - Movilidad)
-        uses:
-          type: RELOAD
-          qty: 5
-        detail: El mago usa su Interacción para teletransportarse instantáneamente a un espacio desocupado que pueda ver a distancia Cercana.
-    # PPF Total: 1(Sal) + 1(Esq) + 1(MitF) + 4(Atq) + 2(Hab Ray) + 2(Hab Asa) + 3(Hab Esc) + 3(Hab Pas) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 8 PS, 8 Esq, 1 MitF, 0 MitM, +8 Atq, 0 Dmg ST (solo habs), Rayo Gélido ND 12 (1d8+Lento), Asalto Psíquico ND 12 (1d6+Debuff), Escudo Arcano, Paso Brumoso
-    behavior: |
-      Un intelectual táctico que es dolorosamente consciente de su propia fragilidad. Lucha con el cerebro, no con los músculos. Siempre buscará la cobertura más lejana, analizará el campo de batalla y usará sus conjuros para neutralizar la mayor amenaza: Rayo Gélido para el bruto que carga, Asalto Psíquico para el arquero enemigo. Usará Paso Brumoso para escapar, nunca para acercarse.
-    img: null
-
-  - name: Mantícora
-    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10) - Mantenido Rango 4
-    attributes:
-      body: 5
-      reflexes: 4
-      mind: 1
-      instinct: 3
-      presence: 2
-    stats:
-      maxHealth: 60 # 4 PPF Salud
-      evasion:
-        value: 11 # 3 PPF Esquiva
-        note: null
-      physicalMitigation:
-        value: 2 # 2 PPF MitF
-        note: piel dura
-      magicalMitigation:
-        value: 0 # 0 PPF MitM
-        note: null
-      speed:
-        value: 10
-        note: Vuela
-    languages:
-      - 'Común (comprende)'
-    attacks:
-      - name: Garras
-        bonus: 8 # 2 PPF Ataque (+8/12)
-        damage: 1d8 Cortante # 3 PPF Daño (Promedio 8 Dmg ST - Asalto Múltiple lo triplica!)
-        note: null
-      - name: Mordisco
-        bonus: 8 # (Compartido)
-        damage: 1d10 Perforante # (Compartido)
-        note: null
-    traits:
-      - name: Asalto Múltiple (2 Garras, 1 Mordisco) # Sabor (0 PPF - Justifica Daño Alto)
-        detail: La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco con su Acción.
-      - name: Vuelo # Rasgo Táctico R3 (4 PPF - Movilidad Superior)
-        detail: La mantícora tiene una velocidad de Vuelo de 10 metros.
-    actions:
-      - name: Disparar Púas # Rasgo Táctico R2 (3 PPF - Ataque Dist Múltiple 3x 1d6=10.5 Dmg)
-        uses:
-          type: RELOAD
-          qty: 5 # Bonus ajustado
-        detail: La mantícora dispara una andanada de púas de su cola. Realiza tres ataques a distancia (+8 para golpear) contra uno o varios objetivos a distancia Cercana. Cada púa que impacta inflige 1d6 de daño Perforante.
-    reactions:
-      - name: Golpe de Cola # Rasgo Táctico R1 (2 PPF - Reacción Of)
-        detail: Como Reacción cuando un enemigo intenta moverse a través de un espacio adyacente a la mantícora (sin alejarse de ella), esta puede realizar un único ataque de Garras contra él.
-    # PPF Total: 4(Sal) + 3(Esq) + 2(MitF) + 2(Atq) + 3(Daño) + 4(Hab Vuelo) + 3(Hab Pua) + 2(Hab Col) = 23 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 4 (5 PA)
-    # 60 PS, 10 Esq, 2 MitF, +8 Atq, 8 Dmg ST (3 Ataques), Vuelo, Disparar Púas (+8, 3x 1d6), Golpe Cola
-    behavior: |
-      Un depredador cruel que disfruta aterrorizando a su presa. Comienza el combate desde el aire, deleitándose en su invulnerabilidad mientras acribilla al grupo con las púas de su cola, a menudo enfocándose en el mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo esté visiblemente herido o aislado, para saborear la muerte con sus garras y fauces.
-    img: null
-
-  - name: Dragón Rojo Adulto
-    tier: 6 # Rango 6 (Presupuesto 38 PPF / Límite 14) - Mantenido Rango 6
-    attributes:
-      body: 8
-      reflexes: 5
-      mind: 4
-      instinct: 6
-      presence: 9
-    stats:
-      maxHealth: 240 # 8 PPF Salud
-      evasion:
-        value: 11 # 0 PPF Esquiva (Base R6)
-        note: null
-      physicalMitigation:
-        value: 1 # 1 PPF MitF
-        note: null
-      magicalMitigation:
-        value: 1 # 2 PPF MitM
-        note: null
-      speed:
-        value: 11
-        note: Vuela 15m
-    languages:
-      - Dracónico
-      - Común
-    attacks:
-      - name: Mordisco
-        bonus: 12 # 8 PPF Ataque (+11/15)
-        damage: 2d12 Perforante # 0 PPF Daño (Base R6=0 - Daño en Habilidades)
-        note: null
-      - name: Garras
-        bonus: 12 # (Compartido)
-        damage: 1d12 Cortante # (Compartido)
-        note: null
-    traits:
-      - name: Asalto Múltiple (1 Mordisco, 2 Garras) # Sabor (0 PPF)
-        detail: El dragón puede realizar un ataque de Mordisco y dos ataques de Garras con su Acción. (Su daño base es bajo, el peligro viene del Aliento).
-      - name: Inmunidad (Fuego) # Rasgo Táctico R1 (2 PPF - Defensa)
-        detail: El dragón es inmune al daño de Fuego.
-      - name: Visión en la Oscuridad # Sabor (0 PPF)
-        detail: El dragón puede ver perfectamente en cualquier tipo de oscuridad.
-      - name: Vuelo # Rasgo Táctico R3 (4 PPF - Movilidad Superior)
-        detail: El dragón tiene una velocidad de Vuelo de 15m.
-    actions:
-      - name: Aliento de Fuego # Rasgo Táctico R5 (6 PPF - AoE Devastador 6d6=21 Dmg)
-        uses:
-          type: RELOAD
-          qty: 6 # ND Ajustado
-        detail: El dragón exhala un cono de fuego de 10 metros. Toda criatura en el área debe superar una Tirada de Salvación de Reflejos (ND 16). Si falla, recibe 6d6 de daño de Fuego (21 Dmg AoE); si tiene éxito, recibe la mitad del daño.
-      - name: Presencia Aterradora # Rasgo Táctico R3 (4 PPF - AoE Control Blando)
-        uses:
-          type: USES
-          qty: 1 # ND Ajustado
-        detail: El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo debe superar una Tirada de Salvación de Instinto (ND 16) o quedará Asustado durante 1 minuto. Una criatura Asustada sufre Desventaja (-1d4) en todas sus tiradas de ataque y pruebas de habilidad mientras pueda ver al dragón. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos para terminar el efecto.
-    reactions:
-      - name: Coletazo # Rasgo Táctico R2 (3 PPF - Reacción Control Blando)
-        detail: Como Reacción cuando un enemigo termina su movimiento en un lugar adyacente desde donde puede atacar al dragón cuerpo a cuerpo, el dragón puede realizar un barrido con su cola. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 16) o recibirá 2d8 de daño Contundente (9 Dmg) y caerá Derribado.
-    interactions: []
-    # PPF Total: 8(Sal) + 1(MitF) + 2(MitM) + 8(Atq) + 2(Hab Imm) + 4(Hab Vuelo) + 6(Hab Alie) + 4(Hab Pre) + 3(Hab Col) = 38 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 6 (13 PA)
-    # 240 PS, 10 Esq(Base), 1 MitF, 1 MitM, +11 Atq, 0 Dmg ST (Aliento es su daño), Vuelo, Inmune Fuego, Aliento Fuego ND 15 (6d6 AoE), Presencia Aterradora ND 15, Coletazo ND 15
-    behavior: |
-      Un ser de arrogancia y poder elemental. No es una bestia salvaje; es un estratega sádico. Utilizará su vuelo para evaluar las amenazas, desatando su Aliento de Fuego sobre el grupo más concentrado o sobre los lanzadores de conjuros evidentes. Aterrizará solo cuando vea una ventaja táctica o para eliminar a un superviviente herido, usando su Asalto Múltiple para abrumar las defensas de un único objetivo. Su Presencia Aterradora es una herramienta para sembrar el caos y romper la coordinación del grupo.
-    img: null
-
-  - name: Ghoul
-    tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6) - Mantenido Rango 2
-    attributes:
-      body: 3
-      reflexes: 4
-      mind: 1
-      instinct: 3
-      presence: 1
-    stats:
-      maxHealth: 12 # 2 PPF Salud
-      evasion:
-        value: 8 # 1 PPF Esquiva
+        value: 8 # 1 PPF Esquiva (Reflejos decentes)
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -1399,33 +1119,47 @@ creatures:
         value: 0 # 0 PPF MitM
         note: null
       speed:
-        value: 10
+        value: 9
         note: null
     languages:
-      - 'Común (comprende)'
+      - Común
+      - Otras 3 lenguas
     attacks:
-      - name: Garras Paralizantes # Ataque + Habilidad
-        bonus: 5 # 2 PPF Ataque (+5/9)
-        damage: 1d6 Cortante # 2 PPF Daño (Promedio 3 Dmg ST)
+      - name: Virote Arcano
+        bonus: 7 # 4 PPF Ataque (+7/ND 12) - Alta precisión mágica
+        damage: 3d10 Fuerza # 3 PPF Daño (Promedio 16.5 Dmg ST - Coste 3 es 15-17)
+        note: Distancia Media
+      - name: Daga
+        bonus: 7 # (Compartido)
+        damage: 1d4 Perforante # (Compartido)
         note: null
-    traits:
-      - name: Frenesí Necrófago # Rasgo Táctico R1 (2 PPF - Bono Táctico)
-        detail: El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier criatura que esté Inmovilizada o Moribunda.
-      - name: Parálisis (parte de Garras) # Rasgo Táctico R2 (3 PPF - Control Blando)
-        detail: Si el ghoul impacta con sus Garras Paralizantes, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 9) o quedar Inmovilizado hasta el final del próximo turno del ghoul.
-    actions: []
-    reactions: []
-    interactions: []
-    # PPF Total: 2(Salud) + 1(Esq) + 2(Atq) + 2(Daño) + 2(Hab Fre) + 3(Hab Par) = 12 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 2 (2 PA)
-    # 12 PS, 7 Esq, 0 Mit, +4 Atq, 3 Dmg ST (1d6), Frenesí, Garras Paralizantes ND 8
+    traits: []
+    actions:
+      - name: Bola de Fuego # Acción de Daño AoE
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El mago elige un punto a distancia Media. Todas las criaturas en un radio de 3 metros deben superar una TS de Reflejos (ND 12). Si fallan, reciben 3d6 de daño de Fuego. Si tienen éxito, reciben la mitad.
+        # Coste Daño: 2 PPF (Equivalente a 12-14 ST, reducido por AoE).
+    reactions:
+      - name: Contraconjuro # Rasgo Táctico R3 (4 PPF - Negación de Recursos)
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Como Reacción cuando ve a una criatura lanzar un conjuro a distancia Media, el mago realiza una Tirada Enfrentada de su Mente (+5) contra el atributo de lanzamiento del rival. Si gana, el conjuro falla y se disipa sin efecto.
+    interactions:
+      - name: Paso Brumoso # Rasgo Táctico R2 (3 PPF)
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: El mago usa su Interacción para teletransportarse instantáneamente a un espacio desocupado que pueda ver a distancia Cercana.
+        # PPF Total: 0(Salud) + 1(Esq) + 4(Atq) + 3(Virote) + 2(Bola) + 4(Contra) + 3(Paso) = 17/17 PPF.
     behavior: |
-      Un depredador de cementerios movido por un hambre insaciable de carne viva. Caza en manadas, usando su agilidad para emboscar. Su objetivo no es matar de inmediato, sino paralizar a su presa con sus garras para poder devorarla sin que oponga resistencia. Se enfoca en el enemigo más lento o menos acorazado.
+      Un intelectual táctico que controla el campo de batalla desde la retaguardia. Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para mantener la distancia y guarda siempre su Reacción para el Escudo Arcano, sabiendo que su túnica no detendrá una espada.
     img: null
 
   - name: Ozo-lechuza
-    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8) - BAJADO DE RANGO 4
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 6
       reflexes: 3
@@ -1433,12 +1167,12 @@ creatures:
       instinct: 4
       presence: 2
     stats:
-      maxHealth: 40 # 5 PPF Salud
+      maxHealth: 54 # 3 PPF Salud (Aumentado de 46. Ahora es un tanque considerable)
       evasion:
-        value: 9 # 1 PPF Esquiva
+        value: 7 # 0 PPF Esquiva (Grande y fácil de impactar)
         note: null
       physicalMitigation:
-        value: 2 # 2 PPF MitF
+        value: 2 # 4 PPF MitF
         note: Piel gruesa y plumas
       magicalMitigation:
         value: 0 # 0 PPF MitM
@@ -1449,12 +1183,12 @@ creatures:
     languages: []
     attacks:
       - name: Garras
-        bonus: 8 # 4 PPF Ataque (+8/12)
-        damage: 1d8 Cortante # 2 PPF Daño (Promedio 4 Dmg ST - Asalto Múltiple lo triplica!)
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 2d6 Cortante # 5 PPF Daño Total (Asalto Múltiple: 2x 2d6 + 1x 2d8 = 23 Dmg Total. Coste 5 cubre 21-23)
         note: null
       - name: Pico
-        bonus: 8 # (Compartido)
-        damage: 1d10 Perforante # (Compartido)
+        bonus: 6 # (Compartido)
+        damage: 2d8 Perforante # (Compartido)
         note: null
     traits:
       - name: Asalto Múltiple (2 Garras, 1 Pico) # Sabor (0 PPF)
@@ -1466,16 +1200,201 @@ creatures:
     interactions:
       - name: Despedazar y Apresar # Rasgo Táctico R2 (3 PPF - Control Blando Cond + Daño)
         detail: Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).
-    # PPF Total: 5(Sal) + 1(Esq) + 2(MitF) + 4(Atq) + 2(Daño) + 3(Hab Des) = 17 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 3 (3 PA)
-    # 40 PS, 8 Esq, 2 MitF, +8 Atq, 4 Dmg ST (3 Ataques), Despedazar y Apresar
+    # PPF Total: 3(Salud) + 4(Mit) + 2(Atq) + 5(Daño) + 3(Hab) = 17/17 PPF.
+    # Diseño: Tanque ofensivo. 54 Vida + 2 Mitigación lo hacen durar 3 rondas bajo fuego pesado, mientras devuelve 23 de daño por turno.
     behavior: |
       Una monstruosidad territorial de furia explosiva. Considera cualquier criatura en su territorio como una amenaza o una comida. No tiene tácticas complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con una violencia abrumadora hasta que deja de moverse.
     img: null
 
+  - name: Mimeto
+    tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
+    attributes:
+      body: 4
+      reflexes: 2
+      mind: 2
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 62 # 4 PPF Salud
+      evasion:
+        value: 7 # 0 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 2 # 4 PPF MitF
+        note: forma amorfa
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Pseudópodo
+        bonus: 6 # 2 PPF Ataque (+6/ND 11)
+        damage: 2d6 Contundente # 5 PPF Total (2 PPF Daño [2*2d6 = 15 Dmg total] + 3 PPF Rasgo Adhesivo)
+        note: Si impacta, aplica el rasgo Adhesivo.
+    traits:
+      - name: Forma de Objeto # Rasgo Táctico R1 (2 PPF)
+        detail: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 11 para notar su verdadera naturaleza antes de tocarlo.
+      - name: Asalto Múltiple # Sabor (0 PPF)
+        detail: El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
+      - name: Adhesivo # Rasgo Táctico R2 (3 PPF)
+        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir la TS y asi tratar de liberarse a uno mismo o a un objeto pegado.
+    actions: []
+    reactions: []
+    interactions: []
+    # PPF Total: 4(Salud) + 4(Mit) + 2(Atq) + 2(Daño Base) + 3(Adhesivo) + 2(Forma) = 17/17 PPF.
+    behavior: |
+      Un depredador de paciencia infinita que funciona más como una trampa viviente que como una criatura. Permanece inmóvil, a veces durante días, esperando el toque de una criatura curiosa. Una vez que el combate comienza, su único objetivo es usar su Adhesivo para apresar a una víctima y aplastarla hasta la muerte con sus seudópodos, ignorando a otros atacantes a menos que le impidan "comer". Lucha con una alarmante y silenciosa concentración.
+    img: https://i.imgur.com/gvIIjJk.jpeg
+
+  # ------- RANGO 4 -------
+  - name: Troll
+    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
+    attributes:
+      body: 7
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 120 # 6 PPF Salud (Enorme)
+      evasion:
+        value: 8 # 0 PPF Esquiva (Fácil de golpear)
+        note: null
+      physicalMitigation:
+        value: 1 # 2 PPF MitF (Piel dura)
+        note: Piel dura
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Gigante
+    attacks:
+      - name: Desgarrar
+        bonus: 8 # 4 PPF Ataque (+8/ND 13)
+        damage: 3d10 Cortante # 6 PPF Daño (Asalto Múltiple 2x 16.5 = 33 Dmg Total)
+        note: null
+    traits:
+      - name: Visión en la Oscuridad # Sabor (0 PPF)
+        detail: El troll puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Regeneración (10 PS) # Rasgo Táctico R4 (5 PPF)
+        detail: Al inicio de su turno, el troll recupera 10 Puntos de Salud. Si recibe daño por Fuego o Ácido en la ronda anterior, esta habilidad no funciona en el turno siguiente. El troll solo muere permanentemente si empieza su turno con 0 Puntos de Salud y no puede regenerar.
+      - name: Asalto Múltiple # Sabor (0 PPF)
+        detail: El troll puede realizar dos ataques de Desgarrar con su Acción.
+    actions: []
+    reactions: []
+    interactions: []
+    # PPF Total: 6(Salud) + 2(MitF) + 4(Atq) + 6(Daño) + 5(Regen) = 23/23 PPF.
+    behavior: |
+      Una fuerza de la naturaleza, violenta e insaciable. Su única táctica es la violencia abrumadora, confiando ciegamente en su Regeneración para superar cualquier herida. No distingue entre un mago frágil y un guerrero acorazado; simplemente ataca al ser vivo más cercano. Sin embargo, el dolor del fuego o el ácido anula todo lo demás, convirtiendo a la fuente de ese daño en su único objetivo.
+    img: https://i.imgur.com/5MAnITP.png
+
+  - name: Cíclope
+    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
+    attributes:
+      body: 7
+      reflexes: 1
+      mind: 1
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 120 # 6 PPF Salud (Coloso)
+      evasion:
+        value: 9 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 2 # 4 PPF MitF (Piel gruesa)
+        note: Piel gruesa
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Gigante
+    attacks:
+      - name: Gran Garrote
+        bonus: 8 # 4 PPF Ataque (+8/ND 13)
+        damage: 4d10 Contundente # 8 PPF Daño (Asalto Múltiple 2x 22 = 44 Dmg Total)
+        note: null
+      - name: Arrojar Roca
+        bonus: 8 # (Compartido)
+        damage: 4d10 Contundente # (Compartido)
+        note: Alcance Largo
+    traits:
+      - name: Asalto Múltiple (Solo Garrote) # Sabor (0 PPF)
+        detail: El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o uno de Arrojar Roca y uno de Gran Garrote.
+      - name: Visión Deficiente # Sabor (0 PPF - Negativo)
+        detail: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista. Además, no puede realizar ataques como Reacción.
+    actions: []
+    reactions: []
+    interactions: []
+    # PPF Total: 6(Salud) + 1(Esq) + 4(MitF) + 4(Atq) + 8(Daño) = 23/23 PPF.
+    behavior: |
+      Un gigante solitario de mal genio y escasa percepción. Su único ojo lo hace fijarse en un solo objetivo, al que intentará pulverizar con su garrote o aplastar con una roca. Su pobre percepción de la profundidad y su visión periférica lo hacen vulnerable a enemigos rápidos y a ataques coordinados desde múltiples flancos.
+    img: https://i.imgur.com/aZduoXw.jpeg
+
+  - name: Mantícora
+    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
+    attributes:
+      body: 5
+      reflexes: 4
+      mind: 1
+      instinct: 3
+      presence: 2
+    stats:
+      maxHealth: 80 # 2 PPF Salud
+      evasion:
+        value: 9 # 1 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 0 # 0 PPF MitF
+        note: null
+      magicalMitigation:
+        value: 0 # 0 PPF MitM
+        note: null
+      speed:
+        value: 10
+        note: Vuela
+    languages:
+      - 'Común (comprende)'
+    attacks:
+      - name: Garras
+        bonus: 8 # 4 PPF Ataque (+8/ND 13)
+        damage: 3d8 Cortante # 7 PPF Daño (Asalto Múltiple 3x 13.5 = 40.5 Dmg Total. Coste 7 es 37-40.)
+        note: null
+      - name: Mordisco
+        bonus: 8 # (Compartido)
+        damage: 3d8 Perforante # (Compartido)
+        note: null
+    traits:
+      - name: Asalto Múltiple (2 Garras, 1 Mordisco) # Sabor (0 PPF)
+        detail: La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco con su Acción.
+      - name: Vuelo # Rasgo Táctico R3 (4 PPF)
+        detail: La mantícora tiene una velocidad de Vuelo de 10 metros.
+    actions:
+      - name: Disparar Púas # Rasgo Táctico R2 (3 PPF)
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: La mantícora dispara una andanada de púas de su cola. Realiza tres ataques a distancia (+8 para golpear) contra uno o varios objetivos a distancia Cercana. Cada púa que impacta inflige 3d6 de daño Perforante.
+    reactions:
+      - name: Ataque de Oportunidad # Rasgo Táctico R1 (2 PPF)
+        detail: Como Reacción, cuando una criatura sale de estar a distancia Inmediata de la mantícora, esta puede realizar un único ataque de Garras contra él.
+    interactions: []
+    # PPF Total: 2(Sal) + 1(Esq) + 4(Atq) + 7(Daño) + 4(Vuelo) + 3(Puas) + 2(Cola) = 23/23 PPF.
+    behavior: |
+      Un depredador cruel que disfruta aterrorizando a su presa. Comienza el combate desde el aire, deleitándose en su invulnerabilidad mientras acribilla al grupo con las púas de su cola, a menudo enfocándose en el mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo esté visiblemente herido o aislado, para saborear la muerte con sus garras y fauces.
+    img: null
+
   - name: Gólem de Piedra
-    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10) - Mantenido Rango 4
+    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
     attributes:
       body: 8
       reflexes: 1
@@ -1483,15 +1402,15 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 120 # 8 PPF Salud
+      maxHealth: 110 # 5 PPF Salud (Casi indestructible)
       evasion:
-        value: 9 # 0 PPF Esquiva (Base R4)
+        value: 8 # 0 PPF Esquiva
         note: null
       physicalMitigation:
-        value: 3 # 3 PPF MitF
+        value: 3 # 6 PPF MitF
         note: Cuerpo de piedra
       magicalMitigation:
-        value: 1 # 2 PPF MitM
+        value: 0 # 0 PPF MitM
         note: null
       speed:
         value: 7
@@ -1499,25 +1418,68 @@ creatures:
     languages: []
     attacks:
       - name: Puñetazo
-        bonus: 8 # 2 PPF Ataque (+8/12)
-        damage: 2d8 Contundente # 4 PPF Daño (Promedio 10 Dmg ST - Asalto Múltiple lo dobla)
+        bonus: 8 # 4 PPF Ataque (+8/ND 13)
+        damage: 3d8 Contundente # 4 PPF Daño (Asalto Múltiple 2x 13.5 = 27 Dmg Total)
         note: null
     traits:
-      - name: Resistencia Mágica # Rasgo Táctico R3 (4 PPF - Defensa Mágica)
+      - name: Resistencia Mágica # Rasgo Táctico R3 (4 PPF)
         detail: El gólem tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
       - name: Asalto Múltiple # Sabor (0 PPF)
         detail: El gólem puede realizar dos ataques de Puñetazo con su Acción.
     actions: []
     reactions: []
     interactions: []
-    # PPF Total: 8(Salud) + 3(MitF) + 2(MitM) + 2(Atq) + 4(Daño) + 4(Hab Res) = 23 PPF. Correcto. (Resistencia a armas no mágicas quitada para balance).
-    # *** FICHA FINAL ***
-    # Rango 4 (5 PA)
-    # 120 PS, 8 Esq, 3 MitF, 1 MitM, +7 Atq, 10 Dmg ST (2x 2d8), Resistencia Mágica (Ventaja TS)
+    # PPF Total: 5(Salud) + 6(MitF) + 4(Atq) + 4(Daño) + 4(Hab Res) = 23/23 PPF.
     behavior: |
       Un guardián autómata sin emociones, programado para proteger un lugar o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en su camino. Es inmune al miedo y a la persuasión. Su única directiva es destruir a los intrusos.
     img: null
 
+  - name: Basilisco
+    tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
+    attributes:
+      body: 4
+      reflexes: 2
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 80 # 2 PPF Salud (Bajado para potenciar daño y resistencia mágica)
+      evasion:
+        value: 10 # 3 PPF Esquiva
+        note: null
+      physicalMitigation:
+        value: 1 # 2 PPF MitF
+        note: Piel pétrea
+      magicalMitigation:
+        value: 1 # 2 PPF MitM (Añadido: Escamas reflectantes)
+        note: Piel pétrea
+      speed:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Mordisco
+        bonus: 8 # 4 PPF Ataque (+8/ND 13)
+        damage: 3d12 Perforante # 2 PPF Daño (Promedio 19.5 -> 19 Dmg ST. Coste 2 es 17-20)
+        note: null
+    traits:
+      - name: Aura Petrificante # Rasgo Táctico R2 (3 PPF)
+        detail: Cualquier criatura que comience su turno a distancia Inmediata del basilisco siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce a la mitad hasta el inicio de su próximo turno.
+    actions:
+      - name: Mirada Petrificadora # Rasgo Táctico R4 (5 PPF - Control Duro/Muerte)
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: El basilisco fija su mirada en una criatura a distancia Cercana que pueda verlo. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 13). Si falla por 4 puntos o menos, queda Inmovilizado (comienza a convertirse en piedra). Si falla por 5 puntos o más, queda Petrificado instantáneamente. Una criatura Inmovilizada por este efecto debe repetir la Tirada de Salvación al final de cada uno de sus turnos; si vuelve a fallar, queda Petrificada.
+    reactions: []
+    interactions: []
+    # PPF Total: 2(Salud) + 3(Esq) + 2(MitF) + 2(MitM) + 4(Atq) + 2(Daño) + 3(Hab Aur) + 5(Hab Mir) = 23/23 PPF.
+    # Diseño: Menos "esponja de vida", pero mucho más peligroso. Aguanta mejor la magia, y si te muerde (3d12) duele de verdad.
+    behavior: |
+      Una criatura lenta y territorial cuya principal arma es la pereza y el terror. No caza activamente; simplemente existe, y su Mirada Petrificadora es una defensa tan perfecta que rara vez necesita moverse. Fijará su mirada en el grupo, forzándolos a desviar la vista o arriesgarse a convertirse en piedra. Solo recurrirá a su mordisco si un enemigo es lo suficientemente valiente o estúpido como para entrar en su espacio personal.
+    img: https://i.imgur.com/7Kh8ZkK.jpeg
+
+  # ------- RANGO 5 -------
   - name: Thulu
     tier: 5 # Rango 5 (Presupuesto 30 PPF / Límite 12)
     attributes:
@@ -1527,15 +1489,15 @@ creatures:
       instinct: 6
       presence: 5
     stats:
-      maxHealth: 50 # 2 PPF Salud
+      maxHealth: 124 # 2 PPF Salud (Resistente, pero no tanque)
       evasion:
-        value: 11 # 1 PPF Esquiva
+        value: 11 # 4 PPF Esquiva (Difícil de golpear)
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
         note: null
       magicalMitigation:
-        value: 2 # 4 PPF MitM
+        value: 1 # 2 PPF MitM (Defensa Psiónica)
         note: Defensa Psiónica
       speed:
         value: 10
@@ -1545,35 +1507,96 @@ creatures:
       - 'Telepatía (Larga)'
     attacks:
       - name: Choque Psiónico
-        bonus: 8 # 1 PPF Ataque (+7/11)
-        damage: 3d8 Psíquico # 4 PPF Daño
-        note: Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, puedes iniciar una Tirada Enfrentada de tu Mente contra la Mente del objetivo. Si ganas, el objetivo queda Inmovilizado hasta que te muevas o ataques a otro objetivo. # 2 PPF Habilidad Condicional
+        bonus: 9 # 4 PPF Ataque (+9/ND 14)
+        damage: 3d10 Psíquico # 6 PPF Total (2 PPF Daño [16.5 x 2 ataques = 33 Dmg total] + 4 PPF Rasgo Devorar Mente)
+        note: Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el Thulu puede iniciar una Tirada Enfrentada de Mente contra Mente. Si gana, el objetivo queda Inmovilizado y el Thulu puede usar su acción "Devorar Cerebro" en el siguiente turno.
     traits:
       - name: Resistencia Psíquica # Rasgo Táctico R1 (2 PPF)
         detail: El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
       - name: Vuelo (Levitar) # Rasgo Táctico R3 (4 PPF)
         detail: El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
+      - name: Asalto Múltiple # Sabor (0 PPF)
+        detail: El Thulu puede realizar dos ataques de Choque Psiónico con su Acción.
     actions:
-      - name: Ráfaga Mental # Rasgo Táctico R5 (6 PPF)
+      - name: Ráfaga Mental # Rasgo Táctico R5 (6 PPF - AoE Stun)
         uses:
           type: RELOAD
           qty: 5
-        detail: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 12). Si falla, sufre 3d6 de daño Psíquico y queda Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.
-      - name: Devorar Cerebro # Rasgo Táctico R3 (4 PPF)
+        detail: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de daño Psíquico y quedar Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.
+      - name: Devorar Cerebro # Acción Especial (Parte del combo de ataque)
+        detail: Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente.
+    reactions: []
+    interactions: []
+    # PPF Total: 2(Salud) + 4(Esq) + 2(MitM) + 4(Atq) + 2(Daño) + 4(Devorar) + 2(Res) + 4(Vuelo) + 6(Ráfaga) = 30/30 PPF.
+    behavior: |
+      Un depredador psíquico que flota sobre el campo de batalla. Controla el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente y huirá levitando si su salud baja del 25%.
+    img: null
+
+  # ------- RANGO 6 -------
+  - name: Dragón Rojo Adulto
+    tier: 6 # Rango 6 (Presupuesto 38 PPF / Límite 14)
+    attributes:
+      body: 8
+      reflexes: 5
+      mind: 4
+      instinct: 6
+      presence: 9
+    stats:
+      maxHealth: 240 # 6 PPF Salud (Raid Boss)
+      evasion:
+        value: 10 # 1 PPF Esquiva (Enorme, fácil de tocar, difícil de herir)
+        note: null
+      physicalMitigation:
+        value: 3 # 3 PPF MitF (Escamas de dragón)
+        note: Escamas
+      magicalMitigation:
+        value: 1 # 0 PPF MitM (Coste R6 base es alto, 1 es gratis/barato en la tabla R6, ajustamos a 0 PPF efectivo o 1 simbólico)
+        note: null
+      speed:
+        value: 11
+        note: Vuela 15 metros
+    languages:
+      - Dracónico
+      - Común
+    attacks:
+      - name: Mordisco
+        bonus: 11 # 6 PPF Ataque (+11/ND 16)
+        damage: 4d10 Perforante # 5 PPF Daño (Asalto Múltiple: Mordisco 22 + 2x Garras 13.5 = 49 Dmg. Coste 5 cubre 51-55.).
+        note: null
+      - name: Garras
+        bonus: 11 # (Compartido)
+        damage: 3d8 Cortante # (Compartido)
+        note: null
+    traits:
+      - name: Asalto Múltiple (1 Mordisco, 2 Garras) # Sabor (0 PPF)
+        detail: El dragón puede realizar un ataque de Mordisco y dos ataques de Garras con su Acción.
+      - name: Inmunidad (Fuego) # Rasgo Táctico R1 (2 PPF)
+        detail: El dragón es inmune al daño de Fuego.
+      - name: Vuelo # Rasgo Táctico R3 (4 PPF)
+        detail: El dragón tiene una velocidad de Vuelo de 15 metros.
+    actions:
+      - name: Aliento de Fuego # Rasgo Táctico R5 (6 PPF - AoE Masivo)
         uses:
           type: RELOAD
           qty: 6
-        detail: El Thulu ataca la mente de una criatura Inmovilizada por él. El objetivo debe superar una TS de Mente (ND 12). Si falla, sufre 5d6 de daño Psíquico. Si este daño reduce al objetivo a 0 Puntos de Salud, muere automáticamente. Si tiene éxito, recibe la mitad del daño.
-    # PPF Total: 2(Sal) + 1(Esq) + 0(MitF) + 4(MitM) + 1(Atq) + 4(Daño) + 2(HabAtq) + 2(Hab Res) + 4(Hab Vuelo) + 6(Hab Raf) + 4(Hab Dev) = 30 PPF. Correcto.
-    # *** FICHA FINAL (APROBADA) ***
-    # Rango 5 (8 PA)
-    # 50 PS, 10 Esq, 0 MitF, 2 MitM, +7 Atq, 13.5 Dmg ST (con Control), Vuela, Res Psíquica, Ráfaga Mental (3d6+Aturdir), Devorar Cerebro (Recarga 8)
+        detail: El dragón exhala un cono de fuego de 15 metros. Toda criatura en el área debe superar una Tirada de Salvación de Reflejos (ND 16). Si falla, recibe 10d6 de daño de Fuego (35 Dmg AoE); si tiene éxito, recibe la mitad.
+      - name: Presencia Aterradora # Rasgo Táctico R3 (4 PPF - Control)
+        uses:
+          type: USES
+          qty: 1
+        detail: El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1 minuto (Desventaja en todo). Save termina efecto.
+    reactions:
+      - name: Coletazo # Rasgo Táctico R1 (1 PPF - Coste reducido por situacional)
+        detail: Como Reacción cuando un enemigo termina su movimiento adyacente, el dragón golpea con la cola. TS Cuerpo (ND 16) o 2d8 Contundente y Derribado.
+    interactions: []
+    # PPF Total: 6(Salud) + 1(Esq) + 3(MitF) + 0(MitM) + 6(Atq) + 5(Daño) + 2(Inm) + 4(Vuelo) + 6(Aliento) + 4(Miedo) + 1(Cola) = 38/38 PPF.
+    # Diseño: Monstruo físico definitivo. Aguanta mucho, pega durísimo (50 dpr) y tiene un nuke de área.
     behavior: |
-      Un depredador psíquico que flota sobre el campo de batalla, bombardeando a sus enemigos con devastadores choques de poder mental. Cualquiera que se acerque demasiado es atrapado por su mente, quedando inmovilizado y vulnerable a su asalto psíquico definitivo.
+      Un ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar las amenazas, desatando su Aliento de Fuego sobre el grupo más concentrado. Aterrizará solo para eliminar a supervivientes heridos, usando su Asalto Múltiple para abrumar. Su Presencia Aterradora rompe la coordinación del grupo al inicio.
     img: null
 
   - name: Liche
-    tier: 6 # Rango 6 (Presupuesto 38 PPF / Límite 14) - Mantenido Rango 6
+    tier: 6 # Rango 6 (Presupuesto 38 PPF / Límite 14)
     attributes:
       body: 4
       reflexes: 5
@@ -1581,9 +1604,9 @@ creatures:
       instinct: 7
       presence: 8
     stats:
-      maxHealth: 180 # 6 PPF Salud
+      maxHealth: 180 # 2 PPF Salud (Resistente)
       evasion:
-        value: 11 # 0 PPF Esquiva (Base R6)
+        value: 10 # 1 PPF Esquiva
         note: null
       physicalMitigation:
         value: 0 # 0 PPF MitF
@@ -1593,7 +1616,7 @@ creatures:
         note: null
       speed:
         value: 9
-        note: null
+        note: Levita
     languages:
       - Común
       - Dracónico
@@ -1601,30 +1624,38 @@ creatures:
       - Umbral
       - Arcaico
     attacks:
-      - name: Toque Paralizante # Ataque + Habilidad
-        bonus: 12 # 8 PPF Ataque (+12/16)
-        damage: 3d6 Necrótico # 0 PPF Daño (Base R6 = 0) - El daño está en las habilidades
-        note: null
+      - name: Descarga Arcana
+        bonus: 11 # 6 PPF Ataque (+11/ND 16)
+        damage: 4d8 Fuerza # 0 PPF Daño (En Rango 6, daño < 30 es coste 0. Promedio 18 Dmg ST)
+        note: Alcance Media. Ataque de energía pura que no requiere recarga.
     traits:
-      - name: Mente Acelerada # Rasgo Táctico R5 (6 PPF - Economía Acción)
-        detail: El Liche posee una mente tan rápida que tiene 4 Reacciones por ronda de combate, en lugar de una. Puede usar una reacción diferente por cada desencadenante, o la misma varias veces si el desencadenante ocurre múltiples veces.
-      - name: Rejuvenecimiento (Filacteria) # Sabor (0 PPF - Narrativo)
-        detail: A menos que su filacteria (un objeto oculto que contiene su alma) sea destruida, un liche destruido recupera su forma física en 1d6 días en la ubicación de la filacteria.
-      - name: Inmunidades # Rasgo Táctico R3 (4 PPF - Defensa)
+      - name: Mente Dividida # Rasgo Táctico R3 (4 PPF)
+        detail: La mente fragmentada del Liche le permite procesar múltiples amenazas. Tiene 3 Reacciones por ronda de combate en lugar de una.
+      - name: Vuelo Arcano # Rasgo Táctico R3 (4 PPF)
+        detail: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
+      - name: Inmunidades # Rasgo Táctico R3 (4 PPF)
         detail: El liche es inmune al daño de Veneno y Frío, y a los estados Encantado, Envenenado y Dormido.
-      - name: Resistencia Mágica # Rasgo Táctico R3 (4 PPF - Defensa)
+      - name: Resistencia Mágica # Rasgo Táctico R3 (4 PPF)
         detail: El liche tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
-      - name: Parálisis (parte de Toque) # Rasgo Táctico R3 (4 PPF - Control Duro)
-        detail: Si el liche impacta con su Toque Paralizante, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 16) o quedar Inmovilizado durante 1 minuto. El objetivo puede repetir la Tirada de Salvación al final de cada uno de sus turnos para terminar el efecto antes.
+      - name: Rejuvenecimiento # Sabor (0 PPF)
+        detail: Si muere, reaparece junto a su filacteria en 1d6 días.
     actions:
-      - name: Lanzar Conjuro (Nivel 5) # Rasgo Táctico R5 (6 PPF - Flexibilidad Of/Def/Util)
-        detail: El liche puede lanzar cualquier conjuro de Arcanista de Nivel 5 o inferior como si lo tuviera preparado y activo. Su atributo de lanzamiento es Mente (el ND de sus conjuros es 16). Puede usar sus Reacciones adicionales de Mente Acelerada para lanzar conjuros que normalmente requieran una Reacción.
-    reactions: [] # Las reacciones específicas se eliminan, se asume que usa "Lanzar Conjuro" con Mente Acelerada
+      - name: Maestro de la Magia Prohibida # Rasgo Táctico R5 (6 PPF)
+        detail: El Liche tiene acceso a la lista de conjuros de Arcanista. Puede lanzar conjuros de hasta Nivel 5 como Acción. Debe respetar los tiempos de recarga o usos limitados de cada conjuro individualmente.
+        # Repertorio Sugerido:
+        # - Rayo Desintegrador (N5): 10d8 Fuerza (Recarga 8+).
+        # - Muro de Fuerza (N4): Control (Recarga 6+).
+        # - Bola de Fuego (N3): AoE (Recarga 6+).
+    reactions:
+      - name: Conjuro de Oportunidad # Rasgo Táctico R3 (4 PPF)
+        detail: |
+          Como Reacción al final del turno de otra criatura, el Liche elige una opción:
+          - Realizar un ataque de Descarga Arcana.
+          - Lanzar un conjuro de Arcanista de Nivel 3 o inferior (debe respetar la recarga).
+      - name: Recarga Mental # Rasgo Táctico R2 (3 PPF)
+        detail: Como Reacción al final del turno de cualquier criatura, el Liche realiza una tirada de recarga (1d8) para intentar recuperar el uso de una habilidad o conjuro agotado.
     interactions: []
-    # PPF Total: 6(Sal) + 8(Atq) + 6(Hab Men) + 4(Hab Imm) + 4(Hab Res) + 4(Hab Par) + 6(Hab Lan) = 38 PPF. Correcto.
-    # *** FICHA FINAL ***
-    # Rango 6 (13 PA)
-    # 180 PS, 10 Esq(Base), 0 Mit, +12 Atq, 0 Dmg ST(solo habs), Mente Acelerada (4 Reac), Inmune Ven/Frio/Enc/Env/Dor, Res Magia, Toque Paralizante ND 15, Lanzar Conjuro N5 (ND 16)
+    # PPF Total: 2(Salud) + 1(Esq) + 6(Atq) + 0(Daño) + 4(Mente) + 4(Vuelo) + 4(Inm) + 4(Res) + 6(Maestro) + 4(Oportunidad) + 3(Recarga) = 38/38 PPF.
     behavior: |
-      Un genio táctico que juega con sus enemigos. Usa su turno principal para desatar conjuros devastadores. Utiliza sus múltiples reacciones para castigar cada movimiento de los héroes: se reposiciona con Reposicionamiento Sombrío si lo acorralan, debilita al clérigo con Maldición Instantánea justo antes de lanzar un gran conjuro, y remata a los heridos con Cosecha de Vitalidad. Su objetivo no es solo ganar, es demostrar su abrumadora superioridad intelectual y mágica en cada instante del combate.
+      Un archimago no-muerto con un estilo muy táctico. Su estrategia se basa en la economía de acción superior. Flota fuera de alcance, bombardeando con magia de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones para mantener la presión constante lanzando Descargas Arcanas, hechizos rápidos o intentando recuperar sus poderes más letales con Recarga Mental. Su objetivo no es solo ganar, es demostrar su abrumadora superioridad intelectual y mágica en cada instante del combate.
     img: null

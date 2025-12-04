@@ -572,6 +572,81 @@ cards:
     uses:
       type: null
       qty: 0
+
+  - name: Constitución de Hierro
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements:
+      - Cuerpo 3
+    description: >-
+      Tu cuerpo es un templo de resistencia física.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.<br>
+      Además, puedes aguantar la respiración durante una cantidad de minutos igual al doble de tu puntuación de Cuerpo. Adicionalmente, puedes dormir con armaduras medias o pesadas sin sufrir penalizadores por fatiga o incomodidad al día siguiente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Destreza Suprema
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements:
+      - Reflejos 3
+    description: >-
+      Posees un control instintivo sobre tu inercia y equilibrio.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Reflejos.<br>
+      Además, siempre caes de pie si estás consciente. Adicionalmente, reduces la distancia de cualquier caída en 5 metros a efectos de calcular el daño (lo que te permite ignorar el daño de caídas cortas).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Engranaje Cognitivo
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements:
+      - Mente 3
+    description: >-
+      Tu mente opera con la precisión de un mecanismo de relojería, procesando y archivando información sistemáticamente.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Mente.<br>
+      Además, posees memoria eidética. Puedes recordar con precisión perfecta cualquier documento, mapa, imagen o conversación que hayas presenciado en el último mes. El DJ debe recordarte cualquier detalle olvidado por ti (el jugador) que tu personaje hubiera retenido.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Sexto Sentido
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements:
+      - Instinto 3
+    description: >-
+      Tu instinto te alerta de peligros que tus ojos no ven.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Instinto.<br>
+      Además, cuando fallas una prueba de Instinto (Percepción) para detectar algo oculto (una trampa, una puerta secreta, un enemigo escondido), recibes una sensación de inquietud que te confirma que *hay* algo oculto en la zona, aunque no sepas qué es ni dónde está exactamente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Compostura Inquebrantable
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements:
+      - Presencia 3
+    description: >-
+      Tu personalidad es sólida como una roca, proyectando una autoridad natural.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Presencia.<br>
+      Además, tus fallos sociales nunca son catastróficos. Si fallas una prueba de Persuasión, Engaño o Intimidación, el objetivo nunca reacciona con violencia inmediata ni hostilidad abierta basándose solo en tus palabras; simplemente se mostrará escéptico, indiferente o se negará a colaborar.
+    uses:
+      type: null
+      qty: 0
   # ------------------------------ PÍCARO ------------------------------
   - name: Senda del Bribón
     level: 1
