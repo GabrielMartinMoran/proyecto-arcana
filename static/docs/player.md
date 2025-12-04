@@ -388,7 +388,7 @@ La acción de **Ponerte en Guardia** te otorga un +1 a tu Esquiva hasta el inici
 
 Tu personaje es más que una colección de cartas; es un héroe ingenioso en un mundo dinámico. Además de Atacar o usar una carta Activable, puedes usar tu **Acción** para intentar cualquier maniobra de combate que se te ocurra. El límite es tu imaginación y la plausibilidad de la situación.
 
-Estas acciones, a menudo llamadas **Maniobras**, se resuelven normalmente con una **Tirada Enfrentada** contra el objetivo, usando el Atributo que el DJ considere más apropiado.
+Estas acciones, a menudo llamadas **Maniobras**, se resuelven normalmente con una **Prueba de Habilidad** o con **Tirada Enfrentada** contra el objetivo, usando el Atributo que el DJ considere más apropiado.
 
 El objetivo no es tener una regla para cada situación, sino fomentar la creatividad. Habla con tu Director de Juego, describe lo que quieres hacer, y juntos encontrarán la forma de resolverlo.
 

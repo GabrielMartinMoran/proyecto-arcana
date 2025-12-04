@@ -9,6 +9,7 @@ import type { RollModalData } from '$lib/types/roll-modal-data';
 import { buildRollsDetail, calculateTotal, parseDiceExpression } from '$lib/utils/dice-rolling';
 import { get, writable, type Writable } from 'svelte/store';
 import { CONFIG } from '../../config';
+import { useFoundryVTTService } from './foundryvtt-service';
 
 const PERSONAL_STORAGE_KEY = 'arcana:rollLogs:personal';
 const PARTY_STORAGE_KEY_PREFIX = 'arcana:rollLogs:party:';
@@ -38,6 +39,8 @@ let currentUserId: string | null = null;
 let unsubscribeRemoteLogs: (() => void) | null = null;
 let applyingRemoteLogsUpdate = false;
 let savingToCloud = false;
+
+const { broadcastRollResult, isInsideFoundry } = useFoundryVTTService();
 
 const loadRollLogs = (): RollLog[] => {
 	try {
@@ -190,7 +193,7 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 
 const rollDice = async (expression: string): Promise<DiceResult[]> => {
 	const isStandardDice = CONFIG.STANDARD_DICES.some((x) => expression.endsWith(x));
-	if (isStandardDice) {
+	if (isStandardDice && !isInsideFoundry()) {
 		return state.roll3DDice(expression);
 	} else {
 		return new Promise((resolve) => {
@@ -637,6 +640,11 @@ export const useDiceRollerService = () => {
 		}, CONFIG.CLEAR_3D_DICES_DELAY);
 
 		logRolls(rolls, title, resultFormatter);
+
+		if (isInsideFoundry()) {
+			console.log('Broadcasting roll to Foundry...');
+			broadcastRollResult(rolls, title!);
+		}
 
 		return calculateTotal(rolls);
 	};
