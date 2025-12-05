@@ -86,6 +86,7 @@ async function handleUpdateActor(data) {
 			}
 			if (newName !== oldName) {
 				u['name'] = newName;
+				u['prototypeToken.name'] = newName;
 				if (actor.isToken) u['token.name'] = newName;
 				hasChanges = true;
 			}
@@ -160,7 +161,7 @@ async function handleUpdateActor(data) {
 			}
 
 			for (let t of tokensToUpdate) {
-				if (needsTokenUpdate) await t.document.update(tokenUpdates);
+				if (needsTokenUpdate) await t.update(tokenUpdates);
 				if (p.hp) t.object?.drawBars();
 			}
 
