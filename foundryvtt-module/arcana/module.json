@@ -1,0 +1,19 @@
+{
+	"id": "arcana",
+	"title": "Arcana",
+	"version": "1.0.0",
+	"compatibility": {
+		"minimum": "13",
+		"verified": "13"
+	},
+	"authors": [
+		{
+			"name": "Gabriel Martín Moran",
+			"email": "moran.gabriel.95@gmail.com"
+		}
+	],
+	"description": "Este modulo integra Arcana RPG en FoundryVTT",
+	"esmodules": ["main.js"],
+	"url": "",
+	"manifest": ""
+}

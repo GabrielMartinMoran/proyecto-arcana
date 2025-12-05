@@ -5,6 +5,7 @@
 	import { capitalize } from '$lib/utils/formatting';
 	import { CONFIG } from '../../../config';
 	import CreatureAction from './CreatureAction.svelte';
+	import { resolve } from '$app/paths';
 
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
@@ -42,17 +43,40 @@
 			title: `${creature.name}: Daño de ${attack.name}`,
 		});
 	};
+
+	// Copy embedded bestiary URL for this creature to clipboard
+	const copyEmbeddedURL = () => {
+		try {
+			const id = (creature && (creature.id ?? creature.name)) || null;
+			if (!id) return;
+			const publicURL = resolve(`/embedded/bestiary/${id}`);
+			navigator.clipboard.writeText(window.location.origin + publicURL);
+			alert('Se copió el enlace embebido de la criatura al portapapeles.');
+		} catch (err) {
+			// best-effort: fallback ignored
+			console.warn('[statblock] failed to copy URL', err);
+		}
+	};
 </script>
 
 <div class="statblock">
 	<div class="bg"></div>
 	<div class="data">
 		<div class="header">
-			<h2>{creature.name}</h2>
+			<h2>
+				{creature.name}
+			</h2>
+
+			<span class="spacer"></span>
+
 			<span>
 				<strong>Rango</strong>
 				<span>{creature.tier}</span>
 			</span>
+
+			<div class="header-actions">
+				<button onclick={copyEmbeddedURL} title="Copiar enlace embebido">🔗</button>
+			</div>
 		</div>
 		<div class="attributes">
 			{#each ['body', 'reflexes', 'mind', 'instinct', 'presence'] as attribute (attribute)}
@@ -249,6 +273,14 @@
 				flex-direction: row;
 				justify-content: space-between;
 				align-items: center;
+
+				.spacer {
+					flex: 1;
+				}
+
+				.header-actions {
+					margin-left: var(--spacing-sm);
+				}
 			}
 
 			.attributes {

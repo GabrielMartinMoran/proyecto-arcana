@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "es2020",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+
+		"types": ["@league-of-foundry-developers/foundry-vtt-types"]
+	},
+	"include": ["./**/*.js", "./**/*.ts"]
+}
