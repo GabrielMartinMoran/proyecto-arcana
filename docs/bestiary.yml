@@ -99,7 +99,7 @@ creatures:
     # PPF Total: 2(Salud) + 1(Esq) + 1(MitF) + 1(Atq) + 1(Daño) + 2(Escudo) = 8/8 PPF.
     behavior: |
       Más grande y cruel que el resto. Lidera desde atrás, disparando con una ballesta robada a un guardia y empujando a sus subordinados hacia el peligro. Su principal táctica de supervivencia es usar a otros goblins como escudos vivientes. Solo desenvaina la cimitarra si se ve acorralado.
-    img: null
+    img: https://i.imgur.com/KoSYgNz.jpeg
 
   - name: Chamán Goblin
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
@@ -151,7 +151,7 @@ creatures:
     # PPF Total: 1(Salud) + 1(Esq) + 1(Atq) + 1(Daño) + 2(Curación) + 2(Bendición) = 8/8 PPF.
     behavior: |
       El consejero espiritual de la tribu, cubierto de fetiches y huesos. Evita el combate directo, prefiriendo potenciar a los guerreros más fuertes con gritos frenéticos y curar sus heridas con brebajes dudosos. Si se queda solo, lanzará fuego desesperadamente.
-    img: null
+    img: https://i.imgur.com/zKzwD2N.jpeg
 
   - name: Bandido
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
