@@ -1,5 +1,5 @@
 import { findActorOrTokenActor, safeNum, safeStr } from '../helpers.js';
-import { isCharacterURL } from '../helpers/actor-urls.js';
+import { isCharacterURL, isDevelopURL } from '../helpers/actor-urls.js';
 import { isInitiativeRoll } from '../helpers/rolls-helper.js';
 
 const MESSAGE_TYPES = {
@@ -80,7 +80,10 @@ async function handleUpdateActor(data) {
 
 		if (p.name) {
 			const oldName = safeStr(actor.name);
-			const newName = safeStr(p.name);
+			let newName = safeStr(p.name);
+			if (isDevelopURL(sheetUrl)) {
+				newName = `[DEV] ${newName}`;
+			}
 			if (newName !== oldName) {
 				u['name'] = newName;
 				if (actor.isToken) u['token.name'] = newName;
@@ -115,7 +118,6 @@ async function handleUpdateActor(data) {
 				const currentVal = safeNum(foundry.utils.getProperty(actor, 'system.health.value'));
 				const oldMax = safeNum(foundry.utils.getProperty(actor, 'system.health.max'));
 				const newMax = safeNum(p.hp.max);
-				console.log('HEALTH', oldMax, newMax);
 				if (newMax !== oldMax) {
 					u['system.health.max'] = newMax;
 
@@ -144,8 +146,6 @@ async function handleUpdateActor(data) {
 		if (hasChanges) {
 			await actor.update(u, { render: false });
 
-			console.log('ACTOR', actor);
-
 			const tokensToUpdate = actor.isToken ? [actor.token] : actor.getActiveTokens();
 			const tokenUpdates = {};
 			let needsTokenUpdate = false;
@@ -165,8 +165,6 @@ async function handleUpdateActor(data) {
 			}
 
 			if (actor.sheet && actor.sheet.rendered && !isCharacter) {
-				console.log('U', u);
-
 				const html = actor.sheet.element;
 				if (u['system.health.max']) {
 					html.find("input[name='system.health.max']").val(u['system.health.max']);

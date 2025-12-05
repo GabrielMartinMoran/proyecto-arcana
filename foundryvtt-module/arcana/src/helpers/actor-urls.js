@@ -1,4 +1,5 @@
 const BASE_EMBEDDED_PATH = 'embedded';
+const DEVELOP_URL_PREFIX = 'http://localhost:';
 
 const URL_IDENTIFIERS = {
 	CHARACTER: 'characters',
@@ -17,4 +18,8 @@ export const isCharacter = (actor) => {
 
 export const isCharacterURL = (url) => {
 	return isEmbeddedURLFor(url, URL_IDENTIFIERS.CHARACTER);
+};
+
+export const isDevelopURL = (url) => {
+	return url.startsWith(DEVELOP_URL_PREFIX);
 };
