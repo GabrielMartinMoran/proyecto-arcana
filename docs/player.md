@@ -585,13 +585,13 @@ Pasás tiempo en tabernas, cortes nobles o los bajos fondos para hacer amigos e 
 
 La moneda estándar es el **Oro (o)**. La siguiente tabla sirve como guía de precios.
 
-| Categoría       | Rango de Costo | Ejemplos de Bienes y Servicios                                     |
-| :-------------- | :------------- | :----------------------------------------------------------------- |
-| **Mundano**     | 1-5 o          | Pan, una antorcha, una cerveza, una cuerda.                        |
-| **Común**       | 10-50 o        | Espada corta, armadura de cuero, una noche en una posada decente.  |
-| **Calidad**     | 75-250 o       | Espada larga bien forjada, cota de mallas, un caballo.             |
-| **Excepcional** | 300-1000 o     | Armadura de placas, una joya exquisita, contratar a un mercenario. |
-| **Lujo**        | 1500+ o        | Una propiedad pequeña, un barco, un soborno a un noble.            |
+| Categoría       | Rango de Costo  | Ejemplos de Bienes y Servicios                                                         |
+| :-------------- | :-------------- | :------------------------------------------------------------------------------------- |
+| **Mundano**     | 1 - 10 o        | Pan, una antorcha, una cerveza, una cuerda.                                            |
+| **Común**       | 10 - 75 o       | Espada corta, armadura de cuero, una noche en una posada decente.                      |
+| **Calidad**     | 100 - 500 o     | Mandoble, armadura de placas parcial, un caballo de guerra, contratar a un mercenario. |
+| **Excepcional** | 500 - 2500 o    | Armadura de placas completa, una joya exquisita.                                       |
+| **Lujo**        | 2500 - 10000+ o | Una propiedad, un barco, un soborno a un noble.                                        |
 
 ## Armas
 
@@ -610,12 +610,12 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 | Espada corta       | 1d6      | Cortante    | Cuerpo 2 o Reflejos 2 | 25 o   | Precisa                             |
 | Ballesta ligera    | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
 | Espada larga       | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
+| Estoque            | 1d8      | Perforante  | Reflejos 3            | 60 o   | Precisa                             |
 | Arco largo         | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
-| Estoque            | 1d8      | Perforante  | Reflejos 3            | 100 o  | Precisa                             |
-| Martillo de guerra | 1d8/1d10 | Contundente | Cuerpo 3              | 100 o  | Versátil                            |
-| Hacha de guerra    | 1d8/1d10 | Cortante    | Cuerpo 3              | 100 o  | Versátil                            |
-| Ballesta pesada    | 1d10     | Perforante  | Reflejos 3            | 150 o  | A dos manos, Rango (Larga), Recarga |
-| Mandoble           | 1d12     | Cortante    | Cuerpo 3              | 150 o  | A dos manos                         |
+| Martillo de guerra | 1d8/1d10 | Contundente | Cuerpo 3              | 60 o   | Versátil                            |
+| Hacha de guerra    | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
+| Ballesta pesada    | 1d10     | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga), Recarga |
+| Mandoble           | 1d12     | Cortante    | Cuerpo 3              | 100 o  | A dos manos                         |
 
 ### Propiedades de Armas
 
@@ -636,8 +636,8 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 | Gambesón        | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
 | Cota de mallas  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
 | Brigantina      | 2                 | 0       | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
-| Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 4              | 400 o  |
-| Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 5              | 1000 o |
+| Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
+| Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
 | Escudo          | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
 
 ## Equipo de Aventura y Servicios
