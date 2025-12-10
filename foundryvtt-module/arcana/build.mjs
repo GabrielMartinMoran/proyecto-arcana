@@ -29,6 +29,10 @@ function copyStaticFiles() {
 	// Copy module.json
 	fs.copyFileSync('module.json', 'dist/module.json');
 	console.log('📄 Copied module.json to dist/');
+
+	// Copy main.js to root (for direct module loading)
+	fs.copyFileSync('dist/main.js', 'main.js');
+	console.log('📄 Copied main.js to root/');
 }
 
 if (watch) {

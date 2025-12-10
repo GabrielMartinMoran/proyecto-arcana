@@ -11,23 +11,10 @@ export function setupMessageListener(): void {
 	const actorUpdater = new ActorUpdater();
 
 	window.addEventListener('message', async (event: MessageEvent<MessageData>) => {
-		// Accept messages from localhost (development) and GitHub Pages (production)
-		const allowedOrigins = [
-			'http://localhost:5173', // Vite dev server
-			'http://localhost:4173', // Vite preview
-			'https://gabrielmartinmoran.github.io', // GitHub Pages
-		];
-
-		// Validate origin - critical for cross-origin iframe communication
-		const isAllowedOrigin = allowedOrigins.some((origin) => event.origin.startsWith(origin));
-		if (!isAllowedOrigin) {
-			console.warn('[Arcana] Rejected message from unauthorized origin:', event.origin);
-			return;
-		}
-
 		const data = event.data;
 		if (!data) return;
 
+		// Log for debugging (optional: remove in production if needed)
 		console.log('[Arcana] Received message:', data.type, 'from', event.origin);
 
 		if (data.type === MESSAGE_TYPES.PRECALCULATED_ROLL) {
