@@ -1,7 +1,35 @@
-import { CONFIG } from '../config.js';
+import { CONFIG } from '../config';
+import type { ArcanaActor } from '../types/actor';
 
-export class ArcanaSheet extends ActorSheet {
-	static get defaultOptions() {
+interface SheetData {
+	actor: ArcanaActor;
+	iframeUrl: string | null;
+	isBestiary: boolean;
+	localNotes: string;
+	health: {
+		value: number;
+		max: number;
+	};
+}
+
+interface SheetOptions {
+	classes: string[];
+	template: string;
+	width: number;
+	height: number;
+	resizable: boolean;
+	scrollY: string[];
+}
+
+/**
+ * Custom Actor Sheet for Arcana system
+ * Renders an iframe with external web-based character sheet
+ * @ts-ignore - Extending FoundryVTT ActorSheet
+ */
+export class ArcanaSheet extends ActorSheet<any, any, any> {
+	declare actor: ArcanaActor;
+
+	static override get defaultOptions(): SheetOptions {
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ['arcana', 'sheet', 'actor'],
 			template: 'modules/arcana/template.html',
@@ -9,42 +37,46 @@ export class ArcanaSheet extends ActorSheet {
 			height: 800,
 			resizable: true,
 			scrollY: [],
-		});
+		}) as SheetOptions;
 	}
 
 	/**
-	 * --- RENDER ONCE ---
+	 * Render the sheet - only reload iframe when forced
 	 */
-	async render(force, options = {}) {
-		const existingIframe = this.element ? this.element.find('iframe')[0] : null;
+	override async render(force?: boolean, options: any = {}): Promise<this> {
+		const existingIframe = (this as any).element ? (this as any).element.find('iframe')[0] : null;
 
 		if (existingIframe && !options.forceReload) {
 			if (this.actor) {
-				this.element.find('.window-title').text(this.actor.name);
+				(this as any).element.find('.window-title').text(this.actor.name);
 
-				// Actualización visual del panel Bestiario
-				const hpVal = this.actor.system.health?.value ?? 0;
-				const hpMax = this.actor.system.health?.max ?? 0;
+				// Visual update for bestiary panel
+				const hpVal = (this.actor.system as any).health?.value ?? 0;
+				const hpMax = (this.actor.system as any).health?.max ?? 0;
 				const notes = this.actor.getFlag('arcana', 'localNotes') || '';
 
-				this.element.find("input[name='system.health.value']").val(hpVal);
-				this.element.find("input[name='system.health.max']").val(hpMax);
-				this.element.find("textarea[name='flags.arcana.localNotes']").val(notes);
+				(this as any).element.find("input[name='system.health.value']").val(hpVal);
+				(this as any).element.find("input[name='system.health.max']").val(hpMax);
+				(this as any).element.find("textarea[name='flags.arcana.localNotes']").val(notes);
 			}
 			return this;
 		}
+
 		return super.render(force, options);
 	}
 
 	/**
-	 * --- LOBOTOMÍA REACTIVA ---
+	 * Disable reactive updates
 	 */
-	async _onUpdate(changed, options, userId) {
-		// Nada.
+	protected override async _onUpdate(): Promise<void> {
+		// Intentionally empty - we handle updates manually
 	}
 
-	getData() {
-		const data = super.getData();
+	/**
+	 * Prepare sheet data
+	 */
+	override getData(): SheetData {
+		const data = super.getData() as SheetData;
 		let urlWeb = this.actor.getFlag('arcana', 'sheetUrl');
 		if (!urlWeb) urlWeb = CONFIG.BASE_URL;
 
@@ -57,9 +89,9 @@ export class ArcanaSheet extends ActorSheet {
 				urlWeb = urlWeb.replace('/characters/shared/', '/embedded/characters/');
 			const separator = urlWeb.includes('?') ? '&' : '?';
 
-			data.health = this.actor.system.health || { value: 0, max: 0 };
+			data.health = (this.actor.system as any).health || { value: 0, max: 0 };
 
-			// Detectar modo Bestiario/NPC
+			// Detect bestiary/NPC mode
 			const isNpc = urlWeb.includes('/npc');
 			if (urlWeb.includes('/bestiary/') || urlWeb.includes('/creatures/') || isNpc) {
 				data.isBestiary = true;
@@ -78,23 +110,27 @@ export class ArcanaSheet extends ActorSheet {
 		} else {
 			data.iframeUrl = null;
 		}
+
 		return data;
 	}
 
-	activateListeners(html) {
+	/**
+	 * Activate event listeners
+	 */
+	override activateListeners(html: JQuery): void {
 		super.activateListeners(html);
 
-		// A. Inputs del Bestiario
+		// Bestiary input handling
 		html.find('input, textarea').on('change', async (ev) => {
-			const input = ev.currentTarget;
+			const input = ev.currentTarget as HTMLInputElement | HTMLTextAreaElement;
 			const field = input.name;
 			const value = input.value;
 			await this.actor.update({ [field]: value });
 		});
 
-		// B. Fix del Iframe Mouse
+		// Fix iframe mouse interaction during drag/resize
 		const iframe = html.find('iframe')[0];
-		const appWindow = this.element;
+		const appWindow = (this as any).element;
 		if (iframe) {
 			appWindow.on('mousedown', '.window-header, .window-resizable-handle', () => {
 				iframe.style.pointerEvents = 'none';
@@ -105,7 +141,10 @@ export class ArcanaSheet extends ActorSheet {
 		}
 	}
 
-	_getHeaderButtons() {
+	/**
+	 * Add configuration button to header
+	 */
+	override _getHeaderButtons(): any[] {
 		const buttons = super._getHeaderButtons();
 		buttons.unshift({
 			label: 'Configuración',
@@ -117,11 +156,11 @@ export class ArcanaSheet extends ActorSheet {
 	}
 
 	/**
-	 * --- PANEL DE CONFIGURACIÓN ---
+	 * Show configuration dialog
 	 */
-	async configureSheet() {
+	async configureSheet(): Promise<void> {
 		const currentUrl = this.actor.getFlag('arcana', 'sheetUrl') || '';
-		const isLinked = this.actor.prototypeToken.actorLink;
+		const isLinked = (this.actor.prototypeToken as any).actorLink;
 
 		new Dialog({
 			title: `Configurar: ${this.actor.name}`,
@@ -142,31 +181,31 @@ export class ArcanaSheet extends ActorSheet {
 				save: {
 					label: 'Guardar y Configurar',
 					icon: "<i class='fas fa-save'></i>",
-					callback: async (html) => {
-						const newUrl = html.find("input[name='url']").val().trim();
+					callback: async (html: JQuery) => {
+						const newUrl = html.find("input[name='url']").val() as string;
 						const newLinkState = html.find("input[name='actorLink']").is(':checked');
 
-						await this.actor.setFlag('arcana', 'sheetUrl', newUrl);
+						await this.actor.setFlag('arcana', 'sheetUrl', newUrl.trim());
 
-						// --- CONFIGURACIÓN DE TOKEN AUTOMÁTICA ---
-						const tokenSettings = {
+						// Automatic token configuration
+						const tokenSettings: any = {
 							'prototypeToken.actorLink': newLinkState,
 							'prototypeToken.displayBars': 40, // OWNER ONLY
 							'prototypeToken.bar1.attribute': 'health',
-							'prototypeToken.bar2.attribute': null, // Elimina barra 2
-							'prototypeToken.sight.enabled': true, // <--- VISIÓN ACTIVADA POR DEFECTO
+							'prototypeToken.bar2.attribute': null,
+							'prototypeToken.sight.enabled': true,
 						};
 
 						await this.actor.update(tokenSettings);
 
-						// Actualizar tokens ya existentes en la escena
+						// Update existing tokens in the scene
 						const activeTokens = this.actor.getActiveTokens();
-						for (let t of activeTokens) {
-							await t.document.update({
+						for (const t of activeTokens) {
+							await (t as any).document.update({
 								displayBars: 40,
 								'bar1.attribute': 'health',
 								'bar2.attribute': null,
-								'sight.enabled': true, // <--- ACTUALIZA VISIÓN EN MAPA
+								'sight.enabled': true,
 							});
 						}
 
@@ -175,6 +214,6 @@ export class ArcanaSheet extends ActorSheet {
 				},
 			},
 			default: 'save',
-		}).render(true);
+		} as any).render(true);
 	}
 }

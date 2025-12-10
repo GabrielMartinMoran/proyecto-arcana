@@ -61,6 +61,8 @@
 				{#if card.uses.type}
 					{#if card.uses.type === 'LONG_REST'}
 						<span class="chip">Usos: {card.uses.qty ?? '?'} por día de descanso</span>
+					{:else if card.uses.type === 'DAY'}
+						<span class="chip">Usos: {card.uses.qty ?? '?'} por día</span>
 					{:else if card.uses.type === 'RELOAD'}
 						<span class="chip">Usos: 1 (Recarga {card.uses.qty ?? '?'}+)</span>
 					{:else if card.uses.type === 'USES'}

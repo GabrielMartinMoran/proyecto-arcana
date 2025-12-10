@@ -1,7 +1,7 @@
 items:
   - name: 'Botas de Velocidad'
     level: 3
-    cost: 650
+    cost: 1300
     type: 'activable'
     tags:
       - 'Movimiento'
@@ -12,12 +12,12 @@ items:
       tu Velocidad se duplica y obtienes Ventaja (+1d4) en las Tiradas de Salvación
       de Reflejos.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Capa de Sigilo'
     level: 2
-    cost: 300
+    cost: 500
     type: 'efecto'
     tags:
       - 'Utilidad'
@@ -32,7 +32,7 @@ items:
 
   - name: 'Brazales de Furia Gigante'
     level: 4
-    cost: 1500
+    cost: 2200
     type: 'activable'
     tags:
       - 'Cuerpo'
@@ -50,7 +50,7 @@ items:
 
   - name: 'Anillo de Protección'
     level: 3
-    cost: 700
+    cost: 1500
     type: 'efecto'
     tags:
       - 'Defensa'
@@ -64,7 +64,7 @@ items:
 
   - name: 'Varita de Proyectiles Mágicos'
     level: 3
-    cost: 600
+    cost: 1200
     type: 'activable'
     tags:
       - 'Vara'
@@ -83,7 +83,7 @@ items:
 
   - name: 'Bolsa Contenedora'
     level: 2
-    cost: 300
+    cost: 400
     type: 'efecto'
     tags:
       - 'Utilidad'
@@ -98,7 +98,7 @@ items:
 
   - name: 'Anillo de Invisibilidad'
     level: 5
-    cost: 4000
+    cost: 8000
     type: 'activable'
     tags:
       - 'Utilidad'
@@ -113,7 +113,7 @@ items:
 
   - name: 'Yelmo del Políglota'
     level: 3
-    cost: 600
+    cost: 800
     type: 'efecto'
     tags:
       - 'Utilidad'
@@ -128,7 +128,7 @@ items:
 
   - name: 'Sortija del Viento'
     level: 3
-    cost: 700
+    cost: 1500
     type: 'efecto'
     tags:
       - 'Esquiva'
@@ -148,7 +148,7 @@ items:
       - 'Arma'
     requirements: []
     description: >-
-      (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo).
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br>
       Como una Interacción, puedes hacer que el arma emita una luz brillante
       en un radio de 5 metros. Puedes usar otra Interacción para apagarla.
     uses:
@@ -157,7 +157,7 @@ items:
 
   - name: 'Égida del Imán'
     level: 4
-    cost: 1600
+    cost: 3200
     type: 'activable'
     tags:
       - 'Escudo'
@@ -175,7 +175,7 @@ items:
 
   - name: 'Botas Aladas'
     level: 5
-    cost: 4500
+    cost: 7500
     type: 'activable'
     tags:
       - 'Movimiento'
@@ -189,7 +189,7 @@ items:
 
   - name: 'Diadema del Sabio'
     level: 4
-    cost: 1500
+    cost: 2200
     type: 'activable'
     tags:
       - 'Mente'
@@ -204,7 +204,7 @@ items:
 
   - name: 'Collar de Instinto Primordial'
     level: 4
-    cost: 1500
+    cost: 2200
     type: 'activable'
     tags:
       - 'Instinto'
@@ -219,7 +219,7 @@ items:
 
   - name: 'Manto del Soberano'
     level: 4
-    cost: 1500
+    cost: 2200
     type: 'activable'
     tags:
       - 'Presencia'
@@ -234,7 +234,7 @@ items:
 
   - name: 'Amuleto Felino'
     level: 4
-    cost: 1500
+    cost: 2200
     type: 'activable'
     tags:
       - 'Reflejos'
@@ -249,7 +249,7 @@ items:
 
   - name: 'Arma Enriquecida'
     level: 2
-    cost: 350
+    cost: 600
     type: 'efecto'
     tags:
       - 'Arma'
@@ -264,7 +264,7 @@ items:
 
   - name: 'Perla de Resonancia Arcana'
     level: 5
-    cost: 2800
+    cost: 6000
     type: 'efecto'
     tags:
       - 'Habilidades'
@@ -275,12 +275,12 @@ items:
       y que tenga un sistema de 'Recarga (X+)' o 'Usos por día'. Recuperas
       inmediatamente un uso de esa carta.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Amuleto del Troll de Piedra'
     level: 2
-    cost: 250
+    cost: 500
     type: 'efecto'
     tags:
       - 'Salud'
@@ -294,7 +294,7 @@ items:
 
   - name: 'Escarabajo de la Fortuna'
     level: 2
-    cost: 300
+    cost: 550
     type: 'efecto'
     tags:
       - 'Suerte'
@@ -303,12 +303,12 @@ items:
       Como una Interacción, puedes frotar este escarabajo de jade para que la
       suerte te sonría. Recuperas 2 Puntos de Suerte gastados.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Lentes Nocturnos'
     level: 1
-    cost: 125
+    cost: 200
     type: 'efecto'
     tags:
       - 'Visión'
@@ -323,7 +323,7 @@ items:
 
   - name: 'Monóculo del Revelador'
     level: 5
-    cost: 3500
+    cost: 5500
     type: 'activable'
     tags:
       - 'Visión'
@@ -336,7 +336,7 @@ items:
       o no), ver criaturas y objetos invisibles y ver la forma original de
       criaturas cambiaformas o transformadas por ilusiones.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Manto Arácnido'
@@ -357,7 +357,7 @@ items:
 
   - name: 'Rodela Repulsora'
     level: 2
-    cost: 400
+    cost: 450
     type: 'activable'
     tags:
       - 'Escudo'
@@ -375,7 +375,7 @@ items:
 
   - name: 'Amuleto de Salud'
     level: 3
-    cost: 800
+    cost: 1100
     type: 'efecto'
     tags:
       - 'Curación'
@@ -392,7 +392,7 @@ items:
 
   - name: 'Broche de la Voluntad Férrea'
     level: 3
-    cost: 750
+    cost: 1200
     type: 'efecto'
     tags:
       - 'Concentración'
@@ -407,13 +407,13 @@ items:
 
   - name: 'Hoja Viciosa'
     level: 3
-    cost: 850
+    cost: 1000
     type: 'efecto'
     tags:
       - 'Arma'
     requirements: []
     description: >-
-      (Esta propiedad se puede aplicar a cualquier arma Cortante o Perforante).
+      _Esta propiedad se puede aplicar a cualquier arma Cortante o Perforante._<br><br>
       Cuando obtienes un golpe crítico con esta arma, el objetivo sufre 1d8 de
       daño adicional del mismo tipo que el del arma.
     uses:
@@ -422,7 +422,7 @@ items:
 
   - name: 'Talisman del Estratega'
     level: 4
-    cost: 1200
+    cost: 2500
     type: 'efecto'
     tags:
       - 'Habilidades'
@@ -433,12 +433,12 @@ items:
       Activables que tengas equipada en una ranura. Puedes cambiarla
       instantáneamente por otra carta de tu Colección del mismo nivel o inferior.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Gema de la Verdad'
     level: 4
-    cost: 1900
+    cost: 3000
     type: 'activable'
     tags:
       - 'Visión'
@@ -451,12 +451,12 @@ items:
       y objetos invisibles y la forma original de criaturas cambiaformas o
       transformadas por ilusiones.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Guanteletes del Azar Caótico'
     level: 5
-    cost: 3000
+    cost: 9000
     type: 'activable'
     tags:
       - 'Suerte'
@@ -466,12 +466,12 @@ items:
       Durante 1 minuto, tus dados de d8 "explotan" con un resultado de 7 u 8,
       en lugar de solo con un 8.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Anillo de Enfoque Arcano'
     level: 5
-    cost: 4500
+    cost: 10000
     type: 'efecto'
     tags:
       - 'Habilidades'
@@ -496,7 +496,7 @@ items:
       Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias.
       Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
       lecciones de forma permanente. Tu puntuación de Cuerpo aumenta en +1.
-      Esto te permite superar el límite máximo normal de 5, hasta un nuevo máximo de 6.
+      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6.
       Una vez que el libro es leído, sus páginas se vuelven ininteligibles para siempre.
     uses:
       type: NULL
@@ -514,7 +514,7 @@ items:
       Escrito en seda y con tinta invisible, este tratado enseña el arte del
       movimiento perfecto. Si pasas una semana de tiempo entre aventuras estudiándolo,
       asimilas sus lecciones de forma permanente. Tu puntuación de Reflejos aumenta
-      en +1. Esto te permite superar el límite máximo normal de 5, hasta un nuevo
+      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo
       máximo de 6. Una vez que el libro es leído, sus páginas se vuelven ininteligibles
       para siempre.
     uses:
@@ -533,7 +533,7 @@ items:
       Este libro sin título contiene paradojas y acertijos que expanden la conciencia.
       Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
       lecciones de forma permanente. Tu puntuación de Mente aumenta en +1.
-      Esto te permite superar el límite máximo normal de 5, hasta un nuevo máximo de 6.
+      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6.
       Una vez que el libro es leído, sus páginas se vuelven ininteligibles para siempre.
     uses:
       type: NULL
@@ -551,7 +551,7 @@ items:
       Estas tablillas de marfil describen meditaciones para unificar los sentidos
       con el mundo. Si pasas una semana de tiempo entre aventuras estudiándolas,
       asimilas sus lecciones de forma permanente. Tu puntuación de Instinto aumenta
-      en +1. Esto te permite superar el límite máximo normal de 5, hasta un nuevo
+      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo
       máximo de 6. Una vez que las tablillas son leídas, sus glifos se borran para siempre.
     uses:
       type: NULL
@@ -569,8 +569,8 @@ items:
       Este tomo contiene ensayos y observaciones de los más grandes líderes de
       la historia. Si pasas una semana de tiempo entre aventuras estudiándolo,
       asimilas sus lecciones de forma permanente. Tu puntuación de Presencia
-      aumenta en +1. Esto te permite superar el límite máximo normal de 5,
-      hasta un nuevo máximo de 6. Una vez que el libro es leído, sus páginas
+      aumenta en +1. Esto te permite superar el límite máximo normal de 6,
+      hasta un nuevo máximo de 7. Una vez que el libro es leído, sus páginas
       se vuelven ininteligibles para siempre.
     uses:
       type: NULL
@@ -593,7 +593,7 @@ items:
 
   - name: 'Poción de Curación Mediana'
     level: 2
-    cost: 250
+    cost: 150
     type: 'consumible'
     tags:
       - 'Poción'
@@ -608,7 +608,7 @@ items:
 
   - name: 'Poción de Curación Mayor'
     level: 3
-    cost: 700
+    cost: 400
     type: 'consumible'
     tags:
       - 'Poción'
@@ -623,7 +623,7 @@ items:
 
   - name: 'Poción de Curación Superior'
     level: 4
-    cost: 1800
+    cost: 1000
     type: 'consumible'
     tags:
       - 'Poción'
@@ -638,7 +638,7 @@ items:
 
   - name: 'Elixir de Agilidad Felina'
     level: 2
-    cost: 300
+    cost: 200
     type: 'consumible'
     tags:
       - 'Poción'
@@ -653,7 +653,7 @@ items:
 
   - name: 'Brebaje de Fuerza de Gigante'
     level: 2
-    cost: 300
+    cost: 200
     type: 'consumible'
     tags:
       - 'Poción'
@@ -668,7 +668,7 @@ items:
 
   - name: 'Poción de Invisibilidad'
     level: 3
-    cost: 800
+    cost: 500
     type: 'consumible'
     tags:
       - 'Poción'
@@ -683,7 +683,7 @@ items:
 
   - name: 'Filtro de Respiración Acuática'
     level: 2
-    cost: 250
+    cost: 150
     type: 'consumible'
     tags:
       - 'Poción'
@@ -697,7 +697,7 @@ items:
 
   - name: 'Elixir de Resistencia Elemental'
     level: 3
-    cost: 650
+    cost: 500
     type: 'consumible'
     tags:
       - 'Poción'
@@ -712,7 +712,7 @@ items:
 
   - name: 'Poción de Heroísmo'
     level: 4
-    cost: 1500
+    cost: 1200
     type: 'consumible'
     tags:
       - 'Poción'
@@ -758,7 +758,7 @@ items:
 
   - name: 'Capa Camaleónica'
     level: 1
-    cost: 150
+    cost: 125
     type: 'efecto'
     tags:
       - 'Estético'
@@ -792,7 +792,7 @@ items:
 
   - name: 'Pipa del Cuentacuentos'
     level: 1
-    cost: 75
+    cost: 100
     type: 'efecto'
     tags:
       - 'Estético'
@@ -805,7 +805,7 @@ items:
       una espada, un castillo, etc.
     uses:
       type: NULL
-      qty: 0
+      qty: 0 que no requiere tirada
 
   - name: 'Aguja e Hilo de la Remendadora'
     level: 1
@@ -817,11 +817,11 @@ items:
     requirements: []
     description: >-
       Esta aguja de plata y su carrete de hilo dorado pueden reparar cualquier
-      desgarro o rotura en tela o cuero. Como una Acción que no requiere tirada,
+      desgarro o rotura en tela o cuero. Como una Acción,
       puedes reparar un objeto dañado, dejándolo como nuevo. El hilo se regenera
       mágicamente.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 3
 
   - name: 'Monedas del Mensaje Silencioso'
@@ -861,7 +861,7 @@ items:
 
   - name: 'Medallón del Vínculo Fiel'
     level: 4
-    cost: 1400
+    cost: 4000
     type: 'activable'
     tags:
       - 'Invocación'
@@ -875,12 +875,12 @@ items:
       dura 1 minuto o hasta que el lobo es reducido a 0 Puntos de Salud, momento
       en el que se revierte a su forma de medallón.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Espejo de la Memoria Reciente'
     level: 3
-    cost: 800
+    cost: 900
     type: 'activable'
     tags:
       - 'Adivinación'
@@ -893,7 +893,7 @@ items:
       o emocionalmente cargado que ocurrió en ese punto en las últimas 24 horas.
       La visión dura 10 segundos y es desde la perspectiva del espejo.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Brazalete del Guardián Resentido'
@@ -916,7 +916,7 @@ items:
 
   - name: 'Filo Entorpecedor'
     level: 2
-    cost: 450
+    cost: 300
     type: 'efecto'
     tags:
       - 'Arma'
@@ -933,7 +933,7 @@ items:
 
   - name: 'Piedra de Anulación'
     level: 3
-    cost: 750
+    cost: 1000
     type: 'activable'
     tags:
       - 'Control'
@@ -950,12 +950,12 @@ items:
       - **Oscuridad:** La esfera se llena de oscuridad mágica, bloqueando la visión
         (incluso la Visión en la Oscuridad).
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Amuleto del Caminante Acuático'
     level: 2
-    cost: 350
+    cost: 300
     type: 'efecto'
     tags:
       - 'Movimiento'
@@ -971,7 +971,7 @@ items:
 
   - name: 'Armadura de la Víbora Dentada'
     level: 3
-    cost: 800
+    cost: 1300
     type: 'efecto'
     tags:
       - 'Armadura'
@@ -989,7 +989,7 @@ items:
 
   - name: 'Cota de Sombras Danzantes'
     level: 2
-    cost: 450
+    cost: 550
     type: 'activable'
     tags:
       - 'Armadura'
@@ -1008,7 +1008,7 @@ items:
 
   - name: 'Túnica del Recuerdo Arcano'
     level: 3
-    cost: 900
+    cost: 1500
     type: 'activable'
     tags:
       - 'Armadura'
@@ -1026,12 +1026,12 @@ items:
       ranura, sin gastar su uso normal. Una vez lanzado, el conjuro se desvanece
       de la túnica y debes realizar el ritual de nuevo para almacenar otro.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 1
 
   - name: 'Coraza del Guardián Elemental'
     level: 4
-    cost: 1700
+    cost: 2000
     type: 'efecto'
     tags:
       - 'Armadura'
@@ -1051,7 +1051,7 @@ items:
 
   - name: 'Cuerda de Anclaje Certero'
     level: 2
-    cost: 350
+    cost: 300
     type: 'efecto'
     tags:
       - 'Utilidad'
@@ -1063,12 +1063,12 @@ items:
       ancla firmemente a ese punto. La cuerda puede soportar hasta 250 kg y
       permanece anclada hasta que pronuncias la palabra de mando para que se suelte.
     uses:
-      type: PER_DAY
+      type: DAY
       qty: 3
 
   - name: 'Vara del Alivio'
     level: 2
-    cost: 400
+    cost: 600
     type: 'activable'
     tags:
       - 'Curación'
@@ -1084,7 +1084,7 @@ items:
 
   - name: 'Gemas del Eco Mental'
     level: 3
-    cost: 600
+    cost: 800
     type: 'efecto'
     tags:
       - 'Comunicación'
@@ -1104,7 +1104,7 @@ items:
 
   - name: 'Arma del Retorno'
     level: 2
-    cost: 300
+    cost: 350
     type: 'efecto'
     tags:
       - 'Arma'

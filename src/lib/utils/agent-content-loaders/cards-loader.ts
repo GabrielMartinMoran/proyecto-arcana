@@ -17,6 +17,8 @@ const formatUses = (uses: Uses | null): string => {
 			return `1 (Recarga ${uses.qty ?? '—'}+)`;
 		case 'USES':
 			return `${uses.qty ?? '—'}`;
+		case 'DAY':
+			return '1 por día';
 		default:
 			return '—';
 	}

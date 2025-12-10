@@ -108,7 +108,7 @@ El Presupuesto Total de 280 de Oro del ejemplo anterior no significa necesariame
 > - **Total:** 280 de Oro.
 
 > **Ejemplo 2: Un Objeto Mágico como Recompensa Principal**
-> Quieres que el grupo encuentre un **Amuleto del Troll de Piedra** (Nivel 2, valor ~100 o).
+> Quieres que el grupo encuentre un objeto mágico nivel 1 con valor de 100 de oro.
 >
 > - El oro restante sería `280 - 100 = 180 de Oro`.
 > - La recompensa podría ser el amuleto encontrado en el cadáver de un chamán y 180 de Oro en un cofre.
@@ -171,11 +171,11 @@ Los objetos mágicos no son mercancía común. Su venta es un evento raro, manej
 
 | Nivel del Objeto | Rareza      | Costo Sugerido (Oro) - Refleja Valor y Poder |
 | :--------------- | :---------- | :------------------------------------------- |
-| **1**            | Poco Común  | 75 - 150 o                                   |
-| **2**            | Infrecuente | 200 - 450 o                                  |
-| **3**            | Raro        | 450 - 900 o                                  |
-| **4**            | Muy Raro    | 900 - 2,200 o                                |
-| **5**            | Legendario  | 2,200 - 5,000+ o                             |
+| **1**            | Poco Común  | 100 - 200 o                                  |
+| **2**            | Infrecuente | 300 - 600 o                                  |
+| **3**            | Raro        | 800 - 1500 o                                 |
+| **4**            | Muy Raro    | 2000 - 4000 o                                |
+| **5**            | Legendario  | 5000 - 10000+ o                              |
 | **6**            | Artefacto   | Incalculable (más allá del simple oro)       |
 
 **Filosofía para el DJ:** Estos precios no son para un "catálogo mágico". Representan el valor que un coleccionista adinerado podría pedir. Encontrar un objeto de Nivel 4 a la venta debería ser una aventura en sí misma. Los Artefactos de Nivel 6 nunca deberían estar a la venta; son el corazón de tramas enteras, recompensas de final de campaña cuyo poder puede cambiar el mundo.

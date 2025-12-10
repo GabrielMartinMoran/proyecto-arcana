@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"lib": ["ES2022", "DOM"],
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"declaration": false,
+		"declarationMap": false,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"types": ["@league-of-foundry-developers/foundry-vtt-types"],
+		"forceConsistentCasingInFileNames": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowUnusedLabels": false,
+		"allowUnreachableCode": false
+	},
+	"include": ["src/**/*", "main.ts"],
+	"exclude": ["node_modules", "dist"]
+}

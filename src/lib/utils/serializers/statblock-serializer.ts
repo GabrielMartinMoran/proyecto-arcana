@@ -77,8 +77,10 @@ const formatUses = (uses: Uses | null) => {
 		case 'RELOAD':
 			return `${uses.qty} [Recarga ${uses.qty}+]`;
 		case 'USES':
-		case 'LONG_REST':
 			return `${uses.qty}`;
+		case 'LONG_REST':
+		case 'DAY':
+			return `${uses.qty} por día`;
 		default:
 			return '';
 	}

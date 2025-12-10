@@ -1,6 +1,13 @@
-import { isCharacter } from '../helpers/actor-urls.js';
+import { isCharacter } from '../helpers/actor-urls';
+import type { TokenDocumentData } from '../types/actor';
 
-export function renderTokenHUD(app, html, data) {
+interface TokenHUDApp {
+	object: {
+		document: TokenDocumentData;
+	};
+}
+
+export function renderTokenHUD(app: TokenHUDApp, html: JQuery): void {
 	const $html = $(html);
 	const tokenDocument = app.object.document;
 

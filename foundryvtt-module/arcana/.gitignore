@@ -80,7 +80,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist - IMPORTANT: Don't ignore dist/ as it contains compiled FoundryVTT module
 .output
 
 # Gatsby files
@@ -139,3 +139,4 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+dist/

@@ -1,1 +1,0 @@
-import * as foundry from "@league-of-foundry-developers/foundry-vtt-types";
