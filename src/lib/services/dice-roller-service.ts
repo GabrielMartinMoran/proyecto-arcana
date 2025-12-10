@@ -7,6 +7,7 @@ import type { DiceRoll } from '$lib/types/dice-roll';
 import type { RollLog } from '$lib/types/roll-log';
 import type { RollModalData } from '$lib/types/roll-modal-data';
 import { buildRollsDetail, calculateTotal, parseDiceExpression } from '$lib/utils/dice-rolling';
+import { generateUUID } from '$lib/utils/uuid';
 import { get, writable, type Writable } from 'svelte/store';
 import { CONFIG } from '../../config';
 import { useFoundryVTTService } from './foundryvtt-service';
@@ -103,12 +104,7 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 		// Ensure all pending logs have IDs
 		for (const log of pendingLogs) {
 			if (log && !(log as any).id) {
-				try {
-					(log as any).id = crypto.randomUUID();
-				} catch {
-					// Fallback if crypto.randomUUID() is not available
-					(log as any).id = `local-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
-				}
+				(log as any).id = generateUUID();
 			}
 		}
 
@@ -222,7 +218,7 @@ const logRolls = (
 ) => {
 	const total = calculateTotal(rolls);
 	const log: RollLog & { pending?: boolean } & { authorId?: string; authorName?: string } = {
-		id: crypto.randomUUID(),
+		id: generateUUID(),
 		timestamp: new Date(),
 		title: title || 'Tirada rápida',
 		total: total,
@@ -269,7 +265,7 @@ const mergeRemoteAndLocalLogs = (remoteLogs: RollLog[], localLogs: RollLog[]): R
 
 		if (!lid) {
 			// Assign ID to local-only entry
-			const genId = crypto.randomUUID();
+			const genId = generateUUID();
 			(localLog as any).id = genId;
 			mergedById.set(genId, localLog);
 			continue;
