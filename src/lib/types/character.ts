@@ -49,6 +49,7 @@ export class Character {
 		this.attacks = props.attacks;
 		this.maxActiveCards = props.maxActiveCards;
 		this.version = props.version;
+		this.skills = props.skills ?? [];
 	}
 
 	protected calculateAttrModifiers(attr: string, baseValue: number) {
@@ -149,6 +150,8 @@ export class Character {
 		return this.attributes.reflexes;
 	}
 
+	skills: Skill[];
+
 	copy() {
 		return new Character({ ...this });
 	}
@@ -162,6 +165,14 @@ export class Character {
 			},
 		};
 	}
+}
+
+export interface Skill {
+	id: string;
+	name: string;
+	attribute: 'body' | 'reflexes' | 'mind' | 'instinct' | 'presence';
+	description: string;
+	hasAdvantage: boolean;
 }
 
 export interface CharacterCard {

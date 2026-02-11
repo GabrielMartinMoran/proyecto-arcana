@@ -308,6 +308,7 @@ type RollFnProps = {
 	variables?: Record<string, number>;
 	title?: string;
 	resultFormatter?: (result: number) => string | undefined;
+	rollType?: 'normal' | 'advantage' | 'disadvantage';
 };
 
 export const useDiceRollerService = () => {
@@ -506,12 +507,13 @@ export const useDiceRollerService = () => {
 		variables = {},
 		title = undefined,
 		resultFormatter = () => undefined,
+		rollType = 'normal',
 	}: RollFnProps) => {
 		state.rollModalData.set({
 			expression,
 			variables,
 			title: title ?? 'Tirar',
-			rollType: 'normal',
+			rollType,
 			extraModsExpression: '',
 			resultFormatter,
 		});

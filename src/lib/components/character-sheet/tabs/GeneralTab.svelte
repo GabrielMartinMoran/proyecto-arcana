@@ -3,7 +3,7 @@
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import TextField from '$lib/components/ui/TextField.svelte';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
-	import { Character, type Attack } from '$lib/types/character';
+	import { Character, type Attack, type Skill } from '$lib/types/character';
 	import { capitalize } from '$lib/utils/formatting';
 	import AttacksList from '../elements/AttacksList.svelte';
 	import AttributeField from '../elements/AttributeField.svelte';
@@ -59,6 +59,61 @@
 				presencia: character.attributes.presence,
 			},
 			title: `${character.name}: Daño de ${attack.name}`,
+		});
+	};
+
+	const ATTR_MAP: Record<string, string> = {
+		body: 'cuerpo',
+		reflexes: 'reflejos',
+		mind: 'mente',
+		instinct: 'instinto',
+		presence: 'presencia',
+	};
+
+	// Order of attributes for display
+	const ATTR_ORDER = ['body', 'reflexes', 'mind', 'instinct', 'presence'];
+
+	let skillsByAttribute = $derived.by(() => {
+		const grouped: Record<string, Skill[]> = {};
+
+		// Initialize groups in order
+		ATTR_ORDER.forEach((attr) => {
+			const label = ATTR_MAP[attr];
+			grouped[label] = [];
+		});
+
+		// Group skills
+		if (character.skills) {
+			character.skills.forEach((skill) => {
+				const label = ATTR_MAP[skill.attribute] || skill.attribute;
+				if (!grouped[label]) grouped[label] = [];
+				grouped[label].push(skill);
+			});
+		}
+
+		// Sort skills within groups
+		Object.keys(grouped).forEach((key) => {
+			grouped[key].sort((a, b) => a.name.localeCompare(b.name));
+		});
+
+		return grouped;
+	});
+
+	const onSkillRoll = (skill: Skill) => {
+		const attrLabel = ATTR_MAP[skill.attribute];
+		let expression = `1d8e+${attrLabel}`;
+
+		rollModal.openRollModal({
+			expression,
+			variables: {
+				cuerpo: character.attributes.body,
+				reflejos: character.attributes.reflexes,
+				mente: character.attributes.mind,
+				instinto: character.attributes.instinct,
+				presencia: character.attributes.presence,
+			},
+			title: `${character.name}: ${skill.name} (${capitalize(attrLabel)})`,
+			rollType: skill.hasAdvantage ? 'advantage' : 'normal',
 		});
 	};
 </script>
@@ -165,6 +220,36 @@
 	</div>
 </Container>
 
+<Container title="Habilidades">
+	<div class="skills-container">
+		{#each Object.entries(skillsByAttribute) as [attr, skills]}
+			{#if skills.length > 0}
+				<div class="skill-group">
+					<div class="group-header">{capitalize(attr)}</div>
+					<div class="skills-list">
+						{#each skills as skill}
+							<button
+								class="skill-btn"
+								class:advantage={skill.hasAdvantage}
+								onclick={() => onSkillRoll(skill)}
+								title={skill.description}
+							>
+								{skill.name}
+								<span class="dice">🎲</span>
+							</button>
+						{/each}
+					</div>
+				</div>
+			{/if}
+		{/each}
+		{#if character.skills.length === 0}
+			<div class="empty">
+				<em>No hay habilidades configuradas. Ve a Configuración para agregarlas.</em>
+			</div>
+		{/if}
+	</div>
+</Container>
+
 <Container title="Información">
 	<div class="info">
 		<AttacksList
@@ -237,7 +322,8 @@
 	}
 
 	.equipment,
-	.info {
+	.info,
+	.skills-container {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
@@ -249,6 +335,53 @@
 			flex: 1;
 			justify-content: center;
 			align-items: center;
+		}
+	}
+
+	.skill-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+
+		.group-header {
+			font-weight: bold;
+			color: var(--color-text-muted);
+			font-size: 0.9em;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.skills-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--spacing-sm);
+
+			.skill-btn {
+				/* background-color: var(--color-bg-secondary);
+				border: 1px solid var(--color-border);
+				padding: var(--spacing-xs) var(--spacing-sm);
+				border-radius: var(--radius-sm);
+				cursor: pointer;
+				transition: all 0.2s;
+				display: flex;
+				align-items: center;
+				gap: 4px; */
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				justify-content: center;
+				gap: var(--spacing-sm);
+
+				&.advantage {
+					border-color: var(--selected-bg);
+					box-shadow: 0 0 1px var(--selected-border);
+
+					&:hover {
+						border-color: var(--selected-border);
+						background-color: var(--selected-bg);
+					}
+				}
+			}
 		}
 	}
 </style>
