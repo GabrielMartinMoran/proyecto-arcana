@@ -53,14 +53,17 @@ export const foundryParams = derived(page, ($page) => {
 export const useFoundryVTTService = () => {
 	const _postMessage = (payload: FoundryPrecalculatedRoll | FoundryUpdateMessage) => {
 		if (typeof window === 'undefined') {
+			console.warn('[Foundry Service] Window is undefined.');
 			return;
 		}
 
 		if (!window.parent || window.parent === window) {
+			console.warn('[Foundry Service] No parent window detected (not in iframe).');
 			return;
 		}
 
 		try {
+			console.log('[Foundry Service] Sending message:', payload.type, 'to parent window');
 			// Using '*' as targetOrigin is acceptable here since we're sending FROM the iframe
 			// The receiver (FoundryVTT module) will validate the origin
 			window.parent.postMessage(payload, '*');

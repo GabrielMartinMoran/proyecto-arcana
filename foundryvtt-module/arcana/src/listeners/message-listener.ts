@@ -14,6 +14,8 @@ export function setupMessageListener(): void {
 		const data = event.data;
 		if (!data) return;
 
+		console.log('[Arcana] Received message:', data.type, 'from', event.origin);
+
 		if (data.type === MESSAGE_TYPES.PRECALCULATED_ROLL) {
 			await rollHandler.handlePrecalculatedRoll(data as PrecalculatedRollData);
 		}
