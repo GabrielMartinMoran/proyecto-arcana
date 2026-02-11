@@ -1420,6 +1420,50 @@ cards:
     uses:
       type: null
       qty: 0
+  - name: Pacto Supremo
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+      - Arquetipo
+      - Alternativa
+      - Brujo
+    requirements:
+      - Afinidad Arcana
+      - Presencia 2
+    description: >-
+      Has sellado un pacto con una entidad extra-planar celosa y poderosa.<br><br>
+      **Beneficio de Arquetipo:** Puedes usar **Presencia** en lugar de **Mente** para todas las variables de tus cartas de _Arcanista_.
+      Obtienes Ventaja (+1d4) en pruebas de Engaño o Intimidación.<br>
+      **Celos del Patrón:** Tu patrón exige exclusividad. No puedes usar cartas con la etiqueta _Conjuro_ que no pertenezcan a la lista de Arcanista.<br>
+      **Poder del Pacto:** Añades la carta _Descarga Elemental_ a tu colección, esta no necesita ocupar una de tus Ranuras de Cartas Activas para ser utilizada, y no necesitas recargarla. Al usarla, su daño base aumenta a 1d10 y puedes elegir que el tipo de daño sea **Fuerza** o **Necrótico**.<br>
+      **Favor Oscuro:** Puedes gastar Puntos de Suerte en las tiradas de Recarga de tus conjuros de Arcanista.<br>
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Herencia Sobrenatural
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+      - Arquetipo
+      - Alternativa
+      - Hechicero
+    requirements:
+      - Afinidad Arcana
+      - Presencia 2
+    description: >-
+      No has aprendido la magia, la heredaste. Eres un conducto vivo de energía arcana.<br><br>
+      **Beneficio de Arquetipo:** Puedes usar **Presencia** en lugar de **Mente** para todas las variables de tus cartas de _Arcanista_.
+      Obtienes Ventaja (+1d4) en pruebas de Persuasión o Intimidación.<br>
+      **Torrente Arcano:** La magia fluye a través de ti con menor resistencia. El valor de _Recarga_ de todas tus cartas con las etiquetas _Conjuro_ y _Arcanista_ (ambas) se reduce en 1.<br>
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
   - name: Trucos Arcanos
     level: 1
     type: efecto
@@ -4319,7 +4363,7 @@ cards:
       qty: 0
 
   # ------------------------------ 20. Arcanista + Bardo ------------------------------
-  - name: Pacto Arcano
+  - name: Virtuosismo Arcano
     level: 4
     type: efecto
     tags:
@@ -4331,9 +4375,13 @@ cards:
       - Don del Elocuente
       - Presencia 5
     description: >-
-      Fusionas tu carisma innato con un profundo conocimiento arcano. Ganas los siguientes beneficios permanentes:<br>
-      - **Secretos Arcanos Ampliados:** Tu carta Secretos Mágicos (si la tienes) ahora te permite elegir conjuros de hasta Nivel 4, con un presupuesto total de 4 niveles, siempre que los conjuros elegidos sean de la lista del Arcanista. Si eliges de Sacerdote o Druida, se aplican los límites originales.<br>
-      - **Maledicción Persistente:** Añades la carta Maledicción (Arcanista) a tu colección. Puedes utilizar esta carta con Presencia y no requiere Concentración para ti.
+      Has fusionado el arte de la palabra con los secretos más profundos de la magia.<br><br>
+      - **Secretos Arcanos Ampliados:** Tu carta _Secretos Mágicos_ (si la tienes) se vuelve mucho más poderosa.
+      Ahora te permite elegir conjuros de hasta **Nivel 4**, con un presupuesto total de 4 niveles,
+      siempre que los conjuros elegidos sean de la lista del **Arcanista**.
+      (Si eliges de Sacerdote o Druida, se aplican los límites originales de Nivel 3).<br>
+      - **Marca de la Condena:** Añades la carta _Maledicción_ a tu colección.
+      Para ti, esta carta no requiere Concentración y puedes lanzarla usando tu atributo de **Presencia**.
     uses:
       type: null
       qty: 0
