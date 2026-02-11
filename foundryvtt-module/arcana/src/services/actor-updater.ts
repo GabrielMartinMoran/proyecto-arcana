@@ -78,6 +78,13 @@ export class ActorUpdater {
 			}
 		}
 
+		// Handle Initiative update
+		if (payload.initiative !== undefined) {
+			console.log(`[Arcana] Updating initiative for ${actor.name} to ${payload.initiative}`);
+			changes['flags.arcana.initiative'] = payload.initiative;
+			hasChanges = true;
+		}
+
 		return { changes, hasChanges };
 	}
 

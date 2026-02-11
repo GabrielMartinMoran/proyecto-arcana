@@ -72,4 +72,5 @@ export interface UpdatePayload {
 		value: number;
 		max: number;
 	};
+	initiative?: number;
 }

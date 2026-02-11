@@ -1,5 +1,73 @@
+// src/combat/arcana-combat.ts
+var ArcanaCombat = class extends Combat {
+  /** @override */
+  async rollInitiative(ids, options = {}) {
+    const combatantIds = typeof ids === "string" ? [ids] : ids;
+    for (const id of combatantIds) {
+      const combatant = this.combatants.get(id);
+      if (!combatant) continue;
+      const actor = combatant.actor;
+      if (!actor) continue;
+      await new Promise((resolve) => {
+        new Dialog({
+          title: `Tirar Iniciativa: ${combatant.name}`,
+          content: `<p>Elige el tipo de tirada para <strong>${combatant.name}</strong></p>`,
+          buttons: {
+            normal: {
+              label: "Normal",
+              callback: async () => {
+                await this._rollCombatantInitiative(id, "normal");
+                resolve();
+              }
+            },
+            advantage: {
+              label: "Ventaja (+1d4)",
+              callback: async () => {
+                await this._rollCombatantInitiative(id, "advantage");
+                resolve();
+              }
+            },
+            disadvantage: {
+              label: "Desventaja (-1d4)",
+              callback: async () => {
+                await this._rollCombatantInitiative(id, "disadvantage");
+                resolve();
+              }
+            }
+          },
+          default: "normal",
+          close: () => resolve()
+          // Resolve if closed without choice to avoid hanging
+        }).render(true);
+      });
+    }
+    return this;
+  }
+  /**
+   * Helper to execute the roll for a single combatant
+   */
+  async _rollCombatantInitiative(combatantId, mode) {
+    const combatant = this.combatants.get(combatantId);
+    if (!combatant) return;
+    const initMod = combatant.actor?.getFlag("arcana", "initiative") || 0;
+    let formula = `1d8e + ${initMod}`;
+    if (mode === "advantage") {
+      formula += " + 1d4";
+    } else if (mode === "disadvantage") {
+      formula += " - 1d4";
+    }
+    const roll = await new Roll(formula, combatant.actor?.getRollData()).evaluate();
+    await roll.toMessage({
+      flavor: `${combatant.name} tira Iniciativa (${mode === "normal" ? "Normal" : mode === "advantage" ? "Ventaja" : "Desventaja"})`,
+      // @ts-ignore - ChatMessage is global
+      speaker: ChatMessage.getSpeaker({ actor: combatant.actor, token: combatant.token })
+    });
+    await this.setInitiative(combatantId, roll.total);
+  }
+};
+
 // src/config.ts
-var CONFIG = {
+var CONFIG2 = {
   BASE_URL: ""
 };
 
@@ -45,7 +113,7 @@ var ArcanaSheet = class extends ActorSheet {
   getData() {
     const data = super.getData();
     let urlWeb = this.actor.getFlag("arcana", "sheetUrl");
-    if (!urlWeb) urlWeb = CONFIG.BASE_URL;
+    if (!urlWeb) urlWeb = CONFIG2.BASE_URL;
     data.isBestiary = false;
     data.localNotes = "";
     data.health = { value: 0, max: 0 };
@@ -162,6 +230,11 @@ var ArcanaSheet = class extends ActorSheet {
 // src/hooks/init.ts
 function init() {
   console.log("ARCANA SYSTEM | Inicializando...");
+  CONFIG.Combat.documentClass = ArcanaCombat;
+  CONFIG.Combat.initiative = {
+    formula: "1d8e + @flags.arcana.initiative",
+    decimals: 2
+  };
   Actors.registerSheet("core", ArcanaSheet, {
     label: "Arcana Web",
     makeDefault: true
@@ -286,6 +359,11 @@ var ActorUpdater = class {
         Object.assign(changes, hpUpdate);
         hasChanges = true;
       }
+    }
+    if (payload.initiative !== void 0) {
+      console.log(`[Arcana] Updating initiative for ${actor.name} to ${payload.initiative}`);
+      changes["flags.arcana.initiative"] = payload.initiative;
+      hasChanges = true;
     }
     return { changes, hasChanges };
   }

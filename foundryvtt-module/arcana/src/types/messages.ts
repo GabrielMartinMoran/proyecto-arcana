@@ -33,6 +33,7 @@ export interface UpdateActorData {
 			value: number;
 			max: number;
 		};
+		initiative?: number;
 	};
 }
 

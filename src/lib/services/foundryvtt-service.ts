@@ -16,6 +16,7 @@ export interface CharacterState {
 		value: number;
 		max: number;
 	};
+	initiative?: number;
 }
 
 export interface FoundryUpdateMessage {
@@ -152,6 +153,7 @@ export const useFoundryVTTService = () => {
 				value: character.currentHP,
 				max: character.maxHP,
 			},
+			initiative: character.initiative,
 		};
 
 		const payload: FoundryUpdateMessage = {
@@ -161,7 +163,7 @@ export const useFoundryVTTService = () => {
 			payload: state,
 		};
 
-		// console.log(`[Foundry] Syncing Character ${params.uuid}:`, state);
+		console.log(`[Foundry] Syncing Character ${params.uuid}:`, state);
 		_postMessage(payload);
 	};
 
