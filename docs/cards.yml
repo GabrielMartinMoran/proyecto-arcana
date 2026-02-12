@@ -1433,12 +1433,12 @@ cards:
       - Presencia 2
     description: >-
       Has sellado un pacto con una entidad extra-planar celosa y poderosa.<br><br>
-      **Beneficio de Arquetipo:** Puedes usar **Presencia** en lugar de **Mente** para todas las variables de tus cartas de _Arcanista_.
+      **Beneficio de Arquetipo:** Puedes usar **Presencia** en lugar de **Mente** para adquirir o usar cartas de _Arcanista_.
       Obtienes Ventaja (+1d4) en pruebas de Engaño o Intimidación.<br>
-      **Celos del Patrón:** Tu patrón exige exclusividad. No puedes usar cartas con la etiqueta _Conjuro_ que no pertenezcan a la lista de Arcanista.<br>
-      **Poder del Pacto:** Añades la carta _Descarga Elemental_ a tu colección, esta no necesita ocupar una de tus Ranuras de Cartas Activas para ser utilizada, y no necesitas recargarla. Al usarla, su daño base aumenta a 1d10 y puedes elegir que el tipo de daño sea **Fuerza** o **Necrótico**.<br>
-      **Favor Oscuro:** Puedes gastar Puntos de Suerte en las tiradas de Recarga de tus conjuros de Arcanista.<br>
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      **Celos del Patrón:** Tu patrón exige exclusividad. No puedes adquirir ni usar cartas con la etiqueta _Conjuro_ que no pertenezcan a la lista de Arcanista.<br>
+      **Descarga de Otro Mundo:** Añades la carta _Descarga Elemental_ a tu colección, esta no necesita ocupar una de tus Ranuras de Cartas Activas para ser utilizada, y no necesitas recargarla. Al activar este beneficio, elige uno de los tipos de daño de la carta, sumando **Fuerza**, **Necrótico** o **Radiante** a la lista. Cada vez que lances el conjuro, ese sera el tipo de daño que realice.<br>
+      **Favor Oscuro:** Puedes gastar Puntos de Suerte en las tiradas de Recarga de tus conjuros de _Arcanista_.<br>
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
       _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
@@ -1456,9 +1456,12 @@ cards:
       - Presencia 2
     description: >-
       No has aprendido la magia, la heredaste. Eres un conducto vivo de energía arcana.<br><br>
-      **Beneficio de Arquetipo:** Puedes usar **Presencia** en lugar de **Mente** para todas las variables de tus cartas de _Arcanista_.
+      **Beneficio de Arquetipo:** Puedes usar **Presencia** en lugar de **Mente** para adquirir o usar cartas de _Arcanista_.
       Obtienes Ventaja (+1d4) en pruebas de Persuasión o Intimidación.<br>
-      **Torrente Arcano:** La magia fluye a través de ti con menor resistencia. El valor de _Recarga_ de todas tus cartas con las etiquetas _Conjuro_ y _Arcanista_ (ambas) se reduce en 1.<br>
+      **Magia de Sangre:** Una vez por ronda, puedes sacrificar tu vitalidad para alterar tus conjuros con la etiqueta Arcanista. Al hacerlo, sufres daño Necrótico directo a tu salud que no puedes mitigar:<br>
+      - _Sacrificio (Recarga):_ Cuando fallas una tirada de Recarga, puedes pagar 3 PS por cada punto que quieras sumar al resultado para convertirlo en un éxito.<br>
+      - _Potencia (Daño):_ Al tirar el daño de un conjuro, puedes pagar 2 PS por nivel del conjuro. Si lo haces, puedes volver a tirar hasta un número de dados de daño igual a tu Presencia (debes usar los nuevos resultados).<br>
+      - _Celeridad (Velocidad):_ Puedes lanzar un conjuro de Nivel 1 o 2 usando tu Interacción en lugar de tu Acción. El coste es 1d6 + nivel del conjuro de daño.<br>
       Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
       _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
