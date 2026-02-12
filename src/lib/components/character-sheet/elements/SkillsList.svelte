@@ -1,6 +1,7 @@
 <script lang="ts">
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import SelectField from '$lib/components/ui/SelectField.svelte';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { generateDefaultSkills } from '$lib/constants/skills';
 	import type { Skill } from '$lib/types/character';
 
@@ -30,14 +31,13 @@
 		onChange(skills);
 	};
 
-	const loadDefaults = () => {
-		if (
-			skills.length > 0 &&
-			!confirm(
+	const loadDefaults = async () => {
+		if (skills.length > 0) {
+			const confirmed = await dialogService.confirm(
 				'¿Estás seguro de que quieres cargar las habilidades por defecto? Esto borrará las habilidades actuales.',
-			)
-		) {
-			return;
+				{ title: 'Confirmar reinicio', confirmLabel: 'Reiniciar', cancelLabel: 'Cancelar' },
+			);
+			if (!confirmed) return;
 		}
 		skills = generateDefaultSkills();
 		onChange(skills);

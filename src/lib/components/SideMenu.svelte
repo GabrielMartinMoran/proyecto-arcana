@@ -3,6 +3,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { useFirebaseService } from '$lib/services/firebase-service';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { dicePanelExpandedStore } from '$lib/stores/dice-panel-expanded-store';
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 
@@ -79,7 +80,7 @@
 			await firebase.signInWithGoogle();
 		} catch (err) {
 			console.error('Sign in failed', err);
-			alert('Error al iniciar sesión con Google');
+			await dialogService.alert('Error al iniciar sesión con Google');
 		}
 	};
 

@@ -116,16 +116,22 @@
 		openParty(created);
 	}
 
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+
 	// Delete party
 	async function deleteParty() {
 		if (!selectedParty) return;
-		const ok = confirm(`¿Eliminar el grupo "${selectedParty.name}"?`);
+		const ok = await dialogService.confirm(`¿Eliminar el grupo "${selectedParty.name}"?`, {
+			title: 'Confirmar eliminación',
+			confirmLabel: 'Eliminar',
+			cancelLabel: 'Cancelar',
+		});
 		if (!ok) return;
 		try {
 			await deletePartyInSvc(selectedParty.id);
 		} catch (err) {
 			console.error('[parties-page] delete failed', err);
-			alert('Error al eliminar el grupo');
+			await dialogService.alert('Error al eliminar el grupo');
 		}
 		selectedPartyId = null;
 		selectedParty = undefined;

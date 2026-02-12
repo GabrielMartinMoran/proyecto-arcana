@@ -10,7 +10,7 @@
 	import { sideMenuExpandedStore } from '$lib/stores/side-menu-expanded-store';
 	import { isMobileScreen } from '$lib/utils/screen-size-detector';
 	import { onMount } from 'svelte';
-	import '../../app.css';
+
 
 	let { children } = $props();
 

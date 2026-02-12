@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import CharacterSheet from '$lib/components/character-sheet/CharacterSheet.svelte';
 	import Container from '$lib/components/ui/Container.svelte';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { useFirebaseService } from '$lib/services/firebase-service';
 	import type { Character } from '$lib/types/character';
 	import { Party } from '$lib/types/party';
@@ -75,8 +76,9 @@
 	// appropriate permissions (UI already limits visibility).
 	async function removeSelectedCharacterFromParty() {
 		if (!party || !selectedCharacterId || !selectedCharacter) return;
-		const proceed = confirm(
+		const proceed = await dialogService.confirm(
 			`¿Seguro que quieres eliminar a '${selectedCharacter.name}' del grupo?`,
+			{ title: 'Confirmar eliminación', confirmLabel: 'Eliminar', cancelLabel: 'Cancelar' }
 		);
 		if (!proceed) return;
 		const owner = getCharacterOwner(selectedCharacterId);

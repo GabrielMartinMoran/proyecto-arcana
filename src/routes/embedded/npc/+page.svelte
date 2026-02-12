@@ -11,6 +11,7 @@
 	import type { Creature } from '$lib/types/creature';
 	import '../../../app.css';
 	import { useFoundryVTTService } from '$lib/services/foundryvtt-service';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 
 	// UI state
 	let activeTab: 'yaml' | 'sheet' | 'mixed' = $state('mixed');
@@ -187,14 +188,19 @@ img: null
 		activeTab = 'mixed';
 	}
 
-	function handleReset() {
-		if (confirm('¿Reiniciar al ejemplo por defecto? Se perderán los cambios actuales.')) {
+	async function handleReset() {
+		const confirmed = await dialogService.confirm(
+			'¿Reiniciar al ejemplo por defecto? Se perderán los cambios actuales.',
+			{ title: 'Confirmar reinicio', confirmLabel: 'Reiniciar', cancelLabel: 'Cancelar' }
+		);
+
+		if (confirmed) {
 			yamlText = SAMPLE_YAML;
 			editorKey++;
 		}
 	}
 
-	function handleCopyLink() {
+	async function handleCopyLink() {
 		try {
 			const enc = encodeURIComponent(yamlText);
 			const u = new URL(window.location.href);
@@ -202,15 +208,15 @@ img: null
 			else u.searchParams.delete('yaml');
 			if (readonlyMode) u.searchParams.set('readonly', '1');
 			const full = u.toString();
-			navigator.clipboard.writeText(full);
-			alert('Enlace copiado al portapapeles.');
+			await navigator.clipboard.writeText(full);
+			await dialogService.alert('Enlace copiado al portapapeles.');
 		} catch (e) {
 			console.warn('[embedded npc] copyShareURL failed', e);
-			alert('No se pudo copiar la URL.');
+			await dialogService.alert('No se pudo copiar la URL.');
 		}
 	}
 
-	function handleCopyIframe() {
+	async function handleCopyIframe() {
 		try {
 			const enc = encodeURIComponent(yamlText);
 			const u = new URL(window.location.href);
@@ -218,11 +224,11 @@ img: null
 			else u.searchParams.delete('yaml');
 			u.searchParams.set('readonly', '1');
 			const iframeCode = `<iframe src="${u.toString()}" width="100%" height="600" style="border:none;"></iframe>`;
-			navigator.clipboard.writeText(iframeCode);
-			alert('Código iframe copiado al portapapeles.');
+			await navigator.clipboard.writeText(iframeCode);
+			await dialogService.alert('Código iframe copiado al portapapeles.');
 		} catch (e) {
 			console.warn('[embedded npc] copyIframe failed', e);
-			alert('No se pudo copiar el código iframe.');
+			await dialogService.alert('No se pudo copiar el código iframe.');
 		}
 	}
 

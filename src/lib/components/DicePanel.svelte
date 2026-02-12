@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { usePartiesService } from '$lib/services/parties-service';
 	import { useRollTargetService } from '$lib/services/roll-target-service';
@@ -115,10 +116,10 @@
 		await rollExpression({ expression });
 	};
 
-	const copyLog = (log: RollLog) => {
+	const copyLog = async (log: RollLog) => {
 		const toCopy = `${log.total} (${log.detail})`.replace(/<\/?[^>]+(>|$)/g, '');
-		navigator.clipboard.writeText(toCopy);
-		alert('Resultado copiado al portapapeles');
+		await navigator.clipboard.writeText(toCopy);
+		await dialogService.alert('Resultado copiado al portapapeles');
 	};
 
 	onMount(async () => {

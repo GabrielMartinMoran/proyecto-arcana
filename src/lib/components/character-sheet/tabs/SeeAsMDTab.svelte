@@ -22,6 +22,8 @@
 		itemCards: itemCardsStore,
 	} = useCardsService();
 
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+
 	let characterMD = $derived(serializeCharacterAsMD(character, allCards));
 
 	onMount(async () => {
@@ -32,10 +34,10 @@
 	const copyMarkdown = async () => {
 		try {
 			await navigator.clipboard.writeText(characterMD);
-			alert('Personaje en formato Markdown copiado al portapapeles!');
+			await dialogService.alert('Personaje en formato Markdown copiado al portapapeles!');
 		} catch (err) {
 			console.error('Failed to copy text: ', err);
-			alert('Error al copiar el markdown al portapapeles');
+			await dialogService.alert('Error al copiar el markdown al portapapeles');
 		}
 	};
 </script>

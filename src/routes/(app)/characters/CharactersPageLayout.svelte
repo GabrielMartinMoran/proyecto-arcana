@@ -78,9 +78,15 @@
 		await onExportCharacter(selectedCharacter);
 	};
 
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+
 	const deleteCharacter = async () => {
 		if (!selectedCharacter) return;
-		const proceed = confirm(`¿Quieres eliminar a ${selectedCharacter.name}?`);
+		const proceed = await dialogService.confirm(`¿Quieres eliminar a ${selectedCharacter.name}?`, {
+			title: 'Confirmar eliminación',
+			confirmLabel: 'Eliminar',
+			cancelLabel: 'Cancelar',
+		});
 		if (!proceed) return;
 		await onDeleteCharacter(selectedCharacter);
 		selectedCharacter = undefined;

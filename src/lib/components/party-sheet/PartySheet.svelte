@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import { useFirebaseService } from '$lib/services/firebase-service';
+	import type { Character } from '$lib/types/character';
 	import { Party } from '$lib/types/party';
+	import { get } from 'svelte/store';
 	import { CONFIG } from '../../../config';
 	import TitleField from '../ui/TitleField.svelte';
 	import PartyMembersTab from './tabs/PartyMembersTab.svelte';
@@ -15,6 +19,9 @@
 	};
 
 	let { party, readonly, onChange }: Props = $props();
+
+	const firebase = useFirebaseService();
+	const { user } = firebase;
 
 	let selectedCharacterId: string | null = $derived(page.url.searchParams.get('characterId'));
 	let currentCharacterSheetTab: string = $derived(
@@ -73,8 +80,9 @@
 	// appropriate permissions (UI already limits visibility).
 	async function removeSelectedCharacterFromParty() {
 		if (!party || !selectedCharacterId || !selectedCharacter) return;
-		const proceed = confirm(
+		const proceed = await dialogService.confirm(
 			`¿Seguro que quieres eliminar a '${selectedCharacter.name}' del grupo?`,
+			{ title: 'Confirmar eliminación', confirmLabel: 'Eliminar', cancelLabel: 'Cancelar' },
 		);
 		if (!proceed) return;
 		const owner = getCharacterOwner(selectedCharacterId);
@@ -121,9 +129,9 @@
 		return null;
 	};
 
-	const copyPartyId = () => {
-		navigator.clipboard.writeText(party.id);
-		alert(
+	const copyPartyId = async () => {
+		await navigator.clipboard.writeText(party.id);
+		await dialogService.alert(
 			'ID de invitación copiado al portapapeles!\n\nPásaselo a tus jugadores para que agreguen sus personajes al grupo desde la pestaña de configuración de las hojas de personaje.',
 		);
 	};

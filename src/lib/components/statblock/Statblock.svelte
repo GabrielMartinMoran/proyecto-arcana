@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import type { Creature, CreatureAttack } from '$lib/types/creature';
 	import { parseCreatureDamageExpression } from '$lib/utils/dice-rolling';
 	import { capitalize } from '$lib/utils/formatting';
@@ -45,13 +46,13 @@
 	};
 
 	// Copy embedded bestiary URL for this creature to clipboard
-	const copyEmbeddedURL = () => {
+	const copyEmbeddedURL = async () => {
 		try {
 			const id = (creature && (creature.id ?? creature.name)) || null;
 			if (!id) return;
 			const publicURL = resolve(`/embedded/bestiary/${id}`);
-			navigator.clipboard.writeText(window.location.origin + publicURL);
-			alert('Se copió el enlace embebido de la criatura al portapapeles.');
+			await navigator.clipboard.writeText(window.location.origin + publicURL);
+			await dialogService.alert('Se copió el enlace embebido de la criatura al portapapeles.');
 		} catch (err) {
 			// best-effort: fallback ignored
 			console.warn('[statblock] failed to copy URL', err);

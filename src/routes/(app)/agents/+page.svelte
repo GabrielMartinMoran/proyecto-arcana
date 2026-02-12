@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { loadAgentBasePrompt } from '$lib/utils/agent-content-loaders/base-prompt-loader.js';
 	import { loadBestiaryAsMD } from '$lib/utils/agent-content-loaders/bestiary-loader.js';
 	import {
@@ -14,10 +15,10 @@
 	const copyPromptToClipboard = async () => {
 		try {
 			await navigator.clipboard.writeText(prompt);
-			alert('Prompt copiado al portapapeles');
+			await dialogService.alert('Prompt copiado al portapapeles');
 		} catch (err) {
 			console.error('Failed to copy text: ', err);
-			alert('Error al copiar el prompt al portapapeles');
+			await dialogService.alert('Error al copiar el prompt al portapapeles');
 		}
 	};
 

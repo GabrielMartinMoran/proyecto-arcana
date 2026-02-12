@@ -9,6 +9,8 @@
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
 
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+
 	type Props = {
 		party: Party;
 		readonly: boolean;
@@ -70,10 +72,10 @@
 	const copyMarkdown = async () => {
 		try {
 			await navigator.clipboard.writeText(partyMD);
-			alert('Grupo en formato Markdown copiado al portapapeles!');
+			await dialogService.alert('Grupo en formato Markdown copiado al portapapeles!');
 		} catch (err) {
 			console.error('[PartySeeAsMDTab] Failed to copy text:', err);
-			alert('Error al copiar el markdown al portapapeles');
+			await dialogService.alert('Error al copiar el markdown al portapapeles');
 		}
 	};
 </script>

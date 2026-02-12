@@ -3,6 +3,7 @@
 	import { resolve } from '$app/paths';
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { Character } from '$lib/types/character';
 	import { get } from 'svelte/store';
@@ -12,7 +13,7 @@
 	type Props = {
 		character: Character;
 		onChange: (character: Character) => void;
-		allowPartyChange;
+		allowPartyChange: boolean;
 	};
 
 	let { character, onChange, allowPartyChange }: Props = $props();
@@ -124,7 +125,9 @@
 						}
 					} catch (e) {
 						console.warn('[SettingsTab] setPartyMember failed (awaited)', e);
-						alert('No se pudo registrar el personaje en el grupo (permiso denegado o error).');
+						await dialogService.alert(
+							'No se pudo registrar el personaje en el grupo (permiso denegado o error).',
+						);
 					}
 				}
 			} catch {
@@ -134,13 +137,22 @@
 	}
 
 	const joinParty = async () => {
-		const partyId = prompt('Introduce el ID del grupo al que quieres unirte:');
+		const partyId = await dialogService.prompt('Introduce el ID del grupo al que quieres unirte:', {
+			title: 'Unirse a grupo',
+			placeholder: 'ID del grupo',
+			confirmLabel: 'Unirse',
+			cancelLabel: 'Cancelar',
+		});
 		if (!partyId) return;
 		onPartyIdChange(partyId);
 	};
 
 	const leaveParty = async () => {
-		const proceed = confirm('¿Seguro que quieres abandonar el grupo actual?');
+		const proceed = await dialogService.confirm('¿Seguro que quieres abandonar el grupo actual?', {
+			title: 'Confirmar salida',
+			confirmLabel: 'Abandonar',
+			cancelLabel: 'Cancelar',
+		});
 		if (!proceed) return;
 		onPartyIdChange(null);
 	};
@@ -172,95 +184,95 @@
 	</Container>
 {/if}
 
-	<Container title="General">
-		<div class="general">
-			<InputField
-				label="URL del Retrato"
-				value={character.img ?? ''}
-				fullWidth={true}
-				placeholder="https://..."
-				textAlign="left"
-				onChange={(value) => {
-					const strValue = value.toString();
-					if (strValue.length > 0) {
-						character.img = strValue;
-					} else {
-						character.img = null;
-					}
-					onChange(character);
-				}}
-			/>
-		</div>
-	</Container>
-	<Container title="Habilidades">
-		<div class="skills">
-			<SkillsList
-				skills={character.skills}
-				onChange={(skills) => {
-					character.skills = skills;
-					onChange(character);
-				}}
-			/>
-		</div>
-	</Container>
-	<Container title="Modificadores">
-		<div class="modifiers">
-			<ModifiersList
-				modifiers={character.modifiers}
-				onChange={(modifiers) => {
-					character.modifiers = modifiers;
-					onChange(character);
-				}}
-			/>
-			<small class="available-variables">
-				<em
-					><p>Valores disponibles: cuerpo, reflejos, mente, instinto, presencia, ppGastados.</p>
-					<p>
-						Funciones disponibles: floor, ceil, round, <a
-							href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
-							>Math</a
-						>
-					</p>
-				</em>
-			</small>
-		</div>
-	</Container>
+<Container title="General">
+	<div class="general">
+		<InputField
+			label="URL del Retrato"
+			value={character.img ?? ''}
+			fullWidth={true}
+			placeholder="https://..."
+			textAlign="left"
+			onChange={(value) => {
+				const strValue = value.toString();
+				if (strValue.length > 0) {
+					character.img = strValue;
+				} else {
+					character.img = null;
+				}
+				onChange(character);
+			}}
+		/>
+	</div>
+</Container>
+<Container title="Habilidades">
+	<div class="skills">
+		<SkillsList
+			skills={character.skills}
+			onChange={(skills) => {
+				character.skills = skills;
+				onChange(character);
+			}}
+		/>
+	</div>
+</Container>
+<Container title="Modificadores">
+	<div class="modifiers">
+		<ModifiersList
+			modifiers={character.modifiers}
+			onChange={(modifiers) => {
+				character.modifiers = modifiers;
+				onChange(character);
+			}}
+		/>
+		<small class="available-variables">
+			<em
+				><p>Valores disponibles: cuerpo, reflejos, mente, instinto, presencia, ppGastados.</p>
+				<p>
+					Funciones disponibles: floor, ceil, round, <a
+						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
+						>Math</a
+					>
+				</p>
+			</em>
+		</small>
+	</div>
+</Container>
 
-	<style>
-		.party {
+<style>
+	.party {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: var(--spacing-md);
+
+		.buttons {
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			flex-direction: row;
+			justify-content: space-evenly;
 			align-items: center;
+			width: 100%;
 			gap: var(--spacing-md);
-
-			.buttons {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-evenly;
-				align-items: center;
-				width: 100%;
-				gap: var(--spacing-md);
-			}
 		}
+	}
 
-		.general,
-		.skills {
-			display: flex;
-			flex-direction: column;
+	.general,
+	.skills {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.modifiers {
+		display: flex;
+		flex-direction: column;
+
+		.available-variables {
+			margin-top: var(--spacing-md);
 		}
+	}
 
-		.modifiers {
-			display: flex;
-			flex-direction: column;
-
-			.available-variables {
-				margin-top: var(--spacing-md);
-			}
-		}
-
-		a {
-			color: var(--color-primary);
-			text-decoration: underline;
-		}
-	</style>
+	a {
+		color: var(--color-primary);
+		text-decoration: underline;
+	}
+</style>

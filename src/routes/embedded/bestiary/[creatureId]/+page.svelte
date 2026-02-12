@@ -16,7 +16,7 @@
 	const { isInsideFoundry, syncCreatureState } = useFoundryVTTService();
 
 	// Initialize dice service so the statblock's roll buttons / modal can work
-	const dice = useDiceRollerService();
+	useDiceRollerService();
 
 	// Local state
 	let creatureId: string | undefined = undefined;
