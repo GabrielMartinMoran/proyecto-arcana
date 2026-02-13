@@ -184,7 +184,7 @@
 							name: 'Carta Corrupta',
 							level: x.level,
 							tags: ['Corrupta'],
-							requirements: [],
+							requirements: null,
 							description: 'Esta carta ya no existe. Por favor, eliminala.',
 							uses: {
 								qty: 0,

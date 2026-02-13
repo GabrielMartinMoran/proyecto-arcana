@@ -5,7 +5,7 @@ export interface Card {
 	name: string;
 	level: number;
 	tags: string[];
-	requirements: string[];
+	requirements: string | null;
 	description: string;
 	uses: Uses;
 	type: string;

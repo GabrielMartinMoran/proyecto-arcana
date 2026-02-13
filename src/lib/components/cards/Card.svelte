@@ -2,6 +2,7 @@
 	import type { Card } from '$lib/types/cards/card';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import { removeDiacritics } from '$lib/utils/formatting';
+	import { formatRequirements } from '$lib/utils/requirement-expression';
 	import { marked } from 'marked';
 	import type { Snippet } from 'svelte';
 
@@ -77,7 +78,7 @@
 		<div class="footer">
 			<span class="requirements">REQUERIMIENTOS</span>
 			<div class="requirements-list">
-				<span>{card.requirements.length > 0 ? card.requirements.join(', ') : '—'}</span>
+				<span>{formatRequirements(card.requirements)}</span>
 			</div>
 			{#if children !== undefined}
 				<div class="controls">

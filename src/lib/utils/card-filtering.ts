@@ -3,6 +3,7 @@ import type { Card } from '$lib/types/cards/card';
 import type { Character } from '$lib/types/character';
 import { CONFIG } from '../../config';
 import { removeDiacritics } from './formatting';
+import { evaluateRequirements } from './requirement-expression';
 
 export const filterCards = (
 	cards: Card[],
@@ -10,9 +11,11 @@ export const filterCards = (
 	character: Character | undefined = undefined,
 ) => {
 	let fulfilledRequirements: string[] = [];
+	let activeAliasExtras: AliasExtra[] = [];
 	let filterOnlyAvailables = false;
 	if (character && filters.onlyAvailables) {
 		fulfilledRequirements = getFulfilledRequirements(cards, character);
+		activeAliasExtras = getActiveAliasExtras(fulfilledRequirements, character);
 		filterOnlyAvailables = true;
 	}
 
@@ -29,9 +32,38 @@ export const filterCards = (
 			(filters.tags.length === 0 ||
 				filters.tags.every((tag) => card.tags.map((t) => t.toLowerCase()).includes(tag))) &&
 			(!filters.type || filters.type === card.type) &&
-			(!filterOnlyAvailables || isAvailable(card, fulfilledRequirements))
+			(!filterOnlyAvailables || isAvailable(card, fulfilledRequirements, activeAliasExtras))
 		);
 	});
+};
+
+type AliasExtra = {
+	targetCard: string;
+	extraFulfilled: string[];
+};
+
+const getActiveAliasExtras = (
+	fulfilledRequirements: string[],
+	character: Character,
+): AliasExtra[] => {
+	const extras: AliasExtra[] = [];
+	for (const alias of CONFIG.CARD_ALIASES) {
+		const hasTrigger = alias.triggerCards.some((name) =>
+			fulfilledRequirements.includes(name.toLowerCase()),
+		);
+		if (!hasTrigger) continue;
+
+		const extraFulfilled: string[] = [alias.targetCard.toLowerCase()];
+		for (const sub of alias.attributeSubstitutions) {
+			const toAttrKey = Object.entries(CONFIG.ATTR_NAME_MAP).find(([, v]) => v === sub.to)?.[0];
+			if (!toAttrKey) continue;
+			for (let i = 1; i <= character.attributes[toAttrKey]; i++) {
+				extraFulfilled.push(`${sub.from} ${i}`.toLowerCase());
+			}
+		}
+		extras.push({ targetCard: alias.targetCard.toLowerCase(), extraFulfilled });
+	}
+	return extras;
 };
 
 const getFulfilledRequirements = (cards: Card[], character: Character) => {
@@ -57,12 +89,22 @@ const getFulfilledRequirements = (cards: Card[], character: Character) => {
 	}
 	return availableTags;
 };
-const isAvailable = (card: Card, fulfilledRequirements: string[]) => {
-	// For cards with ORs, we consider all are ORs
-	if (card.requirements.find((x) => x.toLowerCase().startsWith('o '))) {
-		return card.requirements.some((req) =>
-			fulfilledRequirements.includes(req.toLowerCase().replace('o ', '')),
-		);
+
+const isAvailable = (
+	card: Card,
+	fulfilledRequirements: string[],
+	activeAliasExtras: AliasExtra[],
+) => {
+	// Check with base fulfilled requirements first
+	if (evaluateRequirements(card.requirements, fulfilledRequirements)) return true;
+
+	// If base check failed, try applying alias extras for any alias whose targetCard
+	// appears in this card's requirements
+	for (const alias of activeAliasExtras) {
+		if (!card.requirements?.toLowerCase().includes(alias.targetCard)) continue;
+		const extended = [...fulfilledRequirements, ...alias.extraFulfilled];
+		if (evaluateRequirements(card.requirements, extended)) return true;
 	}
-	return card.requirements.every((req) => fulfilledRequirements.includes(req.toLowerCase()));
+
+	return false;
 };

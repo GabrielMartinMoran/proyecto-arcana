@@ -32,13 +32,13 @@ const cardToMarkdownRow = (card: Card): string => {
 	columns.push(card.type);
 	columns.push(card.description);
 	columns.push(card.tags ? card.tags.join(', ') : '—');
-	columns.push(card.requirements ? card.requirements.join(', ') : '—');
+	columns.push(card.requirements ?? '—');
 	columns.push(formatUses(card.uses));
 	if (card.cardType === 'item') {
 		columns.push((card as any).cost.toString());
 	}
 
-	return `| ${columns.join(' | ')} |`;
+	return `| ${columns.map((c) => c.replace(/\|/g, '\\|')).join(' | ')} |`;
 };
 
 const cardsToMarkdownTable = (cards: Card[]): string => {

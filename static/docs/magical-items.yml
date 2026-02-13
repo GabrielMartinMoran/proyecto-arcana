@@ -5,8 +5,7 @@ items:
     type: 'activable'
     tags:
       - 'Movimiento'
-    requirements:
-      - 'Reflejos 3'
+    requirements: Reflejos 3
     description: >-
       Como una Interacción, puedes activar el poder de las botas. Durante 1 minuto,
       tu Velocidad se duplica y obtienes Ventaja (+1d4) en las Tiradas de Salvación
@@ -21,7 +20,7 @@ items:
     type: 'efecto'
     tags:
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Esta capa tejida con sombras y susurros te ayuda a camuflarte con el entorno.
       Obtienes Ventaja (+1d4) en todas las Pruebas de Sigilo
@@ -36,8 +35,7 @@ items:
     type: 'activable'
     tags:
       - 'Cuerpo'
-    requirements:
-      - 'Cuerpo 3'
+    requirements: Cuerpo 3
     description: >-
       Mientras tengas esta carta activa, tu fuerza física alcanza la de un gigante.
       Tu puntuación de Cuerpo se establece en 5 para calcular tu Salud, el daño de
@@ -54,7 +52,7 @@ items:
     type: 'efecto'
     tags:
       - 'Defensa'
-    requirements: []
+    requirements: null
     description: >-
       Este simple anillo de plata genera un campo de fuerza sutil a tu alrededor.
       Obtienes un +1 permanente a tu Mitigación Física y Mágica.
@@ -68,8 +66,7 @@ items:
     type: 'activable'
     tags:
       - 'Vara'
-    requirements:
-      - 'Mente 2'
+    requirements: Mente 2
     description: >-
       Esta varita contiene 7 cargas. Como una Acción, puedes gastar una o más de sus
       cargas para lanzar un número de dardos de energía mágica igual a las cargas
@@ -87,7 +84,7 @@ items:
     type: 'efecto'
     tags:
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       El interior de esta bolsa de lona es un espacio extra-dimensional. Puede
       contener hasta 250 kg de peso o 2 metros cúbicos de volumen. Pesa siempre
@@ -102,7 +99,7 @@ items:
     type: 'activable'
     tags:
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Como una Acción, te vuelves invisible. El efecto dura hasta que atacas,
       lanzas un conjuro, usas otra carta activable o te quitas el anillo.
@@ -117,7 +114,7 @@ items:
     type: 'efecto'
     tags:
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Mientras llevas este yelmo, comprendes el significado literal de cualquier
       lengua hablada que oigas. Además, puedes hacerte entender por cualquier
@@ -132,7 +129,7 @@ items:
     type: 'efecto'
     tags:
       - 'Esquiva'
-    requirements: []
+    requirements: null
     description: >-
       Este anillo te envuelve en una brisa protectora casi imperceptible.
       Mientras lo lleves puesto, obtienes un +1 a tu Esquiva.
@@ -146,7 +143,7 @@ items:
     type: 'efecto'
     tags:
       - 'Arma'
-    requirements: []
+    requirements: null
     description: >-
       _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br>
       Como una Interacción, puedes hacer que el arma emita una luz brillante
@@ -161,8 +158,7 @@ items:
     type: 'activable'
     tags:
       - 'Escudo'
-    requirements:
-      - 'Cuerpo 3'
+    requirements: Cuerpo 3
     description: >-
       Este escudo pesado de acero funciona como un escudo normal (otorgando +1 a la Esquiva).
       Además, mientras tengas esta carta activa y el escudo levantado, te conviertes en un pararrayos para
@@ -179,7 +175,7 @@ items:
     type: 'activable'
     tags:
       - 'Movimiento'
-    requirements: []
+    requirements: null
     description: >-
       Mientras tengas esta carta activa, obtienes una velocidad de vuelo igual
       a tu velocidad terrestre. Puedes ascender y descender a voluntad.
@@ -193,7 +189,7 @@ items:
     type: 'activable'
     tags:
       - 'Mente'
-    requirements: []
+    requirements: null
     description: >-
       Mientras tengas esta carta activa, tu agudeza mental es legendaria.
       Tu puntuación de Mente se establece en 5. Este efecto no altera tu
@@ -208,7 +204,7 @@ items:
     type: 'activable'
     tags:
       - 'Instinto'
-    requirements: []
+    requirements: null
     description: >-
       Mientras tengas esta carta activa, tus sentidos se agudizan al máximo.
       Tu puntuación de Instinto se establece en 5. Este efecto no altera tu
@@ -223,7 +219,7 @@ items:
     type: 'activable'
     tags:
       - 'Presencia'
-    requirements: []
+    requirements: null
     description: >-
       Mientras tengas esta carta activa, proyectas un aura de autoridad natural.
       Tu puntuación de Presencia se establece en 5. Este efecto no altera tu
@@ -238,7 +234,7 @@ items:
     type: 'activable'
     tags:
       - 'Reflejos'
-    requirements: []
+    requirements: null
     description: >-
       Mientras tengas esta carta activa, te mueves con una gracia sobrenatural.
       Tu puntuación de Reflejos se establece en 5. Este efecto no altera tu
@@ -253,7 +249,7 @@ items:
     type: 'efecto'
     tags:
       - 'Arma'
-    requirements: []
+    requirements: null
     description: >-
       Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida
       mágicamente para golpear con más certeza y hacer más daño. Obtienes un +1 a tus tiradas
@@ -268,7 +264,7 @@ items:
     type: 'efecto'
     tags:
       - 'Habilidades'
-    requirements: []
+    requirements: null
     description: >-
       Como una Interacción, puedes tocar esta perla para recuperar el aliento
       arcano o físico. Elige una de tus cartas activables que ya hayas usado
@@ -284,7 +280,7 @@ items:
     type: 'efecto'
     tags:
       - 'Salud'
-    requirements: []
+    requirements: null
     description: >-
       Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta
       permanentemente en 5.
@@ -298,7 +294,7 @@ items:
     type: 'efecto'
     tags:
       - 'Suerte'
-    requirements: []
+    requirements: null
     description: >-
       Como una Interacción, puedes frotar este escarabajo de jade para que la
       suerte te sonría. Recuperas 2 Puntos de Suerte gastados.
@@ -312,7 +308,7 @@ items:
     type: 'efecto'
     tags:
       - 'Visión'
-    requirements: []
+    requirements: null
     description: >-
       Los cristales de estas gafas están ahumados y son casi opacos a la luz
       del día, pero en la penumbra revelan el mundo con claridad. Obtienes
@@ -327,8 +323,7 @@ items:
     type: 'activable'
     tags:
       - 'Visión'
-    requirements:
-      - 'Instinto 4'
+    requirements: Instinto 4
     description: >-
       Como una Acción, puedes mirar a través de este monóculo para ver el
       mundo tal y como es. Durante 1 minuto, obtienes visión verdadera hasta
@@ -345,7 +340,7 @@ items:
     type: 'efecto'
     tags:
       - 'Movimiento'
-    requirements: []
+    requirements: null
     description: >-
       Esta capa gris y pegajosa al tacto te permite adherirte a las superficies.
       Mientras la lleves puesta, obtienes una velocidad de trepar igual a tu
@@ -362,8 +357,7 @@ items:
     tags:
       - 'Escudo'
       - 'Reacción'
-    requirements:
-      - 'Cuerpo 2'
+    requirements: Cuerpo 2
     description: >-
       (Esta propiedad se puede aplicar a cualquier escudo). Como Reacción cuando
       eres impactado por un ataque cuerpo a cuerpo de un enemigo a distancia Inmediata,
@@ -380,7 +374,7 @@ items:
     tags:
       - 'Curación'
       - 'Supervivencia'
-    requirements: []
+    requirements: null
     description: >-
       Este amuleto de jaspe rojo late con una suave calidez. Mientras lo lleves
       puesto, te estabilizas automáticamente al final de tu turno si estás Moribundo.
@@ -396,7 +390,7 @@ items:
     type: 'efecto'
     tags:
       - 'Concentración'
-    requirements: []
+    requirements: null
     description: >-
       Este broche de hierro te ayuda a mantener la calma bajo presión. Obtienes
       Ventaja (+1d4) en todas las pruebas de atributo que realices para mantener
@@ -411,7 +405,7 @@ items:
     type: 'efecto'
     tags:
       - 'Arma'
-    requirements: []
+    requirements: null
     description: >-
       _Esta propiedad se puede aplicar a cualquier arma Cortante o Perforante._<br><br>
       Cuando obtienes un golpe crítico con esta arma, el objetivo sufre 1d8 de
@@ -426,7 +420,7 @@ items:
     type: 'efecto'
     tags:
       - 'Habilidades'
-    requirements: []
+    requirements: null
     description: >-
       Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para
       tocar este talismán y reorganizar tus tácticas. Elige una de tus cartas
@@ -442,8 +436,7 @@ items:
     type: 'activable'
     tags:
       - 'Visión'
-    requirements:
-      - 'Instinto 3'
+    requirements: Instinto 3
     description: >-
       Como una Acción, puedes mirar a través de esta gema transparente. Durante
       1 minuto, ganas la capacidad de ver las cosas como realmente son. Obtienes
@@ -460,7 +453,7 @@ items:
     type: 'activable'
     tags:
       - 'Suerte'
-    requirements: []
+    requirements: null
     description: >-
       Como una Interacción, puedes activar estos guanteletes de hierro meteórico.
       Durante 1 minuto, tus dados de d8 "explotan" con un resultado de 7 u 8,
@@ -475,7 +468,7 @@ items:
     type: 'efecto'
     tags:
       - 'Habilidades'
-    requirements: []
+    requirements: null
     description: >-
       Este anillo te permite organizar y acceder a tus habilidades de forma más
       eficiente. Mientras lo lleves puesto, ganas una Ranura de Carta
@@ -491,7 +484,7 @@ items:
     tags:
       - 'Cuerpo'
       - 'Artefacto'
-    requirements: []
+    requirements: null
     description: >-
       Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias.
       Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
@@ -509,7 +502,7 @@ items:
     tags:
       - 'Reflejos'
       - 'Artefacto'
-    requirements: []
+    requirements: null
     description: >-
       Escrito en seda y con tinta invisible, este tratado enseña el arte del
       movimiento perfecto. Si pasas una semana de tiempo entre aventuras estudiándolo,
@@ -528,7 +521,7 @@ items:
     tags:
       - 'Mente'
       - 'Artefacto'
-    requirements: []
+    requirements: null
     description: >-
       Este libro sin título contiene paradojas y acertijos que expanden la conciencia.
       Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
@@ -546,7 +539,7 @@ items:
     tags:
       - 'Instinto'
       - 'Artefacto'
-    requirements: []
+    requirements: null
     description: >-
       Estas tablillas de marfil describen meditaciones para unificar los sentidos
       con el mundo. Si pasas una semana de tiempo entre aventuras estudiándolas,
@@ -564,7 +557,7 @@ items:
     tags:
       - 'Presencia'
       - 'Artefacto'
-    requirements: []
+    requirements: null
     description: >-
       Este tomo contiene ensayos y observaciones de los más grandes líderes de
       la historia. Si pasas una semana de tiempo entre aventuras estudiándolo,
@@ -583,7 +576,7 @@ items:
     tags:
       - 'Poción'
       - 'Curación'
-    requirements: []
+    requirements: null
     description: >-
       Al beber esta poción, un líquido rojo y viscoso con sabor a bayas,
       recuperas 1d6+1 Puntos de Salud.
@@ -598,7 +591,7 @@ items:
     tags:
       - 'Poción'
       - 'Curación'
-    requirements: []
+    requirements: null
     description: >-
       Este brebaje carmesí y brillante cierra heridas más graves. Al beberla,
       recuperas 2d6+2 Puntos de Salud.
@@ -613,7 +606,7 @@ items:
     tags:
       - 'Poción'
       - 'Curación'
-    requirements: []
+    requirements: null
     description: >-
       La poción emite un suave calor antes de ser bebida. Al consumirla,
       recuperas 4d6+4 Puntos de Salud.
@@ -628,7 +621,7 @@ items:
     tags:
       - 'Poción'
       - 'Curación'
-    requirements: []
+    requirements: null
     description: >-
       Este elixir dorado re teje la carne y detiene hemorragias al instante.
       Al beberlo, recuperas 6d6+6 Puntos de Salud.
@@ -642,7 +635,7 @@ items:
     type: 'consumible'
     tags:
       - 'Poción'
-    requirements: []
+    requirements: null
     description: >-
       Este líquido plateado y ligero te otorga una gracia sobrenatural.
       Durante 1 minuto, obtienes Ventaja (+1d4) en todas las Pruebas de Habilidad
@@ -657,7 +650,7 @@ items:
     type: 'consumible'
     tags:
       - 'Poción'
-    requirements: []
+    requirements: null
     description: >-
       Una poción espesa y terrosa que calienta los músculos. Durante 1 minuto,
       obtienes Ventaja (+1d4) en todas las Pruebas de Habilidad basadas en Cuerpo
@@ -672,7 +665,7 @@ items:
     type: 'consumible'
     tags:
       - 'Poción'
-    requirements: []
+    requirements: null
     description: >-
       Al beber este líquido cristalino, tu cuerpo se desvanece de la vista.
       Te vuelves invisible durante 10 minutos. El efecto termina antes si atacas,
@@ -687,7 +680,7 @@ items:
     type: 'consumible'
     tags:
       - 'Poción'
-    requirements: []
+    requirements: null
     description: >-
       Un líquido azulado con burbujas que nunca se detienen. Al beberlo, puedes
       respirar bajo el agua durante 1 hora.
@@ -701,7 +694,7 @@ items:
     type: 'consumible'
     tags:
       - 'Poción'
-    requirements: []
+    requirements: null
     description: >-
       Al crear esta poción, se elige un tipo de daño elemental (Fuego, Frío o Eléctrico).
       Al beberla, obtienes Mitigación Mágica igual a 5 contra ese tipo de daño
@@ -716,7 +709,7 @@ items:
     type: 'consumible'
     tags:
       - 'Poción'
-    requirements: []
+    requirements: null
     description: >-
       Este líquido dorado y burbujeante te llena de un coraje divino. Durante
       1 minuto, te vuelves inmune al estado Asustado, ganas 10 Puntos de Salud
@@ -731,7 +724,7 @@ items:
     type: 'efecto'
     tags:
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Esta piedra lisa y gris se siente cálida al tacto. Como una Interacción,
       puedes pronunciar su palabra de mando para que emita una luz brillante
@@ -747,7 +740,7 @@ items:
     type: 'efecto'
     tags:
       - 'Herramienta'
-    requirements: []
+    requirements: null
     description: >-
       Esta elegante pluma de cuervo nunca necesita ser mojada en tinta. Escribe
       con un flujo constante de tinta negra y permanente sobre cualquier
@@ -762,7 +755,7 @@ items:
     type: 'efecto'
     tags:
       - 'Estético'
-    requirements: []
+    requirements: null
     description: >-
       Los hilos de esta capa cambian sutilmente de color para armonizar con
       el entorno. No te vuelve invisible, pero te ayuda a no desentonar.
@@ -780,7 +773,7 @@ items:
     tags:
       - 'Supervivencia'
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Este odre de cuero siempre parece estar medio lleno. Cada día al amanecer,
       genera mágicamente hasta cuatro litros de agua fresca y potable.
@@ -797,7 +790,7 @@ items:
     tags:
       - 'Estético'
       - 'Narrativo'
-    requirements: []
+    requirements: null
     description: >-
       Tallada en madera de sauce, esta pipa produce un humo inofensivo y aromático
       incluso sin tabaco. Con una Interacción, puedes hacer que el humo adopte
@@ -814,7 +807,7 @@ items:
     tags:
       - 'Herramienta'
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Esta aguja de plata y su carrete de hilo dorado pueden reparar cualquier
       desgarro o rotura en tela o cuero. Como una Acción,
@@ -831,7 +824,7 @@ items:
     tags:
       - 'Comunicación'
       - 'Narrativo'
-    requirements: []
+    requirements: null
     description: >-
       Este objeto es en realidad un par de monedas de cobre idénticas. Cuando el
       portador de una de las monedas la aprieta y se concentra en ella (una Interacción),
@@ -848,7 +841,7 @@ items:
     tags:
       - 'Herramienta'
       - 'Narrativo'
-    requirements: []
+    requirements: null
     description: >-
       Mientras este diario está abierto, su pluma encantada transcribe de forma
       precisa cualquier conversación que **tú** puedas oír claramente. Es un
@@ -865,8 +858,7 @@ items:
     type: 'activable'
     tags:
       - 'Invocación'
-    requirements:
-      - 'Instinto 3'
+    requirements: Instinto 3
     description: >-
       Como una Acción, puedes lanzar este medallón al suelo, que se transforma en un
       **Lobo** (usa el bloque de estadísticas del bestiario). El lobo es amistoso
@@ -885,8 +877,7 @@ items:
     tags:
       - 'Adivinación'
       - 'Investigación'
-    requirements:
-      - 'Instinto 3'
+    requirements: Instinto 3
     description: >-
       Como una Acción, puedes enfocar el espejo en un punto a distancia Inmediata.
       El espejo revela una imagen silenciosa y fantasmal del evento más significativo
@@ -903,8 +894,7 @@ items:
     tags:
       - 'Reacción'
       - 'Daño'
-    requirements:
-      - 'Cuerpo 2'
+    requirements: Cuerpo 2
     description: >-
       Como Reacción cuando eres impactado por un ataque cuerpo a cuerpo de un enemigo
       que puedas ver, puedes hacer que el brazalete libere una onda de fuerza.
@@ -921,7 +911,7 @@ items:
     tags:
       - 'Arma'
       - 'Debuff'
-    requirements: []
+    requirements: null
     description: >-
       (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo). Cuando
       obtienes un golpe crítico con esta arma, el objetivo es imbuido con una
@@ -938,8 +928,7 @@ items:
     tags:
       - 'Control'
       - 'Utilidad'
-    requirements:
-      - 'Mente 3'
+    requirements: Mente 3
     description: >-
       Como una Acción, arrojas esta piedra de obsidiana a un punto a distancia
       Cercana, donde flota en el aire. Eliges uno de los siguientes efectos,
@@ -960,7 +949,7 @@ items:
     tags:
       - 'Movimiento'
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Mientras lleves este amuleto con forma de libélula, puedes moverte sobre
       cualquier superficie líquida (como agua, ácido o lodo) como si fuera
@@ -976,8 +965,7 @@ items:
     tags:
       - 'Armadura'
       - 'Daño'
-    requirements:
-      - 'Cuerpo 2'
+    requirements: Cuerpo 2
     description: >-
       (Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o
       superior). Las placas o anillas de esta armadura están cubiertas de filos
@@ -995,8 +983,7 @@ items:
       - 'Armadura'
       - 'Reacción'
       - 'Movimiento'
-    requirements:
-      - 'Reflejos 2'
+    requirements: Reflejos 2
     description: >-
       (Esta propiedad se puede aplicar a cualquier armadura de Cuero). Como Reacción
       cuando eres impactado por un ataque, puedes hacer que la cota se disuelva
@@ -1014,10 +1001,7 @@ items:
       - 'Armadura'
       - 'Conjuro'
       - 'Utilidad'
-    requirements:
-      - 'Mente 3'
-      - 'o Instinto 3'
-      - 'o Presencia 3'
+    requirements: 'Mente 3 | Instinto 3 | Presencia 3'
     description: >-
       (Esta propiedad se aplica a ropa o túnicas, no otorga mitigación). Durante
       un día de descanso, puedes realizar un ritual de 10 minutos para almacenar
@@ -1036,8 +1020,7 @@ items:
     tags:
       - 'Armadura'
       - 'Defensa'
-    requirements:
-      - 'Cuerpo 3'
+    requirements: Cuerpo 3
     description: >-
       (Esta propiedad se puede aplicar a cualquier armadura de Placas Parcial o
       superior). Durante un día de descanso, puedes pasar una hora realizando un
@@ -1056,7 +1039,7 @@ items:
     tags:
       - 'Utilidad'
       - 'Movimiento'
-    requirements: []
+    requirements: null
     description: >-
       Como una Acción, puedes lanzar la punta de esta cuerda de seda de 15 metros
       hacia un punto que puedas ver dentro del alcance. La cuerda se anima y se
@@ -1073,7 +1056,7 @@ items:
     tags:
       - 'Curación'
       - 'Vara'
-    requirements: []
+    requirements: null
     description: >-
       Esta vara de madera de abedul contiene 3 cargas. Como una Acción, puedes
       gastar una carga para tocar a una criatura y hacer que recupere 1d6+2 Puntos
@@ -1089,7 +1072,7 @@ items:
     tags:
       - 'Comunicación'
       - 'Utilidad'
-    requirements: []
+    requirements: null
     description: >-
       Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema
       posee 3 cargas en total, que se recuperan cada día al amanecer.
@@ -1108,7 +1091,7 @@ items:
     type: 'efecto'
     tags:
       - 'Arma'
-    requirements: []
+    requirements: null
     description: >-
       (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza).
       Después de realizar un ataque Arrojadizo con esta arma, esta vuela de regreso
