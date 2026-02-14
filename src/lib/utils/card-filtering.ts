@@ -30,7 +30,7 @@ export const filterCards = (
 			splitTextFilters.some((x) => removeDiacritics(card.name.toLowerCase()).includes(x)) &&
 			(filters.level.length === 0 || filters.level.includes(card.level)) &&
 			(filters.tags.length === 0 ||
-				filters.tags.every((tag) => card.tags.map((t) => t.toLowerCase()).includes(tag))) &&
+				filters.tags.some((tag) => card.tags.map((t) => t.toLowerCase()).includes(tag))) &&
 			(!filters.type || filters.type === card.type) &&
 			(!filterOnlyAvailables || isAvailable(card, fulfilledRequirements, activeAliasExtras))
 		);

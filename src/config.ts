@@ -37,6 +37,7 @@ export const CONFIG = {
 		monje: 'https://i.imgur.com/1wqMxoQ.png',
 		hechicero: 'https://i.imgur.com/a6Uu2mB.png',
 		brujo: 'https://i.imgur.com/j0L2AEJ.png',
+		mago: 'https://i.imgur.com/OmQ12zE.png',
 		dote: 'https://i.imgur.com/KfwuOdi.png',
 		linaje: 'https://i.imgur.com/VKUcBoy.png',
 		sinergia: 'https://i.imgur.com/8mY31nD.png',
@@ -69,7 +70,12 @@ export const CONFIG = {
 		{
 			triggerCards: ['Pacto Supremo', 'Herencia Sobrenatural'],
 			targetCard: 'Afinidad Arcana',
-			attributeSubstitutions: [{ from: 'Mente', to: 'Presencia' }],
+			attributeSubstitutions: [{ from: 'Atributo Mágico', to: 'Presencia' }],
+		},
+		{
+			triggerCards: ['Estudios Mágicos'],
+			targetCard: 'Afinidad Arcana',
+			attributeSubstitutions: [{ from: 'Atributo Mágico', to: 'Mente' }],
 		},
 	],
 };
