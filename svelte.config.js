@@ -1,1 +1,19 @@
-import adapter from '@sveltejs/adapter-static';\n\n// Configuración de base path para dominio custom\nconst dev = process.argv.includes('dev');\nconst base = '';\n\n/** @type {import('@sveltejs/kit').Config} */\nconst config = {\n\tkit: {\n\t\tadapter: adapter({\n\t\t\tfallback: '404.html',\n\t\t}),\n\t\tpaths: {\n\t\t\tbase: base,\n\t\t},\n\t},\n};\n\nexport default config;\n
+import adapter from "@sveltejs/adapter-static";
+
+// Configuración de base path para dominio custom
+const dev = process.argv.includes("dev");
+const base = "";
+
+/** @type {import("@sveltejs/kit").Config} */
+const config = {
+  kit: {
+    adapter: adapter({
+      fallback: "404.html",
+    }),
+    paths: {
+      base: base,
+    },
+  },
+};
+
+export default config;
