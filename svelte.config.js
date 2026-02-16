@@ -1,1 +1,15 @@
-import adapter from '@sveltejs/adapter-static';\n\n/** @type {import('@sveltejs/kit').Config} */\nconst config = {\n\tkit: {\n\t\tadapter: adapter({\n\t\t\tfallback: '404.html',\n\t\t}),\n\t\tpaths: {\n\t\t\tbase: '',\n\t\t},\n\t},\n};\n\nexport default config;\n
+import adapter from '@sveltejs/adapter-static';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		adapter: adapter({
+			fallback: '404.html',
+		}),
+		paths: {
+			base: '',
+		},
+	},
+};
+
+export default config;
