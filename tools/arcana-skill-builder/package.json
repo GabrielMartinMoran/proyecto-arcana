@@ -1,0 +1,26 @@
+{
+  "name": "arcana-skill-builder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "generate": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.1.26",
+    "@langchain/openai": "^1.2.8",
+    "js-sha1": "^0.7.0",
+    "js-yaml": "^4.1.0",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/js-sha1": "^0.6.3",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

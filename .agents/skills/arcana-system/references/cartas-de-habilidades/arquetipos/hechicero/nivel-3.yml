@@ -1,0 +1,21 @@
+cards:
+  - id: 1248d541dcaa08e9c146e3d6e68179bb661a12fb
+    name: Anomalía Salvaje
+    level: 3
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: Herencia Sobrenatural & Atributo Mágico 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La magia errática desestabiliza la realidad a tu alrededor.<br> Inmediatamente después de sacrificar Puntos de
+      Salud usando tu carta _Sangre Mágica_, tira 1d4 para determinar qué efecto secundario se manifiesta:<br> -
+      **Parpadeo:** Te teletransportas hasta 3 metros a un espacio desocupado que puedas ver.<br> - **Distorsión:** El
+      próximo ataque que recibas antes del inicio de tu próximo turno se realiza con Desventaja (-1d4).<br> -
+      **Claridad:** Tu próxima tirada de ataque de conjuro antes del final de tu próximo turno obtiene Ventaja
+      (+1d4).<br> - **Ruptura Defensiva:** Eliges a una criatura a distancia Media que puedas ver. Esta sufre Desventaja
+      (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros antes del final de tu próximo
+      turno.
+    slug: anomalia-salvaje

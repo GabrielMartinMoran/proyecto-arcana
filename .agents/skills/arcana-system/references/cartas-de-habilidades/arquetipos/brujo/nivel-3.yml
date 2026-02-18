@@ -1,0 +1,17 @@
+cards:
+  - id: 95fa5f50b8cd6761f817cbbae610b53d5d91d8f2
+    name: Escudo de Sombras
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: Pacto Supremo & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, invocas la protección de tu
+      patrón.<br> Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre
+      daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Mágico.
+    slug: escudo-de-sombras

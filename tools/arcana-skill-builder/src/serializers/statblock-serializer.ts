@@ -1,5 +1,5 @@
-import type { Creature, CreatureAction, CreatureAttack, CreatureTrait } from '$lib/types/creature';
-import type { Uses } from '$lib/types/uses';
+import type { Uses } from '../types/card.js';
+import type { Creature, CreatureAction, CreatureAttack, CreatureTrait } from '../types/creature.js';
 
 export const serializeStatblockAsMD = (creature: Creature): string => {
 	let md = ``;
@@ -27,7 +27,7 @@ export const serializeStatblockAsMD = (creature: Creature): string => {
 	md += `- **Esquiva:** ${creature.stats.evasion.value}${creature.stats.evasion.note ? ` (${creature.stats.evasion.note})` : ''}\n`;
 	md += `- **Mitigación Física:** ${creature.stats.physicalMitigation.value}${creature.stats.physicalMitigation.note ? ` (${creature.stats.physicalMitigation.note})` : ''}\n`;
 	md += `- **Mitigación Mágica:** ${creature.stats.magicalMitigation.value}${creature.stats.magicalMitigation.note ? ` (${creature.stats.magicalMitigation.note})` : ''}\n`;
-	md += `- **Velocidad:** ${creature.stats.speed.value}${creature.stats.speed.note ? ` (${creature.stats.speed.note})` : ''}\n\n`;
+	md += `- **Velocidad:** ${creature.stats.speed.value}${creature.stats.speed.note ? ` (${creature.stats.speed.note})` : ''}\n`;
 	md += `- **Iniciativa:** ${creature.attributes.reflexes}\n\n`;
 
 	if (creature.attacks && creature.attacks.length > 0) {

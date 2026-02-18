@@ -1,0 +1,113 @@
+cards:
+  - id: a9c786c31f7a1d58d5baf5820658f49b411eff39
+    name: Comunión Natural
+    level: 1
+    type: efecto
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu conexión con el mundo natural es constante y tangible.<br> - **Truco Druídico (Interacción):** A voluntad,
+      creas efectos sensoriales menores: haces brotar una flor, creas una brisa suave, predices el clima de las próximas
+      horas o enciendes/apagas una fogata.<br> - **Lazo Natural (Acción):** Haces brotar una enredadera o rama animada a
+      distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para que manipule objetos, tire de palancas o
+      entregue ítems a 5 metros de su origen.
+    slug: comunion-natural
+  - id: a4c9195d5ebd757b8df06a1104dc36249952d41a
+    name: Golpe Primordial
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Instinto). Si impactas, infliges 1d6 de daño y eliges uno de
+      los siguientes efectos elementales que te afecta a ti:<br> - **Tierra (Contundente):** Te recubres de piedra.
+      Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br> -
+      **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del
+      inicio de tu próximo turno.<br> - **Agua (Frío):** Una capa de escarcha te protege. Ganas +1 de Mitigación Mágica
+      contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+    slug: golpe-primordial
+  - id: 1d58f8eb7a088af6ffc08f45767b01577e66da0f
+    name: Látigo de Espinas
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Un látigo de espinas brota de tu mano hacia un objetivo a distancia Cercana. Realizas un ataque de conjuro
+      (1d8+Instinto). Si impactas, infliges 1d6 de daño Cortante. Inmediatamente después del impacto, puedes iniciar una
+      Tirada Enfrentada de tu Instinto contra el Cuerpo del objetivo. Si ganas, mueves al objetivo 1 metro en cualquier
+      dirección.
+    slug: latigo-de-espinas
+  - id: 0dc88f8a1d948ee135b1a1b2124b0753d84f72ce
+    name: Forma Salvaje
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Concentración
+    requirements: Sintonía Primordial
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: >-
+      Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo)
+      durante 1 hora. Tu equipo se funde con tu nueva forma y no puedes usarlo. En esta forma:<br> - Ganas 3 Puntos de
+      Salud temporales.<br> - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**, pero tu **Cuerpo** se
+      establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br> - No puedes hablar, atacar
+      ni utilizar habilidades Activables (a menos que una habilidad lo permita específicamente), pero conservas los
+      beneficios de tus cartas de **Efecto** y de las cartas **Activables** que ya tuvieras activas antes de
+      transformarte.<br> - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un
+      olfato agudo).<br> La transformación termina antes si pierdes la Concentración o si decides revertirla (no
+      requiere acción).<br> Mientras tengas al menos 1 Punto de Salud Temporal, no necesitas realizar pruebas para
+      mantener la Concentración de tu forma salvaje.<br> Mientras estes transformado, no puedes ganar Puntos de Salud
+      Temporales.
+    slug: forma-salvaje
+  - id: 9e53c05352b1cc20913bdf2ef13917eb7f82882e
+    name: Bálsamo Natural
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+    requirements: Sintonía Primordial
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Tocas a una criatura y le aplicas un ungüento de hierbas. Durante 2 turnos, la criatura recupera 1d4 Puntos de
+      Salud al inicio de cada uno de sus turnos.
+    slug: balsamo-natural
+  - id: 190c41912a7f90df8ef7fe7caef1473adf7a1296
+    name: Vínculo Animal
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Ritual
+    requirements: Sintonía Primordial
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de NA 1 o inferior. La bestia se convierte
+      en tu aliada y actúa en tu misma iniciativa. Para que tu compañero pueda actuar en su turno, debes usar tu Acción
+      para darle una orden. Esta orden solo aplica para el próximo turno de tu compañero. El compañero usa su propio
+      bloque de estadísticas, pero su salud máxima es igual a 3 + (tu Instinto x 2). Si tu compañero muere, puedes
+      vincularte con una nueva bestia.
+    slug: vinculo-animal

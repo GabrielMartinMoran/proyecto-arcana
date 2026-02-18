@@ -1,0 +1,25 @@
+cards:
+  - id: 3830cf9215900bba766d45c66ba4d532158cd213
+    name: Pacto Supremo
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+      - Arquetipo
+      - Arcanista
+    requirements: Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has sellado un pacto con una entidad extra-planar que te confiere poderes arcanos.<br><br> Obtienes Ventaja (+1d4)
+      en pruebas de **Engaño** e **Intimidación**.<br> Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia
+      como tu Atributo Mágico para las cartas de _Arcanista_.<br> <br> **Beneficio de Arquetipo:**<br> - **Celos del
+      Patrón:** Tu patrón exige exclusividad. No puedes adquirir ni usar cartas con la etiqueta _Conjuro_ que no
+      pertenezcan a la lista de Arcanista.<br> - **Favor del Patrón:** Puedes gastar Puntos de Suerte para sumar al
+      resultado de tus tiradas de **Recarga** de cartas.<br> - **Regalo del Patrón:** Mientras este sea tu Beneficio de
+      Arquetipo activo, añades la carta _Descarga Sobrenatural_ a tu colección, y esta no necesita ocupar una de tus
+      Ranuras de Cartas Activas para funcionar.<br> Adicionalmente, aprendes un idioma y ganas un bono a tus Puntos de
+      Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br> _Solo puedes tener un Beneficio de Arquetipo activo a
+      la vez._
+    slug: pacto-supremo

@@ -1,0 +1,18 @@
+cards:
+  - id: 391d1924342f5b488f5f20af17d80221d618b3a5
+    name: Contingencia Arcana
+    level: 4
+    type: activable
+    tags:
+      - Mago
+      - Ritual
+    requirements: Estudios Mágicos & Atributo Mágico 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Inviertes 10 minutos para anclar un conjuro de Arcanista de Nivel 1, 2 o 3 (que requiera Acción o Interacción) a
+      una condición específica (ej: "Si recibo daño", "Si caigo al agua"). Debes gastar un uso del conjuro en este
+      momento. Cuando la condición se cumple, el conjuro se lanza automáticamente como una Reacción instantánea. Solo
+      puedes tener una contingencia activa a la vez.
+    slug: contingencia-arcana

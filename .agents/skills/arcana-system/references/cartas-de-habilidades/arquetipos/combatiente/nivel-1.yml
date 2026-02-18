@@ -1,0 +1,59 @@
+cards:
+  - id: 009b3d369dc13a39a42bf8c00fd124351871b96d
+    name: Segundo Aliento
+    level: 1
+    type: activable
+    tags:
+      - Combatiente
+      - Curación
+    requirements: Sintonía con el Acero
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Cuerpo.
+    slug: segundo-aliento
+  - id: 247e65ba8308bdeea8b6b50f9ef031b41094c06a
+    name: Furia de Batalla
+    level: 1
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: >-
+      Entras en furia por 1 minuto o hasta que quedes inconsciente. Ganas Mitigación Física +1 y ventaja en pruebas de
+      habilidad de Cuerpo.<br> Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar
+      cartas con la etiqueta _Conjuro_. En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, el
+      efecto termina.
+    slug: furia-de-batalla
+  - id: 95991f73fff4e6d124008b7b924fd4ab6b60f215
+    name: Presencia Inspiradora
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Persuasión. Aliados a distancia Cercana que puedan verte y oírte ganan un +1
+      a las Tiradas de Salvación contra miedo.
+    slug: presencia-inspiradora
+  - id: 519028c7d0d06285fa5f05cdd545201164e53b93
+    name: Marcha Incansable
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas. Además, cuando
+      lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a tu capacidad para marcar
+      el ritmo y elegir las mejores rutas.
+    slug: marcha-incansable

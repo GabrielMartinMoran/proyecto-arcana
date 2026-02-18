@@ -1,0 +1,106 @@
+cards:
+  - id: 6a55135fdecc00df99ae48f86197787c8f60e12d
+    name: Aspecto Combativo
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: Forma Salvaje
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu dominio sobre la transformación te permite adoptar una forma de combate. Esta carta mejora tu _Forma Salvaje_
+      de las siguientes maneras:<br> - Obtienes **un uso adicional** de _Forma Salvaje_ por día de descanso.<br> -
+      Puedes activar tu _Forma Salvaje_ para transformarte en una bestia de combate Mediana usando tu **Interacción** en
+      lugar de tu Acción. La duración es de 1 minuto.<br> - En esta forma de combate, tanto tu **Cuerpo** como tus
+      **Reflejos** se igualan a tu puntuación de **Instinto**.<br> - Tus ataques sin arma (garras, fauces, etc.)
+      infligen **1d6** de daño (puedes elegir Contundente, Cortante o Perforante al transformarte).<br> Además, al
+      transformarte en tu aspecto combativo, eliges **dos** de los siguientes beneficios:<br> - **Vitalidad Primitiva:**
+      Los Puntos de Salud temporales ganados por tu _Forma Salvaje_ se vuelven dos veces tu puntuación de
+      **Instinto**.<br> - **Ataque Brutal:** El daño de tus ataques sin arma aumenta a **1d8**.<br> - **Pellejo
+      Grueso:** Ganas +1 de Mitigación Física.<br> - **Agilidad Depredadora:** Tu Velocidad aumenta en 2 metros y el
+      terreno difícil no te cuesta movimiento extra.<br> - **Embestida Feroz:** Si te mueves al menos 5 metros en línea
+      recta hacia un objetivo, tu siguiente ataque contra él ese turno tiene Ventaja (+1d4).
+    slug: aspecto-combativo
+  - id: baf22d555f8843f70878a330d560031f4992408d
+    name: Toque Purificador
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+    requirements: Bálsamo Natural & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br> - **Limpieza:** Eliminas
+      un efecto de Enfermedad o Veneno que afecte a la criatura.<br> - **Bendición Protectora:** La criatura obtiene
+      Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Veneno y Enfermedad durante los
+      próximos 10 minutos.
+    slug: toque-purificador
+  - id: 7f880773944b0b3bab9fb22d4e50406eb613910d
+    name: Sintonía con el Entorno
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu conexión con la naturaleza agudiza tus sentidos de forma sobrenatural. Obtienes Ventaja (+1d4) en todas las
+      pruebas de Instinto (Percepción) para detectar peligros, criaturas ocultas o detalles sutiles en tu entorno.
+      Además, puedes realizar un ritual de meditación durante 10 minutos para sintonizarte con un tipo de terreno
+      natural específico en el que te encuentres. Mientras permanezcas en ese tipo de terreno, puedes moverte a través
+      de terreno difícil natural sin penalización de movimiento y obtienes Ventaja (+1d4) en las pruebas de Sigilo.
+      Puedes realizar este ritual de nuevo para cambiar tu sintonía.
+    slug: sintonia-con-el-entorno
+  - id: a452404447b2895c46a130ebe0da266a431df803
+    name: Piel de Roble
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu piel adquiere la dureza y la templanza de la corteza de un árbol milenario. Mientras no lleves armadura pesada,
+      obtienes Mitigación Física y Mágica +1.
+    slug: piel-de-roble
+  - id: 7fb255b4fca1e9fd2c475e8100c9c5dfa17cace2
+    name: Compañero Veterano
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: Vínculo Animal & Instinto 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu vínculo se fortalece. Ahora puedes comandar a tu compañero usando tu Interacción en lugar de tu Acción. Su
+      Salud Máxima aumenta a 5 + (tu Instinto x 3) y sus ataques se consideran mágicos para el propósito de superar
+      resistencias.
+    slug: companero-veterano
+  - id: 06921b81c36c252dcfc29433ecb6cc1802e35339
+    name: Pasar sin Rastro
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Durante 1 hora, tú y hasta cinco criaturas aliadas que elijas no dejáis huellas ni olor. El rastreo por medios no
+      mágicos se vuelve imposible. Además, todos los afectados obtienen Ventaja (+1d4) en todas las pruebas de Sigilo.
+    slug: pasar-sin-rastro

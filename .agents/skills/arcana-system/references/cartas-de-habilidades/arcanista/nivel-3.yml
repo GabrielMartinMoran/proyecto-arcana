@@ -1,0 +1,149 @@
+cards:
+  - id: 87e3747d82965a6738f286e8604c7bee64a56b75
+    name: Explosión Elemental
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Descarga Elemental & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Provocas una detonación mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el
+      área deben superar una TS de Reflejos (ND 5 + Atributo Mágico). Si tienen éxito, reciben la mitad del daño y
+      evitan los efectos secundarios.<br> Al lanzar el conjuro, eliges la forma que adopta:<br> - **Bola de Fuego
+      (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br> -
+      **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las
+      criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br> -
+      **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño
+      eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>
+    slug: explosion-elemental
+  - id: 69ffc982e08653780c89c0f61c7ed8a0a1886fc4
+    name: Volar
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual a su Velocidad normal durante 10 minutos o
+      hasta que pierdas la concentración.
+    slug: volar
+  - id: ca2f1342b6abc713bab578037114d9fef5d534b3
+    name: Círculo de Protección
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: Barrera Arcana & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos. Elige un tipo de criatura
+      (no-muertos, demonios, etc.). Para poder entrar al círculo, una criatura del tipo elegido debe superar una tirada
+      de Instinto (ND 5 + Atributo Mágico). Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas
+      de Salvación contra efectos de criaturas del tipo declarado.
+    slug: circulo-de-proteccion
+  - id: b69c525cc94b4541a6e990945599704313ca2100
+    name: Ráfaga Aniquiladora
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Realizas un ataque de conjuro a distancia (1d8 + Atributo Mágico) contra un objetivo. Si impactas, el objetivo
+      recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque sufre un -1
+      acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional, hasta que falles
+      una tirada de ataque o decidas detener la ráfaga.
+    slug: rafaga-aniquiladora
+  - id: 1a182f6d4ecebc5ff5890fc95300cdc7a6ab721e
+    name: Transmutar Materia
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades (dureza,
+      peso, textura) o su forma. No puedes cambiar su masa total. Por ejemplo, puedes volver una cerradura blanda como
+      la cera, o esculpir una palanca a partir de un trozo de metal.
+    slug: transmutar-materia
+  - id: cd63e5dfc4095d0e5360d1565ab15194dc52cb51
+    name: Visión Remota
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Creas un sensor invisible con forma de ojo espectral en un punto que puedas ver a distancia Media. El sensor es
+      intangible pero no puede atravesar objetos sólidos. En tus turnos, puedes usar tu Acción para mover el sensor
+      hasta 10 metros. Ves y oyes a través del sensor. El sensor es detectable con magia o visión especial. Dura 10
+      minutos.
+    slug: vision-remota
+  - id: af7be8e7ce4f47d5eaa84f27f8245ea88f71cff4
+    name: Rompeconjuros
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+      - Ritual
+    requirements: Afinidad Arcana & Atributo Mágico 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Esta carta tiene dos modos de uso:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un
+      conjuro, realizas una Tirada Enfrentada de tu Atributo Mágico contra el atributo de lanzamiento del conjurador. Si
+      ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a
+      distancia Cercana afectado por un efecto mágico. Realizas una prueba de Atributo Mágico contra una ND establecida
+      por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+    slug: rompeconjuros
+  - id: 59d7d61b1cb422ee678e04476bb1d3a9a32d0bc2
+    name: Santuario Arcano
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana & Atributo Mágico 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Trazas un círculo en el suelo, del que brota una cúpula de energía opaca desde fuera pero transparente desde
+      dentro, de 3m de radio. Dura 8 horas. Las criaturas que designes al lanzar el conjuro pueden usar una Acción para
+      entrar o salir. Si tú, el lanzador, sales, el conjuro termina. Cualquier ataque o conjuro dirigido a la cúpula
+      debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Atributo Mágico con tu
+      bonificador (1d8 + Atributo Mágico) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la
+      barrera.
+    slug: santuario-arcano

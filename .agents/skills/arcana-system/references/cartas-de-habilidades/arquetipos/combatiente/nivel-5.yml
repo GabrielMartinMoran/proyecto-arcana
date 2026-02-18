@@ -1,0 +1,30 @@
+cards:
+  - id: 46dd14b590df11ed0759169f6a8796a34980e057
+    name: Torrente de Acero
+    level: 5
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Ataque Adicional & Cuerpo 6
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu maestría marcial alcanza la perfección. Cuando usas tu Acción para Atacar, ahora puedes realizar **tres
+      ataques** en lugar de dos.
+    slug: torrente-de-acero
+  - id: df8aa62730f4dff4f8b378b715c106dca5fdaec7
+    name: Último Bastión
+    level: 5
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: Inquebrantable & Cuerpo 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Eres la definición de la resistencia. Como Reacción, cuando tú o un aliado a 1 metro vais a recibir daño, puedes
+      interponer tu cuerpo o escudo. **Anulas completamente el daño** de ese ataque o efecto.
+    slug: ultimo-bastion

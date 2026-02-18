@@ -1,0 +1,31 @@
+cards:
+  - id: e2ca5c1563e5e8cf1587b9e1e35a94b252ac5c06
+    name: Reflejos de Combate
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Cuerpo 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu conciencia del campo de batalla es absoluta.<br> No puedes ser sorprendido mientres estes consciente. Además,
+      tienes una Reacción adicional en cada ronda de combate, que solo puedes usar para habilidades de cartas con la
+      etiqueta _Combatiente_.
+    slug: reflejos-de-combate
+  - id: 7df6fa4a6546cd1c4321fae7abd58c1526f86238
+    name: Bastión Inamovible
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Cuerpo 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres una montaña inamovible en el campo de batalla. Ganas los siguientes beneficios:<br> - Eres inmune a ser
+      Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br> - Obtienes Ventaja (+1d4) en
+      Tiradas de Salvación de Cuerpo.
+    slug: bastion-inamovible

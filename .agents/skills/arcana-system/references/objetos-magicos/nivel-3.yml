@@ -1,0 +1,262 @@
+items:
+  - id: a09c8d244eaf351342290a78eb58326315346866
+    name: Botas de Velocidad
+    level: 3
+    type: activable
+    tags:
+      - Movimiento
+    requirements: Reflejos 3
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Interacción, puedes activar el poder de las botas. Durante 1 minuto, tu Velocidad se duplica y obtienes
+      Ventaja (+1d4) en las Tiradas de Salvación de Reflejos.
+    slug: botas-de-velocidad
+    cost: 1300
+  - id: a975d79b4d079130c7a87ed781c9af651e2af892
+    name: Anillo de Protección
+    level: 3
+    type: efecto
+    tags:
+      - Defensa
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este simple anillo de plata genera un campo de fuerza sutil a tu alrededor. Obtienes un +1 permanente a tu
+      Mitigación Física y Mágica.
+    slug: anillo-de-proteccion
+    cost: 1500
+  - id: d7c1896f755356df72f6ed15d8e2c101d79a2cf4
+    name: Varita de Proyectiles Mágicos
+    level: 3
+    type: activable
+    tags:
+      - Vara
+    requirements: Mente 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta varita contiene 7 cargas. Como una Acción, puedes gastar una o más de sus cargas para lanzar un número de
+      dardos de energía mágica igual a las cargas gastadas. Los dardos impactan automáticamente a objetivos que puedas
+      ver a distancia Larga, y cada uno inflige 1d4 de daño de Fuerza. Puedes dirigir los dardos a uno o varios
+      objetivos. La varita recupera 1d6+1 cargas gastadas cada día al amanecer.
+    slug: varita-de-proyectiles-magicos
+    cost: 1200
+  - id: e74c0c7200c8749ca04e142412ce7dbf7e792169
+    name: Yelmo del Políglota
+    level: 3
+    type: efecto
+    tags:
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras llevas este yelmo, comprendes el significado literal de cualquier lengua hablada que oigas. Además,
+      puedes hacerte entender por cualquier criatura que posea un idioma.
+    slug: yelmo-del-poliglota
+    cost: 800
+  - id: 01487406e51e87ee3bc239156debc4103cbd1e71
+    name: Sortija del Viento
+    level: 3
+    type: efecto
+    tags:
+      - Esquiva
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este anillo te envuelve en una brisa protectora casi imperceptible. Mientras lo lleves puesto, obtienes un +1 a tu
+      Esquiva.
+    slug: sortija-del-viento
+    cost: 1500
+  - id: fa6a5f6104dcd90c7242dc9146e2499b65bbf96e
+    name: Amuleto de Salud
+    level: 3
+    type: efecto
+    tags:
+      - Curación
+      - Supervivencia
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este amuleto de jaspe rojo late con una suave calidez. Mientras lo lleves puesto, te estabilizas automáticamente
+      al final de tu turno si estás Moribundo. Además, recuperas 2 Puntos de Salud adicionales cada vez que completas un
+      día de descanso.
+    slug: amuleto-de-salud
+    cost: 1100
+  - id: e768e6e6e8208b30e0ce8f970e14787432ba0a32
+    name: Broche de la Voluntad Férrea
+    level: 3
+    type: efecto
+    tags:
+      - Concentración
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este broche de hierro te ayuda a mantener la calma bajo presión. Obtienes Ventaja (+1d4) en todas las pruebas de
+      atributo que realices para mantener la Concentración en una carta.
+    slug: broche-de-la-voluntad-ferrea
+    cost: 1200
+  - id: aa6affd2b545852e3fdf0f3eb2398c1784153574
+    name: Hoja Viciosa
+    level: 3
+    type: efecto
+    tags:
+      - Arma
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma Cortante o Perforante._<br><br> Cuando obtienes un golpe crítico
+      con esta arma, el objetivo sufre 1d8 de daño adicional del mismo tipo que el del arma.
+    slug: hoja-viciosa
+    cost: 1000
+  - id: e0c0466f8db9d719a7b29e27706ed84e7bac8b38
+    name: Poción de Curación Mayor
+    level: 3
+    type: consumible
+    tags:
+      - Poción
+      - Curación
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: La poción emite un suave calor antes de ser bebida. Al consumirla, recuperas 4d6+4 Puntos de Salud.
+    slug: pocion-de-curacion-mayor
+    cost: 400
+  - id: 5befcbce82fc244b0a0092e42cd8a705763b7b5c
+    name: Poción de Invisibilidad
+    level: 3
+    type: consumible
+    tags:
+      - Poción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Al beber este líquido cristalino, tu cuerpo se desvanece de la vista. Te vuelves invisible durante 10 minutos. El
+      efecto termina antes si atacas, lanzas un conjuro o usas una carta activable.
+    slug: pocion-de-invisibilidad
+    cost: 500
+  - id: a79cff97cd34389f31f4ae73173d52f50231cb9a
+    name: Elixir de Resistencia Elemental
+    level: 3
+    type: consumible
+    tags:
+      - Poción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Al crear esta poción, se elige un tipo de daño elemental (Fuego, Frío o Eléctrico). Al beberla, obtienes
+      Mitigación Mágica igual a 5 contra ese tipo de daño durante 1 hora.
+    slug: elixir-de-resistencia-elemental
+    cost: 500
+  - id: a27eef51f34db37ea4c979a53fb648fbef4fc2cb
+    name: Espejo de la Memoria Reciente
+    level: 3
+    type: activable
+    tags:
+      - Adivinación
+      - Investigación
+    requirements: Instinto 3
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Acción, puedes enfocar el espejo en un punto a distancia Inmediata. El espejo revela una imagen
+      silenciosa y fantasmal del evento más significativo o emocionalmente cargado que ocurrió en ese punto en las
+      últimas 24 horas. La visión dura 10 segundos y es desde la perspectiva del espejo.
+    slug: espejo-de-la-memoria-reciente
+    cost: 900
+  - id: 5ae66bcbb0b4eb07f799f2b6f5815f73d74fd785
+    name: Piedra de Anulación
+    level: 3
+    type: activable
+    tags:
+      - Control
+      - Utilidad
+    requirements: Mente 3
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Acción, arrojas esta piedra de obsidiana a un punto a distancia Cercana, donde flota en el aire. Eliges
+      uno de los siguientes efectos, que crea una esfera de 5 metros de radio y dura 1 minuto (requiere Concentración):
+      - **Silencio:** No se puede originar ni pasar sonido a través de la esfera.
+        Cualquier criatura u objeto dentro de ella es inmune al daño Sónico, y
+        están ensordecidos.
+      - **Oscuridad:** La esfera se llena de oscuridad mágica, bloqueando la visión
+        (incluso la Visión en la Oscuridad).
+    slug: piedra-de-anulacion
+    cost: 1000
+  - id: 7eb84be5186209b04f67d965e6c75762c7cb748e
+    name: Armadura de la Víbora Dentada
+    level: 3
+    type: efecto
+    tags:
+      - Armadura
+      - Daño
+    requirements: Cuerpo 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior). Las placas o anillas de esta
+      armadura están cubiertas de filos mágicos. Cada vez que una criatura a distancia Inmediata te impacta con un
+      ataque cuerpo a cuerpo, recibe 1d4 de daño Cortante.
+    slug: armadura-de-la-vibora-dentada
+    cost: 1300
+  - id: 5c3fcb2e41abafad80bc82df573a2210181263ef
+    name: Túnica del Recuerdo Arcano
+    level: 3
+    type: activable
+    tags:
+      - Armadura
+      - Conjuro
+      - Utilidad
+    requirements: Mente 3 | Instinto 3 | Presencia 3
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      (Esta propiedad se aplica a ropa o túnicas, no otorga mitigación). Durante un día de descanso, puedes realizar un
+      ritual de 10 minutos para almacenar una de tus cartas de Conjuro de Nivel 1 o 2 en la túnica. Mientras esta carta
+      esté activa, puedes lanzar el conjuro almacenado como si lo tuvieras en una ranura, sin gastar su uso normal. Una
+      vez lanzado, el conjuro se desvanece de la túnica y debes realizar el ritual de nuevo para almacenar otro.
+    slug: tunica-del-recuerdo-arcano
+    cost: 1500
+  - id: eb28e65896843afa8ae7da82189092afbce772a3
+    name: Gemas del Eco Mental
+    level: 3
+    type: efecto
+    tags:
+      - Comunicación
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema posee 3 cargas en total, que se
+      recuperan cada día al amanecer. Mientras sostienes una gema, puedes usar tu Acción y gastar 1 carga para enviar un
+      mensaje telepático de hasta 25 palabras al portador de la otra gema. El receptor oye el mensaje en su mente y
+      puede usar su propia Acción para responder con un mensaje de la misma longitud, sin gastar una carga, siempre que
+      ambos estén en el mismo plano de existencia.
+    slug: gemas-del-eco-mental
+    cost: 800

@@ -1,0 +1,18 @@
+cards:
+  - id: 1ca9045b448eeee24d9937eb1cc600beafa581c2
+    name: Familiar Arcano
+    level: 2
+    type: activable
+    tags:
+      - Mago
+      - Ritual
+    requirements: Estudios Mágicos & Atributo Mágico 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tras 1 hora de ritual, invocas un espíritu mágico menor (cuervo, gato, sapo, etc.). El familiar tiene 1 PS,
+      Esquiva 10 y no puede atacar, pero obedece tus órdenes telepáticas a distancia Larga. Como Acción, puedes ver y
+      oír a través de sus sentidos (quedando tú ciego y sordo a tu entorno). Si muere, debes repetir el ritual para
+      volver a invocarlo.
+    slug: familiar-arcano

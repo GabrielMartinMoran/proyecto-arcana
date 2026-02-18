@@ -1,0 +1,31 @@
+cards:
+  - id: a18a6b16ef84b457c2d48622a21d1538df66b839
+    name: Golpe Letal
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Ataque Furtivo Mejorado & Reflejos 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has aprendido a identificar y explotar las vulnerabilidades más críticas.<br> El daño adicional de tu Ataque
+      Furtivo aumenta a 4d4.
+    slug: golpe-letal
+  - id: 2e1d27c454ae1f42d91b4ca9feb8f9ad6d79db36
+    name: Esquiva Sobrenatural
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Evasión & Reflejos 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Te mueves como un fantasma a través del peligro. Ganas los siguientes beneficios:<br> - Tu carta Evasión ahora
+      también se aplica a Tiradas de Salvación de Cuerpo e Instinto.<br> - Cuando tienes éxito en cualquier Tirada de
+      Salvación para recibir la mitad de daño (y por ende no recibes daño gracias a Evasión), puedes usar tu Reacción
+      para moverte hasta la mitad de tu velocidad.
+    slug: esquiva-sobrenatural

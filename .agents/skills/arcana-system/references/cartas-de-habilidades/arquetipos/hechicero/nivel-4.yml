@@ -1,0 +1,16 @@
+cards:
+  - id: 72e1d144bb306cc40c3fca342b1197a10869f698
+    name: Apoteosis Arcana
+    level: 4
+    type: activable
+    tags:
+      - Hechicero
+    requirements: Herencia Sobrenatural & Atributo Mágico 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Acción, dejas que la magia pura de tu linaje te consuma durante 1 minuto.<br> Ganas una velocidad de vuelo
+      igual a tu Velocidad normal, emites luz brillante a 3 metros, y el costo en Puntos de Salud de todas las opciones
+      de tu carta _Sangre Mágica_ se reduce a la mitad (redondeado hacia arriba, hasta un mínimo de 1 PS).
+    slug: apoteosis-arcana

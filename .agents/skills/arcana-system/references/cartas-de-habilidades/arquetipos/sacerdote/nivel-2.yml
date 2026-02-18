@@ -1,0 +1,195 @@
+cards:
+  - id: 4fdb60412734f869f55196c34b35b8bc120f3088
+    name: Amparo Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Reacción, cuando un enemigo ataca a un aliado que puedas ver a distancia Cercana, puedes interponer una
+      barrera de luz. El atacante sufre Desventaja (-1d4) en esa tirada de ataque y en cualquier otro ataque que realice
+      contra ese mismo aliado hasta el final del turno actual.
+    slug: amparo-divino
+  - id: eb0eaa413eba534400f156ff005320b4bde044dc
+    name: Aura Protectora
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: Toque Restaurador & Instinto 3
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Reacción cuando un aliado a distancia Cercana es reducido a 0 Puntos de Salud, puedes hacer que quede con 1
+      Punto de Salud en su lugar.
+    slug: aura-protectora
+  - id: d3ed7bff6d5bd84cb0af302a15fe2f46ff4aa097
+    name: Golpe Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de
+      energía sagrada. El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el
+      daño aumenta a 2d6.<br> Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta
+      el final de tu próximo turno.
+    slug: golpe-divino
+  - id: 49251645cba929067294041f0ccd1cc4bce2aa33
+    name: Santuario Silencioso
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Creas una esfera de 5 metros de radio a distancia Media. Dentro de la esfera, el sonido se apaga por completo.
+      Además, el área se considera terreno consagrado, y las criaturas impías (no-muertos, demonios, etc.) que entren o
+      empiecen su turno allí sufren Desventaja (-1d4) en todas sus tiradas de ataque y salvación.
+    slug: santuario-silencioso
+  - id: b68ea30f8722178aa8700c1dd840cb9ba01ebbc6
+    name: Ritos Sagrados
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Eres el azote de la oscuridad. Al lanzarel conjuro, eliges un modo de funcionamiento:<br> - **Sentir Presencia
+      (Ritual/Acción):** Durante 10 minutos, eres consciente de la presencia y ubicación general de cualquier criatura
+      Celestial, Infernal o No-muerta a distancia Cercana, así como de objetos o áreas consagradas o profanadas dentro
+      del mismo rango.<br> - **Expulsión (Acción):** Liberas energía divina. Todo No-muerto o Infernal a distancia
+      Cercana debe superar una TS Instinto (ND 5 + Instinto). Si falla, debe usar su turno para alejarse de ti y sufre
+      Desventaja -1d4) en ataques durante 1 minuto (o hasta recibir daño).<br>
+    slug: ritos-sagrados
+  - id: f541cb0392ff6d1e52847cd3bc7d653121769c0f
+    name: Bendecir Objeto
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Tocas un arma, escudo, armadura o herramienta. Durante 10 minutos, el objeto obtiene una bendición. Elige uno:<br>
+      - **Arma:** Adquiere un +1 en las tiradas de ataque.<br> - **Escudo o Armadura:** Otorga a su portador +1 a la
+      Mitigación Física y Mágica.<br> - **Herramienta:** Otorga un +1 a las Pruebas de Habilidad que se realicen con
+      esta.
+    slug: bendecir-objeto
+  - id: 86d7317cbc8c26b15e47ea0753850e680a9f52b2
+    name: Aura Divina
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, emites un aura divina de 5 metros de radio que dura 1 minuto. Al activar el aura, eliges uno de los
+      siguientes efectos persistentes:<br> - **Aura de Protección:** Cuando un enemigo dentro del aura ataca a un
+      aliado, puedes usar tu Reacción para imponer Desventaja (-1d4) en esa tirada de ataque.<br> - **Aura de
+      Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una
+      TS de Reflejos (ND 5 + Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).<br> - **Aura de
+      Fortaleza:** Tú y tus aliados dentro del aura obtenéis un +1 a todas las Tiradas de Salvación.
+    slug: aura-divina
+  - id: f7d0f07678cc25c939e98672cb40846ea3957030
+    name: Sentencia del Hereje
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Concentración
+    requirements: Mirada Penetrante
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Interacción, marcas a un enemigo a distancia Cercana hasta el final del combate (o hasta que muera). Siempre
+      puedas ver al enemigo, tus ataques y los de tus aliados contra ese enemigo ignoran su mitigación física y mágica
+      en una cantidad igual a la mitad de tu atributo de Instinto (redondeado hacia abajo).
+    slug: sentencia-del-hereje
+  - id: cf9793767e719cfd731439c0f2def36265eef996
+    name: Zona de la Verdad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Concentración
+      - Ritual
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Creas una zona de 5 metros de radio a distancia Media por 10 minutos. Quien esté dentro debe superar una TS de
+      Instinto (ND 5 + Instinto) para poder decir una mentira deliberada.
+    slug: zona-de-la-verdad
+  - id: 2a9d0350842526656aadd388132d58ac364ff138
+    name: Santuario
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Trazas un círculo de 5 metros de radio en el suelo. Durante 8 horas, el área se considera terreno consagrado.<br>
+      Cualquier criatura Infernal o No-muerta que intente entrar al área debe superar primero una Tirada de Salvación de
+      Instinto (ND 5 + Instinto). Si falla, no puede entrar voluntariamente en este turno. Si cualquier otra criatura
+      que no hayas designado como segura entra en el área, recibes una alerta mental que te despierta si estás
+      durmiendo. No te revela quien entro, pero sí que alguien no esperado lo ha hecho.
+    slug: santuario
+  - id: ee8acb2d7a3dacf44e8106b3cf5f4cabac351de1
+    name: Palabra de Autoridad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Como Acción, eliges a una criatura a distancia Media. Le das una orden de una o dos palabras (ej: "¡Suéltalo!",
+      "¡Arrodíllate!"). El objetivo debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto). Si falla,
+      obedece la orden en su próximo turno, siempre que no sea directamente dañina. Una criatura inmune al estado
+      Encantado no se ve afectada por este conjuro.
+    slug: palabra-de-autoridad

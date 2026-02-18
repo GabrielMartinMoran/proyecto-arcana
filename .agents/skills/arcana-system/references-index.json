@@ -1,0 +1,407 @@
+{
+  "title": "ARCANA — Referencia del Sistema",
+  "intro": "",
+  "sections": [
+    {
+      "heading": "Manual del Jugador",
+      "links": [
+        {
+          "title": "1. Filosofía de Diseño",
+          "path": "references/manual-del-jugador/01-filosofia-de-diseno.md"
+        },
+        {
+          "title": "2. Creación de Personajes",
+          "path": "references/manual-del-jugador/02-creacion-de-personajes.md"
+        },
+        {
+          "title": "3. Mecánicas de Juego",
+          "path": "references/manual-del-jugador/03-mecanicas-de-juego.md"
+        },
+        {
+          "title": "4. El Sistema de Cartas",
+          "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md"
+        },
+        {
+          "title": "5. Exploración",
+          "path": "references/manual-del-jugador/05-exploracion.md"
+        },
+        {
+          "title": "6. Interacción Social",
+          "path": "references/manual-del-jugador/06-interaccion-social.md"
+        },
+        {
+          "title": "7. Combate",
+          "path": "references/manual-del-jugador/07-combate.md"
+        },
+        {
+          "title": "8. Estados y Condiciones",
+          "path": "references/manual-del-jugador/08-estados-y-condiciones.md"
+        },
+        {
+          "title": "9. Progresión del Personaje",
+          "path": "references/manual-del-jugador/09-progresion-del-personaje.md"
+        },
+        {
+          "title": "10. Tiempo Entre Aventuras",
+          "path": "references/manual-del-jugador/10-tiempo-entre-aventuras.md"
+        },
+        {
+          "title": "11. Equipo y Economía",
+          "path": "references/manual-del-jugador/11-equipo-y-economia.md"
+        },
+        {
+          "title": "12. Reglas Narrativas Avanzadas",
+          "path": "references/manual-del-jugador/12-reglas-narrativas-avanzadas.md"
+        },
+        {
+          "title": "13. Un Ejemplo de Juego",
+          "path": "references/manual-del-jugador/13-un-ejemplo-de-juego.md"
+        }
+      ]
+    },
+    {
+      "heading": "Manual del Director",
+      "links": [
+        {
+          "title": "Guía para el Director de Juego",
+          "path": "references/manual-del-director/01-guia-para-el-director-de-juego.md"
+        },
+        {
+          "title": "Otorgar Puntos de Progreso (PP)",
+          "path": "references/manual-del-director/02-otorgar-puntos-de-progreso-pp.md"
+        },
+        {
+          "title": "El Pacto de Caos",
+          "path": "references/manual-del-director/03-el-pacto-de-caos.md"
+        },
+        {
+          "title": "Guía de Recompensas: Tesoro y Equipo",
+          "path": "references/manual-del-director/04-guia-de-recompensas-tesoro-y-equipo.md"
+        },
+        {
+          "title": "Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad",
+          "path": "references/manual-del-director/05-establecer-niveles-de-dificultad-nd-para-pruebas-de-habilidad.md"
+        },
+        {
+          "title": "Diseñar Criaturas y Encuentros",
+          "path": "references/manual-del-director/06-disenar-criaturas-y-encuentros.md"
+        },
+        {
+          "title": "Parte 1: Diseñar Encuentros",
+          "path": "references/manual-del-director/07-parte-1-disenar-encuentros.md"
+        },
+        {
+          "title": "Parte 2: Diseño Avanzado de Criaturas",
+          "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md"
+        },
+        {
+          "title": "Guía de Diseño de Conjuros y Habilidades",
+          "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md"
+        }
+      ]
+    },
+    {
+      "heading": "Cartas de Habilidades",
+      "links": [
+        {
+          "title": "Linaje — Nivel 1",
+          "path": "references/cartas-de-habilidades/linaje/nivel-1.yml"
+        },
+        {
+          "title": "Dote — Nivel 1",
+          "path": "references/cartas-de-habilidades/dote/nivel-1.yml"
+        },
+        {
+          "title": "Dote — Nivel 2",
+          "path": "references/cartas-de-habilidades/dote/nivel-2.yml"
+        },
+        {
+          "title": "Arquetipo — Pícaro — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/picaro/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Pícaro — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-1.yml"
+        },
+        {
+          "title": "Pícaro — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-2.yml"
+        },
+        {
+          "title": "Pícaro — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-3.yml"
+        },
+        {
+          "title": "Pícaro — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-4.yml"
+        },
+        {
+          "title": "Pícaro — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-5.yml"
+        },
+        {
+          "title": "Arquetipo — Combatiente — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/combatiente/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Combatiente — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/combatiente/nivel-1.yml"
+        },
+        {
+          "title": "Combatiente — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/combatiente/nivel-2.yml"
+        },
+        {
+          "title": "Combatiente — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/combatiente/nivel-3.yml"
+        },
+        {
+          "title": "Combatiente — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/combatiente/nivel-4.yml"
+        },
+        {
+          "title": "Combatiente — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/combatiente/nivel-5.yml"
+        },
+        {
+          "title": "Arcanista — Nivel 1",
+          "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml"
+        },
+        {
+          "title": "Arcanista — Nivel 2",
+          "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml"
+        },
+        {
+          "title": "Arcanista — Nivel 3",
+          "path": "references/cartas-de-habilidades/arcanista/nivel-3.yml"
+        },
+        {
+          "title": "Arcanista — Nivel 4",
+          "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml"
+        },
+        {
+          "title": "Arcanista — Nivel 5",
+          "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml"
+        },
+        {
+          "title": "Arquetipo — Mago — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/mago/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Mago — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-1.yml"
+        },
+        {
+          "title": "Mago — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-2.yml"
+        },
+        {
+          "title": "Mago — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-3.yml"
+        },
+        {
+          "title": "Mago — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-4.yml"
+        },
+        {
+          "title": "Arquetipo — Brujo — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/brujo/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Brujo — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-1.yml"
+        },
+        {
+          "title": "Brujo — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-2.yml"
+        },
+        {
+          "title": "Brujo — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-3.yml"
+        },
+        {
+          "title": "Brujo — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-4.yml"
+        },
+        {
+          "title": "Arquetipo — Hechicero — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Hechicero — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml"
+        },
+        {
+          "title": "Hechicero — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml"
+        },
+        {
+          "title": "Hechicero — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml"
+        },
+        {
+          "title": "Hechicero — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-4.yml"
+        },
+        {
+          "title": "Arquetipo — Sacerdote — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/sacerdote/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Sacerdote — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-1.yml"
+        },
+        {
+          "title": "Sacerdote — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-2.yml"
+        },
+        {
+          "title": "Sacerdote — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-3.yml"
+        },
+        {
+          "title": "Sacerdote — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml"
+        },
+        {
+          "title": "Sacerdote — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-5.yml"
+        },
+        {
+          "title": "Arquetipo — Druida — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/druida/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Druida — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-1.yml"
+        },
+        {
+          "title": "Druida — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml"
+        },
+        {
+          "title": "Druida — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-3.yml"
+        },
+        {
+          "title": "Druida — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-4.yml"
+        },
+        {
+          "title": "Druida — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-5.yml"
+        },
+        {
+          "title": "Arquetipo — Bardo — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/bardo/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Bardo — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-1.yml"
+        },
+        {
+          "title": "Bardo — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-2.yml"
+        },
+        {
+          "title": "Bardo — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-3.yml"
+        },
+        {
+          "title": "Bardo — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-4.yml"
+        },
+        {
+          "title": "Bardo — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-5.yml"
+        },
+        {
+          "title": "Arquetipo — Monje — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/monje/arquetipo-nivel-1.yml"
+        },
+        {
+          "title": "Monje — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml"
+        },
+        {
+          "title": "Monje — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml"
+        },
+        {
+          "title": "Monje — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml"
+        },
+        {
+          "title": "Monje — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-4.yml"
+        },
+        {
+          "title": "Monje — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-5.yml"
+        },
+        {
+          "title": "Sinergia — Nivel 4",
+          "path": "references/cartas-de-habilidades/sinergia/nivel-4.yml"
+        }
+      ]
+    },
+    {
+      "heading": "Objetos Mágicos",
+      "links": [
+        {
+          "title": "Objetos Mágicos — Nivel 1",
+          "path": "references/objetos-magicos/nivel-1.yml"
+        },
+        {
+          "title": "Objetos Mágicos — Nivel 2",
+          "path": "references/objetos-magicos/nivel-2.yml"
+        },
+        {
+          "title": "Objetos Mágicos — Nivel 3",
+          "path": "references/objetos-magicos/nivel-3.yml"
+        },
+        {
+          "title": "Objetos Mágicos — Nivel 4",
+          "path": "references/objetos-magicos/nivel-4.yml"
+        },
+        {
+          "title": "Objetos Mágicos — Nivel 5",
+          "path": "references/objetos-magicos/nivel-5.yml"
+        },
+        {
+          "title": "Objetos Mágicos — Nivel 6",
+          "path": "references/objetos-magicos/nivel-6.yml"
+        }
+      ]
+    },
+    {
+      "heading": "Bestiario",
+      "links": [
+        {
+          "title": "Bestiario — Rango 1",
+          "path": "references/bestiario/rango-1.md"
+        },
+        {
+          "title": "Bestiario — Rango 2",
+          "path": "references/bestiario/rango-2.md"
+        },
+        {
+          "title": "Bestiario — Rango 3",
+          "path": "references/bestiario/rango-3.md"
+        },
+        {
+          "title": "Bestiario — Rango 4",
+          "path": "references/bestiario/rango-4.md"
+        },
+        {
+          "title": "Bestiario — Rango 5",
+          "path": "references/bestiario/rango-5.md"
+        },
+        {
+          "title": "Bestiario — Rango 6",
+          "path": "references/bestiario/rango-6.md"
+        }
+      ]
+    }
+  ]
+}

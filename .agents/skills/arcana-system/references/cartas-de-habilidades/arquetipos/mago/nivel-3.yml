@@ -1,0 +1,18 @@
+cards:
+  - id: 069db58034d2666fbb55adea49154d13f3f7f1b8
+    name: Teoría Arcana Avanzada
+    level: 3
+    type: efecto
+    tags:
+      - Mago
+    requirements: Afinidad Arcana & Mente 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu entendimiento de la magia te permite manipular tus conjuros. Cuando lanzas una carta de Conjuro de Arcanista,
+      puedes gastar Puntos de Suerte para aplicar uno de los siguientes efectos (solo uno por lanzamiento):<br> - **1
+      Suerte (Conjuro Sutil):** Lanzas el conjuro sin componentes obvios.<br> - **1 Suerte (Conjuro Distante):**
+      Aumentas el alcance de un conjuro de Cercana a Media, o de Media a Larga.<br> - **2 Suerte (Conjuro Bifurcado):**
+      Un conjuro que afecta a un solo objetivo, ahora afecta a un segundo objetivo dentro del alcance.<br>
+    slug: teoria-arcana-avanzada

@@ -1,0 +1,38 @@
+cards:
+  - id: a628fa77d6a3f40aa2d67034eb1fd5f35a1c5aa9
+    name: Mil Formas
+    level: 5
+    type: efecto
+    tags:
+      - Druida
+    requirements: Forma Salvaje Mayor & Instinto 6
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br> - **Mente Dual:** Puedes mantener
+      la concentración en _Forma Salvaje_ y en otro conjuro de Druida simultáneamente (las TS para mantenerla se
+      realizan por separado para cada habilidad).<br> - **Sintonía Natural:** Puedes realizar un ritual de meditación de
+      10 minutos. Al finalizarlo, recuperas todos los usos gastados de tu _Forma Salvaje_.<br> - **Avatar Titánico:**
+      Cuando usas tu _Forma Salvaje_, puedes transformarte en bestias de tamaño Enorme.<br> - **Ferocidad Imparable:**
+      Tus ataques en _Forma Salvaje_ ignoran una cantidad de puntos de Mitigación Física igual a tu puntuación de
+      Instinto.
+    slug: mil-formas
+  - id: 1297449cb7af1276e22edbc07dff87140a4dfc7d
+    name: Ira de la Naturaleza
+    level: 5
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: Manifestar Naturaleza & Dominio del Clima & Instinto 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto. El
+      terreno se vuelve difícil, la visibilidad se reduce a penumbra. Al final de cada turno de una criatura hostil en
+      el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos
+      ND 5 + Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.
+    slug: ira-de-la-naturaleza

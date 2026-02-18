@@ -1,0 +1,99 @@
+cards:
+  - id: 5862346a05b760d88994c3829f6d35299fb2a5ba
+    name: Canto de Inspiración
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+    requirements: Don del Elocuente
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte. El aliado obtiene un dado de
+      1d4 (dado de inspiración) que puede añadir a una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que
+      realice en el próximo minuto.
+    slug: canto-de-inspiracion
+  - id: 33cc5cf3e4bc637bdef0e311aeb45ee634978e1e
+    name: Palabras Hirientes
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Insultas a una criatura que puedas ver a distancia Cercana que pueda oírte. El objetivo debe superar una TS de
+      Instinto (ND 5 + Presencia) o recibir 1d6 de daño Psíquico y tener Desventaja en su próximo ataque.
+    slug: palabras-hirientes
+  - id: f8bc512e468cd6cbedad948f761a5a3e10136f42
+    name: Hechizar Persona
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: >-
+      Intentas encantar a un humanoide a distancia Cercana. Debe superar una TS de Instinto (ND 5 + Presencia, con
+      ventaja si tu o tus compañeros estan combatiendo contra la criatura) o quedar Encantado por ti durante 10 minutos.
+      Mientras este bajo este efecto, su postura hacia ti es amigable y como mínino tendra en cuenta tus peticiones o
+      sugerencias.
+    slug: hechizar-persona
+  - id: 9a6415f260feb5f59d51cc13970afbaa822d8ac6
+    name: Inspiración Marcial
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Canto de Inspiración
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Puedes usar armaduras de Gambesón sin sufrir su penalizador a la Esquiva.<br> Además, puedes usar tu _Canto de
+      Inspiración_ en ti mismo.
+    slug: inspiracion-marcial
+  - id: 213573b4de38bed6f054ae8acae8977e2fb9146e
+    name: Floritura Artística
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu magia altera la percepción y el ambiente a tu voluntad.<br> - **Puesta en Escena (Interacción):** Creas efectos
+      narraitvos menores: haces sonar música de fondo, amplificas tu voz, afinas instrumentos o generas efectos visuales
+      menores (lluvia de pétalos, foco de luz).<br> - **Trucos de Salón (Acción):** Realizas magia menor sobre objetos:
+      enciendes/apagas velas, creas una esfera de luz flotante, limpias/manchas ropa, o cambias el sabor y temperatura
+      de 1 litro de bebida o comida.<br> - **Ventriloquia (Acción):** Creas un sonido corto (como un susurro, pasos,
+      etc.) que parezca provenir de un punto específico a distancia Cercana.
+    slug: floritura-artistica
+  - id: b102103185da37dda8dd436b23aea3a6e6908ffc
+    name: Versos Vigorizantes
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Tu voz cierra heridas y fortalece espíritus. Al lanzar el conjuro, eliges un efecto:<br> - **Palabra de Esperanza
+      (Interacción):** Pronuncias una palabra revigorizante. Un aliado a distancia Cercana recupera 1d4 Puntos de
+      Salud.<br> - **Canto Heroico (Acción):** Interpretas una breve y potente melodía. Hasta 2 aliados a distancia
+      Cercana ganan 1d4 + Presencia en Puntos de Salud Temporales durante 1 minuto.
+    slug: versos-vigorizantes

@@ -1,6 +1,6 @@
 import { mapCreature } from '$lib/mappers/creature-mapper';
 import { load as yamlLoad } from 'js-yaml';
-import { serializeStatblockAsMD } from '../serializers/statblock-serializer';
+import { serializeStatblocksAsMDTable } from '../serializers/statblock-serializer';
 import { loadAgentFile } from './agent-content-loader';
 
 const BESTIARY_FILE_PATH = '/docs/bestiary.yml';
@@ -16,5 +16,5 @@ export const loadBestiaryAsMD = async () => {
 
 	const creatures = rawCreatures.map((x) => mapCreature(x));
 
-	return creatures.map(serializeStatblockAsMD).join('---\n\n');
+	return serializeStatblocksAsMDTable(creatures);
 };

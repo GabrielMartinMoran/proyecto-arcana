@@ -1,0 +1,16 @@
+cards:
+  - id: a6a6f08ba8075e03ca321af6f67ed34e7af0904b
+    name: Condena Ineludible
+    level: 4
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: Pacto Supremo & Atributo Mágico 5
+    uses:
+      type: RELOAD
+      qty: 1
+    description: >-
+      Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros,
+      impones Desventaja (-1d4) a su tirada. (Recarga 6+)
+    slug: condena-ineludible

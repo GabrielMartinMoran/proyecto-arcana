@@ -1,0 +1,230 @@
+cards:
+  - id: e5b7d075e6eba5a6acdb3d51cccedc5f29411311
+    name: Ruptura Mental
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Generas una perturbación mental en una criatura que puedas ver a distancia Media. La criatura debe superar una
+      Tirada de Salvación de Atributo Mágico (ND 5 + Atributo Mágico) o sufrir 2d6 de daño Psíquico y tener desventaja
+      en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
+    slug: ruptura-mental
+  - id: 18d6f762f17801bd16b826a03853f94634b3ec92
+    name: Augurio
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Tras 10 minutos de meditación, puedes formular una única pregunta al DJ sobre un curso de acción específico que
+      planeas tomar en la próxima hora. El DJ te ofrecerá una respuesta breve y críptica, a menudo una visión o un
+      presagio de un posible resultado (éxito, fracaso, peligro, oportunidad).
+    slug: augurio
+  - id: a798df0f8a4a9b47eba4eee8bc54311985992d86
+    name: Maledicción
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Mágico). Si falla, le
+      aplicas uno de los siguientes efectos durante 1 minuto:<br> - Le das desventaja en sus tiradas de ataque usando un
+      atributo en específico.<br> - Le das desventaja en sus tiradas de salvación de un atributo en específico.<br> - Le
+      das desventaja en sus tiradas de habilidad un atributo en específico.<br>
+    slug: malediccion
+  - id: 7adac902047a3e6815334825505e30c39e3a034d
+    name: Paso Brumoso
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: Usas tu Interacción para teletransportarte a un espacio desocupado que puedas ver a distancia Cercana.
+    slug: paso-brumoso
+  - id: 88f8c15e77062bf38806a8ddef6fa2783990326e
+    name: Invisibilidad
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Tocas a una criatura voluntaria y se vuelve invisible durante 10 minutos o hasta que ataque, lance un conjuro o
+      pierdas la concentración.
+    slug: invisibilidad
+  - id: 742c5d66fc47875c0be726edd16a2d090901428a
+    name: Barrera Arcana
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+    requirements: Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Mientras tengas esta carta activa, una barrera de energía te protege. Siempre y cuando no lleves armadura,
+      obtienes un +1 de mitigación Física y Mágica durante 8 horas.<br> Como Reacción, cuando recibes daño de un conjuro
+      o efecto mágico, puedes gastar un uso de esta carta para sobrecargar la barrera. Ganas Mitigación Mágica igual a
+      dos veces tu puntuación de Atributo Mágico contra ese daño específico.
+    slug: barrera-arcana
+  - id: 8d24dcfd6b4f928646e2ae6403e4efac30c58374
+    name: Rayo Energético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Descarga Elemental & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Realizas un ataque de conjuro (1d8 + Atributo Mágico) a distancia Media. Si impactas, el objetivo recibe 2d8 de
+      daño de Fuego, Frío o Eléctrico.
+    slug: rayo-energetico
+  - id: fc5dc86cecef98a62eeff4d5c0920aa87359b7a7
+    name: Nube de Dagas
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Eliges un cubo de 2 metros de lado a distancia Media. El área se llena de dagas voladoras durante 1 minuto. La
+      primera vez que una criatura entre en el área en un turno o empiece su turno allí, debe realizar una Tirada de
+      Salvación de Reflejos (ND 5 + Atributo Mágico). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la
+      mitad.<br> En turnos subsequentes, puedes usar tu Acción para mover el cubo a otra ubicación a distancia Cercana.
+    slug: nube-de-dagas
+  - id: a59df5dae19e60a22e256eb8c492d61229f2415f
+    name: Ráfaga Elemental
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Liberas un cono de energía de 3 metros. Elige un elemento al lanzar. Las criaturas en el área deben superar una TS
+      de Reflejos (ND 5 + Atributo Mágico). Si fallan, reciben 2d6 de daño del tipo elegido y sufren un efecto
+      adicional:<br> - **Sónico:** Es empujada 2 metros lejos de ti.<br> - **Fuego:** Recibe 1d4 de daño extra al inicio
+      de su próximo turno.<br> - **Frío:** Su Velocidad se reduce a la mitad hasta el final de su próximo turno.<br> -
+      **Eléctrico:** No puede usar Reacciones hasta el final de su próximo turno.<br> Si tienen éxito en la Tirada de
+      Salvación, reciben la mitad del daño y ningún efecto adicional.
+    slug: rafaga-elemental
+  - id: 5e0635d5dc4c4edb710eb78a799fb21b7bf51499
+    name: Pulso Cinético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Como Acción, proyectas una ráfaga de fuerza telequinética invisible para **empujar, atraer o expandir** materia
+      desde un punto a distancia Media. La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote
+      manipular el entorno a distancia. <br> Cuando una criatura se encuentra en el camino del pulso (ya sea como
+      objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo
+      Mágico)**.<br> - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es
+      movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br> - **Si el pulso es una
+      Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son
+      empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
+    slug: pulso-cinetico
+  - id: e3154e7b612d91462a0d0cd4c7af9cbacf255574
+    name: Levitar
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a distancia Media. El efecto dura
+      hasta 10 minutos.<br> - **Criatura:** Si no es voluntaria, debe superar una TS de Cuerpo. La criatura levita y
+      puede ser movida verticalmente por ti (Interacción, hasta 3 metros). No puede moverse horizontalmente por sí misma
+      en el aire, debe impulsarse con superficies sólidas.<br> - **Objeto:** Puede pesar hasta 50 kg por cada punto de
+      tu Atributo de Atributo Mágico.
+    slug: levitar
+  - id: decfc810ceb7b0e9e2dec0ff3d492e3139d65edd
+    name: Tejer Ilusión
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Moldeas la luz y el sonido para engañar a los sentidos. Como acción, al lanzar el conjuro, elige uno de los
+      siguientes modos:<br> - **Señuelo:** Creas una ilusión visual (de hasta 2 metros cúbicos) o auditiva, en un punto
+      fijo a distancia Cercana durante 10 minutos.<br> - **Disfraz:** Te cubres con una ilusión que altera tu apariencia
+      (ropa, rasgos faciales) y tu voz durante 1 hora. Puedes aparentar ser hasta medio metro más alto o más bajo.<br> -
+      **Velo:** Envuelves a un aliado a distancia Cercana en sombras, otorgándole Ventaja (+1d4) en sus pruebas de
+      Sigilo durante 10 minutos.<br> Una criatura puede usar su Acción para interactuar físicamente con la ilusión,
+      realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Mágico para descubrir el
+      engaño.
+    slug: tejer-ilusion
+  - id: 76d2dea5f377066e6c0207e94dd1839855676291
+    name: Zona Nula
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Mágico 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Eliges un punto a distancia Media, creando una esfera de 5 metros de radio que dura hasta 10 minutos. Dentro de la
+      esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido) y toda fuente
+      de luz, mágica o no, se reduce a una penumbra tenue.
+    slug: zona-nula

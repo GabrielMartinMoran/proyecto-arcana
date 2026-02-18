@@ -1,0 +1,100 @@
+cards:
+  - id: f16a19f9e33961917a78554dac05f5dd9187c5fe
+    name: Oleada de Acción
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Cuerpo 4
+    uses:
+      type: RELOAD
+      qty: 8
+    description: Ganas una Acción extra en este turno.
+    slug: oleada-de-accion
+  - id: b7c37b66747a498175032891b26a47d11228e8b6
+    name: Ataque Adicional
+    level: 3
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Cuerpo 4
+    uses:
+      type: null
+      qty: 0
+    description: Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar de uno.
+    slug: ataque-adicional
+  - id: 3fa4cfbf69311fe97f9d07a152ba0b26f645d3d8
+    name: Ira del Berserker
+    level: 3
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Furia de Batalla & Cuerpo 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable. Adquieres un uso
+      adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve potenciada con los siguientes
+      beneficios:<br> - **Furia Desatada:** Tus ataques con armas cuerpo a cuerpo infligen **+2 de daño adicional**.<br>
+      - **Mente Inexpugnable:** Obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de **Instinto** para resistir
+      los estados de _Encantado_ o efectos de miedo.<br> - **Impulso Imparable:** Tu **Velocidad** de movimiento aumenta
+      en **2 metros**.
+    slug: ira-del-berserker
+  - id: bd61db968c9dc08dfe9899fe0091052fd03c654e
+    name: Indomable
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Cuerpo 4 & Instinto 2
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: Puedes repetir una Tirada de Salvación fallida.
+    slug: indomable
+  - id: a0c1ba88318fa598c90723c2fa5fca590a882f15
+    name: Inquebrantable
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: Sintonía con el Acero & Cuerpo 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Reacción, cuando un golpe te reduciría a 0 Puntos de Salud, puedes hacer que te dejen con 1 Punto de Salud en
+      su lugar.
+    slug: inquebrantable
+  - id: a8206a7589d0e3ff8db9282430ff8f09a10488f3
+    name: Comando de Batalla
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Grito de Guerra
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu puntuación de Presencia. Esos aliados
+      pueden usar su Reacción para moverse hasta la mitad de su velocidad. Este movimiento no puede ser interceptado por
+      Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su próximo turno obtiene
+      Ventaja (+1d4).
+    slug: comando-de-batalla
+  - id: 149327b3f042657d679a57c220c6f6a1c2be1987
+    name: Lluvia de Flechas
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Tirador de Élite & Reflejos 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3 metros deben superar una TS
+      de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño Perforante.
+    slug: lluvia-de-flechas

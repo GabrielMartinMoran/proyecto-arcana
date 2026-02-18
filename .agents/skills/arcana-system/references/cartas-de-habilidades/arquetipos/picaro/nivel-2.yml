@@ -1,0 +1,92 @@
+cards:
+  - id: b094eca7a67b3a7880212493c150513c3b14c637
+    name: Acción Astuta
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón & Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: Puedes usar tu Interacción de cada turno para realizar las acciones de Correr o Esconderse.
+    slug: accion-astuta
+  - id: fbb6a2e2532be6e948ae04150ce3a3f1c3e268f7
+    name: Riposta
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+      - Reacción
+    requirements: Estilo Audaz & Reflejos 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Como Reacción, cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes realizar un ataque cuerpo a cuerpo
+      contra él con un arma Precisa.
+    slug: riposta
+  - id: 116c34f49d6d26cd839d5a6132fe302f34c85fbc
+    name: Duelista Audaz
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Estilo Audaz & Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu confianza en el combate singular es tu mejor defensa. Ganas los siguientes beneficios:<br> - **Duelo de
+      Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no haya ninguna
+      otra criatura a 1 metro de ti o del objetivo.<br> - **Vigor del Duelista:** Cuando impactas a una criatura con un
+      ataque cuerpo a cuerpo que cumple las condiciones de "Duelo de Ingenio", ganas una cantidad de Puntos de Salud
+      temporales igual a tu puntuación de Presencia. Estos Puntos de Salud temporales duran 1 minuto.
+    slug: duelista-audaz
+  - id: 8301659b1880bd733b41ad1b2c7efee1b005063f
+    name: Alquimia de Combate
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón & Mente 2
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Has aprendido a crear y aplicar toxinas con una velocidad letal.<br> Obtienes Ventaja (+1d4) en pruebas para
+      preparar venenos.<br> Puedes aplicar veneno a un arma como una Interacción.<br> Cuando impactas a una criatura con
+      un arma que no esta envenenada, puedes inyectar una toxina creada al instante. El objetivo debe superar una TS de
+      Cuerpo (ND 5 + Mente). Si falla, eliges el efecto:<br> - **Toxina Virulenta:** El objetivo sufre el estado
+      Envenenado hasta el final de tu próximo turno.<br> - **Toxina Agónica:** El objetivo sufre 1d6 de daño de Veneno
+      adicional.<br>
+    slug: alquimia-de-combate
+  - id: 068fd34bc636bf59fb4ab6449c0b44202ce88bfe
+    name: Asesinar
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón & Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres un maestro del primer golpe. Para preparar un ataque letal, debes usar tu Interacción en el mismo turno en
+      que atacas. Si lo haces, y atacas a una criatura que no es consciente de tu presencia, tu primer impacto con un
+      arma se considera automáticamente un golpe crítico.
+    slug: asesinar
+  - id: 02d4948b1d32228e3ce6ec4dbd0b02f54dfcec20
+    name: Manos Rápidas
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Manos Hábiles & Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu destreza es legendaria. Puedes usar tu Interacción para realizar la acción de Usar un Objeto, incluso aquellos
+      que normalmente requerirían una Acción para activarse.
+    slug: manos-rapidas

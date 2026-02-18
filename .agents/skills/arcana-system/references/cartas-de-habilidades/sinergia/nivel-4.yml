@@ -1,0 +1,400 @@
+cards:
+  - id: f5b2f50b5cb7abef10a030e868d3e4767172eeed
+    name: Maestro de la Danza Letal
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Pícaro
+    requirements: Sintonía con el Acero & Senda del Bribón & Reflejos 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has perfeccionado la fusión de la agilidad letal y la precisión marcial. Ganas los siguientes beneficios
+      permanentes:<br> - **Agilidad Marcial:** Puedes usar tu Reflejos en lugar de Cuerpo para cumplir los requisitos de
+      atributo de las cartas de Combatiente.<br> - **Réplica Precisa:** Cuando usas una Reacción defensiva del Pícaro
+      (Riposta o Parada del Duelista), obtienes Ventaja (+1d4) en tu próxima tirada de ataque contra el enemigo que
+      activó tu reacción, antes del final de tu próximo turno.
+    slug: maestro-de-la-danza-letal
+  - id: d1e1d85e48aee347d902994d3161c3b92a2f8311
+    name: Campeón Consagrado
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Sacerdote
+    requirements: Sintonía con el Acero & Fe Inspiradora & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres el faro de esperanza en el campo de batalla. Ganas los siguientes beneficios permanentes:<br> - **Presencia
+      Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados
+      a 3 metros de ti también se benefician.<br> - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu
+      Interacción en lugar de tu Acción.<br> - **Castigo Imponente:** Cuando activas tu carta Golpe Divino, puedes
+      elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo haces, el objetivo debe superar una TS de
+      Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final de tu próximo turno (en lugar de Cegado).
+    slug: campeon-consagrado
+  - id: b8ffaa7f29e59650fe4bb469a12c5f252aa72bc7
+    name: Voluntad Indomable
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Monje
+    requirements: Sintonía con el Acero & Disciplina Monástica & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu disciplina marcial y tu fortaleza interior se fusionan. Ganas los siguientes beneficios permanentes:<br> -
+      **Defensa Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para
+      resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br> - **Voluntad
+      Inquebrantable:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción y gastar 1
+      Punto de Suerte para volver a tirar el dado d8. Debes usar el nuevo resultado. Solo puedes usar esta habilidad una
+      vez por Tirada de Salvación fallida.
+    slug: voluntad-indomable
+  - id: c8040605c81b0bced9d9e6733bf82880390db938
+    name: Maestría de la Hoja Arcana
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Arcanista
+    requirements: Sintonía con el Acero & Afinidad Arcana & Cuerpo 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has fusionado tu destreza marcial con el poder arcano. Ganas los siguientes beneficios permanentes:<br> - **Acero
+      Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus
+      ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br> -
+      **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu
+      Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma
+      cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por
+      Recarga 6+)
+    slug: maestria-de-la-hoja-arcana
+  - id: 9370e150f5752018d606706904869adffe05e50f
+    name: Señor del Yermo Indomable
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Druida
+    requirements: Sintonía con el Acero & Sintonía Primordial & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero.<br> - **Piel de Corteza:** Mientras no
+      lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br> - **Golpe Enredante:** Una vez por
+      turno, cuando impactas a un enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que
+      broten espinas en el impacto. El objetivo queda Enredado hasta el inicio de tu próximo turno. Mientras esté
+      enredado, sufre 1d4 de daño Perforante por cada 2 metros que se mueva.
+    slug: senor-del-yermo-indomable
+  - id: 07183bb737614c3784a0806f215d919ee7df2db7
+    name: Aura de Héroe
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Bardo
+    requirements: Sintonía con el Acero & Don del Elocuente & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu presencia inspira hazañas legendarias en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
+      - **Presencia Inspiradora Mejorada:** El bonificador a las Tiradas de Salvación contra miedo otorgado por tu
+      Presencia Inspiradora aumenta a +1d4.<br> - **Grito de Guerra Definitivo:** Cuando usas Grito de Guerra, los dados
+      de Puntos de Salud temporales se maximizan (cada d4 cuenta como 4) y los aliados afectados obtienen Ventaja (+1d4)
+      en su próxima tirada de ataque antes del final de su próximo turno.
+    slug: aura-de-heroe
+  - id: d2f45bf2f6b7fcfab6042b87e8f2852b80092b58
+    name: Juicio Ineludible
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Sacerdote
+    requirements: Senda del Bribón & Fe Inspiradora & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Combinas el sigilo con la fe para purgar la oscuridad. Ganas los siguientes beneficios permanentes:<br> - **Marca
+      del Purgador:** Como Interacción, puedes marcar a una criatura impía (Infernal o No-muerta) durante 1 minuto
+      (Concentración). Tus ataques con arma contra ella se benefician de Ataque Furtivo (sin condiciones).<br> - **Toque
+      Purificador Sigiloso:** Puedes usar Toque Purificador (si lo tienes) usando tu Interacción en lugar de tu Acción.
+    slug: juicio-ineludible
+  - id: ae03e016ea7e3fd0134c43be47ee94c039052936
+    name: Camino del Viento Fantasma
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Monje
+    requirements: Senda del Bribón & Disciplina Monástica & Reflejos 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu agilidad trasciende lo físico, fusionando sigilo y Ki. Ganas los siguientes beneficios permanentes:<br> -
+      **Acción Astuta Etérea:** Cuando usas Acción Astuta, puedes elegir teletransportarte hasta 3 metros a un espacio
+      desocupado que puedas ver, en lugar de Correr o Esconderte.<br> - **Golpe desde el Vacío:** Inmediatamente después
+      de usar Acción Astuta Etérea para teletransportarte, tu próxima tirada de ataque antes del final de tu turno
+      obtiene Ventaja (+1d4).
+    slug: camino-del-viento-fantasma
+  - id: 20ec81b52a3808dba5d63528a522029388723e4c
+    name: Maestría del Engaño Arcano
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Arcanista
+    requirements: Senda del Bribón & Afinidad Arcana & Reflejos 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu destreza manual se entrelaza con la magia ilusoria. Ganas los siguientes beneficios permanentes:<br> - **Mano
+      de Ladrón Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano de Mago con Ventaja (+1d4),
+      como si fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas Invisibilidad sobre ti
+      mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere Concentración).
+    slug: maestria-del-engano-arcano
+  - id: 6db0a8f1b546c8dea440aba0fe32e8da4fd700dc
+    name: Uno con la Naturaleza Salvaje
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Druida
+    requirements: Senda del Bribón & Sintonía Primordial & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Te fundes con el entorno, combinando el sigilo del depredador con el instinto natural. Ganas los siguientes
+      beneficios permanentes:<br> - **Camuflaje Perfecto:** Mientras estés en terreno natural y no te muevas en tu
+      turno, eres invisible para las criaturas que estén a más de 5 metros de ti.<br> - **Forma Furtiva:** Puedes
+      aplicar tu Ataque Furtivo mientras estás en Forma Salvaje, siempre que cumplas las condiciones normales para
+      hacerlo.
+    slug: uno-con-la-naturaleza-salvaje
+  - id: 11a8711efe28d5fa71198c003a9d8c841a8ed514
+    name: Golpe de Gracia Engañoso
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Bardo
+    requirements: Senda del Bribón & Don del Elocuente & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu letalidad se oculta tras una sonrisa encantadora. Ganas los siguientes beneficios permanentes:<br> - **Filo
+      Hipnótico:** Una vez por turno, al impactar con un arma, gasta un dado de Canto de Inspiración. Añade el resultado
+      como daño Psíquico y fuerza TS Instinto (ND 5 + Presencia) vs Encantado (1 turno).<br> - **Explotar Confianza:**
+      Puedes aplicar tu Ataque Furtivo contra criaturas Encantadas por ti, incluso si no cumples las condiciones
+      normales.
+    slug: golpe-de-gracia-enganoso
+  - id: fbcf522bb947a2fb6e3da4097c8d0360da412471
+    name: Voluntad Trascendente
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Arcanista
+    requirements: Disciplina Monástica & Afinidad Arcana & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu Ki y la Urdimbre arcana fluyen como uno solo en ti. Ganas los siguientes beneficios permanentes:<br> - **Golpes
+      de Fuerza Pura:** Tus ataques desarmados se consideran mágicos y puedes elegir que su daño sea de Fuerza.<br> -
+      **Fluir Arcano-Marcial:** Cuando usas Ráfaga de Golpes o Tormenta de Golpes, puedes reemplazar uno de los ataques
+      desarmados adicionales para lanzar un conjuro de Arcanista de Nivel 1 que tengas activo y que requiera una Acción.
+    slug: voluntad-trascendente
+  - id: 6803c90e40b66d36464ddd79d8e79e86f5da4064
+    name: Furia Silvana
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Druida
+    requirements: Disciplina Monástica & Sintonía Primordial & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Encarnas la furia indomable de la naturaleza. Ganas los siguientes beneficios permanentes:<br> - **Movimiento
+      Primordial:** Puedes usar Paso Ligero y Paso Etéreo (si los tienes) incluso mientras estás en Forma Salvaje.<br> -
+      **Ráfaga Salvaje:** Mientras estás en tu forma de combate de Aspecto Combativo o Maestría Salvaje, puedes usar las
+      cartas Ráfaga de Golpes y Tormenta de Golpes (si las tienes).
+    slug: furia-silvana
+  - id: 051c256cd09ec2e7bbea428dfeecfdf53d1ea8d8
+    name: Versatilidad Teúrgica
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Arcanista
+      - Sacerdote
+    requirements: Afinidad Arcana & Fe Inspiradora & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Dominas tanto la lógica arcana como la fe divina. Ganas los siguientes beneficios permanentes:<br> - **Doble Senda
+      Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Mente o tu Instinto como tu
+      atributo de lanzamiento.<br> - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para
+      activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
+    slug: versatilidad-teurgica
+  - id: 1eaa6818c5f423c85340fc1120ea617986a0eae4
+    name: Maestría Elemental Compartida
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Arcanista
+      - Druida
+    requirements: Afinidad Arcana & Sintonía Primordial & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Comandas tanto los elementos puros como la energía primordial de la naturaleza. Ganas los siguientes beneficios
+      permanentes:<br> - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un
+      número de criaturas igual a tu Mente dentro del área para que no se vean afectadas.<br> - **Potencia Elemental:**
+      Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes
+      añadir tu puntuación de Mente o Instinto (la que sea más alta) a una de las tiradas de daño.
+    slug: maestria-elemental-compartida
+  - id: 4ba6dedd0541eb10ca17df20d91d00194dd12ccd
+    name: Mano Purgadora
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Sacerdote
+    requirements: Disciplina Monástica & Fe Inspiradora & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu Ki se purifica con fe, convirtiendo tus manos en instrumentos de juicio y sanación. Ganas los siguientes
+      beneficios permanentes:<br> - **Golpes Selladores:** Tus ataques desarmados son mágicos y pueden ser Radiantes. Si
+      infligen daño Radiante, el objetivo no recupera PH 1 turno.<br> - **Oleada de Vida:** Cuando usas Ráfaga de Golpes
+      o Tormenta de Golpes, puedes renunciar a uno de los ataques adicionales para lanzar Toque Restaurador (si lo
+      tienes) sobre ti mismo o un aliado adyacente, sin gastar su uso de recarga.
+    slug: mano-purgadora
+  - id: 1088f97cf35d3877e12381652e46e041097c4061
+    name: Bendición de Ciclo Vital
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Sacerdote
+      - Druida
+    requirements: Fe Inspiradora & Sintonía Primordial & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Canalizas la energía divina a través del ciclo natural de la vida y la muerte. Ganas los siguientes beneficios
+      permanentes:<br> - **Regeneración Persistente:** Cuando restauras Puntos de Salud a una criatura con un conjuro
+      instantáneo, esa criatura también recupera 1d4 PS al inicio de su próximo turno.<br> - **Refugio Sanador:** Tus
+      conjuros de zona protegen la vida. Al inicio de cada uno de sus turnos, cualquier aliado que se encuentre dentro
+      del área de tu Santuario o Santuario Silencioso gana Puntos de Salud Temporales igual a tu puntuación de Instinto.
+    slug: bendicion-de-ciclo-vital
+  - id: 0447ea2f4c5e032e676a109f9c4806e115213c2e
+    name: Palabras Divinas
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Sacerdote
+      - Bardo
+    requirements: Fe Inspiradora & Don del Elocuente & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu voz es un conducto de inspiración divina y curación. Ganas los siguientes beneficios permanentes:<br> -
+      **Inspiración Sanadora:** Cuando usas Canto de Inspiración en un aliado, este también recupera 1d4 Puntos de
+      Salud.<br> - **Mandato Convincente:** Tu Palabra de Autoridad ahora puede dar órdenes ligeramente más complejas
+      (una frase corta). Además, las criaturas normalmente inmunes al estado Encantado pueden ser afectadas, pero
+      realizan su Tirada de Salvación con Ventaja (+1d4).
+    slug: palabras-divinas
+  - id: 1d87cb20cb219b9f67768b93ab73aeaaca50d2f2
+    name: Forma del Cuentacuentos
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Druida
+      - Bardo
+    requirements: Sintonía Primordial & Don del Elocuente & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu arte trasciende las formas, permitiéndote encantar incluso en tu aspecto salvaje. Ganas los siguientes
+      beneficios permanentes:<br> - **Forma Salvaje Parlante:** Mientras estás en Forma Salvaje (combatiente o no),
+      conservas la capacidad de hablar y puedes intentar usar habilidades de Presencia.<br> - **Actuación Primordial:**
+      Mientras estás en Forma Salvaje, usa Acción para forzar TS Instinto (ND 5 + Presencia) a enemigos Cercanos o
+      quedan Encantados 1 min (se rompe si actúas hostilmente).
+    slug: forma-del-cuentacuentos
+  - id: b3533a8adad34bc1526f4b0ab303e8e8f5971dd3
+    name: Virtuosismo Arcano
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Arcanista
+      - Bardo
+    requirements: Afinidad Arcana & Don del Elocuente & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has fusionado el arte de la palabra con los secretos más profundos de la magia.<br><br> - **Secretos Arcanos
+      Ampliados:** Tu carta _Secretos Mágicos_ (si la tienes) se vuelve mucho más poderosa. Ahora te permite elegir
+      conjuros de hasta **Nivel 4**, con un presupuesto total de 4 niveles, siempre que los conjuros elegidos sean de la
+      lista del **Arcanista**. (Si eliges de Sacerdote o Druida, se aplican los límites originales de Nivel 3).<br> -
+      **Marca de la Condena:** Añades la carta _Maledicción_ a tu colección. Para ti, esta carta no requiere
+      Concentración y puedes lanzarla usando tu atributo de **Presencia**.
+    slug: virtuosismo-arcano
+  - id: 5080da8f820ca5b701604cdd49ca37c47b37a9e0
+    name: Danza del Ki Hipnótico
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Bardo
+    requirements: Disciplina Monástica & Don del Elocuente & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu movimiento es una performance letal, tu Ki una melodía cautivadora. Ganas los siguientes beneficios
+      permanentes:<br> - **Movimiento Fascinante:** Cuando un enemigo te falla c/c, usa Reacción para forzar TS Instinto
+      (ND 5 + Presencia) vs Encantado (1 min, se rompe si hostil).<br> - **Ki Resonante:** Una vez por turno, puedes
+      gastar un uso de tu Canto de Inspiración (sin necesidad de activarlo en un objetivo) para imbuir tus golpes. Si lo
+      haces, todos tus ataques desarmados infligen 1d4 de daño Psíquico adicional hasta el inicio de tu próximo turno.
+    slug: danza-del-ki-hipnotico

@@ -1,0 +1,120 @@
+cards:
+  - id: a26da69489da45944c6fd6f14867cebd537a4c9b
+    name: Ataque de Oportunidad
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: Sintonía con el Acero & Reflejos 2
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu Reacción para realizar un
+      único ataque cuerpo a cuerpo contra él.
+    slug: ataque-de-oportunidad
+  - id: 40af6a3a3fb72bcc973edd890074bd674fa62e22
+    name: Duelo de Honor
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Presencia 2
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo desafías. Realizas una
+      Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el objetivo está marcado por ti hasta
+      el inicio de tu próximo turno. Mientras esté marcado, sufre Desventaja (-1d4) en cualquier tirada de ataque que
+      realice contra un objetivo que no seas tú.
+    slug: duelo-de-honor
+  - id: 98a67402e68c1c4b3eda1621e649d11bc2144fca
+    name: Maestría de Armas
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: Sintonía con el Acero & Cuerpo 3 & Reflejos 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu entrenamiento marcial es extenso y adaptable. Al finalizar un día de descanso, adoptas una Postura de Combate
+      que te otorga beneficios según el equipo que empuñes:<br> - **Destructor (A dos manos):** Cuando atacas con un
+      arma a dos manos o versátil (usando ambas manos), puedes volver a tirar cualquier dado de daño que resulte en un 1
+      o un 2 (debes usar el nuevo resultado).<br> - **Torbellino (Dos armas):** Cuando atacas con un arma de una mano,
+      puedes usar tu Interacción para realizar un ataque adicional con otra arma de una mano que empuñes.<br> -
+      **Duelista (Un arma):** Cuando empuñas un arma de una mano y ninguna otra arma (puedes llevar escudo), puedes usar
+      tu Reacción al ser golpeado para añadir +1 a tu Esquiva contra ese ataque.<br> - **Guardián (Escudo):** Cuando un
+      enemigo ataca a un aliado a distancia Inmediata de ti y estás usando un escudo, puedes usar tu Reacción para
+      imponer Desventaja (-1d4) en su tirada de ataque.<br> - **Tirador (A distancia):** Tus ataques a distancia ignoran
+      la cobertura parcial y su alcance aumenta un rango (Por ejemplo: Media → Larga).<br> - **Hostigador
+      (Arrojadizas):** Puedes desenvainar armas arrojadizas como parte de cada ataque (sin gastar interacción) y su
+      alcance aumenta un rango (Por ejemplo: Cercana → Media).
+    slug: maestria-de-armas
+  - id: f7bddb9f89e572285d7d2d443fb666e6333f7ce0
+    name: Barrido de Piernas
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Cuerpo 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando un
+      arma a dos manos o un arma Versátil con ambas manos. Todas las criaturas a 1 metro de ti deben superar una TS de
+      Cuerpo (ND 5 + Cuerpo) o caer en el estado Derribado.
+    slug: barrido-de-piernas
+  - id: 40b1749a5f2db0c93903cf744d526ce541b2befc
+    name: Grito de Guerra
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Presencia Inspiradora
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Usas tu Interacción para inspirar a tus aliados. Elige un número de aliados igual a tu puntuación de Presencia a
+      distancia Cercana. Ganan Puntos de Salud temporales iguales a 1d4 + tu puntuación de Presencia.
+    slug: grito-de-guerra
+  - id: 994f74aa6b9f3ae5af5f22758dfccacf4d65085c
+    name: Tirador de Élite
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero & Reflejos 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Tu paciencia y puntería te permiten realizar disparos imposibles.<br> Mientras tengas esta carta activa, si no has
+      gastado nada de tu movimiento durante tu turno, puedes sacrificarlo para obtener un +1 a tus tiradas de ataque con
+      armas a distancia y arrojadizas hasta el final de tu turno.<br> Como Acción, puedes gastar un uso de esta carta
+      para realizar un único ataque con un arma a distancia o arrojadiza. Si impacta, el proyectil ignora toda la
+      Mitigación Física del objetivo.
+    slug: tirador-de-elite
+  - id: 3254a24cdf671197f84b3597764ae298c393920a
+    name: Ojo Táctico
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Marcha Incansable & Instinto 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu experiencia en incontables batallas y marchas te ha enseñado a leer tanto a la gente como al terreno. Obtienes
+      Ventaja (+1d4) en las siguientes pruebas de habilidad:<br> - **Instinto (Supervivencia):** Para evitar perderte,
+      encontrar un camino seguro o prever peligros naturales.<br> - **Mente (Investigación):** Para encontrar
+      debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena,
+      etc.).<br>
+    slug: ojo-tactico

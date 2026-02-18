@@ -1,0 +1,3 @@
+# 1. Filosofía de Diseño
+
+ARCANA es un sistema de rol diseñado para ser **simple, adaptable y centrado en la historia**. Su objetivo es proporcionar un marco de reglas ligero que dé poder al Director de Juego (DJ) y a los jugadores para crear narrativas emocionantes sin verse frenados por mecánicas complejas. La personalización y progresión del personaje se basan en un sistema de cartas coleccionables, lo que permite que el sistema sea agnóstico al escenario y se pueda adaptar a cualquier mundo, desde la fantasía medieval hasta el cyberpunk o el horror cósmico.

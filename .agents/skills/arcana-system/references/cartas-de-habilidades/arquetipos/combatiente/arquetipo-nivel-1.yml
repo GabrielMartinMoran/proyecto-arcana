@@ -1,0 +1,18 @@
+cards:
+  - id: d3866f9a311f1bd2756c1c787738c0187c466c87
+    name: Sintonía con el Acero
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+      - Arquetipo
+    requirements: Cuerpo 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br> **Beneficio de Arquetipo:** Tu Salud máxima
+      aumenta en +6. Además, puedes usar tu puntuación de **Cuerpo** en lugar de tu puntuación de **Presencia** al
+      realizar pruebas de habilidad de **Intimidación**. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7
+      PS por cada 10 PP que hayas gastado.<br><br> _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    slug: sintonia-con-el-acero

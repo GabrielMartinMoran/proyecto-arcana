@@ -1,0 +1,21 @@
+cards:
+  - id: f2155188b259ef1eda3978310bb1ad4df86f566c
+    name: Herencia Sobrenatural
+    level: 1
+    type: efecto
+    tags:
+      - Hechicero
+      - Arquetipo
+      - Arcanista
+    requirements: Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La magia arcana fluye por tu sangre, es parte de tu herencia.<br><br> Tu Salud máxima aumenta en +3 y obtienes
+      Ventaja (+1d4) en pruebas de **Persuasión** e **Intimidación**.<br> Adquieres la carta _Afinidad Arcana_, y puedes
+      usar Presencia como tu Atributo Mágico para las cartas de _Arcanista_.<br> <br> **Beneficio de Arquetipo:** <br> -
+      **Uno con la Magia:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Sangre Mágica_ a tu
+      colección.<br> Adicionalmente, aprendes un idioma y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10
+      PP que hayas gastado.<br><br> _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    slug: herencia-sobrenatural

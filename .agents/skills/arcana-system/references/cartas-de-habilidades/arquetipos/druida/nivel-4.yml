@@ -1,0 +1,75 @@
+cards:
+  - id: 07d595d08b9be49dfef1b1807822aa318c7cfae8
+    name: Forma Salvaje Mayor
+    level: 4
+    type: efecto
+    tags:
+      - Druida
+    requirements: Maestría Salvaje & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu carta Aspecto Combativo se potencia:<br> - Ahora puedes elegir transformarte en una bestia de combate
+      Grande.<br> - Cuando estás en forma de bestia Grande, tus ataques sin arma infligen 1d8 de daño base (o 1d10 con
+      Ataque Brutal), obtienes 10 Puntos de Salud temporales adicionales, y tus ataques cuerpo a cuerpo tienen Ventaja
+      (+1d4) contra criaturas de tamaño Mediano o inferior.
+    slug: forma-salvaje-mayor
+  - id: 414a37ff5f9c1a52995da4065e0f7616e82e6c88
+    name: Dominio del Clima
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: Sintonía Primordial & Instinto 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Tras 10 minutos de ritual, eliges un punto a distancia Larga. Creas un efecto climático en un radio de 100 metros
+      que dura hasta 1 hora. Eliges uno: Niebla Densa (visibilidad limitada), Lluvia Torrencial (Desventaja
+      Percepción/ataques distancia), Vientos Fuertes (terreno difícil volador, Desventaja ataques distancia), o
+      Crecimiento Descontrolado (terreno difícil y cobertura parcial en toda el área).
+    slug: dominio-del-clima
+  - id: c2a726e860509b1c7b5a722071d8ee66873eaaf7
+    name: Haz de los Astros
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la
+      línea deben superar una TS de Cuerpo (ND 5 + Instinto).<br> Al lanzar el conjuro, eliges el astro:<br> - **Rayo
+      Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan Cegadas hasta el final de tu próximo turno.<br> -
+      **Rayo Lunar:** Inflige 6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o inferior que
+      afecte o tenga como fuente al objetivo se ve afectado:<br>
+        - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>
+        - _Conjuros activos_: Los efectos terminan automáticamente.<br>
+      Una criatura que supera la TS, recibe mitad de daño y no se ve afectada por el efecto secundario.
+    slug: haz-de-los-astros
+  - id: 89958add50b8fd6470b200467e2d18da040930f2
+    name: Furia de la Tierra
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un
+      radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br> Si fallan, reciben 5d8 de
+      daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno. Si tienen éxito, reciben la
+      mitad del daño y no sufren efectos adicionales.<br> El área afectada queda permanentemente convertida en terreno
+      difícil.<br>
+    slug: furia-de-la-tierra

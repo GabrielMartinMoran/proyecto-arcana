@@ -1,0 +1,154 @@
+cards:
+  - id: eb9c2d46aad820f60cd4281130cb64f266942ec6
+    name: Afinidad Arcana
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: Estudios Mágicos | Pacto Supremo | Herencia Sobrenatural
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu conexión con la Urdimbre te permite manipular la magia.<br><br> Tienes acceso a la lista de cartas de
+      _Arcanista_ y usas tu Atributo Mágico para los requerimientos y efectos de estas.
+    slug: afinidad-arcana
+  - id: 44342205841c3f4555d30ee1f77e4381fbd253a7
+    name: Trucos Arcanos
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres un experto en la mágia más básica.<br> - **Efectos mágicos menores:** Como Acción, creas una fuente de luz,
+      un sonido, un olor, limpias un objeto, enciendes una vela, etc. El efecto no puede infligir daño ni imponer un
+      estado.<br> - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana
+      que dura 1 minuto. Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto,
+      abra una puerta o tire de una palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar
+      hasta 5 Kg.
+    slug: trucos-arcanos
+  - id: e6dd796221eaecac504f9d928e19651064802215
+    name: Descarga Elemental
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque de conjuro (1d8+Atributo Mágico) a distancia
+      Cercana contra un objetivo. Si impactas, infliges 1d8 de daño del tipo elegido.
+    slug: descarga-elemental
+  - id: 842d719fd39e60ba36d0674afb3f8ca6d8a968fd
+    name: Proyectil Mágico
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Lanzas un proyectil de energía arcana que no puede fallar a una criatura a distancia Cercana. Al impactar, este
+      realiza 1d4 de daño de Fuerza.
+    slug: proyectil-magico
+  - id: 09a9d0674da5612d0f61fa5a3832e90af58f7c80
+    name: Toque Entrópico
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 3
+    description: >-
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Atributo Mágico) contra un objetivo. Si impactas, infliges 1d6
+      de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
+    slug: toque-entropico
+  - id: 85aadf739b6f4645e5a6efb2ae99a3592129326a
+    name: Comprender Lenguas
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Tu mente se abre a los matices de la comunicación. Durante 1 hora, obtienes la capacidad de comprender el
+      significado literal de cualquier lenguaje hablado que escuches y cualquier texto escrito que leas. Este efecto no
+      te permite hablar ni escribir en idiomas que no conoces.
+    slug: comprender-lenguas
+  - id: b6a69767095559ee434f15d81faa040f1b4b7624
+    name: Alarma Mágica
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Creas una alarma mágica e invisible que protege un área a tu elección dentro de una distancia Cercana. El área
+      protegida no puede ser mayor a un cubo de 5 metros de lado y la alarma permanece activa durante 8 horas.<br> Al
+      lanzar el conjuro, designas cualquier número de criaturas que no activarán la alarma. También eliges si la alarma
+      será audible o mental:<br> - **Alarma Audible:** Una campana espectral suena con fuerza durante 6 segundos. El
+      sonido puede oírse a una distancia de hasta 20 metros.<br> - **Alarma Mental:** Recibes un pulso de alerta en tu
+      mente si te encuentras a menos de 1 kilómetro de la alarma. La alerta te despierta si estás durmiendo.<br> La
+      alarma se activa si cualquier criatura que no hayas designado como segura entra en el área protegida.
+    slug: alarma-magica
+  - id: 910d28eeaef78e9279233c7ff30ee21157e18a9f
+    name: Visión Arcana
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Durante 10 minutos, tus ojos brillan con una luz azulada. Puedes percibir un aura tenue alrededor de cualquier
+      criatura u objeto visible a distancia Cercana que porte magia.<br> Además, como Acción, mientras dure el efecto,
+      puedes concentrarte en un objeto, criatura o área visible a distancia Inmediata. Tras 1 minuto de análisis
+      ininterrumpido, realizas una Prueba de Atributo Mágico (Conocimiento Arcano) para desvelar la naturaleza de
+      cualquier magia presente.<br> El Nivel de Dificultad (ND) lo establece el DJ, basándose en el poder de la
+      magia.<br> - **Con un Éxito:** Aprendes la función general de la fuente de magia.<br> - **Con un Éxito
+      Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del
+      conjuro activo.
+    slug: vision-arcana
+  - id: 8f75b7197e75e847564e7637f9b63aab55a4fec2
+    name: Coraza Vital
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Concentras tu poder arcano en una coraza espectral que absorbe el daño que recibes. Durante 1 hora, obtienes una
+      cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Atributo Mágico.
+    slug: coraza-vital

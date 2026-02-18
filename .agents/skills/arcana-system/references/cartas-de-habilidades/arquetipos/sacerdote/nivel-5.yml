@@ -1,0 +1,35 @@
+cards:
+  - id: faa2d3e800ed5e40e7e7b3d16276236e632c4a07
+    name: Gracia Salvadora
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: (Aura Protectora | Curar) & Instinto 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría
+      instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo
+      daño hasta el inicio de tu próximo turno.
+    slug: gracia-salvadora
+  - id: a99b0b9e0c57c4773946958a5ad7737d77ea651d
+    name: Juicio Celestial
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: (Espíritus Guardianes | Castigo Inapelable) & Instinto 6
+    uses:
+      type: RELOAD
+      qty: 8
+    description: >-
+      Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe
+      superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado,
+      Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno). Las criaturas Celestiales
+      superan automáticamente la salvación.
+    slug: juicio-celestial

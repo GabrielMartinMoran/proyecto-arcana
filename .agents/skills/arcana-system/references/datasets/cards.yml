@@ -1,0 +1,4126 @@
+# =========================================================================================
+# GUÍA DE DECLARACIÓN DE CARTAS
+# =========================================================================================
+# Este archivo define todas las cartas disponibles en el sistema.
+# Las cartas deben declararse bajo la clave 'cards' siguiendo este formato:
+#
+# - name: "Nombre de la Carta"           # (Requerido) Nombre único de la carta.
+#   level: 1                             # (Requerido) Nivel de la carta (entero).
+#   type: efecto                         # (Requerido) Tipo: 'efecto' (pasiva) o 'activable' (activa).
+#   tags:                                # (Requerido) Lista de etiquetas para categorización.
+#     - Etiqueta1
+#     - Etiqueta2
+#   requirements: "(A & B) | C"          # (Opcional) Soporta lógica booleana: & (AND), | (OR), ().
+#                                        # Ejemplo: "(Cuerpo 2 & Mente 1) | (Instinto 3)".
+#   description: >-                      # (Requerido) Descripción detallada. Usa >- para bloques de texto.
+#     Texto de la descripción.
+#     - Usa <br> para saltos de línea.
+#     - Usa **Negrita** SOLO para nombres al inicio de viñetas/bullets.
+#     - Usa _Cursiva_ para referencias a nombres de otras cartas o etiquetas.
+#   uses:                                # (Requerido) Definición de usos/cargas.
+#     type: RELOAD                       # null (si type: efecto), 'RELOAD' (encuentro), 'LONG_REST' (diario).
+#     qty: 1                             # Cantidad de usos. 0 si type es 'efecto' o es ilimitada. Si el tipo es 'RELOAD', este es el valor minimo a sacar para la recarga
+#
+# =========================================================================================
+
+cards:
+  # ------------------------------ LINAJES ------------------------------
+  # ------------------------------ HUMANO ------------------------------
+  - name: Talento de Familia
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Humano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Elige tres habilidades (como Atletismo, Persuasión, etc.) que representen tu crianza. Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas tres habilidades.
+    uses:
+      type: null
+      qty: 0
+  - name: Enfoque Adaptable
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Humano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu mente es flexible y se adapta rápidamente a nuevos desafíos. Adquieres los siguientes beneficios:<br>
+      - Una vez por día de descanso, puedes tomarte 10 minutos para cambiar una de tus cartas activas por otra de tu Colección.<br>
+      - Una vez por día de descanso, puedes utilizar una carta Activable de **Nivel 1 o 2** que no tengas activada pero que poseas en tu Colección.
+    uses:
+      type: null
+      qty: 0
+  - name: Líder Nato
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Humano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu presencia inspira confianza y coordinación en el campo de batalla. Cuando usas la acción de Ayuda para otorgar Ventaja a un aliado en una prueba de habilidad o tirada de ataque, ese aliado también suma un +1 al resultado final de su tirada.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ ELFO ------------------------------
+  - name: Gracia Élfica
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Elfo
+    requirements: Solo Creación de Personaje
+    description: >-
+      Te mueves y reaccionas al peligro con una celeridad antinatural, anticipando las amenazas antes de que se manifiesten.
+      Tu velocidad de movimiento aumenta en 1 metro, obtienes Ventaja (+1d4) en todas tus tiradas de Iniciativa, y no pueden sorprenderte mientras estás consciente.
+    uses:
+      type: null
+      qty: 0
+  - name: Trance Élfico
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Elfo
+    requirements: Solo Creación de Personaje
+    description: >-
+      No necesitas dormir. Puedes entrar en un estado de meditación durante 4 horas para obtener los beneficios de un día de descanso. Además, la magia y los venenos no pueden dormirte.<br>
+      Además, al finalizar tu trance, elige una habilidad en la que no tengas Ventaja. Adquieres Ventaja (+1d4) en pruebas relacionadas esa habilidad.
+    uses:
+      type: null
+      qty: 0
+  - name: Mirada Estelar
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Elfo
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tus ojos ven más allá de la simple luz y la sombra. Obtienes Visión en la Oscuridad. Además, puedes usar tu Acción para abrir tus sentidos al mundo invisible durante 1 minuto, volviéndote consciente de la presencia y ubicación de cualquier criatura invisible o escondida a 10 metros de ti. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ ENANO ------------------------------
+  - name: Sangre Resistente
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Enano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos y enfermedades.<br>
+      Además, tu capacidad para sobreponerte al dolor es legendaria. Una vez por día de descanso, al final de tu turno, si estás bajo un efecto causado por una Tirada de Salvación de Cuerpo fallida, y dicho efecto permita realizar otra Tirada de Salvación de Cuerpo para finalizarlo, puedes terminar el efecto sobre ti inmediatamente.
+    uses:
+      type: null
+      qty: 0
+  - name: Acorazado
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Enano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Estás acostumbrado a la carga y el peso de las armaduras. El requisito de Cuerpo de cualquier armadura que vistas se reduce en 1 (hasta un mínimo de 1).
+    uses:
+      type: null
+      qty: 0
+  - name: Eco de la Roca
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Enano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu conexión con la piedra es tan profunda que puedes sentir las vibraciones a través de ella. Obtienes Visión en la Oscuridad. Además, mientras estés en contacto con una superficie de piedra o tierra, puedes usar tu Interacción para "escuchar" el suelo. Hasta el inicio de tu próximo turno, eres consciente de la ubicación y movimiento de cualquier criatura en contacto con la misma superficie a 10 metros de ti. Puedes usar esta habilidad un número de veces igual a tu puntuación de Instinto por día de descanso.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ GNOMO ------------------------------
+  - name: Mente Curiosa
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Gnomo
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu mente nunca deja de trabajar. Cuando realizas una prueba de Mente para recordar información sobre historia, conocimiento arcano o para investigar algo y fallas la tirada, aun así obtienes una pieza de información verdadera, aunque incompleta o críptica, a discreción del DJ.
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Escurridizo
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Gnomo
+      - Reacción
+    requirements: Solo Creación de Personaje
+    description: >-
+      Eres excepcionalmente difícil de acorralar. Cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes usar tu Reacción para moverte una distancia en metros igual a la mitad de tu puntuación de Reflejos (redondeando hacia arriba). Este movimiento no provoca ataques de oportunidad.
+    uses:
+      type: null
+      qty: 0
+  - name: Parpadeo Ilusorio
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Gnomo
+      - Reacción
+    requirements: Solo Creación de Personaje
+    description: >-
+      Eres un maestro en el arte de la distracción. Obtienes Visión en la Oscuridad. Además, cuando un enemigo declara un ataque contra ti pero antes de que realice la tirada, puedes usar tu Reacción para crear una breve ilusión de ti mismo. El enemigo debe superar una TS de Instinto (ND 5 + Mente). Si falla, el ataque se redirige a la ilusión y falla. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ MEDIANO ------------------------------
+  - name: Afortunado
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Mediano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Cuando sacas un 1 natural en una tirada de un dado que pueda explotar, ganas un Punto de Suerte.
+    uses:
+      type: null
+      qty: 0
+  - name: Pies Ligeros
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Mediano
+    requirements: Solo Creación de Personaje
+    description: >-
+      Eres un experto en pasar desapercibido. Puedes moverte a través del espacio de cualquier criatura que sea de un tamaño mayor que el tuyo. Además, puedes intentar esconderte (usar la habilidad de Sigilo) incluso cuando solo te oculta una criatura aliada que sea más grande que tú.
+    uses:
+      type: null
+      qty: 0
+  - name: Compartir Fortuna
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Mediano
+      - Reacción
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu buena fortuna es tan grande que puedes compartirla. Después de que un aliado a distancia Cercana que puedas ver realice una tirada de ataque, prueba de habilidad o tirada de salvación, puedes usar tu Reacción para gastar cualquier cantidad de tus Puntos de Suerte. El resultado de la tirada de tu aliado aumenta en +1 por cada Punto de Suerte que hayas gastado.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ TIEFLING ------------------------------
+  - name: Reprensión Infernal
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Tiefling
+      - Reacción
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu sangre infernal responde al dolor con fuego. Cuando una criatura que puedas ver a distancia Cercana te inflige daño, puedes usar tu **Reacción** para desatar una llamarada de Fuego profano contra ella.<br>
+      El atacante debe superar una Tirada de Salvación de Reflejos (ND 5 + Presencia). Si falla, recibe **1d6 de daño de Fuego**. Si tiene éxito, recibe la mitad del daño.<br>
+      Puedes usar esta habilidad un número de veces por día de descanso igual a tu puntuación de **Presencia**.
+    uses:
+      type: null
+      qty: 0
+  - name: Pacto de Sangre
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Tiefling
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tienes una comprensión innata de los juramentos. Si una criatura hace un juramento verbal directamente contigo y lo sella con un gesto simbólico, se crea un vínculo entre ambos. Si esa criatura rompe el juramento, tú lo sabes instintivamente y puedes desatar una de las siguientes maldiciones sobre ella (la elección es permanente para ese traidor y no requiere acción para activarse):<br>
+      - **Marca del Cazador:** Obtienes Ventaja (+1d4) en todas las tiradas de ataque que realices contra él.<br>
+      - **Marca del Paria:** El traidor sufre Desventaja (-1d4) en todas las tiradas de ataque que realice contra ti.<br>
+      - **Marca de la Debilidad:** Obtienes Ventaja (+1d4) en todas las pruebas de habilidad que realices contra él.<br>
+      La marca dura hasta que el traidor repare su falta de una manera significativa (a discreción del DJ), o hasta que tú decidas liberarlo del juramento.
+    uses:
+      type: null
+      qty: 0
+  - name: Pacto Oscuro
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Tiefling
+    requirements: Solo Creación de Personaje
+    description: >-
+      Puedes hacer un pacto con tu propia sangre para forzar el destino, a un precio. Obtienes Visión en la Oscuridad. Además, una vez por día de descanso, puedes elegir sacar un 8 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br>
+      Al hacerlo, obtienes un "Dado de Deuda" (un d6). Mientras tengas este dado, la próxima vez que debas realizar una tirada de ataque, prueba de habilidad o tirada de salvación, debes lanzar el Dado de Deuda junto con tu tirada normal.<br>
+      - Si el Dado de Deuda resulta en un 1, tu tirada se considera un fallo crítico independientemente de tu resultado, y la deuda se salda (el dado se retira).<br>
+      - Si el resultado es cualquier otro número, no ocurre nada adicional y conservas el Dado de Deuda para tu siguiente tirada.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ GOLIATH ------------------------------
+  - name: Fortaleza Rocosa
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Goliath
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu Salud máxima aumenta permanentemente en +3. Además, tienes Ventaja para resistir cualquier intento de ser Derribado o movido contra tu voluntad.
+    uses:
+      type: null
+      qty: 0
+  - name: Porte de Gigante
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Goliath
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu estatura y físico imponentes son un arma en sí mismos. Puedes cargar el doble de peso de lo que podrías normalmente.<br>
+      Además, una vez por turno, si te mueves por lo menos 5 metros para llegar a un enemigo y atacarlo, en caso de que el ataque impacte, puedes forzar al objetivo a superar una Tirada de Salvación de Cuerpo (ND 5 + Cuerpo) o caer Derribado.
+    uses:
+      type: null
+      qty: 0
+  - name: Adaptación Climática
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Goliath
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tu linaje de gigante te ha adaptado a los entornos más extremos. Al elegir este linaje, selecciona un clima: Frío o Calor. Obtienes Mitigación Mágica contra el daño del tipo elemental correspondiente (Frío o Fuego) igual a la mitad de tu puntuación de Cuerpo (redondeando hacia arriba). Además, no sufres los efectos negativos de las temperaturas extremas asociadas a tu clima elegido.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ DRACÓNIDO ------------------------------
+  - name: Mirada Dracónica
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Dracónido
+    requirements: Solo Creación de Personaje
+    description: >-
+      Tus ojos brillan con una intensidad de otro mundo. Obtienes Visión en la Oscuridad.<br>
+      Adicionalmente, tu mirada refleja la ancestral sabiduría y poder de tu linaje. Al finalizar un día de descanso, eliges uno de los siguientes focos para tu mirada. Hasta tu próximo día de descanso, obtienes Ventaja (+1d4) en todas las pruebas de habilidad de la pericia elegida:<br>
+      - **Foco del Terror:** Intimidación.<br>
+      - **Foco de la Verdad:** Perspicacia.<br>
+      - **Foco del Cazador:** Percepción.
+    uses:
+      type: null
+      qty: 0
+  - name: Herencia Draconiana
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Dracónido
+    requirements: Solo Creación de Personaje
+    description: >-
+      Al elegir esta carta, seleccionas un tipo de ancestro dracónico de la siguiente lista. Tus escamas te protegen contra la energía elemental de tu linaje, otorgándote Mitigación Mágica contra el tipo de daño asociado igual a tu puntuación de **Cuerpo**.<br>
+      - **Rojo, Dorado o Latón:** Fuego<br>
+      - **Azul o Bronce:** Eléctrico<br>
+      - **Blanco o Plateado:** Frío<br>
+      - **Negro o Cobre:** Ácido<br>
+      - **Verde:** Veneno
+    uses:
+      type: null
+      qty: 0
+  - name: Castigo Elemental
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Dracónido
+    requirements: Solo Creación de Personaje
+    description: >-
+      Puedes canalizar la energía de tu ancestro para castigar a tus enemigos. Al elegir esta carta, debes seleccionar un tipo de ancestro dracónico de la siguiente lista para determinar tu tipo de daño.<br>
+      - **Rojo, Dorado o Latón:** Fuego<br>
+      - **Azul o Bronce:** Eléctrico<br>
+      - **Blanco o Plateado:** Frío<br>
+      - **Negro o Cobre:** Ácido<br>
+      - **Verde:** Veneno<br>
+      Cuando impactas a un objetivo con un ataque cuerpo a cuerpo, puedes decidir imbuir el golpe con energía elemental, infligiendo 1d6 de daño adicional del tipo elemental elegido.
+      Puedes usar esta habilidad un número de veces igual a tu puntuación de Cuerpo por día de descanso.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ DOTES ------------------------------
+  - name: Vigor
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 2
+    description: >-
+      Tu vitalidad es excepcional. Tu Salud máxima aumenta permanentemente
+      en una cantidad igual a tu puntuación de Cuerpo.
+    uses:
+      type: null
+      qty: 0
+  - name: Atleta
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 2
+    description: >-
+      Tu Velocidad base aumenta permanentemente en 2 metros.
+    uses:
+      type: null
+      qty: 0
+  - name: Reserva de Suerte
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 2
+    description: >-
+      Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 3 puntos de suerte.
+    uses:
+      type: null
+      qty: 0
+  - name: Polímata
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    description: >-
+      Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de 2 o más.
+      Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br>
+      Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.
+    uses:
+      type: null
+      qty: 0
+  - name: Intervención Oportuna
+    level: 1
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: 'Presencia 2 | Instinto 2'
+    description: >-
+      Eres un experto en leer la situación y tomar las riendas para salvar a un aliado de un error. Cuando un aliado a distancia Cercana falla una prueba de habilidad de Presencia o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para intervenir. Realizas tú mismo la misma prueba de habilidad; tu aliado puede usar el resultado de tu tirada en lugar de la suya. Esta habilidad no puede usarse si el fallo de tu aliado fue un fallo crítico (pifia).
+    uses:
+      type: null
+      qty: 0
+  - name: Lingüista
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 2
+    description: >-
+      Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, adquieres ventaja en pruebas para aprender otros idiomas.
+    uses:
+      type: null
+      qty: 0
+  - name: Peleador Callejero
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 2
+    description: >-
+      Estás acostumbrado al combate cuerpo a cuerpo sin armas. Tus ataques desarmados infligen 1d4 de daño Contundente. Además, inmediatamente después de impactar con un ataque desarmado, puedes usar tu Interacción para intentar una maniobra de Agarrar contra ese objetivo mediante una Tirada Enfrentada de tu Cuerpo contra el Cuerpo o Reflejos del objetivo.
+    uses:
+      type: null
+      qty: 0
+  - name: Artesano Eficiente
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    description: >-
+      Eres hábil con las manos y no desperdicias material. Cuando realizas la actividad de "Fabricar un Objeto" durante el tiempo entre aventuras, el tiempo requerido se reduce a la mitad. Además, si fallas la prueba de habilidad para fabricar el objeto, solo pierdes la mitad de los materiales en lugar de todos.
+    uses:
+      type: null
+      qty: 0
+  - name: Sanador
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 3
+    description: >-
+      Tu conocimiento de la anatomía y la medicina potencia tus cuidados. Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera **1d4 Puntos de Salud adicionales**.<br>
+      Además, cuando superas una prueba de **Instinto** para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con **1 Punto de Salud**. No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.
+    uses:
+      type: null
+      qty: 0
+  - name: Mago de Guerra
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 3
+    description: >-
+      Obtienes un +1 a tus tiradas para mantener la concentración de un conjuro.
+    uses:
+      type: null
+      qty: 0
+  - name: Resistente
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Cuerpo 3
+    description: >-
+      Como Reacción cuando recibes daño (ya sea físico o mágico), obtienes Mitigación +2 contra ese daño.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Experto en Ballestas
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 3
+    description: >-
+      Ignoras la propiedad Recarga de las ballestas. Además, tus ataques con ballestas ignoran el bono por cobertura parcial.
+    uses:
+      type: null
+      qty: 0
+  - name: Maestro de Maniobras
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    description: >-
+      Te has especializado en el combate táctico y el uso del entorno a tu favor. Obtienes Ventaja (+1d4) en todas las Tiradas Enfrentadas que realices para ejecutar una Maniobra de combate (como Zancadilla, Empujón, Desarmar, etc.).
+    uses:
+      type: null
+      qty: 0
+  - name: Reflejos Afortunados
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Reflejos 3
+    description: >-
+      Tu suerte te permite esquivar golpes que parecían certeros. Como Reacción, cuando un enemigo te impacta con un ataque, puedes gastar cualquier cantidad de tus Puntos de Suerte. La tirada de ataque del enemigo sufre una penalización de -1 por cada Punto de Suerte que hayas gastado, lo que podría hacer que el ataque falle.
+    uses:
+      type: null
+      qty: 0
+  - name: Conjuración Elevada
+    level: 2
+    type: activable
+    tags:
+      - Dote
+    requirements: 'Mente 3 | Instinto 3 | Presencia 3'
+    description: >-
+      Concentras tu voluntad en tus conjuros, haciéndolos más difíciles de resistir. Cuando lanzas una carta de Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes gastar Puntos de Suerte antes de que el enemigo realice su tirada. Por cada Punto de Suerte que gastes, el Nivel de Dificultad (ND) de esa tirada aumenta en +1. No puedes gastar más Puntos de Suerte que tu puntuación en el atributo de lanzamiento de conjuros (Mente, Instinto o Presencia).
+      Si el conjuro afecta a múltiples criaturas, debes elegir a una de ellas para aplicarle este efecto.
+    uses:
+      type: null
+      qty: 0
+  - name: Maestría con Escudo
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Cuerpo 3
+    description: >-
+      Eres un maestro en el uso del escudo como una barrera impenetrable. Si debes realizar una Tirada de Salvación de Reflejos para recibir la mitad de daño de un efecto que puedas ver, puedes usar tu Reacción para interponer tu escudo. Si tienes éxito en la tirada, no recibes daño alguno.
+    uses:
+      type: null
+      qty: 0
+  - name: Alquimista Experto
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: 'Mente 3 & Artesano Eficiente'
+    description: >-
+      Tu maestría en la alquimia te permite crear consumibles más potentes. Cuando fabricas con éxito una poción o un veneno, su efecto se mejora:<br>
+      - Una poción fabricada por ti restaura 1d4 Puntos de Salud adicionales.<br>
+      - La dificultad (ND) para resistir un veneno fabricado por ti aumenta en +2.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Constitución de Hierro
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 3
+    description: >-
+      Tu cuerpo es un templo de resistencia física.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.<br>
+      Además, puedes aguantar la respiración durante una cantidad de minutos igual al doble de tu puntuación de Cuerpo. Adicionalmente, puedes dormir con armaduras medias o pesadas sin sufrir penalizadores por fatiga o incomodidad al día siguiente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Destreza Suprema
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 3
+    description: >-
+      Posees un control instintivo sobre tu inercia y equilibrio.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Reflejos.<br>
+      Además, siempre caes de pie si estás consciente. Adicionalmente, reduces la distancia de cualquier caída en 5 metros a efectos de calcular el daño (lo que te permite ignorar el daño de caídas cortas).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Engranaje Cognitivo
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 3
+    description: >-
+      Tu mente opera con la precisión de un mecanismo de relojería, procesando y archivando información sistemáticamente.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Mente.<br>
+      Además, posees memoria eidética. Puedes recordar con precisión perfecta cualquier documento, mapa, imagen o conversación que hayas presenciado en el último mes. El DJ debe recordarte cualquier detalle olvidado por ti (el jugador) que tu personaje hubiera retenido.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Sexto Sentido
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 3
+    description: >-
+      Tu instinto te alerta de peligros que tus ojos no ven.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Instinto.<br>
+      Además, cuando fallas una prueba de Instinto (Percepción) para detectar algo oculto (una trampa, una puerta secreta, un enemigo escondido), recibes una sensación de inquietud que te confirma que *hay* algo oculto en la zona, aunque no sepas qué es ni dónde está exactamente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Compostura Inquebrantable
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Presencia 3
+    description: >-
+      Tu personalidad es sólida como una roca, proyectando una autoridad natural.<br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Presencia.<br>
+      Además, tus fallos sociales nunca son catastróficos. Si fallas una prueba de Persuasión, Engaño o Intimidación, el objetivo nunca reacciona con violencia inmediata ni hostilidad abierta basándose solo en tus palabras; simplemente se mostrará escéptico, indiferente o se negará a colaborar.
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ PÍCARO ------------------------------
+  - name: Senda del Bribón
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+      - Arquetipo
+    requirements: Reflejos 2
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br><br>
+      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
+      Además, aprendes la lengua Jerga de Ladrones.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Ataque Furtivo
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón
+    description: >-
+      Una vez por turno, cuando impactas a un enemigo con un arma Precisa
+      o a distancia, infliges +1d4 de daño adicional si tenías Ventaja en la tirada
+      de ataque o si un aliado está adyacente al objetivo.
+    uses:
+      type: null
+      qty: 0
+  - name: Sabotaje Táctico
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón
+    description: >-
+      Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de sabotearlo:<br>
+      - **Jugar Sucio (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS de Reflejos (ND 5 + Reflejos) o
+      tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu próximo turno.<br>
+      - **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o tener Desventaja (-1d4)
+      en todos los ataques contra cualquier objetivo que no seas tú hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Acción Astuta
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Reflejos 3'
+    description: >-
+      Puedes usar tu Interacción de cada turno para realizar las acciones
+      de Correr o Esconderse.
+    uses:
+      type: null
+      qty: 0
+  - name: Evasión
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Acción Astuta & Reflejos 4'
+    description: >-
+      Cuando un efecto te obliga a realizar una TS de Reflejos para recibir
+      la mitad de daño, si tienes éxito no recibes daño alguno, y si fallas,
+      recibes solo la mitad.
+    uses:
+      type: null
+      qty: 0
+  - name: Ataque Furtivo Mejorado
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo & Reflejos 4'
+    description: >-
+      Tu conocimiento de la anatomía letal mejora.<br>
+      El daño adicional de tu Ataque Furtivo aumenta a 2d4.
+    uses:
+      type: null
+      qty: 0
+  - name: Celeridad de la Hoja
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo & Reflejos 4'
+    description: >-
+      Tu velocidad con las armas ligeras es imperceptible.<br>
+      Cuando realizas la acción de Atacar con un arma con la propiedad Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma Precisa.
+    uses:
+      type: null
+      qty: 0
+  # --- Pícaro: Duelista ---
+  - name: Estilo Audaz
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Presencia 2'
+    description: >-
+      Tu forma de combatir es un espectáculo de agilidad y provocación.<br>
+      - **Acróbata:** Obtienes Ventaja (+1d4) en pruebas de Acrobacias.<br>
+      - **Apertura Temeraria:** Puedes usar tu Interacción para bajar la guardia y fintar. Obtienes Ventaja (+1d4) en tu próximo ataque cuerpo a cuerpo que hagas con un arma Precisa en este turno. A cambio, sufres un -2 a tu Esquiva hasta el inicio de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  - name: Riposta
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+      - Reacción
+    requirements: 'Estilo Audaz & Reflejos 3'
+    description: >-
+      Como Reacción, cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes
+      realizar un ataque cuerpo a cuerpo contra él con un arma Precisa.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Duelista Audaz
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Estilo Audaz & Reflejos 3'
+    description: >-
+      Tu confianza en el combate singular es tu mejor defensa. Ganas los siguientes beneficios:<br>
+      - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no haya ninguna otra criatura a 1 metro de ti o del objetivo.<br>
+      - **Vigor del Duelista:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo que cumple las condiciones de "Duelo de Ingenio", ganas una cantidad de Puntos de Salud temporales igual a tu puntuación de Presencia. Estos Puntos de Salud temporales duran 1 minuto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Maestría del Duelista
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Duelista Audaz & Reflejos 4'
+    description: >-
+      Te mueves por el campo de batalla como en un baile mortal. Ganas los siguientes beneficios:<br>
+      - **Paso Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Durante este movimiento, no puede ser interceptado por una Reacción del objetivo de tu ataque.<br>
+      - **Réplica Maestra:** Puedes usar tu carta Riposta una vez por ronda sin gastar su uso de recarga.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Parada del Duelista
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+      - Reacción
+    requirements: 'Riposta & Reflejos 4'
+    description: >-
+      Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando un arma Precisa
+      (y ninguna otra arma), puedes un bono a tu Esquiva contra ese ataque igual a tu puntuación de Presencia, pudiendo hacer que falle. Si el ataque falla
+      de esta manera, tu próximo ataque contra ese enemigo antes del final de tu próximo turno tiene Ventaja (+1d4).
+    uses:
+      type: RELOAD
+      qty: 5
+  # --- Pícaro: Venenos ---
+  - name: Alquimia de Combate
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Mente 2'
+    description: >-
+      Has aprendido a crear y aplicar toxinas con una velocidad letal.<br>
+      Obtienes Ventaja (+1d4) en pruebas para preparar venenos.<br>
+      Puedes aplicar veneno a un arma como una Interacción.<br>
+      Cuando impactas a una criatura con un arma que no esta envenenada, puedes inyectar una toxina creada al instante. El objetivo debe superar una TS de Cuerpo (ND 5 + Mente). Si falla, eliges el efecto:<br>
+      - **Toxina Virulenta:** El objetivo sufre el estado Envenenado hasta el final de tu próximo turno.<br>
+      - **Toxina Agónica:** El objetivo sufre 1d6 de daño de Veneno adicional.<br>
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Maestría Tóxica
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Alquimia de Combate
+    description: >-
+      Perfeccionas tus venenos. Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br>
+      - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br>
+      - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  # --- Pícaro: Infiltrador ---
+  - name: Infiltrador Experto
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Mente 2'
+    description: >-
+      Has perfeccionado las técnicas de seguridad y observación criminal.<br>
+      - **Ojo Clínico:** Obtienes Ventaja (+1d4) en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br>
+      - **Seguridad:** Si fallas una prueba de Juego de Manos o una prueba para desactivar una trampa, el fallo no tiene consecuencias negativas (no eres descubierto, no rompes la herramienta ni activas la trampa).<br>
+      - **Rapidez:** Puedes usar tu Interacción para realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.
+    uses:
+      type: null
+      qty: 0
+  - name: Señor de los Bajos Fondos
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Presencia 2'
+    description: >-
+      Te mueves por los bajos fondos como pez en el agua. Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener
+      información en entornos urbanos y en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una ciudad.<br>
+      Además, una vez por sesión, puedes declarar que "conoces a alguien" relevante en la localidad actual. Gasta 2 Puntos de Suerte
+      y define el perfil de tu contacto (siempre de reputación dudosa o del hampa: un informante, un falsificador, un contrabandista, etc.).
+      El DJ te revela cómo y dónde podrías encontrar a esa persona, creando una nueva pista o un mini-objetivo para el grupo.
+      El contacto estará, como mínimo, dispuesto a escucharte, aunque obtener su ayuda pueda requerir persuasión, un favor o el pago adecuado.
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Veloz
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Acción Astuta
+    description: >-
+      Como Interacción, te mueves con una explosión de velocidad sobrenatural, duplicando tu Velocidad total para este turno.
+      Además, obtienes Ventaja (+1d4) en la próxima tirada de ataque que realices este turno, y el primer ataque que te
+      realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).
+    uses:
+      type: RELOAD
+      qty: 5
+
+  # --- Pícaro: Asesino ---
+  - name: Asesinar
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Reflejos 3'
+    description: >-
+      Eres un maestro del primer golpe. Para preparar un ataque letal, debes usar tu Interacción en el mismo turno en que atacas. Si lo haces, y atacas a una criatura que no es consciente de tu presencia, tu primer impacto con un arma se considera automáticamente un golpe crítico.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Punto Vital
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Asesinar & Instinto 3'
+    description: >-
+      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.
+      La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+    uses:
+      type: RELOAD
+      qty: 6
+
+  # --- Pícaro: Ladrón ---
+  - name: Manos Rápidas
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Manos Hábiles & Reflejos 3'
+    description: >-
+      Tu destreza es legendaria. Puedes usar tu Interacción para realizar la acción de Usar un Objeto, incluso aquellos que normalmente requerirían una Acción para activarse.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Especialista Táctico
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Manos Rápidas & Reflejos 4'
+    description: >-
+      Tu eficiencia en el campo de batalla es inigualable. Ganas una segunda Interacción en cada uno de tus turnos. Esta interacción adicional solo puede usarse para tu Acción Astuta (Correr o Esconderse) o para tu Mano Rápida (Usar un Objeto).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Golpe Letal
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo Mejorado & Reflejos 5'
+    description: >-
+      Has aprendido a identificar y explotar las vulnerabilidades más críticas.<br>
+      El daño adicional de tu Ataque Furtivo aumenta a 4d4.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Esquiva Sobrenatural
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Evasión & Reflejos 5'
+    description: >-
+      Te mueves como un fantasma a través del peligro. Ganas los siguientes beneficios:<br>
+      - Tu carta Evasión ahora también se aplica a Tiradas de Salvación de Cuerpo e Instinto.<br>
+      - Cuando tienes éxito en cualquier Tirada de Salvación para recibir la mitad de daño (y por ende no recibes daño gracias a Evasión), puedes usar tu Reacción para moverte hasta la mitad de tu velocidad.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Paso Sombrío Letal
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Asesinar & Reflejos 6'
+    description: >-
+      Como **Interacción**, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se **maximiza** (cada dado cuenta como su valor máximo).
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Golpe Fantasma
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo Mejorado & Reflejos 6'
+    description: >-
+      Tu golpe es tan rápido y preciso que atraviesa las defensas. Como Acción, realizas un único ataque con un arma Precisa o a distancia. Este ataque ignora toda Mitigación Física y Puntos de Salud temporales. Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+    uses:
+      type: RELOAD
+      qty: 8
+
+  - name: Ataque Furtivo Maestro
+    level: 5
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Golpe Letal & Reflejos 6'
+    description: >-
+      Tu precisión es legendaria, un solo corte basta para acabar el trabajo.<br>
+      El daño adicional de tu Ataque Furtivo aumenta a 6d4.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ COMBATIENTE ------------------------------
+  - name: Sintonía con el Acero
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+      - Arquetipo
+    requirements: Cuerpo 2
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +6.
+      Además, puedes usar tu puntuación de **Cuerpo** en lugar de tu puntuación de **Presencia** al realizar pruebas de habilidad
+      de **Intimidación**. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Segundo Aliento
+    level: 1
+    type: activable
+    tags:
+      - Combatiente
+      - Curación
+    requirements: Sintonía con el Acero
+    description: >-
+      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Cuerpo.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Furia de Batalla
+    level: 1
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero
+    description: >-
+      Entras en furia por 1 minuto o hasta que quedes inconsciente.
+      Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.<br>
+      Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.
+      En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, el efecto termina.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Ataque de Oportunidad
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Sintonía con el Acero & Reflejos 2'
+    description: >-
+      Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él,
+      puedes usar tu Reacción para realizar un único ataque cuerpo a cuerpo contra él.
+    uses:
+      type: RELOAD
+      qty: 3
+
+  - name: Duelo de Honor
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Presencia 2'
+    description: >-
+      Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo desafías.
+      Realizas una Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el objetivo está
+      marcado por ti hasta el inicio de tu próximo turno. Mientras esté marcado, sufre Desventaja (-1d4) en
+      cualquier tirada de ataque que realice contra un objetivo que no seas tú.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Maestría de Armas
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Sintonía con el Acero & Cuerpo 3 & Reflejos 2'
+    description: >-
+      Tu entrenamiento marcial es extenso y adaptable. Al finalizar un día de descanso, adoptas una Postura de Combate que te otorga beneficios según el equipo que empuñes:<br>
+      - **Destructor (A dos manos):** Cuando atacas con un arma a dos manos o versátil (usando ambas manos), puedes volver a tirar cualquier dado de daño que resulte en un 1 o un 2 (debes usar el nuevo resultado).<br>
+      - **Torbellino (Dos armas):** Cuando atacas con un arma de una mano, puedes usar tu Interacción para realizar un ataque adicional con otra arma de una mano que empuñes.<br>
+      - **Duelista (Un arma):** Cuando empuñas un arma de una mano y ninguna otra arma (puedes llevar escudo), puedes usar tu Reacción al ser golpeado para añadir +1 a tu Esquiva contra ese ataque.<br>
+      - **Guardián (Escudo):** Cuando un enemigo ataca a un aliado a distancia Inmediata de ti y estás usando un escudo, puedes usar tu Reacción para imponer Desventaja (-1d4) en su tirada de ataque.<br>
+      - **Tirador (A distancia):** Tus ataques a distancia ignoran la cobertura parcial y su alcance aumenta un rango (Por ejemplo: Media → Larga).<br>
+      - **Hostigador (Arrojadizas):** Puedes desenvainar armas arrojadizas como parte de cada ataque (sin gastar interacción) y su alcance aumenta un rango (Por ejemplo: Cercana → Media).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Oleada de Acción
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Cuerpo 4'
+    description: >-
+      Ganas una Acción extra en este turno.
+    uses:
+      type: RELOAD
+      qty: 8
+  - name: Barrido de Piernas
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Cuerpo 3'
+    description: >-
+      Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando
+      un arma a dos manos o un arma Versátil con ambas manos. Todas las criaturas a 1 metro de ti deben superar una
+      TS de Cuerpo (ND 5 + Cuerpo) o caer en el estado Derribado.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Ataque Adicional
+    level: 3
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Cuerpo 4'
+    description: >-
+      Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar
+      de uno.
+    uses:
+      type: null
+      qty: 0
+  - name: Ira del Berserker
+    level: 3
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Furia de Batalla & Cuerpo 4'
+    description: >-
+      Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable.
+      Adquieres un uso adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve potenciada con los siguientes beneficios:<br>
+      - **Furia Desatada:** Tus ataques con armas cuerpo a cuerpo infligen **+2 de daño adicional**.<br>
+      - **Mente Inexpugnable:** Obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de **Instinto** para resistir los estados de _Encantado_ o efectos de miedo.<br>
+      - **Impulso Imparable:** Tu **Velocidad** de movimiento aumenta en **2 metros**.
+    uses:
+      type: null
+      qty: 0
+  - name: Indomable
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Cuerpo 4 & Instinto 2'
+    description: >-
+      Puedes repetir una Tirada de Salvación fallida.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Inquebrantable
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Sintonía con el Acero & Cuerpo 4'
+    description: >-
+      Como Reacción, cuando un golpe te reduciría a 0 Puntos de Salud, puedes
+      hacer que te dejen con 1 Punto de Salud en su lugar.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Reflejos de Combate
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Cuerpo 5'
+    description: >-
+      Tu conciencia del campo de batalla es absoluta.<br>
+      No puedes ser sorprendido mientres estes consciente.
+      Además, tienes una Reacción adicional en cada ronda de combate, que solo puedes usar para habilidades de cartas con la etiqueta _Combatiente_.
+    uses:
+      type: null
+      qty: 0
+  - name: Bastión Inamovible
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Cuerpo 5'
+    description: >-
+      Eres una montaña inamovible en el campo de batalla. Ganas los siguientes beneficios:<br>
+      - Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br>
+      - Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+    uses:
+      type: null
+      qty: 0
+  - name: Torrente de Acero
+    level: 5
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Ataque Adicional & Cuerpo 6'
+    description: >-
+      Tu maestría marcial alcanza la perfección. Cuando usas tu Acción para Atacar, ahora puedes realizar **tres ataques** en lugar de dos.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Último Bastión
+    level: 5
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Inquebrantable & Cuerpo 6'
+    description: >-
+      Eres la definición de la resistencia. Como Reacción, cuando tú o un aliado a 1 metro vais a recibir daño, puedes interponer tu cuerpo o escudo. **Anulas completamente el daño** de ese ataque o efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
+  # --- Combatiente: Caudillo ---
+  - name: Presencia Inspiradora
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Presencia 2'
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Persuasión. Aliados a distancia Cercana que
+      puedan verte y oírte ganan un +1 a las Tiradas de Salvación contra miedo.
+    uses:
+      type: null
+      qty: 0
+  - name: Grito de Guerra
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Presencia Inspiradora
+    description: >-
+      Usas tu Interacción para inspirar a tus aliados. Elige un número de aliados igual a tu
+      puntuación de Presencia a distancia Cercana. Ganan Puntos de Salud temporales
+      iguales a 1d4 + tu puntuación de Presencia.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Comando de Batalla
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Grito de Guerra
+    description: >-
+      Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu puntuación de Presencia.
+      Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad. Este movimiento no puede ser
+      interceptado por Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su
+      próximo turno obtiene Ventaja (+1d4).
+    uses:
+      type: RELOAD
+      qty: 5
+  # --- Combatiente: Tirador ---
+  - name: Tirador de Élite
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Sintonía con el Acero & Reflejos 3'
+    description: >-
+      Tu paciencia y puntería te permiten realizar disparos imposibles.<br>
+      Mientras tengas esta carta activa, si no has gastado nada de tu movimiento durante tu turno, puedes sacrificarlo para obtener un +1 a tus tiradas de ataque con armas a distancia y arrojadizas hasta el final de tu turno.<br>
+      Como Acción, puedes gastar un uso de esta carta para realizar un único ataque con un arma a distancia o arrojadiza.
+      Si impacta, el proyectil ignora toda la Mitigación Física del objetivo.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Lluvia de Flechas
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Tirador de Élite & Reflejos 4'
+    description: >-
+      Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3 metros
+      deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño Perforante.
+    uses:
+      type: RELOAD
+      qty: 5
+  # --- Combatiente: Explorador Veterano ---
+  - name: Marcha Incansable
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas.
+      Además, cuando lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a
+      tu capacidad para marcar el ritmo y elegir las mejores rutas.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Ojo Táctico
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Marcha Incansable & Instinto 2'
+    description: >-
+      Tu experiencia en incontables batallas y marchas te ha enseñado a leer tanto a la gente como al terreno.
+      Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br>
+      - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br>
+      - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>
+    uses:
+      type: null
+      qty: 0
+  # ------------------------------ ARCANISTA ------------------------------
+  - name: Afinidad Arcana
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: Estudios Mágicos | Pacto Supremo | Herencia Sobrenatural
+    description: >-
+      Tu conexión con la Urdimbre te permite manipular la magia.<br><br>
+      Tienes acceso a la lista de cartas de _Arcanista_ y usas tu Atributo Mágico para los requerimientos y efectos de estas.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Estudios Mágicos
+    level: 1
+    type: efecto
+    tags:
+      - Mago
+      - Arquetipo
+      - Arcanista
+    requirements: Mente 2
+    description: >-
+      Has estudiado la magia al punto de comprender el por qué y el cómo de su funcionamiento.<br>
+      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Mente como tu Atributo Mágico para las cartas de _Arcanista_.<br>
+      <br>
+      **Beneficio de Arquetipo:**
+      - **Memoria Prodigia:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de Mente (redondeado hacia arriba).
+      Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas _Arcanista_ y _Conjuro_ (ambas).
+      - **Mente Ágil**: Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Grimorio de Preparación_ a tu colección.<br>
+      Adicionalmente, aprendes dos idiomas y ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: 'Grimorio de Preparación'
+    level: 1
+    type: efecto
+    tags:
+      - Mago
+    requirements: 'Estudios Mágicos'
+    description: >-
+      Tu libro de estudio te permite adaptarte a los obstáculos.<br>
+      Una vez por día de descanso, durante un momento de calma, puedes dedicar 10 minutos a estudiar. Al hacerlo, puedes intercambiar hasta dos de tus cartas con las etiquetas _Conjuro_ y _Arcanista_ (ambas) activas por otras de tu Colección.<br>
+      Además, el tiempo de lanzamiento de tus conjuros de _Ritual_ para conjuros de _Arcanista_ se reduce a la mitad (5 minutos).
+    uses:
+      type: null
+      qty: 0
+  - name: 'Familiar Arcano'
+    level: 2
+    type: activable
+    tags:
+      - Mago
+      - Ritual
+    requirements: 'Estudios Mágicos & Atributo Mágico 3'
+    description: >-
+      Tras 1 hora de ritual, invocas un espíritu mágico menor (cuervo, gato, sapo, etc.). El familiar tiene 1 PS, Esquiva 10 y no puede atacar, pero obedece tus órdenes telepáticas a distancia Larga. Como Acción, puedes ver y oír a través de sus sentidos (quedando tú ciego y sordo a tu entorno). Si muere, debes repetir el ritual para volver a invocarlo.
+    uses:
+      type: null
+      qty: 0
+  - name: Teoría Arcana Avanzada
+    level: 3
+    type: efecto
+    tags:
+      - Mago
+    requirements: 'Afinidad Arcana & Mente 4'
+    description: >-
+      Tu entendimiento de la magia te permite manipular tus conjuros. Cuando lanzas una carta de Conjuro de Arcanista,
+      puedes gastar Puntos de Suerte para aplicar uno de los siguientes efectos (solo uno por lanzamiento):<br>
+      - **1 Suerte (Conjuro Sutil):** Lanzas el conjuro sin componentes obvios.<br>
+      - **1 Suerte (Conjuro Distante):** Aumentas el alcance de un conjuro de Cercana a Media, o de Media a Larga.<br>
+      - **2 Suerte (Conjuro Bifurcado):** Un conjuro que afecta a un solo objetivo, ahora afecta a un segundo objetivo dentro del alcance.<br>
+    uses:
+      type: null
+      qty: 0
+  - name: 'Contingencia Arcana'
+    level: 4
+    type: activable
+    tags:
+      - Mago
+      - Ritual
+    requirements: 'Estudios Mágicos & Atributo Mágico 5'
+    description: >-
+      Inviertes 10 minutos para anclar un conjuro de Arcanista de Nivel 1, 2 o 3 (que requiera Acción o Interacción) a una condición específica (ej: "Si recibo daño", "Si caigo al agua"). Debes gastar un uso del conjuro en este momento. Cuando la condición se cumple, el conjuro se lanza automáticamente como una Reacción instantánea. Solo puedes tener una contingencia activa a la vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Pacto Supremo
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+      - Arquetipo
+      - Arcanista
+    requirements: Presencia 2
+    description: >-
+      Has sellado un pacto con una entidad extra-planar que te confiere poderes arcanos.<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de **Engaño** e **Intimidación**.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Mágico para las cartas de _Arcanista_.<br>
+      <br>
+      **Beneficio de Arquetipo:**<br>
+      - **Celos del Patrón:** Tu patrón exige exclusividad. No puedes adquirir ni usar cartas con la etiqueta _Conjuro_ que no pertenezcan a la lista de Arcanista.<br>
+      - **Favor del Patrón:** Puedes gastar Puntos de Suerte para sumar al resultado de tus tiradas de **Recarga** de cartas.<br>
+      - **Regalo del Patrón:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Descarga Sobrenatural_ a tu colección, y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.<br>
+      Adicionalmente, aprendes un idioma y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Descarga Sobrenatural
+    level: 1
+    type: activable
+    tags:
+      - Brujo
+      - Conjuro
+    requirements: Pacto Supremo
+    description: >-
+      Canalizas el poder puro de tu patrón.<br><br>
+      Al añadir esta carta a tu colección, elige un tipo de daño permanente que depende de tu patrón: Eléctrico, Frío, Fuego, Fuerza, Necrótico, Psíquico o Radiante.<br>
+      Realizas un ataque de conjuro (1d8 + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo elegido.<br><br>
+      _Esta carta solo puede ser adquirida a través de Pacto Supremo._
+    uses:
+      type: null
+      qty: 0
+  - name: 'Visiones del Patrón'
+    level: 2
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo & Atributo Mágico 3'
+    description: >-
+      La influencia de tu patrón altera tus sentidos.<br>
+      Puedes ver normalmente en oscuridad, incluso si es oscuridad mágica.<br>
+      Además, una vez por día de descanso, puedes gastar 1 Punto de Suerte y tomarte 1 minuto para hacerle una pregunta directa a tu Patrón. El DJ te dará una respuesta veraz, aunque frecuentemente críptica o interesada.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Escudo de Sombras'
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: 'Pacto Supremo & Atributo Mágico 4'
+    description: >-
+      Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, invocas la protección de tu patrón.<br>
+      Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Mágico.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: 'Condena Ineludible'
+    level: 4
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: 'Pacto Supremo & Atributo Mágico 5'
+    description: >-
+      Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros, impones Desventaja (-1d4) a su tirada. (Recarga 6+)
+    uses:
+      type: RELOAD
+      qty: 1
+
+  - name: Herencia Sobrenatural
+    level: 1
+    type: efecto
+    tags:
+      - Hechicero
+      - Arquetipo
+      - Arcanista
+    requirements: Presencia 2
+    description: >-
+      La magia arcana fluye por tu sangre, es parte de tu herencia.<br><br>
+      Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de **Persuasión** e **Intimidación**.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Mágico para las cartas de _Arcanista_.<br>
+      <br>
+      **Beneficio de Arquetipo:** <br>
+      - **Uno con la Magia:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Sangre Mágica_ a tu colección.<br>
+      Adicionalmente, aprendes un idioma y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Sangre Mágica
+    level: 1
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: Herencia Sobrenatural
+    description: >-
+      Una vez por ronda, puedes sacrificar vitalidad (daño directo no mitigable) para alterar tus conjuros de _Arcanista_:<br>
+      - **Sacrificio:** Cuando fallas una Recarga, puedes pagar **3 PS por cada punto** que quieras sumar al resultado.<br>
+      - **Potencia:** Al tirar daño, puedes pagar **2 PS por nivel del conjuro** para volver a tirar un número de dados igual a tu **Presencia**.<br>
+      - **Celeridad:** Puedes lanzar un conjuro de Nivel 1 o 2 usando tu **Interacción**. El coste es 3 + nivel del conjuro de daño.<br>
+    uses:
+      type: null
+      qty: 0
+  - name: 'Escudo Residual'
+    level: 2
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: 'Herencia Sobrenatural & Cuerpo 2'
+    description: >-
+      Tu cuerpo convierte el dolor en una barrera protectora efímera.<br>
+      Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos de Salud temporales igual a la mitad de los PS sacrificados (redondeado hacia arriba). Estos puntos temporales duran hasta el inicio de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Anomalía Salvaje'
+    level: 3
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: 'Herencia Sobrenatural & Atributo Mágico 4'
+    description: >-
+      La magia errática desestabiliza la realidad a tu alrededor.<br>
+      Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, tira 1d4 para determinar qué efecto secundario se manifiesta:<br>
+      - **Parpadeo:** Te teletransportas hasta 3 metros a un espacio desocupado que puedas ver.<br>
+      - **Distorsión:** El próximo ataque que recibas antes del inicio de tu próximo turno se realiza con Desventaja (-1d4).<br>
+      - **Claridad:** Tu próxima tirada de ataque de conjuro antes del final de tu próximo turno obtiene Ventaja (+1d4).<br>
+      - **Ruptura Defensiva:** Eliges a una criatura a distancia Media que puedas ver. Esta sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros antes del final de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Apoteosis Arcana'
+    level: 4
+    type: activable
+    tags:
+      - Hechicero
+    requirements: 'Herencia Sobrenatural & Atributo Mágico 5'
+    description: >-
+      Como Acción, dejas que la magia pura de tu linaje te consuma durante 1 minuto.<br>
+      Ganas una velocidad de vuelo igual a tu Velocidad normal, emites luz brillante a 3 metros, y el costo en Puntos de Salud de todas las opciones de tu carta _Sangre Mágica_ se reduce a la mitad (redondeado hacia arriba, hasta un mínimo de 1 PS).
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Trucos Arcanos
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      Eres un experto en la mágia más básica.<br>
+      - **Efectos mágicos menores:** Como Acción, creas una fuente de luz, un sonido, un olor, limpias un objeto,
+      enciendes una vela, etc. El efecto no puede infligir daño ni imponer un estado.<br>
+      - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto.
+      Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una
+      palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.
+    uses:
+      type: null
+      qty: 0
+  - name: Descarga Elemental
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
+      de conjuro (1d8+Atributo Mágico) a distancia Cercana contra un objetivo. Si
+      impactas, infliges 1d8 de daño del tipo elegido.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Proyectil Mágico
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      Lanzas un proyectil de energía arcana que no puede fallar a una criatura a distancia Cercana. Al impactar, este realiza 1d4 de daño de Fuerza.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Toque Entrópico
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Atributo Mágico) contra un objetivo.
+      Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Ruptura Mental
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Generas una perturbación mental en una criatura que puedas ver a distancia Media.
+      La criatura debe superar una Tirada de Salvación de Atributo Mágico (ND 5 + Atributo Mágico) o sufrir 2d6 de daño Psíquico y tener desventaja
+      en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Comprender Lenguas
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    description: >-
+      Tu mente se abre a los matices de la comunicación. Durante 1 hora, obtienes la capacidad de comprender
+      el significado literal de cualquier lenguaje hablado que escuches y cualquier texto escrito que leas.
+      Este efecto no te permite hablar ni escribir en idiomas que no conoces.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Alarma Mágica
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    description: >-
+      Creas una alarma mágica e invisible que protege un área a tu elección dentro de una distancia Cercana. El área protegida no puede ser mayor a un cubo de 5 metros de lado y la alarma permanece activa durante 8 horas.<br>
+      Al lanzar el conjuro, designas cualquier número de criaturas que no activarán la alarma. También eliges si la alarma será audible o mental:<br>
+      - **Alarma Audible:** Una campana espectral suena con fuerza durante 6 segundos. El sonido puede oírse a una distancia de hasta 20 metros.<br>
+      - **Alarma Mental:** Recibes un pulso de alerta en tu mente si te encuentras a menos de 1 kilómetro de la alarma. La alerta te despierta si estás durmiendo.<br>
+      La alarma se activa si cualquier criatura que no hayas designado como segura entra en el área protegida.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Visión Arcana
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    description: >-
+      Durante 10 minutos, tus ojos brillan con una luz azulada.
+      Puedes percibir un aura tenue alrededor de cualquier criatura u objeto visible a distancia Cercana que porte magia.<br>
+      Además, como Acción, mientras dure el efecto, puedes concentrarte en un objeto, criatura o área visible a distancia Inmediata.
+      Tras 1 minuto de análisis ininterrumpido, realizas una Prueba de Atributo Mágico (Conocimiento Arcano) para desvelar la naturaleza de cualquier magia presente.<br>
+      El Nivel de Dificultad (ND) lo establece el DJ, basándose en el poder de la magia.<br>
+      - **Con un Éxito:** Aprendes la función general de la fuente de magia.<br>
+      - **Con un Éxito Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del conjuro activo.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Coraza Vital
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      Concentras tu poder arcano en una coraza espectral que absorbe el daño que recibes.
+      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Atributo Mágico.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Augurio
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Tras 10 minutos de meditación, puedes formular una única pregunta al DJ sobre un curso de acción específico
+      que planeas tomar en la próxima hora. El DJ te ofrecerá una respuesta breve y críptica, a menudo una visión
+      o un presagio de un posible resultado (éxito, fracaso, peligro, oportunidad).
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Maledicción
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Mágico).
+      Si falla, le aplicas uno de los siguientes efectos durante 1 minuto:<br>
+      - Le das desventaja en sus tiradas de ataque usando un atributo en específico.<br>
+      - Le das desventaja en sus tiradas de salvación de un atributo en específico.<br>
+      - Le das desventaja en sus tiradas de habilidad un atributo en específico.<br>
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Paso Brumoso
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Usas tu Interacción para teletransportarte a un espacio desocupado
+      que puedas ver a distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Invisibilidad
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Atributo Mágico 3
+    description: >-
+      Tocas a una criatura voluntaria y se vuelve invisible durante 10 minutos
+      o hasta que ataque, lance un conjuro o pierdas la concentración.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Barrera Arcana
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+    requirements: Atributo Mágico 3
+    description: >-
+      Mientras tengas esta carta activa, una barrera de energía te protege. Siempre y cuando no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.<br>
+      Como Reacción, cuando recibes daño de un conjuro o efecto mágico, puedes gastar un uso de esta carta para sobrecargar la barrera.
+      Ganas Mitigación Mágica igual a dos veces tu puntuación de Atributo Mágico contra ese daño específico.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Rayo Energético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Descarga Elemental & Atributo Mágico 3'
+    description: >-
+      Realizas un ataque de conjuro (1d8 + Atributo Mágico) a distancia Media. Si impactas, el objetivo recibe 2d8
+      de daño de Fuego, Frío o Eléctrico.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Nube de Dagas
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Eliges un cubo de 2 metros de lado a distancia Media. El área se llena de dagas
+      voladoras durante 1 minuto. La primera vez que una criatura entre en
+      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 5 + Atributo Mágico). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
+      En turnos subsequentes, puedes usar tu Acción para mover el cubo a otra ubicación a distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Ráfaga Elemental
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Liberas un cono de energía de 3 metros. Elige un elemento al lanzar. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Mágico). Si fallan, reciben 2d6 de daño del tipo elegido y sufren un efecto adicional:<br>
+      - **Sónico:** Es empujada 2 metros lejos de ti.<br>
+      - **Fuego:** Recibe 1d4 de daño extra al inicio de su próximo turno.<br>
+      - **Frío:** Su Velocidad se reduce a la mitad hasta el final de su próximo turno.<br>
+      - **Eléctrico:** No puede usar Reacciones hasta el final de su próximo turno.<br>
+      Si tienen éxito en la Tirada de Salvación, reciben la mitad del daño y ningún efecto adicional.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Explosión Elemental
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Descarga Elemental & Atributo Mágico 4'
+    description: >-
+      Provocas una detonación mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Mágico). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br>
+      Al lanzar el conjuro, eliges la forma que adopta:<br>
+      - **Bola de Fuego (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br>
+      - **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br>
+      - **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Volar
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    description: >-
+      Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual
+      a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Círculo de Protección
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: 'Barrera Arcana & Atributo Mágico 4'
+    description: >-
+      Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos.
+      Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo,
+      una criatura del tipo elegido debe superar una tirada de Instinto (ND 5 + Atributo Mágico).
+      Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de
+      Salvación contra efectos de criaturas del tipo declarado.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Ráfaga Aniquiladora
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    description: >-
+      Realizas un ataque de conjuro a distancia (1d8 + Atributo Mágico) contra un objetivo. Si impactas,
+      el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente
+      tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera,
+      acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o
+      decidas detener la ráfaga.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Rayo Desintegrador
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Mágico 5'
+    description: >-
+      Un fino rayo verde brota de tu dedo hacia un objetivo a distancia Media.<br>
+      El objetivo debe superar una TS de Reflejos (ND 5 + Atributo Mágico). Si falla, recibe 10d8 de daño de Fuerza.
+      Si este daño reduce al objetivo a 0 Puntos de Salud, se convierte en un fino polvo gris y es destruido.
+      Si tiene éxito, recibe la mitad del daño.
+    uses:
+      type: RELOAD
+      qty: 8
+  - name: Pulso Cinético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Como Acción, proyectas una ráfaga de fuerza telequinética invisible para **empujar, atraer o expandir** materia desde un punto a distancia Media.
+      La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br>
+      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo Mágico)**.<br>
+      - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br>
+      - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Levitar
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a distancia Media. El efecto dura hasta 10 minutos.<br>
+      - **Criatura:** Si no es voluntaria, debe superar una TS de Cuerpo. La criatura levita y puede ser movida verticalmente por ti (Interacción, hasta 3 metros).
+      No puede moverse horizontalmente por sí misma en el aire, debe impulsarse con superficies sólidas.<br>
+      - **Objeto:** Puede pesar hasta 50 kg por cada punto de tu Atributo de Atributo Mágico.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Tejer Ilusión
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Moldeas la luz y el sonido para engañar a los sentidos. Como acción, al lanzar el conjuro, elige uno de los siguientes modos:<br>
+      - **Señuelo:** Creas una ilusión visual (de hasta 2 metros cúbicos) o auditiva, en un punto fijo a distancia Cercana durante 10 minutos.<br>
+      - **Disfraz:** Te cubres con una ilusión que altera tu apariencia (ropa, rasgos faciales) y tu voz durante 1 hora. Puedes aparentar ser hasta medio metro más alto o más bajo.<br>
+      - **Velo:** Envuelves a un aliado a distancia Cercana en sombras, otorgándole Ventaja (+1d4) en sus pruebas de Sigilo durante 10 minutos.<br>
+      Una criatura puede usar su Acción para interactuar físicamente con la ilusión, realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Mágico para descubrir el engaño.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Transmutar Materia
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    description: >-
+      Tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades (dureza, peso, textura) o su forma. No puedes cambiar su masa total.
+      Por ejemplo, puedes volver una cerradura blanda como la cera, o esculpir una palanca a partir de un trozo de metal.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Visión Remota
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    description: >-
+      Creas un sensor invisible con forma de ojo espectral en un punto que puedas ver a distancia Media. El sensor es intangible pero no puede atravesar objetos sólidos. En tus turnos, puedes usar tu Acción para mover el sensor hasta 10 metros. Ves y oyes a través del sensor.
+      El sensor es detectable con magia o visión especial. Dura 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Zona Nula
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    description: >-
+      Eliges un punto a distancia Media, creando una esfera de 5 metros de radio que dura hasta 10 minutos.
+      Dentro de la esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido)
+      y toda fuente de luz, mágica o no, se reduce a una penumbra tenue.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Rompeconjuros
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    description: >-
+      Esta carta tiene dos modos de uso:<br>
+      - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada
+      de tu Atributo Mágico contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br>
+      - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico.
+      Realizas una prueba de Atributo Mágico contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Santuario Arcano
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    description: >-
+      Trazas un círculo en el suelo, del que brota una cúpula de energía opaca desde fuera pero transparente desde dentro, de 3m de radio. Dura 8 horas.
+      Las criaturas que designes al lanzar el conjuro pueden usar una Acción para entrar o salir. Si tú, el lanzador, sales, el conjuro termina.
+      Cualquier ataque o conjuro dirigido a la cúpula debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Atributo Mágico
+      con tu bonificador (1d8 + Atributo Mágico) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Barrera de Fuerza
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Mágico 5'
+    description: >-
+      Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15 metros de largo y 5 de alto,
+      o puede ser una cúpula de 4m de radio. La barrera es inmune a todo daño físico, pero es destruida automáticamente por efectos mágicos de desintegración
+      y puede ser terminada prematuramente por efectos de disipación mágica. Dura hasta 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Pliegue Espacial
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Paso Brumoso & Atributo Mágico 5'
+    description: >-
+      Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3 metros de diámetro.
+      Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías
+      que permanece abierta mientras te concentres, hasta por 1 minuto.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Dominio Elemental
+    level: 4
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: 'Explosión Elemental & Atributo Mágico 5'
+    description: >-
+      Al adquirir esta carta, elige un tipo de daño: Fuego, Frío o Eléctrico. Ganas los siguientes beneficios para conjuros de Arcanista de ese tipo:<br>
+      - Puedes volver a tirar cualquier dado de daño que resulte en un 1 (debes usar el nuevo resultado).<br>
+      - El ND de tus conjuros que hagan daño de este tipo aumenta en 1.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Sugestión Mayor
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Maledicción & Atributo Mágico 5'
+    description: >-
+      Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Mágico). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente"). La orden no puede ser obviamente suicida. La criatura obedece lo mejor que puede mientras te concentres.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Sobrecarga Arcana
+    level: 4
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: 'Afinidad Arcana & Atributo Mágico 5'
+    description: >-
+      Tu dominio de la magia te permite saturar los conjuros simples con un poder devastador.<br>
+      Cuando lanzas una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes usar tu Interacción para sobrecargar el lanzamiento. Si lo haces, duplicas la cantidad de dados de daño del conjuro.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Maestría Arcana
+    level: 5
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: 'Teoría Arcana Avanzada & Atributo Mágico 6'
+    description: >-
+      Tu dominio de la Urdimbre es absoluto. Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un sistema de Recarga,
+      puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Palabra de Poder: Aturdir'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Sugestión Mayor & Atributo Mágico 6'
+    description: >-
+      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 100 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7+Atributo Mágico) para terminar el efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  # ------------------------------ SACERDOTE ------------------------------
+  - name: Fe Inspiradora
+    level: 1
+    type: efecto
+    tags:
+      - Sacerdote
+      - Arquetipo
+    requirements: Instinto 2
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br><br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3, aprendes el idioma Celestial, y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
+      Además, como Interacción, puedes pedir a tu deidad que intervenga cuando tus fuerzas fallan. Eliges una carta agotada que requiera Recarga. La carta se recarga automáticamente. Sin embargo, ya no puedes vover a recargarla de ninguna manera hasta que finalices un día de descanso.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Taumaturgia Divina
+    level: 1
+    type: efecto
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      Manifiestas la voluntad de tu deidad en el mundo físico con pequeños milagros.<br>
+      - **Signos (Interacción):** Creas efectos sensoriales inofensivos: tu voz retumba, las llamas cambian de color, el suelo tiembla o tus ojos brillan.<br>
+      - **Luz Sagrada (Acción):** Tocas un objeto y haces que emita luz brillante en un radio de 5 metros durante 1 hora.<br>
+      - **Restauración Menor (Acción):** Tocas un objeto para limpiarlo, reparar una rotura pequeña o purificar comida y bebida.<br>
+      - **Voluntad a Distancia (Interacción):** Puedes abrir o cerrar de golpe una puerta o ventana sin seguro a distancia Cercana.
+    uses:
+      type: null
+      qty: 0
+  - name: Guía Divina
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: Fe Inspiradora
+    description: >-
+      Como Reacción, cuando un aliado a distancia Cercana falla una Prueba de Habilidad, puedes interceder por él.
+      El aliado suma **1d4** al resultado de su tirada, lo que podría convertir el fallo en un éxito.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Toque Restaurador
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      Tocas a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente,
+      puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Escudo de Fe
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de energía divina.
+      El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación de Instinto justo antes de recibir el daño.
+      Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Llama Sagrada
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque
+      de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
+      Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Amparo Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Como Reacción, cuando un enemigo ataca a un aliado que puedas ver a distancia Cercana, puedes interponer una barrera de luz.
+      El atacante sufre Desventaja (-1d4) en esa tirada de ataque y en cualquier otro ataque que realice contra ese mismo aliado hasta el final del turno actual.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Aura Protectora
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: 'Toque Restaurador & Instinto 3'
+    description: >-
+      Como Reacción cuando un aliado a distancia Cercana es reducido a 0 Puntos de Salud,
+      puedes hacer que quede con 1 Punto de Salud en su lugar.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Golpe Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de energía sagrada.
+      El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el daño aumenta a 2d6.<br>
+      Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Santuario Silencioso
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Creas una esfera de 5 metros de radio a distancia Media. Dentro de la esfera, el sonido se apaga por completo.
+      Además, el área se considera terreno consagrado, y las criaturas impías (no-muertos, demonios, etc.)
+      que entren o empiecen su turno allí sufren Desventaja (-1d4) en todas sus tiradas de ataque y salvación.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Ritos Sagrados
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Eres el azote de la oscuridad. Al lanzarel conjuro, eliges un modo de funcionamiento:<br>
+      - **Sentir Presencia (Ritual/Acción):** Durante 10 minutos, eres consciente de la presencia y ubicación general de cualquier criatura Celestial, Infernal o No-muerta a distancia Cercana, así como de objetos o áreas consagradas o profanadas dentro del mismo rango.<br>
+      - **Expulsión (Acción):** Liberas energía divina. Todo No-muerto o Infernal a distancia Cercana debe superar una TS Instinto (ND 5 + Instinto). Si falla, debe usar su turno para alejarse de ti y sufre Desventaja -1d4) en ataques durante 1 minuto (o hasta recibir daño).<br>
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Bendecir Objeto
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Tocas un arma, escudo, armadura o herramienta. Durante 10 minutos, el objeto obtiene una bendición. Elige uno:<br>
+      - **Arma:** Adquiere un +1 en las tiradas de ataque.<br>
+      - **Escudo o Armadura:** Otorga a su portador +1 a la Mitigación Física y Mágica.<br>
+      - **Herramienta:** Otorga un +1 a las Pruebas de Habilidad que se realicen con esta.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Aura Divina
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Como Acción, emites un aura divina de 5 metros de radio que dura 1 minuto. Al activar el aura,
+      eliges uno de los siguientes efectos persistentes:<br>
+      - **Aura de Protección:** Cuando un enemigo dentro del aura ataca a un aliado, puedes usar tu Reacción para imponer Desventaja (-1d4) en esa tirada de ataque.<br>
+      - **Aura de Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).<br>
+      - **Aura de Fortaleza:** Tú y tus aliados dentro del aura obtenéis un +1 a todas las Tiradas de Salvación.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Castigo Inapelable
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+    requirements: Sentencia del Hereje
+    description: >-
+      Como Acción, eliges a un enemigo que esté bajo el efecto de tu `Sentencia del Hereje`.
+      El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o sufrirá 3d6 de daño Radiante
+      y quedará Aturdido hasta el final de tu próximo turno. Si tiene éxito, solo recibe la mitad del daño.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Plegaria de Curación
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Curación
+    requirements: 'Toque Restaurador & Instinto 4'
+    description: >-
+      Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Espíritus Guardianes
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Curación
+    requirements: 'Fe Inspiradora & Instinto 4'
+    description: >-
+      Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que
+      entre o empiece su turno ahí debe superar una TS de Instinto (ND 5 + Instinto)
+      o sufrir 2d6 daño Radiante (o la mitad con éxito).
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Revivir
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Toque Restaurador & Instinto 4'
+    description: >-
+      Tocas a una criatura que haya muerto en el último minuto. Vuelve a
+      la vida con 1 Punto de Salud.
+    uses:
+      type: LONG_REST
+      qty: 1
+  # --- Sacerdote: Inquisidor ---
+  - name: Mirada Penetrante
+    level: 1
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: 'Fe Inspiradora & Presencia 2'
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras y en pruebas de Intimidación para interrogar u obtener información.
+    uses:
+      type: null
+      qty: 0
+  - name: Sentencia del Hereje
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Concentración
+    requirements: Mirada Penetrante
+    description: >-
+      Como Interacción, marcas a un enemigo a distancia Cercana hasta el final del combate (o hasta que muera).
+      Siempre puedas ver al enemigo, tus ataques y los de tus aliados contra ese enemigo ignoran su mitigación física y mágica en una cantidad igual a la mitad de tu atributo de Instinto (redondeado hacia abajo).
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Zona de la Verdad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Concentración
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Creas una zona de 5 metros de radio a distancia Media por 10 minutos. Quien
+      esté dentro debe superar una TS de Instinto (ND 5 + Instinto) para poder
+      decir una mentira deliberada.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Curar
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Toque Restaurador & Instinto 4'
+    description: >-
+      Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br>
+      - **Restauración Vital:** La criatura recupera 2d6 + tu puntuación de Instinto en Puntos de Salud.<br>
+      - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Santuario
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Trazas un círculo de 5 metros de radio en el suelo. Durante 8 horas, el área se considera terreno consagrado.<br>
+      Cualquier criatura Infernal o No-muerta que intente entrar al área debe superar primero una Tirada de Salvación de Instinto (ND 5 + Instinto).
+      Si falla, no puede entrar voluntariamente en este turno. Si cualquier otra criatura que no hayas designado como segura entra en el área,
+      recibes una alerta mental que te despierta si estás durmiendo. No te revela quien entro, pero sí que alguien no esperado lo ha hecho.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Palabra de Autoridad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      Como Acción, eliges a una criatura a distancia Media. Le das una orden de una o dos palabras (ej: "¡Suéltalo!", "¡Arrodíllate!").
+      El objetivo debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
+      Una criatura inmune al estado Encantado no se ve afectada por este conjuro.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Eco del Pasado
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 4'
+    description: >-
+      Trazas un símbolo sagrado sobre un objeto inanimado o una criatura fallecida.
+      Recibes una visión breve y sensorial (imágenes, sonidos, emociones fuertes) del último evento significativo en el que el objetivo estuvo involucrado.
+      La visión es críptica y está sujeta a la interpretación. No puedes usar esta habilidad sobre el mismo objetivo más de una vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Sanación Verdadera
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Curar & Instinto 5'
+    description: >-
+      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu puntuación de Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Destruir Impíos
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: 'Ritos Sagrados & Instinto 5'
+    description: >-
+      Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior falla su Tirada de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Cadenas de Luz
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 5'
+    description: >-
+      Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Instinto). Si fallan, reciben 4d8 de daño Radiante y quedan Inmovilizadas por las cadenas durante 1 minuto.
+      Si tienen éxito en la salvación inicial, reciben la mitad del daño y no quedan atrapadas.<br>
+      Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5 + Instinto) para tratar de liberarse.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Arma Espiritual
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Fe Inspiradora & Instinto 5'
+    description: >-
+      Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8 + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
+      - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Poder Sagrado
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: 'Fe Inspiradora & Instinto 5'
+    description: >-
+      Tu fe potencia la magnitud de tus milagros ofensivos.<br>
+      Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Gracia Salvadora
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: '(Aura Protectora | Curar) & Instinto 6'
+    description: >-
+      Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Juicio Celestial
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: '(Espíritus Guardianes | Castigo Inapelable) & Instinto 6'
+    description: >-
+      Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno). Las criaturas Celestiales superan automáticamente la salvación.
+    uses:
+      type: RELOAD
+      qty: 8
+
+  # ------------------------------ DRUIDA ------------------------------
+  - name: Sintonía Primordial
+    level: 1
+    type: efecto
+    tags:
+      - Druida
+      - Arquetipo
+    requirements: Instinto 2
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.<br><br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Trato con Animales.
+      Aprendes el idioma Silvano o Primordial.
+      Además, posees la capacidad innata de comunicarte verbalmente con bestias y plantas. La información que obtengas está limitada por la inteligencia y los sentidos de la criatura.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Comunión Natural
+    level: 1
+    type: efecto
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    description: >-
+      Tu conexión con el mundo natural es constante y tangible.<br>
+      - **Truco Druídico (Interacción):** A voluntad, creas efectos sensoriales menores: haces brotar una flor, creas una brisa suave, predices el clima de las próximas horas o enciendes/apagas una fogata.<br>
+      - **Lazo Natural (Acción):** Haces brotar una enredadera o rama animada a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para que manipule objetos, tire de palancas o entregue ítems a 5 metros de su origen.
+    uses:
+      type: null
+      qty: 0
+  - name: Golpe Primordial
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    description: >-
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Instinto). Si impactas, infliges 1d6 de daño y
+      eliges uno de los siguientes efectos elementales que te afecta a ti:<br>
+      - **Tierra (Contundente):** Te recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+      - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+      - **Agua (Frío):** Una capa de escarcha te protege. Ganas +1 de Mitigación Mágica contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Látigo de Espinas
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    description: >-
+      Un látigo de espinas brota de tu mano hacia un objetivo a distancia Cercana. Realizas un ataque de conjuro
+      (1d8+Instinto). Si impactas, infliges 1d6 de daño Cortante. Inmediatamente después del impacto, puedes iniciar
+      una Tirada Enfrentada de tu Instinto contra el Cuerpo del objetivo. Si ganas, mueves al objetivo 1 metro en cualquier dirección.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Forma Salvaje
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Concentración
+    requirements: Sintonía Primordial
+    description: >-
+      Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo) durante 1 hora. Tu equipo se funde con tu nueva forma y no puedes usarlo.
+      En esta forma:<br>
+      - Ganas 3 Puntos de Salud temporales.<br>
+      - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**, pero tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - No puedes hablar, atacar ni utilizar habilidades Activables (a menos que una habilidad lo permita específicamente), pero conservas los beneficios de tus cartas de **Efecto** y de las cartas **Activables** que ya tuvieras activas antes de transformarte.<br>
+      - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un olfato agudo).<br>
+      La transformación termina antes si pierdes la Concentración o si decides revertirla (no requiere acción).<br>
+      Mientras tengas al menos 1 Punto de Salud Temporal, no necesitas realizar pruebas para mantener la Concentración de tu forma salvaje.<br>
+      Mientras estes transformado, no puedes ganar Puntos de Salud Temporales.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Aspecto Combativo
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: Forma Salvaje
+    description: >-
+      Tu dominio sobre la transformación te permite adoptar una forma de combate. Esta carta mejora tu _Forma Salvaje_ de las siguientes maneras:<br>
+      - Obtienes **un uso adicional** de _Forma Salvaje_ por día de descanso.<br>
+      - Puedes activar tu _Forma Salvaje_ para transformarte en una bestia de combate Mediana usando tu **Interacción** en lugar de tu Acción. La duración es de 1 minuto.<br>
+      - En esta forma de combate, tanto tu **Cuerpo** como tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - Tus ataques sin arma (garras, fauces, etc.) infligen **1d6** de daño (puedes elegir Contundente, Cortante o Perforante al transformarte).<br>
+      Además, al transformarte en tu aspecto combativo, eliges **dos** de los siguientes beneficios:<br>
+      - **Vitalidad Primitiva:** Los Puntos de Salud temporales ganados por tu _Forma Salvaje_ se vuelven dos veces tu puntuación de **Instinto**.<br>
+      - **Ataque Brutal:** El daño de tus ataques sin arma aumenta a **1d8**.<br>
+      - **Pellejo Grueso:** Ganas +1 de Mitigación Física.<br>
+      - **Agilidad Depredadora:** Tu Velocidad aumenta en 2 metros y el terreno difícil no te cuesta movimiento extra.<br>
+      - **Embestida Feroz:** Si te mueves al menos 5 metros en línea recta hacia un objetivo, tu siguiente ataque contra él ese turno tiene Ventaja (+1d4).
+    uses:
+      type: null
+      qty: 0
+  - name: Toque Purificador
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+    requirements: 'Bálsamo Natural & Instinto 3'
+    description: >-
+      Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br>
+      - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.<br>
+      - **Bendición Protectora:** La criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Veneno y Enfermedad durante los próximos 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Sintonía con el Entorno
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      Tu conexión con la naturaleza agudiza tus sentidos de forma sobrenatural. Obtienes Ventaja (+1d4) en todas
+      las pruebas de Instinto (Percepción) para detectar peligros, criaturas ocultas o detalles sutiles en tu entorno.
+      Además, puedes realizar un ritual de meditación durante 10 minutos para sintonizarte con un tipo de terreno
+      natural específico en el que te encuentres. Mientras permanezcas en ese tipo de terreno, puedes moverte a través
+      de terreno difícil natural sin penalización de movimiento y obtienes Ventaja (+1d4) en las pruebas de Sigilo.
+      Puedes realizar este ritual de nuevo para cambiar tu sintonía.
+    uses:
+      type: null
+      qty: 0
+  - name: Llamar a la Tormenta
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 4'
+    description: >-
+      Como Acción, invocas una nube de tormenta de 10 metros de radio sobre un punto a distancia Larga durante 1 minuto. El área bajo la nube queda en penumbra.<br>
+      En el turno en que la invocas, y en cada uno de tus turnos subsiguientes, puedes usar tu Interacción para hacer caer un rayo en un punto bajo la nube.
+      Toda criatura en un radio de 2 metros del punto de impacto debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 2d6 de daño Eléctrico (la mitad en caso de éxito).<br>
+      Si estás al aire libre y ya hay una tormenta natural, el daño aumenta a 3d6.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Manifestar Naturaleza
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 4'
+    description: >-
+      Convocas la fuerza de la naturaleza para alterar el campo de batalla.<br>
+      Como Acción, eliges un punto a distancia Media y decides la forma del efecto: una esfera de 5 metros de radio o un muro de hasta 15 metros de largo, 3 de alto y 1 de grosor.
+      El área se convierte en terreno difícil y dura 1 minuto o hasta que pierdas la Concentración.
+      Al lanzarlo, eliges su naturaleza:<br>
+      - **Muro de Fuego:** Creas una barrera de llamas y humo negro asfixiante. Una criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Fuego y queda Cegada hasta el final de su turno.<br>
+      - **Suelo Congelado:** Cubres la superficie de hielo quebradizo y resbaladizo. Una criatura que entre en el área o empiece su turno allí debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Frío y queda Inmovilizada (pegada al hielo).<br>
+      - **Zarzas:** Haces brotar una espesura de espinas y lianas. Una criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Instinto) o sufrir 2d6 de daño Perforante y queda Enredada hasta que salga del área o use su Acción para repetir la TS. Mientras una criatura esté Enredada, sufrirá 1d4 de daño Perforante por cada 2 metros que se mueva.<br>
+      En todos los casos, si tienen éxito en la TS, reciben la mitad del daño y evitan el efecto secundario.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Piel de Roble
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      Tu piel adquiere la dureza y la templanza de la corteza de un árbol milenario. Mientras no lleves armadura
+      pesada, obtienes Mitigación Física y Mágica +1.
+    uses:
+      type: null
+      qty: 0
+  - name: Aspecto de la Bestia
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 4'
+    description: >-
+      Como Acción, invocas el espíritu de una bestia primordial que te envuelve como un aura fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración. Al invocar el espíritu, eliges **dos** de los siguientes beneficios:<br>
+      - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en todas las pruebas de **Instinto (Percepción)**.<br>
+      - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y desarmados infligen **1d6 de daño Contundente adicional**.<br>
+      - **Celeridad del Halcón:** Tu **Velocidad** de movimiento aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br>
+      - **Piel del Jabalí:** Ganas Puntos de Salud temporales igual a tres veces tu puntuación de Instinto.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Bálsamo Natural
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+    requirements: Sintonía Primordial
+    description: >-
+      Tocas a una criatura y le aplicas un ungüento de hierbas. Durante 2 turnos, la criatura recupera
+      1d4 Puntos de Salud al inicio de cada uno de sus turnos.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Maestría Salvaje
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements: Aspecto Combativo
+    description: >-
+      Adquieres un uso adicional de tu _Forma Salvaje_. Además, cuando usas tu _Forma Salvaje_ para transformarte en una bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las siguientes opciones adicionales:<br>
+      - **Furia Primordial:** Puedes realizar dos ataques con tu Acción en lugar de uno.<br>
+      - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas 5 Puntos de Salud temporales adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br>
+      - **Rugido Aterrador (Recarga 8):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una TS de Instinto (ND 5 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br>
+      - **Presa Incapacitante:** Cuando impactas a una criatura de un tamaño igual o inferior al tuyo, puedes intentar apresarla. El objetivo debe superar una TS de Reflejos (ND 5 + Instinto) o quedar **Inmovilizado**. Mientras mantengas la presa (no requiere acción), tú también estás Inmovilizado. La criatura apresada puede usar su Acción para intentar escapar repitiendo la Tirada de Salvación.
+    uses:
+      type: null
+      qty: 0
+  - name: Vínculo Animal
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Ritual
+    requirements: Sintonía Primordial
+    description: >-
+      Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de NA 1 o inferior. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.
+      Para que tu compañero pueda actuar en su turno, debes usar tu Acción para darle una orden. Esta orden solo aplica para el próximo turno de tu compañero.
+      El compañero usa su propio bloque de estadísticas, pero su salud máxima es igual a 3 + (tu Instinto x 2).
+      Si tu compañero muere, puedes vincularte con una nueva bestia.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Compañero Veterano
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Vínculo Animal & Instinto 3'
+    description: >-
+      Tu vínculo se fortalece. Ahora puedes comandar a tu compañero usando tu Interacción en lugar de tu Acción.
+      Su Salud Máxima aumenta a 5 + (tu Instinto x 3) y sus ataques se consideran mágicos para el propósito de superar resistencias.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Vínculo Primordial
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Compañero Veterano & Instinto 4'
+    description: >-
+      Tu vínculo con tu compañero es ahora una extensión de tu alma. Eliges una de las siguientes especializaciones para tu compañero:
+      - **Guardián:** La Salud Máxima de tu compañero aumenta a 8 + (tu Instinto x 4). Además, como Reacción, cuando un enemigo a 1 metro de él ataca a un objetivo que no eres tú, puede imponer Desventaja (-1d4) en esa tirada.
+      - **Vínculo de Caza:** Tu compañero y tú os convertís en una unidad de caza letal. Tú ganas Ventaja (+1d4) en tus tiradas de ataque contra una criatura si tu compañero está adyacente a ella. Tu compañero gana Ventaja (+1d4) en sus tiradas de ataque contra una criatura si tú estás adyacente a ella.
+      - **Rastreador:** El compañero obtiene Ventaja (+1d4) en Percepción y Sigilo. Como Acción, puedes usar los sentidos de tu compañero (ver y oír) mientras permanezcas a distancia Larga de él.
+      Puedes cambiar la especialización cuando te vinculas con una nueva bestia.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Crecimiento Regenerativo
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+      - Concentración
+    requirements: 'Bálsamo Natural & Instinto 4'
+    description: >-
+      Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas,
+      recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Pasar sin Rastro
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      Durante 1 hora, tú y hasta cinco criaturas aliadas que elijas no dejáis huellas ni olor. El rastreo por medios no mágicos se vuelve imposible.
+      Además, todos los afectados obtienen Ventaja (+1d4) en todas las pruebas de Sigilo.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Forma Salvaje Mayor
+    level: 4
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Maestría Salvaje & Instinto 5'
+    description: >-
+      Tu carta Aspecto Combativo se potencia:<br>
+      - Ahora puedes elegir transformarte en una bestia de combate Grande.<br>
+      - Cuando estás en forma de bestia Grande, tus ataques sin arma infligen 1d8 de daño base (o 1d10 con Ataque Brutal), obtienes 10 Puntos de Salud temporales adicionales, y tus ataques cuerpo a cuerpo tienen Ventaja (+1d4) contra criaturas de tamaño Mediano o inferior.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Dominio del Clima
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      Tras 10 minutos de ritual, eliges un punto a distancia Larga. Creas un efecto climático en un radio de 100 metros que dura hasta 1 hora. Eliges uno: Niebla Densa (visibilidad limitada), Lluvia Torrencial (Desventaja Percepción/ataques distancia), Vientos Fuertes (terreno difícil volador, Desventaja ataques distancia), o Crecimiento Descontrolado (terreno difícil y cobertura parcial en toda el área).
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Haz de los Astros
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una TS de Cuerpo (ND 5 + Instinto).<br>
+      Al lanzar el conjuro, eliges el astro:<br>
+      - **Rayo Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan Cegadas hasta el final de tu próximo turno.<br>
+      - **Rayo Lunar:** Inflige 6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o inferior que afecte o tenga como fuente al objetivo se ve afectado:<br>
+        - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>
+        - _Conjuros activos_: Los efectos terminan automáticamente.<br>
+      Una criatura que supera la TS, recibe mitad de daño y no se ve afectada por el efecto secundario.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Furia de la Tierra
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br>
+      Si fallan, reciben 5d8 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno.
+      Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br>
+      El área afectada queda permanentemente convertida en terreno difícil.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Mil Formas
+    level: 5
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Forma Salvaje Mayor & Instinto 6'
+    description: >-
+      Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br>
+      - **Mente Dual:** Puedes mantener la concentración en _Forma Salvaje_ y en otro conjuro de Druida simultáneamente (las TS para mantenerla se realizan por separado para cada habilidad).<br>
+      - **Sintonía Natural:** Puedes realizar un ritual de meditación de 10 minutos. Al finalizarlo, recuperas todos los usos gastados de tu _Forma Salvaje_.<br>
+      - **Avatar Titánico:** Cuando usas tu _Forma Salvaje_, puedes transformarte en bestias de tamaño Enorme.<br>
+      - **Ferocidad Imparable:** Tus ataques en _Forma Salvaje_ ignoran una cantidad de puntos de Mitigación Física igual a tu puntuación de Instinto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Ira de la Naturaleza
+    level: 5
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Manifestar Naturaleza & Dominio del Clima & Instinto 6'
+    description: >-
+      Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto.
+      El terreno se vuelve difícil, la visibilidad se reduce a penumbra.
+      Al final de cada turno de una criatura hostil en el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos ND 5 + Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.
+    uses:
+      type: LONG_REST
+      qty: 1
+  # ------------------------------ BARDO ------------------------------
+  - name: Don del Elocuente
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+      - Arquetipo
+    requirements: Presencia 2
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br><br>
+      **Beneficio de Arquetipo:** Aprendes dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las pruebas de habilidad de Engaño y Perspicacia.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Canto de Inspiración
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+    requirements: Don del Elocuente
+    description: >-
+      Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.
+      El aliado obtiene un dado de 1d4 (dado de inspiración) que puede añadir a una Prueba de Habilidad,
+      Tirada de Ataque o Tirada de Salvación que realice en el próximo minuto.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Palabras Hirientes
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente
+    description: >-
+      Insultas a una criatura que puedas ver a distancia Cercana que pueda oírte.
+      El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o recibir
+      1d6 de daño Psíquico y tener Desventaja en su próximo ataque.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Inspiración Eficaz
+    level: 2
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Canto de Inspiración & Presencia 3'
+    description: >-
+      Tu inspiración se vuelve más persistente. Si un aliado usa tu dado de _Canto de Inspiración_ y aun así falla la tirada,
+      no gasta el dado de inspiración; puede conservarlo para otro intento.
+    uses:
+      type: null
+      qty: 0
+  - name: Mil Saberes
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Reacción
+    requirements: Don del Elocuente
+    description: >-
+      Como Reacción, cuando vas a realizar una prueba de habilidad en la que no tienes Ventaja,
+      recuerdas una historia o canción relevante para la situación y te otorgas Ventaja (+1d4) en la tirada.
+    uses:
+      type: LONG_REST
+      qty: 3
+  - name: Hechizar Persona
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente
+    description: >-
+      Intentas encantar a un humanoide a distancia Cercana. Debe superar una TS de Instinto
+      (ND 5 + Presencia, con ventaja si tu o tus compañeros estan combatiendo contra la criatura) o quedar Encantado por ti durante 10 minutos.
+      Mientras este bajo este efecto, su postura hacia ti es amigable y como mínino tendra en cuenta tus peticiones o sugerencias.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Inspiración Superior
+    level: 3
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Inspiración Eficaz & Presencia 4'
+    description: >-
+      Tu inspiración se vuelve más potente. El dado de tu _Canto de Inspiración_ aumenta a 1d6 y su alcance aumenta a distancia Media.
+    uses:
+      type: null
+      qty: 0
+  - name: Impersonar
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Ritual
+    requirements: 'Don del Elocuente & Presencia 4'
+    description: >-
+      Tras 10 minutos de preparación ritual, alteras físicamente tu estatura (hasta medio metro más o menos),
+      rasgos faciales, color de piel y voz para adoptar una nueva apariencia humanoide. La transformación es física y dura hasta 8 horas.
+      Aunque no es una simple ilusión, su naturaleza mágica puede ser percibida por efectos como la Visión Verdadera.
+      Un observador que sospeche de ti puede usar su Acción para estudiar tu actuación. Para descubrirte, debe superar una Tirada Enfrentada
+      de su Instinto (Perspicacia) contra tu Presencia (Engaño).
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Secretos Mágicos
+    level: 3
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Don del Elocuente & Presencia 4 & Mente 2'
+    description: >-
+      Tu estudio de diversas tradiciones te permite aprender magia ajena a tu disciplina. Eliges un total de 3 niveles de cartas de Conjuro
+      de las listas del Arcanista, Sacerdote o Druida (todas de la misma lista). Las combinaciones pueden ser:<br>
+      - Una carta de Nivel 3.<br>
+      - Una carta de Nivel 2 y una de Nivel 1.<br>
+      - Tres cartas de Nivel 1.<br>
+      Ignoras cualquier requisito que tengan las cartas elegidas. Estas se añaden a tu colección y usan Presencia como tu atributo principal para utilizarlas.<br>
+      **Reaprendizaje:** Durante una semana de tiempo de inactividad, puedes dedicarte a investigar. Al final de la semana, puedes reemplazar
+      una o varias de las cartas elegidas por otra, siempre que el coste total de niveles no supere 3.
+    uses:
+      type: null
+      qty: 0
+  - name: Canto de Héroes
+    level: 4
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Inspiración Superior & Presencia 5'
+    description: >-
+      Tu inspiración es revitalizante. El dado de tu _Canto de Inspiración_ aumenta a 1d8.
+      Además, cualquier aliado que use tu dado de inspiración también gana una cantidad de Puntos de Salud temporales igual al resultado del dado.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Dominar Persona
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Hechizar Persona & Presencia 5'
+    description: >-
+      Como Acción, eliges a un humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Presencia). Si falla, queda Encantado por ti durante 1 minuto.
+      Mientras dure el efecto, tienes un vínculo telepático con él y puedes usar tu Interacción para darle órdenes que obedecerá.
+      Si le das una orden que atenta directamente contra su vida, o si tu o tus aliados lo atacan, el objetivo puede repetir la tirada de Salvación, liberandose del efecto en caso de éxito.
+    uses:
+      type: RELOAD
+      qty: 7
+  # --- Bardo: Colegio del Valor ---
+  - name: Inspiración Marcial
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Canto de Inspiración
+    description: >-
+      Puedes usar armaduras de Gambesón sin sufrir su penalizador a la Esquiva.<br>
+      Además, puedes usar tu _Canto de Inspiración_ en ti mismo.
+    uses:
+      type: null
+      qty: 0
+  - name: Danza de la Muerte
+    level: 2
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Inspiración Marcial
+    description: >-
+      Tu actuación en combate se alimenta del caos y la victoria. Ganas los siguientes beneficios:<br>
+      - **Golpe Resonante:** Cuando una criatura vaya a gastar uno de tus dados de _Canto de Inspiración_ en un ataque, puede elegir sumar el resultado al daño en lugar de a la tirada de ataque.<br>
+      - **Ritmo de Batalla:** Cada vez que gastas un uso de tu _Canto de Inspiración_, ganas Puntos de Salud Temporales igual a tu puntuación de Presencia.<br>
+      - **Bis Sangriento:** Si reduces a un enemigo a 0 Puntos de Salud, recuperas inmediatamente un uso gastado de tu _Canto de Inspiración_.
+    uses:
+      type: null
+      qty: 0
+  - name: Crescendo Aterrador
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: 'Don del Elocuente & Presencia 3'
+    description: >-
+      Como Acción, realizas una interpretación imponente. Todo enemigo en un radio de 3 metros que pueda verte u oírte
+      debe superar una TS de Instinto (ND 5 + Presencia). Si falla, el objetivo debe usar su próximo turno para
+      moverse lo más lejos posible de ti por la ruta más segura disponible.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Floritura Ofensiva
+    level: 3
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Inspiración Marcial & Presencia 4'
+    description: >-
+      Tu arte y tu acero son uno.<br>
+      Una vez por turno, cuando impactas a un enemigo con un ataque con arma, puedes gastar un uso de tu _Canto de Inspiración_.
+      Si lo haces, sumas el resultado del dado de inspiración al daño de ese ataque y puedes realizar un segundo ataque con arma como parte de la misma Acción.
+    uses:
+      type: null
+      qty: 0
+  - name: Cacofonía Discordante
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: 'Crescendo Aterrador & Presencia 4'
+    description: >-
+      Como Acción, creas una explosión de sonido disonante en un punto a distancia Cercana. Toda criatura en un radio de 3 metros
+      debe superar una TS de Cuerpo (ND 5 + Presencia) o recibirá 2d6 de daño Sónico y no podrá usar Reacciones hasta el
+      final de tu próximo turno. Además, si una criatura estaba manteniendo Concentración al momento de fallar la tirada, pierde la concentración imediatamente.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Floritura Artística
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente
+    description: >-
+      Tu magia altera la percepción y el ambiente a tu voluntad.<br>
+      - **Puesta en Escena (Interacción):** Creas efectos narraitvos menores: haces sonar música de fondo, amplificas tu voz, afinas instrumentos o generas efectos visuales menores (lluvia de pétalos, foco de luz).<br>
+      - **Trucos de Salón (Acción):** Realizas magia menor sobre objetos: enciendes/apagas velas, creas una esfera de luz flotante, limpias/manchas ropa, o cambias el sabor y temperatura de 1 litro de bebida o comida.<br>
+      - **Ventriloquia (Acción):** Creas un sonido corto (como un susurro, pasos, etc.) que parezca provenir de un punto específico a distancia Cercana.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Versos Vigorizantes
+    level: 1
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente
+    description: >-
+      Tu voz cierra heridas y fortalece espíritus. Al lanzar el conjuro, eliges un efecto:<br>
+      - **Palabra de Esperanza (Interacción):** Pronuncias una palabra revigorizante. Un aliado a distancia Cercana recupera 1d4 Puntos de Salud.<br>
+      - **Canto Heroico (Acción):** Interpretas una breve y potente melodía. Hasta 2 aliados a distancia Cercana ganan 1d4 + Presencia en Puntos de Salud Temporales durante 1 minuto.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Risa Incontenible
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: 'Don del Elocuente & Presencia 3'
+    description: >-
+      Como Acción, eliges una criatura a distancia Media que pueda verte y oírte. Debe superar una TS de Instinto (ND 5 + Presencia).
+      Si falla, cae al suelo en un ataque de risa, quedando en los estados Derribado y Aturdido.
+      La criatura puede repetir la Tirada de Salvación al final de cada uno de sus turnos. El efecto también termina si recibe daño.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Himno de Batalla
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Don del Elocuente & Presencia 3'
+    description: >-
+      Como Acción, comienzas a interpretar un himno de guerra inspirador que dura hasta 1 minuto. Creas un aura de 3 metros de radio centrada en ti.
+      Los aliados (incluido tú) que comiencen su turno dentro del aura ganan un +1 a sus tiradas de ataque con armas hasta el inicio de su próximo turno.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Balada de los Héroes
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Reacción
+    requirements: 'Don del Elocuente & Presencia 4'
+    description: >-
+      Como Reacción, cuando un aliado a distancia Cercana que puedas ver falla una tirada de ataque o una tirada de salvación,
+      puedes interpretar una nota de aliento para permitirle que vuelva a tirar el dado. Debe usar el nuevo resultado.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Lamento Confuso
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Don del Elocuente & Presencia 4'
+    description: >-
+      Como Acción, interpretas una melodía disonante que nubla la mente y dura hasta 1 minuto.
+      Eliges un punto a distancia Media, creando una esfera de 3 metros de radio.
+      Una criatura hostil que empiece su turno en el área debe superar una TS de Instinto (ND 5 + Presencia).
+      Si falla, no puede distinguir amigo de enemigo y debe usar su Acción
+      para realizar un ataque cuerpo a cuerpo contra la criatura más cercana a ella.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Narrativa Cautivadora
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Don del Elocuente & Presencia 4'
+    description: >-
+      Como Acción, eliges un objetivo a distancia Media y comienzas a hablarle. Debe superar una TS de Instinto (ND 5 + Presencia). Si falla,
+      durante 1 minuto, cree que tus afirmaciones son hechos, siempre que no sean directamente suicidas o contradigan una creencia fundamental.
+      Una vez que una criatura ha sido objetivo de este conjuro, es inmune a él durante un día de descanso, independientemente del resultado.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Patrón Hipnótico
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Don del Elocuente & Presencia 4'
+    description: >-
+      Como Acción, creas un patrón de luces y colores fascinantes que dura hasta 1 minuto.
+      Eliges un punto a distancia Media. Todas las criaturas
+      en un cubo de 3 metros desde ese punto deben superar una TS de Instinto (ND 5 + Presencia). Si fallan, quedan Encantadas por ti.
+      Mientras estén encantadas por este efecto, quedan Inmovilizadas en un estado de fascinación. El efecto termina para una criatura si recibe daño.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Terror Primordial
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Don del Elocuente & Presencia 5'
+    description: >-
+      Liberas una onda psíquica de puro pavor en un cono de 5 metros. Las criaturas en el área deben superar una TS de Instinto (ND 5 + Presencia).<br>
+      Si fallan, reciben 4d6 de daño Psíquico y deben usar su Reacción (si la tienen disponible) para moverse lo más lejos posible de ti por la ruta más segura posible.<br>
+      Además, las criaturas que fallaron quedan Asustadas de ti durante 1 minuto. Pueden repetir la TS al final de cada uno de sus turnos para terminar el efecto.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Discordia
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: 'Don del Elocuente & Presencia 5'
+    description: >-
+      Creas una distorsión psíquica en una esfera de 3 metros de radio a distancia Media. Las criaturas en el área deben superar una TS de Mente (ND 5 + Presencia).
+      Si fallan, quedan Confundidas durante 1 minuto.
+      Una criatura Confundida no puede usar Reacciones y debe tirar 1d4 al inicio de su turno para determinar su comportamiento:<br>
+      - **1-2:** No hace nada (balbucea).<br>
+      - **3:** Huye en una dirección aleatoria.<br>
+      - **4:** Ataca a la criatura más cercana.<br>
+      Pueden repetir la salvación al final de cada turno.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Sinfonía Heroica
+    level: 5
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Canto de Héroes & Presencia 6'
+    description: >-
+      Tu arte alcanza cotas legendarias. Cuando usas _Canto de Inspiración_, puedes inspirar a dos aliados a la vez (todos los demás beneficios de tus cartas de inspiración se aplican a ambos objetivos).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Canción de la Creación
+    level: 5
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Ritual
+    requirements: 'Secretos Mágicos & Presencia 6'
+    description: >-
+      Tras 10 minutos de interpretación, tejes una ilusión semi-real y duradera a partir de la música. Puedes crear un objeto no mágico de hasta 10 metros cúbicos (una casa pequeña, un puente) que dura hasta ser disipado, O puedes alterar permanentemente la memoria de una criatura sobre un evento específico (requiere TS de Instinto si es reacia).
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Danza de Magia y Acero
+    level: 5
+    type: efecto
+    tags:
+      - Bardo
+    requirements: 'Floritura Ofensiva & Presencia 6'
+    description: >-
+      Has alcanzado la cúspide del combate artístico, donde cada golpe es el componente somático de un hechizo.<br>
+      Cuando utilizas tu carta _Floritura Ofensiva_, puedes optar por lanzar un conjuro de Nivel 1 o 2 (con tiempo de lanzamiento de "1 Acción") en lugar de realizar el segundo ataque con arma.<br>
+      El conjuro elegido debe poseer las etiquetas _Bardo_ y _Conjuro_ (ambas), o haber sido aprendido mediante la carta _Secretos Mágicos_.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  # --- Monje ------------------------------
+  - name: Disciplina Monástica
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+      - Arquetipo
+    requirements: Instinto 2
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br>
+      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
+      Además, aprendes una lengua convencional.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Artes Marciales
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Tu entrenamiento en artes marciales, te ha conferido las siguientes capacidades:<br>
+      - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br>
+      - **Golpes de Ki:** Tus ataques desarmados infligen 1d6 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque.
+    uses:
+      type: null
+      qty: 0
+  - name: Ráfaga de Golpes
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Cuando realizas la acción de Atacar con un ataque desarmado, puedes usar tu **Interacción** para realizar un ataque desarmado adicional contra el **mismo objetivo**.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Golpes Energéticos
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Has aprendido a canalizar tu ki en tus puños. Tus ataques desarmados ignoran una cantidad de Mitigación Física igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba).
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Ligero
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Tu Velocidad total de movimiento aumenta en una cantidad igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba). Además, levantarte del estado Derribado solo te cuesta 1 metro de tu movimiento.
+    uses:
+      type: null
+      qty: 0
+  - name: Desviar Proyectiles
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Reacción
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br>
+      En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Golpes Resonantes
+    level: 2
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Golpes Energéticos & Instinto 3'
+    description: >-
+      Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un efecto adicional. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto).<br>
+      - **Golpe Radiante:** Si falla, el objetivo sufre 1d6 de daño de Radiante adicional. Si tiene éxito, recibe la mitad de ese daño.<br>
+      - **Golpe Realentizante:** Si falla, la Velocidad del objetivo se reduce a la mitad hasta el final de tu próximo turno. Si tiene éxito, su Velocidad solo se reduce en 2 metros hasta el final de tu próximo turno.<br>
+      - **Golpe Desestabilizante:** El objetivo es empujado 1 metro en línea recta lejos de ti. Si falla la tirada, además cae **Derribado**.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Defensa Impasible
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Mediante la respiración y la concentración, puedes endurecer tu cuerpo y tu espíritu contra el daño. Mientras no lleves armadura ni uses escudo, obtienes una **Mitigación Física y Mágica** igual a **la mitad de tu puntuación de Instinto** (redondeando hacia abajo).
+    uses:
+      type: null
+      qty: 0
+  - name: Golpes Energéticos Mejorados
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Golpes Energéticos & Instinto 4'
+    description: >-
+      Tu control sobre el ki es absoluto. Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del objetivo igual al total de tu puntuación de Instinto.
+    uses:
+      type: null
+      qty: 0
+  - name: Cuerpo Puro
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      Tu disciplina te ha purificado. Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra venenos y enfermedades. Además, eres inmune al estado Envenenado.
+    uses:
+      type: null
+      qty: 0
+  - name: Flujo Vital
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Controlas tu energía vital para protegerte o sanarte.<br>
+      - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu puntuación de Instinto en Puntos de Salud temporales.<br>
+      - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu puntuación de Instinto.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Contraataque Fluido
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Reacción
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Como Reacción, cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes realizar un único ataque desarmado contra él.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Proyección de Ki
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      Usas tu Interacción para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad Arrojadiza (Cercana).
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Tormenta de Golpes
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Ráfaga de Golpes & Instinto 4'
+    description: >-
+      Tu fluidez en combate es absoluta. Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga. Además, cuando activas Ráfaga de Golpes, realizas dos ataques desarmados adicionales en lugar de uno.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Golpe Aturdidor
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una **Tirada de Salvación de Cuerpo (ND 5 + Instinto)** o quedar **Aturdido** hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Visión del Ki
+    level: 3
+    type: activable
+    tags:
+      - Monje
+      - Concentración
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      Usas tu **Acción** para cerrar los ojos y sentir el flujo de energía vital a tu alrededor. Durante 1 minuto o hasta que pierdas la concentración, eres consciente de la ubicación y el movimiento de cualquier criatura viva a distancia **Cercana**, incluso si son invisibles o están detrás de cobertura total. Mientras este efecto está activo, fallas automáticamente cualquier prueba de habilidad que dependa de la vista.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Mente Adamantina
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      Tu mente es una fortaleza de disciplina. Eres inmune a los efectos mágicos que causan miedo y al estado **Encantado**. Además, obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de **Instinto**.
+    uses:
+      type: null
+      qty: 0
+  - name: Presencia Serena
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Como **Acción**, intentas calmar a una criatura hostil o en pánico a distancia Cercana. Realiza una **Tirada Enfrentada** de tu **Instinto** contra el **Instinto** del objetivo. Si ganas, la criatura deja de ser activamente hostil durante 1 minuto o sale de su estado de pánico. El efecto termina si la criatura es atacada. Esta habilidad no puede usarse sobre una criatura que esté actualmente en combate contigo o con tus aliados.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Chispa de Vida
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Como **Acción**, tocas a una criatura **Moribunda** y estabilizas su flujo de ki. La criatura se estabiliza automáticamente. Si tú o el objetivo gastan 1 Punto de Suerte, la criatura recupera 1 Punto de Salud en su lugar.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Paso del Viento
+    level: 2
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Tu control sobre tu Ki influye la distribución de tu peso.
+      - **Paso Ligero (Interacción):** Hasta el final de tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.<br>
+      - **Caída Ralentizada (Reacción):** Cuando caes, puedes reducir el daño por caída como si la distancia de la caída fuera 10 metros menor. Si esto reduce el daño a 0, aterrizas de pie sin sufrir daño.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Fortaleza Interior
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Tu disciplina te permite ignorar las debilidades del cuerpo. Obtienes Ventaja (+1d4) en todas las pruebas de **Cuerpo (Aguante)**, como las que se realizan para resistir los efectos del cansancio, el hambre, la sed o las temperaturas extremas.
+    uses:
+      type: null
+      qty: 0
+  - name: Percepción Empática
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Siempre estás en sintonía con el estado emocional de los demás. Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia. Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
+    uses:
+      type: null
+      qty: 0
+  - name: Lenguaje del Espíritu
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Comprendes que el ki es un lenguaje universal. Puedes comunicarte de forma rudimentaria (transmitiendo conceptos simples, emociones e intenciones) con cualquier criatura viva, sin importar el idioma.
+    uses:
+      type: null
+      qty: 0
+  - name: Canalización Sanadora
+    level: 2
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un efecto de **enfermedad** o **veneno** que afecte al objetivo.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Centro Inquebrantable
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Tu concentración es absoluta. Obtienes Ventaja (+1d4) en todas las pruebas de habilidad o Tiradas de Salvación para resistir ser Derribado o movido contra tu voluntad.
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Etéreo
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Tu movimiento no se ve afectado por terreno difícil. Además, puedes moverte a través del espacio de criaturas hostiles sin impedimento.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Gracia del Viento
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Paso Etéreo & Instinto 4'
+    description: >-
+      Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto. Debes terminar cada uno de tus turnos en una superficie sólida o caerás.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Trance de Piedra
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Ritual
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      Tras 10 minutos de meditación ininterrumpida, puedes hacer una pregunta sobre el entorno inmediato (una habitación, un claro).
+      Recibes una respuesta sensorial y críptica del "espíritu del lugar" (a discreción del DJ), como el eco de una emoción fuerte,
+      la sensación de una presencia oculta o la imagen de un evento significativo que ocurrió allí.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Limpiar Energías
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Trance de Piedra & Instinto 4'
+    description: >-
+      Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br>
+      - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br>
+      - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Toque Disruptor
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Golpe Aturdidor & Instinto 5'
+    description: >-
+      Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus 'Acciones' o 'Reacciones' que especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Paso del Vacío
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Paso del Viento & Instinto 5'
+    description: >-
+      Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Palma Vibratoria
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Golpe Aturdidor & Instinto 6'
+    description: >-
+      Como Acción, realizas un ataque desarmado imbuido de vibraciones letales.
+      Si impactas, inicias una resonancia en el cuerpo del objetivo que dura una cantidad de días igual a tu Instinto.
+      Mientras la resonancia esté activa, puedes usar tu Acción para finalizarla y detonar las vibraciones.
+      El objetivo debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, recibe 10d10 de daño Necrótico. Si tiene éxito, la mitad.
+      Si este daño reduce al objetivo a 0 Puntos de Salud, muere instantáneamente.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Aspecto del Dragón Energético
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Mente Adamantina & Instinto 6'
+    description: >-
+      Como Acción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante durante 1 minuto. Mientras dure el aspecto, ganas los siguientes beneficios:<br>
+      - Tus ataques desarmados infligen 1d8 de daño base y todo el daño se considera de Fuerza.<br>
+      - Ganas una Reacción adicional en cada turno, que solo puede usarse para tus cartas de Reacción de Monje.<br>
+      - Obtienes una velocidad de vuelo igual a tu velocidad normal.
+    uses:
+      type: LONG_REST
+      qty: 1
+  # ------- CARTAS DE SINERGIA ------
+  # ------------------------------ 1. Combatiente + Pícaro ------------------------------
+  - name: Maestro de la Danza Letal
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Pícaro
+    requirements: 'Sintonía con el Acero & Senda del Bribón & Reflejos 5'
+    description: >-
+      Has perfeccionado la fusión de la agilidad letal y la precisión marcial. Ganas los siguientes beneficios permanentes:<br>
+      - **Agilidad Marcial:** Puedes usar tu Reflejos en lugar de Cuerpo para cumplir los requisitos de atributo de las cartas de Combatiente.<br>
+      - **Réplica Precisa:** Cuando usas una Reacción defensiva del Pícaro (Riposta o Parada del Duelista), obtienes Ventaja (+1d4) en tu próxima tirada de ataque contra el enemigo que activó tu reacción, antes del final de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 2. Combatiente + Sacerdote ------------------------------
+  - name: Campeón Consagrado
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Sacerdote
+    requirements: 'Sintonía con el Acero & Fe Inspiradora & Instinto 5'
+    description: >-
+      Eres el faro de esperanza en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
+      - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br>
+      - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br>
+      - **Castigo Imponente:** Cuando activas tu carta Golpe Divino, puedes elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo haces, el objetivo debe superar una TS de Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final de tu próximo turno (en lugar de Cegado).
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 3. Combatiente + Monje ------------------------------
+  - name: Voluntad Indomable
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Monje
+    requirements: 'Sintonía con el Acero & Disciplina Monástica & Instinto 5'
+    description: >-
+      Tu disciplina marcial y tu fortaleza interior se fusionan. Ganas los siguientes beneficios permanentes:<br>
+      - **Defensa Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br>
+      - **Voluntad Inquebrantable:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para volver a tirar el dado d8. Debes usar el nuevo resultado. Solo puedes usar esta habilidad una vez por Tirada de Salvación fallida.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 4. Combatiente + Arcanista ------------------------------
+  - name: Maestría de la Hoja Arcana
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Arcanista
+    requirements: 'Sintonía con el Acero & Afinidad Arcana & Cuerpo 5'
+    description: >-
+      Has fusionado tu destreza marcial con el poder arcano. Ganas los siguientes beneficios permanentes:<br>
+      - **Acero Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br>
+      - **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por Recarga 6+)
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 5. Combatiente + Druida ------------------------------
+  - name: Señor del Yermo Indomable
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Druida
+    requirements: 'Sintonía con el Acero & Sintonía Primordial & Instinto 5'
+    description: >-
+      Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero.<br>
+      - **Piel de Corteza:** Mientras no lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br>
+      - **Golpe Enredante:** Una vez por turno, cuando impactas a un enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas en el impacto. El objetivo queda Enredado hasta el inicio de tu próximo turno. Mientras esté enredado, sufre 1d4 de daño Perforante por cada 2 metros que se mueva.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 6. Combatiente + Bardo ------------------------------
+  - name: Aura de Héroe
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Combatiente
+      - Bardo
+    requirements: 'Sintonía con el Acero & Don del Elocuente & Presencia 5'
+    description: >-
+      Tu presencia inspira hazañas legendarias en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
+      - **Presencia Inspiradora Mejorada:** El bonificador a las Tiradas de Salvación contra miedo otorgado por tu Presencia Inspiradora aumenta a +1d4.<br>
+      - **Grito de Guerra Definitivo:** Cuando usas Grito de Guerra, los dados de Puntos de Salud temporales se maximizan (cada d4 cuenta como 4) y los aliados afectados obtienen Ventaja (+1d4) en su próxima tirada de ataque antes del final de su próximo turno.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 7. Pícaro + Sacerdote ------------------------------
+  - name: Juicio Ineludible
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Sacerdote
+    requirements: 'Senda del Bribón & Fe Inspiradora & Instinto 5'
+    description: >-
+      Combinas el sigilo con la fe para purgar la oscuridad. Ganas los siguientes beneficios permanentes:<br>
+      - **Marca del Purgador:** Como Interacción, puedes marcar a una criatura impía (Infernal o No-muerta) durante 1 minuto (Concentración). Tus ataques con arma contra ella se benefician de Ataque Furtivo (sin condiciones).<br>
+      - **Toque Purificador Sigiloso:** Puedes usar Toque Purificador (si lo tienes) usando tu Interacción en lugar de tu Acción.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 8. Pícaro + Monje ------------------------------
+  - name: Camino del Viento Fantasma
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Monje
+    requirements: 'Senda del Bribón & Disciplina Monástica & Reflejos 5'
+    description: >-
+      Tu agilidad trasciende lo físico, fusionando sigilo y Ki. Ganas los siguientes beneficios permanentes:<br>
+      - **Acción Astuta Etérea:** Cuando usas Acción Astuta, puedes elegir teletransportarte hasta 3 metros a un espacio desocupado que puedas ver, en lugar de Correr o Esconderte.<br>
+      - **Golpe desde el Vacío:** Inmediatamente después de usar Acción Astuta Etérea para teletransportarte, tu próxima tirada de ataque antes del final de tu turno obtiene Ventaja (+1d4).
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 9. Pícaro + Arcanista ------------------------------
+  - name: Maestría del Engaño Arcano
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Arcanista
+    requirements: 'Senda del Bribón & Afinidad Arcana & Reflejos 5'
+    description: >-
+      Tu destreza manual se entrelaza con la magia ilusoria. Ganas los siguientes beneficios permanentes:<br>
+      - **Mano de Ladrón Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano de Mago con Ventaja (+1d4), como si fueran tus propias manos.<br>
+      - **Invisibilidad Ininterrumpida:** Cuando lanzas Invisibilidad sobre ti mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere Concentración).
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 10. Pícaro + Druida ------------------------------
+  - name: Uno con la Naturaleza Salvaje
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Druida
+    requirements: 'Senda del Bribón & Sintonía Primordial & Instinto 5'
+    description: >-
+      Te fundes con el entorno, combinando el sigilo del depredador con el instinto natural. Ganas los siguientes beneficios permanentes:<br>
+      - **Camuflaje Perfecto:** Mientras estés en terreno natural y no te muevas en tu turno, eres invisible para las criaturas que estén a más de 5 metros de ti.<br>
+      - **Forma Furtiva:** Puedes aplicar tu Ataque Furtivo mientras estás en Forma Salvaje, siempre que cumplas las condiciones normales para hacerlo.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 11. Pícaro + Bardo ------------------------------
+  - name: Golpe de Gracia Engañoso
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Pícaro
+      - Bardo
+    requirements: 'Senda del Bribón & Don del Elocuente & Presencia 5'
+    description: >-
+      Tu letalidad se oculta tras una sonrisa encantadora. Ganas los siguientes beneficios permanentes:<br>
+      - **Filo Hipnótico:** Una vez por turno, al impactar con un arma, gasta un dado de Canto de Inspiración. Añade el resultado como daño Psíquico y fuerza TS Instinto (ND 5 + Presencia) vs Encantado (1 turno).<br>
+      - **Explotar Confianza:** Puedes aplicar tu Ataque Furtivo contra criaturas Encantadas por ti, incluso si no cumples las condiciones normales.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 12. Monje + Arcanista ------------------------------
+  - name: Voluntad Trascendente
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Arcanista
+    requirements: 'Disciplina Monástica & Afinidad Arcana & Instinto 5'
+    description: >-
+      Tu Ki y la Urdimbre arcana fluyen como uno solo en ti. Ganas los siguientes beneficios permanentes:<br>
+      - **Golpes de Fuerza Pura:** Tus ataques desarmados se consideran mágicos y puedes elegir que su daño sea de Fuerza.<br>
+      - **Fluir Arcano-Marcial:** Cuando usas Ráfaga de Golpes o Tormenta de Golpes, puedes reemplazar uno de los ataques desarmados adicionales para lanzar un conjuro de Arcanista de Nivel 1 que tengas activo y que requiera una Acción.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 13. Monje + Druida ------------------------------
+  - name: Furia Silvana
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Druida
+    requirements: 'Disciplina Monástica & Sintonía Primordial & Instinto 5'
+    description: >-
+      Encarnas la furia indomable de la naturaleza. Ganas los siguientes beneficios permanentes:<br>
+      - **Movimiento Primordial:** Puedes usar Paso Ligero y Paso Etéreo (si los tienes) incluso mientras estás en Forma Salvaje.<br>
+      - **Ráfaga Salvaje:** Mientras estás en tu forma de combate de Aspecto Combativo o Maestría Salvaje, puedes usar las cartas Ráfaga de Golpes y Tormenta de Golpes (si las tienes).
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 14. Arcanista + Sacerdote ------------------------------
+  - name: Versatilidad Teúrgica
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Arcanista
+      - Sacerdote
+    requirements: 'Afinidad Arcana & Fe Inspiradora & Instinto 5'
+    description: >-
+      Dominas tanto la lógica arcana como la fe divina. Ganas los siguientes beneficios permanentes:<br>
+      - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Mente o tu Instinto como tu atributo de lanzamiento.<br>
+      - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 15. Arcanista + Druida ------------------------------
+  - name: Maestría Elemental Compartida
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Arcanista
+      - Druida
+    requirements: 'Afinidad Arcana & Sintonía Primordial & Instinto 5'
+    description: >-
+      Comandas tanto los elementos puros como la energía primordial de la naturaleza. Ganas los siguientes beneficios permanentes:<br>
+      - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un número de criaturas igual a tu Mente dentro del área para que no se vean afectadas.<br>
+      - **Potencia Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes añadir tu puntuación de Mente o Instinto (la que sea más alta) a una de las tiradas de daño.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 16. Monje + Sacerdote ------------------------------
+  - name: Mano Purgadora
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Sacerdote
+    requirements: 'Disciplina Monástica & Fe Inspiradora & Instinto 5'
+    description: >-
+      Tu Ki se purifica con fe, convirtiendo tus manos en instrumentos de juicio y sanación. Ganas los siguientes beneficios permanentes:<br>
+      - **Golpes Selladores:** Tus ataques desarmados son mágicos y pueden ser Radiantes. Si infligen daño Radiante, el objetivo no recupera PH 1 turno.<br>
+      - **Oleada de Vida:** Cuando usas Ráfaga de Golpes o Tormenta de Golpes, puedes renunciar a uno de los ataques adicionales para lanzar Toque Restaurador (si lo tienes) sobre ti mismo o un aliado adyacente, sin gastar su uso de recarga.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 17. Sacerdote + Druida ------------------------------
+  - name: Bendición de Ciclo Vital
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Sacerdote
+      - Druida
+    requirements: 'Fe Inspiradora & Sintonía Primordial & Instinto 5'
+    description: >-
+      Canalizas la energía divina a través del ciclo natural de la vida y la muerte. Ganas los siguientes beneficios permanentes:<br>
+      - **Regeneración Persistente:** Cuando restauras Puntos de Salud a una criatura con un conjuro instantáneo, esa criatura también recupera 1d4 PS al inicio de su próximo turno.<br>
+      - **Refugio Sanador:** Tus conjuros de zona protegen la vida. Al inicio de cada uno de sus turnos, cualquier aliado que se encuentre dentro del área de tu Santuario o Santuario Silencioso gana Puntos de Salud Temporales igual a tu puntuación de Instinto.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 18. Sacerdote + Bardo ------------------------------
+  - name: Palabras Divinas
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Sacerdote
+      - Bardo
+    requirements: 'Fe Inspiradora & Don del Elocuente & Presencia 5'
+    description: >-
+      Tu voz es un conducto de inspiración divina y curación. Ganas los siguientes beneficios permanentes:<br>
+      - **Inspiración Sanadora:** Cuando usas Canto de Inspiración en un aliado, este también recupera 1d4 Puntos de Salud.<br>
+      - **Mandato Convincente:** Tu Palabra de Autoridad ahora puede dar órdenes ligeramente más complejas (una frase corta). Además, las criaturas normalmente inmunes al estado Encantado pueden ser afectadas, pero realizan su Tirada de Salvación con Ventaja (+1d4).
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 19. Druida + Bardo ------------------------------
+  - name: Forma del Cuentacuentos
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Druida
+      - Bardo
+    requirements: 'Sintonía Primordial & Don del Elocuente & Presencia 5'
+    description: >-
+      Tu arte trasciende las formas, permitiéndote encantar incluso en tu aspecto salvaje. Ganas los siguientes beneficios permanentes:<br>
+      - **Forma Salvaje Parlante:** Mientras estás en Forma Salvaje (combatiente o no), conservas la capacidad de hablar y puedes intentar usar habilidades de Presencia.<br>
+      - **Actuación Primordial:** Mientras estás en Forma Salvaje, usa Acción para forzar TS Instinto (ND 5 + Presencia) a enemigos Cercanos o quedan Encantados 1 min (se rompe si actúas hostilmente).
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 20. Arcanista + Bardo ------------------------------
+  - name: Virtuosismo Arcano
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Arcanista
+      - Bardo
+    requirements: 'Afinidad Arcana & Don del Elocuente & Presencia 5'
+    description: >-
+      Has fusionado el arte de la palabra con los secretos más profundos de la magia.<br><br>
+      - **Secretos Arcanos Ampliados:** Tu carta _Secretos Mágicos_ (si la tienes) se vuelve mucho más poderosa.
+      Ahora te permite elegir conjuros de hasta **Nivel 4**, con un presupuesto total de 4 niveles,
+      siempre que los conjuros elegidos sean de la lista del **Arcanista**.
+      (Si eliges de Sacerdote o Druida, se aplican los límites originales de Nivel 3).<br>
+      - **Marca de la Condena:** Añades la carta _Maledicción_ a tu colección.
+      Para ti, esta carta no requiere Concentración y puedes lanzarla usando tu atributo de **Presencia**.
+    uses:
+      type: null
+      qty: 0
+
+  # ------------------------------ 21. Monje + Bardo ------------------------------
+  - name: Danza del Ki Hipnótico
+    level: 4
+    type: efecto
+    tags:
+      - Sinergia
+      - Monje
+      - Bardo
+    requirements: 'Disciplina Monástica & Don del Elocuente & Presencia 5'
+    description: >-
+      Tu movimiento es una performance letal, tu Ki una melodía cautivadora. Ganas los siguientes beneficios permanentes:<br>
+      - **Movimiento Fascinante:** Cuando un enemigo te falla c/c, usa Reacción para forzar TS Instinto (ND 5 + Presencia) vs Encantado (1 min, se rompe si hostil).<br>
+      - **Ki Resonante:** Una vez por turno, puedes gastar un uso de tu Canto de Inspiración (sin necesidad de activarlo en un objetivo) para imbuir tus golpes. Si lo haces, todos tus ataques desarmados infligen 1d4 de daño Psíquico adicional hasta el inicio de tu próximo turno.
+    uses:
+      type: null
+      qty: 0

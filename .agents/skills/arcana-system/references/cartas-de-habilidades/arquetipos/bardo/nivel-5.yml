@@ -1,0 +1,49 @@
+cards:
+  - id: 5c268125127f96a9dcaa5dbfc7612983a952a98d
+    name: Sinfonía Heroica
+    level: 5
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Canto de Héroes & Presencia 6
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu arte alcanza cotas legendarias. Cuando usas _Canto de Inspiración_, puedes inspirar a dos aliados a la vez
+      (todos los demás beneficios de tus cartas de inspiración se aplican a ambos objetivos).
+    slug: sinfonia-heroica
+  - id: 72e63e24590d9449b602b176d78da616d1e0d040
+    name: Canción de la Creación
+    level: 5
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Ritual
+    requirements: Secretos Mágicos & Presencia 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Tras 10 minutos de interpretación, tejes una ilusión semi-real y duradera a partir de la música. Puedes crear un
+      objeto no mágico de hasta 10 metros cúbicos (una casa pequeña, un puente) que dura hasta ser disipado, O puedes
+      alterar permanentemente la memoria de una criatura sobre un evento específico (requiere TS de Instinto si es
+      reacia).
+    slug: cancion-de-la-creacion
+  - id: 85fde679c3d7f84c9507b2b0fde60e3ac869ed35
+    name: Danza de Magia y Acero
+    level: 5
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Floritura Ofensiva & Presencia 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Has alcanzado la cúspide del combate artístico, donde cada golpe es el componente somático de un hechizo.<br>
+      Cuando utilizas tu carta _Floritura Ofensiva_, puedes optar por lanzar un conjuro de Nivel 1 o 2 (con tiempo de
+      lanzamiento de "1 Acción") en lugar de realizar el segundo ataque con arma.<br> El conjuro elegido debe poseer las
+      etiquetas _Bardo_ y _Conjuro_ (ambas), o haber sido aprendido mediante la carta _Secretos Mágicos_.
+    slug: danza-de-magia-y-acero

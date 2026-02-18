@@ -1,0 +1,176 @@
+items:
+  - id: 70a91d85b7487a073f1dc6f0df12df1b056ce67f
+    name: Hoja del Alba
+    level: 1
+    type: efecto
+    tags:
+      - Arma
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como una Interacción, puedes hacer que
+      el arma emita una luz brillante en un radio de 5 metros. Puedes usar otra Interacción para apagarla.
+    slug: hoja-del-alba
+    cost: 100
+  - id: 67ebad847abeb0572cec6e2409d70b6a18d68fa2
+    name: Lentes Nocturnos
+    level: 1
+    type: efecto
+    tags:
+      - Visión
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Los cristales de estas gafas están ahumados y son casi opacos a la luz del día, pero en la penumbra revelan el
+      mundo con claridad. Obtienes el rasgo 'Visión en la Oscuridad'.
+    slug: lentes-nocturnos
+    cost: 200
+  - id: de638abab051e769d2d325b1d42b2f87baa80f2b
+    name: Poción de Curación Menor
+    level: 1
+    type: consumible
+    tags:
+      - Poción
+      - Curación
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: Al beber esta poción, un líquido rojo y viscoso con sabor a bayas, recuperas 1d6+1 Puntos de Salud.
+    slug: pocion-de-curacion-menor
+    cost: 50
+  - id: a278c3cbf8f767a2fa7395abb47bd42fb6ebfe30
+    name: Piedra Lumina
+    level: 1
+    type: efecto
+    tags:
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta piedra lisa y gris se siente cálida al tacto. Como una Interacción, puedes pronunciar su palabra de mando
+      para que emita una luz brillante y limpia, equivalente a una antorcha, en un radio de 5 metros. Una segunda
+      Interacción la apaga. No produce calor ni se consume.
+    slug: piedra-lumina
+    cost: 100
+  - id: 5601779aae4a1cc245e63cc9385de63ec8a34fcd
+    name: Pluma Inagotable
+    level: 1
+    type: efecto
+    tags:
+      - Herramienta
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta elegante pluma de cuervo nunca necesita ser mojada en tinta. Escribe con un flujo constante de tinta negra y
+      permanente sobre cualquier superficie que la tinta común pudiera marcar.
+    slug: pluma-inagotable
+    cost: 125
+  - id: d6f8f008c1af79d9bdf73719909d7fa0c3b9a5b4
+    name: Capa Camaleónica
+    level: 1
+    type: efecto
+    tags:
+      - Estético
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Los hilos de esta capa cambian sutilmente de color para armonizar con el entorno. No te vuelve invisible, pero te
+      ayuda a no desentonar. Como Interacción, puedes concentrarte para cambiar su color y patrón a cualquier diseño
+      simple que desees (por ejemplo, el blasón de una casa noble o un color liso).
+    slug: capa-camaleonica
+    cost: 125
+  - id: 0bc0258ee7416381ee67b6a407680d7f84078d79
+    name: Odre del Manantial Eterno
+    level: 1
+    type: efecto
+    tags:
+      - Supervivencia
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este odre de cuero siempre parece estar medio lleno. Cada día al amanecer, genera mágicamente hasta cuatro litros
+      de agua fresca y potable. Además, cualquier agua no potable que se vierta en su interior se purifica al instante.
+    slug: odre-del-manantial-eterno
+    cost: 100
+  - id: f86bf3374a92e5f9799f317ba86b295ad6db4fdc
+    name: Pipa del Cuentacuentos
+    level: 1
+    type: efecto
+    tags:
+      - Estético
+      - Narrativo
+    requirements: null
+    uses:
+      type: null
+      qty: 0 que no requiere tirada
+    description: >-
+      Tallada en madera de sauce, esta pipa produce un humo inofensivo y aromático incluso sin tabaco. Con una
+      Interacción, puedes hacer que el humo adopte formas simples y efímeras que representen lo que estás narrando: un
+      dragón, una espada, un castillo, etc.
+    slug: pipa-del-cuentacuentos
+    cost: 100
+  - id: e42fd2142da15afadc3f5bafe259790737bf2455
+    name: Aguja e Hilo de la Remendadora
+    level: 1
+    type: efecto
+    tags:
+      - Herramienta
+      - Utilidad
+    requirements: null
+    uses:
+      type: DAY
+      qty: 3
+    description: >-
+      Esta aguja de plata y su carrete de hilo dorado pueden reparar cualquier desgarro o rotura en tela o cuero. Como
+      una Acción, puedes reparar un objeto dañado, dejándolo como nuevo. El hilo se regenera mágicamente.
+    slug: aguja-e-hilo-de-la-remendadora
+    cost: 125
+  - id: 8058535fd29e760e70a3183e6dd14cfc6552262c
+    name: Monedas del Mensaje Silencioso
+    level: 1
+    type: efecto
+    tags:
+      - Comunicación
+      - Narrativo
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este objeto es en realidad un par de monedas de cobre idénticas. Cuando el portador de una de las monedas la
+      aprieta y se concentra en ella (una Interacción), la otra moneda, sin importar la distancia, se calienta
+      suavemente al tacto. No transmite mensajes complejos, solo una señal silenciosa.
+    slug: monedas-del-mensaje-silencioso
+    cost: 150
+  - id: e358547afb95c60914f97a3198095367ee456085
+    name: Diario del Recuerdo Fiel
+    level: 1
+    type: efecto
+    tags:
+      - Herramienta
+      - Narrativo
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras este diario está abierto, su pluma encantada transcribe de forma precisa cualquier conversación que
+      **tú** puedas oír claramente. Es un perfecto notario de tus propias experiencias. Puedes usar una Interacción para
+      que la pluma comience o deje de escribir. El diario tiene páginas ilimitadas, que se limpian mágicamente al cerrar
+      y reabrir el libro.
+    slug: diario-del-recuerdo-fiel
+    cost: 150

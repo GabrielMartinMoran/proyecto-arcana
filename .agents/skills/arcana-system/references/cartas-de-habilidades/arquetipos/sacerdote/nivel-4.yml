@@ -1,0 +1,82 @@
+cards:
+  - id: bd071f66c9136e3d07a8a825fe5a06858f74340c
+    name: Sanación Verdadera
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Curar & Instinto 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu puntuación de Instinto en Puntos de Salud. Además,
+      eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni
+      petrificación.
+    slug: sanacion-verdadera
+  - id: 89845f43e5e3f420b68558592ff2b3eba98c0dd9
+    name: Destruir Impíos
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: Ritos Sagrados & Instinto 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior falla su Tirada
+      de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.
+    slug: destruir-impios
+  - id: 56d14fc55ca28ba533bc5123bb54fb1e71e9240f
+    name: Cadenas de Luz
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: Fe Inspiradora & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media. Las criaturas en el
+      área deben superar una TS de Reflejos (ND 5 + Instinto). Si fallan, reciben 4d8 de daño Radiante y quedan
+      Inmovilizadas por las cadenas durante 1 minuto. Si tienen éxito en la salvación inicial, reciben la mitad del daño
+      y no quedan atrapadas.<br> Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5
+      + Instinto) para tratar de liberarse.
+    slug: cadenas-de-luz
+  - id: 413ac28f71a497b48e10b3e0218c82234d804dfa
+    name: Arma Espiritual
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br> Cuando lanzas el
+      conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y
+      realizar un ataque de conjuro (1d8 + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de
+      daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe
+      Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
+    slug: arma-espiritual
+  - id: 8e203ce6d413c18333301f74c073e6c0a3904780
+    name: Poder Sagrado
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: Fe Inspiradora & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Tu fe potencia la magnitud de tus milagros ofensivos.<br> Cuando infliges daño con una carta que tenga las
+      etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+    slug: poder-sagrado

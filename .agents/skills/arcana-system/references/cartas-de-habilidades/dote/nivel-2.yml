@@ -1,0 +1,215 @@
+cards:
+  - id: 26ebe2c0f4fd21050791e52fabf5ca0e694b0500
+    name: Sanador
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu conocimiento de la anatomía y la medicina potencia tus cuidados. Cuando usas una carta o un objeto consumible
+      para restaurar Puntos de Salud a una criatura, esta recupera **1d4 Puntos de Salud adicionales**.<br> Además,
+      cuando superas una prueba de **Instinto** para estabilizar a una criatura moribunda, puedes, en lugar de
+      simplemente estabilizarla, devolverla al combate con **1 Punto de Salud**. No puedes usar esta habilidad en la
+      misma criatura más de una vez por día de descanso.
+    slug: sanador
+  - id: 4d4061e0a72a14ead80b3c7c0f7d5580901de42d
+    name: Mago de Guerra
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 3
+    uses:
+      type: null
+      qty: 0
+    description: Obtienes un +1 a tus tiradas para mantener la concentración de un conjuro.
+    slug: mago-de-guerra
+  - id: f810017b6321631ac03deef135ae29a95a571d58
+    name: Resistente
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Cuerpo 3
+    uses:
+      type: RELOAD
+      qty: 6
+    description: Como Reacción cuando recibes daño (ya sea físico o mágico), obtienes Mitigación +2 contra ese daño.
+    slug: resistente
+  - id: 57b924122332d5a6768920855cb470c644f7e9a4
+    name: Experto en Ballestas
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Ignoras la propiedad Recarga de las ballestas. Además, tus ataques con ballestas ignoran el bono por cobertura
+      parcial.
+    slug: experto-en-ballestas
+  - id: efcd740d23b497d8927e4985451de648339a4b32
+    name: Maestro de Maniobras
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Te has especializado en el combate táctico y el uso del entorno a tu favor. Obtienes Ventaja (+1d4) en todas las
+      Tiradas Enfrentadas que realices para ejecutar una Maniobra de combate (como Zancadilla, Empujón, Desarmar, etc.).
+    slug: maestro-de-maniobras
+  - id: 6a215e1c470fad53dfd174d8a45d27c8605e68db
+    name: Reflejos Afortunados
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu suerte te permite esquivar golpes que parecían certeros. Como Reacción, cuando un enemigo te impacta con un
+      ataque, puedes gastar cualquier cantidad de tus Puntos de Suerte. La tirada de ataque del enemigo sufre una
+      penalización de -1 por cada Punto de Suerte que hayas gastado, lo que podría hacer que el ataque falle.
+    slug: reflejos-afortunados
+  - id: d648ec2478d5026c1a9c0c842141dbfb131ec20a
+    name: Conjuración Elevada
+    level: 2
+    type: activable
+    tags:
+      - Dote
+    requirements: Mente 3 | Instinto 3 | Presencia 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Concentras tu voluntad en tus conjuros, haciéndolos más difíciles de resistir. Cuando lanzas una carta de Conjuro
+      que obliga a un enemigo a realizar una Tirada de Salvación, puedes gastar Puntos de Suerte antes de que el enemigo
+      realice su tirada. Por cada Punto de Suerte que gastes, el Nivel de Dificultad (ND) de esa tirada aumenta en +1.
+      No puedes gastar más Puntos de Suerte que tu puntuación en el atributo de lanzamiento de conjuros (Mente, Instinto
+      o Presencia). Si el conjuro afecta a múltiples criaturas, debes elegir a una de ellas para aplicarle este efecto.
+    slug: conjuracion-elevada
+  - id: 3fd596350326c0671b326dba70fcf7c474b50074
+    name: Maestría con Escudo
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Cuerpo 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres un maestro en el uso del escudo como una barrera impenetrable. Si debes realizar una Tirada de Salvación de
+      Reflejos para recibir la mitad de daño de un efecto que puedas ver, puedes usar tu Reacción para interponer tu
+      escudo. Si tienes éxito en la tirada, no recibes daño alguno.
+    slug: maestria-con-escudo
+  - id: 3e2b17f4a083d26d98f02916b2ed1ad5a91db2b4
+    name: Alquimista Experto
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 3 & Artesano Eficiente
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu maestría en la alquimia te permite crear consumibles más potentes. Cuando fabricas con éxito una poción o un
+      veneno, su efecto se mejora:<br> - Una poción fabricada por ti restaura 1d4 Puntos de Salud adicionales.<br> - La
+      dificultad (ND) para resistir un veneno fabricado por ti aumenta en +2.
+    slug: alquimista-experto
+  - id: 2eb723be139fd9321f407907c1b9222a090a924e
+    name: Constitución de Hierro
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu cuerpo es un templo de resistencia física.<br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.<br>
+      Además, puedes aguantar la respiración durante una cantidad de minutos igual al doble de tu puntuación de Cuerpo.
+      Adicionalmente, puedes dormir con armaduras medias o pesadas sin sufrir penalizadores por fatiga o incomodidad al
+      día siguiente.
+    slug: constitucion-de-hierro
+  - id: 97b96b7435ed756d4c9b5d837974d405199629d1
+    name: Destreza Suprema
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Posees un control instintivo sobre tu inercia y equilibrio.<br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de
+      Reflejos.<br> Además, siempre caes de pie si estás consciente. Adicionalmente, reduces la distancia de cualquier
+      caída en 5 metros a efectos de calcular el daño (lo que te permite ignorar el daño de caídas cortas).
+    slug: destreza-suprema
+  - id: ecc96fe801de8268feba9a8b61110f47b0de472f
+    name: Engranaje Cognitivo
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu mente opera con la precisión de un mecanismo de relojería, procesando y archivando información
+      sistemáticamente.<br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de Mente.<br> Además, posees memoria
+      eidética. Puedes recordar con precisión perfecta cualquier documento, mapa, imagen o conversación que hayas
+      presenciado en el último mes. El DJ debe recordarte cualquier detalle olvidado por ti (el jugador) que tu
+      personaje hubiera retenido.
+    slug: engranaje-cognitivo
+  - id: 838a425e4c1e7357260b1dc71faae0a2c2ecc8ef
+    name: Sexto Sentido
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu instinto te alerta de peligros que tus ojos no ven.<br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de
+      Instinto.<br> Además, cuando fallas una prueba de Instinto (Percepción) para detectar algo oculto (una trampa, una
+      puerta secreta, un enemigo escondido), recibes una sensación de inquietud que te confirma que *hay* algo oculto en
+      la zona, aunque no sepas qué es ni dónde está exactamente.
+    slug: sexto-sentido
+  - id: 35e758e866f3ba07f679f29be24971280263d1d4
+    name: Compostura Inquebrantable
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Presencia 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu personalidad es sólida como una roca, proyectando una autoridad natural.<br> Obtienes Ventaja (+1d4) en Tiradas
+      de Salvación de Presencia.<br> Además, tus fallos sociales nunca son catastróficos. Si fallas una prueba de
+      Persuasión, Engaño o Intimidación, el objetivo nunca reacciona con violencia inmediata ni hostilidad abierta
+      basándose solo en tus palabras; simplemente se mostrará escéptico, indiferente o se negará a colaborar.
+    slug: compostura-inquebrantable

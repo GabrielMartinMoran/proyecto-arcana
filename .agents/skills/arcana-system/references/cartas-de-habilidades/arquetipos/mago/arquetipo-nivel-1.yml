@@ -1,0 +1,24 @@
+cards:
+  - id: 25c879f1f6e8023e115f5a11d3d9122059b35ed0
+    name: Estudios Mágicos
+    level: 1
+    type: efecto
+    tags:
+      - Mago
+      - Arquetipo
+      - Arcanista
+    requirements: Mente 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has estudiado la magia al punto de comprender el por qué y el cómo de su funcionamiento.<br> Obtienes Ventaja
+      (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br> Adquieres la carta _Afinidad Arcana_, y puedes usar
+      Mente como tu Atributo Mágico para las cartas de _Arcanista_.<br> <br> **Beneficio de Arquetipo:** - **Memoria
+      Prodigia:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de
+      Mente (redondeado hacia arriba). Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas
+      _Arcanista_ y _Conjuro_ (ambas). - **Mente Ágil**: Mientras este sea tu Beneficio de Arquetipo activo, añades la
+      carta _Grimorio de Preparación_ a tu colección.<br> Adicionalmente, aprendes dos idiomas y ganas un bono a tus
+      Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br> _Solo puedes tener un Beneficio de
+      Arquetipo activo a la vez._
+    slug: estudios-magicos

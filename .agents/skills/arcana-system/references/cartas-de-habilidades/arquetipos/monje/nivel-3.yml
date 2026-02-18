@@ -1,0 +1,132 @@
+cards:
+  - id: 463ae8f345fe7230f694b68683b80daacf00bc58
+    name: Golpes Energéticos Mejorados
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: Golpes Energéticos & Instinto 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu control sobre el ki es absoluto. Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del
+      objetivo igual al total de tu puntuación de Instinto.
+    slug: golpes-energeticos-mejorados
+  - id: 791a3bbee0af57d46c5bb31ca40b88fa3f430410
+    name: Cuerpo Puro
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica & Instinto 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu disciplina te ha purificado. Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra
+      venenos y enfermedades. Además, eres inmune al estado Envenenado.
+    slug: cuerpo-puro
+  - id: 973133e715149bccf83728b202966fed538360bc
+    name: Proyección de Ki
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Usas tu Interacción para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad
+      Arrojadiza (Cercana).
+    slug: proyeccion-de-ki
+  - id: d05eb5e37aa8832465ef09ecd8dd3ac920aa1717
+    name: Tormenta de Golpes
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: Ráfaga de Golpes & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Tu fluidez en combate es absoluta. Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga. Además,
+      cuando activas Ráfaga de Golpes, realizas dos ataques desarmados adicionales en lugar de uno.
+    slug: tormenta-de-golpes
+  - id: 58effe6f19693a2945055f21551785511e96ee4d
+    name: Golpe Aturdidor
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una
+      **Tirada de Salvación de Cuerpo (ND 5 + Instinto)** o quedar **Aturdido** hasta el final de tu próximo turno.
+    slug: golpe-aturdidor
+  - id: 05a1823921393aa96bff3385c135cfd2daadfbb5
+    name: Visión del Ki
+    level: 3
+    type: activable
+    tags:
+      - Monje
+      - Concentración
+    requirements: Disciplina Monástica & Instinto 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Usas tu **Acción** para cerrar los ojos y sentir el flujo de energía vital a tu alrededor. Durante 1 minuto o
+      hasta que pierdas la concentración, eres consciente de la ubicación y el movimiento de cualquier criatura viva a
+      distancia **Cercana**, incluso si son invisibles o están detrás de cobertura total. Mientras este efecto está
+      activo, fallas automáticamente cualquier prueba de habilidad que dependa de la vista.
+    slug: vision-del-ki
+  - id: ade718058e7050cf4f4aca1552f99e5f21175eae
+    name: Mente Adamantina
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica & Instinto 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu mente es una fortaleza de disciplina. Eres inmune a los efectos mágicos que causan miedo y al estado
+      **Encantado**. Además, obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de **Instinto**.
+    slug: mente-adamantina
+  - id: 1b5ec5536590dbbc0ee37684750aaab8d7ede624
+    name: Gracia del Viento
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: Paso Etéreo & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto. Debes terminar cada uno de
+      tus turnos en una superficie sólida o caerás.
+    slug: gracia-del-viento
+  - id: 6250000b59e5a00c60df316cdde5bfd2792bd646
+    name: Limpiar Energías
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: Trance de Piedra & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> -
+      **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto
+      contra el atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes
+      suprimir sus efectos negativos durante 1 hora.
+    slug: limpiar-energias

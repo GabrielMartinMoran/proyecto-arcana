@@ -1,0 +1,47 @@
+cards:
+  - id: 66bbd30050d3211a8b388b088fde1408895dd73a
+    name: Paso Sombrío Letal
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Asesinar & Reflejos 6
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como **Interacción**, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia
+      Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura
+      adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas y aplicas tu Ataque Furtivo, el daño adicional
+      de Ataque Furtivo se **maximiza** (cada dado cuenta como su valor máximo).
+    slug: paso-sombrio-letal
+  - id: 22ebd754635741069ef9fa03a0cf5bfdb95bd9f5
+    name: Golpe Fantasma
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Ataque Furtivo Mejorado & Reflejos 6
+    uses:
+      type: RELOAD
+      qty: 8
+    description: >-
+      Tu golpe es tan rápido y preciso que atraviesa las defensas. Como Acción, realizas un único ataque con un arma
+      Precisa o a distancia. Este ataque ignora toda Mitigación Física y Puntos de Salud temporales. Si impactas y
+      aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se maximiza (cada dado cuenta como su valor
+      máximo).
+    slug: golpe-fantasma
+  - id: 8c00a0217146f26727777666732a671f2168b4a1
+    name: Ataque Furtivo Maestro
+    level: 5
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Golpe Letal & Reflejos 6
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu precisión es legendaria, un solo corte basta para acabar el trabajo.<br> El daño adicional de tu Ataque Furtivo
+      aumenta a 6d4.
+    slug: ataque-furtivo-maestro

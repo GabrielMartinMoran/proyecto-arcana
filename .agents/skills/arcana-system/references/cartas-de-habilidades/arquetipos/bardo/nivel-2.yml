@@ -1,0 +1,98 @@
+cards:
+  - id: 0240ef17adcfa10516efd8e4b70d6fe7a731a8bb
+    name: Inspiración Eficaz
+    level: 2
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Canto de Inspiración & Presencia 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu inspiración se vuelve más persistente. Si un aliado usa tu dado de _Canto de Inspiración_ y aun así falla la
+      tirada, no gasta el dado de inspiración; puede conservarlo para otro intento.
+    slug: inspiracion-eficaz
+  - id: da80def2958ab5fee7a093e159b4fdf0e4ae408c
+    name: Mil Saberes
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Reacción
+    requirements: Don del Elocuente
+    uses:
+      type: LONG_REST
+      qty: 3
+    description: >-
+      Como Reacción, cuando vas a realizar una prueba de habilidad en la que no tienes Ventaja, recuerdas una historia o
+      canción relevante para la situación y te otorgas Ventaja (+1d4) en la tirada.
+    slug: mil-saberes
+  - id: e93bb3585e60646ea062c8d95fd672f63fbc6996
+    name: Danza de la Muerte
+    level: 2
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Inspiración Marcial
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu actuación en combate se alimenta del caos y la victoria. Ganas los siguientes beneficios:<br> - **Golpe
+      Resonante:** Cuando una criatura vaya a gastar uno de tus dados de _Canto de Inspiración_ en un ataque, puede
+      elegir sumar el resultado al daño en lugar de a la tirada de ataque.<br> - **Ritmo de Batalla:** Cada vez que
+      gastas un uso de tu _Canto de Inspiración_, ganas Puntos de Salud Temporales igual a tu puntuación de
+      Presencia.<br> - **Bis Sangriento:** Si reduces a un enemigo a 0 Puntos de Salud, recuperas inmediatamente un uso
+      gastado de tu _Canto de Inspiración_.
+    slug: danza-de-la-muerte
+  - id: c8e057984a002cd91aee4da7846071e49613b678
+    name: Crescendo Aterrador
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente & Presencia 3
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, realizas una interpretación imponente. Todo enemigo en un radio de 3 metros que pueda verte u oírte
+      debe superar una TS de Instinto (ND 5 + Presencia). Si falla, el objetivo debe usar su próximo turno para moverse
+      lo más lejos posible de ti por la ruta más segura disponible.
+    slug: crescendo-aterrador
+  - id: 9ff89dd9b5d5d06f5450d66fbe144e587cec9838
+    name: Risa Incontenible
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente & Presencia 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Acción, eliges una criatura a distancia Media que pueda verte y oírte. Debe superar una TS de Instinto (ND 5
+      + Presencia). Si falla, cae al suelo en un ataque de risa, quedando en los estados Derribado y Aturdido. La
+      criatura puede repetir la Tirada de Salvación al final de cada uno de sus turnos. El efecto también termina si
+      recibe daño.
+    slug: risa-incontenible
+  - id: 9ec6ccc22419676e224065b0e7d09957cbc517df
+    name: Himno de Batalla
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Acción, comienzas a interpretar un himno de guerra inspirador que dura hasta 1 minuto. Creas un aura de 3
+      metros de radio centrada en ti. Los aliados (incluido tú) que comiencen su turno dentro del aura ganan un +1 a sus
+      tiradas de ataque con armas hasta el inicio de su próximo turno.
+    slug: himno-de-batalla

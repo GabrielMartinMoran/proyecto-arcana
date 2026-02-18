@@ -1,0 +1,85 @@
+cards:
+  - id: 24fa331417ddfe40a0c50cd2844b745f286d8026
+    name: Ataque Furtivo
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Una vez por turno, cuando impactas a un enemigo con un arma Precisa o a distancia, infliges +1d4 de daño adicional
+      si tenías Ventaja en la tirada de ataque o si un aliado está adyacente al objetivo.
+    slug: ataque-furtivo
+  - id: 81ffe85b17bbc42175bd10e3c23ba5c2cf7b893e
+    name: Sabotaje Táctico
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de sabotearlo:<br> - **Jugar Sucio
+      (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS de Reflejos (ND 5 + Reflejos) o
+      tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu próximo turno.<br> -
+      **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de Instinto (ND 5 +
+      Presencia) o tener Desventaja (-1d4) en todos los ataques contra cualquier objetivo que no seas tú hasta el final
+      de tu próximo turno.
+    slug: sabotaje-tactico
+  - id: e79f14268ca199f9087d131aded8b481d5d77831
+    name: Estilo Audaz
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón & Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu forma de combatir es un espectáculo de agilidad y provocación.<br> - **Acróbata:** Obtienes Ventaja (+1d4) en
+      pruebas de Acrobacias.<br> - **Apertura Temeraria:** Puedes usar tu Interacción para bajar la guardia y fintar.
+      Obtienes Ventaja (+1d4) en tu próximo ataque cuerpo a cuerpo que hagas con un arma Precisa en este turno. A
+      cambio, sufres un -2 a tu Esquiva hasta el inicio de tu próximo turno.
+    slug: estilo-audaz
+  - id: d1f4f674f2309be11bfb679bf9cb9f18c53b35b8
+    name: Infiltrador Experto
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón & Mente 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has perfeccionado las técnicas de seguridad y observación criminal.<br> - **Ojo Clínico:** Obtienes Ventaja (+1d4)
+      en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Si fallas una prueba de
+      Juego de Manos o una prueba para desactivar una trampa, el fallo no tiene consecuencias negativas (no eres
+      descubierto, no rompes la herramienta ni activas la trampa).<br> - **Rapidez:** Puedes usar tu Interacción para
+      realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.
+    slug: infiltrador-experto
+  - id: 7d09604fb67da909702e2d24e518ec1189467dc2
+    name: Señor de los Bajos Fondos
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón & Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Te mueves por los bajos fondos como pez en el agua. Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener
+      información en entornos urbanos y en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una
+      ciudad.<br> Además, una vez por sesión, puedes declarar que "conoces a alguien" relevante en la localidad actual.
+      Gasta 2 Puntos de Suerte y define el perfil de tu contacto (siempre de reputación dudosa o del hampa: un
+      informante, un falsificador, un contrabandista, etc.). El DJ te revela cómo y dónde podrías encontrar a esa
+      persona, creando una nueva pista o un mini-objetivo para el grupo. El contacto estará, como mínimo, dispuesto a
+      escucharte, aunque obtener su ayuda pueda requerir persuasión, un favor o el pago adecuado.
+    slug: senor-de-los-bajos-fondos

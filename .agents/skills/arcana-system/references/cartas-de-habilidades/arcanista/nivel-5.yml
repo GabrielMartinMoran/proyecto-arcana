@@ -1,0 +1,48 @@
+cards:
+  - id: cc697a7198fa8190d24b289527f2d1085768ef9e
+    name: Rayo Desintegrador
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Mágico 5
+    uses:
+      type: RELOAD
+      qty: 8
+    description: >-
+      Un fino rayo verde brota de tu dedo hacia un objetivo a distancia Media.<br> El objetivo debe superar una TS de
+      Reflejos (ND 5 + Atributo Mágico). Si falla, recibe 10d8 de daño de Fuerza. Si este daño reduce al objetivo a 0
+      Puntos de Salud, se convierte en un fino polvo gris y es destruido. Si tiene éxito, recibe la mitad del daño.
+    slug: rayo-desintegrador
+  - id: 075cbfbb288ae86c9c2addfa181d7d49735100a8
+    name: Maestría Arcana
+    level: 5
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: Teoría Arcana Avanzada & Atributo Mágico 6
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu dominio de la Urdimbre es absoluto. Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o
+      inferior que tenga un sistema de Recarga, puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con
+      el resultado más alto.
+    slug: maestria-arcana
+  - id: c66e21de47f990391825dad62eecb51918ad614b
+    name: "Palabra de Poder: Aturdir"
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Sugestión Mayor & Atributo Mágico 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura
+      tiene 100 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar
+      una TS de Instinto (ND 7+Atributo Mágico) para terminar el efecto.
+    slug: palabra-de-poder-aturdir

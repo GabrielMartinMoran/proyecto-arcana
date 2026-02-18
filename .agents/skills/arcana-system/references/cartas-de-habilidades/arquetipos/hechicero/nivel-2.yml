@@ -1,0 +1,16 @@
+cards:
+  - id: dd9dc454a5ca2372e2869c2cbf3dcbcde9009d5e
+    name: Escudo Residual
+    level: 2
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: Herencia Sobrenatural & Cuerpo 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu cuerpo convierte el dolor en una barrera protectora efímera.<br> Inmediatamente después de sacrificar Puntos de
+      Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos de Salud temporales igual a la mitad de los PS
+      sacrificados (redondeado hacia arriba). Estos puntos temporales duran hasta el inicio de tu próximo turno.
+    slug: escudo-residual

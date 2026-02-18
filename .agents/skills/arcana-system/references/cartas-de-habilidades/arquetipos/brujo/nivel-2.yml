@@ -1,0 +1,16 @@
+cards:
+  - id: 2eb68e5a9be90e311fe61db7f94e44dee68ab47b
+    name: Visiones del Patrón
+    level: 2
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Pacto Supremo & Atributo Mágico 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La influencia de tu patrón altera tus sentidos.<br> Puedes ver normalmente en oscuridad, incluso si es oscuridad
+      mágica.<br> Además, una vez por día de descanso, puedes gastar 1 Punto de Suerte y tomarte 1 minuto para hacerle
+      una pregunta directa a tu Patrón. El DJ te dará una respuesta veraz, aunque frecuentemente críptica o interesada.
+    slug: visiones-del-patron

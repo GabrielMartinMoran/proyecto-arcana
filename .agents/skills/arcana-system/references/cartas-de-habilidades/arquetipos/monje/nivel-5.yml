@@ -1,0 +1,34 @@
+cards:
+  - id: 8bedc8b27831f892280409a1b2bb2c63f2036712
+    name: Palma Vibratoria
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements: Golpe Aturdidor & Instinto 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Acción, realizas un ataque desarmado imbuido de vibraciones letales. Si impactas, inicias una resonancia en
+      el cuerpo del objetivo que dura una cantidad de días igual a tu Instinto. Mientras la resonancia esté activa,
+      puedes usar tu Acción para finalizarla y detonar las vibraciones. El objetivo debe superar una TS de Cuerpo (ND 5
+      + Instinto). Si falla, recibe 10d10 de daño Necrótico. Si tiene éxito, la mitad. Si este daño reduce al objetivo a
+      0 Puntos de Salud, muere instantáneamente.
+    slug: palma-vibratoria
+  - id: f36552a9c64c0c85a088c0eae693a4053437d401
+    name: Aspecto del Dragón Energético
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements: Mente Adamantina & Instinto 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Como Acción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante durante 1 minuto. Mientras
+      dure el aspecto, ganas los siguientes beneficios:<br> - Tus ataques desarmados infligen 1d8 de daño base y todo el
+      daño se considera de Fuerza.<br> - Ganas una Reacción adicional en cada turno, que solo puede usarse para tus
+      cartas de Reacción de Monje.<br> - Obtienes una velocidad de vuelo igual a tu velocidad normal.
+    slug: aspecto-del-dragon-energetico
