@@ -275,7 +275,62 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 - **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
 - **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
-- **Usos:** Cantidad de usos. En caso de que la carta diga _Recarga n+_, significa que dentro de combate, al inicio del turno, se puede tirar 1d8 y si el resultado iguala o supera el número indicado en la recarga, la habilidad vuelve a estar disponible. Fuera de combate, un personaje puede tomarse un tiempo de concentración para reponer energías y recargar un uso gastado. El tiempo requerido es igual a 5 minutos multiplicados por el valor de Recarga de la carta. Alternativamente, en cualquier momento (para cartas que digan _Regarga n+_), un personaje puede gastar una cantidad de Puntos de Suerte igual al **Nivel de la Carta** para recargarla instantáneamente.
+- **Usos:** Indica la frecuencia con la que puedes utilizar la habilidad.
+  - **Fijo:** Una cantidad establecida de veces (ej. "1 por día de descanso").
+  - **Recarga:** Un valor numérico (ej. "Recarga 5+") que indica la dificultad para recuperar la habilidad tras su uso.
+    Las reglas detalladas para recuperar estos usos se encuentran en la sección **Recarga de Cartas**.
+
+## Recarga de Cartas
+
+Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:
+
+### Recarga en Combate (La Adrenalina)
+En el fragor de la batalla, la adrenalina puede permitirte recuperar tus capacidades rápidamente.
+* **Cuándo:** Al **inicio de tu turno**, antes de realizar cualquier acción.
+* **Cómo:** Lanza **1d8 por cada carta agotada** que tengas con la propiedad **Recarga n+**.
+* **Resultado:** Si el resultado del dado es **igual o superior** al número indicado en la carta (n), recuperas el uso de esa habilidad y puedes volver a utilizarla inmediatamente en ese mismo turno o hasta que vuelvas a agotarla.
+* **Fallo:** Si no superas la tirada, la carta permanece agotada hasta el inicio de tu próximo turno, donde podrás volver a intentarlo.
+
+### Recarga Fuera de Combate (El Reenfoque)
+Cuando el peligro inmediato ha pasado, puedes centrarte mental y físicamente para recuperar tus capacidades. Este proceso se llama **Reenfoque**.
+- **Cómo:** Debes dedicar un tiempo ininterrumpido a una actividad breve de mantenimiento (limpiar tu arma, meditar, orar, revisar tus notas).
+- **Coste de Tiempo:** Para recargar una carta, debes dedicar una cantidad de minutos igual a **5 × Valor de Recarga de la carta**.
+  - _Ejemplo:_ Una carta con `Recarga 4+` requiere 20 minutos. Una con `Recarga 6+` requiere 30 minutos.
+- **Restricción:** Solo puedes recargar **una carta a la vez** (de forma secuencial, no simultánea). Si el proceso se interrumpe, el tiempo invertido se pierde.
+
+### Recarga con Suerte (El Destino)
+En cualquier momento, incluso fuera de tu turno, puedes forzar al destino para recuperar una habilidad vital.
+- **Coste:** Gastas una cantidad de **Puntos de Suerte** igual al **Nivel de la Carta**.
+- **Efecto:** La carta se recarga instantáneamente y está lista para usarse.
+- **Restricción:** Esta opción solo está disponible para cartas que posean la propiedad **Recarga n+**. Las cartas con usos fijos (ej. "1 por día de descanso") no pueden recargarse de esta manera.
+
+## La Naturaleza de la Magia: Componentes
+
+En ARCANA, la magia no ocurre solo con el pensamiento; es un proceso físico y ruidoso que manipula la realidad. Salvo que una carta o habilidad especifique explícitamente lo contrario (como la opción "Conjuro Sutil" de la carta _Teoría Arcana Avanzada_), todo uso de una carta con la etiqueta `Conjuro` requiere cumplir con los siguientes tres componentes:
+
+### 1. Verbal (La Voz de Poder)
+El lanzador debe entonar palabras místicas con un tono de voz claro y resonante.
+* **Regla:** No puedes lanzar conjuros si estás amordazado o en un área de Silencio mágico.
+* **Sigilo:** Lanzar un conjuro rompe automáticamente cualquier estado de Sigilo auditivo. Susurrar no es suficiente para activar la magia.
+
+### 2. Somático (El Gesto Arcano)
+El lanzador debe trazar sigilos en el aire o dirigir la energía con precisión.
+* **Regla:** Debes tener al menos una mano libre para realizar estos gestos. No puedes lanzar conjuros si estás atado o paralizado.
+* **Excepción:** Si posees un Foco (ver abajo), la mano que sostiene el Foco cuenta como la mano libre para realizar los gestos somáticos.
+
+### 3. Foco (El Canalizador)
+La magia poderosa requiere un ancla física para no descontrolarse. Esto sustituye la necesidad de componentes materiales específicos.
+* **Requisito:** Para usar una carta **Activable** con la etiqueta `Conjuro`, debes empuñar o portar un objeto que hayas preparado como tu Foco. Si has sido desarmado de él, no puedes usar estas cartas (las cartas de **Efecto** no requieren Foco).
+
+#### El Ritual de Inscripción
+Cualquier objeto sólido y de tamaño considerable (un arma, un escudo, un bastón, una herramienta, un instrumento) puede convertirse en tu Foco. Para ello, debes realizar un ritual de **1 hora**, en el que grabas, consagras o adornas el objeto con los símbolos de tu poder.
+* **Arcanista (Grabado Rúnico):** Tallas runas brillantes en la hoja de una espada, en el mango de una varita o en la cubierta de un libro.
+* **Sacerdote (Consagración):** Grabas, pintas o bendices tu símbolo sagrado sobre un escudo, un martillo de guerra o un relicario.
+* **Druida (Vínculo Natural):** Adornas un bastón, una hoz o un tótem con plumas, pieles, hojas vivas o tallas de bestias.
+* **Bardo (Resonancia Armónica):** Afinas un instrumento musical hasta la perfección, grabas versos de una balada en la hoja de una espada, o adornas una máscara o capa con símbolos teatrales.
+
+> **Nota de Juego: Identificar Conjuros**
+> Debido a estos componentes, lanzar un hechizo es un acto **obvio**. Cualquier criatura que pueda ver y oír al lanzador sabe que está realizando magia.
 
 ## Lanzamiento Ritual: Magia sin Prisa
 
