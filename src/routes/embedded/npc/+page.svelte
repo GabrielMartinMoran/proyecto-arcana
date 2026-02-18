@@ -1,17 +1,17 @@
 <script lang="ts">
-	import CodeEditor from './CodeEditor.svelte';
-	import EditorToolbar from './EditorToolbar.svelte';
-	import CreatureImportModal from './CreatureImportModal.svelte';
-	import Statblock from '$lib/components/statblock/Statblock.svelte';
+	import { replaceState } from '$app/navigation';
 	import RollModal from '$lib/components/RollModal.svelte';
+	import Statblock from '$lib/components/statblock/Statblock.svelte';
 	import { mapCreature } from '$lib/mappers/creature-mapper';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import { useFoundryVTTService } from '$lib/services/foundryvtt-service';
+	import type { Creature } from '$lib/types/creature';
 	import { load as yamlLoad } from 'js-yaml';
 	import { onMount } from 'svelte';
-	import { replaceState } from '$app/navigation';
-	import type { Creature } from '$lib/types/creature';
 	import '../../../app.css';
-	import { useFoundryVTTService } from '$lib/services/foundryvtt-service';
-	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import CodeEditor from './CodeEditor.svelte';
+	import CreatureImportModal from './CreatureImportModal.svelte';
+	import EditorToolbar from './EditorToolbar.svelte';
 
 	// UI state
 	let activeTab: 'yaml' | 'sheet' | 'mixed' = $state('mixed');
@@ -31,6 +31,7 @@
 
 	const SAMPLE_YAML = `# Ejemplo de criatura (editar aquí)
 name: Goblin
+lineage: Goblinoide
 tier: 1
 attributes:
   body: 2
@@ -191,7 +192,7 @@ img: null
 	async function handleReset() {
 		const confirmed = await dialogService.confirm(
 			'¿Reiniciar al ejemplo por defecto? Se perderán los cambios actuales.',
-			{ title: 'Confirmar reinicio', confirmLabel: 'Reiniciar', cancelLabel: 'Cancelar' }
+			{ title: 'Confirmar reinicio', confirmLabel: 'Reiniciar', cancelLabel: 'Cancelar' },
 		);
 
 		if (confirmed) {

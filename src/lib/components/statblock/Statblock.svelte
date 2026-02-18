@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { useDiceRollerService } from '$lib/services/dice-roller-service';
+	import { resolve } from '$app/paths';
 	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import type { Creature, CreatureAttack } from '$lib/types/creature';
 	import { parseCreatureDamageExpression } from '$lib/utils/dice-rolling';
 	import { capitalize } from '$lib/utils/formatting';
 	import { CONFIG } from '../../../config';
 	import CreatureAction from './CreatureAction.svelte';
-	import { resolve } from '$app/paths';
 
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
@@ -70,11 +70,13 @@
 
 			<span class="spacer"></span>
 
-			<span>
-				<strong>Rango</strong>
-				<span>{creature.tier}</span>
+			<span
+				><strong
+					><span>{creature.lineage}</span>,
+					<span>Rango</span>
+					<span>{creature.tier}</span></strong
+				>
 			</span>
-
 			<div class="header-actions">
 				<button onclick={copyEmbeddedURL} title="Copiar enlace embebido">🔗</button>
 			</div>

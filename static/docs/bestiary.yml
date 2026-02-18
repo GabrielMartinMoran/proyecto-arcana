@@ -7,6 +7,7 @@ creatures:
   # ------- RANGO 1 -------
 
   - name: Goblin
+    lineage: Goblinoide
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 1
@@ -55,6 +56,7 @@ creatures:
     img: https://i.imgur.com/I3zy9zB.png
 
   - name: Jefe Goblin
+    lineage: Goblinoide
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
@@ -102,6 +104,7 @@ creatures:
     img: https://i.imgur.com/KoSYgNz.jpeg
 
   - name: Chamán Goblin
+    lineage: Goblinoide
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 1
@@ -154,6 +157,7 @@ creatures:
     img: https://i.imgur.com/zKzwD2N.jpeg
 
   - name: Bandido
+    lineage: Humanoide
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
@@ -198,6 +202,7 @@ creatures:
     img: https://i.imgur.com/ParBKHT.png
 
   - name: Cultista
+    lineage: Humanoide
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
@@ -245,6 +250,7 @@ creatures:
     img: https://i.imgur.com/VBT0h7Z.png
 
   - name: Esqueleto
+    lineage: No-muerto
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
@@ -294,6 +300,7 @@ creatures:
     img: https://i.imgur.com/QElMAiy.png
 
   - name: Zombi
+    lineage: No-muerto
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 2
@@ -338,6 +345,7 @@ creatures:
     img: https://i.imgur.com/ZVpBSZ6.png
 
   - name: Jabalí
+    lineage: Bestia
     tier: 1 # Rango 1 (Presupuesto 8 PPF / Límite 4)
     attributes:
       body: 3
@@ -380,6 +388,7 @@ creatures:
   # ------- RANGO 2 -------
 
   - name: Orco
+    lineage: Humanoide
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
@@ -423,6 +432,7 @@ creatures:
     img: https://i.imgur.com/vwS87Yq.png
 
   - name: Capitán de los Bandidos
+    lineage: Humanoide
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
@@ -469,6 +479,7 @@ creatures:
     img: https://i.imgur.com/k3QVNis.png
 
   - name: Lobo
+    lineage: Bestia
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 2
@@ -512,6 +523,7 @@ creatures:
     img: https://i.imgur.com/yGvrTO5.jpeg
 
   - name: Araña Gigante
+    lineage: Bestia
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
@@ -554,6 +566,7 @@ creatures:
     img: null
 
   - name: Oso
+    lineage: Bestia
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 5
@@ -593,6 +606,7 @@ creatures:
     img: https://i.imgur.com/4hVydOL.jpeg
 
   - name: Guardia
+    lineage: Humanoide
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 4
@@ -635,6 +649,7 @@ creatures:
     img: null
 
   - name: Guerrero Tribal
+    lineage: Humanoide
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
@@ -681,6 +696,7 @@ creatures:
     img: https://i.imgur.com/alrayYz.jpeg
 
   - name: Ghoul
+    lineage: No-muerto
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
@@ -721,6 +737,7 @@ creatures:
     img: null
 
   - name: Matón
+    lineage: Humanoide
     tier: 2 # Rango 2 (Presupuesto 12 PPF / Límite 6)
     attributes:
       body: 3
@@ -770,6 +787,7 @@ creatures:
   # ------- RANGO 3 -------
 
   - name: Espectro
+    lineage: No-muerto
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 1
@@ -818,6 +836,7 @@ creatures:
     img: https://i.imgur.com/3LAtxZ4.png
 
   - name: Ogro
+    lineage: Gigante
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 6
@@ -865,6 +884,7 @@ creatures:
     img: https://i.imgur.com/bZ1hNkv.png
 
   - name: Sacerdote
+    lineage: Humanoide
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 4
@@ -920,6 +940,7 @@ creatures:
     img: https://i.imgur.com/w5QQCP6.png
 
   - name: Elemental de Tierra
+    lineage: Elemental
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 6
@@ -965,6 +986,7 @@ creatures:
     img: null
 
   - name: Elemental de Fuego
+    lineage: Elemental
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 2
@@ -1009,6 +1031,7 @@ creatures:
     img: null
 
   - name: Elemental de Agua
+    lineage: Elemental
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 4
@@ -1055,6 +1078,7 @@ creatures:
     img: null
 
   - name: Elemental de Aire
+    lineage: Elemental
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 1
@@ -1100,6 +1124,7 @@ creatures:
     img: null
 
   - name: Mago
+    lineage: Humanoide
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 2
@@ -1159,6 +1184,7 @@ creatures:
     img: null
 
   - name: Ozo-lechuza
+    lineage: Monstruosidad
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 6
@@ -1207,6 +1233,7 @@ creatures:
     img: null
 
   - name: Mimeto
+    lineage: Monstruosidad
     tier: 3 # Rango 3 (Presupuesto 17 PPF / Límite 8)
     attributes:
       body: 4
@@ -1251,6 +1278,7 @@ creatures:
 
   # ------- RANGO 4 -------
   - name: Troll
+    lineage: Gigante
     tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
     attributes:
       body: 7
@@ -1295,6 +1323,7 @@ creatures:
     img: https://i.imgur.com/5MAnITP.png
 
   - name: Cíclope
+    lineage: Gigante
     tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
     attributes:
       body: 7
@@ -1341,6 +1370,7 @@ creatures:
     img: https://i.imgur.com/aZduoXw.jpeg
 
   - name: Mantícora
+    lineage: Monstruosidad
     tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
     attributes:
       body: 5
@@ -1394,6 +1424,7 @@ creatures:
     img: null
 
   - name: Gólem de Piedra
+    lineage: Constructo
     tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
     attributes:
       body: 8
@@ -1435,6 +1466,7 @@ creatures:
     img: null
 
   - name: Basilisco
+    lineage: Monstruosidad
     tier: 4 # Rango 4 (Presupuesto 23 PPF / Límite 10)
     attributes:
       body: 4
@@ -1481,6 +1513,7 @@ creatures:
 
   # ------- RANGO 5 -------
   - name: Thulu
+    lineage: Aberración
     tier: 5 # Rango 5 (Presupuesto 30 PPF / Límite 12)
     attributes:
       body: 3
@@ -1534,6 +1567,7 @@ creatures:
 
   # ------- RANGO 6 -------
   - name: Dragón Rojo Adulto
+    lineage: Dragón
     tier: 6 # Rango 6 (Presupuesto 38 PPF / Límite 14)
     attributes:
       body: 8
@@ -1596,6 +1630,7 @@ creatures:
     img: null
 
   - name: Liche
+    lineage: No-muerto
     tier: 6 # Rango 6 (Presupuesto 38 PPF / Límite 14)
     attributes:
       body: 4
