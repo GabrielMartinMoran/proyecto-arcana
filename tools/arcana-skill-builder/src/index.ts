@@ -28,6 +28,7 @@ const __dirname = path.dirname(__filename);
 const BUILDER_ROOT = path.resolve(__dirname, '..');
 const SKILL_TEMPLATE_PATH = path.join(BUILDER_ROOT, 'skill-template.md');
 const TEMPLATE_PLACEHOLDER = '<!-- BUILD:INSERT-GENERATED-CONTENT -->';
+const TEMPLATE_COMPILED_AT = '<!-- BUILD:COMPILED-AT -->';
 
 interface HubSection {
 	heading: string;
@@ -175,7 +176,11 @@ const injectSkillTemplate = async (content: string): Promise<void> => {
 	const normalizedContent = content.trimEnd();
 	const replacement = normalizedContent.length > 0 ? `${normalizedContent}\n` : '';
 
-	const finalSkill = template.replace(TEMPLATE_PLACEHOLDER, replacement);
+	const compiledAt = new Date().toUTCString();
+
+	const finalSkill = template
+		.replace(TEMPLATE_COMPILED_AT, compiledAt)
+		.replace(TEMPLATE_PLACEHOLDER, replacement);
 	writeMarkdown(path.join(CONFIG.OUT_PATH, 'SKILL.md'), finalSkill);
 };
 
