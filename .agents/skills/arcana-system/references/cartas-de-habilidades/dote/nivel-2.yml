@@ -93,14 +93,14 @@ cards:
       - Dote
     requirements: Mente 3 | Instinto 3 | Presencia 3
     uses:
-      type: null
-      qty: 0
+      type: RELOAD
+      qty: 5
     description: >-
-      Concentras tu voluntad en tus conjuros, haciéndolos más difíciles de resistir. Cuando lanzas una carta de Conjuro
-      que obliga a un enemigo a realizar una Tirada de Salvación, puedes gastar Puntos de Suerte antes de que el enemigo
-      realice su tirada. Por cada Punto de Suerte que gastes, el Nivel de Dificultad (ND) de esa tirada aumenta en +1.
-      No puedes gastar más Puntos de Suerte que tu puntuación en el atributo de lanzamiento de conjuros (Mente, Instinto
-      o Presencia). Si el conjuro afecta a múltiples criaturas, debes elegir a una de ellas para aplicarle este efecto.
+      Fuerzas tu capacidad mágica al límite para superar las defensas enemigas. Cuando lanzas una carta de Conjuro que
+      obliga a un enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar el Nivel de
+      Dificultad (ND) de esa tirada en +2.<br> Al hacerlo, te sientes agotado hasta el final de tu próximo turno: sufres
+      Desventaja en tus Tiradas de Ataque y Pruebas de Habilidad (incluyendo Concentración), y el ND de cualquier carta
+      que uses se reduce en -2.
     slug: conjuracion-elevada
   - id: 3fd596350326c0671b326dba70fcf7c474b50074
     name: Maestría con Escudo

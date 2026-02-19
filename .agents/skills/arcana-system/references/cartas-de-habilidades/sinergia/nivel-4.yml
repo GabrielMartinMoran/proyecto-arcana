@@ -53,10 +53,10 @@ cards:
     description: >-
       Tu disciplina marcial y tu fortaleza interior se fusionan. Ganas los siguientes beneficios permanentes:<br> -
       **Defensa Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para
-      resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br> - **Voluntad
-      Inquebrantable:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción y gastar 1
-      Punto de Suerte para volver a tirar el dado d8. Debes usar el nuevo resultado. Solo puedes usar esta habilidad una
-      vez por Tirada de Salvación fallida.
+      resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br> - **Mente de
+      Acero:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción para volver a tirar
+      el dado. Debes usar el nuevo resultado. Puedes usar esta habilidad una cantidad de veces igual a la mitad de tu
+      Instinto (redondeado hacia abajo) por día de descanso.
     slug: voluntad-indomable
   - id: c8040605c81b0bced9d9e6733bf82880390db938
     name: Maestría de la Hoja Arcana
@@ -260,9 +260,9 @@ cards:
       qty: 0
     description: >-
       Dominas tanto la lógica arcana como la fe divina. Ganas los siguientes beneficios permanentes:<br> - **Doble Senda
-      Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Mente o tu Instinto como tu
-      atributo de lanzamiento.<br> - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para
-      activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
+      Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Atributo Mágico o tu Instinto
+      como tu atributo de lanzamiento.<br> - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que
+      sirve para activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
     slug: versatilidad-teurgica
   - id: 1eaa6818c5f423c85340fc1120ea617986a0eae4
     name: Maestría Elemental Compartida
@@ -279,9 +279,10 @@ cards:
     description: >-
       Comandas tanto los elementos puros como la energía primordial de la naturaleza. Ganas los siguientes beneficios
       permanentes:<br> - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un
-      número de criaturas igual a tu Mente dentro del área para que no se vean afectadas.<br> - **Potencia Elemental:**
-      Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes
-      añadir tu puntuación de Mente o Instinto (la que sea más alta) a una de las tiradas de daño.
+      número de criaturas igual a tu Atributo Mágico dentro del área para que no se vean afectadas.<br> - **Potencia
+      Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o
+      Druida, puedes añadir tu puntuación de Atributo Mágico o Instinto (la que sea más alta) a una de las tiradas de
+      daño.
     slug: maestria-elemental-compartida
   - id: 4ba6dedd0541eb10ca17df20d91d00194dd12ccd
     name: Mano Purgadora

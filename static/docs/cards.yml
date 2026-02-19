@@ -518,18 +518,18 @@ cards:
     uses:
       type: null
       qty: 0
-  - name: Conjuración Elevada
+  - name: 'Conjuración Elevada'
     level: 2
     type: activable
     tags:
       - Dote
     requirements: 'Mente 3 | Instinto 3 | Presencia 3'
     description: >-
-      Concentras tu voluntad en tus conjuros, haciéndolos más difíciles de resistir. Cuando lanzas una carta de Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes gastar Puntos de Suerte antes de que el enemigo realice su tirada. Por cada Punto de Suerte que gastes, el Nivel de Dificultad (ND) de esa tirada aumenta en +1. No puedes gastar más Puntos de Suerte que tu puntuación en el atributo de lanzamiento de conjuros (Mente, Instinto o Presencia).
-      Si el conjuro afecta a múltiples criaturas, debes elegir a una de ellas para aplicarle este efecto.
+      Fuerzas tu capacidad mágica al límite para superar las defensas enemigas. Cuando lanzas una carta de Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar el Nivel de Dificultad (ND) de esa tirada en +2.<br>
+      Al hacerlo, te sientes agotado hasta el final de tu próximo turno: sufres Desventaja en tus Tiradas de Ataque y Pruebas de Habilidad (incluyendo Concentración), y el ND de cualquier carta que uses se reduce en -2.
     uses:
-      type: null
-      qty: 0
+      type: RELOAD
+      qty: 5
   - name: Maestría con Escudo
     level: 2
     type: activable
@@ -1351,18 +1351,19 @@ cards:
     uses:
       type: null
       qty: 0
-  - name: Teoría Arcana Avanzada
+  - name: 'Teoría Arcana Avanzada'
     level: 3
     type: efecto
     tags:
       - Mago
-    requirements: 'Afinidad Arcana & Mente 4'
+    requirements: 'Estudios Mágicos & Mente 4'
     description: >-
-      Tu entendimiento de la magia te permite manipular tus conjuros. Cuando lanzas una carta de Conjuro de Arcanista,
-      puedes gastar Puntos de Suerte para aplicar uno de los siguientes efectos (solo uno por lanzamiento):<br>
-      - **1 Suerte (Conjuro Sutil):** Lanzas el conjuro sin componentes obvios.<br>
-      - **1 Suerte (Conjuro Distante):** Aumentas el alcance de un conjuro de Cercana a Media, o de Media a Larga.<br>
-      - **2 Suerte (Conjuro Bifurcado):** Un conjuro que afecta a un solo objetivo, ahora afecta a un segundo objetivo dentro del alcance.<br>
+      Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros en el momento de lanzarlos.<br>
+      Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres recuperarlo:<br>
+      - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas su alcance un rango (ej. de Cercana a Media).<br>
+      - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas igual a tu Atributo Mágico dentro del área para que no sean afectadas por el conjuro.<br>
+      - **Conjuro Bifurcado (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del alcance.<br><br>
+      **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante fuera superior a 8.
     uses:
       type: null
       qty: 0
@@ -3810,7 +3811,7 @@ cards:
     description: >-
       Tu disciplina marcial y tu fortaleza interior se fusionan. Ganas los siguientes beneficios permanentes:<br>
       - **Defensa Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br>
-      - **Voluntad Inquebrantable:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para volver a tirar el dado d8. Debes usar el nuevo resultado. Solo puedes usar esta habilidad una vez por Tirada de Salvación fallida.
+      - **Mente de Acero:** Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción para volver a tirar el dado. Debes usar el nuevo resultado. Puedes usar esta habilidad una cantidad de veces igual a la mitad de tu Instinto (redondeado hacia abajo) por día de descanso.
     uses:
       type: null
       qty: 0
@@ -3996,7 +3997,7 @@ cards:
     requirements: 'Afinidad Arcana & Fe Inspiradora & Instinto 5'
     description: >-
       Dominas tanto la lógica arcana como la fe divina. Ganas los siguientes beneficios permanentes:<br>
-      - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Mente o tu Instinto como tu atributo de lanzamiento.<br>
+      - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Atributo Mágico o tu Instinto como tu atributo de lanzamiento.<br>
       - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
     uses:
       type: null
@@ -4013,8 +4014,8 @@ cards:
     requirements: 'Afinidad Arcana & Sintonía Primordial & Instinto 5'
     description: >-
       Comandas tanto los elementos puros como la energía primordial de la naturaleza. Ganas los siguientes beneficios permanentes:<br>
-      - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un número de criaturas igual a tu Mente dentro del área para que no se vean afectadas.<br>
-      - **Potencia Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes añadir tu puntuación de Mente o Instinto (la que sea más alta) a una de las tiradas de daño.
+      - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un número de criaturas igual a tu Atributo Mágico dentro del área para que no se vean afectadas.<br>
+      - **Potencia Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes añadir tu puntuación de Atributo Mágico o Instinto (la que sea más alta) a una de las tiradas de daño.
     uses:
       type: null
       qty: 0

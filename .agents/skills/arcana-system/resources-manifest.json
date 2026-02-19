@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-02-18T19:49:44.888Z",
+  "generatedAt": "2026-02-19T01:33:39.580Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -297,8 +297,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-3.yml",
       "kind": "file",
-      "size": 857,
-      "sha1": "0b648cae73ee6b5ba24f3de216716e36067f74cb"
+      "size": 1370,
+      "sha1": "d130749d15e0c76a4de55359a43317f9937203ad"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-4.yml",
@@ -439,8 +439,8 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
       "kind": "file",
-      "size": 8356,
-      "sha1": "ec2fba9fa05044d3d37b68807fbf9e9811c76b4f"
+      "size": 8263,
+      "sha1": "6114b03521265f801bf0d375a9ed988586555478"
     },
     {
       "path": "references/cartas-de-habilidades/linaje",
@@ -459,8 +459,8 @@
     {
       "path": "references/cartas-de-habilidades/sinergia/nivel-4.yml",
       "kind": "file",
-      "size": 18625,
-      "sha1": "9aaa8856c29b7347e6548a03f7c23be4134f4fbb"
+      "size": 18679,
+      "sha1": "dcd89b28c50d726a90bd06c5a4276ed87d1c39a5"
     },
     {
       "path": "references/datasets",
@@ -475,8 +475,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 181961,
-      "sha1": "d7a46620064bf5e9c056c532de72cd089c4e0768"
+      "size": 182409,
+      "sha1": "f5b10bc65789b4ecb7d2348a989583d05ddd409e"
     },
     {
       "path": "references/datasets/magical-items.yml",

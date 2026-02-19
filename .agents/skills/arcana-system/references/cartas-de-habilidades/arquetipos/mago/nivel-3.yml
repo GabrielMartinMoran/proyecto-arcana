@@ -5,14 +5,19 @@ cards:
     type: efecto
     tags:
       - Mago
-    requirements: Afinidad Arcana & Mente 4
+    requirements: Estudios Mágicos & Mente 4
     uses:
       type: null
       qty: 0
     description: >-
-      Tu entendimiento de la magia te permite manipular tus conjuros. Cuando lanzas una carta de Conjuro de Arcanista,
-      puedes gastar Puntos de Suerte para aplicar uno de los siguientes efectos (solo uno por lanzamiento):<br> - **1
-      Suerte (Conjuro Sutil):** Lanzas el conjuro sin componentes obvios.<br> - **1 Suerte (Conjuro Distante):**
-      Aumentas el alcance de un conjuro de Cercana a Media, o de Media a Larga.<br> - **2 Suerte (Conjuro Bifurcado):**
-      Un conjuro que afecta a un solo objetivo, ahora afecta a un segundo objetivo dentro del alcance.<br>
+      Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros en el momento de lanzarlos.<br>
+      Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes
+      efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres
+      recuperarlo:<br> - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas
+      su alcance un rango (ej. de Cercana a Media).<br> - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las
+      dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas
+      igual a tu Atributo Mágico dentro del área para que no sean afectadas por el conjuro.<br> - **Conjuro Bifurcado
+      (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del
+      alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante
+      fuera superior a 8.
     slug: teoria-arcana-avanzada
