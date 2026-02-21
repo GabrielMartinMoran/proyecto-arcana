@@ -20,36 +20,53 @@ ARCANA es un juego que recompensa más que solo el combate. Los PP deben ser un 
 - **Ideas Creativas:** El grupo encontró una solución ingeniosa y no convencional para un problema. Recompensa el pensamiento lateral.
 - **Fracasos Interesantes:** A veces, un fracaso puede hacer la historia más emocionante. Si el error de un jugador introduce una complicación dramática y divertida, considera otorgarle un punto por ello.
 
+## El Ritmo de la Campaña
+
+Antes de definir la cantidad exacta de puntos por sesión, es importante acordar con tu mesa qué ritmo de progresión desean tener. Para proyectar el poder del grupo y el tiempo que tomará la campaña, utilizaremos los hitos mecánicos oficiales del sistema:
+
+- **Rango 2 - Inicio (26 PP):** El paso de aventureros locales a héroes experimentados.
+- **Rango 3 - Inicio (61 PP):** La transición hacia personajes de gran poder, capaces de alterar regiones enteras.
+- **Rango 3 - Avanzado (91+ PP):** El pico de poder del sistema, enfrentando amenazas legendarias.
+
+Elige uno de los siguientes enfoques según el estilo de tu mesa:
+
+- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando o viajando es la norma. (Llegar a Rango 2 toma ~17-20 sesiones; a Rango 3 Avanzado, 60+ sesiones).
+- **Ritmo Moderado / Estándar:** El equilibrio ideal para la mayoría de las mesas. Intercala exploración con combates decisivos de forma regular. (Llegar a Rango 2 toma ~9-10 sesiones; a Rango 3 Avanzado, 30-35 sesiones).
+- **Ritmo Rápido / Épico:** Ideal para campañas cortas o mesas que juegan con poca frecuencia. El avance es acelerado y el riesgo es constante. (Llegar a Rango 2 toma ~6-7 sesiones; a Rango 3 Avanzado, 20-25 sesiones).
+
 ## ¿Cuántos PP Otorgar? (Una Guía Flexible)
 
-En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupuesto de PP por sesión. Una buena regla general es repartir **entre 2 y 5 PP por personaje al final de cada sesión**.
+En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupuesto de PP por sesión **basado en el ritmo elegido**. Utiliza las siguientes descripciones para evaluar qué tipo de sesión acaban de jugar y otorga los puntos según corresponda:
 
-- **2 PP (Sesión de Progreso):** Una sesión estándar donde hubo algo de investigación, un combate menor o se avanzó en la trama sin grandes hitos.
-- **3 PP (Sesión Exitosa):** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo. Esta debería ser la recompensa más habitual.
-- **4 PP (Sesión Memorable):** Ocurrió algo épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o tuvo un momento de interpretación brillante que definió la sesión.
-- **+1 PP (Bono Individual):** Siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
+- **Sesión de Progreso / Transición:** El grupo interactuó con PNJs, viajó, resolvió conflictos menores o avanzó en la trama sin grandes hitos. Fue una sesión de construcción de mundo.
+  - _Ritmo Lento:_ **1 PP** | _Ritmo Moderado:_ **2 PP** | _Ritmo Rápido:_ **3 PP**
+- **Sesión Exitosa:** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo (puzzle complejo o intriga). Esta debería ser la recompensa más habitual.
+  - _Ritmo Lento:_ **2 PP** | _Ritmo Moderado:_ **3 PP** | _Ritmo Rápido:_ **4 PP**
+- **Sesión Memorable / Final de Arco:** Ocurrió algo verdaderamente épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o salvó a un asentamiento de la destrucción.
+  - _Ritmo Lento:_ **3 PP** | _Ritmo Moderado:_ **4 PP** | _Ritmo Rápido:_ **5 PP**
+
+**+1 PP (Bono Individual):** Independientemente del ritmo, siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
 
 # El Pacto de Caos
 
-El Caos es un recurso narrativo que el DJ acumula cuando los jugadores eligen forzar su suerte.
+El Caos es un recurso narrativo y mecánico que el DJ acumula cuando los jugadores eligen forzar su suerte. Representa cómo el mundo y el destino reaccionan para reequilibrar la balanza.
 
 ### Ganar Puntos de Caos
 
-Tal como esta descrito en el Manual de Jugador, el DJ gana **1 Punto de Caos** cada vez que un jugador declara que va a comprar **1 Punto de Suerte**.
+Tal como está descrito en el Manual del Jugador, el DJ gana **1 Punto de Caos** cada vez que un jugador declara que va a comprar **1 Punto de Suerte**.
 
 - Esta reserva de Puntos de Caos **no tiene límite máximo**.
-- Esta reserva **no se reinicia** al final de la sesión; es una "deuda" persistente de la campaña.
+- Esta reserva **no se reinicia** al final de la sesión; es una "deuda" persistente del grupo a lo largo de la campaña.
 
 ### Gastar Puntos de Caos
 
-El DJ puede gastar Puntos de Caos en cualquier momento para influir en la narrativa, reflejando cómo el mundo reacciona a la manipulación del destino por parte de los jugadores.
+El DJ puede gastar Puntos de Caos en cualquier momento para influir en la narrativa y complicar la vida de los héroes. Existen tres formas de gastar Caos:
 
-Hay dos formas principales de gastar Caos:
+- **Reflejo Hostil (Costo: 1 Punto de Caos):** Añades **+1d4** a cualquier tirada realizada por un PNJ o criatura (Ataque, Salvación o Prueba de Habilidad). Representa un golpe de suerte o un esfuerzo sobrehumano del enemigo. (Límite: 1 dado extra por tirada).
+- **Complicación Ambiental (Costo: 1 Punto de Caos por cada +1):** Añades un **+1 plano** al Nivel de Dificultad (ND) de una prueba que un jugador esté a punto de realizar, o sumas un **+1 a la Esquiva** de un enemigo frente a un ataque inminente. Puedes gastar múltiples puntos a la vez para un modificador mayor. Representa un viento repentino, terreno inestable o pura mala fortuna.
+- **Segunda Oportunidad (Costo: 2 Puntos de Caos):** El DJ puede **volver a tirar el d8** de una prueba de habilidad, ataque o salvación fallida de un PNJ o monstruo, debiendo quedarse con el segundo resultado. Ideal para cuando un enemigo crucial falla estrepitosamente y un +1d4 no sería suficiente para salvar la tirada.
 
-- **Reflejo Hostil:** Gastar 1 Punto de Caos para añadir **+1d4** a cualquier tirada realizada por un PNJ o criatura (Ataque, Salvación o Prueba de Habilidad).
-- **Desafío Creciente:** Gastar 1 Punto de Caos para añadir **+1d4** al **Nivel de Dificultad (ND)** de una prueba de habilidad o tirada de salvación que uno o más jugadores estén a punto de realizar.
-
-**Filosofía de Uso:** Para evitar una sensación punitiva, el DJ no debería gastar Caos para contrarrestar _directamente_ la misma acción para la cual el jugador acaba de comprar Suerte. El Caos es una _consecuencia_ futura, no un "impuesto" inmediato.
+**Filosofía de Uso:** Para evitar una sensación punitiva, el DJ no debería gastar Caos para contrarrestar _directamente_ la misma acción para la cual el jugador acaba de comprar Suerte. El Caos es una _consecuencia_ inminente, no un impuesto inmediato. Utiliza las Complicaciones Ambientales para alterar el entorno de forma narrativa, y reserva la Segunda Oportunidad para los villanos principales.
 
 # Guía de Recompensas: Tesoro y Equipo
 
