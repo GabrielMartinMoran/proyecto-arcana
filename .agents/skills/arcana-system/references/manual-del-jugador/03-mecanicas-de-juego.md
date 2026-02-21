@@ -51,3 +51,5 @@ La Suerte es un recurso que permite a los jugadores influir en el resultado de s
 ### Comprar Suerte
 
 En cualquier momento, un jugador puede declarar al Director de Juego (DJ) que desea **Comprar Suerte**. Entonces, el personaje gana imediatamente **1 Punto de Suerte** (no puede superar su máximo disponible). Sin embargo, a cambio de esto, el DJ gana **1 Punto de Caos** (cuyos usos estan detallados en la guía del Director de Juego).
+
+**Límite de Compra:** Para evitar abusar del destino, un personaje solo puede Comprar Suerte un máximo de **2 o 3 veces por sesión** dependiendo de si esta es corta o larga respectivamente.

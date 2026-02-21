@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-02-19T01:33:39.580Z",
+  "generatedAt": "2026-02-21T20:36:11.794Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -497,14 +497,14 @@
     {
       "path": "references/manual-del-director/02-otorgar-puntos-de-progreso-pp.md",
       "kind": "file",
-      "size": 2923,
-      "sha1": "a74f6434c18ac6b7f570c438c8adf43546ba2d45"
+      "size": 4671,
+      "sha1": "b82cd8af0db795e6fdd4ba3ab878ae93e7a48f6e"
     },
     {
       "path": "references/manual-del-director/03-el-pacto-de-caos.md",
       "kind": "file",
-      "size": 1336,
-      "sha1": "973fa8f1d54be9bcfdcd16582f433879b1e610dc"
+      "size": 2143,
+      "sha1": "c177706bcf36da5cc1ea3e17b89ac33034e2ff6e"
     },
     {
       "path": "references/manual-del-director/04-guia-de-recompensas-tesoro-y-equipo.md",
@@ -561,8 +561,8 @@
     {
       "path": "references/manual-del-jugador/03-mecanicas-de-juego.md",
       "kind": "file",
-      "size": 3890,
-      "sha1": "d032b45787d19eef1463bdaccff37f27a477b49a"
+      "size": 4084,
+      "sha1": "b23ad3d8f5b1f3dd2edc1813d839a482663cc3ac"
     },
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
