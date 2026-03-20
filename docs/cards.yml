@@ -649,9 +649,7 @@ cards:
       - Pícaro
     requirements: Senda del Bribón
     description: >-
-      Una vez por turno, cuando impactas a un enemigo con un arma Precisa
-      o a distancia, infliges +1d4 de daño adicional si tenías Ventaja en la tirada
-      de ataque o si un aliado está adyacente al objetivo.
+      Como **Acción**, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada o si un aliado está adyacente al objetivo, infliges +1d4 de daño adicional.
     uses:
       type: null
       qty: 0
@@ -715,7 +713,7 @@ cards:
     requirements: 'Ataque Furtivo & Reflejos 4'
     description: >-
       Tu velocidad con las armas ligeras es imperceptible.<br>
-      Cuando realizas la acción de Atacar con un arma con la propiedad Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma Precisa.
+      Cuando usas tu Acción para Atacar o para realizar un _Ataque Furtivo_ con un arma Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma Precisa. Si utilizaste la acción de _Ataque Furtivo_ y fallaste el primer golpe, puedes aplicar su daño adicional en este impacto extra (siempre que cumplas las condiciones).
     uses:
       type: null
       qty: 0
@@ -949,10 +947,11 @@ cards:
       - Pícaro
     requirements: 'Asesinar & Reflejos 6'
     description: >-
-      Como **Interacción**, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se **maximiza** (cada dado cuenta como su valor máximo).
+      Como Interacción, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4).
+      Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 8
 
   - name: Golpe Fantasma
     level: 5
@@ -961,7 +960,9 @@ cards:
       - Pícaro
     requirements: 'Ataque Furtivo Mejorado & Reflejos 6'
     description: >-
-      Tu golpe es tan rápido y preciso que atraviesa las defensas. Como Acción, realizas un único ataque con un arma Precisa o a distancia. Este ataque ignora toda Mitigación Física y Puntos de Salud temporales. Si impactas y aplicas tu Ataque Furtivo, el daño adicional de Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+      Tu golpe es tan rápido y preciso que atraviesa las defensas.<br>
+      Como Acción, realizas un único ataque con un arma Precisa o a distancia.
+      Este ataque ignora toda Mitigación Física, Mitigación Mágica y Puntos de Salud temporales del objetivo. Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.
     uses:
       type: RELOAD
       qty: 8
@@ -979,19 +980,30 @@ cards:
       type: null
       qty: 0
 
+  - name: Maestría Marcial
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero | Sintonía Fluida
+    description: >-
+      Tu entrenamiento marcial te permite dominar el campo de batalla con tu enfoque preferido.<br>Tienes acceso a la lista de cartas de _Combatiente_ y usas tu **Atributo Marcial** para cumplir los requerimientos y calcular los efectos de estas cartas.
+    uses:
+      type: null
+      qty: 0
+
   # ------------------------------ COMBATIENTE ------------------------------
   - name: Sintonía con el Acero
     level: 1
     type: efecto
     tags:
-      - Combatiente
+      - Coloso
       - Arquetipo
+      - Combatiente
     requirements: Cuerpo 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br>
-      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +6.
-      Además, puedes usar tu puntuación de **Cuerpo** en lugar de tu puntuación de **Presencia** al realizar pruebas de habilidad
-      de **Intimidación**. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
+      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6. Además, puedes usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
       _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
@@ -1002,17 +1014,95 @@ cards:
     tags:
       - Combatiente
       - Curación
-    requirements: Sintonía con el Acero
+    requirements: Maestría Marcial
     description: >-
-      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Cuerpo.
+      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo Marcial.
     uses:
       type: LONG_REST
       qty: 2
+
+  - name: Sintonía Fluida
+    level: 1
+    type: efecto
+    tags:
+      - Céfiro
+      - Arquetipo
+      - Combatiente
+    requirements: Reflejos 2
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Acrobacias y Supervivencia.<br><br>
+      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial. Tu Salud máxima aumenta en +5. Además, ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo), siempre que cumplas el requisito de atributo de la armadura. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
+      _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    uses:
+      type: null
+      qty: 0
+  - name: Foco del Escaramuzador
+    level: 1
+    type: activable
+    tags:
+      - Céfiro
+    requirements: Sintonía Fluida
+    description: >-
+      Como Interacción, entras en un estado de concentración absoluta durante 1 minuto o hasta que quedes inconsciente. Mientras dure este estado, tu velocidad de reacción te otorga un +1 a tu Esquiva y puedes desenvainar o guardar armas sin gastar tu Interacción.<br>
+      Mientras dure el foco, no puedes mantener concentración en otras habilidades o usar cartas con la etiqueta _Conjuro_.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Precisión Letal
+    level: 2
+    type: activable
+    tags:
+      - Céfiro
+    requirements: 'Sintonía Fluida & Reflejos 3'
+    description: >-
+      Tu paciencia y puntería te permiten realizar disparos y estocadas imposibles.<br>
+      Mientras tengas esta carta activa, si no has gastado nada de tu movimiento durante tu turno, puedes sacrificarlo para obtener un +1 a tus tiradas de ataque con armas Precisas, a distancia y arrojadizas hasta el final de tu turno.<br>
+      Como Acción, puedes gastar un uso de esta carta para realizar un único ataque con una de estas armas. Si impacta, el golpe ignora toda la Mitigación Física del objetivo.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Torbellino de Acero
+    level: 3
+    type: activable
+    tags:
+      - Céfiro
+    requirements: 'Precisión Letal & Reflejos 4'
+    description: >-
+      Como Acción, desatas una ráfaga ineludible. Si usas un arma a distancia, eliges un punto a distancia Larga. Si usas un arma cuerpo a cuerpo Precisa, el punto eres tú mismo. Todas las criaturas a 3 metros del punto elegido deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño (del mismo tipo que tu arma).
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Memoria Muscular
+    level: 4
+    type: efecto
+    tags:
+      - Céfiro
+    requirements: 'Sintonía Fluida & Reflejos 5'
+    description: >-
+      Tu cuerpo lee y se adapta al ritmo de tus oponentes en tiempo real. Obtienes Ventaja (+1d4) en todas tus Tiradas de Salvación de Reflejos.<br>
+      Además, cada vez que un enemigo te impacta con un ataque, obtienes un +1 acumulativo a tu Esquiva exclusivamente contra los próximos ataques de ese mismo enemigo. Este bonificador se mantiene hasta el inicio de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Tempestad Incesante'
+    level: 5
+    type: activable
+    tags:
+      - Céfiro
+    requirements: 'Sintonía con el Acero & Reflejos 6'
+    description: >-
+      Te conviertes en una ráfaga letal y omnipresente en el campo de batalla.<br>
+      Como Acción, eliges hasta un número de enemigos igual a tu puntuación de Reflejos que puedas ver a distancia Larga. Realizas un único ataque (usando un arma Precisa o a distancia) contra cada uno de ellos.<br>
+      Este asalto es tan rápido que parece que te teletransportas.<br>
+      Inmediatamente después de resolver todos los ataques, puedes elegir aparecer en un espacio desocupado a distancia Inmediata de cualquiera de los objetivos atacados, o bien regresar a la posición desde donde iniciaste la habilidad.
+    uses:
+      type: LONG_REST
+      qty: 1
   - name: Furia de Batalla
     level: 1
     type: activable
     tags:
-      - Combatiente
+      - Coloso
     requirements: Sintonía con el Acero
     description: >-
       Entras en furia por 1 minuto o hasta que quedes inconsciente.
@@ -1028,7 +1118,7 @@ cards:
     tags:
       - Combatiente
       - Reacción
-    requirements: 'Sintonía con el Acero & Reflejos 2'
+    requirements: 'Maestría Marcial & Atributo Marcial 2'
     description: >-
       Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él,
       puedes usar tu Reacción para realizar un único ataque cuerpo a cuerpo contra él.
@@ -1041,7 +1131,7 @@ cards:
     type: activable
     tags:
       - Combatiente
-    requirements: 'Sintonía con el Acero & Presencia 2'
+    requirements: 'Maestría Marcial & Presencia 2'
     description: >-
       Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo desafías.
       Realizas una Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el objetivo está
@@ -1056,15 +1146,15 @@ cards:
     tags:
       - Combatiente
       - Reacción
-    requirements: 'Sintonía con el Acero & Cuerpo 3 & Reflejos 2'
+    requirements: 'Maestría Marcial & Atributo Marcial 3'
     description: >-
       Tu entrenamiento marcial es extenso y adaptable. Al finalizar un día de descanso, adoptas una Postura de Combate que te otorga beneficios según el equipo que empuñes:<br>
       - **Destructor (A dos manos):** Cuando atacas con un arma a dos manos o versátil (usando ambas manos), puedes volver a tirar cualquier dado de daño que resulte en un 1 o un 2 (debes usar el nuevo resultado).<br>
       - **Torbellino (Dos armas):** Cuando atacas con un arma de una mano, puedes usar tu Interacción para realizar un ataque adicional con otra arma de una mano que empuñes.<br>
       - **Duelista (Un arma):** Cuando empuñas un arma de una mano y ninguna otra arma (puedes llevar escudo), puedes usar tu Reacción al ser golpeado para añadir +1 a tu Esquiva contra ese ataque.<br>
       - **Guardián (Escudo):** Cuando un enemigo ataca a un aliado a distancia Inmediata de ti y estás usando un escudo, puedes usar tu Reacción para imponer Desventaja (-1d4) en su tirada de ataque.<br>
-      - **Tirador (A distancia):** Tus ataques a distancia ignoran la cobertura parcial y su alcance aumenta un rango (Por ejemplo: Media → Larga).<br>
-      - **Hostigador (Arrojadizas):** Puedes desenvainar armas arrojadizas como parte de cada ataque (sin gastar interacción) y su alcance aumenta un rango (Por ejemplo: Cercana → Media).
+      - **Tirador (A distancia):** Tus ataques a distancia ignoran la cobertura parcial y su alcance aumenta un rango (Por ejemplo: Media a Larga).<br>
+      - **Hostigador (Arrojadizas):** Puedes desenvainar armas arrojadizas como parte de cada ataque (sin gastar interacción) y su alcance aumenta un rango (Por ejemplo: Cercana a Media).
     uses:
       type: null
       qty: 0
@@ -1074,7 +1164,7 @@ cards:
     type: activable
     tags:
       - Combatiente
-    requirements: 'Sintonía con el Acero & Cuerpo 4'
+    requirements: 'Maestría Marcial & Atributo Marcial 4'
     description: >-
       Ganas una Acción extra en este turno.
     uses:
@@ -1084,7 +1174,7 @@ cards:
     level: 2
     type: activable
     tags:
-      - Combatiente
+      - Coloso
     requirements: 'Sintonía con el Acero & Cuerpo 3'
     description: >-
       Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando
@@ -1098,7 +1188,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: 'Sintonía con el Acero & Cuerpo 4'
+    requirements: 'Maestría Marcial & Atributo Marcial 4'
     description: >-
       Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar
       de uno.
@@ -1109,7 +1199,7 @@ cards:
     level: 3
     type: efecto
     tags:
-      - Combatiente
+      - Coloso
     requirements: 'Furia de Batalla & Cuerpo 4'
     description: >-
       Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable.
@@ -1125,7 +1215,7 @@ cards:
     type: activable
     tags:
       - Combatiente
-    requirements: 'Sintonía con el Acero & Cuerpo 4 & Instinto 2'
+    requirements: 'Maestría Marcial & Atributo Marcial 4 & Instinto 2'
     description: >-
       Puedes repetir una Tirada de Salvación fallida.
     uses:
@@ -1137,7 +1227,7 @@ cards:
     tags:
       - Combatiente
       - Reacción
-    requirements: 'Sintonía con el Acero & Cuerpo 4'
+    requirements: 'Maestría Marcial & Atributo Marcial 4'
     description: >-
       Como Reacción, cuando un golpe te reduciría a 0 Puntos de Salud, puedes
       hacer que te dejen con 1 Punto de Salud en su lugar.
@@ -1149,7 +1239,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: 'Sintonía con el Acero & Cuerpo 5'
+    requirements: 'Maestría Marcial & Atributo Marcial 5'
     description: >-
       Tu conciencia del campo de batalla es absoluta.<br>
       No puedes ser sorprendido mientres estes consciente.
@@ -1161,12 +1251,12 @@ cards:
     level: 4
     type: efecto
     tags:
-      - Combatiente
+      - Coloso
     requirements: 'Sintonía con el Acero & Cuerpo 5'
     description: >-
       Eres una montaña inamovible en el campo de batalla. Ganas los siguientes beneficios:<br>
-      - Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br>
-      - Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+      - **Inquebrantable:** Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br>
+      - **Resistencia Titánica:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
     uses:
       type: null
       qty: 0
@@ -1175,7 +1265,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: 'Ataque Adicional & Cuerpo 6'
+    requirements: 'Ataque Adicional & Atributo Marcial 6'
     description: >-
       Tu maestría marcial alcanza la perfección. Cuando usas tu Acción para Atacar, ahora puedes realizar **tres ataques** en lugar de dos.
     uses:
@@ -1186,11 +1276,12 @@ cards:
     level: 5
     type: activable
     tags:
-      - Combatiente
+      - Coloso
       - Reacción
-    requirements: 'Inquebrantable & Cuerpo 6'
+    requirements: 'Sintonía con el Acero & Cuerpo 6'
     description: >-
-      Eres la definición de la resistencia. Como Reacción, cuando tú o un aliado a 1 metro vais a recibir daño, puedes interponer tu cuerpo o escudo. **Anulas completamente el daño** de ese ataque o efecto.
+      Eres la definición de la resistencia.<br>
+      Como Reacción, cuando tú o un aliado a 1 metro van a recibir daño, puedes interponer tu cuerpo o escudo. Al hacer esto, anulas completamente ese daño.
     uses:
       type: LONG_REST
       qty: 1
@@ -1200,7 +1291,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: 'Sintonía con el Acero & Presencia 2'
+    requirements: 'Maestría Marcial & Presencia 2'
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Persuasión. Aliados a distancia Cercana que
       puedan verte y oírte ganan un +1 a las Tiradas de Salvación contra miedo.
@@ -1267,7 +1358,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: Sintonía con el Acero
+    requirements: Maestría Marcial
     description: >-
       Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas.
       Además, cuando lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a
@@ -1299,7 +1390,7 @@ cards:
     requirements: Estudios Mágicos | Pacto Supremo | Herencia Sobrenatural
     description: >-
       Tu conexión con la Urdimbre te permite manipular la magia.<br><br>
-      Tienes acceso a la lista de cartas de _Arcanista_ y usas tu Atributo Mágico para los requerimientos y efectos de estas.
+      Tienes acceso a la lista de cartas de _Arcanista_ y usas tu Atributo Arcano para los requerimientos y efectos de estas.
     uses:
       type: null
       qty: 0
@@ -1315,7 +1406,7 @@ cards:
     description: >-
       Has estudiado la magia al punto de comprender el por qué y el cómo de su funcionamiento.<br>
       Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br>
-      Adquieres la carta _Afinidad Arcana_, y puedes usar Mente como tu Atributo Mágico para las cartas de _Arcanista_.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Mente como tu Atributo Arcano para las cartas de _Arcanista_.<br>
       <br>
       **Beneficio de Arquetipo:**
       - **Memoria Prodigia:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de Mente (redondeado hacia arriba).
@@ -1345,7 +1436,7 @@ cards:
     tags:
       - Mago
       - Ritual
-    requirements: 'Estudios Mágicos & Atributo Mágico 3'
+    requirements: 'Estudios Mágicos & Atributo Arcano 3'
     description: >-
       Tras 1 hora de ritual, invocas un espíritu mágico menor (cuervo, gato, sapo, etc.). El familiar tiene 1 PS, Esquiva 10 y no puede atacar, pero obedece tus órdenes telepáticas a distancia Larga. Como Acción, puedes ver y oír a través de sus sentidos (quedando tú ciego y sordo a tu entorno). Si muere, debes repetir el ritual para volver a invocarlo.
     uses:
@@ -1361,7 +1452,7 @@ cards:
       Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros en el momento de lanzarlos.<br>
       Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres recuperarlo:<br>
       - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas su alcance un rango (ej. de Cercana a Media).<br>
-      - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas igual a tu Atributo Mágico dentro del área para que no sean afectadas por el conjuro.<br>
+      - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas igual a tu Atributo Arcano dentro del área para que no sean afectadas por el conjuro.<br>
       - **Conjuro Bifurcado (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del alcance.<br><br>
       **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante fuera superior a 8.
     uses:
@@ -1373,9 +1464,22 @@ cards:
     tags:
       - Mago
       - Ritual
-    requirements: 'Estudios Mágicos & Atributo Mágico 5'
+    requirements: 'Estudios Mágicos & Mente 5'
     description: >-
       Inviertes 10 minutos para anclar un conjuro de Arcanista de Nivel 1, 2 o 3 (que requiera Acción o Interacción) a una condición específica (ej: "Si recibo daño", "Si caigo al agua"). Debes gastar un uso del conjuro en este momento. Cuando la condición se cumple, el conjuro se lanza automáticamente como una Reacción instantánea. Solo puedes tener una contingencia activa a la vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: 'Fórmula del Archimago'
+    level: 5
+    type: activable
+    tags:
+      - Mago
+    requirements: 'Estudios Mágicos & Mente 6'
+    description: >-
+      Has descifrado el código fuente de la realidad y el cenit del estudio arcano es tuyo.<br>
+      Una vez por día de descanso, puedes usar tu Acción para alterar la Urdimbre a tu conveniencia.<br>
+      Eliges cualquier carta de Conjuro de Arcanista que poseas en tu Colección (incluso si no está equipada en tus Ranuras de Cartas Activas) y la lanzas instantáneamente. Este lanzamiento magistral no requiere componentes verbales ni somáticos, no gasta su uso de Recarga, y maximiza una de las tiradas de dados de la carta.
     uses:
       type: LONG_REST
       qty: 1
@@ -1391,7 +1495,7 @@ cards:
     description: >-
       Has sellado un pacto con una entidad extra-planar que te confiere poderes arcanos.<br><br>
       Obtienes Ventaja (+1d4) en pruebas de **Engaño** e **Intimidación**.<br>
-      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Mágico para las cartas de _Arcanista_.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Arcano para las cartas de _Arcanista_.<br>
       <br>
       **Beneficio de Arquetipo:**<br>
       - **Celos del Patrón:** Tu patrón exige exclusividad. No puedes adquirir ni usar cartas con la etiqueta _Conjuro_ que no pertenezcan a la lista de Arcanista.<br>
@@ -1422,7 +1526,7 @@ cards:
     type: efecto
     tags:
       - Brujo
-    requirements: 'Pacto Supremo & Atributo Mágico 3'
+    requirements: 'Pacto Supremo & Presencia 3'
     description: >-
       La influencia de tu patrón altera tus sentidos.<br>
       Puedes ver normalmente en oscuridad, incluso si es oscuridad mágica.<br>
@@ -1436,10 +1540,10 @@ cards:
     tags:
       - Brujo
       - Reacción
-    requirements: 'Pacto Supremo & Atributo Mágico 4'
+    requirements: 'Pacto Supremo & Presencia 4'
     description: >-
       Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, invocas la protección de tu patrón.<br>
-      Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Mágico.
+      Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.
     uses:
       type: RELOAD
       qty: 5
@@ -1449,11 +1553,25 @@ cards:
     tags:
       - Brujo
       - Reacción
-    requirements: 'Pacto Supremo & Atributo Mágico 5'
+    requirements: 'Pacto Supremo & Presencia 5'
     description: >-
       Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros, impones Desventaja (-1d4) a su tirada. (Recarga 6+)
     uses:
       type: RELOAD
+      qty: 1
+  - name: 'Consumación del Pacto'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo & Presencia 6'
+    description: >-
+      Eres la extensión terrenal absoluta de tu señor extraplanar.<br>
+      Una vez por día de descanso, como Acción, abres un conducto directo hacia el dominio de tu patrón.<br>
+      Tu _Descarga Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu puntuación de Presencia a distancia Larga, realizando una tirada de ataque individual para cada uno.<br>
+      Además, los objetivos que resulten impactados quedan marcados por la fatalidad: la próxima vez que fallen una Tirada de Salvación o reciban un ataque antes del final de tu próximo turno, sufrirán el máximo daño posible de ese efecto.
+    uses:
+      type: LONG_REST
       qty: 1
 
   - name: Herencia Sobrenatural
@@ -1467,7 +1585,7 @@ cards:
     description: >-
       La magia arcana fluye por tu sangre, es parte de tu herencia.<br><br>
       Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de **Persuasión** e **Intimidación**.<br>
-      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Mágico para las cartas de _Arcanista_.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Arcano para las cartas de _Arcanista_.<br>
       <br>
       **Beneficio de Arquetipo:** <br>
       - **Uno con la Magia:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Sangre Mágica_ a tu colección.<br>
@@ -1495,7 +1613,7 @@ cards:
     type: efecto
     tags:
       - Hechicero
-    requirements: 'Herencia Sobrenatural & Cuerpo 2'
+    requirements: 'Herencia Sobrenatural & Presencia 2'
     description: >-
       Tu cuerpo convierte el dolor en una barrera protectora efímera.<br>
       Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos de Salud temporales igual a la mitad de los PS sacrificados (redondeado hacia arriba). Estos puntos temporales duran hasta el inicio de tu próximo turno.
@@ -1507,7 +1625,7 @@ cards:
     type: efecto
     tags:
       - Hechicero
-    requirements: 'Herencia Sobrenatural & Atributo Mágico 4'
+    requirements: 'Herencia Sobrenatural & Presencia 4'
     description: >-
       La magia errática desestabiliza la realidad a tu alrededor.<br>
       Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, tira 1d4 para determinar qué efecto secundario se manifiesta:<br>
@@ -1523,10 +1641,25 @@ cards:
     type: activable
     tags:
       - Hechicero
-    requirements: 'Herencia Sobrenatural & Atributo Mágico 5'
+    requirements: 'Herencia Sobrenatural & Presencia 5'
     description: >-
       Como Acción, dejas que la magia pura de tu linaje te consuma durante 1 minuto.<br>
       Ganas una velocidad de vuelo igual a tu Velocidad normal, emites luz brillante a 3 metros, y el costo en Puntos de Salud de todas las opciones de tu carta _Sangre Mágica_ se reduce a la mitad (redondeado hacia arriba, hasta un mínimo de 1 PS).
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: 'Torrente de la Urdimbre'
+    level: 5
+    type: activable
+    tags:
+      - Hechicero
+      - Reacción
+    requirements: 'Herencia Sobrenatural & Presencia 6'
+    description: >-
+      Eres magia en estado puro, inestable y devastadora.<br>
+      Una vez por día de descanso, cuando tus Puntos de Salud se reducen a 0, puedes usar tu Reacción para negarte a caer, anclando tu alma a la Urdimbre. Quedas con 1 Punto de Salud y tu cuerpo desata una onda de choque inestable de magia pura.<br>
+      liges hasta un número de criaturas hostiles a distancia Cercana igual a tu puntuación de Presencia. Cada objetivo debe superar una TS de Reflejos (ND 5 + Presencia) o recibir 5d8 de daño de Fuerza y ser empujado 3 metros lejos de ti. Si tiene éxito, recibe la mitad del daño y no es empujado.<br>
+      Además, la pura adrenalina mágica te permite recuperar instantáneamente el uso de una carta de Arcanista que tuvieras agotada.
     uses:
       type: LONG_REST
       qty: 1
@@ -1557,7 +1690,7 @@ cards:
     requirements: Afinidad Arcana
     description: >-
       Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
-      de conjuro (1d8+Atributo Mágico) a distancia Cercana contra un objetivo. Si
+      de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo. Si
       impactas, infliges 1d8 de daño del tipo elegido.
     uses:
       type: RELOAD
@@ -1582,7 +1715,7 @@ cards:
       - Conjuro
     requirements: Afinidad Arcana
     description: >-
-      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Atributo Mágico) contra un objetivo.
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Atributo Arcano) contra un objetivo.
       Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
     uses:
       type: RELOAD
@@ -1593,10 +1726,10 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Generas una perturbación mental en una criatura que puedas ver a distancia Media.
-      La criatura debe superar una Tirada de Salvación de Atributo Mágico (ND 5 + Atributo Mágico) o sufrir 2d6 de daño Psíquico y tener desventaja
+      La criatura debe superar una Tirada de Salvación de Atributo Arcano (ND 5 + Atributo Arcano) o sufrir 2d6 de daño Psíquico y tener desventaja
       en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
     uses:
       type: RELOAD
@@ -1645,7 +1778,7 @@ cards:
       Durante 10 minutos, tus ojos brillan con una luz azulada.
       Puedes percibir un aura tenue alrededor de cualquier criatura u objeto visible a distancia Cercana que porte magia.<br>
       Además, como Acción, mientras dure el efecto, puedes concentrarte en un objeto, criatura o área visible a distancia Inmediata.
-      Tras 1 minuto de análisis ininterrumpido, realizas una Prueba de Atributo Mágico (Conocimiento Arcano) para desvelar la naturaleza de cualquier magia presente.<br>
+      Tras 1 minuto de análisis ininterrumpido, realizas una Prueba de Atributo Arcano (Conocimiento Arcano) para desvelar la naturaleza de cualquier magia presente.<br>
       El Nivel de Dificultad (ND) lo establece el DJ, basándose en el poder de la magia.<br>
       - **Con un Éxito:** Aprendes la función general de la fuente de magia.<br>
       - **Con un Éxito Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del conjuro activo.
@@ -1661,7 +1794,7 @@ cards:
     requirements: Afinidad Arcana
     description: >-
       Concentras tu poder arcano en una coraza espectral que absorbe el daño que recibes.
-      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Atributo Mágico.
+      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Atributo Arcano.
     uses:
       type: RELOAD
       qty: 4
@@ -1672,7 +1805,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Tras 10 minutos de meditación, puedes formular una única pregunta al DJ sobre un curso de acción específico
       que planeas tomar en la próxima hora. El DJ te ofrecerá una respuesta breve y críptica, a menudo una visión
@@ -1687,9 +1820,9 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
-      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Mágico).
+      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Arcano).
       Si falla, le aplicas uno de los siguientes efectos durante 1 minuto:<br>
       - Le das desventaja en sus tiradas de ataque usando un atributo en específico.<br>
       - Le das desventaja en sus tiradas de salvación de un atributo en específico.<br>
@@ -1703,7 +1836,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Usas tu Interacción para teletransportarte a un espacio desocupado
       que puedas ver a distancia Cercana.
@@ -1717,7 +1850,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Atributo Mágico 3
+    requirements: Atributo Arcano 3
     description: >-
       Tocas a una criatura voluntaria y se vuelve invisible durante 10 minutos
       o hasta que ataque, lance un conjuro o pierdas la concentración.
@@ -1731,11 +1864,11 @@ cards:
       - Arcanista
       - Conjuro
       - Reacción
-    requirements: Atributo Mágico 3
+    requirements: Atributo Arcano 3
     description: >-
       Mientras tengas esta carta activa, una barrera de energía te protege. Siempre y cuando no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.<br>
       Como Reacción, cuando recibes daño de un conjuro o efecto mágico, puedes gastar un uso de esta carta para sobrecargar la barrera.
-      Ganas Mitigación Mágica igual a dos veces tu puntuación de Atributo Mágico contra ese daño específico.
+      Ganas Mitigación Mágica igual a dos veces tu puntuación de Atributo Arcano contra ese daño específico.
     uses:
       type: RELOAD
       qty: 5
@@ -1745,9 +1878,9 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Descarga Elemental & Atributo Mágico 3'
+    requirements: 'Descarga Elemental & Atributo Arcano 3'
     description: >-
-      Realizas un ataque de conjuro (1d8 + Atributo Mágico) a distancia Media. Si impactas, el objetivo recibe 2d8
+      Realizas un ataque de conjuro (1d8 + Atributo Arcano) a distancia Media. Si impactas, el objetivo recibe 2d8
       de daño de Fuego, Frío o Eléctrico.
     uses:
       type: RELOAD
@@ -1759,11 +1892,11 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Eliges un cubo de 2 metros de lado a distancia Media. El área se llena de dagas
       voladoras durante 1 minuto. La primera vez que una criatura entre en
-      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 5 + Atributo Mágico). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
+      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
       En turnos subsequentes, puedes usar tu Acción para mover el cubo a otra ubicación a distancia Cercana.
     uses:
       type: RELOAD
@@ -1774,9 +1907,9 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
-      Liberas un cono de energía de 3 metros. Elige un elemento al lanzar. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Mágico). Si fallan, reciben 2d6 de daño del tipo elegido y sufren un efecto adicional:<br>
+      Liberas un cono de energía de 3 metros. Elige un elemento al lanzar. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si fallan, reciben 2d6 de daño del tipo elegido y sufren un efecto adicional:<br>
       - **Sónico:** Es empujada 2 metros lejos de ti.<br>
       - **Fuego:** Recibe 1d4 de daño extra al inicio de su próximo turno.<br>
       - **Frío:** Su Velocidad se reduce a la mitad hasta el final de su próximo turno.<br>
@@ -1791,9 +1924,9 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Descarga Elemental & Atributo Mágico 4'
+    requirements: 'Descarga Elemental & Atributo Arcano 4'
     description: >-
-      Provocas una detonación mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Mágico). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br>
+      Provocas una detonación mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br>
       Al lanzar el conjuro, eliges la forma que adopta:<br>
       - **Bola de Fuego (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br>
       - **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br>
@@ -1808,7 +1941,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual
       a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.
@@ -1823,11 +1956,11 @@ cards:
       - Conjuro
       - Concentración
       - Ritual
-    requirements: 'Barrera Arcana & Atributo Mágico 4'
+    requirements: 'Barrera Arcana & Atributo Arcano 4'
     description: >-
       Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos.
       Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo,
-      una criatura del tipo elegido debe superar una tirada de Instinto (ND 5 + Atributo Mágico).
+      una criatura del tipo elegido debe superar una tirada de Instinto (ND 5 + Atributo Arcano).
       Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de
       Salvación contra efectos de criaturas del tipo declarado.
     uses:
@@ -1839,9 +1972,9 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
-      Realizas un ataque de conjuro a distancia (1d8 + Atributo Mágico) contra un objetivo. Si impactas,
+      Realizas un ataque de conjuro a distancia (1d8 + Atributo Arcano) contra un objetivo. Si impactas,
       el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente
       tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera,
       acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o
@@ -1855,10 +1988,10 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Afinidad Arcana & Atributo Mágico 5'
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
     description: >-
       Un fino rayo verde brota de tu dedo hacia un objetivo a distancia Media.<br>
-      El objetivo debe superar una TS de Reflejos (ND 5 + Atributo Mágico). Si falla, recibe 10d8 de daño de Fuerza.
+      El objetivo debe superar una TS de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 10d8 de daño de Fuerza.
       Si este daño reduce al objetivo a 0 Puntos de Salud, se convierte en un fino polvo gris y es destruido.
       Si tiene éxito, recibe la mitad del daño.
     uses:
@@ -1870,11 +2003,11 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Como Acción, proyectas una ráfaga de fuerza telequinética invisible para **empujar, atraer o expandir** materia desde un punto a distancia Media.
       La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br>
-      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo Mágico)**.<br>
+      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo Arcano)**.<br>
       - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br>
       - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
     uses:
@@ -1887,12 +2020,12 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a distancia Media. El efecto dura hasta 10 minutos.<br>
       - **Criatura:** Si no es voluntaria, debe superar una TS de Cuerpo. La criatura levita y puede ser movida verticalmente por ti (Interacción, hasta 3 metros).
       No puede moverse horizontalmente por sí misma en el aire, debe impulsarse con superficies sólidas.<br>
-      - **Objeto:** Puede pesar hasta 50 kg por cada punto de tu Atributo de Atributo Mágico.
+      - **Objeto:** Puede pesar hasta 50 kg por cada punto de tu Atributo de Atributo Arcano.
     uses:
       type: RELOAD
       qty: 4
@@ -1904,13 +2037,13 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Moldeas la luz y el sonido para engañar a los sentidos. Como acción, al lanzar el conjuro, elige uno de los siguientes modos:<br>
       - **Señuelo:** Creas una ilusión visual (de hasta 2 metros cúbicos) o auditiva, en un punto fijo a distancia Cercana durante 10 minutos.<br>
       - **Disfraz:** Te cubres con una ilusión que altera tu apariencia (ropa, rasgos faciales) y tu voz durante 1 hora. Puedes aparentar ser hasta medio metro más alto o más bajo.<br>
       - **Velo:** Envuelves a un aliado a distancia Cercana en sombras, otorgándole Ventaja (+1d4) en sus pruebas de Sigilo durante 10 minutos.<br>
-      Una criatura puede usar su Acción para interactuar físicamente con la ilusión, realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Mágico para descubrir el engaño.
+      Una criatura puede usar su Acción para interactuar físicamente con la ilusión, realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Arcano para descubrir el engaño.
     uses:
       type: RELOAD
       qty: 4
@@ -1921,7 +2054,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
-    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       Tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades (dureza, peso, textura) o su forma. No puedes cambiar su masa total.
       Por ejemplo, puedes volver una cerradura blanda como la cera, o esculpir una palanca a partir de un trozo de metal.
@@ -1935,7 +2068,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       Creas un sensor invisible con forma de ojo espectral en un punto que puedas ver a distancia Media. El sensor es intangible pero no puede atravesar objetos sólidos. En tus turnos, puedes usar tu Acción para mover el sensor hasta 10 metros. Ves y oyes a través del sensor.
       El sensor es detectable con magia o visión especial. Dura 10 minutos.
@@ -1949,7 +2082,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 3'
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       Eliges un punto a distancia Media, creando una esfera de 5 metros de radio que dura hasta 10 minutos.
       Dentro de la esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido)
@@ -1965,13 +2098,13 @@ cards:
       - Conjuro
       - Reacción
       - Ritual
-    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       Esta carta tiene dos modos de uso:<br>
       - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada
-      de tu Atributo Mágico contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br>
+      de tu Atributo Arcano contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br>
       - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico.
-      Realizas una prueba de Atributo Mágico contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+      Realizas una prueba de Atributo Arcano contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
     uses:
       type: RELOAD
       qty: 6
@@ -1982,12 +2115,12 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
-    requirements: 'Afinidad Arcana & Atributo Mágico 4'
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       Trazas un círculo en el suelo, del que brota una cúpula de energía opaca desde fuera pero transparente desde dentro, de 3m de radio. Dura 8 horas.
       Las criaturas que designes al lanzar el conjuro pueden usar una Acción para entrar o salir. Si tú, el lanzador, sales, el conjuro termina.
-      Cualquier ataque o conjuro dirigido a la cúpula debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Atributo Mágico
-      con tu bonificador (1d8 + Atributo Mágico) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
+      Cualquier ataque o conjuro dirigido a la cúpula debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Atributo Arcano
+      con tu bonificador (1d8 + Atributo Arcano) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
     uses:
       type: LONG_REST
       qty: 1
@@ -1998,7 +2131,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Afinidad Arcana & Atributo Mágico 5'
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
     description: >-
       Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15 metros de largo y 5 de alto,
       o puede ser una cúpula de 4m de radio. La barrera es inmune a todo daño físico, pero es destruida automáticamente por efectos mágicos de desintegración
@@ -2013,7 +2146,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Paso Brumoso & Atributo Mágico 5'
+    requirements: 'Paso Brumoso & Atributo Arcano 5'
     description: >-
       Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3 metros de diámetro.
       Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías
@@ -2026,7 +2159,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: 'Explosión Elemental & Atributo Mágico 5'
+    requirements: 'Explosión Elemental & Atributo Arcano 5'
     description: >-
       Al adquirir esta carta, elige un tipo de daño: Fuego, Frío o Eléctrico. Ganas los siguientes beneficios para conjuros de Arcanista de ese tipo:<br>
       - Puedes volver a tirar cualquier dado de daño que resulte en un 1 (debes usar el nuevo resultado).<br>
@@ -2042,9 +2175,9 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: 'Maledicción & Atributo Mágico 5'
+    requirements: 'Maledicción & Atributo Arcano 5'
     description: >-
-      Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Mágico). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente"). La orden no puede ser obviamente suicida. La criatura obedece lo mejor que puede mientras te concentres.
+      Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente"). La orden no puede ser obviamente suicida. La criatura obedece lo mejor que puede mientras te concentres.
     uses:
       type: RELOAD
       qty: 6
@@ -2054,7 +2187,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: 'Afinidad Arcana & Atributo Mágico 5'
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
     description: >-
       Tu dominio de la magia te permite saturar los conjuros simples con un poder devastador.<br>
       Cuando lanzas una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes usar tu Interacción para sobrecargar el lanzamiento. Si lo haces, duplicas la cantidad de dados de daño del conjuro.
@@ -2067,7 +2200,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: 'Teoría Arcana Avanzada & Atributo Mágico 6'
+    requirements: 'Teoría Arcana Avanzada & Atributo Arcano 6'
     description: >-
       Tu dominio de la Urdimbre es absoluto. Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un sistema de Recarga,
       puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.
@@ -2081,9 +2214,9 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: 'Sugestión Mayor & Atributo Mágico 6'
+    requirements: 'Sugestión Mayor & Atributo Arcano 6'
     description: >-
-      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 100 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7+Atributo Mágico) para terminar el efecto.
+      Pronuncias una palabra de poder arcano. Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 100 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7 + Atributo Arcano) para terminar el efecto.
     uses:
       type: LONG_REST
       qty: 1
@@ -3360,8 +3493,8 @@ cards:
       Cuando utilizas tu carta _Floritura Ofensiva_, puedes optar por lanzar un conjuro de Nivel 1 o 2 (con tiempo de lanzamiento de "1 Acción") en lugar de realizar el segundo ataque con arma.<br>
       El conjuro elegido debe poseer las etiquetas _Bardo_ y _Conjuro_ (ambas), o haber sido aprendido mediante la carta _Secretos Mágicos_.
     uses:
-      type: LONG_REST
-      qty: 1
+      type: null
+      qty: 0
 
   # --- Monje ------------------------------
   - name: Disciplina Monástica
@@ -3772,11 +3905,11 @@ cards:
       - Sinergia
       - Combatiente
       - Pícaro
-    requirements: 'Sintonía con el Acero & Senda del Bribón & Reflejos 5'
+    requirements: 'Maestría Marcial & Senda del Bribón & Reflejos 5'
     description: >-
       Has perfeccionado la fusión de la agilidad letal y la precisión marcial. Ganas los siguientes beneficios permanentes:<br>
-      - **Agilidad Marcial:** Puedes usar tu Reflejos en lugar de Cuerpo para cumplir los requisitos de atributo de las cartas de Combatiente.<br>
-      - **Réplica Precisa:** Cuando usas una Reacción defensiva del Pícaro (Riposta o Parada del Duelista), obtienes Ventaja (+1d4) en tu próxima tirada de ataque contra el enemigo que activó tu reacción, antes del final de tu próximo turno.
+      - **Fusión Marcial:** Tu letalidad se integra en tu cadencia de combate. Cuando usas la acción de Atacar y te beneficias de la carta _Ataque Adicional_ o _Torrente de Acero_, puedes reemplazar uno de los ataques de esa acción por tu _Ataque Furtivo_ (siempre que cumplas las condiciones para el daño furtivo).<br>
+      - **Réplica Precisa:** Cuando usas una Reacción defensiva del Pícaro (_Riposta_ o _Parada del Duelista_), obtienes Ventaja (+1d4) en tu próxima tirada de ataque contra el enemigo que activó tu reacción, antes del final de tu próximo turno.
     uses:
       type: null
       qty: 0
@@ -3997,7 +4130,7 @@ cards:
     requirements: 'Afinidad Arcana & Fe Inspiradora & Instinto 5'
     description: >-
       Dominas tanto la lógica arcana como la fe divina. Ganas los siguientes beneficios permanentes:<br>
-      - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Atributo Mágico o tu Instinto como tu atributo de lanzamiento.<br>
+      - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Atributo Arcano o tu Instinto como tu atributo de lanzamiento.<br>
       - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
     uses:
       type: null
@@ -4014,8 +4147,8 @@ cards:
     requirements: 'Afinidad Arcana & Sintonía Primordial & Instinto 5'
     description: >-
       Comandas tanto los elementos puros como la energía primordial de la naturaleza. Ganas los siguientes beneficios permanentes:<br>
-      - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un número de criaturas igual a tu Atributo Mágico dentro del área para que no se vean afectadas.<br>
-      - **Potencia Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes añadir tu puntuación de Atributo Mágico o Instinto (la que sea más alta) a una de las tiradas de daño.
+      - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un número de criaturas igual a tu Atributo Arcano dentro del área para que no se vean afectadas.<br>
+      - **Potencia Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o Druida, puedes añadir tu puntuación de Atributo Arcano o Instinto (la que sea más alta) a una de las tiradas de daño.
     uses:
       type: null
       qty: 0
