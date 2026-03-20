@@ -1,0 +1,131 @@
+cards:
+  - id: 91b394d613b4317d622c85c04df3ace109c020cb
+    name: Llamar a la Tormenta
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: Sintonía Primordial & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, invocas una nube de tormenta de 10 metros de radio sobre un punto a distancia Larga durante 1 minuto.
+      El área bajo la nube queda en penumbra.<br> En el turno en que la invocas, y en cada uno de tus turnos
+      subsiguientes, puedes usar tu Interacción para hacer caer un rayo en un punto bajo la nube. Toda criatura en un
+      radio de 2 metros del punto de impacto debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 2d6 de daño
+      Eléctrico (la mitad en caso de éxito).<br> Si estás al aire libre y ya hay una tormenta natural, el daño aumenta a
+      3d6.
+    slug: llamar-a-la-tormenta
+  - id: 9b99ca7f1560febe078227e72c026f5af86be74b
+    name: Manifestar Naturaleza
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: Sintonía Primordial & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Convocas la fuerza de la naturaleza para alterar el campo de batalla.<br> Como Acción, eliges un punto a distancia
+      Media y decides la forma del efecto: una esfera de 5 metros de radio o un muro de hasta 15 metros de largo, 3 de
+      alto y 1 de grosor. El área se convierte en terreno difícil y dura 1 minuto o hasta que pierdas la Concentración.
+      Al lanzarlo, eliges su naturaleza:<br> - **Muro de Fuego:** Creas una barrera de llamas y humo negro asfixiante.
+      Una criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Instinto). Si
+      falla, recibe 2d6 de daño de Fuego y queda Cegada hasta el final de su turno.<br> - **Suelo Congelado:** Cubres la
+      superficie de hielo quebradizo y resbaladizo. Una criatura que entre en el área o empiece su turno allí debe
+      superar una TS de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Frío y queda Inmovilizada (pegada al
+      hielo).<br> - **Zarzas:** Haces brotar una espesura de espinas y lianas. Una criatura que entre en el área o
+      empiece su turno allí debe superar una TS de Reflejos (ND 5 + Instinto) o sufrir 2d6 de daño Perforante y queda
+      Enredada hasta que salga del área o use su Acción para repetir la TS. Mientras una criatura esté Enredada, sufrirá
+      1d4 de daño Perforante por cada 2 metros que se mueva.<br> En todos los casos, si tienen éxito en la TS, reciben
+      la mitad del daño y evitan el efecto secundario.
+    slug: manifestar-naturaleza
+  - id: e1e407e975222873eeda8d46a73e7dd45642953d
+    name: Aspecto de la Bestia
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: Sintonía Primordial & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, invocas el espíritu de una bestia primordial que te envuelve como un aura fantasmal. El efecto dura 1
+      minuto o hasta que pierdas la Concentración. Al invocar el espíritu, eliges **dos** de los siguientes
+      beneficios:<br> - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en todas las pruebas
+      de **Instinto (Percepción)**.<br> - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y desarmados
+      infligen **1d6 de daño Contundente adicional**.<br> - **Celeridad del Halcón:** Tu **Velocidad** de movimiento
+      aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br> - **Piel del Jabalí:** Ganas
+      Puntos de Salud temporales igual a tres veces tu puntuación de Instinto.<br>
+    slug: aspecto-de-la-bestia
+  - id: 3ff60460d7fd5ad1003b469ea479f4b0be25decd
+    name: Maestría Salvaje
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements: Aspecto Combativo
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Adquieres un uso adicional de tu _Forma Salvaje_. Además, cuando usas tu _Forma Salvaje_ para transformarte en una
+      bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las
+      siguientes opciones adicionales:<br> - **Furia Primordial:** Puedes realizar dos ataques con tu Acción en lugar de
+      uno.<br> - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas 5 Puntos de Salud temporales
+      adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br> -
+      **Rugido Aterrador (Recarga 8):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una
+      TS de Instinto (ND 5 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br> - **Presa
+      Incapacitante:** Cuando impactas a una criatura de un tamaño igual o inferior al tuyo, puedes intentar apresarla.
+      El objetivo debe superar una TS de Reflejos (ND 5 + Instinto) o quedar **Inmovilizado**. Mientras mantengas la
+      presa (no requiere acción), tú también estás Inmovilizado. La criatura apresada puede usar su Acción para intentar
+      escapar repitiendo la Tirada de Salvación.
+    slug: maestria-salvaje
+  - id: a51a928805bae1c50e9855d66f71f4087661bde1
+    name: Vínculo Primordial
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements: Compañero Veterano & Instinto 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu vínculo con tu compañero es ahora una extensión de tu alma. Eliges una de las siguientes especializaciones para
+      tu compañero: - **Guardián:** La Salud Máxima de tu compañero aumenta a 8 + (tu Instinto x 4). Además, como
+      Reacción, cuando un enemigo a 1 metro de él ataca a un objetivo que no eres tú, puede imponer Desventaja (-1d4) en
+      esa tirada. - **Vínculo de Caza:** Tu compañero y tú os convertís en una unidad de caza letal. Tú ganas Ventaja
+      (+1d4) en tus tiradas de ataque contra una criatura si tu compañero está adyacente a ella. Tu compañero gana
+      Ventaja (+1d4) en sus tiradas de ataque contra una criatura si tú estás adyacente a ella. - **Rastreador:** El
+      compañero obtiene Ventaja (+1d4) en Percepción y Sigilo. Como Acción, puedes usar los sentidos de tu compañero
+      (ver y oír) mientras permanezcas a distancia Larga de él. Puedes cambiar la especialización cuando te vinculas con
+      una nueva bestia.
+    slug: vinculo-primordial
+  - id: 350c1cad06c8789a193356b8fcc30d0ca5594ce1
+    name: Crecimiento Regenerativo
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+      - Concentración
+    requirements: Bálsamo Natural & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas
+      criaturas, recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la
+      Concentración.
+    slug: crecimiento-regenerativo

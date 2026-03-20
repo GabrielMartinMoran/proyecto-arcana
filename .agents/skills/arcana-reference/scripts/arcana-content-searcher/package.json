@@ -1,0 +1,10 @@
+{
+  "name": "arcana-content-searcher",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "js-sha1": "^0.7.0",
+    "js-yaml": "^4.1.0"
+  }
+}

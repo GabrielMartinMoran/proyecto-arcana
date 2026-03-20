@@ -1,0 +1,91 @@
+items:
+  - id: 3a2cbcfd9c74e18fccd4bd268b5f8e5a25fd9a20
+    name: Tomo del Físico de Atlas
+    level: 6
+    type: efecto
+    tags:
+      - Cuerpo
+      - Artefacto
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias. Si pasas una semana de tiempo
+      entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Cuerpo aumenta en +1.
+      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que el libro es leído,
+      sus páginas se vuelven ininteligibles para siempre.
+    slug: tomo-del-fisico-de-atlas
+    cost: Incalculable
+  - id: 93a23ccdadd46debe1964615f5bf12303194e3f5
+    name: Tratado de la Gracia Efímera
+    level: 6
+    type: efecto
+    tags:
+      - Reflejos
+      - Artefacto
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Escrito en seda y con tinta invisible, este tratado enseña el arte del movimiento perfecto. Si pasas una semana de
+      tiempo entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Reflejos aumenta
+      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que el libro es
+      leído, sus páginas se vuelven ininteligibles para siempre.
+    slug: tratado-de-la-gracia-efimera
+    cost: Incalculable
+  - id: 471f182c01ed685dfdfb558704955e868c665a91
+    name: Libro de la Mente Trascendente
+    level: 6
+    type: efecto
+    tags:
+      - Mente
+      - Artefacto
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este libro sin título contiene paradojas y acertijos que expanden la conciencia. Si pasas una semana de tiempo
+      entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Mente aumenta en +1.
+      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que el libro es leído,
+      sus páginas se vuelven ininteligibles para siempre.
+    slug: libro-de-la-mente-trascendente
+    cost: Incalculable
+  - id: e3fe2421b4082df5498b2a683ea4d3edcc24ded2
+    name: Enseñanzas del Alma Despierta
+    level: 6
+    type: efecto
+    tags:
+      - Instinto
+      - Artefacto
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Estas tablillas de marfil describen meditaciones para unificar los sentidos con el mundo. Si pasas una semana de
+      tiempo entre aventuras estudiándolas, asimilas sus lecciones de forma permanente. Tu puntuación de Instinto
+      aumenta en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que las
+      tablillas son leídas, sus glifos se borran para siempre.
+    slug: ensenanzas-del-alma-despierta
+    cost: Incalculable
+  - id: cdae52616a82cf0237923a99bcef7907bd1b8d7c
+    name: Manual de Liderazgo e Influencia
+    level: 6
+    type: efecto
+    tags:
+      - Presencia
+      - Artefacto
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este tomo contiene ensayos y observaciones de los más grandes líderes de la historia. Si pasas una semana de
+      tiempo entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Presencia
+      aumenta en +1. Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7. Una vez que el
+      libro es leído, sus páginas se vuelven ininteligibles para siempre.
+    slug: manual-de-liderazgo-e-influencia
+    cost: Incalculable

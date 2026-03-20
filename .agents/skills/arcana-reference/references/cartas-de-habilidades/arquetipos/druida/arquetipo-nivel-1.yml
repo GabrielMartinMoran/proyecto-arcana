@@ -1,0 +1,20 @@
+cards:
+  - id: 3464978f669d360c22f58591e55dd56ba2408ec6
+    name: Sintonía Primordial
+    level: 1
+    type: efecto
+    tags:
+      - Druida
+      - Arquetipo
+    requirements: Instinto 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.<br><br> **Beneficio de Arquetipo:** Tu Salud
+      máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Trato con Animales. Aprendes el idioma Silvano o
+      Primordial. Además, posees la capacidad innata de comunicarte verbalmente con bestias y plantas. La información
+      que obtengas está limitada por la inteligencia y los sentidos de la criatura. Adicionalmente, ganas un bono a tus
+      Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br> _Solo puedes tener un Beneficio de
+      Arquetipo activo a la vez._
+    slug: sintonia-primordial

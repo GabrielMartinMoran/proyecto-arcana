@@ -1,0 +1,18 @@
+cards:
+  - id: 0d25b94212a51e3663a5cbf6e2ae3b5e9a130e71
+    name: Don del Elocuente
+    level: 1
+    type: efecto
+    tags:
+      - Bardo
+      - Arquetipo
+    requirements: Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Interpretación y Persuasión.<br><br> **Beneficio de Arquetipo:** Aprendes
+      dos lenguas convencionales adicionales, a utilizar 2 instrumentos musicales, y obtienes Ventaja (+1d4) en las
+      pruebas de habilidad de Engaño y Perspicacia. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por
+      cada 10 PP que hayas gastado.<br><br> _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    slug: don-del-elocuente

@@ -7,18 +7,18 @@ install:
 	npm install
 
 generate: install
-	rm -rf out/arcana-system
+	rm -rf out/arcana-reference
 	npm run generate
-	python3 ../../.agents/skills/skill-creator/scripts/package_skill.py out/arcana-system out
-	rm -rf ../../.agents/skills/arcana-system
-	cp -r out/arcana-system ../../.agents/skills/arcana-system
+	python3 ../../.agents/skills/skill-creator/scripts/package_skill.py out/arcana-reference out
+	rm -rf ../../.agents/skills/arcana-reference
+	cp -r out/arcana-reference ../../.agents/skills/arcana-reference
 
 generate-no-ai: install
-	rm -rf out/arcana-system
+	rm -rf out/arcana-reference
 	SKIP_AI=true npm run generate
-	python3 ../../.agents/skills/skill-creator/scripts/package_skill.py out/arcana-system out
-	rm -rf ../../.agents/skills/arcana-system
-	cp -r out/arcana-system ../../.agents/skills/arcana-system
+	python3 ../../.agents/skills/skill-creator/scripts/package_skill.py out/arcana-reference out
+	rm -rf ../../.agents/skills/arcana-reference
+	cp -r out/arcana-reference ../../.agents/skills/arcana-reference
 
 clean:
 	rm -rf out

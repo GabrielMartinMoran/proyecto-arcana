@@ -1,0 +1,58 @@
+cards:
+  - id: 4ab198e559dad7cd9436baf7ff5f8c614d5b7217
+    name: Maestría Marcial
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero | Sintonía Fluida
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu entrenamiento marcial te permite dominar el campo de batalla con tu enfoque preferido.<br>Tienes acceso a la
+      lista de cartas de _Combatiente_ y usas tu **Atributo Marcial** para cumplir los requerimientos y calcular los
+      efectos de estas cartas.
+    slug: maestria-marcial
+  - id: 009b3d369dc13a39a42bf8c00fd124351871b96d
+    name: Segundo Aliento
+    level: 1
+    type: activable
+    tags:
+      - Combatiente
+      - Curación
+    requirements: Maestría Marcial
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo Marcial.
+    slug: segundo-aliento
+  - id: 95991f73fff4e6d124008b7b924fd4ab6b60f215
+    name: Presencia Inspiradora
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Maestría Marcial & Presencia 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en Pruebas de Persuasión. Aliados a distancia Cercana que puedan verte y oírte ganan un +1
+      a las Tiradas de Salvación contra miedo.
+    slug: presencia-inspiradora
+  - id: 519028c7d0d06285fa5f05cdd545201164e53b93
+    name: Marcha Incansable
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Maestría Marcial
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas. Además, cuando
+      lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a tu capacidad para marcar
+      el ritmo y elegir las mejores rutas.
+    slug: marcha-incansable

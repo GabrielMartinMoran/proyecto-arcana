@@ -5,7 +5,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const CONFIG = {
 	DOCS_PATH: path.resolve(__dirname, '../../../static/docs'),
-	OUT_PATH: path.resolve(__dirname, '../out/arcana-system'),
+	OUT_PATH: path.resolve(__dirname, '../out/arcana-reference'),
 
 	PLAYER_MANUAL_FILE: 'player.md',
 	GM_MANUAL_FILE: 'gm.md',

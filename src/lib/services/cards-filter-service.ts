@@ -45,13 +45,15 @@ export const useCardFiltersService = () => {
 		if (filters.level.length === 0) {
 			page.url.searchParams.delete('level');
 		} else {
-			page.url.searchParams.set('level', filters.level.join(','));
+			page.url.searchParams.delete('level');
+			filters.level.forEach((lvl) => page.url.searchParams.append('level', String(lvl)));
 		}
 
 		if (filters.tags.length === 0) {
 			page.url.searchParams.delete('tags');
 		} else {
-			page.url.searchParams.set('tags', filters.tags.join(','));
+			page.url.searchParams.delete('tags');
+			filters.tags.forEach((tag) => page.url.searchParams.append('tags', tag));
 		}
 
 		if (!filters.type) {

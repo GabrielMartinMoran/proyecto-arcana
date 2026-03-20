@@ -1,0 +1,17 @@
+cards:
+  - id: de38f8080dede3a35aa76b5777b75dc5ba46abb9
+    name: Memoria Muscular
+    level: 4
+    type: efecto
+    tags:
+      - Céfiro
+    requirements: Sintonía Fluida & Reflejos 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu cuerpo lee y se adapta al ritmo de tus oponentes en tiempo real. Obtienes Ventaja (+1d4) en todas tus Tiradas
+      de Salvación de Reflejos.<br> Además, cada vez que un enemigo te impacta con un ataque, obtienes un +1 acumulativo
+      a tu Esquiva exclusivamente contra los próximos ataques de ese mismo enemigo. Este bonificador se mantiene hasta
+      el inicio de tu próximo turno.
+    slug: memoria-muscular

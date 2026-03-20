@@ -1,0 +1,18 @@
+cards:
+  - id: 88b234b2894c0f8fd683481992f7be0b014182da
+    name: Sangre Mágica
+    level: 1
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: Herencia Sobrenatural
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Una vez por ronda, puedes sacrificar vitalidad (daño directo no mitigable) para alterar tus conjuros de
+      _Arcanista_:<br> - **Sacrificio:** Cuando fallas una Recarga, puedes pagar **3 PS por cada punto** que quieras
+      sumar al resultado.<br> - **Potencia:** Al tirar daño, puedes pagar **2 PS por nivel del conjuro** para volver a
+      tirar un número de dados igual a tu **Presencia**.<br> - **Celeridad:** Puedes lanzar un conjuro de Nivel 1 o 2
+      usando tu **Interacción**. El coste es 3 + nivel del conjuro de daño.<br>
+    slug: sangre-magica

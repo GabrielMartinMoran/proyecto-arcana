@@ -105,12 +105,6 @@
 			border-color 0.2s ease;
 		overflow: hidden;
 
-		&:hover {
-			transform: scale(1.01);
-			border: 2px solid;
-			box-shadow: var(--shadow-lg);
-		}
-
 		.bg {
 			position: absolute;
 			top: 0;
@@ -121,6 +115,24 @@
 			background-size: 180%;
 			opacity: 0.5;
 			z-index: 1;
+		}
+
+		&:hover {
+			transform: scale(1.01);
+
+			box-shadow: var(--shadow-lg);
+			background-color: #ffffff;
+			color: black;
+
+			.bg {
+				opacity: 0.35;
+				transition: 0.2s;
+			}
+
+			.description {
+				text-shadow: 5px 5px 5px #aaaabb;
+				transition: 0.2s;
+			}
 		}
 
 		.inner {
@@ -166,12 +178,19 @@
 				.description {
 					flex-grow: 1;
 					margin: 0;
-					text-shadow: 1px 1px 1px #ded1b5;
-					mix-blend-mode: saturation;
+					text-shadow:
+						-2px 0 #ded1b599,
+						0 2px #ded1b599,
+						0 -2px #ded1b599,
+						1px 1px #ded1b599,
+						-1px -1px #ded1b599,
+						1px -1px #ded1b599,
+						-1px 1px #ded1b599;
 					height: 100px;
 					overflow-y: auto;
 					scrollbar-width: thin;
 					scrollbar-color: #888 transparent;
+					color: black;
 
 					:global(p) {
 						margin: 0;

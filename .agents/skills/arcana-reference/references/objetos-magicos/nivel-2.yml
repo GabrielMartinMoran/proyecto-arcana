@@ -1,0 +1,281 @@
+items:
+  - id: 47a1ce7e952ba3afae8ce9ea63e637bc9c9fd90a
+    name: Capa de Sigilo
+    level: 2
+    type: efecto
+    tags:
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta capa tejida con sombras y susurros te ayuda a camuflarte con el entorno. Obtienes Ventaja (+1d4) en todas las
+      Pruebas de Sigilo siempre que estés en luz tenue o en oscuridad.
+    slug: capa-de-sigilo
+    cost: 500
+  - id: 4f7ef5de4fffa6167b1980e07f250b843eab6311
+    name: Bolsa Contenedora
+    level: 2
+    type: efecto
+    tags:
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      El interior de esta bolsa de lona es un espacio extra-dimensional. Puede contener hasta 250 kg de peso o 2 metros
+      cúbicos de volumen. Pesa siempre 5 kg sin importar su contenido. Sacar un objeto es una Interacción.
+    slug: bolsa-contenedora
+    cost: 400
+  - id: f9120bdd094a802636a027b48c10acd0be4ff5fc
+    name: Arma Enriquecida
+    level: 2
+    type: efecto
+    tags:
+      - Arma
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida mágicamente para golpear con
+      más certeza y hacer más daño. Obtienes un +1 a tus tiradas de ataque y +1 al daño infligido con esta arma.
+    slug: arma-enriquecida
+    cost: 600
+  - id: 86736bf1eb6b04d4ba4d03c9921d0d2424f780fb
+    name: Amuleto del Troll de Piedra
+    level: 2
+    type: efecto
+    tags:
+      - Salud
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta permanentemente en 5.
+    slug: amuleto-del-troll-de-piedra
+    cost: 500
+  - id: bb466162f166635c52cc8c324000089039ec7a6b
+    name: Escarabajo de la Fortuna
+    level: 2
+    type: efecto
+    tags:
+      - Suerte
+    requirements: null
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Interacción, puedes frotar este escarabajo de jade para que la suerte te sonría. Recuperas 2 Puntos de
+      Suerte gastados.
+    slug: escarabajo-de-la-fortuna
+    cost: 550
+  - id: c47a327cdd25d1d231e7ec0232647d7fbaf5aebf
+    name: Manto Arácnido
+    level: 2
+    type: efecto
+    tags:
+      - Movimiento
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta capa gris y pegajosa al tacto te permite adherirte a las superficies. Mientras la lleves puesta, obtienes una
+      velocidad de trepar igual a tu velocidad terrestre y puedes moverte por superficies verticales y techos
+      manteniendo las manos libres.
+    slug: manto-aracnido
+    cost: 350
+  - id: 9ac884ca7b189ff639b182dc003757f5fa479f0a
+    name: Rodela Repulsora
+    level: 2
+    type: activable
+    tags:
+      - Escudo
+      - Reacción
+    requirements: Cuerpo 2
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier escudo). Como Reacción cuando eres impactado por un ataque cuerpo a
+      cuerpo de un enemigo a distancia Inmediata, puedes liberar una onda de fuerza. El atacante debe superar una Tirada
+      de Salvación de Cuerpo (ND 10) o ser empujado 3 metros hacia atrás en línea recta.
+    slug: rodela-repulsora
+    cost: 450
+  - id: d851ede4477eceea6e6b2f305b46a6516d47fb7f
+    name: Poción de Curación Mediana
+    level: 2
+    type: consumible
+    tags:
+      - Poción
+      - Curación
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: Este brebaje carmesí y brillante cierra heridas más graves. Al beberla, recuperas 2d6+2 Puntos de Salud.
+    slug: pocion-de-curacion-mediana
+    cost: 150
+  - id: 771102bdf7fcec3a5217e2d135532eac39b7a2dd
+    name: Elixir de Agilidad Felina
+    level: 2
+    type: consumible
+    tags:
+      - Poción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este líquido plateado y ligero te otorga una gracia sobrenatural. Durante 1 minuto, obtienes Ventaja (+1d4) en
+      todas las Pruebas de Habilidad y Tiradas de Salvación basadas en Reflejos.
+    slug: elixir-de-agilidad-felina
+    cost: 200
+  - id: d5a3c418c5c60600b70c1c66f7225b0c02b8c745
+    name: Brebaje de Fuerza de Gigante
+    level: 2
+    type: consumible
+    tags:
+      - Poción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Una poción espesa y terrosa que calienta los músculos. Durante 1 minuto, obtienes Ventaja (+1d4) en todas las
+      Pruebas de Habilidad basadas en Cuerpo y tus ataques con armas cuerpo a cuerpo infligen +2 de daño adicional.
+    slug: brebaje-de-fuerza-de-gigante
+    cost: 200
+  - id: 9ada20b7db12d173ac409bb997477b624c4fba8c
+    name: Filtro de Respiración Acuática
+    level: 2
+    type: consumible
+    tags:
+      - Poción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: Un líquido azulado con burbujas que nunca se detienen. Al beberlo, puedes respirar bajo el agua durante 1 hora.
+    slug: filtro-de-respiracion-acuatica
+    cost: 150
+  - id: 3a29510c66f2edfca128e0efe90cc81a7207c8f8
+    name: Brazalete del Guardián Resentido
+    level: 2
+    type: activable
+    tags:
+      - Reacción
+      - Daño
+    requirements: Cuerpo 2
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Reacción cuando eres impactado por un ataque cuerpo a cuerpo de un enemigo que puedas ver, puedes hacer que
+      el brazalete libere una onda de fuerza. El atacante debe superar una Tirada de Salvación de Reflejos (ND 10). Si
+      falla, recibe 1d6 de daño de Fuerza; si tiene éxito, recibe la mitad del daño.
+    slug: brazalete-del-guardian-resentido
+    cost: 400
+  - id: 730e0e957475f1a3adbc7dac84dedaf7bc94622f
+    name: Filo Entorpecedor
+    level: 2
+    type: efecto
+    tags:
+      - Arma
+      - Debuff
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo). Cuando obtienes un golpe crítico con esta
+      arma, el objetivo es imbuido con una energía entorpecedora. Hasta el final de tu próximo turno, la Velocidad del
+      objetivo se reduce a la mitad.
+    slug: filo-entorpecedor
+    cost: 300
+  - id: d76111f9c184c04fe58f906f6d82ac3121e2a1b4
+    name: Amuleto del Caminante Acuático
+    level: 2
+    type: efecto
+    tags:
+      - Movimiento
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras lleves este amuleto con forma de libélula, puedes moverte sobre cualquier superficie líquida (como agua,
+      ácido o lodo) como si fuera terreno sólido.
+    slug: amuleto-del-caminante-acuatico
+    cost: 300
+  - id: 5352da52f60cb5ddb0b579647861f230c8b6be4a
+    name: Cota de Sombras Danzantes
+    level: 2
+    type: activable
+    tags:
+      - Armadura
+      - Reacción
+      - Movimiento
+    requirements: Reflejos 2
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Cuero). Como Reacción cuando eres impactado por un
+      ataque, puedes hacer que la cota se disuelva en sombras por un instante, permitiéndote moverte hasta la mitad de
+      tu Velocidad. Este movimiento no puede ser interceptado por Reacciones enemigas.
+    slug: cota-de-sombras-danzantes
+    cost: 550
+  - id: 29d7b4237d230ad62fbe8eef48d76daf025a524c
+    name: Cuerda de Anclaje Certero
+    level: 2
+    type: efecto
+    tags:
+      - Utilidad
+      - Movimiento
+    requirements: null
+    uses:
+      type: DAY
+      qty: 3
+    description: >-
+      Como una Acción, puedes lanzar la punta de esta cuerda de seda de 15 metros hacia un punto que puedas ver dentro
+      del alcance. La cuerda se anima y se ancla firmemente a ese punto. La cuerda puede soportar hasta 250 kg y
+      permanece anclada hasta que pronuncias la palabra de mando para que se suelte.
+    slug: cuerda-de-anclaje-certero
+    cost: 300
+  - id: f6702c40b91aaef6e086e9bea2119df12aaacf92
+    name: Vara del Alivio
+    level: 2
+    type: activable
+    tags:
+      - Curación
+      - Vara
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta vara de madera de abedul contiene 3 cargas. Como una Acción, puedes gastar una carga para tocar a una
+      criatura y hacer que recupere 1d6+2 Puntos de Salud. La vara recupera 1d2+1 cargas gastadas cada día al amanecer.
+    slug: vara-del-alivio
+    cost: 600
+  - id: 3e14a3c5c17445887680813de71873ef19b319cd
+    name: Arma del Retorno
+    level: 2
+    type: efecto
+    tags:
+      - Arma
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza). Después de realizar un ataque
+      Arrojadizo con esta arma, esta vuela de regreso a tu mano al final de tu turno, siempre que tengas una mano libre
+      para recibirla.
+    slug: arma-del-retorno
+    cost: 350

@@ -1,0 +1,17 @@
+cards:
+  - id: 01058607b7bfb813f420d165433457f36fe04ea4
+    name: Foco del Escaramuzador
+    level: 1
+    type: activable
+    tags:
+      - Céfiro
+    requirements: Sintonía Fluida
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: >-
+      Como Interacción, entras en un estado de concentración absoluta durante 1 minuto o hasta que quedes inconsciente.
+      Mientras dure este estado, tu velocidad de reacción te otorga un +1 a tu Esquiva y puedes desenvainar o guardar
+      armas sin gastar tu Interacción.<br> Mientras dure el foco, no puedes mantener concentración en otras habilidades
+      o usar cartas con la etiqueta _Conjuro_.
+    slug: foco-del-escaramuzador

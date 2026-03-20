@@ -38,6 +38,8 @@ export const CONFIG = {
 		hechicero: 'https://i.imgur.com/a6Uu2mB.png',
 		brujo: 'https://i.imgur.com/j0L2AEJ.png',
 		mago: 'https://i.imgur.com/OmQ12zE.png',
+		coloso: 'https://i.imgur.com/2FngE1R.png',
+		cefiro: 'https://i.imgur.com/3xvoMkx.png',
 		dote: 'https://i.imgur.com/KfwuOdi.png',
 		linaje: 'https://i.imgur.com/VKUcBoy.png',
 		sinergia: 'https://i.imgur.com/8mY31nD.png',
@@ -70,12 +72,22 @@ export const CONFIG = {
 		{
 			triggerCards: ['Pacto Supremo', 'Herencia Sobrenatural'],
 			targetCard: 'Afinidad Arcana',
-			attributeSubstitutions: [{ from: 'Atributo Mágico', to: 'Presencia' }],
+			attributeSubstitutions: [{ from: 'Atributo Arcano', to: 'Presencia' }],
 		},
 		{
 			triggerCards: ['Estudios Mágicos'],
 			targetCard: 'Afinidad Arcana',
-			attributeSubstitutions: [{ from: 'Atributo Mágico', to: 'Mente' }],
+			attributeSubstitutions: [{ from: 'Atributo Arcano', to: 'Mente' }],
+		},
+		{
+			triggerCards: ['Sintonía con el Acero'],
+			targetCard: 'Maestría Marcial',
+			attributeSubstitutions: [{ from: 'Atributo Marcial', to: 'Cuerpo' }],
+		},
+		{
+			triggerCards: ['Sintonía Fluida'],
+			targetCard: 'Maestría Marcial',
+			attributeSubstitutions: [{ from: 'Atributo Marcial', to: 'Reflejos' }],
 		},
 	],
 };

@@ -1,0 +1,17 @@
+cards:
+  - id: 291f05dbd232bd397efb1e6bd24bccfda245cf5f
+    name: Grimorio de Preparación
+    level: 1
+    type: efecto
+    tags:
+      - Mago
+    requirements: Estudios Mágicos
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu libro de estudio te permite adaptarte a los obstáculos.<br> Una vez por día de descanso, durante un momento de
+      calma, puedes dedicar 10 minutos a estudiar. Al hacerlo, puedes intercambiar hasta dos de tus cartas con las
+      etiquetas _Conjuro_ y _Arcanista_ (ambas) activas por otras de tu Colección.<br> Además, el tiempo de lanzamiento
+      de tus conjuros de _Ritual_ para conjuros de _Arcanista_ se reduce a la mitad (5 minutos).
+    slug: grimorio-de-preparacion

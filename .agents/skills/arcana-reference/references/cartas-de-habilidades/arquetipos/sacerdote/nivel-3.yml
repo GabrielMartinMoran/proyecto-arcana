@@ -1,0 +1,95 @@
+cards:
+  - id: a3ec8ac8cdbda8f220dc6d9778fc8f133b5f9ce8
+    name: Castigo Inapelable
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+    requirements: Sentencia del Hereje
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, eliges a un enemigo que esté bajo el efecto de tu `Sentencia del Hereje`. El objetivo debe superar
+      una TS de Instinto (ND 5 + Presencia) o sufrirá 3d6 de daño Radiante y quedará Aturdido hasta el final de tu
+      próximo turno. Si tiene éxito, solo recibe la mitad del daño.
+    slug: castigo-inapelable
+  - id: 80835dbe795b1d48acde9f2608ef4e3481655bc3
+    name: Plegaria de Curación
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Curación
+    requirements: Toque Restaurador & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.
+    slug: plegaria-de-curacion
+  - id: 0ba5a38ed297664fa74615a09c3fcfcc4cbad21d
+    name: Espíritus Guardianes
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Curación
+    requirements: Fe Inspiradora & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Espíritus revolotean a tu alrededor (radio 3m) por 1 min. Enemigo que entre o empiece su turno ahí debe superar
+      una TS de Instinto (ND 5 + Instinto) o sufrir 2d6 daño Radiante (o la mitad con éxito).
+    slug: espiritus-guardianes
+  - id: 08638db55ccf6e6c89e793020f0b873ed299cc27
+    name: Revivir
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Toque Restaurador & Instinto 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: Tocas a una criatura que haya muerto en el último minuto. Vuelve a la vida con 1 Punto de Salud.
+    slug: revivir
+  - id: da395f9022ff7ef7c09898d6dd516f7a0b593905
+    name: Curar
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Toque Restaurador & Instinto 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> - **Restauración Vital:**
+      La criatura recupera 2d6 + tu puntuación de Instinto en Puntos de Salud.<br> - **Purificación:** Terminas un
+      efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado,
+      Dormido, Cegado o Envenenado.
+    slug: curar
+  - id: 7877eed9408f895cf28da66dba82a26de4e87a34
+    name: Eco del Pasado
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: Fe Inspiradora & Instinto 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Trazas un símbolo sagrado sobre un objeto inanimado o una criatura fallecida. Recibes una visión breve y sensorial
+      (imágenes, sonidos, emociones fuertes) del último evento significativo en el que el objetivo estuvo involucrado.
+      La visión es críptica y está sujeta a la interpretación. No puedes usar esta habilidad sobre el mismo objetivo más
+      de una vez.
+    slug: eco-del-pasado

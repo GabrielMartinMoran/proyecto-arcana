@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Card } from '$lib/types/cards/card';
-	import { capitalize } from '$lib/utils/formatting';
+	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
 	import Container from '../ui/Container.svelte';
 	import MultiSelect from '../ui/MultiSelect.svelte';
 
@@ -69,7 +69,9 @@
 		/>
 		<MultiSelect
 			summary="Etiquetas"
-			options={getAvailableTags().map((x) => ({ value: x.toLowerCase(), label: x }))}
+			options={getAvailableTags()
+				.map((x) => ({ value: x.toLowerCase(), label: x }))
+				.toSorted((a, b) => removeDiacritics(a.label).localeCompare(removeDiacritics(b.label)))}
 			value={filters.tags}
 			onChange={(values: any[]) => {
 				filters.tags = values.map((x) => x.toLowerCase());

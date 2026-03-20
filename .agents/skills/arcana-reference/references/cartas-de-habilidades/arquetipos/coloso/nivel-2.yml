@@ -1,0 +1,16 @@
+cards:
+  - id: f7bddb9f89e572285d7d2d443fb666e6333f7ce0
+    name: Barrido de Piernas
+    level: 2
+    type: activable
+    tags:
+      - Coloso
+    requirements: Sintonía con el Acero & Cuerpo 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando un
+      arma a dos manos o un arma Versátil con ambas manos. Todas las criaturas a 1 metro de ti deben superar una TS de
+      Cuerpo (ND 5 + Cuerpo) o caer en el estado Derribado.
+    slug: barrido-de-piernas

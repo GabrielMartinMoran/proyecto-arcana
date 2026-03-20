@@ -1,0 +1,23 @@
+cards:
+  - id: 069db58034d2666fbb55adea49154d13f3f7f1b8
+    name: Teoría Arcana Avanzada
+    level: 3
+    type: efecto
+    tags:
+      - Mago
+    requirements: Estudios Mágicos & Mente 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros en el momento de lanzarlos.<br>
+      Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes
+      efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres
+      recuperarlo:<br> - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas
+      su alcance un rango (ej. de Cercana a Media).<br> - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las
+      dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas
+      igual a tu Atributo Arcano dentro del área para que no sean afectadas por el conjuro.<br> - **Conjuro Bifurcado
+      (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del
+      alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante
+      fuera superior a 8.
+    slug: teoria-arcana-avanzada

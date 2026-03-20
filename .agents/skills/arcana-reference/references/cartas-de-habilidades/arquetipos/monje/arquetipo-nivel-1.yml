@@ -1,0 +1,19 @@
+cards:
+  - id: ac654915759f13fc95579f62f646b91c388afebe
+    name: Disciplina Monástica
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+      - Arquetipo
+    requirements: Instinto 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br> **Beneficio de Arquetipo:** Mientras este
+      sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu
+      colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar. Además, aprendes una
+      lengua convencional. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas
+      gastado.<br><br> _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
+    slug: disciplina-monastica

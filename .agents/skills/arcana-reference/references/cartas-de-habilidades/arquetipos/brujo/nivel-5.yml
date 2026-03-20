@@ -1,0 +1,19 @@
+cards:
+  - id: b45728a62ac4ac13e42a676ab395b54b22781c8f
+    name: Consumación del Pacto
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: Pacto Supremo & Presencia 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Eres la extensión terrenal absoluta de tu señor extraplanar.<br> Una vez por día de descanso, como Acción, abres
+      un conducto directo hacia el dominio de tu patrón.<br> Tu _Descarga Sobrenatural_ se dispara simultáneamente
+      contra hasta un número de enemigos igual a tu puntuación de Presencia a distancia Larga, realizando una tirada de
+      ataque individual para cada uno.<br> Además, los objetivos que resulten impactados quedan marcados por la
+      fatalidad: la próxima vez que fallen una Tirada de Salvación o reciban un ataque antes del final de tu próximo
+      turno, sufrirán el máximo daño posible de ese efecto.
+    slug: consumacion-del-pacto

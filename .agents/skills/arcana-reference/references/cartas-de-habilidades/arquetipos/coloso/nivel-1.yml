@@ -1,0 +1,17 @@
+cards:
+  - id: 247e65ba8308bdeea8b6b50f9ef031b41094c06a
+    name: Furia de Batalla
+    level: 1
+    type: activable
+    tags:
+      - Coloso
+    requirements: Sintonía con el Acero
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: >-
+      Entras en furia por 1 minuto o hasta que quedes inconsciente. Ganas Mitigación Física +1 y ventaja en pruebas de
+      habilidad de Cuerpo.<br> Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar
+      cartas con la etiqueta _Conjuro_. En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, el
+      efecto termina.
+    slug: furia-de-batalla

@@ -1,0 +1,1101 @@
+items:
+  - name: 'Botas de Velocidad'
+    level: 3
+    cost: 1300
+    type: 'activable'
+    tags:
+      - 'Movimiento'
+    requirements: Reflejos 3
+    description: >-
+      Como una Interacción, puedes activar el poder de las botas. Durante 1 minuto,
+      tu Velocidad se duplica y obtienes Ventaja (+1d4) en las Tiradas de Salvación
+      de Reflejos.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Capa de Sigilo'
+    level: 2
+    cost: 500
+    type: 'efecto'
+    tags:
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Esta capa tejida con sombras y susurros te ayuda a camuflarte con el entorno.
+      Obtienes Ventaja (+1d4) en todas las Pruebas de Sigilo
+      siempre que estés en luz tenue o en oscuridad.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Brazales de Furia Gigante'
+    level: 4
+    cost: 2200
+    type: 'activable'
+    tags:
+      - 'Cuerpo'
+    requirements: Cuerpo 3
+    description: >-
+      Mientras tengas esta carta activa, tu fuerza física alcanza la de un gigante.
+      Tu puntuación de Cuerpo se establece en 5 para calcular tu Salud, el daño de
+      tus ataques cuerpo a cuerpo y para cualquier Prueba de Habilidad basada en Cuerpo.
+      Este efecto no altera tu puntuación base para cumplir requisitos de otras cartas
+      u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Anillo de Protección'
+    level: 3
+    cost: 1500
+    type: 'efecto'
+    tags:
+      - 'Defensa'
+    requirements: null
+    description: >-
+      Este simple anillo de plata genera un campo de fuerza sutil a tu alrededor.
+      Obtienes un +1 permanente a tu Mitigación Física y Mágica.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Varita de Proyectiles Mágicos'
+    level: 3
+    cost: 1200
+    type: 'activable'
+    tags:
+      - 'Vara'
+    requirements: Mente 2
+    description: >-
+      Esta varita contiene 7 cargas. Como una Acción, puedes gastar una o más de sus
+      cargas para lanzar un número de dardos de energía mágica igual a las cargas
+      gastadas. Los dardos impactan automáticamente a objetivos que puedas ver a
+      distancia Larga, y cada uno inflige 1d4 de daño de Fuerza. Puedes dirigir
+      los dardos a uno o varios objetivos. La varita recupera 1d6+1 cargas
+      gastadas cada día al amanecer.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Bolsa Contenedora'
+    level: 2
+    cost: 400
+    type: 'efecto'
+    tags:
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      El interior de esta bolsa de lona es un espacio extra-dimensional. Puede
+      contener hasta 250 kg de peso o 2 metros cúbicos de volumen. Pesa siempre
+      5 kg sin importar su contenido. Sacar un objeto es una Interacción.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Anillo de Invisibilidad'
+    level: 5
+    cost: 8000
+    type: 'activable'
+    tags:
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Como una Acción, te vuelves invisible. El efecto dura hasta que atacas,
+      lanzas un conjuro, usas otra carta activable o te quitas el anillo.
+      Ocupa una ranura de carta activa mientras está en uso.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Yelmo del Políglota'
+    level: 3
+    cost: 800
+    type: 'efecto'
+    tags:
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Mientras llevas este yelmo, comprendes el significado literal de cualquier
+      lengua hablada que oigas. Además, puedes hacerte entender por cualquier
+      criatura que posea un idioma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Sortija del Viento'
+    level: 3
+    cost: 1500
+    type: 'efecto'
+    tags:
+      - 'Esquiva'
+    requirements: null
+    description: >-
+      Este anillo te envuelve en una brisa protectora casi imperceptible.
+      Mientras lo lleves puesto, obtienes un +1 a tu Esquiva.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Hoja del Alba'
+    level: 1
+    cost: 100
+    type: 'efecto'
+    tags:
+      - 'Arma'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br>
+      Como una Interacción, puedes hacer que el arma emita una luz brillante
+      en un radio de 5 metros. Puedes usar otra Interacción para apagarla.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Égida del Imán'
+    level: 4
+    cost: 3200
+    type: 'activable'
+    tags:
+      - 'Escudo'
+    requirements: Cuerpo 3
+    description: >-
+      Este escudo pesado de acero funciona como un escudo normal (otorgando +1 a la Esquiva).
+      Además, mientras tengas esta carta activa y el escudo levantado, te conviertes en un pararrayos para
+      proyectiles. Cualquier ataque a distancia con un arma (flechas, virotes,
+      jabalinas) que tenga como objetivo a una criatura a distancia Cercana,
+      en su lugar te tiene como objetivo a ti.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Botas Aladas'
+    level: 5
+    cost: 7500
+    type: 'activable'
+    tags:
+      - 'Movimiento'
+    requirements: null
+    description: >-
+      Mientras tengas esta carta activa, obtienes una velocidad de vuelo igual
+      a tu velocidad terrestre. Puedes ascender y descender a voluntad.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Diadema del Sabio'
+    level: 4
+    cost: 2200
+    type: 'activable'
+    tags:
+      - 'Mente'
+    requirements: null
+    description: >-
+      Mientras tengas esta carta activa, tu agudeza mental es legendaria.
+      Tu puntuación de Mente se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Collar de Instinto Primordial'
+    level: 4
+    cost: 2200
+    type: 'activable'
+    tags:
+      - 'Instinto'
+    requirements: null
+    description: >-
+      Mientras tengas esta carta activa, tus sentidos se agudizan al máximo.
+      Tu puntuación de Instinto se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Manto del Soberano'
+    level: 4
+    cost: 2200
+    type: 'activable'
+    tags:
+      - 'Presencia'
+    requirements: null
+    description: >-
+      Mientras tengas esta carta activa, proyectas un aura de autoridad natural.
+      Tu puntuación de Presencia se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Amuleto Felino'
+    level: 4
+    cost: 2200
+    type: 'activable'
+    tags:
+      - 'Reflejos'
+    requirements: null
+    description: >-
+      Mientras tengas esta carta activa, te mueves con una gracia sobrenatural.
+      Tu puntuación de Reflejos se establece en 5. Este efecto no altera tu
+      puntuación base para cumplir requisitos de otras cartas u objetos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma Enriquecida'
+    level: 2
+    cost: 600
+    type: 'efecto'
+    tags:
+      - 'Arma'
+    requirements: null
+    description: >-
+      Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida
+      mágicamente para golpear con más certeza y hacer más daño. Obtienes un +1 a tus tiradas
+      de ataque y +1 al daño infligido con esta arma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Perla de Resonancia Arcana'
+    level: 5
+    cost: 6000
+    type: 'efecto'
+    tags:
+      - 'Habilidades'
+    requirements: null
+    description: >-
+      Como una Interacción, puedes tocar esta perla para recuperar el aliento
+      arcano o físico. Elige una de tus cartas activables que ya hayas usado
+      y que tenga un sistema de 'Recarga (X+)' o 'Usos por día'. Recuperas
+      inmediatamente un uso de esa carta.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Amuleto del Troll de Piedra'
+    level: 2
+    cost: 500
+    type: 'efecto'
+    tags:
+      - 'Salud'
+    requirements: null
+    description: >-
+      Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta
+      permanentemente en 5.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Escarabajo de la Fortuna'
+    level: 2
+    cost: 550
+    type: 'efecto'
+    tags:
+      - 'Suerte'
+    requirements: null
+    description: >-
+      Como una Interacción, puedes frotar este escarabajo de jade para que la
+      suerte te sonría. Recuperas 2 Puntos de Suerte gastados.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Lentes Nocturnos'
+    level: 1
+    cost: 200
+    type: 'efecto'
+    tags:
+      - 'Visión'
+    requirements: null
+    description: >-
+      Los cristales de estas gafas están ahumados y son casi opacos a la luz
+      del día, pero en la penumbra revelan el mundo con claridad. Obtienes
+      el rasgo 'Visión en la Oscuridad'.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Monóculo del Revelador'
+    level: 5
+    cost: 5500
+    type: 'activable'
+    tags:
+      - 'Visión'
+    requirements: Instinto 4
+    description: >-
+      Como una Acción, puedes mirar a través de este monóculo para ver el
+      mundo tal y como es. Durante 1 minuto, obtienes visión verdadera hasta
+      distancia Cercana, lo que te permite ver en la oscuridad total (mágica
+      o no), ver criaturas y objetos invisibles y ver la forma original de
+      criaturas cambiaformas o transformadas por ilusiones.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Manto Arácnido'
+    level: 2
+    cost: 350
+    type: 'efecto'
+    tags:
+      - 'Movimiento'
+    requirements: null
+    description: >-
+      Esta capa gris y pegajosa al tacto te permite adherirte a las superficies.
+      Mientras la lleves puesta, obtienes una velocidad de trepar igual a tu
+      velocidad terrestre y puedes moverte por superficies verticales y techos
+      manteniendo las manos libres.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Rodela Repulsora'
+    level: 2
+    cost: 450
+    type: 'activable'
+    tags:
+      - 'Escudo'
+      - 'Reacción'
+    requirements: Cuerpo 2
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier escudo). Como Reacción cuando
+      eres impactado por un ataque cuerpo a cuerpo de un enemigo a distancia Inmediata,
+      puedes liberar una onda de fuerza. El atacante debe superar una Tirada de
+      Salvación de Cuerpo (ND 10) o ser empujado 3 metros hacia atrás en línea recta.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Amuleto de Salud'
+    level: 3
+    cost: 1100
+    type: 'efecto'
+    tags:
+      - 'Curación'
+      - 'Supervivencia'
+    requirements: null
+    description: >-
+      Este amuleto de jaspe rojo late con una suave calidez. Mientras lo lleves
+      puesto, te estabilizas automáticamente al final de tu turno si estás Moribundo.
+      Además, recuperas 2 Puntos de Salud adicionales cada vez que completas
+      un día de descanso.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Broche de la Voluntad Férrea'
+    level: 3
+    cost: 1200
+    type: 'efecto'
+    tags:
+      - 'Concentración'
+    requirements: null
+    description: >-
+      Este broche de hierro te ayuda a mantener la calma bajo presión. Obtienes
+      Ventaja (+1d4) en todas las pruebas de atributo que realices para mantener
+      la Concentración en una carta.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Hoja Viciosa'
+    level: 3
+    cost: 1000
+    type: 'efecto'
+    tags:
+      - 'Arma'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma Cortante o Perforante._<br><br>
+      Cuando obtienes un golpe crítico con esta arma, el objetivo sufre 1d8 de
+      daño adicional del mismo tipo que el del arma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Talisman del Estratega'
+    level: 4
+    cost: 2500
+    type: 'efecto'
+    tags:
+      - 'Habilidades'
+    requirements: null
+    description: >-
+      Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para
+      tocar este talismán y reorganizar tus tácticas. Elige una de tus cartas
+      Activables que tengas equipada en una ranura. Puedes cambiarla
+      instantáneamente por otra carta de tu Colección del mismo nivel o inferior.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Gema de la Verdad'
+    level: 4
+    cost: 3000
+    type: 'activable'
+    tags:
+      - 'Visión'
+    requirements: Instinto 3
+    description: >-
+      Como una Acción, puedes mirar a través de esta gema transparente. Durante
+      1 minuto, ganas la capacidad de ver las cosas como realmente son. Obtienes
+      Visión Verdadera hasta una distancia Cercana, lo que te permite ver criaturas
+      y objetos invisibles y la forma original de criaturas cambiaformas o
+      transformadas por ilusiones.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Guanteletes del Azar Caótico'
+    level: 5
+    cost: 9000
+    type: 'activable'
+    tags:
+      - 'Suerte'
+    requirements: null
+    description: >-
+      Como una Interacción, puedes activar estos guanteletes de hierro meteórico.
+      Durante 1 minuto, tus dados de d8 "explotan" con un resultado de 7 u 8,
+      en lugar de solo con un 8.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Anillo de Enfoque Arcano'
+    level: 5
+    cost: 10000
+    type: 'efecto'
+    tags:
+      - 'Habilidades'
+    requirements: null
+    description: >-
+      Este anillo te permite organizar y acceder a tus habilidades de forma más
+      eficiente. Mientras lo lleves puesto, ganas una Ranura de Carta
+      Activa adicional.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Tomo del Físico de Atlas'
+    level: 6
+    cost: Incalculable
+    type: 'efecto'
+    tags:
+      - 'Cuerpo'
+      - 'Artefacto'
+    requirements: null
+    description: >-
+      Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias.
+      Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
+      lecciones de forma permanente. Tu puntuación de Cuerpo aumenta en +1.
+      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6.
+      Una vez que el libro es leído, sus páginas se vuelven ininteligibles para siempre.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Tratado de la Gracia Efímera'
+    level: 6
+    cost: Incalculable
+    type: 'efecto'
+    tags:
+      - 'Reflejos'
+      - 'Artefacto'
+    requirements: null
+    description: >-
+      Escrito en seda y con tinta invisible, este tratado enseña el arte del
+      movimiento perfecto. Si pasas una semana de tiempo entre aventuras estudiándolo,
+      asimilas sus lecciones de forma permanente. Tu puntuación de Reflejos aumenta
+      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo
+      máximo de 6. Una vez que el libro es leído, sus páginas se vuelven ininteligibles
+      para siempre.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Libro de la Mente Trascendente'
+    level: 6
+    cost: Incalculable
+    type: 'efecto'
+    tags:
+      - 'Mente'
+      - 'Artefacto'
+    requirements: null
+    description: >-
+      Este libro sin título contiene paradojas y acertijos que expanden la conciencia.
+      Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
+      lecciones de forma permanente. Tu puntuación de Mente aumenta en +1.
+      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6.
+      Una vez que el libro es leído, sus páginas se vuelven ininteligibles para siempre.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Enseñanzas del Alma Despierta'
+    level: 6
+    cost: Incalculable
+    type: 'efecto'
+    tags:
+      - 'Instinto'
+      - 'Artefacto'
+    requirements: null
+    description: >-
+      Estas tablillas de marfil describen meditaciones para unificar los sentidos
+      con el mundo. Si pasas una semana de tiempo entre aventuras estudiándolas,
+      asimilas sus lecciones de forma permanente. Tu puntuación de Instinto aumenta
+      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo
+      máximo de 6. Una vez que las tablillas son leídas, sus glifos se borran para siempre.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Manual de Liderazgo e Influencia'
+    level: 6
+    cost: Incalculable
+    type: 'efecto'
+    tags:
+      - 'Presencia'
+      - 'Artefacto'
+    requirements: null
+    description: >-
+      Este tomo contiene ensayos y observaciones de los más grandes líderes de
+      la historia. Si pasas una semana de tiempo entre aventuras estudiándolo,
+      asimilas sus lecciones de forma permanente. Tu puntuación de Presencia
+      aumenta en +1. Esto te permite superar el límite máximo normal de 6,
+      hasta un nuevo máximo de 7. Una vez que el libro es leído, sus páginas
+      se vuelven ininteligibles para siempre.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Poción de Curación Menor'
+    level: 1
+    cost: 50
+    type: 'consumible'
+    tags:
+      - 'Poción'
+      - 'Curación'
+    requirements: null
+    description: >-
+      Al beber esta poción, un líquido rojo y viscoso con sabor a bayas,
+      recuperas 1d6+1 Puntos de Salud.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Poción de Curación Mediana'
+    level: 2
+    cost: 150
+    type: 'consumible'
+    tags:
+      - 'Poción'
+      - 'Curación'
+    requirements: null
+    description: >-
+      Este brebaje carmesí y brillante cierra heridas más graves. Al beberla,
+      recuperas 2d6+2 Puntos de Salud.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Poción de Curación Mayor'
+    level: 3
+    cost: 400
+    type: 'consumible'
+    tags:
+      - 'Poción'
+      - 'Curación'
+    requirements: null
+    description: >-
+      La poción emite un suave calor antes de ser bebida. Al consumirla,
+      recuperas 4d6+4 Puntos de Salud.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Poción de Curación Superior'
+    level: 4
+    cost: 1000
+    type: 'consumible'
+    tags:
+      - 'Poción'
+      - 'Curación'
+    requirements: null
+    description: >-
+      Este elixir dorado re teje la carne y detiene hemorragias al instante.
+      Al beberlo, recuperas 6d6+6 Puntos de Salud.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Elixir de Agilidad Felina'
+    level: 2
+    cost: 200
+    type: 'consumible'
+    tags:
+      - 'Poción'
+    requirements: null
+    description: >-
+      Este líquido plateado y ligero te otorga una gracia sobrenatural.
+      Durante 1 minuto, obtienes Ventaja (+1d4) en todas las Pruebas de Habilidad
+      y Tiradas de Salvación basadas en Reflejos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Brebaje de Fuerza de Gigante'
+    level: 2
+    cost: 200
+    type: 'consumible'
+    tags:
+      - 'Poción'
+    requirements: null
+    description: >-
+      Una poción espesa y terrosa que calienta los músculos. Durante 1 minuto,
+      obtienes Ventaja (+1d4) en todas las Pruebas de Habilidad basadas en Cuerpo
+      y tus ataques con armas cuerpo a cuerpo infligen +2 de daño adicional.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Poción de Invisibilidad'
+    level: 3
+    cost: 500
+    type: 'consumible'
+    tags:
+      - 'Poción'
+    requirements: null
+    description: >-
+      Al beber este líquido cristalino, tu cuerpo se desvanece de la vista.
+      Te vuelves invisible durante 10 minutos. El efecto termina antes si atacas,
+      lanzas un conjuro o usas una carta activable.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Filtro de Respiración Acuática'
+    level: 2
+    cost: 150
+    type: 'consumible'
+    tags:
+      - 'Poción'
+    requirements: null
+    description: >-
+      Un líquido azulado con burbujas que nunca se detienen. Al beberlo, puedes
+      respirar bajo el agua durante 1 hora.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Elixir de Resistencia Elemental'
+    level: 3
+    cost: 500
+    type: 'consumible'
+    tags:
+      - 'Poción'
+    requirements: null
+    description: >-
+      Al crear esta poción, se elige un tipo de daño elemental (Fuego, Frío o Eléctrico).
+      Al beberla, obtienes Mitigación Mágica igual a 5 contra ese tipo de daño
+      durante 1 hora.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Poción de Heroísmo'
+    level: 4
+    cost: 1200
+    type: 'consumible'
+    tags:
+      - 'Poción'
+    requirements: null
+    description: >-
+      Este líquido dorado y burbujeante te llena de un coraje divino. Durante
+      1 minuto, te vuelves inmune al estado Asustado, ganas 10 Puntos de Salud
+      temporales y obtienes un +1 a todas tus tiradas de ataque y Tiradas de Salvación.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Piedra Lumina'
+    level: 1
+    cost: 100
+    type: 'efecto'
+    tags:
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Esta piedra lisa y gris se siente cálida al tacto. Como una Interacción,
+      puedes pronunciar su palabra de mando para que emita una luz brillante
+      y limpia, equivalente a una antorcha, en un radio de 5 metros. Una
+      segunda Interacción la apaga. No produce calor ni se consume.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Pluma Inagotable'
+    level: 1
+    cost: 125
+    type: 'efecto'
+    tags:
+      - 'Herramienta'
+    requirements: null
+    description: >-
+      Esta elegante pluma de cuervo nunca necesita ser mojada en tinta. Escribe
+      con un flujo constante de tinta negra y permanente sobre cualquier
+      superficie que la tinta común pudiera marcar.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Capa Camaleónica'
+    level: 1
+    cost: 125
+    type: 'efecto'
+    tags:
+      - 'Estético'
+    requirements: null
+    description: >-
+      Los hilos de esta capa cambian sutilmente de color para armonizar con
+      el entorno. No te vuelve invisible, pero te ayuda a no desentonar.
+      Como Interacción, puedes concentrarte para cambiar su color y patrón a
+      cualquier diseño simple que desees (por ejemplo, el blasón de una casa
+      noble o un color liso).
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Odre del Manantial Eterno'
+    level: 1
+    cost: 100
+    type: 'efecto'
+    tags:
+      - 'Supervivencia'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Este odre de cuero siempre parece estar medio lleno. Cada día al amanecer,
+      genera mágicamente hasta cuatro litros de agua fresca y potable.
+      Además, cualquier agua no potable que se vierta en su interior se purifica
+      al instante.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Pipa del Cuentacuentos'
+    level: 1
+    cost: 100
+    type: 'efecto'
+    tags:
+      - 'Estético'
+      - 'Narrativo'
+    requirements: null
+    description: >-
+      Tallada en madera de sauce, esta pipa produce un humo inofensivo y aromático
+      incluso sin tabaco. Con una Interacción, puedes hacer que el humo adopte
+      formas simples y efímeras que representen lo que estás narrando: un dragón,
+      una espada, un castillo, etc.
+    uses:
+      type: NULL
+      qty: 0 que no requiere tirada
+
+  - name: 'Aguja e Hilo de la Remendadora'
+    level: 1
+    cost: 125
+    type: 'efecto'
+    tags:
+      - 'Herramienta'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Esta aguja de plata y su carrete de hilo dorado pueden reparar cualquier
+      desgarro o rotura en tela o cuero. Como una Acción,
+      puedes reparar un objeto dañado, dejándolo como nuevo. El hilo se regenera
+      mágicamente.
+    uses:
+      type: DAY
+      qty: 3
+
+  - name: 'Monedas del Mensaje Silencioso'
+    level: 1
+    cost: 150
+    type: 'efecto'
+    tags:
+      - 'Comunicación'
+      - 'Narrativo'
+    requirements: null
+    description: >-
+      Este objeto es en realidad un par de monedas de cobre idénticas. Cuando el
+      portador de una de las monedas la aprieta y se concentra en ella (una Interacción),
+      la otra moneda, sin importar la distancia, se calienta suavemente al tacto.
+      No transmite mensajes complejos, solo una señal silenciosa.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Diario del Recuerdo Fiel'
+    level: 1
+    cost: 150
+    type: 'efecto'
+    tags:
+      - 'Herramienta'
+      - 'Narrativo'
+    requirements: null
+    description: >-
+      Mientras este diario está abierto, su pluma encantada transcribe de forma
+      precisa cualquier conversación que **tú** puedas oír claramente. Es un
+      perfecto notario de tus propias experiencias. Puedes usar una Interacción
+      para que la pluma comience o deje de escribir. El diario tiene páginas
+      ilimitadas, que se limpian mágicamente al cerrar y reabrir el libro.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Medallón del Vínculo Fiel'
+    level: 4
+    cost: 4000
+    type: 'activable'
+    tags:
+      - 'Invocación'
+    requirements: Instinto 3
+    description: >-
+      Como una Acción, puedes lanzar este medallón al suelo, que se transforma en un
+      **Lobo** (usa el bloque de estadísticas del bestiario). El lobo es amistoso
+      contigo y tus compañeros y actúa en tu misma iniciativa, justo después de ti.
+      Entiende y obedece tus órdenes verbales (no requiere acción). La transformación
+      dura 1 minuto o hasta que el lobo es reducido a 0 Puntos de Salud, momento
+      en el que se revierte a su forma de medallón.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Espejo de la Memoria Reciente'
+    level: 3
+    cost: 900
+    type: 'activable'
+    tags:
+      - 'Adivinación'
+      - 'Investigación'
+    requirements: Instinto 3
+    description: >-
+      Como una Acción, puedes enfocar el espejo en un punto a distancia Inmediata.
+      El espejo revela una imagen silenciosa y fantasmal del evento más significativo
+      o emocionalmente cargado que ocurrió en ese punto en las últimas 24 horas.
+      La visión dura 10 segundos y es desde la perspectiva del espejo.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Brazalete del Guardián Resentido'
+    level: 2
+    cost: 400
+    type: 'activable'
+    tags:
+      - 'Reacción'
+      - 'Daño'
+    requirements: Cuerpo 2
+    description: >-
+      Como Reacción cuando eres impactado por un ataque cuerpo a cuerpo de un enemigo
+      que puedas ver, puedes hacer que el brazalete libere una onda de fuerza.
+      El atacante debe superar una Tirada de Salvación de Reflejos (ND 10). Si falla,
+      recibe 1d6 de daño de Fuerza; si tiene éxito, recibe la mitad del daño.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Filo Entorpecedor'
+    level: 2
+    cost: 300
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Debuff'
+    requirements: null
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo). Cuando
+      obtienes un golpe crítico con esta arma, el objetivo es imbuido con una
+      energía entorpecedora. Hasta el final de tu próximo turno, la Velocidad
+      del objetivo se reduce a la mitad.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Piedra de Anulación'
+    level: 3
+    cost: 1000
+    type: 'activable'
+    tags:
+      - 'Control'
+      - 'Utilidad'
+    requirements: Mente 3
+    description: >-
+      Como una Acción, arrojas esta piedra de obsidiana a un punto a distancia
+      Cercana, donde flota en el aire. Eliges uno de los siguientes efectos,
+      que crea una esfera de 5 metros de radio y dura 1 minuto (requiere Concentración):
+      - **Silencio:** No se puede originar ni pasar sonido a través de la esfera.
+        Cualquier criatura u objeto dentro de ella es inmune al daño Sónico, y
+        están ensordecidos.
+      - **Oscuridad:** La esfera se llena de oscuridad mágica, bloqueando la visión
+        (incluso la Visión en la Oscuridad).
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Amuleto del Caminante Acuático'
+    level: 2
+    cost: 300
+    type: 'efecto'
+    tags:
+      - 'Movimiento'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Mientras lleves este amuleto con forma de libélula, puedes moverte sobre
+      cualquier superficie líquida (como agua, ácido o lodo) como si fuera
+      terreno sólido.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Armadura de la Víbora Dentada'
+    level: 3
+    cost: 1300
+    type: 'efecto'
+    tags:
+      - 'Armadura'
+      - 'Daño'
+    requirements: Cuerpo 2
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o
+      superior). Las placas o anillas de esta armadura están cubiertas de filos
+      mágicos. Cada vez que una criatura a distancia Inmediata te impacta con
+      un ataque cuerpo a cuerpo, recibe 1d4 de daño Cortante.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Cota de Sombras Danzantes'
+    level: 2
+    cost: 550
+    type: 'activable'
+    tags:
+      - 'Armadura'
+      - 'Reacción'
+      - 'Movimiento'
+    requirements: Reflejos 2
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Cuero). Como Reacción
+      cuando eres impactado por un ataque, puedes hacer que la cota se disuelva
+      en sombras por un instante, permitiéndote moverte hasta la mitad de tu
+      Velocidad. Este movimiento no puede ser interceptado por Reacciones enemigas.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: 'Túnica del Recuerdo Arcano'
+    level: 3
+    cost: 1500
+    type: 'activable'
+    tags:
+      - 'Armadura'
+      - 'Conjuro'
+      - 'Utilidad'
+    requirements: 'Mente 3 | Instinto 3 | Presencia 3'
+    description: >-
+      (Esta propiedad se aplica a ropa o túnicas, no otorga mitigación). Durante
+      un día de descanso, puedes realizar un ritual de 10 minutos para almacenar
+      una de tus cartas de Conjuro de Nivel 1 o 2 en la túnica. Mientras esta carta
+      esté activa, puedes lanzar el conjuro almacenado como si lo tuvieras en una
+      ranura, sin gastar su uso normal. Una vez lanzado, el conjuro se desvanece
+      de la túnica y debes realizar el ritual de nuevo para almacenar otro.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Coraza del Guardián Elemental'
+    level: 4
+    cost: 2000
+    type: 'efecto'
+    tags:
+      - 'Armadura'
+      - 'Defensa'
+    requirements: Cuerpo 3
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Placas Parcial o
+      superior). Durante un día de descanso, puedes pasar una hora realizando un
+      ritual para sintonizar la coraza con un tipo de energía elemental: Fuego,
+      Frío o Eléctrico. Mientras estés sintonizado, obtienes Mitigación Mágica +3
+      contra ese tipo de daño específico. Puedes cambiar la sintonía realizando
+      el ritual de nuevo.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Cuerda de Anclaje Certero'
+    level: 2
+    cost: 300
+    type: 'efecto'
+    tags:
+      - 'Utilidad'
+      - 'Movimiento'
+    requirements: null
+    description: >-
+      Como una Acción, puedes lanzar la punta de esta cuerda de seda de 15 metros
+      hacia un punto que puedas ver dentro del alcance. La cuerda se anima y se
+      ancla firmemente a ese punto. La cuerda puede soportar hasta 250 kg y
+      permanece anclada hasta que pronuncias la palabra de mando para que se suelte.
+    uses:
+      type: DAY
+      qty: 3
+
+  - name: 'Vara del Alivio'
+    level: 2
+    cost: 600
+    type: 'activable'
+    tags:
+      - 'Curación'
+      - 'Vara'
+    requirements: null
+    description: >-
+      Esta vara de madera de abedul contiene 3 cargas. Como una Acción, puedes
+      gastar una carga para tocar a una criatura y hacer que recupere 1d6+2 Puntos
+      de Salud. La vara recupera 1d2+1 cargas gastadas cada día al amanecer.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Gemas del Eco Mental'
+    level: 3
+    cost: 800
+    type: 'efecto'
+    tags:
+      - 'Comunicación'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema
+      posee 3 cargas en total, que se recuperan cada día al amanecer.
+      Mientras sostienes una gema, puedes usar tu Acción y gastar 1 carga para
+      enviar un mensaje telepático de hasta 25 palabras al portador de la otra
+      gema. El receptor oye el mensaje en su mente y puede usar su propia Acción para
+      responder con un mensaje de la misma longitud, sin gastar una carga,
+      siempre que ambos estén en el mismo plano de existencia.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma del Retorno'
+    level: 2
+    cost: 350
+    type: 'efecto'
+    tags:
+      - 'Arma'
+    requirements: null
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza).
+      Después de realizar un ataque Arrojadizo con esta arma, esta vuela de regreso
+      a tu mano al final de tu turno, siempre que tengas una mano libre para recibirla.
+    uses:
+      type: NULL
+      qty: 0

@@ -1,0 +1,156 @@
+cards:
+  - id: 75799a0ed30d5293285908afc8326121466a6499
+    name: Inspiración Superior
+    level: 3
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Inspiración Eficaz & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu inspiración se vuelve más potente. El dado de tu _Canto de Inspiración_ aumenta a 1d6 y su alcance aumenta a
+      distancia Media.
+    slug: inspiracion-superior
+  - id: 5df8d47b901e00f5e54ff1c536a4972707250455
+    name: Impersonar
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Ritual
+    requirements: Don del Elocuente & Presencia 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Tras 10 minutos de preparación ritual, alteras físicamente tu estatura (hasta medio metro más o menos), rasgos
+      faciales, color de piel y voz para adoptar una nueva apariencia humanoide. La transformación es física y dura
+      hasta 8 horas. Aunque no es una simple ilusión, su naturaleza mágica puede ser percibida por efectos como la
+      Visión Verdadera. Un observador que sospeche de ti puede usar su Acción para estudiar tu actuación. Para
+      descubrirte, debe superar una Tirada Enfrentada de su Instinto (Perspicacia) contra tu Presencia (Engaño).
+    slug: impersonar
+  - id: 1757a3b21019f918893c6804606c21315debddc6
+    name: Secretos Mágicos
+    level: 3
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Don del Elocuente & Presencia 4 & Mente 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu estudio de diversas tradiciones te permite aprender magia ajena a tu disciplina. Eliges un total de 3 niveles
+      de cartas de Conjuro de las listas del Arcanista, Sacerdote o Druida (todas de la misma lista). Las combinaciones
+      pueden ser:<br> - Una carta de Nivel 3.<br> - Una carta de Nivel 2 y una de Nivel 1.<br> - Tres cartas de Nivel
+      1.<br> Ignoras cualquier requisito que tengan las cartas elegidas. Estas se añaden a tu colección y usan Presencia
+      como tu atributo principal para utilizarlas.<br> **Reaprendizaje:** Durante una semana de tiempo de inactividad,
+      puedes dedicarte a investigar. Al final de la semana, puedes reemplazar una o varias de las cartas elegidas por
+      otra, siempre que el coste total de niveles no supere 3.
+    slug: secretos-magicos
+  - id: 61caa450a252a04ad869051f9041de8e58729f5f
+    name: Floritura Ofensiva
+    level: 3
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Inspiración Marcial & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu arte y tu acero son uno.<br> Una vez por turno, cuando impactas a un enemigo con un ataque con arma, puedes
+      gastar un uso de tu _Canto de Inspiración_. Si lo haces, sumas el resultado del dado de inspiración al daño de ese
+      ataque y puedes realizar un segundo ataque con arma como parte de la misma Acción.
+    slug: floritura-ofensiva
+  - id: 6fc597eea0f4a69030a33bda235eaa50a1042e2e
+    name: Cacofonía Discordante
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Crescendo Aterrador & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, creas una explosión de sonido disonante en un punto a distancia Cercana. Toda criatura en un radio de
+      3 metros debe superar una TS de Cuerpo (ND 5 + Presencia) o recibirá 2d6 de daño Sónico y no podrá usar Reacciones
+      hasta el final de tu próximo turno. Además, si una criatura estaba manteniendo Concentración al momento de fallar
+      la tirada, pierde la concentración imediatamente.
+    slug: cacofonia-discordante
+  - id: 560c44521b2e33d8ee67d12b734beef139e3cb3d
+    name: Balada de los Héroes
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Reacción
+    requirements: Don del Elocuente & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Reacción, cuando un aliado a distancia Cercana que puedas ver falla una tirada de ataque o una tirada de
+      salvación, puedes interpretar una nota de aliento para permitirle que vuelva a tirar el dado. Debe usar el nuevo
+      resultado.
+    slug: balada-de-los-heroes
+  - id: 610d8e595a5cb6afa95476a6fe0a6145738562d3
+    name: Lamento Confuso
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, interpretas una melodía disonante que nubla la mente y dura hasta 1 minuto. Eliges un punto a
+      distancia Media, creando una esfera de 3 metros de radio. Una criatura hostil que empiece su turno en el área debe
+      superar una TS de Instinto (ND 5 + Presencia). Si falla, no puede distinguir amigo de enemigo y debe usar su
+      Acción para realizar un ataque cuerpo a cuerpo contra la criatura más cercana a ella.
+    slug: lamento-confuso
+  - id: e5c99b9e76b9f4192cd50eecf66ddacbf4b5d2b0
+    name: Narrativa Cautivadora
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, eliges un objetivo a distancia Media y comienzas a hablarle. Debe superar una TS de Instinto (ND 5 +
+      Presencia). Si falla, durante 1 minuto, cree que tus afirmaciones son hechos, siempre que no sean directamente
+      suicidas o contradigan una creencia fundamental. Una vez que una criatura ha sido objetivo de este conjuro, es
+      inmune a él durante un día de descanso, independientemente del resultado.
+    slug: narrativa-cautivadora
+  - id: db8e2b2a162376fca97e0bf98e7177e2da96e090
+    name: Patrón Hipnótico
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, creas un patrón de luces y colores fascinantes que dura hasta 1 minuto. Eliges un punto a distancia
+      Media. Todas las criaturas en un cubo de 3 metros desde ese punto deben superar una TS de Instinto (ND 5 +
+      Presencia). Si fallan, quedan Encantadas por ti. Mientras estén encantadas por este efecto, quedan Inmovilizadas
+      en un estado de fascinación. El efecto termina para una criatura si recibe daño.
+    slug: patron-hipnotico

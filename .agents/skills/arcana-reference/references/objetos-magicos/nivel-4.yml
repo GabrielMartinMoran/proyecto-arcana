@@ -1,0 +1,193 @@
+items:
+  - id: bb5a285ebe90a7dc082d1e9102a9c8ae771dec79
+    name: Brazales de Furia Gigante
+    level: 4
+    type: activable
+    tags:
+      - Cuerpo
+    requirements: Cuerpo 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras tengas esta carta activa, tu fuerza física alcanza la de un gigante. Tu puntuación de Cuerpo se establece
+      en 5 para calcular tu Salud, el daño de tus ataques cuerpo a cuerpo y para cualquier Prueba de Habilidad basada en
+      Cuerpo. Este efecto no altera tu puntuación base para cumplir requisitos de otras cartas u objetos.
+    slug: brazales-de-furia-gigante
+    cost: 2200
+  - id: 12e5c8e8e5d9bf7a9ef0b404e6a10514b9d39816
+    name: Égida del Imán
+    level: 4
+    type: activable
+    tags:
+      - Escudo
+    requirements: Cuerpo 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este escudo pesado de acero funciona como un escudo normal (otorgando +1 a la Esquiva). Además, mientras tengas
+      esta carta activa y el escudo levantado, te conviertes en un pararrayos para proyectiles. Cualquier ataque a
+      distancia con un arma (flechas, virotes, jabalinas) que tenga como objetivo a una criatura a distancia Cercana, en
+      su lugar te tiene como objetivo a ti.
+    slug: egida-del-iman
+    cost: 3200
+  - id: 3ea330373fdd1acde8ed84dd87599ef8dcbf1304
+    name: Diadema del Sabio
+    level: 4
+    type: activable
+    tags:
+      - Mente
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras tengas esta carta activa, tu agudeza mental es legendaria. Tu puntuación de Mente se establece en 5. Este
+      efecto no altera tu puntuación base para cumplir requisitos de otras cartas u objetos.
+    slug: diadema-del-sabio
+    cost: 2200
+  - id: d079e7742d838295369622843d2363d1031d6b3f
+    name: Collar de Instinto Primordial
+    level: 4
+    type: activable
+    tags:
+      - Instinto
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras tengas esta carta activa, tus sentidos se agudizan al máximo. Tu puntuación de Instinto se establece en
+      5. Este efecto no altera tu puntuación base para cumplir requisitos de otras cartas u objetos.
+    slug: collar-de-instinto-primordial
+    cost: 2200
+  - id: c73d544255f2cfb2f7207ee986ed6988d9dfe78a
+    name: Manto del Soberano
+    level: 4
+    type: activable
+    tags:
+      - Presencia
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras tengas esta carta activa, proyectas un aura de autoridad natural. Tu puntuación de Presencia se establece
+      en 5. Este efecto no altera tu puntuación base para cumplir requisitos de otras cartas u objetos.
+    slug: manto-del-soberano
+    cost: 2200
+  - id: d692a87566d5ee6a545563f70466ce32de3aae05
+    name: Amuleto Felino
+    level: 4
+    type: activable
+    tags:
+      - Reflejos
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras tengas esta carta activa, te mueves con una gracia sobrenatural. Tu puntuación de Reflejos se establece
+      en 5. Este efecto no altera tu puntuación base para cumplir requisitos de otras cartas u objetos.
+    slug: amuleto-felino
+    cost: 2200
+  - id: 001bf6bbb81d8159bc4b67483c2f1fbf6febd474
+    name: Talisman del Estratega
+    level: 4
+    type: efecto
+    tags:
+      - Habilidades
+    requirements: null
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para tocar este talismán y reorganizar tus
+      tácticas. Elige una de tus cartas Activables que tengas equipada en una ranura. Puedes cambiarla instantáneamente
+      por otra carta de tu Colección del mismo nivel o inferior.
+    slug: talisman-del-estratega
+    cost: 2500
+  - id: ad1be8151285790cc28721554966381599793d14
+    name: Gema de la Verdad
+    level: 4
+    type: activable
+    tags:
+      - Visión
+    requirements: Instinto 3
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Acción, puedes mirar a través de esta gema transparente. Durante 1 minuto, ganas la capacidad de ver las
+      cosas como realmente son. Obtienes Visión Verdadera hasta una distancia Cercana, lo que te permite ver criaturas y
+      objetos invisibles y la forma original de criaturas cambiaformas o transformadas por ilusiones.
+    slug: gema-de-la-verdad
+    cost: 3000
+  - id: 23bf7413224a9baae38690189d68bf49a77501db
+    name: Poción de Curación Superior
+    level: 4
+    type: consumible
+    tags:
+      - Poción
+      - Curación
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este elixir dorado re teje la carne y detiene hemorragias al instante. Al beberlo, recuperas 6d6+6 Puntos de
+      Salud.
+    slug: pocion-de-curacion-superior
+    cost: 1000
+  - id: d05c11e15a2fac8077fc612cf9a4b0a291a02bd4
+    name: Poción de Heroísmo
+    level: 4
+    type: consumible
+    tags:
+      - Poción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este líquido dorado y burbujeante te llena de un coraje divino. Durante 1 minuto, te vuelves inmune al estado
+      Asustado, ganas 10 Puntos de Salud temporales y obtienes un +1 a todas tus tiradas de ataque y Tiradas de
+      Salvación.
+    slug: pocion-de-heroismo
+    cost: 1200
+  - id: 558b60797278dd3d8b6739a4750bd9d764c5a038
+    name: Medallón del Vínculo Fiel
+    level: 4
+    type: activable
+    tags:
+      - Invocación
+    requirements: Instinto 3
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Acción, puedes lanzar este medallón al suelo, que se transforma en un **Lobo** (usa el bloque de
+      estadísticas del bestiario). El lobo es amistoso contigo y tus compañeros y actúa en tu misma iniciativa, justo
+      después de ti. Entiende y obedece tus órdenes verbales (no requiere acción). La transformación dura 1 minuto o
+      hasta que el lobo es reducido a 0 Puntos de Salud, momento en el que se revierte a su forma de medallón.
+    slug: medallon-del-vinculo-fiel
+    cost: 4000
+  - id: d60e80df264ea1565068eeca9e02631f3d6e0740
+    name: Coraza del Guardián Elemental
+    level: 4
+    type: efecto
+    tags:
+      - Armadura
+      - Defensa
+    requirements: Cuerpo 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      (Esta propiedad se puede aplicar a cualquier armadura de Placas Parcial o superior). Durante un día de descanso,
+      puedes pasar una hora realizando un ritual para sintonizar la coraza con un tipo de energía elemental: Fuego, Frío
+      o Eléctrico. Mientras estés sintonizado, obtienes Mitigación Mágica +3 contra ese tipo de daño específico. Puedes
+      cambiar la sintonía realizando el ritual de nuevo.
+    slug: coraza-del-guardian-elemental
+    cost: 2000
