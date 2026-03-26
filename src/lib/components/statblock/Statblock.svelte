@@ -71,11 +71,7 @@
 			<span class="spacer"></span>
 
 			<span
-				><strong
-					><span>{creature.lineage}</span>,
-					<span>Rango</span>
-					<span>{creature.tier}</span></strong
-				>
+				><strong><span>{creature.lineage} ({creature.size}), Rango {creature.tier}</span></strong>
 			</span>
 			<div class="header-actions">
 				<button onclick={copyEmbeddedURL} title="Copiar enlace embebido">🔗</button>

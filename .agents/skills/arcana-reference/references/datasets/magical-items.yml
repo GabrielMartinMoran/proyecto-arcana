@@ -489,7 +489,7 @@ items:
       Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias.
       Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
       lecciones de forma permanente. Tu puntuación de Cuerpo aumenta en +1.
-      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6.
+      Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7.
       Una vez que el libro es leído, sus páginas se vuelven ininteligibles para siempre.
     uses:
       type: NULL
@@ -507,8 +507,8 @@ items:
       Escrito en seda y con tinta invisible, este tratado enseña el arte del
       movimiento perfecto. Si pasas una semana de tiempo entre aventuras estudiándolo,
       asimilas sus lecciones de forma permanente. Tu puntuación de Reflejos aumenta
-      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo
-      máximo de 6. Una vez que el libro es leído, sus páginas se vuelven ininteligibles
+      en +1. Esto te permite superar el límite máximo normal de 6, hasta un nuevo
+      máximo de 7. Una vez que el libro es leído, sus páginas se vuelven ininteligibles
       para siempre.
     uses:
       type: NULL
@@ -526,7 +526,7 @@ items:
       Este libro sin título contiene paradojas y acertijos que expanden la conciencia.
       Si pasas una semana de tiempo entre aventuras estudiándolo, asimilas sus
       lecciones de forma permanente. Tu puntuación de Mente aumenta en +1.
-      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6.
+      Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7.
       Una vez que el libro es leído, sus páginas se vuelven ininteligibles para siempre.
     uses:
       type: NULL
@@ -544,8 +544,8 @@ items:
       Estas tablillas de marfil describen meditaciones para unificar los sentidos
       con el mundo. Si pasas una semana de tiempo entre aventuras estudiándolas,
       asimilas sus lecciones de forma permanente. Tu puntuación de Instinto aumenta
-      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo
-      máximo de 6. Una vez que las tablillas son leídas, sus glifos se borran para siempre.
+      en +1. Esto te permite superar el límite máximo normal de 6, hasta un nuevo
+      máximo de 7. Una vez que las tablillas son leídas, sus glifos se borran para siempre.
     uses:
       type: NULL
       qty: 0

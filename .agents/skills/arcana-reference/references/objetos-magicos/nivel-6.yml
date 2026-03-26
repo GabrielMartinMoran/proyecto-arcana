@@ -13,7 +13,7 @@ items:
     description: >-
       Este tomo encuadernado en piel de hidra detalla ejercicios y técnicas legendarias. Si pasas una semana de tiempo
       entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Cuerpo aumenta en +1.
-      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que el libro es leído,
+      Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7. Una vez que el libro es leído,
       sus páginas se vuelven ininteligibles para siempre.
     slug: tomo-del-fisico-de-atlas
     cost: Incalculable
@@ -31,7 +31,7 @@ items:
     description: >-
       Escrito en seda y con tinta invisible, este tratado enseña el arte del movimiento perfecto. Si pasas una semana de
       tiempo entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Reflejos aumenta
-      en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que el libro es
+      en +1. Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7. Una vez que el libro es
       leído, sus páginas se vuelven ininteligibles para siempre.
     slug: tratado-de-la-gracia-efimera
     cost: Incalculable
@@ -49,7 +49,7 @@ items:
     description: >-
       Este libro sin título contiene paradojas y acertijos que expanden la conciencia. Si pasas una semana de tiempo
       entre aventuras estudiándolo, asimilas sus lecciones de forma permanente. Tu puntuación de Mente aumenta en +1.
-      Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que el libro es leído,
+      Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7. Una vez que el libro es leído,
       sus páginas se vuelven ininteligibles para siempre.
     slug: libro-de-la-mente-trascendente
     cost: Incalculable
@@ -67,7 +67,7 @@ items:
     description: >-
       Estas tablillas de marfil describen meditaciones para unificar los sentidos con el mundo. Si pasas una semana de
       tiempo entre aventuras estudiándolas, asimilas sus lecciones de forma permanente. Tu puntuación de Instinto
-      aumenta en +1. Esto te permite superar el límite máximo normal de 7, hasta un nuevo máximo de 6. Una vez que las
+      aumenta en +1. Esto te permite superar el límite máximo normal de 6, hasta un nuevo máximo de 7. Una vez que las
       tablillas son leídas, sus glifos se borran para siempre.
     slug: ensenanzas-del-alma-despierta
     cost: Incalculable

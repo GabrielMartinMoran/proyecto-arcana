@@ -33,6 +33,7 @@
 name: Goblin
 lineage: Goblinoide
 tier: 1
+size: Mediano
 attributes:
   body: 2
   reflexes: 3

@@ -69,6 +69,7 @@ A partir de tus atributos, se calculan otros valores esenciales para tu personaj
   - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
 - **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
+- **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.
 
 ## Paso 4: Definiendo tu Linaje
 
@@ -287,21 +288,27 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:
 
 ### Recarga en Combate (La Adrenalina)
+
 En el fragor de la batalla, la adrenalina puede permitirte recuperar tus capacidades rápidamente.
-* **Cuándo:** Al **inicio de tu turno**, antes de realizar cualquier acción.
-* **Cómo:** Lanza **1d8 por cada carta agotada** que tengas con la propiedad **Recarga n+**.
-* **Resultado:** Si el resultado del dado es **igual o superior** al número indicado en la carta (n), recuperas el uso de esa habilidad y puedes volver a utilizarla inmediatamente en ese mismo turno o hasta que vuelvas a agotarla.
-* **Fallo:** Si no superas la tirada, la carta permanece agotada hasta el inicio de tu próximo turno, donde podrás volver a intentarlo.
+
+- **Cuándo:** Al **inicio de tu turno**, antes de realizar cualquier acción.
+- **Cómo:** Lanza **1d8 por cada carta agotada** que tengas con la propiedad **Recarga n+**.
+- **Resultado:** Si el resultado del dado es **igual o superior** al número indicado en la carta (n), recuperas el uso de esa habilidad y puedes volver a utilizarla inmediatamente en ese mismo turno o hasta que vuelvas a agotarla.
+- **Fallo:** Si no superas la tirada, la carta permanece agotada hasta el inicio de tu próximo turno, donde podrás volver a intentarlo.
 
 ### Recarga Fuera de Combate (El Reenfoque)
+
 Cuando el peligro inmediato ha pasado, puedes centrarte mental y físicamente para recuperar tus capacidades. Este proceso se llama **Reenfoque**.
+
 - **Cómo:** Debes dedicar un tiempo ininterrumpido a una actividad breve de mantenimiento (limpiar tu arma, meditar, orar, revisar tus notas).
 - **Coste de Tiempo:** Para recargar una carta, debes dedicar una cantidad de minutos igual a **5 × Valor de Recarga de la carta**.
   - _Ejemplo:_ Una carta con `Recarga 4+` requiere 20 minutos. Una con `Recarga 6+` requiere 30 minutos.
 - **Restricción:** Solo puedes recargar **una carta a la vez** (de forma secuencial, no simultánea). Si el proceso se interrumpe, el tiempo invertido se pierde.
 
 ### Recarga con Suerte (El Destino)
+
 En cualquier momento, incluso fuera de tu turno, puedes forzar al destino para recuperar una habilidad vital.
+
 - **Coste:** Gastas una cantidad de **Puntos de Suerte** igual al **Nivel de la Carta**.
 - **Efecto:** La carta se recarga instantáneamente y está lista para usarse.
 - **Restricción:** Esta opción solo está disponible para cartas que posean la propiedad **Recarga n+**. Las cartas con usos fijos (ej. "1 por día de descanso") no pueden recargarse de esta manera.
@@ -311,25 +318,33 @@ En cualquier momento, incluso fuera de tu turno, puedes forzar al destino para r
 En ARCANA, la magia no ocurre solo con el pensamiento; es un proceso físico y ruidoso que manipula la realidad. Salvo que una carta o habilidad especifique explícitamente lo contrario (como la opción "Conjuro Sutil" de la carta _Teoría Arcana Avanzada_), todo uso de una carta con la etiqueta `Conjuro` requiere cumplir con los siguientes tres componentes:
 
 ### 1. Verbal (La Voz de Poder)
+
 El lanzador debe entonar palabras místicas con un tono de voz claro y resonante.
-* **Regla:** No puedes lanzar conjuros si estás amordazado o en un área de Silencio mágico.
-* **Sigilo:** Lanzar un conjuro rompe automáticamente cualquier estado de Sigilo auditivo. Susurrar no es suficiente para activar la magia.
+
+- **Regla:** No puedes lanzar conjuros si estás amordazado o en un área de Silencio mágico.
+- **Sigilo:** Lanzar un conjuro rompe automáticamente cualquier estado de Sigilo auditivo. Susurrar no es suficiente para activar la magia.
 
 ### 2. Somático (El Gesto Arcano)
+
 El lanzador debe trazar sigilos en el aire o dirigir la energía con precisión.
-* **Regla:** Debes tener al menos una mano libre para realizar estos gestos. No puedes lanzar conjuros si estás atado o paralizado.
-* **Excepción:** Si posees un Foco (ver abajo), la mano que sostiene el Foco cuenta como la mano libre para realizar los gestos somáticos.
+
+- **Regla:** Debes tener al menos una mano libre para realizar estos gestos. No puedes lanzar conjuros si estás atado o paralizado.
+- **Excepción:** Si posees un Foco (ver abajo), la mano que sostiene el Foco cuenta como la mano libre para realizar los gestos somáticos.
 
 ### 3. Foco (El Canalizador)
+
 La magia poderosa requiere un ancla física para no descontrolarse. Esto sustituye la necesidad de componentes materiales específicos.
-* **Requisito:** Para usar una carta **Activable** con la etiqueta `Conjuro`, debes empuñar o portar un objeto que hayas preparado como tu Foco. Si has sido desarmado de él, no puedes usar estas cartas (las cartas de **Efecto** no requieren Foco).
+
+- **Requisito:** Para usar una carta **Activable** con la etiqueta `Conjuro`, debes empuñar o portar un objeto que hayas preparado como tu Foco. Si has sido desarmado de él, no puedes usar estas cartas (las cartas de **Efecto** no requieren Foco).
 
 #### El Ritual de Inscripción
+
 Cualquier objeto sólido y de tamaño considerable (un arma, un escudo, un bastón, una herramienta, un instrumento) puede convertirse en tu Foco. Para ello, debes realizar un ritual de **1 hora**, en el que grabas, consagras o adornas el objeto con los símbolos de tu poder.
-* **Arcanista (Grabado Rúnico):** Tallas runas brillantes en la hoja de una espada, en el mango de una varita o en la cubierta de un libro.
-* **Sacerdote (Consagración):** Grabas, pintas o bendices tu símbolo sagrado sobre un escudo, un martillo de guerra o un relicario.
-* **Druida (Vínculo Natural):** Adornas un bastón, una hoz o un tótem con plumas, pieles, hojas vivas o tallas de bestias.
-* **Bardo (Resonancia Armónica):** Afinas un instrumento musical hasta la perfección, grabas versos de una balada en la hoja de una espada, o adornas una máscara o capa con símbolos teatrales.
+
+- **Arcanista (Grabado Rúnico):** Tallas runas brillantes en la hoja de una espada, en el mango de una varita o en la cubierta de un libro.
+- **Sacerdote (Consagración):** Grabas, pintas o bendices tu símbolo sagrado sobre un escudo, un martillo de guerra o un relicario.
+- **Druida (Vínculo Natural):** Adornas un bastón, una hoz o un tótem con plumas, pieles, hojas vivas o tallas de bestias.
+- **Bardo (Resonancia Armónica):** Afinas un instrumento musical hasta la perfección, grabas versos de una balada en la hoja de una espada, o adornas una máscara o capa con símbolos teatrales.
 
 > **Nota de Juego: Identificar Conjuros**
 > Debido a estos componentes, lanzar un hechizo es un acto **obvio**. Cualquier criatura que pueda ver y oír al lanzador sabe que está realizando magia.
@@ -462,6 +477,18 @@ El objetivo no es tener una regla para cada situación, sino fomentar la creativ
 - **Cercana:** En la misma habitación o a una distancia de lanzamiento corta (hasta 10 metros aproximadamente).
 - **Media:** Al otro lado de la calle, combate de proyectiles estándar (hasta 50 metros aproximadamente).
 - **Larga:** Tan lejos como puedas ver con claridad (hasta 100 metros aproximadamente).
+
+## Tamaños de Criaturas
+
+En el mundo de ARCANA, las criaturas se clasifican por su volumen y masa, lo que define cómo interactúan con el entorno y entre sí. El tamaño **Mediano** representa el estándar.
+
+| Tamaño       | Descripción                                                                                      |
+| :----------- | :----------------------------------------------------------------------------------------------- |
+| **Diminuto** | Insectos, roedores pequeños, hadas minúsculas. Ocupan espacios ínfimos.                          |
+| **Pequeño**  | Gatos, perros, goblins, medianos. Llegan a la cintura de un humano.                              |
+| **Mediano**  | Humanos, elfos, orcos, lobos. Es el equilibrio estándar entre fuerza y movilidad.                |
+| **Grande**   | Osos, ogros, caballos de guerra, elementales. Imponen su presencia y bloquean pasillos enteros.  |
+| **Inmenso**  | Dragones adultos, hidras, horrores cósmicos. Su mera masa y volumen alteran el campo de batalla. |
 
 ## Realizar un Ataque
 

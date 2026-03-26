@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-03-20T19:56:44.169Z",
+  "generatedAt": "2026-03-25T16:06:12.862Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -561,8 +561,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 72358,
-      "sha1": "42f435733a16061b2128036268fa87ffbadbaeb4"
+      "size": 59230,
+      "sha1": "29a502629c655cb1eb7ef4b6bec7d64fc2c56d98"
     },
     {
       "path": "references/datasets/cards.yml",
@@ -574,7 +574,7 @@
       "path": "references/datasets/magical-items.yml",
       "kind": "file",
       "size": 32964,
-      "sha1": "d24b039ccbe8d0ea11e97660856e67fa8f2851be"
+      "sha1": "bd4620fdcd2f848c9bd8e3c1fca0c488cb412301"
     },
     {
       "path": "references/manual-del-director",
@@ -754,7 +754,7 @@
       "path": "references/objetos-magicos/nivel-6.yml",
       "kind": "file",
       "size": 3680,
-      "sha1": "efe8f68393f3590f648a86eee66bedf7b589663c"
+      "sha1": "5ba58058d92a2378a77a3f6ce6713fb61a5c8f3a"
     }
   ]
 }

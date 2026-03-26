@@ -6,6 +6,7 @@ export interface Creature {
 	name: string;
 	lineage: string;
 	tier: number;
+	size: string;
 	attributes: Attributes;
 	stats: CreatureStats;
 	languages: string[];
