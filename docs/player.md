@@ -532,6 +532,8 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Daño Físico:** La **Mitigación Física** reduce el daño físico recibido. Resta tu valor de **Mitigación Física** del daño final (mínimo 0).
 - **Daño Elemental y Mágico:** La **Mitigación Mágica** reduce el daño mágico o elemental recibido. Resta tu valor de **Mitigación Mágica** del daño final (mínimo 0).
 - **Daño Crítico:** Cuando un ataque resulta en un crítico, se duplican los dados de daño del ataque.
+- **Resistencia y Vulnerabilidad:** Ciertos efectos, linajes u objetos otorgan Resistencia o Vulnerabilidad a un tipo de daño específico. La **Resistencia** reduce a la mitad el daño recibido de ese tipo (redondeando hacia abajo). La **Vulnerabilidad** duplica el daño recibido de ese tipo.
+  - *Orden de operaciones:* Si un personaje tiene tanto Resistencia (o Vulnerabilidad) como Mitigación contra el mismo ataque, las multiplicaciones o divisiones se aplican primero. Es decir, primero se divide (o duplica) el daño, y luego se resta el valor de Mitigación al resultado final (mínimo 0).
 
 | Nivel de Daño | Pérdida de Salud | Ejemplo                                 |
 | :------------ | :--------------- | :-------------------------------------- |
