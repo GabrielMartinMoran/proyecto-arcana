@@ -61,6 +61,7 @@ A partir de tus atributos, se calculan otros valores esenciales para tu personaj
   - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
 - **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
+- **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.
 
 ## Paso 4: Definiendo tu Linaje
 

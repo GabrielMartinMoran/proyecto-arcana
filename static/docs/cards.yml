@@ -1438,7 +1438,13 @@ cards:
       - Ritual
     requirements: 'Estudios Mágicos & Atributo Arcano 3'
     description: >-
-      Tras 1 hora de ritual, invocas un espíritu mágico menor (cuervo, gato, sapo, etc.). El familiar tiene 1 PS, Esquiva 10 y no puede atacar, pero obedece tus órdenes telepáticas a distancia Larga. Como Acción, puedes ver y oír a través de sus sentidos (quedando tú ciego y sordo a tu entorno). Si muere, debes repetir el ritual para volver a invocarlo.
+      Tras 1 hora de ritual, invocas un espíritu mágico menor encarnado en el cuerpo de un animal pequeño (cuervo, gato, sapo, etc.).<br>
+      Su Salud es igual a tu puntuación de Mente, y su Esquiva es 10 + tu puntuación de Mente. El familiar no puede atacar.<br>
+      Mientras te encuentres a una distancia Larga o menor del familiar, obtienes los siguientes beneficios:<br>
+      - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br>
+      - **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br>
+      - **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de ataque de toque o tenga alcance Inmediata, el familiar puede realizar el contacto por ti (usando tu tirada de ataque).<br>
+      - **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).
     uses:
       type: null
       qty: 0
@@ -1470,6 +1476,21 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
+  - name: 'Choque Mágico'
+    level: 4
+    type: activable
+    tags:
+      - Mago
+      - Reacción
+    requirements: 'Estudios Mágicos & Mente 5'
+    description: >-
+      Como Reacción cuando veas a una criatura lanzar un _Conjuro_ o utilizar una habilidad que inflija daño mágico, puedes interceptarlo lanzando un _Conjuro_ de daño cuyo alcance llegue hasta el lanzador. Esto agota esta carta, la del conjuro que lanzaste y consume tu próxima Acción.<br>
+      En lugar de realizar tiradas de ataque o salvación, ambos tiran el daño de sus respectivos conjuros. Quien obtenga el resultado total más alto gana el choque de energías. Compara los totales:<br>
+      - **Victoria:** El ataque ganador sobrepasa al perdedor. El perdedor recibe como daño la diferencia entre ambas tiradas y sufre automáticamente todos los efectos secundarios del ataque ganador.<br>
+      - **Empate:** Ambas energías colapsan y se anulan mutuamente, sin causar daño ni efectos.
+    uses:
+      type: RELOAD
+      qty: 6
   - name: 'Fórmula del Archimago'
     level: 5
     type: activable
@@ -1570,6 +1591,146 @@ cards:
       Una vez por día de descanso, como Acción, abres un conducto directo hacia el dominio de tu patrón.<br>
       Tu _Descarga Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu puntuación de Presencia a distancia Larga, realizando una tirada de ataque individual para cada uno.<br>
       Además, los objetivos que resulten impactados quedan marcados por la fatalidad: la próxima vez que fallen una Tirada de Salvación o reciban un ataque antes del final de tu próximo turno, sufrirán el máximo daño posible de ese efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Arma del Pacto'
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo'
+    description: >-
+      Forjas un vínculo con un arma de energía inestable.<br>
+      Uas tu puntuación de Presencia para las tiradas de ataque, e inflige 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).<br>
+      - **Llamada Ineludible:** Como Interacción, materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se desvanezca y reaparezca instantáneamente en tu agarre, sin importar la distancia.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Danza Eldritch'
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Arma del Pacto & Presencia 4'
+    description: >-
+      Has dominado la letal fluidez entre el acero eldritch y los conjuros.<br>
+      Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
+      Además, cuando usas tu Acción para lanzar tu _Descarga Sobrenatural_ o un conjuro de _Arcanista_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Tajo de Aniquilación'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Danza Eldritch & Presencia 6'
+    description: >-
+      Como Acción, realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la Mitigación Mágica y Física del objetivo. Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño adicional (del mismo tipo de tu _Descarga Sobrenatural_).<br>
+      Además, la energía profana sella sus heridas temporalmente: el objetivo no puede recuperar Puntos de Salud de ninguna forma hasta el final de tu próximo turno.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Grimorio de las Sombras'
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo'
+    description: >-
+      Tu patrón te obsequia un tomo con conocimiento ajeno a la Urdimbre tradicional.<br>
+      Elige dos cartas de _Conjuro_ de Nivel 1 de las listas de Sacerdote, Druida o Bardo (la lista dependerá del dominio de tu patrón). Estas cartas se añaden a tu Colección, ignoran tu restricción de _Celos del Patrón_, se consideran como cartas de _Brujo_ para tí, y usas Presencia para utlizarlas en lugar del atributo que indique la carta.<br>
+      - **Conocimiento Sellado:** Esta elección es inmutable y no puedes cambiar estas cartas a voluntad.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Revelación del Abismo'
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Grimorio de las Sombras & Presencia 4'
+    description: >-
+      Tu mente se expande para comprender horrores mayores.<br>
+      Eliges una carta de _Conjuro_ de Nivel 3 de la misma lista que te otorgó tu _Grimorio de las Sombras_. Esta carta se añade a tu colección bajo las mismas reglas.<br>
+      - **Reescritura Pagana:** Ahora, si inviertes una semana entera de tiempo entre aventuras dedicado al estudio exhaustivo, puedes reemplazar una o varias de las cartas otorgadas por este pacto por otras válidas de sus niveles correspondientes.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Absorción Inestable'
+    level: 3
+    type: activable
+    tags:
+      - Hechicero
+      - Reacción
+    requirements: 'Herencia Sobrenatural & Presencia 4'
+    description: >-
+      Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a absorber esa energía para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br>
+      Además, el remanente de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Palabra del Más Allá'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Revelación del Abismo & Presencia 6'
+    description: >-
+      El grimorio contiene la clave de todas las realidades atadas a tu señor.<br>
+      Una vez por día de descanso, como Acción, puedes leer una página de tu tomo y lanzar cualquier carta de _Conjuro_ de Nivel 4 o inferior que pertenezca a la misma lista de clase que elegiste para tu _Grimorio de las Sombras_, incluso si no la tienes en tu Colección. Este lanzamiento no requiere componentes y usa Presencia como atributo de lanzamiento.<br>
+      - **Resonancia Conocida:** Si eliges lanzar un conjuro que ya posees en tus Ranuras de Cartas Activas, lanzar el mismo conjuro a través del grimorio no agota tu otra carta.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Familiar Inescrutable'
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo'
+    description: >-
+      Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de Presencia, y su Esquiva es 10 + la mitad de tu Presencia (redondeado hacia abajo). Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br>
+      - **Vigía:** Mientras esté a distancia Larga o inferior, compartes sus sentidos perfectamente sin usar acciones.<br>
+      - **Conducto Eldritch:** Puedes lanzar tu _Descarga Sobrenatural_ originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br>
+      - **Detonación:** Si el familiar llega a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de Reflejos (ND 5 + Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Entidad Desatada'
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Familiar Inescrutable & Presencia 4'
+    description: >-
+      La esencia de tu familiar se vuelve más densa y peligrosa.<br>
+      La Salud máxima de tu familiar pasa a ser igual a tres veces tu puntuación de Presencia, y el daño de su Detonación aumenta a 3d8.<br>
+      - **Detonación Táctica:** Como Reacción, cuando una criatura hostil entra a distancia Inmediata de tu familiar, puedes forzar la detonación inmediata de tu emisario (reduciendo sus PS a 0 instantáneamente y desvaneciéndolo). El objetivo debe superar una TS de Reflejos (ND 5 + Presencia) o sufrir el daño de la explosión (la mitad en caso de éxito).
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Avatar del Patrón'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Entidad Desatada & Presencia 6'
+    description: >-
+      Como Interacción, canalizas el poder crudo de tu patrón hacia tu familiar durante 1 minuto.<br>
+      El familiar aumenta a tamaño Grande y el daño de su Detonación sube a 5d8.<br>
+      - **Canalizador Autónomo:** Mientras este efecto dure, una vez por turno, cuando usas tu Acción para lanzar un conjuro, tu familiar puede desatar de forma simultánea e independiente una _Descarga Sobrenatural_ desde su posición hacia un objetivo válido, usando tu Presencia para la tirada de ataque.
     uses:
       type: LONG_REST
       qty: 1

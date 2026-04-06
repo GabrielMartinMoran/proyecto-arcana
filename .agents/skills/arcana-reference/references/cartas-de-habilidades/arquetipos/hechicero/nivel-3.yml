@@ -1,4 +1,21 @@
 cards:
+  - id: bbd84e57623036b103691dd66be554413061af16
+    name: Absorción Inestable
+    level: 3
+    type: activable
+    tags:
+      - Hechicero
+      - Reacción
+    requirements: Herencia Sobrenatural & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a absorber esa energía
+      para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente de esa magia queda
+      latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno,
+      puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.
+    slug: absorcion-inestable
   - id: 1248d541dcaa08e9c146e3d6e68179bb661a12fb
     name: Anomalía Salvaje
     level: 3

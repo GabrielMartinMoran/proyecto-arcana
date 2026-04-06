@@ -16,3 +16,55 @@ cards:
       un ataque de conjuro (1d8 + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo
       elegido.<br><br> _Esta carta solo puede ser adquirida a través de Pacto Supremo._
     slug: descarga-sobrenatural
+  - id: 4cf21a50db10f2367f93d9252d51c315a3f84f91
+    name: Arma del Pacto
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Pacto Supremo
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Forjas un vínculo con un arma de energía inestable.<br> Uas tu puntuación de Presencia para las tiradas de ataque,
+      e inflige 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).<br> - **Llamada Ineludible:** Como Interacción,
+      materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se desvanezca y
+      reaparezca instantáneamente en tu agarre, sin importar la distancia.
+    slug: arma-del-pacto
+  - id: 3174348aa65716d65e0f8cfc0de8d5d9638a4d0a
+    name: Grimorio de las Sombras
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Pacto Supremo
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu patrón te obsequia un tomo con conocimiento ajeno a la Urdimbre tradicional.<br> Elige dos cartas de _Conjuro_
+      de Nivel 1 de las listas de Sacerdote, Druida o Bardo (la lista dependerá del dominio de tu patrón). Estas cartas
+      se añaden a tu Colección, ignoran tu restricción de _Celos del Patrón_, se consideran como cartas de _Brujo_ para
+      tí, y usas Presencia para utlizarlas en lugar del atributo que indique la carta.<br> - **Conocimiento Sellado:**
+      Esta elección es inmutable y no puedes cambiar estas cartas a voluntad.
+    slug: grimorio-de-las-sombras
+  - id: 844a363ca2a18898ef6ee73cbf87ee001b2fa7f4
+    name: Familiar Inescrutable
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Pacto Supremo
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de
+      Presencia, y su Esquiva es 10 + la mitad de tu Presencia (redondeado hacia abajo). Flota a tu lado, obedece
+      órdenes telepáticas y ganas estos beneficios:<br> - **Vigía:** Mientras esté a distancia Larga o inferior,
+      compartes sus sentidos perfectamente sin usar acciones.<br> - **Conducto Eldritch:** Puedes lanzar tu _Descarga
+      Sobrenatural_ originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br> - **Detonación:** Si el
+      familiar llega a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de
+      Reflejos (ND 5 + Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).
+    slug: familiar-inescrutable

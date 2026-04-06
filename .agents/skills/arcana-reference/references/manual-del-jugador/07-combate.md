@@ -44,6 +44,18 @@ El objetivo no es tener una regla para cada situación, sino fomentar la creativ
 - **Media:** Al otro lado de la calle, combate de proyectiles estándar (hasta 50 metros aproximadamente).
 - **Larga:** Tan lejos como puedas ver con claridad (hasta 100 metros aproximadamente).
 
+## Tamaños de Criaturas
+
+En el mundo de ARCANA, las criaturas se clasifican por su volumen y masa, lo que define cómo interactúan con el entorno y entre sí. El tamaño **Mediano** representa el estándar.
+
+| Tamaño       | Descripción                                                                                      |
+| :----------- | :----------------------------------------------------------------------------------------------- |
+| **Diminuto** | Insectos, roedores pequeños, hadas minúsculas. Ocupan espacios ínfimos.                          |
+| **Pequeño**  | Gatos, perros, goblins, medianos. Llegan a la cintura de un humano.                              |
+| **Mediano**  | Humanos, elfos, orcos, lobos. Es el equilibrio estándar entre fuerza y movilidad.                |
+| **Grande**   | Osos, ogros, caballos de guerra, elementales. Imponen su presencia y bloquean pasillos enteros.  |
+| **Inmenso**  | Dragones adultos, hidras, horrores cósmicos. Su mera masa y volumen alteran el campo de batalla. |
+
 ## Realizar un Ataque
 
 Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.

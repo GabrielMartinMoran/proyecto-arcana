@@ -11,8 +11,15 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tras 1 hora de ritual, invocas un espíritu mágico menor (cuervo, gato, sapo, etc.). El familiar tiene 1 PS,
-      Esquiva 10 y no puede atacar, pero obedece tus órdenes telepáticas a distancia Larga. Como Acción, puedes ver y
-      oír a través de sus sentidos (quedando tú ciego y sordo a tu entorno). Si muere, debes repetir el ritual para
-      volver a invocarlo.
+      Tras 1 hora de ritual, invocas un espíritu mágico menor encarnado en el cuerpo de un animal pequeño (cuervo, gato,
+      sapo, etc.).<br> Su Salud es igual a tu puntuación de Mente, y su Esquiva es 10 + tu puntuación de Mente. El
+      familiar no puede atacar.<br> Mientras te encuentres a una distancia Larga o menor del familiar, obtienes los
+      siguientes beneficios:<br> - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br> -
+      **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu
+      próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br> -
+      **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de ataque de toque
+      o tenga alcance Inmediata, el familiar puede realizar el contacto por ti (usando tu tirada de ataque).<br> -
+      **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de
+      Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual
+      o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).
     slug: familiar-arcano

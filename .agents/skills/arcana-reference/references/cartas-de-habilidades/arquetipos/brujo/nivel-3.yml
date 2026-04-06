@@ -15,3 +15,55 @@ cards:
       patrón.<br> Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre
       daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.
     slug: escudo-de-sombras
+  - id: cc819c02c0e9db4191ccfc6a4a6054e002721fd5
+    name: Danza Eldritch
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+    requirements: Arma del Pacto & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Has dominado la letal fluidez entre el acero eldritch y los conjuros.<br> Mientras tengas esta carta activa,
+      cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de
+      Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
+      Además, cuando usas tu Acción para lanzar tu _Descarga Sobrenatural_ o un conjuro de _Arcanista_ de Nivel 1 o 2,
+      puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a
+      cuerpo con tu _Arma del Pacto_.
+    slug: danza-eldritch
+  - id: fe84a8e9dad92d8eb0ae0c24a21e461d67273212
+    name: Revelación del Abismo
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Grimorio de las Sombras & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu mente se expande para comprender horrores mayores.<br> Eliges una carta de _Conjuro_ de Nivel 3 de la misma
+      lista que te otorgó tu _Grimorio de las Sombras_. Esta carta se añade a tu colección bajo las mismas reglas.<br> -
+      **Reescritura Pagana:** Ahora, si inviertes una semana entera de tiempo entre aventuras dedicado al estudio
+      exhaustivo, puedes reemplazar una o varias de las cartas otorgadas por este pacto por otras válidas de sus niveles
+      correspondientes.
+    slug: revelacion-del-abismo
+  - id: 0dd8d6104294f87abe7db1b392d31878a48d0afa
+    name: Entidad Desatada
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Familiar Inescrutable & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La esencia de tu familiar se vuelve más densa y peligrosa.<br> La Salud máxima de tu familiar pasa a ser igual a
+      tres veces tu puntuación de Presencia, y el daño de su Detonación aumenta a 3d8.<br> - **Detonación Táctica:**
+      Como Reacción, cuando una criatura hostil entra a distancia Inmediata de tu familiar, puedes forzar la detonación
+      inmediata de tu emisario (reduciendo sus PS a 0 instantáneamente y desvaneciéndolo). El objetivo debe superar una
+      TS de Reflejos (ND 5 + Presencia) o sufrir el daño de la explosión (la mitad en caso de éxito).
+    slug: entidad-desatada

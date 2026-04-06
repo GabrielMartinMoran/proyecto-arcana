@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-03-25T16:06:12.862Z",
+  "generatedAt": "2026-04-06T17:39:18.886Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -137,8 +137,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-1.yml",
       "kind": "file",
-      "size": 722,
-      "sha1": "74e4ce5343f7eb1d2868bc9bd11d066effb94c26"
+      "size": 3291,
+      "sha1": "bd5b8a38c1f6a3b8deb625aac9b1aa5ba1f4e0d8"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-2.yml",
@@ -149,8 +149,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-3.yml",
       "kind": "file",
-      "size": 622,
-      "sha1": "3efaf93a9c4b81ca3393e031e287b0fcb5661237"
+      "size": 3172,
+      "sha1": "e483307f359b608d55da9ce8c89049377baddb0e"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-4.yml",
@@ -161,8 +161,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-5.yml",
       "kind": "file",
-      "size": 947,
-      "sha1": "88d8a760841b127102a478e1f3721b2558b3e1fb"
+      "size": 3446,
+      "sha1": "a416096be745fbaab9744ade4ef2b00102f2a066"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro",
@@ -309,8 +309,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml",
       "kind": "file",
-      "size": 1115,
-      "sha1": "cf41e8031bffa50c1e3795a105d95f36f99f4634"
+      "size": 1892,
+      "sha1": "e2ea70be8f959fcee9891c878d0ed2476a849bc1"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-4.yml",
@@ -343,8 +343,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-2.yml",
       "kind": "file",
-      "size": 677,
-      "sha1": "f29cd070a5d02af94e8015a0a2ff630678348034"
+      "size": 1578,
+      "sha1": "446abf3abf48dd298e12b53891acf4f18f0e4b7b"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-3.yml",
@@ -355,8 +355,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-4.yml",
       "kind": "file",
-      "size": 712,
-      "sha1": "5d84fe576aeb4328478fd6b716559268d8172587"
+      "size": 1817,
+      "sha1": "14c8ebd4bf9dd80d90bdb83f00a03621ad1c6b55"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-5.yml",
@@ -567,14 +567,14 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 189803,
-      "sha1": "345d48aa1c13ee9fbc605e77bf5d61e7e080ef22"
+      "size": 199244,
+      "sha1": "73b2d7bea685d1247a562da1ed8328ced2256049"
     },
     {
       "path": "references/datasets/magical-items.yml",
       "kind": "file",
-      "size": 32964,
-      "sha1": "bd4620fdcd2f848c9bd8e3c1fca0c488cb412301"
+      "size": 32953,
+      "sha1": "a3b92eeb5c630d9739f288dfacaf661e7f04bd54"
     },
     {
       "path": "references/manual-del-director",
@@ -647,8 +647,8 @@
     {
       "path": "references/manual-del-jugador/02-creacion-de-personajes.md",
       "kind": "file",
-      "size": 13587,
-      "sha1": "5053ba11a7600ed0bd7d5b06da8a45204d1a7b86"
+      "size": 13743,
+      "sha1": "6a4d30c131f9366e858ec47cc0181eaeac09a10f"
     },
     {
       "path": "references/manual-del-jugador/03-mecanicas-de-juego.md",
@@ -659,8 +659,8 @@
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
       "kind": "file",
-      "size": 10291,
-      "sha1": "d089a216bf12c6527d65d51ce8c91dba5cf98133"
+      "size": 10305,
+      "sha1": "c80e02b4a69cebd1aabb3edb2022c3835dfe5deb"
     },
     {
       "path": "references/manual-del-jugador/05-exploracion.md",
@@ -677,8 +677,8 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 8585,
-      "sha1": "a0e7f1f2080475491a6af592638e0aee9f554874"
+      "size": 9616,
+      "sha1": "af37551f85d1eb68bec13e7ee7e578458f7eacc1"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",
@@ -741,8 +741,8 @@
     {
       "path": "references/objetos-magicos/nivel-4.yml",
       "kind": "file",
-      "size": 6886,
-      "sha1": "6299c6286f51daa8592c1f691a9aed3fc2ab8499"
+      "size": 6875,
+      "sha1": "784053ba453d5807843c305f1c6af245e6375a18"
     },
     {
       "path": "references/objetos-magicos/nivel-5.yml",

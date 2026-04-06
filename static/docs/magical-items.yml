@@ -1015,7 +1015,7 @@ items:
 
   - name: 'Coraza del Guardián Elemental'
     level: 4
-    cost: 2000
+    cost: 4000
     type: 'efecto'
     tags:
       - 'Armadura'
@@ -1025,8 +1025,8 @@ items:
       (Esta propiedad se puede aplicar a cualquier armadura de Placas Parcial o
       superior). Durante un día de descanso, puedes pasar una hora realizando un
       ritual para sintonizar la coraza con un tipo de energía elemental: Fuego,
-      Frío o Eléctrico. Mientras estés sintonizado, obtienes Mitigación Mágica +3
-      contra ese tipo de daño específico. Puedes cambiar la sintonía realizando
+      Frío o Eléctrico. Mientras estés sintonizado, obtienes Resistencia contra
+      ese tipo de daño específico. Puedes cambiar la sintonía realizando
       el ritual de nuevo.
     uses:
       type: NULL
