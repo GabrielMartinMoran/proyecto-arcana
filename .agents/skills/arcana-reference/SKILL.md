@@ -2,7 +2,7 @@
 name: arcana-reference
 description: This skill should be used when the user asks to "consultar reglas de ARCANA", "buscar cartas de habilidades u objetos mágicos", "resumir capítulos del manual ARCANA", or "listar arquetipos y contenido derivado del sistema ARCANA".
 metadata:
-  updated_at: Mon, 06 Apr 2026 17:39:18 GMT
+  updated_at: Tue, 07 Apr 2026 13:42:10 GMT
 ---
 
 # ARCANA Reference Skill
@@ -135,12 +135,12 @@ Puedes definir `ARCANA_DATASET_DIR` para apuntar a YAML externos; por defecto le
 - [Brujo — Nivel 3](references/cartas-de-habilidades/arquetipos/brujo/nivel-3.yml)
 - [Brujo — Nivel 4](references/cartas-de-habilidades/arquetipos/brujo/nivel-4.yml)
 - [Brujo — Nivel 5](references/cartas-de-habilidades/arquetipos/brujo/nivel-5.yml)
+- [Arquetipo — Hechicero — Nivel 1](references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml)
 - [Hechicero — Nivel 1](references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml)
 - [Hechicero — Nivel 2](references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml)
 - [Hechicero — Nivel 3](references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml)
 - [Hechicero — Nivel 4](references/cartas-de-habilidades/arquetipos/hechicero/nivel-4.yml)
 - [Hechicero — Nivel 5](references/cartas-de-habilidades/arquetipos/hechicero/nivel-5.yml)
-- [Arquetipo — Hechicero — Nivel 1](references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml)
 - [Arquetipo — Sacerdote — Nivel 1](references/cartas-de-habilidades/arquetipos/sacerdote/arquetipo-nivel-1.yml)
 - [Sacerdote — Nivel 1](references/cartas-de-habilidades/arquetipos/sacerdote/nivel-1.yml)
 - [Sacerdote — Nivel 2](references/cartas-de-habilidades/arquetipos/sacerdote/nivel-2.yml)

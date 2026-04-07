@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-04-06T17:39:18.886Z",
+  "generatedAt": "2026-04-07T13:42:10.222Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -53,8 +53,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml",
       "kind": "file",
-      "size": 6122,
-      "sha1": "d179a969817416ed48cbd1484bc3c85a8a8727bb"
+      "size": 5688,
+      "sha1": "cbb3f12bc4d76a1c6a4c9e95e5a908f16ee9f9f4"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml",
@@ -65,8 +65,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-3.yml",
       "kind": "file",
-      "size": 6307,
-      "sha1": "9a24c0280f806ba8b7f9fe9c11ec2d1407ba6ee3"
+      "size": 7564,
+      "sha1": "8d9493a878a31b6d52e41d8debace6d370d58e99"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
@@ -149,8 +149,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-3.yml",
       "kind": "file",
-      "size": 3172,
-      "sha1": "e483307f359b608d55da9ce8c89049377baddb0e"
+      "size": 4631,
+      "sha1": "2544f20a09a9c3526dafa74fdb74909bb09b9e7a"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-4.yml",
@@ -297,8 +297,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml",
       "kind": "file",
-      "size": 812,
-      "sha1": "9d3be66b085b19b6213525ba0b5efde2a4d4269b"
+      "size": 1445,
+      "sha1": "e3737ada695e3ae3585f0c4ba0a997d0d691b756"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
@@ -309,8 +309,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml",
       "kind": "file",
-      "size": 1892,
-      "sha1": "e2ea70be8f959fcee9891c878d0ed2476a849bc1"
+      "size": 3425,
+      "sha1": "b1c2de0f7c3395168c4e4e29ca44b6efd99251dd"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-4.yml",
@@ -337,8 +337,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-1.yml",
       "kind": "file",
-      "size": 730,
-      "sha1": "8f663b6f8079b524f657d7129ec3a55b7db7138b"
+      "size": 1417,
+      "sha1": "3579e36e1ccb0a65c0fea9ffc690a00924ef73cc"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-2.yml",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 199244,
-      "sha1": "73b2d7bea685d1247a562da1ed8328ced2256049"
+      "size": 204026,
+      "sha1": "1812684fbf37a9db1245b1f1bdb091ce52bab6e2"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -677,8 +677,8 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 9616,
-      "sha1": "af37551f85d1eb68bec13e7ee7e578458f7eacc1"
+      "size": 10216,
+      "sha1": "8c4688836fd9478fa35ea56884eb71cb96fc66e2"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",

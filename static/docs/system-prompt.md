@@ -1,11 +1,11 @@
 ---
-title: 'Arcana RPG - Playtest 6 (System Prompt)'
-version: Playtest 6
+title: 'Arcana RPG - Playtest 7 (System Prompt)'
+version: Playtest 7
 ---
 
 # Arcana RPG
 
-Este documento corresponde a la versión Playtest 6 del sistema de rol Arcana. A continuación se presentan los documentos de referencia del sistema.
+Este documento corresponde a la versión Playtest 7 del sistema de rol Arcana. A continuación se presentan los documentos de referencia del sistema.
 
 ### Manual del Jugador
 

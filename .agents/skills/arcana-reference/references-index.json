@@ -276,6 +276,10 @@
           "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-5.yml"
         },
         {
+          "title": "Arquetipo — Hechicero — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml"
+        },
+        {
           "title": "Hechicero — Nivel 1",
           "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml"
         },
@@ -294,10 +298,6 @@
         {
           "title": "Hechicero — Nivel 5",
           "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-5.yml"
-        },
-        {
-          "title": "Arquetipo — Hechicero — Nivel 1",
-          "path": "references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml"
         },
         {
           "title": "Arquetipo — Sacerdote — Nivel 1",

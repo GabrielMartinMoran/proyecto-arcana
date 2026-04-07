@@ -15,6 +15,29 @@ cards:
       patrón.<br> Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre
       daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.
     slug: escudo-de-sombras
+  - id: b0471bea3d96fe003b0b216956fc0a6cec03b6c9
+    name: Manifestación del Patrón
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Conjuro
+    requirements: Pacto Supremo & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Abres una brecha espacio-temporal hacia el dominio de tu patrón en un punto a distancia Media, inundando una
+      esfera de 3 metros de radio con su esencia.<br> Todas las criaturas en el área deben superar una TS de Instinto
+      (ND 5 + Atributo Arcano).<br> Si fallan, reciben 4d6 de daño del mismo tipo que tu _Descarga Sobrenatural_ y
+      sufren una anomalía según el tipo de daño hasta el final de tu próximo turno:<br> - **Eléctrico:** Sobrecarga
+      nerviosa; no pueden usar Reacciones.<br> - **Frío:** Escarcha paralizante; su Velocidad se reduce a la mitad.<br>
+      - **Fuego:** Cenizas ardientes; reciben 1d6 de daño extra al inicio de su próximo turno.<br> - **Fuerza:** Impacto
+      cinético; son empujadas 2 metros lejos del centro y quedan Derribadas.<br> - **Necrótico:** Marchitamiento; no
+      pueden recuperar Puntos de Salud de ninguna forma.<br> - **Psíquico:** Terror incomprensible; quedan en el estado
+      Asustado por ti.<br> - **Radiante:** Destello cegador; quedan en el estado Cegado.<br> Si tienen éxito en la
+      salvación, reciben la mitad del daño y no sufren el efecto secundario.
+    slug: manifestacion-del-patron
   - id: cc819c02c0e9db4191ccfc6a4a6054e002721fd5
     name: Danza Eldritch
     level: 3

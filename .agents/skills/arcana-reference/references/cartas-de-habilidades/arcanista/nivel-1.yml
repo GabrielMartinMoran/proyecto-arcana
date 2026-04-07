@@ -47,21 +47,6 @@ cards:
       Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque de conjuro (1d8+Atributo Arcano) a distancia
       Cercana contra un objetivo. Si impactas, infliges 1d8 de daño del tipo elegido.
     slug: descarga-elemental
-  - id: 842d719fd39e60ba36d0674afb3f8ca6d8a968fd
-    name: Proyectil Mágico
-    level: 1
-    type: activable
-    tags:
-      - Arcanista
-      - Conjuro
-    requirements: Afinidad Arcana
-    uses:
-      type: RELOAD
-      qty: 3
-    description: >-
-      Lanzas un proyectil de energía arcana que no puede fallar a una criatura a distancia Cercana. Al impactar, este
-      realiza 1d4 de daño de Fuerza.
-    slug: proyectil-magico
   - id: 09a9d0674da5612d0f61fa5a3832e90af58f7c80
     name: Toque Entrópico
     level: 1

@@ -1,4 +1,25 @@
 cards:
+  - id: 7241423d7b11c3f58ccca3908655a2ee6ebcac2b
+    name: Distorsión Singular
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Estudios Mágicos & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Manipulas las leyes fundamentales de la física en un punto a distancia Media, creando una perturbación esférica de
+      3 metros de radio.<br> Al lanzar el conjuro, debes elegir qué variante de tu fórmula aplicar:<br> - **Colapso
+      Gravitatorio:** La masa del área se vuelve infinita. Toda criatura en el área debe superar una TS de Cuerpo (ND 5
+      + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, es arrastrada violentamente al centro de la esfera y
+      queda Derribada.<br> - **Éxtasis Temporal:** El tiempo se congela y se fractura. Toda criatura en el área debe
+      superar una TS de Mente (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, su Velocidad se reduce a
+      la mitad y pierde la capacidad de usar Reacciones hasta el final de tu próximo turno.<br> En ambos casos, si la
+      criatura tiene éxito en la salvación, recibe la mitad del daño y no sufre los efectos secundarios.
+    slug: distorsion-singular
   - id: 87e3747d82965a6738f286e8604c7bee64a56b75
     name: Explosión Elemental
     level: 3
