@@ -1476,21 +1476,6 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
-  - name: 'Choque Mágico'
-    level: 4
-    type: activable
-    tags:
-      - Mago
-      - Reacción
-    requirements: 'Estudios Mágicos & Mente 5'
-    description: >-
-      Como Reacción cuando veas a una criatura lanzar un _Conjuro_ o utilizar una habilidad que inflija daño mágico, puedes interceptarlo lanzando un _Conjuro_ de daño cuyo alcance llegue hasta el lanzador. Esto agota esta carta, la del conjuro que lanzaste y consume tu próxima Acción.<br>
-      En lugar de realizar tiradas de ataque o salvación, ambos tiran el daño de sus respectivos conjuros. Quien obtenga el resultado total más alto gana el choque de energías. Compara los totales:<br>
-      - **Victoria:** El ataque ganador sobrepasa al perdedor. El perdedor recibe como daño la diferencia entre ambas tiradas y sufre automáticamente todos los efectos secundarios del ataque ganador.<br>
-      - **Empate:** Ambas energías colapsan y se anulan mutuamente, sin causar daño ni efectos.
-    uses:
-      type: RELOAD
-      qty: 6
   - name: 'Fórmula del Archimago'
     level: 5
     type: activable
@@ -1640,7 +1625,7 @@ cards:
     description: >-
       Has dominado la letal fluidez entre el acero eldritch y los conjuros.<br>
       Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
-      Además, cuando usas tu Acción para lanzar tu _Descarga Sobrenatural_ o un conjuro de _Arcanista_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.
+      Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.
     uses:
       type: RELOAD
       qty: 5
@@ -2325,11 +2310,11 @@ cards:
     level: 3
     type: activable
     tags:
-      - Arcanista
+      - Mago
       - Conjuro
       - Reacción
       - Ritual
-    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    requirements: 'Estudios Mágicos & Atributo Arcano 4'
     description: >-
       Esta carta tiene dos modos de uso:<br>
       - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada
