@@ -16,23 +16,3 @@ cards:
       momento. Cuando la condición se cumple, el conjuro se lanza automáticamente como una Reacción instantánea. Solo
       puedes tener una contingencia activa a la vez.
     slug: contingencia-arcana
-  - id: 70cd0d1c58f209eec00a6f154ace594d6e81f16c
-    name: Choque Mágico
-    level: 4
-    type: activable
-    tags:
-      - Mago
-      - Reacción
-    requirements: Estudios Mágicos & Mente 5
-    uses:
-      type: RELOAD
-      qty: 6
-    description: >-
-      Como Reacción cuando veas a una criatura lanzar un _Conjuro_ o utilizar una habilidad que inflija daño mágico,
-      puedes interceptarlo lanzando un _Conjuro_ de daño cuyo alcance llegue hasta el lanzador. Esto agota esta carta,
-      la del conjuro que lanzaste y consume tu próxima Acción.<br> En lugar de realizar tiradas de ataque o salvación,
-      ambos tiran el daño de sus respectivos conjuros. Quien obtenga el resultado total más alto gana el choque de
-      energías. Compara los totales:<br> - **Victoria:** El ataque ganador sobrepasa al perdedor. El perdedor recibe
-      como daño la diferencia entre ambas tiradas y sufre automáticamente todos los efectos secundarios del ataque
-      ganador.<br> - **Empate:** Ambas energías colapsan y se anulan mutuamente, sin causar daño ni efectos.
-    slug: choque-magico

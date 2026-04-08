@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-04-07T13:42:10.222Z",
+  "generatedAt": "2026-04-08T11:49:05.913Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -65,8 +65,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-3.yml",
       "kind": "file",
-      "size": 7564,
-      "sha1": "8d9493a878a31b6d52e41d8debace6d370d58e99"
+      "size": 6673,
+      "sha1": "1ef274b215de22498e205e1a3c4cf562b8c39682"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
@@ -149,8 +149,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-3.yml",
       "kind": "file",
-      "size": 4631,
-      "sha1": "2544f20a09a9c3526dafa74fdb74909bb09b9e7a"
+      "size": 4612,
+      "sha1": "0a3889f0d330e6889ddbe49eb3f19c3905f97538"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-4.yml",
@@ -349,14 +349,14 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-3.yml",
       "kind": "file",
-      "size": 1369,
-      "sha1": "37cb52c0e26808324ce5160e8fecb0e6f10269ef"
+      "size": 2257,
+      "sha1": "d3012976a76d9fd8c9f43ad3dbbb3dbfd3b4f63f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-4.yml",
       "kind": "file",
-      "size": 1817,
-      "sha1": "14c8ebd4bf9dd80d90bdb83f00a03621ad1c6b55"
+      "size": 712,
+      "sha1": "5d84fe576aeb4328478fd6b716559268d8172587"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-5.yml",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 204026,
-      "sha1": "1812684fbf37a9db1245b1f1bdb091ce52bab6e2"
+      "size": 202986,
+      "sha1": "004da2e60dbc2dca05d7faca6cbcf7d05f68e816"
     },
     {
       "path": "references/datasets/magical-items.yml",

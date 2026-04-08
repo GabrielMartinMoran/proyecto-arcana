@@ -52,9 +52,9 @@ cards:
       Has dominado la letal fluidez entre el acero eldritch y los conjuros.<br> Mientras tengas esta carta activa,
       cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de
       Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
-      Además, cuando usas tu Acción para lanzar tu _Descarga Sobrenatural_ o un conjuro de _Arcanista_ de Nivel 1 o 2,
-      puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a
-      cuerpo con tu _Arma del Pacto_.
+      Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso
+      de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma
+      del Pacto_.
     slug: danza-eldritch
   - id: fe84a8e9dad92d8eb0ae0c24a21e461d67273212
     name: Revelación del Abismo

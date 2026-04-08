@@ -21,3 +21,23 @@ cards:
       alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante
       fuera superior a 8.
     slug: teoria-arcana-avanzada
+  - id: af7be8e7ce4f47d5eaa84f27f8245ea88f71cff4
+    name: Rompeconjuros
+    level: 3
+    type: activable
+    tags:
+      - Mago
+      - Conjuro
+      - Reacción
+      - Ritual
+    requirements: Estudios Mágicos & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Esta carta tiene dos modos de uso:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un
+      conjuro, realizas una Tirada Enfrentada de tu Atributo Arcano contra el atributo de lanzamiento del conjurador. Si
+      ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a
+      distancia Cercana afectado por un efecto mágico. Realizas una prueba de Atributo Arcano contra una ND establecida
+      por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+    slug: rompeconjuros

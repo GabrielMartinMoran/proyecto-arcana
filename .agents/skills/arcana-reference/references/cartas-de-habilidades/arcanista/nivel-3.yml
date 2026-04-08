@@ -128,26 +128,6 @@ cards:
       hasta 10 metros. Ves y oyes a través del sensor. El sensor es detectable con magia o visión especial. Dura 10
       minutos.
     slug: vision-remota
-  - id: af7be8e7ce4f47d5eaa84f27f8245ea88f71cff4
-    name: Rompeconjuros
-    level: 3
-    type: activable
-    tags:
-      - Arcanista
-      - Conjuro
-      - Reacción
-      - Ritual
-    requirements: Afinidad Arcana & Atributo Arcano 4
-    uses:
-      type: RELOAD
-      qty: 6
-    description: >-
-      Esta carta tiene dos modos de uso:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un
-      conjuro, realizas una Tirada Enfrentada de tu Atributo Arcano contra el atributo de lanzamiento del conjurador. Si
-      ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a
-      distancia Cercana afectado por un efecto mágico. Realizas una prueba de Atributo Arcano contra una ND establecida
-      por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
-    slug: rompeconjuros
   - id: 59d7d61b1cb422ee678e04476bb1d3a9a32d0bc2
     name: Santuario Arcano
     level: 3
