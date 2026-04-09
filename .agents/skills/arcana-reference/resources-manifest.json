@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-04-08T11:49:05.913Z",
+  "generatedAt": "2026-04-09T12:11:42.668Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -171,8 +171,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 929,
-      "sha1": "90285d86095fbe6d1dcba3ee383a96a934f7e9af"
+      "size": 940,
+      "sha1": "88aaead1f88b4f778b47fbe1b9945f293cff081b"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml",
@@ -201,8 +201,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-5.yml",
       "kind": "file",
-      "size": 921,
-      "sha1": "d1e481f37037a71c0263aa4b8a98dd92fc3bbf6e"
+      "size": 916,
+      "sha1": "9ccaf5206b33633f504457a56359164f86419ade"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso",
@@ -497,14 +497,14 @@
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-2.yml",
       "kind": "file",
-      "size": 4876,
-      "sha1": "7208e4792fc4622b510624fec2ba2408cbe5c66e"
+      "size": 4076,
+      "sha1": "446d09c62ff574c417679422288ca64c66821800"
     },
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-3.yml",
       "kind": "file",
-      "size": 2585,
-      "sha1": "02c7b9b56f2bfad1125e5809bc74a204fdc3ac2c"
+      "size": 2115,
+      "sha1": "631a51fb2bf8dbb43c0d25c5e8e832247dcbe332"
     },
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-4.yml",
@@ -551,8 +551,8 @@
     {
       "path": "references/cartas-de-habilidades/sinergia/nivel-4.yml",
       "kind": "file",
-      "size": 18864,
-      "sha1": "d6da1adec7591eca07c4e4eea782a61c89958e93"
+      "size": 18839,
+      "sha1": "e204ddaabdd86f8eb693e07f04018bcdfce11f20"
     },
     {
       "path": "references/datasets",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 202986,
-      "sha1": "004da2e60dbc2dca05d7faca6cbcf7d05f68e816"
+      "size": 201819,
+      "sha1": "d4a04d4eb3801ce4878f514c256bf7718eaef78c"
     },
     {
       "path": "references/datasets/magical-items.yml",

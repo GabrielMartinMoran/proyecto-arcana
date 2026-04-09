@@ -52,7 +52,7 @@ export const serializeCharacterAsMD = (character: Character, cards: Card[]): str
 	md += '\n';
 
 	md += `## Cartas\n`;
-	md += `**Cartas activas:** ${character.numActiveCards}${character.maxActiveCards}\n`;
+	md += `**Cartas activas:** ${character.numActiveCards}/${character.maxActiveCards}\n`;
 	md += `### Colección\n`;
 	if (character.cards.length > 0) {
 		md += '| Nombre | Tipo | Activa |\n';

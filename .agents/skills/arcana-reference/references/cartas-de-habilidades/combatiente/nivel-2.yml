@@ -69,23 +69,6 @@ cards:
       Usas tu Interacción para inspirar a tus aliados. Elige un número de aliados igual a tu puntuación de Presencia a
       distancia Cercana. Ganan Puntos de Salud temporales iguales a 1d4 + tu puntuación de Presencia.
     slug: grito-de-guerra
-  - id: 994f74aa6b9f3ae5af5f22758dfccacf4d65085c
-    name: Tirador de Élite
-    level: 2
-    type: activable
-    tags:
-      - Combatiente
-    requirements: Sintonía con el Acero & Reflejos 3
-    uses:
-      type: RELOAD
-      qty: 4
-    description: >-
-      Tu paciencia y puntería te permiten realizar disparos imposibles.<br> Mientras tengas esta carta activa, si no has
-      gastado nada de tu movimiento durante tu turno, puedes sacrificarlo para obtener un +1 a tus tiradas de ataque con
-      armas a distancia y arrojadizas hasta el final de tu turno.<br> Como Acción, puedes gastar un uso de esta carta
-      para realizar un único ataque con un arma a distancia o arrojadiza. Si impacta, el proyectil ignora toda la
-      Mitigación Física del objetivo.
-    slug: tirador-de-elite
   - id: 3254a24cdf671197f84b3597764ae298c393920a
     name: Ojo Táctico
     level: 2

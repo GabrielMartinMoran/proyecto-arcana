@@ -66,17 +66,3 @@ cards:
       Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su próximo turno obtiene
       Ventaja (+1d4).
     slug: comando-de-batalla
-  - id: 149327b3f042657d679a57c220c6f6a1c2be1987
-    name: Lluvia de Flechas
-    level: 3
-    type: activable
-    tags:
-      - Combatiente
-    requirements: Tirador de Élite & Reflejos 4
-    uses:
-      type: RELOAD
-      qty: 5
-    description: >-
-      Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3 metros deben superar una TS
-      de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño Perforante.
-    slug: lluvia-de-flechas

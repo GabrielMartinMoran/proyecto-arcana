@@ -5,7 +5,7 @@ cards:
     type: activable
     tags:
       - Céfiro
-    requirements: Sintonía con el Acero & Reflejos 6
+    requirements: Maestría Marcial & Reflejos 6
     uses:
       type: LONG_REST
       qty: 1

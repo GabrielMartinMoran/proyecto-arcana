@@ -28,7 +28,7 @@ cards:
       - Sinergia
       - Combatiente
       - Sacerdote
-    requirements: Sintonía con el Acero & Fe Inspiradora & Instinto 5
+    requirements: Maestría Marcial & Fe Inspiradora & Instinto 5
     uses:
       type: null
       qty: 0
@@ -48,7 +48,7 @@ cards:
       - Sinergia
       - Combatiente
       - Monje
-    requirements: Sintonía con el Acero & Disciplina Monástica & Instinto 5
+    requirements: Maestría Marcial & Disciplina Monástica & Instinto 5
     uses:
       type: null
       qty: 0
@@ -68,7 +68,7 @@ cards:
       - Sinergia
       - Combatiente
       - Arcanista
-    requirements: Sintonía con el Acero & Afinidad Arcana & Cuerpo 5
+    requirements: Maestría Marcial & Afinidad Arcana & Cuerpo 5
     uses:
       type: null
       qty: 0
@@ -89,7 +89,7 @@ cards:
       - Sinergia
       - Combatiente
       - Druida
-    requirements: Sintonía con el Acero & Sintonía Primordial & Instinto 5
+    requirements: Maestría Marcial & Sintonía Primordial & Instinto 5
     uses:
       type: null
       qty: 0
@@ -108,7 +108,7 @@ cards:
       - Sinergia
       - Combatiente
       - Bardo
-    requirements: Sintonía con el Acero & Don del Elocuente & Presencia 5
+    requirements: Maestría Marcial & Don del Elocuente & Presencia 5
     uses:
       type: null
       qty: 0

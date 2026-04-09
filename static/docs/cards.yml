@@ -980,6 +980,7 @@ cards:
       type: null
       qty: 0
 
+  # ------------------------------ COMBATIENTE ------------------------------
   - name: Maestría Marcial
     level: 1
     type: efecto
@@ -992,7 +993,6 @@ cards:
       type: null
       qty: 0
 
-  # ------------------------------ COMBATIENTE ------------------------------
   - name: Sintonía con el Acero
     level: 1
     type: efecto
@@ -1031,7 +1031,7 @@ cards:
     requirements: Reflejos 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Acrobacias y Supervivencia.<br><br>
-      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial. Tu Salud máxima aumenta en +5. Además, ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo), siempre que cumplas el requisito de atributo de la armadura. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
+      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial. Tu Salud máxima aumenta en +5. Además, ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo, mínimo 1), siempre que cumplas el requisito de atributo de la armadura. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
       _Solo puedes tener un Beneficio de Arquetipo activo a la vez._
     uses:
       type: null
@@ -1089,7 +1089,7 @@ cards:
     type: activable
     tags:
       - Céfiro
-    requirements: 'Sintonía con el Acero & Reflejos 6'
+    requirements: 'Maestría Marcial & Reflejos 6'
     description: >-
       Te conviertes en una ráfaga letal y omnipresente en el campo de batalla.<br>
       Como Acción, eliges hasta un número de enemigos igual a tu puntuación de Reflejos que puedas ver a distancia Larga. Realizas un único ataque (usando un arma Precisa o a distancia) contra cada uno de ellos.<br>
@@ -1322,33 +1322,6 @@ cards:
       Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad. Este movimiento no puede ser
       interceptado por Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su
       próximo turno obtiene Ventaja (+1d4).
-    uses:
-      type: RELOAD
-      qty: 5
-  # --- Combatiente: Tirador ---
-  - name: Tirador de Élite
-    level: 2
-    type: activable
-    tags:
-      - Combatiente
-    requirements: 'Sintonía con el Acero & Reflejos 3'
-    description: >-
-      Tu paciencia y puntería te permiten realizar disparos imposibles.<br>
-      Mientras tengas esta carta activa, si no has gastado nada de tu movimiento durante tu turno, puedes sacrificarlo para obtener un +1 a tus tiradas de ataque con armas a distancia y arrojadizas hasta el final de tu turno.<br>
-      Como Acción, puedes gastar un uso de esta carta para realizar un único ataque con un arma a distancia o arrojadiza.
-      Si impacta, el proyectil ignora toda la Mitigación Física del objetivo.
-    uses:
-      type: RELOAD
-      qty: 4
-  - name: Lluvia de Flechas
-    level: 3
-    type: activable
-    tags:
-      - Combatiente
-    requirements: 'Tirador de Élite & Reflejos 4'
-    description: >-
-      Como Acción, eliges un punto a distancia Larga. Todas las criaturas en un radio de 3 metros
-      deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño Perforante.
     uses:
       type: RELOAD
       qty: 5
@@ -4138,7 +4111,7 @@ cards:
       - Sinergia
       - Combatiente
       - Sacerdote
-    requirements: 'Sintonía con el Acero & Fe Inspiradora & Instinto 5'
+    requirements: 'Maestría Marcial & Fe Inspiradora & Instinto 5'
     description: >-
       Eres el faro de esperanza en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
       - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br>
@@ -4156,7 +4129,7 @@ cards:
       - Sinergia
       - Combatiente
       - Monje
-    requirements: 'Sintonía con el Acero & Disciplina Monástica & Instinto 5'
+    requirements: 'Maestría Marcial & Disciplina Monástica & Instinto 5'
     description: >-
       Tu disciplina marcial y tu fortaleza interior se fusionan. Ganas los siguientes beneficios permanentes:<br>
       - **Defensa Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br>
@@ -4173,7 +4146,7 @@ cards:
       - Sinergia
       - Combatiente
       - Arcanista
-    requirements: 'Sintonía con el Acero & Afinidad Arcana & Cuerpo 5'
+    requirements: 'Maestría Marcial & Afinidad Arcana & Cuerpo 5'
     description: >-
       Has fusionado tu destreza marcial con el poder arcano. Ganas los siguientes beneficios permanentes:<br>
       - **Acero Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br>
@@ -4190,7 +4163,7 @@ cards:
       - Sinergia
       - Combatiente
       - Druida
-    requirements: 'Sintonía con el Acero & Sintonía Primordial & Instinto 5'
+    requirements: 'Maestría Marcial & Sintonía Primordial & Instinto 5'
     description: >-
       Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero.<br>
       - **Piel de Corteza:** Mientras no lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br>
@@ -4207,7 +4180,7 @@ cards:
       - Sinergia
       - Combatiente
       - Bardo
-    requirements: 'Sintonía con el Acero & Don del Elocuente & Presencia 5'
+    requirements: 'Maestría Marcial & Don del Elocuente & Presencia 5'
     description: >-
       Tu presencia inspira hazañas legendarias en el campo de batalla. Ganas los siguientes beneficios permanentes:<br>
       - **Presencia Inspiradora Mejorada:** El bonificador a las Tiradas de Salvación contra miedo otorgado por tu Presencia Inspiradora aumenta a +1d4.<br>
