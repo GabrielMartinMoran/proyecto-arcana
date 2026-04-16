@@ -291,10 +291,11 @@ Una vez que utilizas una carta con usos limitados, esta se considera **agotada**
 
 En el fragor de la batalla, la adrenalina puede permitirte recuperar tus capacidades rápidamente.
 
-- **Cuándo:** Al **inicio de tu turno**, antes de realizar cualquier acción.
+- **Cuándo:** Al **final de tu turno**, después de haber resuelto todas tus acciones, movimientos e interacciones.
 - **Cómo:** Lanza **1d8 por cada carta agotada** que tengas con la propiedad **Recarga n+**.
 - **Resultado:** Si el resultado del dado es **igual o superior** al número indicado en la carta (n), recuperas el uso de esa habilidad y puedes volver a utilizarla inmediatamente en ese mismo turno o hasta que vuelvas a agotarla.
 - **Fallo:** Si no superas la tirada, la carta permanece agotada hasta el inicio de tu próximo turno, donde podrás volver a intentarlo.
+- **Sobrecarga (Fallo Crítico de Adrenalina):** Si el resultado del dado es un **1 natural**, la habilidad sufre una sobrecarga. La carta no se recarga y **no podrás volver a intentar su Recarga en Combate mediante Adrenalina hasta que la carta sea recuperada específicamente mediante Recarga con Suerte o Reenfoque**. Para volver a utilizar una carta sobrecargada antes de que termine el combate, deberás recurrir obligatoriamente a la **Recarga con Suerte (El Destino)** gastando los puntos correspondientes; de lo contrario, deberás esperar a finalizar el peligro para realizar un **Reenfoque** o un día de descanso.
 
 ### Recarga Fuera de Combate (El Reenfoque)
 

@@ -1,0 +1,349 @@
+{
+	"weapons": [
+		{
+			"id": "weapon-porra",
+			"name": "Porra",
+			"category": "weapons",
+			"price": 2,
+			"damage": "1d4",
+			"type": "Contundente",
+			"properties": "",
+			"requirement": "",
+			"notes": "Daño 1d4, Contundente"
+		},
+		{
+			"id": "weapon-jabalina",
+			"name": "Jabalina",
+			"category": "weapons",
+			"price": 3,
+			"damage": "1d4",
+			"type": "Perforante",
+			"properties": "Arrojadiza (Cercana)",
+			"requirement": "Cuerpo 2",
+			"notes": "Daño 1d4, Perforante, Arrojadiza (Cercana), Requiere Cuerpo 2"
+		},
+		{
+			"id": "weapon-daga",
+			"name": "Daga",
+			"category": "weapons",
+			"price": 5,
+			"damage": "1d4",
+			"type": "Perforante",
+			"properties": "Precisa, Arrojadiza (Cercana)",
+			"requirement": "",
+			"notes": "Daño 1d4, Perforante, Precisa, Arrojadiza (Cercana)"
+		},
+		{
+			"id": "weapon-arco-corto",
+			"name": "Arco corto",
+			"category": "weapons",
+			"price": 20,
+			"damage": "1d4",
+			"type": "Perforante",
+			"properties": "A dos manos, Rango (Media)",
+			"requirement": "Reflejos 2",
+			"notes": "Daño 1d4, Perforante, A dos manos, Rango (Media), Requiere Reflejos 2"
+		},
+		{
+			"id": "weapon-baston",
+			"name": "Bastón",
+			"category": "weapons",
+			"price": 2,
+			"damage": "1d4/1d6",
+			"type": "Contundente",
+			"properties": "Versátil",
+			"requirement": "",
+			"notes": "Daño 1d4/1d6, Contundente, Versátil"
+		},
+		{
+			"id": "weapon-maza",
+			"name": "Maza",
+			"category": "weapons",
+			"price": 10,
+			"damage": "1d6",
+			"type": "Contundente",
+			"properties": "",
+			"requirement": "Cuerpo 2",
+			"notes": "Daño 1d6, Contundente, Requiere Cuerpo 2"
+		},
+		{
+			"id": "weapon-lanza",
+			"name": "Lanza",
+			"category": "weapons",
+			"price": 15,
+			"damage": "1d6",
+			"type": "Perforante",
+			"properties": "Arrojadiza (Cercana)",
+			"requirement": "Cuerpo 2",
+			"notes": "Daño 1d6, Perforante, Arrojadiza (Cercana), Requiere Cuerpo 2"
+		},
+		{
+			"id": "weapon-hacha-mano",
+			"name": "Hacha de mano",
+			"category": "weapons",
+			"price": 15,
+			"damage": "1d6",
+			"type": "Cortante",
+			"properties": "Arrojadiza (Cercana)",
+			"requirement": "Cuerpo 2",
+			"notes": "Daño 1d6, Cortante, Arrojadiza (Cercana), Requiere Cuerpo 2"
+		},
+		{
+			"id": "weapon-espada-corta",
+			"name": "Espada corta",
+			"category": "weapons",
+			"price": 25,
+			"damage": "1d6",
+			"type": "Cortante",
+			"properties": "Precisa",
+			"requirement": "Cuerpo 2 o Reflejos 2",
+			"notes": "Daño 1d6, Cortante, Precisa, Requiere Cuerpo 2 o Reflejos 2"
+		},
+		{
+			"id": "weapon-ballesta-ligera",
+			"name": "Ballesta ligera",
+			"category": "weapons",
+			"price": 35,
+			"damage": "1d6",
+			"type": "Perforante",
+			"properties": "A dos manos, Rango (Media), Recarga",
+			"requirement": "Reflejos 2",
+			"notes": "Daño 1d6, Perforante, A dos manos, Rango (Media), Recarga, Requiere Reflejos 2"
+		},
+		{
+			"id": "weapon-espada-larga",
+			"name": "Espada larga",
+			"category": "weapons",
+			"price": 50,
+			"damage": "1d6/1d8",
+			"type": "Cortante",
+			"properties": "Versátil",
+			"requirement": "Cuerpo 2",
+			"notes": "Daño 1d6/1d8, Cortante, Versátil, Requiere Cuerpo 2"
+		},
+		{
+			"id": "weapon-estoque",
+			"name": "Estoque",
+			"category": "weapons",
+			"price": 60,
+			"damage": "1d8",
+			"type": "Perforante",
+			"properties": "Precisa",
+			"requirement": "Reflejos 3",
+			"notes": "Daño 1d8, Perforante, Precisa, Requiere Reflejos 3"
+		},
+		{
+			"id": "weapon-arco-largo",
+			"name": "Arco largo",
+			"category": "weapons",
+			"price": 75,
+			"damage": "1d8",
+			"type": "Perforante",
+			"properties": "A dos manos, Rango (Larga)",
+			"requirement": "Reflejos 3",
+			"notes": "Daño 1d8, Perforante, A dos manos, Rango (Larga), Requiere Reflejos 3"
+		},
+		{
+			"id": "weapon-martillo-guerra",
+			"name": "Martillo de guerra",
+			"category": "weapons",
+			"price": 60,
+			"damage": "1d8/1d10",
+			"type": "Contundente",
+			"properties": "Versátil",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d8/1d10, Contundente, Versátil, Requiere Cuerpo 3"
+		},
+		{
+			"id": "weapon-hacha-guerra",
+			"name": "Hacha de guerra",
+			"category": "weapons",
+			"price": 60,
+			"damage": "1d8/1d10",
+			"type": "Cortante",
+			"properties": "Versátil",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d8/1d10, Cortante, Versátil, Requiere Cuerpo 3"
+		},
+		{
+			"id": "weapon-ballesta-pesada",
+			"name": "Ballesta pesada",
+			"category": "weapons",
+			"price": 75,
+			"damage": "1d10",
+			"type": "Perforante",
+			"properties": "A dos manos, Rango (Larga), Recarga",
+			"requirement": "Reflejos 3",
+			"notes": "Daño 1d10, Perforante, A dos manos, Rango (Larga), Recarga, Requiere Reflejos 3"
+		},
+		{
+			"id": "weapon-mandoble",
+			"name": "Mandoble",
+			"category": "weapons",
+			"price": 100,
+			"damage": "1d12",
+			"type": "Cortante",
+			"properties": "A dos manos",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d12, Cortante, A dos manos, Requiere Cuerpo 3"
+		}
+	],
+	"armors": [
+		{
+			"id": "armor-cuero",
+			"name": "Arm. de Cuero",
+			"category": "armors",
+			"price": 20,
+			"physicalMitigation": 1,
+			"evasionPenalty": 0,
+			"stealthPenalty": 0,
+			"requirement": "Cuerpo 1",
+			"notes": "Mitigación Física 1, Esquiva 0, Penalización Sigilo 0, Requiere Cuerpo 1"
+		},
+		{
+			"id": "armor-gambeson",
+			"name": "Gambesón",
+			"category": "armors",
+			"price": 50,
+			"physicalMitigation": 2,
+			"evasionPenalty": -1,
+			"stealthPenalty": -1,
+			"requirement": "Cuerpo 2",
+			"notes": "Mitigación Física 2, Esquiva -1, Penalización Sigilo -1 (Ruidosa), Requiere Cuerpo 2"
+		},
+		{
+			"id": "armor-cota-mallas",
+			"name": "Cota de mallas",
+			"category": "armors",
+			"price": 75,
+			"physicalMitigation": 2,
+			"evasionPenalty": 0,
+			"stealthPenalty": -2,
+			"requirement": "Cuerpo 3",
+			"notes": "Mitigación Física 2, Esquiva 0, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 3"
+		},
+		{
+			"id": "armor-brigantina",
+			"name": "Brigantina",
+			"category": "armors",
+			"price": 150,
+			"physicalMitigation": 2,
+			"evasionPenalty": 0,
+			"stealthPenalty": -1,
+			"requirement": "Cuerpo 3",
+			"notes": "Mitigación Física 2, Esquiva 0, Penalización Sigilo -1 (Ruidosa), Requiere Cuerpo 3"
+		},
+		{
+			"id": "armor-placas-parcial",
+			"name": "Placas parcial",
+			"category": "armors",
+			"price": 300,
+			"physicalMitigation": 3,
+			"evasionPenalty": -1,
+			"stealthPenalty": -2,
+			"requirement": "Cuerpo 4",
+			"notes": "Mitigación Física 3, Esquiva -1, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 4"
+		},
+		{
+			"id": "armor-placas-completa",
+			"name": "Placas completa",
+			"category": "armors",
+			"price": 750,
+			"physicalMitigation": 4,
+			"evasionPenalty": -2,
+			"stealthPenalty": -2,
+			"requirement": "Cuerpo 5",
+			"notes": "Mitigación Física 4, Esquiva -2, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 5"
+		},
+		{
+			"id": "armor-escudo",
+			"name": "Escudo",
+			"category": "armors",
+			"price": 10,
+			"physicalMitigation": 0,
+			"evasionPenalty": 1,
+			"stealthPenalty": 0,
+			"requirement": "Cuerpo 3 y Mano libre",
+			"notes": "Mitigación Física 0, Esquiva +1, Penalización Sigilo 0, Requiere Cuerpo 3 y Mano libre"
+		}
+	],
+	"adventure-gear": [
+		{
+			"id": "gear-mochila",
+			"name": "Mochila",
+			"category": "adventure-gear",
+			"price": 5,
+			"notes": "Mochila para transportar objetos"
+		},
+		{
+			"id": "gear-soga",
+			"name": "Soga de cáñamo (15m)",
+			"category": "adventure-gear",
+			"price": 2,
+			"notes": "Soga de cáñamo de 15 metros"
+		},
+		{
+			"id": "gear-antorcha",
+			"name": "Antorcha",
+			"category": "adventure-gear",
+			"price": 1,
+			"notes": "Antorcha para iluminación"
+		},
+		{
+			"id": "gear-raciones",
+			"name": "Raciones de viaje (por día)",
+			"category": "adventure-gear",
+			"price": 1,
+			"notes": "Raciones de viaje para un día"
+		},
+		{
+			"id": "gear-odre",
+			"name": "Odre de agua",
+			"category": "adventure-gear",
+			"price": 1,
+			"notes": "Odre para transportar agua"
+		},
+		{
+			"id": "gear-saco-dormir",
+			"name": "Saco de dormir",
+			"category": "adventure-gear",
+			"price": 2,
+			"notes": "Saco de dormir para descansar"
+		},
+		{
+			"id": "gear-yesquero",
+			"name": "Yesquero y pedernal",
+			"category": "adventure-gear",
+			"price": 1,
+			"notes": "Herramientas para encender fuego"
+		},
+		{
+			"id": "gear-ganzuas",
+			"name": "Ganzúas",
+			"category": "adventure-gear",
+			"price": 25,
+			"notes": "Herramientas para abrir cerraduras"
+		},
+		{
+			"id": "gear-flechas",
+			"name": "Flechas (x10)",
+			"category": "adventure-gear",
+			"price": 2,
+			"notes": "Paquete de flechas"
+		},
+		{
+			"id": "gear-virotes",
+			"name": "Virotes de ballesta (x10)",
+			"category": "adventure-gear",
+			"price": 3,
+			"notes": "Paquete virotes de ballesta"
+		},
+		{
+			"id": "gear-pocion-curacion",
+			"name": "Poción de Curación Menor",
+			"category": "adventure-gear",
+			"price": 50,
+			"notes": "Restaura 1d6+1 puntos de salud"
+		}
+	]
+}
