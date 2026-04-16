@@ -297,10 +297,12 @@
 		<EquipmentList
 			equipment={character.equipment}
 			{readonly}
+			{character}
 			onChange={(equipment) => {
 				character.equipment = equipment;
 				onChange(character);
 			}}
+			onCharacterChange={onChange}
 		/>
 		{#if character.equipment.length === 0}
 			<div class="empty">

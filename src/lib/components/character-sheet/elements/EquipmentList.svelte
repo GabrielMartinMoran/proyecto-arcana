@@ -1,22 +1,98 @@
 <script lang="ts">
 	import InputField from '$lib/components/ui/InputField.svelte';
-	import type { Equipment } from '$lib/types/character';
+	import type { Character, Equipment } from '$lib/types/character';
+	import type { LibraryItem } from '$lib/types/item';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import ItemLibraryModal from './ItemLibraryModal.svelte';
 
 	type Props = {
 		equipment: Equipment[];
 		readonly: boolean;
+		character: Character;
 		onChange: (equipment: Equipment[]) => void;
+		onCharacterChange: (character: Character) => void;
 	};
 
-	let { equipment, readonly, onChange }: Props = $props();
+	let { equipment, readonly, character, onChange, onCharacterChange }: Props = $props();
 
-	const addItem = () => {
+	let libraryModalOpened = $state(false);
+
+	const addBlankItem = (e: MouseEvent) => {
+		e.stopPropagation();
 		equipment = [...equipment, { id: crypto.randomUUID(), quantity: 1, name: '', notes: '' }];
 		onChange(equipment);
 	};
 
+	const openLibraryModal = (e: MouseEvent) => {
+		e.stopPropagation();
+		libraryModalOpened = true;
+	};
+
+	const closeLibraryModal = () => {
+		libraryModalOpened = false;
+	};
+
 	const removeItem = (item: Equipment) => {
 		equipment = equipment.filter((i) => i.id !== item.id);
+		onChange(equipment);
+	};
+
+	const handleAddItem = async (item: LibraryItem, isPurchase: boolean) => {
+		// If purchase, check gold and deduct
+		if (isPurchase) {
+			if (character.currentGold < item.price) {
+				await dialogService.alert(
+					`No tienes suficiente oro. Tienes ${character.currentGold} o y el item cuesta ${item.price} o.`,
+				);
+				return;
+			}
+
+			// Deduct gold and add to goldHistory
+			const purchaseEntry = {
+				id: crypto.randomUUID(),
+				type: 'subtract' as const,
+				value: item.price,
+				reason: `Compra: ${item.name}`,
+			};
+			character.goldHistory = [...character.goldHistory, purchaseEntry];
+			onCharacterChange(character);
+		}
+
+		// Check for duplicate: same name + same notes
+		const existingItem = equipment.find(
+			(e) => e.name.toLowerCase() === item.name.toLowerCase() && e.notes === item.notes,
+		);
+
+		if (existingItem) {
+			// Same name + same notes → increment quantity
+			existingItem.quantity += 1;
+			onChange(equipment);
+			return;
+		}
+
+		// Check for conflict: same name + different notes
+		const conflictItem = equipment.find(
+			(e) => e.name.toLowerCase() === item.name.toLowerCase() && e.notes !== item.notes,
+		);
+
+		if (conflictItem) {
+			// Same name + different notes → confirm dialog
+			const confirmed = await dialogService.confirm(
+				`Ya existe un item con el nombre "${item.name}" pero con notas diferentes. ¿Querés agregarlo como un nuevo item?`,
+				{ title: 'Item Duplicado', confirmLabel: 'Sí, agregar', cancelLabel: 'No' },
+			);
+
+			if (!confirmed) return;
+		}
+
+		// No match or confirmed conflict → add new item
+		const newItem: Equipment = {
+			id: crypto.randomUUID(),
+			quantity: 1,
+			name: item.name,
+			notes: item.notes,
+		};
+		equipment = [...equipment, newItem];
 		onChange(equipment);
 	};
 </script>
@@ -25,7 +101,14 @@
 	<div class="header">
 		<label>Equipo</label>
 		{#if !readonly}
-			<button onclick={addItem} title="Agregar Item">➕</button>
+			<div class="header-buttons">
+				<button onclick={addBlankItem} title="Agregar item en blanco"
+					>➕ Agregar item en blanco</button
+				>
+				<button onclick={openLibraryModal} title="Agregar de librería"
+					>📚 Agregar de librería</button
+				>
+			</div>
 		{/if}
 	</div>
 	<div class="content">
@@ -71,6 +154,15 @@
 	</div>
 </div>
 
+{#if libraryModalOpened}
+	<ItemLibraryModal
+		opened={true}
+		currentGold={character.currentGold}
+		onClose={closeLibraryModal}
+		onAddItem={handleAddItem}
+	/>
+{/if}
+
 <style>
 	.equipment-list {
 		display: flex;
@@ -83,6 +175,11 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
+		}
+
+		.header-buttons {
+			display: flex;
+			gap: var(--spacing-sm);
 		}
 
 		.content {
@@ -113,5 +210,18 @@
 				width: 100%;
 			}
 		}
+	}
+
+	.header-buttons button {
+		padding: var(--spacing-xs) var(--spacing-sm);
+		background-color: var(--secondary-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		cursor: pointer;
+		font-size: 0.8rem;
+	}
+
+	.header-buttons button:hover {
+		background-color: var(--primary-bg);
 	}
 </style>

@@ -51,6 +51,15 @@
 	--top-bar-height: 40px;
 	--side-bar-width: 200px;
 	--dice-panel-width: 250px;
+
+	/* Overcharge styling */
+	--overcharge-overlay: rgba(180, 0, 0, 0.3);
+	--overcharge-text: #cc3333;
+
+	/* Input small variant */
+	--input-small-width: 5rem;
+	--input-small-height: 1.5rem;
+	--input-small-padding: var(--spacing-xs);
 }
 
 /* CSS reset (minimal) */

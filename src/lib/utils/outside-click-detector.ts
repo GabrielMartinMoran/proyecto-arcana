@@ -5,7 +5,7 @@ export const clickOutsideDetector = (node: Node) => {
 
 	function handleClick(e) {
 		if (!node.contains(e.target)) {
-			node.dispatchEvent(new CustomEvent('outsideclick'));
+			node.dispatchEvent(new CustomEvent('outsideclick', { bubbles: true }));
 		}
 	}
 

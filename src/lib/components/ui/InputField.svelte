@@ -9,6 +9,7 @@
 		fullWidth?: boolean;
 		placeholder?: string;
 		textAlign?: 'left' | 'center';
+		size?: 'small' | 'normal';
 		button?: {
 			icon: string;
 			onClick: () => void;
@@ -28,6 +29,7 @@
 		fullWidth = false,
 		placeholder = '',
 		textAlign = 'center',
+		size = 'normal',
 	}: Props = $props();
 
 	let innerValue = $derived(value);
@@ -39,6 +41,7 @@
 	{/if}
 	<span
 		class="field"
+		class:small={size === 'small'}
 		class:inputAlone={max === undefined && button === undefined && !fullWidth}
 		class:inputWithButton={button !== undefined}
 		class:fullWidth
@@ -117,6 +120,12 @@
 
 			&.inputAlone {
 				width: 8.2rem;
+			}
+
+			&.small {
+				width: var(--input-small-width);
+				height: var(--input-small-height);
+				padding: var(--input-small-padding);
 			}
 
 			&.inputWithButton {

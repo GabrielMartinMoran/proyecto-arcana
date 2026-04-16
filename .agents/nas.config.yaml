@@ -9,6 +9,6 @@ mind_spaces:
     description: 'Project context, decisions, architecture, and session checkpoints'
 gherkin:
   enabled: true
-  storage_path: 'specs/features'
+  storage_path: 'specs/web'
 config_policy:
   require_confirmation: true

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { AbilityCard as CardType } from '$lib/types/card';
+	import type { Card as CardType } from '$lib/types/cards/card';
 	import type { CharacterCard } from '$lib/types/character';
 	import { CONFIG } from '../../../config';
-	import InputField from '../ui/InputField.svelte';
 	import Card from './Card.svelte';
+	import ReloadControl from './ReloadControl.svelte';
 
 	type Props = {
 		cards: CardType[];
@@ -63,7 +63,8 @@
 				uses: getCardTotalUses(card),
 				isActive: false,
 				level: card.level,
-				cardType: card.type,
+				cardType: card.cardType,
+				isOvercharged: false,
 			} as CharacterCard,
 		];
 		onChange(characterCards);
@@ -98,6 +99,13 @@
 		}
 	};
 
+	const toggleOverload = (cardId: string) => {
+		const updated = characterCards.map((card) =>
+			card.id === cardId ? { ...card, isOvercharged: !card.isOvercharged } : card,
+		);
+		onChange(updated);
+	};
+
 	const isCardActive = (card: CardType) => {
 		const found = characterCards.find((x) => x.id === card.id);
 		return found ? found.isActive : false;
@@ -106,22 +114,34 @@
 
 <div class="cards">
 	{#each cards as card (card.id)}
-		<Card {card}>
+		{@const characterCard = characterCards.find((cc) => cc.id === card.id)}
+		<Card {card} isOvercharged={characterCard?.isOvercharged ?? false}>
 			{#if !readonly}
 				<div class="controls">
 					{#if listMode === 'active'}
 						{#if getCardTotalUses(card) !== null}
-							<InputField
+							<ReloadControl
 								value={getCurrentUses(card.id)!}
 								max={getCardTotalUses(card)!}
-								onChange={(value) => updateCardCurrentUses(card.id, Number(value))}
-								button={{
-									icon: '🎲',
-									title: 'Tirar para recargar',
-									onClick: () => onCardReloadClick(card.id),
-									disabled: getCurrentUses(card.id) === getCardTotalUses(card),
-								}}
+								onValueChange={(value) => updateCardCurrentUses(card.id, value)}
+								onReload={() => onCardReloadClick(card.id)}
+								reloadDisabled={getCurrentUses(card.id) === getCardTotalUses(card) ||
+									(characterCard?.isOvercharged ?? false)}
 							/>
+						{/if}
+						{#if card.type === 'activable'}
+							<label
+								class="overload-checkbox boxed-control button-height-rhythm"
+								title="Sobrecargada"
+							>
+								<input
+									type="checkbox"
+									checked={characterCard?.isOvercharged ?? false}
+									onchange={() => toggleOverload(card.id)}
+								/>
+								<span class="indicator" aria-hidden="true">⚡</span>
+								<span class="label-text">Sob</span>
+							</label>
 						{/if}
 						<span class="spacer"></span>
 						<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
@@ -159,11 +179,45 @@
 		.controls {
 			display: flex;
 			flex-direction: row;
-			flex-wrap: wrap;
 			align-items: center;
 			justify-content: space-between;
 			flex-grow: 1;
 			padding-top: var(--spacing-sm);
+		}
+
+		.overload-checkbox {
+			display: inline-flex;
+			align-items: center;
+			gap: var(--spacing-xs);
+			font-size: 0.875rem;
+			color: var(--color-text);
+			cursor: pointer;
+		}
+
+		.overload-checkbox.boxed-control {
+			justify-content: center;
+			padding: calc(var(--spacing-xs) + 1px) var(--spacing-sm);
+			border: 1px solid var(--border-color);
+			border-radius: var(--radius-md);
+			background: var(--secondary-bg);
+			box-shadow: var(--shadow-sm);
+		}
+
+		.button-height-rhythm {
+			box-sizing: border-box;
+			min-height: calc((1rem * 1.25) + (var(--spacing-sm) * 2) + 2px);
+		}
+
+		.overload-checkbox input[type='checkbox'] {
+			accent-color: var(--color-warning);
+		}
+
+		.overload-checkbox .indicator {
+			line-height: 1;
+		}
+
+		.overload-checkbox .label-text {
+			line-height: 1;
 		}
 	}
 </style>

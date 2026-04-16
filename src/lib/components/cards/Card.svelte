@@ -8,10 +8,11 @@
 
 	type Props = {
 		card: Card;
+		isOvercharged?: boolean;
 		children?: Snippet;
 	};
 
-	let { card, children = undefined }: Props = $props();
+	let { card, isOvercharged = false, children = undefined }: Props = $props();
 
 	const getBorderColor = (tags: string[]) => {
 		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
@@ -39,7 +40,7 @@
 	};
 </script>
 
-<div class="card" style:border-color={getBorderColor(card.tags)}>
+<div class="card" class:overcharged={isOvercharged} style:border-color={getBorderColor(card.tags)}>
 	<div class="bg" style:background-image={`url(${card.img})`}></div>
 	<div class="inner">
 		<div class="header">
@@ -263,5 +264,21 @@
 
 	.spacer {
 		flex: 1;
+	}
+
+	.card.overcharged::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--overcharge-overlay);
+		z-index: 3;
+		pointer-events: none;
+	}
+
+	.card.overcharged .description {
+		color: var(--overcharge-text);
 	}
 </style>

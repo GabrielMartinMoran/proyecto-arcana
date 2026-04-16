@@ -15,8 +15,7 @@ export class RollHandler {
 			let resultIndex = 0;
 
 			for (const term of roll.terms) {
-				// @ts-ignore - Die is available at runtime
-				if (term instanceof Die || term.constructor.name === 'Die') {
+				if (term.constructor.name === 'Die') {
 					const dieCount = (term as any).number;
 					const newResults = [];
 

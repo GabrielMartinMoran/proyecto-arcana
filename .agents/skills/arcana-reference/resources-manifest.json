@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-04-09T12:11:42.668Z",
+  "generatedAt": "2026-04-15T16:46:52.605Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -659,8 +659,8 @@
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
       "kind": "file",
-      "size": 10305,
-      "sha1": "c80e02b4a69cebd1aabb3edb2022c3835dfe5deb"
+      "size": 10969,
+      "sha1": "19b880e55e3dfe4a35b66ed103910d9c27cda04d"
     },
     {
       "path": "references/manual-del-jugador/05-exploracion.md",

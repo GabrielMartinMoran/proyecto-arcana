@@ -89,6 +89,11 @@
 				resultFormatter: (result) =>
 					`<span class="total ${result >= (card.uses?.qty ?? 0) ? 'success' : 'failure'}">${result}</span>`,
 			});
+			if (rollResult === 1) {
+				characterCard.isOvercharged = true;
+				onCharacterCardsChange([...character.cards]);
+				return;
+			}
 			if (rollResult >= (card.uses?.qty ?? 0)) {
 				characterCard.uses += 1;
 				onCharacterCardsChange([...character.cards]);
@@ -280,10 +285,6 @@
 			gap: var(--spacing-md);
 			padding-top: var(--spacing-md);
 
-			.results-count {
-				padding: var(--spacing-xs);
-			}
-
 			.cards-viewport {
 				height: 600px;
 				overflow-y: scroll;
@@ -296,6 +297,10 @@
 			justify-content: space-between;
 			align-items: center;
 			padding: var(--spacing-sm);
+
+			.results-count {
+				padding: var(--spacing-xs);
+			}
 		}
 	}
 

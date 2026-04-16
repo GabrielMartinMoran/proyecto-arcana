@@ -181,6 +181,7 @@ export interface CharacterCard {
 	level: number; // Just for calculations
 	isActive: boolean;
 	cardType: 'ability' | 'item';
+	isOvercharged: boolean; // Whether the card is currently overcharged (manual toggle)
 }
 
 export interface Log {
