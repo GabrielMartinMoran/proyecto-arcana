@@ -1,6 +1,8 @@
 /**
  * Custom Combat class to handle Arcana initiative mechanics
  */
+import { buildInitiativeFlavor, buildInitiativeFormula } from './initiative-formula';
+
 export class ArcanaCombat extends Combat {
 	/** @override */
 	async rollInitiative(ids: string | string[], options: any = {}) {
@@ -66,18 +68,12 @@ export class ArcanaCombat extends Combat {
 		// @ts-ignore - getFlag is available on Actor
 		const initMod = combatant.actor?.getFlag('arcana', 'initiative') || 0;
 
-		let formula = `1d8e + ${initMod}`;
-
-		if (mode === 'advantage') {
-			formula += ' + 1d4';
-		} else if (mode === 'disadvantage') {
-			formula += ' - 1d4';
-		}
+		const formula = buildInitiativeFormula(initMod, mode);
 
 		// @ts-ignore - Roll is global, evaluate() is async by default in V12+
 		const roll = await new Roll(formula, combatant.actor?.getRollData()).evaluate();
 		await roll.toMessage({
-			flavor: `${combatant.name} tira Iniciativa (${mode === 'normal' ? 'Normal' : mode === 'advantage' ? 'Ventaja' : 'Desventaja'})`,
+			flavor: buildInitiativeFlavor(combatant.name, mode),
 			// @ts-ignore - ChatMessage is global
 			speaker: ChatMessage.getSpeaker({ actor: combatant.actor, token: combatant.token }),
 		});

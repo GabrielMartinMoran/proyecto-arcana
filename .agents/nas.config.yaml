@@ -1,14 +1,24 @@
 version: '1.1'
+
 memory:
   enabled: true
   provider: mind
+
 mind_spaces:
   project_space:
     enabled: true
     name: 'projects/proyecto-arcana'
     description: 'Project context, decisions, architecture, and session checkpoints'
+
 gherkin:
   enabled: true
-  storage_path: 'specs/web'
+  storage_path: 'specs'
+  persist_to_repo:
+    when: 'on_done'
+    format: 'merged'
+  include:
+    - 'web/**/*'
+    - 'foundry-module/**/*'
+
 config_policy:
   require_confirmation: true

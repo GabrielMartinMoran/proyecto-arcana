@@ -1,5 +1,6 @@
 import { CONFIG } from '../config';
 import type { ArcanaActor } from '../types/actor';
+import { buildSheetUrl, buildTokenSettings } from './sheet-url-builder';
 
 interface SheetData {
 	actor: ArcanaActor;
@@ -77,39 +78,25 @@ export class ArcanaSheet extends ActorSheet<any, any, any> {
 	 */
 	override getData(): SheetData {
 		const data = super.getData() as SheetData;
-		let urlWeb = this.actor.getFlag('arcana', 'sheetUrl');
-		if (!urlWeb) urlWeb = CONFIG.BASE_URL;
+		const sheetUrl = this.actor.getFlag('arcana', 'sheetUrl') as string | null;
+		const localNotes = this.actor.getFlag('arcana', 'localNotes') as string | null;
 
-		data.isBestiary = false;
-		data.localNotes = '';
-		data.health = { value: 0, max: 0 };
+		const urlResult = buildSheetUrl({
+			sheetUrl,
+			baseUrl: CONFIG.BASE_URL,
+			actor: {
+				uuid: this.actor.uuid,
+				id: this.actor.id,
+				name: this.actor.name,
+				system: this.actor.system as { health?: { value: number; max: number } },
+			},
+			localNotes,
+		});
 
-		if (urlWeb) {
-			if (urlWeb.includes('/characters/shared/'))
-				urlWeb = urlWeb.replace('/characters/shared/', '/embedded/characters/');
-			const separator = urlWeb.includes('?') ? '&' : '?';
-
-			data.health = (this.actor.system as any).health || { value: 0, max: 0 };
-
-			// Detect bestiary/NPC mode
-			const isNpc = urlWeb.includes('/npc');
-			if (urlWeb.includes('/bestiary/') || urlWeb.includes('/creatures/') || isNpc) {
-				data.isBestiary = true;
-				data.localNotes = this.actor.getFlag('arcana', 'localNotes') || '';
-			}
-
-			const targetId = this.actor.uuid || this.actor.id;
-
-			let finalUrl = `${urlWeb}${separator}mode=foundry&uuid=${targetId}&startHp=${data.health.value}&startMax=${data.health.max}`;
-
-			if (isNpc) {
-				finalUrl += '&readonly=1';
-			}
-
-			data.iframeUrl = finalUrl;
-		} else {
-			data.iframeUrl = null;
-		}
+		data.iframeUrl = urlResult.iframeUrl;
+		data.isBestiary = urlResult.isBestiary;
+		data.localNotes = urlResult.localNotes;
+		data.health = urlResult.health;
 
 		return data;
 	}
@@ -188,13 +175,7 @@ export class ArcanaSheet extends ActorSheet<any, any, any> {
 						await this.actor.setFlag('arcana', 'sheetUrl', newUrl.trim());
 
 						// Automatic token configuration
-						const tokenSettings: any = {
-							'prototypeToken.actorLink': newLinkState,
-							'prototypeToken.displayBars': 40, // OWNER ONLY
-							'prototypeToken.bar1.attribute': 'health',
-							'prototypeToken.bar2.attribute': null,
-							'prototypeToken.sight.enabled': true,
-						};
+						const tokenSettings = buildTokenSettings(newLinkState, this.actor.name);
 
 						await this.actor.update(tokenSettings);
 

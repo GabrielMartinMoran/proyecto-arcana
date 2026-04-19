@@ -109,5 +109,74 @@ describe('ReloadControl', () => {
 			await fireEvent.click(button);
 			expect(onReload).toHaveBeenCalled();
 		});
+
+		it('does not call onReload when reload button is disabled', async () => {
+			const onReload = vi.fn();
+			render(ReloadControl, {
+				props: { value: 2, max: 5, onReload, reloadDisabled: true },
+			});
+			const button = screen.getByRole('button');
+			await fireEvent.click(button);
+			expect(onReload).not.toHaveBeenCalled();
+		});
+
+		it('enables reload button when value is below max', () => {
+			const onReload = vi.fn();
+			render(ReloadControl, {
+				props: { value: 2, max: 5, onReload, reloadDisabled: false },
+			});
+			const button = screen.getByRole('button');
+			expect(button).not.toBeDisabled();
+		});
+
+		it('enables reload button when reloadDisabled is explicitly false', () => {
+			const onReload = vi.fn();
+			render(ReloadControl, {
+				props: { value: 5, max: 5, onReload, reloadDisabled: false },
+			});
+			const button = screen.getByRole('button');
+			expect(button).not.toBeDisabled();
+		});
+	});
+
+	describe('uses decrement', () => {
+		it('decrements uses when user edits input to a lower value', async () => {
+			const onValueChange = vi.fn();
+			render(ReloadControl, {
+				props: { value: 3, max: 5, onValueChange },
+			});
+			const input = screen.getByRole('spinbutton');
+			await fireEvent.input(input, { target: { value: 2 } });
+			await tick();
+			expect(onValueChange).toHaveBeenCalledWith(2);
+		});
+
+		it('clamps input value to max attribute', () => {
+			render(ReloadControl, {
+				props: { value: 5, max: 5 },
+			});
+			const input = screen.getByRole('spinbutton') as HTMLInputElement;
+			expect(input.max).toBe('5');
+		});
+
+		it('clamps input value to min of 0', () => {
+			render(ReloadControl, {
+				props: { value: 0, max: 5 },
+			});
+			const input = screen.getByRole('spinbutton') as HTMLInputElement;
+			expect(input.min).toBe('0');
+		});
+
+		it('reflects uses state change after reload', async () => {
+			const onValueChange = vi.fn();
+			render(ReloadControl, {
+				props: { value: 2, max: 5, onValueChange },
+			});
+			const input = screen.getByRole('spinbutton');
+			// User changes from 2 to 3 (after successful reload)
+			await fireEvent.input(input, { target: { value: 3 } });
+			await tick();
+			expect(onValueChange).toHaveBeenCalledWith(3);
+		});
 	});
 });

@@ -1,3 +1,18 @@
+// src/combat/initiative-formula.ts
+function buildInitiativeFormula(initMod, mode) {
+  let formula = `1d8e + ${initMod}`;
+  if (mode === "advantage") {
+    formula += " + 1d4";
+  } else if (mode === "disadvantage") {
+    formula += " - 1d4";
+  }
+  return formula;
+}
+function buildInitiativeFlavor(name, mode) {
+  const modeLabel = mode === "normal" ? "Normal" : mode === "advantage" ? "Ventaja" : "Desventaja";
+  return `${name} tira Iniciativa (${modeLabel})`;
+}
+
 // src/combat/arcana-combat.ts
 var ArcanaCombat = class extends Combat {
   /** @override */
@@ -50,15 +65,10 @@ var ArcanaCombat = class extends Combat {
     const combatant = this.combatants.get(combatantId);
     if (!combatant) return;
     const initMod = combatant.actor?.getFlag("arcana", "initiative") || 0;
-    let formula = `1d8e + ${initMod}`;
-    if (mode === "advantage") {
-      formula += " + 1d4";
-    } else if (mode === "disadvantage") {
-      formula += " - 1d4";
-    }
+    const formula = buildInitiativeFormula(initMod, mode);
     const roll = await new Roll(formula, combatant.actor?.getRollData()).evaluate();
     await roll.toMessage({
-      flavor: `${combatant.name} tira Iniciativa (${mode === "normal" ? "Normal" : mode === "advantage" ? "Ventaja" : "Desventaja"})`,
+      flavor: buildInitiativeFlavor(combatant.name, mode),
       // @ts-ignore - ChatMessage is global
       speaker: ChatMessage.getSpeaker({ actor: combatant.actor, token: combatant.token })
     });
@@ -70,6 +80,48 @@ var ArcanaCombat = class extends Combat {
 var CONFIG2 = {
   BASE_URL: ""
 };
+
+// src/sheets/sheet-url-builder.ts
+function buildSheetUrl(params) {
+  const { sheetUrl, baseUrl, actor, localNotes } = params;
+  let urlWeb = sheetUrl;
+  if (!urlWeb) urlWeb = baseUrl;
+  const result = {
+    iframeUrl: null,
+    isBestiary: false,
+    localNotes: "",
+    health: { value: 0, max: 0 }
+  };
+  if (urlWeb) {
+    if (urlWeb.includes("/characters/shared/")) {
+      urlWeb = urlWeb.replace("/characters/shared/", "/embedded/characters/");
+    }
+    const separator = urlWeb.includes("?") ? "&" : "?";
+    result.health = actor.system.health || { value: 0, max: 0 };
+    const isNpc = urlWeb.includes("/npc");
+    if (urlWeb.includes("/bestiary/") || urlWeb.includes("/creatures/") || isNpc) {
+      result.isBestiary = true;
+      result.localNotes = localNotes || "";
+    }
+    const targetId = actor.uuid || actor.id;
+    let finalUrl = `${urlWeb}${separator}mode=foundry&uuid=${targetId}&startHp=${result.health.value}&startMax=${result.health.max}`;
+    if (isNpc) {
+      finalUrl += "&readonly=1";
+    }
+    result.iframeUrl = finalUrl;
+  }
+  return result;
+}
+function buildTokenSettings(isLinked, _actorName) {
+  return {
+    "prototypeToken.actorLink": isLinked,
+    "prototypeToken.displayBars": 40,
+    // OWNER ONLY
+    "prototypeToken.bar1.attribute": "health",
+    "prototypeToken.bar2.attribute": null,
+    "prototypeToken.sight.enabled": true
+  };
+}
 
 // src/sheets/arcana-sheet.ts
 var ArcanaSheet = class extends ActorSheet {
@@ -112,30 +164,23 @@ var ArcanaSheet = class extends ActorSheet {
    */
   getData() {
     const data = super.getData();
-    let urlWeb = this.actor.getFlag("arcana", "sheetUrl");
-    if (!urlWeb) urlWeb = CONFIG2.BASE_URL;
-    data.isBestiary = false;
-    data.localNotes = "";
-    data.health = { value: 0, max: 0 };
-    if (urlWeb) {
-      if (urlWeb.includes("/characters/shared/"))
-        urlWeb = urlWeb.replace("/characters/shared/", "/embedded/characters/");
-      const separator = urlWeb.includes("?") ? "&" : "?";
-      data.health = this.actor.system.health || { value: 0, max: 0 };
-      const isNpc = urlWeb.includes("/npc");
-      if (urlWeb.includes("/bestiary/") || urlWeb.includes("/creatures/") || isNpc) {
-        data.isBestiary = true;
-        data.localNotes = this.actor.getFlag("arcana", "localNotes") || "";
-      }
-      const targetId = this.actor.uuid || this.actor.id;
-      let finalUrl = `${urlWeb}${separator}mode=foundry&uuid=${targetId}&startHp=${data.health.value}&startMax=${data.health.max}`;
-      if (isNpc) {
-        finalUrl += "&readonly=1";
-      }
-      data.iframeUrl = finalUrl;
-    } else {
-      data.iframeUrl = null;
-    }
+    const sheetUrl = this.actor.getFlag("arcana", "sheetUrl");
+    const localNotes = this.actor.getFlag("arcana", "localNotes");
+    const urlResult = buildSheetUrl({
+      sheetUrl,
+      baseUrl: CONFIG2.BASE_URL,
+      actor: {
+        uuid: this.actor.uuid,
+        id: this.actor.id,
+        name: this.actor.name,
+        system: this.actor.system
+      },
+      localNotes
+    });
+    data.iframeUrl = urlResult.iframeUrl;
+    data.isBestiary = urlResult.isBestiary;
+    data.localNotes = urlResult.localNotes;
+    data.health = urlResult.health;
     return data;
   }
   /**
@@ -200,14 +245,7 @@ var ArcanaSheet = class extends ActorSheet {
             const newUrl = html.find("input[name='url']").val();
             const newLinkState = html.find("input[name='actorLink']").is(":checked");
             await this.actor.setFlag("arcana", "sheetUrl", newUrl.trim());
-            const tokenSettings = {
-              "prototypeToken.actorLink": newLinkState,
-              "prototypeToken.displayBars": 40,
-              // OWNER ONLY
-              "prototypeToken.bar1.attribute": "health",
-              "prototypeToken.bar2.attribute": null,
-              "prototypeToken.sight.enabled": true
-            };
+            const tokenSettings = buildTokenSettings(newLinkState, this.actor.name);
             await this.actor.update(tokenSettings);
             const activeTokens = this.actor.getActiveTokens();
             for (const t of activeTokens) {
@@ -518,7 +556,7 @@ var RollHandler = class {
       const roll = new Roll(data.formula);
       let resultIndex = 0;
       for (const term of roll.terms) {
-        if (term instanceof Die || term.constructor.name === "Die") {
+        if (term.constructor.name === "Die") {
           const dieCount = term.number;
           const newResults = [];
           for (let i = 0; i < dieCount; i++) {
@@ -574,6 +612,17 @@ var MESSAGE_TYPES = {
 };
 
 // src/listeners/message-listener.ts
+async function routeMessage(data, rollHandler, actorUpdater) {
+  if (!data) return;
+  if (data.type === MESSAGE_TYPES.PRECALCULATED_ROLL) {
+    await rollHandler.handlePrecalculatedRoll(data);
+    return;
+  }
+  if (data.type === MESSAGE_TYPES.UPDATE_ACTOR) {
+    await actorUpdater.handleUpdateActor(data);
+    return;
+  }
+}
 function setupMessageListener() {
   const rollHandler = new RollHandler();
   const actorUpdater = new ActorUpdater();
@@ -581,12 +630,7 @@ function setupMessageListener() {
     const data = event.data;
     if (!data) return;
     console.log("[Arcana] Received message:", data.type, "from", event.origin);
-    if (data.type === MESSAGE_TYPES.PRECALCULATED_ROLL) {
-      await rollHandler.handlePrecalculatedRoll(data);
-    }
-    if (data.type === MESSAGE_TYPES.UPDATE_ACTOR) {
-      await actorUpdater.handleUpdateActor(data);
-    }
+    await routeMessage(data, rollHandler, actorUpdater);
   });
 }
 
