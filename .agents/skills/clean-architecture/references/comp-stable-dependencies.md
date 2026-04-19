@@ -58,9 +58,11 @@ Components should depend on components that are more stable than themselves. A s
 ```
 
 **Stability Metric:**
+
 ```text
 Instability = Outgoing Dependencies / (Incoming + Outgoing)
 ```
+
 - I = 0: Maximally stable (many dependents, no dependencies)
 - I = 1: Maximally unstable (no dependents, many dependencies)
 

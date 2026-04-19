@@ -95,6 +95,7 @@ func (d *Discount) CalculateFor(total Money) Money {
 ```
 
 **Benefits:**
+
 - Business rules tested once in entity, not in every use case
 - Rules cannot diverge between use cases
 - Use case clearly shows workflow, not implementation details

@@ -25,27 +25,22 @@ const mockFirebase = {
 		cb(null); // start unauthenticated
 		return () => {};
 	}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	saveParty: vi.fn(async (..._args: [unknown]) => {}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	deleteParty: vi.fn(async (..._args: [string]) => {}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	removePartyMember: vi.fn(async (..._args: [string, string, string]) => {}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	setPartyMember: vi.fn(async (..._args: [string, string, string]) => {}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	listenToUserParties: vi.fn((..._args: [string, (parties: unknown[]) => void]) => () => {}),
 
 	listenCharactersByIds: vi.fn(
-		(
-			/* eslint-disable-line @typescript-eslint/no-unused-vars */ ..._args: [
-				unknown[],
-				(characters: unknown[]) => void,
-			]
-		) =>
+		(..._args: [unknown[], (characters: unknown[]) => void]) =>
 			() => {},
 	),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	saveCharactersForUser: vi.fn(async (..._args: [string, unknown[]]) => {}),
 	user: writable<{ uid: string; displayName?: string } | null>(null),
 };
@@ -194,7 +189,7 @@ describe('parties-service', () => {
 			});
 
 			// User 1 leaves - remove from members
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 			const { 'user-1': _, ...remainingMembers } = party.members;
 
 			expect(remainingMembers).toEqual({ 'user-2': ['char-2'] });
@@ -208,7 +203,7 @@ describe('parties-service', () => {
 			});
 
 			// User 2 leaves
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 			const { 'user-2': _, ...remaining } = party.members;
 
 			expect(Object.keys(remaining)).toHaveLength(2);

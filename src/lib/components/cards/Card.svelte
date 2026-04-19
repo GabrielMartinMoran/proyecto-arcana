@@ -53,9 +53,7 @@
 			<h3>{card.name}</h3>
 		</div>
 		<div class="body">
-			<span class="description">
-				{@html marked.parse(card.description)}
-			</span>
+			<span class="description">{@html marked.parse(card.description)}</span>
 			<div class="tags">
 				{#each card.tags as tag (tag)}
 					<span class="chip">{tag}</span>

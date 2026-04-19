@@ -479,11 +479,10 @@ describe('dice roller localStorage persistence', () => {
 describe('dice roller Firebase boundary', () => {
 	const mockFirebase = {
 		isEnabled: vi.fn(() => true),
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 		saveRollLogsForUser: vi.fn(async (..._args: [string, unknown[]]) => {}),
 
 		saveGroupRollLogsForParty: vi.fn(
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			async (..._args: [string, unknown[], { id?: string; name?: string }?]) => {},
 		),
 		listenRollLogsForUser: vi.fn(() => () => {}),
@@ -695,11 +694,10 @@ describe('roll logs merge personal vs party', () => {
 describe('roll logs cloud sync', () => {
 	const mockFirebase = {
 		isEnabled: vi.fn(() => true),
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 		saveRollLogsForUser: vi.fn(async (..._args: [string, unknown[]]) => {}),
 
 		saveGroupRollLogsForParty: vi.fn(
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			async (..._args: [string, unknown[], { id?: string; name?: string }?]) => {},
 		),
 		listenRollLogsForUser: vi.fn(() => () => {}),

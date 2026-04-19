@@ -76,6 +76,7 @@ class TransferMoneyUseCase:
 ```
 
 **Benefits:**
+
 - Impossible to create invalid account state
 - Validation rules documented in one place
 - Every use case gets consistent validation automatically

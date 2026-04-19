@@ -63,6 +63,7 @@ packages/
 ```
 
 **Benefits:**
+
 - Teams release independently on their own schedule
 - Version numbers communicate compatibility
 - Changelogs specific to what users of each component care about

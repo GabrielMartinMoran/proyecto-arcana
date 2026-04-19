@@ -55,6 +55,7 @@ class UserController:
 ```
 
 **When NOT to use this pattern:**
+
 - Within the same architectural layer, entities can flow freely
 - Performance-critical paths may need optimized data transfer
 

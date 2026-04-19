@@ -30,10 +30,12 @@ Brief explanation (1-3 sentences) of WHY this matters for software architecture.
 ```
 
 **When NOT to use this pattern:**
+
 - Exception or edge case 1
 - Exception or edge case 2
 
 **Benefits:**
+
 - Concrete benefit 1
 - Concrete benefit 2
 

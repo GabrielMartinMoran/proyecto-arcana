@@ -138,7 +138,7 @@
 		const publicURL = resolve(`/characters/shared/${userId}/${character.id}`);
 		await navigator.clipboard.writeText(window.location.origin + publicURL);
 		await dialogService.alert(
-			'Se copio el enlace público del personaje al portapapeles!\n\nCompartelo con quien quieras que lo vea.'
+			'Se copio el enlace público del personaje al portapapeles!\n\nCompartelo con quien quieras que lo vea.',
 		);
 	};
 </script>

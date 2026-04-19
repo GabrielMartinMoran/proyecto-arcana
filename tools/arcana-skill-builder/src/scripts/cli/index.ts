@@ -1,9 +1,9 @@
 import {
-    listCards,
-    showCardDetail,
-    type DetailCommandOptions,
-    type ListCommandOptions,
-    type ListSortMode,
+	listCards,
+	showCardDetail,
+	type DetailCommandOptions,
+	type ListCommandOptions,
+	type ListSortMode,
 } from './commands.js';
 import { loadCardsDataset } from './data-loader.js';
 import type { CardKind } from './filters.js';
@@ -39,9 +39,7 @@ const parseCardKind = (raw: string): CardKind => {
 		case 'cualquiera':
 			return 'any';
 		default:
-			throw new Error(
-				`Valor inválido "${raw}" para "--kind". Usa "ability", "item" o "any".`,
-			);
+			throw new Error(`Valor inválido "${raw}" para "--kind". Usa "ability", "item" o "any".`);
 	}
 };
 
@@ -233,7 +231,10 @@ const parseDetailCommandOptions = (args: string[]): DetailCommandOptions => {
 			if (identifier !== null) {
 				throw new Error('Solo se permite un identificador para el comando "detail".');
 			}
-			const value = args.slice(index + 1).join(' ').trim();
+			const value = args
+				.slice(index + 1)
+				.join(' ')
+				.trim();
 			if (!value) {
 				throw new Error('Debes proporcionar un identificador después de "--".');
 			}
@@ -243,9 +244,7 @@ const parseDetailCommandOptions = (args: string[]): DetailCommandOptions => {
 
 		if (!arg.startsWith('--')) {
 			if (identifier !== null) {
-				throw new Error(
-					`Se recibió un segundo identificador "${arg}". Solo se admite uno.`,
-				);
+				throw new Error(`Se recibió un segundo identificador "${arg}". Solo se admite uno.`);
 			}
 			identifier = arg;
 			continue;

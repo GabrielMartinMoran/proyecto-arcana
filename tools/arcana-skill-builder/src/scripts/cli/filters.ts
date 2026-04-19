@@ -115,10 +115,7 @@ export const filterAbilityCards = (
 	return filterCards(cards, { ...options, cardKind: 'ability' }) as AbilityCard[];
 };
 
-export const filterItemCards = (
-	cards: ItemCard[],
-	options: CardFilterOptions = {},
-): ItemCard[] => {
+export const filterItemCards = (cards: ItemCard[], options: CardFilterOptions = {}): ItemCard[] => {
 	return filterCards(cards, { ...options, cardKind: 'item' }) as ItemCard[];
 };
 

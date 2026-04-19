@@ -107,7 +107,7 @@ export const formatRequirements = (expression: string | null): string => {
 	if (!expression) return '—';
 	try {
 		return formatNode(parse(expression));
-	} catch (e) {
+	} catch {
 		return expression;
 	}
 };

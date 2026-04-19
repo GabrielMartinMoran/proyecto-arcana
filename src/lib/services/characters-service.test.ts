@@ -22,9 +22,9 @@ const mockFirebase = {
 		cb(null); // start unauthenticated
 		return () => {};
 	}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	saveCharactersForUser: vi.fn(async (..._args: [string, unknown[]]) => {}),
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 	deleteCharacterForUser: vi.fn(async (..._args: [string, string]) => {}),
 	listenCharactersForUser: vi.fn(() => () => {}),
 	user: writable<{ uid: string; displayName?: string } | null>(null),
@@ -104,7 +104,6 @@ describe('characters-service', () => {
 
 			const saveCalls: number[] = [];
 			mockFirebase.saveCharactersForUser.mockImplementation(
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				async (..._args: [string, unknown[]]) => {
 					saveCalls.push(Date.now());
 				},

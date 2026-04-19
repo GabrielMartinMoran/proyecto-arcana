@@ -31,7 +31,7 @@ cards:
       el resultado más alto.
     slug: maestria-arcana
   - id: c66e21de47f990391825dad62eecb51918ad614b
-    name: "Palabra de Poder: Aturdir"
+    name: 'Palabra de Poder: Aturdir'
     level: 5
     type: activable
     tags:

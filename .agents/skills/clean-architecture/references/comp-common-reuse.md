@@ -64,6 +64,7 @@ Classes used together should be in the same component. Classes not used together
 ```
 
 **Benefits:**
+
 - Clients only pull dependencies they actually use
 - Smaller deployment artifacts
 - Changes to image processing don't redeploy order service

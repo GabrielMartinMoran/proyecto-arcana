@@ -10,6 +10,7 @@ Comprehensive guide to Clean Architecture principles for designing maintainable,
 ## When to Apply
 
 Reference these guidelines when:
+
 - Designing new software systems or modules
 - Structuring dependencies between layers
 - Defining boundaries between business logic and infrastructure
@@ -18,16 +19,16 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category | Impact | Prefix |
-|----------|----------|--------|--------|
-| 1 | Dependency Direction | CRITICAL | `dep-` |
-| 2 | Entity Design | CRITICAL | `entity-` |
-| 3 | Use Case Isolation | HIGH | `usecase-` |
-| 4 | Component Cohesion | HIGH | `comp-` |
-| 5 | Boundary Definition | MEDIUM-HIGH | `bound-` |
-| 6 | Interface Adapters | MEDIUM | `adapt-` |
-| 7 | Framework Isolation | MEDIUM | `frame-` |
-| 8 | Testing Architecture | LOW-MEDIUM | `test-` |
+| Priority | Category             | Impact      | Prefix     |
+| -------- | -------------------- | ----------- | ---------- |
+| 1        | Dependency Direction | CRITICAL    | `dep-`     |
+| 2        | Entity Design        | CRITICAL    | `entity-`  |
+| 3        | Use Case Isolation   | HIGH        | `usecase-` |
+| 4        | Component Cohesion   | HIGH        | `comp-`    |
+| 5        | Boundary Definition  | MEDIUM-HIGH | `bound-`   |
+| 6        | Interface Adapters   | MEDIUM      | `adapt-`   |
+| 7        | Framework Isolation  | MEDIUM      | `frame-`   |
+| 8        | Testing Architecture | LOW-MEDIUM  | `test-`    |
 
 ## Quick Reference
 
@@ -106,8 +107,8 @@ Read individual reference files for detailed explanations and code examples:
 
 ## Reference Files
 
-| File | Description |
-|------|-------------|
-| [references/_sections.md](references/_sections.md) | Category definitions and ordering |
-| [assets/templates/_template.md](assets/templates/_template.md) | Template for new rules |
-| [metadata.json](metadata.json) | Version and reference information |
+| File                                                            | Description                       |
+| --------------------------------------------------------------- | --------------------------------- |
+| [references/\_sections.md](references/_sections.md)             | Category definitions and ordering |
+| [assets/templates/\_template.md](assets/templates/_template.md) | Template for new rules            |
+| [metadata.json](metadata.json)                                  | Version and reference information |

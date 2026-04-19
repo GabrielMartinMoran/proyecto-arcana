@@ -97,6 +97,7 @@ void placesOrderWhenInventoryAvailable() {
 ```
 
 **Benefits:**
+
 - Dependencies visible in constructor signature
 - Tests substitute any dependency with test doubles
 - Coupling is explicit and measurable

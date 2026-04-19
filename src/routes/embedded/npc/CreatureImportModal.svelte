@@ -35,7 +35,7 @@
 
 	function selectCreature(creature: Creature) {
 		// Convert creature to YAML string, excluding the id
-		const { id, ...creatureWithoutId } = creature;
+		const { ...creatureWithoutId } = creature;
 		const yamlText = dump(creatureWithoutId, { indent: 2, lineWidth: 100 });
 		onSelect(yamlText);
 		open = false;
@@ -54,7 +54,7 @@
 				<input type="text" placeholder="Buscar por nombre..." bind:value={nameFilter} />
 				<select bind:value={tierFilter}>
 					<option value="">Todos los tiers</option>
-					{#each availableTiers as tier}
+					{#each availableTiers as tier (tier)}
 						<option value={tier.toString()}>Tier {tier}</option>
 					{/each}
 				</select>

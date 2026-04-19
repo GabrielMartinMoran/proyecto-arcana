@@ -17,7 +17,11 @@ function isNonEmptyString(v: unknown): v is string {
 function parseStoredTarget(raw: any): RollTarget | null {
 	if (!raw || typeof raw !== 'object') return null;
 	if (raw.type === 'party' && isNonEmptyString(raw.partyId)) {
-		return { type: 'party', partyId: raw.partyId, partyName: isNonEmptyString(raw.partyName) ? raw.partyName : undefined };
+		return {
+			type: 'party',
+			partyId: raw.partyId,
+			partyName: isNonEmptyString(raw.partyName) ? raw.partyName : undefined,
+		};
 	}
 	return { type: 'personal' };
 }
@@ -69,7 +73,9 @@ export function useRollTargetService() {
 
 	const setPartyTarget = (partyId: string, partyName?: string) => {
 		if (!isNonEmptyString(partyId)) {
-			console.warn('[roll-target-service] setPartyTarget called with invalid partyId, falling back to personal');
+			console.warn(
+				'[roll-target-service] setPartyTarget called with invalid partyId, falling back to personal',
+			);
 			state.target.set({ type: 'personal' });
 			return;
 		}

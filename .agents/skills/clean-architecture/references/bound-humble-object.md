@@ -101,6 +101,7 @@ test('applies bulk discount for 6+ items', () => {
 ```
 
 **Benefits:**
+
 - Business logic tested with simple unit tests
 - UI tests only verify rendering, not logic
 - 90%+ of logic covered by fast tests

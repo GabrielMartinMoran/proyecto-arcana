@@ -77,6 +77,7 @@ class ReportGenerator:
 ```
 
 **When to use partial boundaries:**
+
 - You suspect a boundary will be needed, but not yet
 - Team is small and deployment is unified
 - Cost of full boundary outweighs current benefits

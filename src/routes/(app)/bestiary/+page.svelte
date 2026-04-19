@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/state';
+	import { SvelteURLSearchParams } from '$app/state';
 	import BestiaryFilter from '$lib/components/bestiary/BestiaryFilter.svelte';
 	import Statblock from '$lib/components/statblock/Statblock.svelte';
 	import { useCreaturesService } from '$lib/services/creatures-service';
@@ -12,11 +13,6 @@
 	// Filters initialized from URL
 	let nameFilter: string = $state(page.url.searchParams.get('name') ?? '');
 	let tierFilter: string = $state(page.url.searchParams.get('tier') ?? '');
-
-	// Available tiers for selector (sorted ascending)
-	let availableTiers: number[] = $derived(
-		Array.from(new Set(($creatures || []).map((c) => c.tier))).sort((a, b) => a - b),
-	);
 
 	// Apply filters
 	let filteredCreatures = $derived(
@@ -35,7 +31,7 @@
 	// Sync query params when filters change
 	$effect(() => {
 		// Clone current params to avoid mutating the reactive source directly
-		const params = new URLSearchParams(page.url.searchParams);
+		const params = new SvelteURLSearchParams(page.url.searchParams);
 
 		const trimmedName = (nameFilter || '').trim();
 		const trimmedTier = (tierFilter || '').trim();

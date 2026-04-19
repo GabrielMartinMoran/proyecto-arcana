@@ -95,6 +95,7 @@ void processesOrderWhenInventoryAvailable() {
 ```
 
 **Testability checklist:**
+
 - [ ] No `new` for services (inject dependencies)
 - [ ] No static method calls for behavior (use interfaces)
 - [ ] No singletons (pass instances)

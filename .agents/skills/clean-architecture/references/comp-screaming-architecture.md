@@ -70,6 +70,7 @@ src/
 ```
 
 **Benefits:**
+
 - New developers understand the domain immediately
 - Related code lives together, enabling focused changes
 - Frameworks become implementation details, not organizing principles

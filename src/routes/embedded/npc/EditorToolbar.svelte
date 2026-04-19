@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-
 	interface Props {
 		activeTab: 'yaml' | 'sheet' | 'mixed';
 		onTabChange: (tab: 'yaml' | 'sheet' | 'mixed') => void;

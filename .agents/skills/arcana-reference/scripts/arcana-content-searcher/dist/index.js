@@ -481,9 +481,7 @@ var parseCardKind = (raw) => {
     case "cualquiera":
       return "any";
     default:
-      throw new Error(
-        `Valor inv\xE1lido "${raw}" para "--kind". Usa "ability", "item" o "any".`
-      );
+      throw new Error(`Valor inv\xE1lido "${raw}" para "--kind". Usa "ability", "item" o "any".`);
   }
 };
 var parseSortMode = (raw) => {
@@ -667,9 +665,7 @@ var parseDetailCommandOptions = (args) => {
     }
     if (!arg.startsWith("--")) {
       if (identifier !== null) {
-        throw new Error(
-          `Se recibi\xF3 un segundo identificador "${arg}". Solo se admite uno.`
-        );
+        throw new Error(`Se recibi\xF3 un segundo identificador "${arg}". Solo se admite uno.`);
       }
       identifier = arg;
       continue;

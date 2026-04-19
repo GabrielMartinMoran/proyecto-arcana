@@ -112,6 +112,7 @@ func (g *StripePaymentGateway) translateError(err error) error {
 ```
 
 **Benefits:**
+
 - Switch from Stripe to Adyen without touching use cases
 - Test use cases with mock gateways
 - External API changes isolated to gateway implementation

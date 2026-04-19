@@ -12,6 +12,16 @@ Las cartas son el corazón mecánico de la progresión en ARCANA, pero también 
 
 Elegir una de estas interpretaciones (o mezclar elementos de varias) ayuda a que la progresión del personaje sea un evento narrativo emocionante, en lugar de solo una actualización en la hoja de personaje.
 
+> **Regla de Oro: El Sabor de tus Cartas**
+>
+> En ARCANA, los números y las etiquetas dictan el balance del juego, pero **tú dictas la estética**. Tienes total libertad para alterar la descripción visual y narrativa de tus cartas, ataques y habilidades para que se ajusten al concepto de tu personaje, siempre y cuando el DJ lo apruebe.
+>
+> - **La Mecánica es Sagrada:** Modificar la narrativa de una carta **nunca** altera sus reglas mecánicas subyacentes. El alcance, el daño, el Nivel de Dificultad, los requisitos, el tipo de daño y la acción que consume siguen siendo exactamente los mismos.
+> - **Ejemplos de Revestimiento:**
+>   - Tu `Virote Arcano` no tiene que ser un rayo azul; pueden ser naipes afilados y brillantes que lanzas con estilo. Seguirá haciendo daño de Fuerza y teniendo alcance Medio.
+>   - Tu `Toque Restaurador` no tiene que ser una luz sagrada; podría ser la aplicación rápida de un ungüento de hierbas o unas vendas místicas, pero seguirá requiriendo tu Acción y curando exactamente los mismos dados.
+>   - Tu carta de Combatiente `Duelo de Honor` podría no ser un grito de desafío, sino una mirada gélida y una sonrisa arrogante que provoca al enemigo a atacarte.
+
 ## Colección vs. Cartas Activas
 
 El funcionamiento de las cartas se divide en dos conceptos clave:
@@ -75,6 +85,30 @@ En cualquier momento, incluso fuera de tu turno, puedes forzar al destino para r
 - **Efecto:** La carta se recarga instantáneamente y está lista para usarse.
 - **Restricción:** Esta opción solo está disponible para cartas que posean la propiedad **Recarga n+**. Las cartas con usos fijos (ej. "1 por día de descanso") no pueden recargarse de esta manera.
 
+## Beneficios de Maestría: Arquetipos y Sinergias
+
+Los Beneficios representan el enfoque y la especialización actual de tu héroe. Un personaje puede poseer múltiples cartas de Arquetipo o Sinergia en su Colección, pero solo puede canalizar el poder de una cantidad limitada de ellas a la vez.
+
+**Reglas Generales de los Beneficios:**
+
+- **Activación Voluntaria:** Un personaje puede tener activos simultáneamente hasta **un (1) Beneficio de Arquetipo** y **un (1) Beneficio de Sinergia**. No es obligatorio tener un beneficio activo; un jugador puede optar por no activar ninguno (especialmente en el caso de las Sinergias), aunque desactivar un Arquetipo rara vez resulta beneficioso.
+- **Cambio y Reentrenamiento:** Los beneficios representan un estado de enfoque mental y físico profundo. Por ello, **no pueden cambiarse durante un día de descanso convencional**. Para cambiar un beneficio activo por otro de tu Colección, se requiere **Tiempo entre Aventuras (Downtime)** y un proceso de **reentrenamiento** justificado narrativamente, quedando a discreción del DJ el tiempo y los recursos necesarios para dicha transición.
+- **Efectos de la Desactivación:** Al desactivar o cambiar un beneficio, el personaje pierde inmediatamente acceso a todos los rasgos exclusivos otorgados por este (idiomas adicionales, cartas gratuitas que no ocupan ranura, bonos de atributos, etc.).
+
+### Beneficio de Arquetipo
+
+Se obtiene a través de la carta base de una disciplina (etiqueta `Arquetipo`). Este beneficio es el pilar de la identidad mecánica del personaje.
+
+- **Rasgos de Identidad:** Activar este beneficio otorga todos los rasgos listados en la sección "Beneficio de Arquetipo" de la carta correspondiente.
+- **Cálculo de Vitalidad (Vigor):** Los arquetipos definen la resistencia física del héroe a medida que progresa. Cada Arquetipo posee un valor de **Vigor** (ej. "+6 PS por cada 10 PP gastados"). Al cambiar o desactivar un Arquetipo, la **Salud Máxima** del personaje debe recalcularse inmediatamente sumando o restando la diferencia de vitalidad y los bonos planos de Salud otorgados por el nuevo paquete de rasgos.
+
+### Beneficio de Sinergia
+
+Se obtiene a través de las cartas de Nivel 4 con la etiqueta `Sinergia`, las cuales representan la fusión técnica de dos arquetipos distintos.
+
+- **El Precio de la Hibridación:** La versatilidad de la sinergia impide alcanzar la maestría absoluta en los caminos que la componen. Mientras tengas un **Beneficio de Sinergia** activo, tu acceso al poder máximo se limita: solo puedes tener **una (1) carta de Nivel 5 usable en total** entre los dos arquetipos afectados por la sinergia.
+- Si posees otras cartas de Nivel 5 de esas clases en tu Colección, permanecen inactivas y sus efectos no pueden utilizarse mientras la sinergia esté encendida.
+
 ## La Naturaleza de la Magia: Componentes
 
 En ARCANA, la magia no ocurre solo con el pensamiento; es un proceso físico y ruidoso que manipula la realidad. Salvo que una carta o habilidad especifique explícitamente lo contrario (como la opción "Conjuro Sutil" de la carta _Teoría Arcana Avanzada_), todo uso de una carta con la etiqueta `Conjuro` requiere cumplir con los siguientes tres componentes:
@@ -109,7 +143,17 @@ Cualquier objeto sólido y de tamaño considerable (un arma, un escudo, un bast�
 - **Bardo (Resonancia Armónica):** Afinas un instrumento musical hasta la perfección, grabas versos de una balada en la hoja de una espada, o adornas una máscara o capa con símbolos teatrales.
 
 > **Nota de Juego: Identificar Conjuros**
+>
 > Debido a estos componentes, lanzar un hechizo es un acto **obvio**. Cualquier criatura que pueda ver y oír al lanzador sabe que está realizando magia.
+
+> **Nota de Juego: El Nivel de Escrutinio y el Sentido Común**
+>
+> Las reglas de componentes (Verbal, Somático, Foco) existen para crear oportunidades tácticas y momentos dramáticos, no para generar una burocracia que ralentice la partida. Por ello, el Director de Juego (DJ) tiene la autoridad para ajustar el nivel de exigencia mecánica según la situación narrativa:
+>
+> - **Situaciones Cotidianas (Bajo Escrutinio):** Durante la exploración, la interacción social o combates estándar donde el personaje no está bajo presiones inusuales, el DJ asumirá la competencia del héroe. No será necesario describir constantemente cómo el lanzador guarda una antorcha o reacomoda su equipo para liberar una mano; se asume que realiza estos malabares menores de forma fluida y automática.
+> - **Situaciones de Alta Tensión (Alto Escrutinio):** Cuando el contexto narrativo lo exija, el DJ aplicará las reglas de componentes de forma estricta. Si el personaje está colgando de un precipicio con una sola mano, atado, nadando en aguas turbulentas o intentando pasar desapercibido en un entorno hostil, el DJ podrá exigir que se describa exactamente cómo se cumplen los requisitos del conjuro, o bien determinar que, dadas las circunstancias, es imposible lanzarlo.
+>
+> Esta flexibilidad permite que el juego fluya con naturalidad la mayor parte del tiempo, otorgando al DJ la herramienta perfecta para generar tensión real solo cuando la historia lo necesita.
 
 ## Lanzamiento Ritual: Magia sin Prisa
 

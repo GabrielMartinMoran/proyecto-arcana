@@ -42,11 +42,7 @@ export interface ResourceManifestOptions {
 /**
  * Default set of filenames that are ignored when constructing the manifest.
  */
-export const DEFAULT_IGNORED_NAMES = new Set([
-	'.DS_Store',
-	'Thumbs.db',
-	'.gitkeep',
-]);
+export const DEFAULT_IGNORED_NAMES = new Set(['.DS_Store', 'Thumbs.db', '.gitkeep']);
 
 const isHidden = (name: string): boolean => name.startsWith('.');
 
@@ -78,10 +74,7 @@ const createEntry = (
 	};
 };
 
-const shouldSkip = (
-	direntName: string,
-	options: ResourceManifestOptions,
-): boolean => {
+const shouldSkip = (direntName: string, options: ResourceManifestOptions): boolean => {
 	if (!options.includeHidden && isHidden(direntName)) {
 		return true;
 	}
@@ -145,7 +138,11 @@ export const writeResourceManifest = async (
 	const manifest = await generateResourceManifest(rootDir, options);
 	const contents = JSON.stringify(
 		{
-			root: path.relative(options.relativeTo ?? rootDir, rootDir).split(path.sep).join('/') || '.',
+			root:
+				path
+					.relative(options.relativeTo ?? rootDir, rootDir)
+					.split(path.sep)
+					.join('/') || '.',
 			generatedAt: new Date().toISOString(),
 			entries: manifest,
 		},

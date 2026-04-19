@@ -13,11 +13,9 @@
 
 	type Props = {
 		party: Party;
-		readonly: boolean;
-		onChange: (party: Party) => void;
 	};
 
-	let { party, readonly, onChange }: Props = $props();
+	let { party }: Props = $props();
 
 	let allCards: Card[] = $state([]);
 

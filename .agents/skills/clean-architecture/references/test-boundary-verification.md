@@ -90,6 +90,7 @@ module.exports = {
 ```
 
 **Run in CI:**
+
 ```yaml
 # .github/workflows/ci.yml
 - name: Check architecture
@@ -99,6 +100,7 @@ module.exports = {
 ```
 
 **Benefits:**
+
 - Violations caught immediately in CI
 - New developers can't accidentally break boundaries
 - Architecture documentation that stays accurate

@@ -109,6 +109,7 @@ public void CreatesOrder()
 ```
 
 **Benefits:**
+
 - Domain and application code portable across DI containers
 - Tests don't need DI container setup
 - Dependencies explicit in constructors

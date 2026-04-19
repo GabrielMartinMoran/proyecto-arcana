@@ -86,6 +86,7 @@ class TestOrderFlow:
 ```
 
 **Test architecture mirrors system:**
+
 ```text
 tests/
 ├── unit/                    # Fast, isolated
@@ -99,6 +100,7 @@ tests/
 ```
 
 **Benefits:**
+
 - Unit tests run in milliseconds
 - Refactoring doesn't break tests
 - Tests document intended behavior

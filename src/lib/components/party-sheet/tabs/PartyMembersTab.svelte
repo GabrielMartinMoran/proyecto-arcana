@@ -78,7 +78,7 @@
 		if (!party || !selectedCharacterId || !selectedCharacter) return;
 		const proceed = await dialogService.confirm(
 			`¿Seguro que quieres eliminar a '${selectedCharacter.name}' del grupo?`,
-			{ title: 'Confirmar eliminación', confirmLabel: 'Eliminar', cancelLabel: 'Cancelar' }
+			{ title: 'Confirmar eliminación', confirmLabel: 'Eliminar', cancelLabel: 'Cancelar' },
 		);
 		if (!proceed) return;
 		const owner = getCharacterOwner(selectedCharacterId);

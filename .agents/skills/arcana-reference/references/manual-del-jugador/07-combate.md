@@ -37,6 +37,22 @@ El objetivo no es tener una regla para cada situación, sino fomentar la creativ
 - **Desarmar:** Intentas quitarle el arma a tu oponente. Podría ser una Tirada Enfrentada de tus **Reflejos** contra los **Reflejos** o **Cuerpo** del enemigo, a discreción del DJ.
 - **Usar el Entorno:** Haces algo para alterar el campo de batalla, como patear un brasero para crear una distracción, cortar la cuerda de un candelabro para que caiga, o volcar una mesa para crear cobertura. El DJ determinará la tirada necesaria y el efecto resultante.
 
+## Maniobra Arcana: El Uso Creativo de la Magia
+
+Al igual que un combatiente puede improvisar una zancadilla, los lanzadores de conjuros pueden intentar forzar la Urdimbre o la voluntad divina para usar su magia de formas no previstas en las reglas de su carta.
+
+Si quieres usar un conjuro activo para lograr un efecto distinto al de su descripción, pero que lógicamente se desprenda de su naturaleza (por ejemplo, usar un conjuro de daño de Frío para congelar el agua de una cerradura y romperla), puedes declarar una **Maniobra Arcana**.
+
+- **Coste:** Moldear la magia de forma improvisada es agotador. Independientemente del resultado, intentar la maniobra **gasta el uso del conjuro**, agotándolo temporalmente como si lo hubieras lanzado con normalidad.
+- **Resolución:** El DJ no aplicará los efectos automáticos del conjuro. En su lugar, determinará un **Nivel de Dificultad (ND)** basado en qué tan alejado está el efecto deseado de la naturaleza original de la carta. Deberás realizar una **Prueba de Habilidad (1d8 + Atributo de Lanzamiento)**.
+- **Riesgo de Pifia:** Dado que estás manipulando energías inestables mediante una Prueba de Habilidad, un resultado de **1 natural en el d8** resulta en un Fallo Crítico. El conjuro se agota, falla estrepitosamente, y el DJ introducirá una complicación narrativa o un efecto contraproducente (fuego que se sale de control, daño residual para el lanzador, etc.).
+
+**Guía de Dificultad para Maniobras Arcanas:**
+
+- **ND Normal (8):** El uso alternativo es muy similar al propósito original, pero requiere adaptar el efecto físico al entorno (ej. usar `Descarga Elemental` de Frío para congelar un charco y crear una superficie resbaladiza, o usar `Látigo de Espinas` para engancharse de una viga y balancearse sobre un abismo en lugar de atacar).
+- **ND Difícil (10-12):** Requiere un control fino sobre energías que normalmente son destructivas (ej. usar un impacto de Fuego para cauterizar la herida de un aliado estabilizándolo sin hacerle daño, o usar `Ráfaga de Viento` para amortiguar suavemente la caída de un compañero).
+- **Imposible (14+):** Va en contra de la naturaleza fundamental de la magia utilizada. El DJ tiene la última palabra y puede negarse a permitir la tirada si el efecto buscado destruiría la lógica del mundo o invalidaría completamente el uso de otras cartas de utilidad.
+
 ## Alcance y Distancias
 
 - **Inmediata:** A tu alcance o a unos pocos pasos (hasta 1 metro aproximadamente).
@@ -99,7 +115,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Daño Elemental y Mágico:** La **Mitigación Mágica** reduce el daño mágico o elemental recibido. Resta tu valor de **Mitigación Mágica** del daño final (mínimo 0).
 - **Daño Crítico:** Cuando un ataque resulta en un crítico, se duplican los dados de daño del ataque.
 - **Resistencia y Vulnerabilidad:** Ciertos efectos, linajes u objetos otorgan Resistencia o Vulnerabilidad a un tipo de daño específico. La **Resistencia** reduce a la mitad el daño recibido de ese tipo (redondeando hacia abajo). La **Vulnerabilidad** duplica el daño recibido de ese tipo.
-  - *Orden de operaciones:* Si un personaje tiene tanto Resistencia (o Vulnerabilidad) como Mitigación contra el mismo ataque, las multiplicaciones o divisiones se aplican primero. Es decir, primero se divide (o duplica) el daño, y luego se resta el valor de Mitigación al resultado final (mínimo 0).
+  - _Orden de operaciones:_ Si un personaje tiene tanto Resistencia (o Vulnerabilidad) como Mitigación contra el mismo ataque, las multiplicaciones o divisiones se aplican primero. Es decir, primero se divide (o duplica) el daño, y luego se resta el valor de Mitigación al resultado final (mínimo 0).
 
 | Nivel de Daño | Pérdida de Salud | Ejemplo                                 |
 | :------------ | :--------------- | :-------------------------------------- |

@@ -99,6 +99,7 @@ func main() {
 ```
 
 **Benefits:**
+
 - Swap database, logging, configuration per environment
 - Integration tests use real wiring with test doubles
 - Dev/staging/prod share same composition logic

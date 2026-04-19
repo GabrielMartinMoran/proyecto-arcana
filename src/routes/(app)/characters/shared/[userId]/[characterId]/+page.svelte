@@ -47,13 +47,13 @@
 						sharedCharacter = found ? new Character(found) : undefined;
 						loading = false;
 						error = sharedCharacter ? null : 'No se encontró el personaje compartido.';
-					} catch (e) {
+					} catch {
 						loading = false;
 						error = 'Ocurrió un error al cargar el personaje.';
 					}
 				},
 			);
-		} catch (e) {
+		} catch {
 			loading = false;
 			error = 'No se pudo inicializar los servicios.';
 		}

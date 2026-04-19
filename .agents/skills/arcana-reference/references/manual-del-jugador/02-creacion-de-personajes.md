@@ -89,6 +89,14 @@ Por ejemplo, un personaje que ignora las cartas de linaje para elegir Vigor y Pe
 
 La elección es tuya, y define el punto de partida de la historia de tu personaje.
 
+> **Nota de Juego: Linajes Inéditos y Especies Nuevas**
+>
+> Las etiquetas presentadas en las cartas (como Humano, Elfo, Enano o Dracónido) representan los linajes más clásicos, pero **no son una lista cerrada**. ARCANA fomenta la creatividad y es un sistema adaptable a cualquier mundo.
+>
+> Si deseas interpretar a una especie que no está explícitamente cubierta por las cartas —como un ágil hombre-felino, un robusto hombre-tortuga, o incluso un autómata de cristal—, puedes hacerlo con la autorización de tu Director de Juego (DJ).
+>
+> Para lograrlo, simplemente utiliza las mecánicas de las Cartas de Linaje existentes que mejor representen las capacidades biológicas de tu nueva especie y adapta su narrativa. Por ejemplo, para crear a tu "Hombre-Tortuga", podrías seleccionar las cartas de linaje del _Goliath_ (`Fortaleza Rocosa` y `Porte de Gigante`) y narrar que esa inamovilidad y fuerza provienen de tu pesado caparazón, ignorando la etiqueta "Goliath" en favor de tu nueva especie.
+
 ## Paso 5: Cartas Iniciales
 
 Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empezar, elige o recibe del DJ **5 cartas iniciales de Nivel 1**. Estas 5 cartas forman tu **Colección** inicial. Al crear el personaje, solo se pueden adquirir cartas de Nivel 1.

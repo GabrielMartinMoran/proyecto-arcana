@@ -91,6 +91,7 @@ public class UserController : ControllerBase
 ```
 
 **Benefits:**
+
 - Same use case callable from HTTP, CLI, message queue, tests
 - Request/response format changes don't affect use case
 - Use case testable without HTTP infrastructure

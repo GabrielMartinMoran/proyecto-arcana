@@ -12,6 +12,10 @@ import { get, writable, type Writable } from 'svelte/store';
 import { CONFIG } from '../../config';
 import { useFoundryVTTService } from './foundryvtt-service';
 
+function isBrowser(): boolean {
+	return typeof window !== 'undefined';
+}
+
 const PERSONAL_STORAGE_KEY = 'arcana:rollLogs:personal';
 const PARTY_STORAGE_KEY_PREFIX = 'arcana:rollLogs:party:';
 const MAX_LOGS_TO_KEEP = 100;
@@ -51,6 +55,7 @@ const loadRollLogs = (): RollLog[] => {
 				? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 				: PERSONAL_STORAGE_KEY;
 		})();
+		if (!isBrowser()) return [];
 		const logs = localStorage.getItem(key);
 		const rawLogs = logs ? JSON.parse(logs) : [];
 		const trimmed = Array.isArray(rawLogs) ? rawLogs.slice(-MAX_LOGS_TO_KEEP) : rawLogs;
@@ -60,13 +65,15 @@ const loadRollLogs = (): RollLog[] => {
 		return [];
 	} finally {
 		// Subscribe to store changes to persist logs
-		state.logs.subscribe(async (logs) => {
-			try {
-				await saveRollLogs(logs);
-			} catch (err) {
-				console.error('[dice-roller-service] saveRollLogs subscription error:', err);
-			}
-		});
+		if (isBrowser()) {
+			state.logs.subscribe(async (logs) => {
+				try {
+					await saveRollLogs(logs);
+				} catch (err) {
+					console.error('[dice-roller-service] saveRollLogs subscription error:', err);
+				}
+			});
+		}
 	}
 };
 
@@ -88,6 +95,7 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 					? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 					: PERSONAL_STORAGE_KEY;
 			})();
+			if (!isBrowser()) return;
 			localStorage.setItem(key, JSON.stringify(serialized));
 		} catch (err) {
 			console.error('[dice-roller-service] Error persisting locally during concurrent save:', err);
@@ -155,6 +163,7 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 							? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 							: PERSONAL_STORAGE_KEY;
 					})();
+					if (!isBrowser()) return;
 					localStorage.setItem(key, JSON.stringify(serializedUpdated));
 				}
 			} catch (cloudErr) {
@@ -176,6 +185,7 @@ const saveRollLogs = async (logs: RollLog[] | any[]): Promise<void> => {
 					? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 					: PERSONAL_STORAGE_KEY;
 			})();
+			if (!isBrowser()) return;
 			localStorage.setItem(key, JSON.stringify(serializedLogs));
 		} catch (lsErr) {
 			console.error('Error saving roll logs to localStorage:', lsErr);
@@ -394,6 +404,7 @@ export const useDiceRollerService = () => {
 									? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 									: PERSONAL_STORAGE_KEY;
 							})();
+							if (!isBrowser()) return;
 							const raw = localStorage.getItem(key);
 							if (raw) {
 								const parsed = JSON.parse(raw) as any[];
@@ -420,6 +431,7 @@ export const useDiceRollerService = () => {
 					t && t.type === 'party'
 						? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 						: PERSONAL_STORAGE_KEY;
+				if (!isBrowser()) return;
 				const raw = localStorage.getItem(key);
 				if (raw) {
 					const parsed = JSON.parse(raw) as any[];
@@ -487,6 +499,7 @@ export const useDiceRollerService = () => {
 							? `${PARTY_STORAGE_KEY_PREFIX}${t.partyId}`
 							: PERSONAL_STORAGE_KEY;
 					})();
+					if (!isBrowser()) return;
 					const raw = localStorage.getItem(key);
 					if (raw) {
 						const parsed = JSON.parse(raw) as any[];

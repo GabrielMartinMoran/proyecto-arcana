@@ -83,6 +83,7 @@ class ProductMapper {
 ```
 
 **Benefits:**
+
 - Switch from SQL to NoSQL without touching domain
 - Entity tests don't require database setup
 - Domain model expresses business concepts, not database schema

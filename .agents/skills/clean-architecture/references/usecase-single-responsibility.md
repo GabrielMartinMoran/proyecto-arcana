@@ -89,6 +89,7 @@ class ShipOrderUseCase:
 ```
 
 **Benefits:**
+
 - Changes to shipping don't affect payment tests
 - Teams can work on different use cases in parallel
 - Each use case has minimal dependencies

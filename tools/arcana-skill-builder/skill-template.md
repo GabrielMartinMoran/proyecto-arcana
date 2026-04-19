@@ -27,6 +27,7 @@ metadata:
 CLI residente en `scripts/arcana-content-searcher/` (Node.js ≥ 18, depende de `js-yaml`).
 
 Pasos rápidos:
+
 1. `cd scripts/arcana-content-searcher`
 2. `npm install`
 3. `npm run build` (genera `dist/index.js`)
@@ -47,8 +48,8 @@ Puedes definir `ARCANA_DATASET_DIR` para apuntar a YAML externos; por defecto le
 - Manual del Jugador: `references/manual-del-jugador/` (capítulos 01-13).
 - Manual del Director: `references/manual-del-director/` (guías 01-09).
 - Bestiario: `references/bestiario/rango-#.md`.
-- Cartas de Habilidades:  
-  - Arquetipos consolidados: `references/cartas-de-habilidades/arquetipos/<clase>/`.  
+- Cartas de Habilidades:
+  - Arquetipos consolidados: `references/cartas-de-habilidades/arquetipos/<clase>/`.
   - Cartas generales: `references/cartas-de-habilidades/<tag>/`.
 - Objetos Mágicos: `references/objetos-magicos/nivel-#.yml`.
 

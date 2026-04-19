@@ -105,6 +105,7 @@ public class StripePaymentProcessor implements PaymentProcessor {
 ```
 
 **Benefits:**
+
 - Domain model remains clean and business-focused
 - Switch payment providers by implementing new ACL
 - External API changes isolated to ACL

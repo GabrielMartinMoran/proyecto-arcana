@@ -32,7 +32,7 @@
 			class="category-select"
 		>
 			<option value="">Todas las categorías</option>
-			{#each Object.entries(CATEGORY_LABELS).filter(([key]) => key !== 'services') as [key, label]}
+			{#each Object.entries(CATEGORY_LABELS).filter(([key]) => key !== 'services') as [key, label] (key)}
 				<option value={key}>{label}</option>
 			{/each}
 		</select>

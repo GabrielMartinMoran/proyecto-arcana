@@ -55,6 +55,7 @@ src/
 ```
 
 **How to identify change reasons:**
+
 - "When X business rule changes, which classes change?"
 - "When the Y team requests a feature, which code changes?"
 - Group by actor/stakeholder, not by technical layer

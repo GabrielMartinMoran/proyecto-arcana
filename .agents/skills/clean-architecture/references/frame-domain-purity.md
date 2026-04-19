@@ -109,6 +109,7 @@ namespace Infrastructure.Persistence
 ```
 
 **How to check domain purity:**
+
 ```bash
 # Domain project should have no package references
 dotnet list Domain.csproj package

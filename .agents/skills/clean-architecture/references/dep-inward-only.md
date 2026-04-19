@@ -13,19 +13,19 @@ The Dependency Rule states that source code dependencies can only point inward t
 
 ```typescript
 // domain/entities/Order.ts - ENTITY LAYER
-import { OrderRepository } from '../../infrastructure/OrderRepository'
-import { EmailService } from '../../infrastructure/EmailService'
+import { OrderRepository } from '../../infrastructure/OrderRepository';
+import { EmailService } from '../../infrastructure/EmailService';
 
 export class Order {
-  constructor(
-    private repo: OrderRepository,  // Changes to repo implementation break Order
-    private email: EmailService
-  ) {}
+	constructor(
+		private repo: OrderRepository, // Changes to repo implementation break Order
+		private email: EmailService,
+	) {}
 
-  async complete() {
-    await this.repo.save(this)
-    await this.email.notify(this.customerId)  // Cannot test without email server
-  }
+	async complete() {
+		await this.repo.save(this);
+		await this.email.notify(this.customerId); // Cannot test without email server
+	}
 }
 ```
 
@@ -34,34 +34,37 @@ export class Order {
 ```typescript
 // domain/entities/Order.ts - ENTITY LAYER
 export interface OrderPersistence {
-  save(order: Order): Promise<void>
+	save(order: Order): Promise<void>;
 }
 
 export interface NotificationPort {
-  notify(customerId: string): Promise<void>
+	notify(customerId: string): Promise<void>;
 }
 
 export class Order {
-  constructor(
-    private repo: OrderPersistence,
-    private email: NotificationPort
-  ) {}
+	constructor(
+		private repo: OrderPersistence,
+		private email: NotificationPort,
+	) {}
 
-  async complete() {
-    await this.repo.save(this)
-    await this.email.notify(this.customerId)
-  }
+	async complete() {
+		await this.repo.save(this);
+		await this.email.notify(this.customerId);
+	}
 }
 
 // infrastructure/OrderRepository.ts - INFRASTRUCTURE LAYER
-import { Order, OrderPersistence } from '../domain/entities/Order'
+import { Order, OrderPersistence } from '../domain/entities/Order';
 
 export class OrderRepository implements OrderPersistence {
-  async save(order: Order): Promise<void> { /* DB implementation */ }
+	async save(order: Order): Promise<void> {
+		/* DB implementation */
+	}
 }
 ```
 
 **Benefits:**
+
 - Inner layers remain stable when outer layers change
 - Business rules can be tested without infrastructure
 - Infrastructure can be swapped without touching domain code

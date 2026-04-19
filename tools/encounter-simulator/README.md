@@ -33,6 +33,7 @@ src/
 ## Installation
 
 1. Create and activate virtual environment:
+
 ```bash
 cd tools/encounter-simulator
 python -m venv .venv
@@ -40,11 +41,13 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Configure OpenAI API key:
+
 ```bash
 export OPENAI_API_KEY="sk-your-api-key-here"
 # or create a .env file with your API key
@@ -125,6 +128,7 @@ The simulator produces:
 ## Dice Notation
 
 The simulator uses exploding dice notation:
+
 - `XdYe`: Roll X dice of size Y, exploding on max value
 - Example: `1d8e+3` = Roll 1d6 (exploding) + 3
 - Explosions: `6💥` indicates the die exploded and was re-rolled
@@ -140,6 +144,7 @@ The simulator uses exploding dice notation:
 ### Code Style
 
 The codebase follows:
+
 - **SOLID principles**
 - **Clean Code** practices
 - **Clean Architecture** patterns
@@ -149,6 +154,7 @@ The codebase follows:
 ### Testing
 
 To test the dice roller independently:
+
 ```python
 from src.domain.dice_roller import DiceRoller
 

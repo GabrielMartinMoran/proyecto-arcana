@@ -11,7 +11,6 @@
 	import { isMobileScreen } from '$lib/utils/screen-size-detector';
 	import { onMount } from 'svelte';
 
-
 	let { children } = $props();
 
 	let firebase = useFirebaseService();

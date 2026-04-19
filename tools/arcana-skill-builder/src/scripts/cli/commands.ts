@@ -2,17 +2,17 @@ import type { Card } from '../../types/card.js';
 import { removeDiacritics } from '../../utils/formatting.js';
 import type { CardsDataset } from './data-loader.js';
 import {
-    filterCards,
-    sortCardsByLevelThenName,
-    sortCardsByName,
-    type CardFilterOptions,
-    type CardKind,
+	filterCards,
+	sortCardsByLevelThenName,
+	sortCardsByName,
+	type CardFilterOptions,
+	type CardKind,
 } from './filters.js';
 import {
-    formatCardDetails,
-    formatListWithHeader,
-    type CardDetailOptions,
-    type CardSummaryOptions,
+	formatCardDetails,
+	formatListWithHeader,
+	type CardDetailOptions,
+	type CardSummaryOptions,
 } from './formatters.js';
 
 export type ListSortMode = 'name' | 'level';

@@ -19,7 +19,7 @@
 	const firebase = useFirebaseService();
 	const rollTarget = useRollTargetService();
 	// Initialize dice roller service so roll modal and target subscription are active
-	const dice = useDiceRollerService();
+	void useDiceRollerService();
 
 	const { isInsideFoundry, syncCharacterState } = useFoundryVTTService();
 

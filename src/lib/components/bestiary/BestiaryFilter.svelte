@@ -14,9 +14,7 @@
 		onResetFilters: () => void;
 	};
 
-	let { creatures, filters: receivedFilters, onFiltersChange, onResetFilters }: Props = $props();
-
-	let filters = $derived(receivedFilters);
+	let { creatures, filters, onFiltersChange, onResetFilters }: Props = $props();
 
 	const getAvailableTiers = (): number[] => {
 		const tiers = new Set<number>(creatures.map((c) => c.tier));

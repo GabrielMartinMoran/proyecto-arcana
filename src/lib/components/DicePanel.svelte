@@ -153,6 +153,7 @@
 						<span class="total">{log.total}</span>
 					{/if}
 				</div>
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 				<span class="detail">{@html log.detail}</span>
 				{#if (log as any).authorId && (log as any).authorId === $user?.uid}
 					<span class="roll-author">Tú</span>

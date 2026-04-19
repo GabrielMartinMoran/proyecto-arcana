@@ -8,13 +8,13 @@ export function init(): void {
 	CONFIG.Combat.documentClass = ArcanaCombat;
 
 	// Set default initiative formula (fallback)
-	// @ts-ignore - CONFIG.Combat definition might be incomplete in types
+	// @ts-expect-error - CONFIG.Combat definition might be incomplete in types
 	CONFIG.Combat.initiative = {
 		formula: '1d8e + @flags.arcana.initiative',
 		decimals: 2,
 	};
 
-	// @ts-ignore - Actors.registerSheet is available at runtime
+	// @ts-expect-error - Actors.registerSheet is available at runtime
 	Actors.registerSheet('core', ArcanaSheet, {
 		label: 'Arcana Web',
 		makeDefault: true,

@@ -34,16 +34,14 @@ export const mapAbilityCard = (data: any): AbilityCard => {
 	};
 };
 
-const mapItemCardImg = (tags: string[]) => {
-	return CONFIG.ITEM_CARD_BACKGROUNDS.default;
-};
+const getItemCardImg = () => CONFIG.ITEM_CARD_BACKGROUNDS.default;
 
 export const mapItemCard = (data: any): ItemCard => {
 	return {
 		...mapCard(data),
 		type: data.type,
 		cost: data.cost,
-		img: mapItemCardImg(data.tags),
+		img: getItemCardImg(),
 		cardType: 'item',
 	};
 };

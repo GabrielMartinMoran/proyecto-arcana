@@ -222,12 +222,12 @@
 
 <Container title="Habilidades">
 	<div class="skills-container">
-		{#each Object.entries(skillsByAttribute) as [attr, skills]}
+		{#each Object.entries(skillsByAttribute) as [attr, skills] (attr)}
 			{#if skills.length > 0}
 				<div class="skill-group">
 					<div class="group-header">{capitalize(attr)}</div>
 					<div class="skills-list">
-						{#each skills as skill}
+						{#each skills as skill (skill.name)}
 							<button
 								class="skill-btn"
 								class:advantage={skill.hasAdvantage}

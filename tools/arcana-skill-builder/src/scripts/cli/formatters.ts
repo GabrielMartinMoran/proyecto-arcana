@@ -98,10 +98,7 @@ const computeColumnWidths = (rows: string[][]): number[] => {
 	return widths;
 };
 
-export const formatCardSummary = (
-	card: Card,
-	options: CardSummaryOptions = {},
-): string => {
+export const formatCardSummary = (card: Card, options: CardSummaryOptions = {}): string => {
 	const resolved = { ...DEFAULT_SUMMARY_OPTIONS, ...options };
 	const columns = collectSummaryColumns(card, resolved);
 
@@ -114,10 +111,7 @@ export const formatCardSummary = (
 	return aligned.join(' | ');
 };
 
-export const formatCardSummaries = (
-	cards: Card[],
-	options: CardSummaryOptions = {},
-): string => {
+export const formatCardSummaries = (cards: Card[], options: CardSummaryOptions = {}): string => {
 	if (cards.length === 0) return 'No se encontraron cartas que cumplan esos criterios.';
 
 	const resolved = { ...DEFAULT_SUMMARY_OPTIONS, ...options };
@@ -126,18 +120,13 @@ export const formatCardSummaries = (
 	const widths = resolved.alignColumns ? computeColumnWidths(rows) : [];
 
 	const lines = rows.map((row) =>
-		row
-			.map((col, index) => formatColumn(col, widths[index], resolved.alignColumns))
-			.join(' | '),
+		row.map((col, index) => formatColumn(col, widths[index], resolved.alignColumns)).join(' | '),
 	);
 
 	return lines.join('\n');
 };
 
-export const formatCardDetails = (
-	card: Card,
-	options: CardDetailOptions = {},
-): string => {
+export const formatCardDetails = (card: Card, options: CardDetailOptions = {}): string => {
 	const resolved = { ...DEFAULT_DETAIL_OPTIONS, ...options };
 	const lines: string[] = [];
 

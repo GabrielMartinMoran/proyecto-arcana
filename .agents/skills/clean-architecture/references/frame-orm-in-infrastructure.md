@@ -96,6 +96,7 @@ class SqlAlchemyOrderRepository(OrderRepository):
 ```
 
 **Benefits:**
+
 - Use case tests don't need database or ORM setup
 - Can switch ORMs without touching business logic
 - Complex queries encapsulated in repository

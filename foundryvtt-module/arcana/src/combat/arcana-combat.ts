@@ -5,11 +5,12 @@ import { buildInitiativeFlavor, buildInitiativeFormula } from './initiative-form
 
 export class ArcanaCombat extends Combat {
 	/** @override */
-	async rollInitiative(ids: string | string[], options: any = {}) {
+
+	async rollInitiative(ids: string | string[], _options: any = {}) {
 		const combatantIds = typeof ids === 'string' ? [ids] : ids;
 
 		for (const id of combatantIds) {
-			// @ts-ignore - combatants exists on Combat
+			// @ts-expect-error - combatants exists on Combat
 			const combatant = this.combatants.get(id);
 			if (!combatant) continue;
 
@@ -60,25 +61,25 @@ export class ArcanaCombat extends Combat {
 		combatantId: string,
 		mode: 'normal' | 'advantage' | 'disadvantage',
 	) {
-		// @ts-ignore - combatants exists on Combat
+		// @ts-expect-error - combatants exists on Combat
 		const combatant = this.combatants.get(combatantId);
 		if (!combatant) return;
 
 		// Get initiative directly from flags to avoid scope issues in roll data
-		// @ts-ignore - getFlag is available on Actor
+		// @ts-expect-error - getFlag is available on Actor
 		const initMod = combatant.actor?.getFlag('arcana', 'initiative') || 0;
 
 		const formula = buildInitiativeFormula(initMod, mode);
 
-		// @ts-ignore - Roll is global, evaluate() is async by default in V12+
+		// @ts-expect-error - Roll is global, evaluate() is async by default in V12+
 		const roll = await new Roll(formula, combatant.actor?.getRollData()).evaluate();
 		await roll.toMessage({
 			flavor: buildInitiativeFlavor(combatant.name, mode),
-			// @ts-ignore - ChatMessage is global
+			// @ts-expect-error - ChatMessage is global
 			speaker: ChatMessage.getSpeaker({ actor: combatant.actor, token: combatant.token }),
 		});
 
-		// @ts-ignore - setInitiative exists on Combat
+		// @ts-expect-error - setInitiative exists on Combat
 		await this.setInitiative(combatantId, roll.total);
 	}
 }

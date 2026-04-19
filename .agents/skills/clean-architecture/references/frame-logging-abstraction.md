@@ -120,6 +120,7 @@ func toLogrusFields(fields []ports.Field) logrus.Fields {
 ```
 
 **Benefits:**
+
 - Application code doesn't import logging frameworks
 - Easy to switch logging backends
 - Test logging by asserting on mock logger calls

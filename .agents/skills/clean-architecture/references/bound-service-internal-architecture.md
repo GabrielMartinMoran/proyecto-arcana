@@ -69,6 +69,7 @@ Breaking a monolith into microservices doesn't solve architectural problems. Eac
 ```
 
 **Cross-service communication:**
+
 ```typescript
 // application/ports/PaymentGateway.ts
 interface PaymentGateway {
@@ -87,6 +88,7 @@ class HttpPaymentGateway implements PaymentGateway {
 ```
 
 **Benefits:**
+
 - Services testable without other services
 - Can extract or merge services without rewriting business logic
 - Network boundaries don't compromise internal architecture

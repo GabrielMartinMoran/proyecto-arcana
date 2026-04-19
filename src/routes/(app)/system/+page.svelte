@@ -1,4 +1,4 @@
-<script lang="ts"> 
+<script lang="ts">
 	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { loadBestiaryAsMD } from '$lib/utils/agent-content-loaders/bestiary-loader.js';
 	import {
@@ -70,12 +70,10 @@
 <section>
 	<h1>IA como Sistema (System)</h1>
 	<p>
-		A continuación hay un prompt que expone todo el contenido del sistema para automatizaciones y procesos que
-		requieran el contenido completo de Arcana.
+		A continuación hay un prompt que expone todo el contenido del sistema para automatizaciones y
+		procesos que requieran el contenido completo de Arcana.
 	</p>
-	<p>
-		Para utilizarlo, simplemente copia el prompt, pegalo en tu AI favorita y ¡a trabajar!
-	</p>
+	<p>Para utilizarlo, simplemente copia el prompt, pegalo en tu AI favorita y ¡a trabajar!</p>
 
 	<div class="prompt-header">
 		<h2>Prompt</h2>

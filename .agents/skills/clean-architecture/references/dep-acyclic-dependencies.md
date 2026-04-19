@@ -13,27 +13,27 @@ The dependency graph must be a Directed Acyclic Graph (DAG). Cycles create rippl
 
 ```typescript
 // modules/orders/OrderService.ts
-import { CustomerService } from '../customers/CustomerService'
+import { CustomerService } from '../customers/CustomerService';
 
 export class OrderService {
-  constructor(private customers: CustomerService) {}
+	constructor(private customers: CustomerService) {}
 
-  async createOrder(customerId: string) {
-    const customer = await this.customers.findById(customerId)
-    // ...
-  }
+	async createOrder(customerId: string) {
+		const customer = await this.customers.findById(customerId);
+		// ...
+	}
 }
 
 // modules/customers/CustomerService.ts
-import { OrderService } from '../orders/OrderService'  // Cycle!
+import { OrderService } from '../orders/OrderService'; // Cycle!
 
 export class CustomerService {
-  constructor(private orders: OrderService) {}
+	constructor(private orders: OrderService) {}
 
-  async getCustomerWithOrders(customerId: string) {
-    const orders = await this.orders.findByCustomer(customerId)
-    // ...
-  }
+	async getCustomerWithOrders(customerId: string) {
+		const orders = await this.orders.findByCustomer(customerId);
+		// ...
+	}
 }
 // Neither module can be deployed or tested independently
 ```
@@ -43,37 +43,37 @@ export class CustomerService {
 ```typescript
 // modules/orders/ports/CustomerProvider.ts
 export interface CustomerProvider {
-  findById(id: string): Promise<Customer>
+	findById(id: string): Promise<Customer>;
 }
 
 // modules/orders/OrderService.ts
-import { CustomerProvider } from './ports/CustomerProvider'
+import { CustomerProvider } from './ports/CustomerProvider';
 
 export class OrderService {
-  constructor(private customers: CustomerProvider) {}
+	constructor(private customers: CustomerProvider) {}
 
-  async createOrder(customerId: string) {
-    const customer = await this.customers.findById(customerId)
-    // ...
-  }
+	async createOrder(customerId: string) {
+		const customer = await this.customers.findById(customerId);
+		// ...
+	}
 }
 
 // modules/customers/CustomerService.ts
 // No import from orders module
 
 export class CustomerService implements CustomerProvider {
-  // Implements the interface defined in orders module
+	// Implements the interface defined in orders module
 }
 
 // modules/customers/adapters/OrderAdapter.ts
-import { OrderService } from '../../orders/OrderService'
+import { OrderService } from '../../orders/OrderService';
 
 export class CustomerOrderAdapter {
-  constructor(private orders: OrderService) {}
+	constructor(private orders: OrderService) {}
 
-  async getOrdersForCustomer(customerId: string) {
-    return this.orders.findByCustomer(customerId)
-  }
+	async getOrdersForCustomer(customerId: string) {
+		return this.orders.findByCustomer(customerId);
+	}
 }
 ```
 

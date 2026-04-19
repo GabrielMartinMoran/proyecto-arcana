@@ -87,6 +87,7 @@ class OrderController:
 ```
 
 **Controller responsibilities:**
+
 - Parse HTTP request to command/query objects
 - Validate request format (required fields present)
 - Call appropriate use case
@@ -94,6 +95,7 @@ class OrderController:
 - Format response
 
 **Use case responsibilities:**
+
 - Business validation (credit limits, stock)
 - Business logic (calculations, state changes)
 - Orchestrate entities and repositories

@@ -3,9 +3,9 @@
  * Tests precalculated roll handling scenarios from Gherkin specs
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { RollHandler } from './roll-handler';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { MESSAGE_TYPES } from '../types/messages';
+import { RollHandler } from './roll-handler';
 
 describe('RollHandler', () => {
 	let rollHandler: RollHandler;
@@ -36,7 +36,10 @@ describe('RollHandler', () => {
 				toMessage: mockToMessage,
 			};
 
-			vi.stubGlobal('Roll', vi.fn().mockImplementation(() => rollInstance));
+			vi.stubGlobal(
+				'Roll',
+				vi.fn().mockImplementation(() => rollInstance),
+			);
 			vi.stubGlobal('ChatMessage', {
 				getSpeaker: vi.fn().mockReturnValue({ token: 'test-token' }),
 				create: vi.fn().mockResolvedValue(undefined),
@@ -77,7 +80,10 @@ describe('RollHandler', () => {
 				toMessage: mockToMessage,
 			};
 
-			vi.stubGlobal('Roll', vi.fn().mockImplementation(() => rollInstance));
+			vi.stubGlobal(
+				'Roll',
+				vi.fn().mockImplementation(() => rollInstance),
+			);
 			vi.stubGlobal('ChatMessage', {
 				getSpeaker: vi.fn().mockReturnValue({ token: 'test-token' }),
 				create: vi.fn().mockResolvedValue(undefined),
@@ -90,9 +96,15 @@ describe('RollHandler', () => {
 			// THEN the first die term results are patched with 3
 			// AND the second die term results are patched with 7
 			// AND the third die term results are patched with 5
-			expect(patchedTerms[0].results).toContainEqual(expect.objectContaining({ result: 3, active: true }));
-			expect(patchedTerms[0].results).toContainEqual(expect.objectContaining({ result: 7, active: true }));
-			expect(patchedTerms[0].results).toContainEqual(expect.objectContaining({ result: 5, active: true }));
+			expect(patchedTerms[0].results).toContainEqual(
+				expect.objectContaining({ result: 3, active: true }),
+			);
+			expect(patchedTerms[0].results).toContainEqual(
+				expect.objectContaining({ result: 7, active: true }),
+			);
+			expect(patchedTerms[0].results).toContainEqual(
+				expect.objectContaining({ result: 5, active: true }),
+			);
 		});
 
 		it('should handle missing results by generating random fallback values', async () => {
@@ -124,7 +136,10 @@ describe('RollHandler', () => {
 				toMessage: mockToMessage,
 			};
 
-			vi.stubGlobal('Roll', vi.fn().mockImplementation(() => rollInstance));
+			vi.stubGlobal(
+				'Roll',
+				vi.fn().mockImplementation(() => rollInstance),
+			);
 			vi.stubGlobal('ChatMessage', {
 				getSpeaker: vi.fn().mockReturnValue({ token: 'test-token' }),
 				create: vi.fn().mockResolvedValue(undefined),
@@ -137,13 +152,15 @@ describe('RollHandler', () => {
 			// THEN missing results are generated randomly for die faces
 			// AND no error is thrown due to undefined results
 			expect(patchedTerms[0].results).toHaveLength(2);
-			expect(patchedTerms[0].results[0]).toEqual(expect.objectContaining({ result: 4, active: true }));
+			expect(patchedTerms[0].results[0]).toEqual(
+				expect.objectContaining({ result: 4, active: true }),
+			);
 			// Second result should be a random number between 1 and 6
 			expect(patchedTerms[0].results[1]).toEqual(
 				expect.objectContaining({
 					result: expect.any(Number),
 					active: true,
-				})
+				}),
 			);
 			expect(patchedTerms[0].results[1].result).toBeGreaterThanOrEqual(1);
 			expect(patchedTerms[0].results[1].result).toBeLessThanOrEqual(6);
@@ -188,7 +205,10 @@ describe('RollHandler', () => {
 				toMessage: mockToMessage,
 			};
 
-			vi.stubGlobal('Roll', vi.fn().mockImplementation(() => rollInstance));
+			vi.stubGlobal(
+				'Roll',
+				vi.fn().mockImplementation(() => rollInstance),
+			);
 			vi.stubGlobal('ChatMessage', {
 				getSpeaker: vi.fn().mockReturnValue({ token: 'test-token' }),
 				create: vi.fn().mockResolvedValue(undefined),
@@ -229,7 +249,10 @@ describe('RollHandler', () => {
 				toMessage: mockToMessage,
 			};
 
-			vi.stubGlobal('Roll', vi.fn().mockImplementation(() => rollInstance));
+			vi.stubGlobal(
+				'Roll',
+				vi.fn().mockImplementation(() => rollInstance),
+			);
 			vi.stubGlobal('ChatMessage', {
 				getSpeaker: vi.fn().mockReturnValue({ token: 'test-token' }),
 				create: vi.fn().mockResolvedValue(undefined),

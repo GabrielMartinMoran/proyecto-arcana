@@ -99,6 +99,7 @@ public class CancelSubscriptionUseCase {
 ```
 
 **Benefits:**
+
 - Business rules live with the data they operate on
 - Impossible to forget validation when manipulating data
 - Entity documents its own capabilities and constraints

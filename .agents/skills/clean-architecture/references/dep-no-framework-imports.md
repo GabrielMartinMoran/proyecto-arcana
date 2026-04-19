@@ -62,6 +62,7 @@ public class EfPaymentRepository : IPaymentRepository
 ```
 
 **Benefits:**
+
 - Use case tests run without framework bootstrapping
 - Framework can be upgraded or replaced independently
 - Business logic remains readable without framework noise

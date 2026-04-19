@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { dialogService } from '$lib/services/dialog-service.svelte';
 
-	let { isOpen, message, type, options, inputValue } = $derived(dialogService);
+	let { isOpen, message, type, options } = $derived(dialogService);
 
 	function onConfirm() {
 		dialogService.close(true);
