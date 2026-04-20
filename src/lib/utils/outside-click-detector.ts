@@ -4,7 +4,7 @@ export const clickOutsideDetector = (node: Node) => {
 	window.addEventListener('click', handleClick);
 
 	function handleClick(e) {
-		if (!node.contains(e.target)) {
+		if (!e.composedPath().includes(node)) {
 			node.dispatchEvent(new CustomEvent('outsideclick', { bubbles: true }));
 		}
 	}
