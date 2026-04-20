@@ -171,7 +171,7 @@ img: null
 				try {
 					yamlText = decodeURIComponent(param);
 				} catch {
-					yamlText = SAMPLE_YAML;
+					parseError = 'Error al decodificar el parámetro YAML de la URL';
 				}
 			} else {
 				yamlText = SAMPLE_YAML;
@@ -181,7 +181,10 @@ img: null
 			readonlyMode = false;
 		}
 
-		if (readonlyMode) activeTab = 'sheet';
+		if (readonlyMode) {
+			activeTab = 'sheet';
+			tryParseAndSetCreature(yamlText);
+		}
 	});
 
 	function handleImport(importedYaml: string) {
@@ -328,6 +331,7 @@ img: null
 		</div>
 	{/if}
 </div>
+    
 
 <style>
 	:global(html, body) {
