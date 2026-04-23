@@ -90,6 +90,7 @@
 
 <style>
 	.card {
+		box-sizing: border-box;
 		position: relative;
 		display: flex;
 		width: 310px;
@@ -231,25 +232,35 @@
 					font-size: 0.8rem;
 				}
 
-				.controls {
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					justify-content: space-between;
-					gap: var(--spacing-sm);
-					width: 100%;
+.controls {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				gap: var(--spacing-sm);
+				width: 100%;
+				min-width: 0;
 
-					.spacer {
-						/* Used by the children */
-						flex-grow: 1;
-					}
+				button {
+					flex-shrink: 1;
+					min-width: 0;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
+
+				.spacer {
+					/* Used by the children */
+					flex-grow: 1;
+				}
+			}
 			}
 		}
 	}
 
 	.chip {
 		display: flex;
+		box-sizing: border-box;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;

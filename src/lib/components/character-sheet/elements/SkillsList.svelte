@@ -144,56 +144,45 @@
 			.skills-header {
 				display: flex;
 				flex-direction: row;
+				flex-wrap: wrap;
 				width: 100%;
-				gap: var(--spacing-md);
+				gap: var(--spacing-xs);
 				font-weight: bold;
 				border-bottom: 1px solid var(--color-border);
 				padding-bottom: var(--spacing-xs);
 
 				.name {
-					width: 200px;
-					flex-shrink: 0;
+					flex: 1;
+					min-width: 8.2rem;
 				}
 				.attribute {
-					width: 150px;
-					flex-shrink: 0;
+					flex: 1;
+					min-width: 8.2rem;
 				}
 				.description {
-					flex: 1;
+					flex: 2;
+					min-width: 8.2rem;
 				}
 				.advantage {
-					width: 60px;
+					flex: 0 0 4rem;
 					text-align: center;
-					flex-shrink: 0;
 				}
 				.btn {
-					width: 40px;
-					flex-shrink: 0;
+					flex: 0 0 2.5rem;
 				}
 			}
 
 			.skill {
 				display: flex;
 				flex-direction: row;
-				align-items: center;
-				gap: var(--spacing-md);
+				flex-wrap: wrap;
+				gap: var(--spacing-xs);
 				width: 100%;
 
-				/* Override InputField width for specific columns */
-				&:global(> :nth-child(1)) {
-					width: 200px;
-					flex-shrink: 0;
-				}
-				&:global(> :nth-child(2)) {
-					width: 150px;
-					flex-shrink: 0;
-				}
-
 				.advantage-check {
-					width: 60px;
+					flex: 0 0 4rem;
 					display: flex;
 					justify-content: center;
-					flex-shrink: 0;
 
 					input[type='checkbox'] {
 						width: 20px;
@@ -203,8 +192,7 @@
 				}
 
 				button {
-					width: 40px;
-					flex-shrink: 0;
+					flex: 0 0 2.5rem;
 				}
 			}
 

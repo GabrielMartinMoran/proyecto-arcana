@@ -12,6 +12,9 @@
 		listMode?: 'active' | 'collection' | 'all';
 		onChange?: (characterCards: CharacterCard[]) => void;
 		onCardReloadClick?: (cardId: string) => void;
+		// For purchase button in 'all' listMode
+		currentPP?: number;
+		onPurchaseCard?: (card: CardType) => void;
 	};
 
 	let {
@@ -21,6 +24,8 @@
 		listMode = 'all',
 		onChange = () => {},
 		onCardReloadClick = () => {},
+		currentPP = 0,
+		onPurchaseCard = () => {},
 	}: Props = $props();
 
 	let characterCards = $derived(initialCharacterCards);
@@ -143,7 +148,9 @@
 								<span class="label-text">Sob</span>
 							</label>
 						{/if}
-						<span class="spacer"></span>
+						{#if !(getCardTotalUses(card) !== null && card.type === 'activable')}
+							<span class="spacer"></span>
+						{/if}
 						<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
 					{:else if listMode === 'collection'}
 						<button onclick={() => removeCard(card.id)}>Quitar</button>
@@ -156,8 +163,26 @@
 							{/if}
 						{/if}
 					{:else}
-						<span class="spacer"></span>
-						<button onclick={() => addCard(card)}>Agregar</button>
+						{@const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1}
+						{@const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0}
+						{@const canPurchase = currentPP >= costValue}
+						<button
+							onclick={() => addCard(card)}
+							class="btn-add"
+						>Agregar</button>
+						{#if costValue > 0}
+							<button
+								onclick={() => onPurchaseCard(card)}
+								class="btn-purchase"
+								class:disabled={!canPurchase}
+								disabled={!canPurchase}
+								title={!canPurchase
+									? `PP insuficiente (tienes ${currentPP} PP)`
+									: `Comprar (${costValue} PP)`}
+							>
+								Comprar ({costValue} PP)
+							</button>
+						{/if}
 					{/if}
 				</div>
 			{/if}
@@ -183,6 +208,40 @@
 			justify-content: space-between;
 			flex-grow: 1;
 			padding-top: var(--spacing-sm);
+			gap: var(--spacing-sm);
+		}
+
+		.btn-add {
+			background-color: var(--secondary-bg);
+			color: var(--text-primary);
+			border: 1px solid var(--border-color);
+			border-radius: var(--radius-md);
+			cursor: pointer;
+			font-size: 0.8rem;
+		}
+
+		.btn-add:hover {
+			background-color: var(--primary-bg);
+		}
+
+		.btn-purchase {
+			background-color: #f59e0b;
+			color: #ffffff;
+			border: none;
+			border-radius: var(--radius-md);
+			cursor: pointer;
+			font-size: 0.8rem;
+		}
+
+		.btn-purchase:hover:not(.disabled) {
+			filter: brightness(1.1);
+		}
+
+		.btn-purchase.disabled {
+			background-color: var(--primary-bg);
+			color: var(--text-secondary);
+			cursor: not-allowed;
+			opacity: 0.6;
 		}
 
 		.overload-checkbox {

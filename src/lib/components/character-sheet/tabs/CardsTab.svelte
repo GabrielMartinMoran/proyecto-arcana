@@ -6,11 +6,13 @@
 	import { useCardFiltersService } from '$lib/services/cards-filter-service';
 	import { useCardsService } from '$lib/services/cards-service';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
+	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import { modifiersService } from '$lib/services/modifiers-service';
 	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Card } from '$lib/types/cards/card';
-	import type { Character, CharacterCard } from '$lib/types/character';
+	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
 	import { filterCards } from '$lib/utils/card-filtering';
-	import { clickOutsideDetector } from '$lib/utils/outside-click-detector';
+	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
 	import { CONFIG } from '../../../../config';
@@ -65,7 +67,127 @@
 		allCards = [...get(itemCardsStore), ...get(abilityCardsStore)];
 	});
 
+	const findCardById = (id: string): Card | undefined => {
+		return allCards.find((c) => c.id === id);
+	};
+
+	const findAddedCardId = (oldCards: CharacterCard[], newCards: CharacterCard[]): string | null => {
+		const oldIds = new Set(oldCards.map((c) => c.id));
+		for (const card of newCards) {
+			if (!oldIds.has(card.id)) {
+				return card.id;
+			}
+		}
+		return null;
+	};
+
+	const findRemovedCardId = (oldCards: CharacterCard[], newCards: CharacterCard[]): string | null => {
+		const newIds = new Set(newCards.map((c) => c.id));
+		for (const card of oldCards) {
+			if (!newIds.has(card.id)) {
+				return card.id;
+			}
+		}
+		return null;
+	};
+
+	const autoAddModifiersForCard = (cardName: string) => {
+		const matchingModifiers = modifiersService.findAllByNameMatch(cardName);
+		for (const modifier of matchingModifiers) {
+			if (modifier.subModifiers.length > 0) {
+				// Check if already has this modifier (with or without "Carta: " prefix)
+				const cardNameLower = cardName.toLowerCase();
+				const alreadyHas = character.modifiers.some(
+					(m) => m.reason.toLowerCase() === modifier.name.toLowerCase() ||
+						m.reason.toLowerCase() === `carta: ${modifier.name.toLowerCase()}`,
+				);
+				if (!alreadyHas) {
+					const newModifiers: Modifier[] = modifier.subModifiers.map((sm) => ({
+						id: crypto.randomUUID(),
+						attribute: sm.attribute,
+						type: sm.type,
+						formula: sm.formula,
+						reason: `Carta: ${sm.reason}`,
+						enabled: true,
+					}));
+					character.modifiers = [...character.modifiers, ...newModifiers];
+				}
+			}
+		}
+	};
+
+	const promptRemoveModifiersForCard = async (cardName: string) => {
+		// Match modifiers with or without "Carta: " prefix
+		const cardNameLower = cardName.toLowerCase();
+		const associatedModifiers = character.modifiers.filter(
+			(m) => m.reason.toLowerCase() === cardNameLower ||
+				m.reason.toLowerCase() === `carta: ${cardNameLower}`,
+		);
+		if (associatedModifiers.length > 0) {
+			const confirmed = await dialogService.confirm(
+				`¿Remover modificadores asociados a '${cardName}'?`,
+				{ title: 'Modificadores Asociados', confirmLabel: 'Sí, remover', cancelLabel: 'No' },
+			);
+			if (confirmed) {
+				character.modifiers = character.modifiers.filter(
+					(m) => m.reason.toLowerCase() !== cardNameLower &&
+						m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
+				);
+			}
+		}
+	};
+
 	const onCharacterCardsChange = (updatedCards: CharacterCard[]) => {
+		// Detect if a card was added or removed
+		const addedCardId = findAddedCardId(character.cards, updatedCards);
+		const removedCardId = findRemovedCardId(character.cards, updatedCards);
+
+		// Handle modifier auto-add for added card
+		if (addedCardId) {
+			const addedCard = findCardById(addedCardId);
+			if (addedCard) {
+				autoAddModifiersForCard(addedCard.name);
+			}
+		}
+
+		// Handle modifier prompt for removed card - show confirmation BEFORE removing
+		if (removedCardId) {
+			const removedCard = updatedCards.find((c) => c.id === removedCardId) ||
+				character.cards.find((c) => c.id === removedCardId);
+			if (removedCard) {
+				const cardInfo = findCardById(removedCardId);
+				const cardName = cardInfo?.name ?? removedCardId;
+				const cardNameLower = cardName.toLowerCase();
+				const associatedModifiers = character.modifiers.filter(
+					(m) => m.reason.toLowerCase() === cardNameLower ||
+						m.reason.toLowerCase() === `carta: ${cardNameLower}`,
+				);
+
+				if (associatedModifiers.length > 0) {
+					// Show confirmation BEFORE removing anything
+					dialogService.confirm(
+						`¿Remover modificadores asociados a '${cardName}'?`,
+						{ title: 'Modificadores Asociados', confirmLabel: 'Sí, remover', cancelLabel: 'No' },
+					).then((confirmed) => {
+						if (confirmed) {
+							// User confirmed: remove BOTH card and modifiers together
+							character.cards = character.cards.filter((c) => c.id !== removedCardId);
+							character.modifiers = character.modifiers.filter(
+								(m) => m.reason.toLowerCase() !== cardNameLower &&
+									m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
+							);
+						} else {
+							// User cancelled: restore card to the list, do NOT remove anything
+							character.cards = [...character.cards];
+						}
+						onChange(character);
+					});
+					return; // Don't call onChange yet - wait for async confirmation
+				}
+			}
+		}
+
+		// No removed card with associated modifiers - update cards directly
 		character.cards = updatedCards;
 		onChange(character);
 	};
@@ -101,19 +223,10 @@
 		}
 	};
 
-	const onFiltersChange = (newFilters: CardFilters) => {
-		filters = newFilters;
-		addCardModalState = {
-			...addCardModalState,
-			filteredCards: filterCards(addCardModalState.allCards, filters, character),
-		};
-	};
-
-	const onResetFilters = () => {
-		onFiltersChange(buildEmptyFilters({ onlyAvailables: true }));
-	};
-
 	const openAddCardModal = (type: 'ability' | 'item') => {
+		// Load modifiers when opening modal
+		modifiersService.loadModifiers();
+
 		setTimeout(() => {
 			const modalCards = type === 'ability' ? get(abilityCardsStore) : get(itemCardsStore);
 			addCardModalState = {
@@ -131,22 +244,92 @@
 			allCards: [],
 		};
 	};
+
+	const handlePurchaseCard = (card: Card) => {
+		const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1;
+		const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0;
+		if (character.currentPP < costValue) {
+			dialogService.alert(
+				`No tienes suficiente PP. Tienes ${character.currentPP} PP y la carta cuesta ${costValue} PP.`,
+			);
+			return;
+		}
+
+		// Deduct PP and log transaction
+		const purchaseEntry = {
+			id: crypto.randomUUID(),
+			type: 'subtract' as const,
+			value: costValue,
+			reason: `Comprar carta: ${card.name}`,
+		};
+		character.ppHistory = [purchaseEntry, ...character.ppHistory];
+		onChange(character);
+
+		// Add the card
+		const newCard: CharacterCard = {
+			id: card.id,
+			uses: null,
+			isActive: false,
+			level: card.level,
+			cardType: card.cardType,
+			isOvercharged: false,
+		};
+		onCharacterCardsChange([...character.cards, newCard]);
+	};
+
+	const handleBuyActiveSlot = async () => {
+		const currentSlots = character.maxActiveCards;
+		const cost = CONFIG.ACTIVE_SLOT_PP_COST[currentSlots];
+
+		if (!cost || currentSlots >= 10) return;
+
+		const confirmed = await dialogService.confirm(
+			`¿Comprar ${currentSlots + 1}ª ranura por ${cost} PP?`,
+		);
+
+		if (confirmed) {
+			const purchaseEntry = {
+				id: crypto.randomUUID(),
+				type: 'subtract' as const,
+				value: cost,
+				reason: `Comprar ranura: ${currentSlots + 1}ª ranura`
+			};
+
+			// Mutate existing proxy (like handlePurchaseCard does)
+			character.ppHistory = [purchaseEntry, ...character.ppHistory];
+			character.maxActiveCards = currentSlots + 1;
+
+			// Pass same proxy reference
+			onChange(character);
+		}
+	};
 </script>
 
 <div class="cards-tab">
 	{#if !readonly}
 		<Container>
-			<InputField
-				label="Ranuras de Cartas Activas"
-				labelWidth="fit"
-				value={character.maxActiveCards}
-				{readonly}
-				fullWidth={true}
-				onChange={(value) => {
-					character.maxActiveCards = Number(value);
-					onChange(character);
-				}}
-			/>
+			<div class="slot-input-row">
+				<InputField
+					label="Ranuras de Cartas Activas"
+					labelWidth="fit"
+					value={character.maxActiveCards}
+					{readonly}
+					fullWidth={true}
+					onChange={(value) => {
+						character.maxActiveCards = Number(value);
+						onChange(character);
+					}}
+				/>
+				{#if !readonly && character.maxActiveCards < 10}
+					{@const nextSlotCost = CONFIG.ACTIVE_SLOT_PP_COST[character.maxActiveCards] || 0}
+					<button
+						onclick={handleBuyActiveSlot}
+						disabled={character.currentPP < nextSlotCost}
+					>
+						Comprar ranura ({nextSlotCost} PP)
+					</button>
+				{/if}
+			</div>
 			<div class="controls">
 				<span>Agregar cartas a tu colección</span>
 				<div class="buttons">
@@ -209,46 +392,14 @@
 	{/if}
 </div>
 
-<div
-	class="add-card-modal"
-	hidden={!addCardModalState.opened}
-	use:clickOutsideDetector
-	onoutsideclick={closeAddCardModal}
->
-	<div class="all-cards">
-		<CardsFilter
-			cards={addCardModalState.filteredCards}
-			{onFiltersChange}
-			{onResetFilters}
-			{filters}
-			includeOnlyAvailablesFilter={true}
-		/>
-		<div class="cards-viewport">
-			{#if addCardModalState.filteredCards.length > 0}
-				<CardsList
-					cards={addCardModalState.filteredCards.filter(
-						(x) => character.cards.find((y) => y.id === x.id) === undefined,
-					)}
-					{readonly}
-					characterCards={character.cards}
-					listMode="all"
-					onChange={onCharacterCardsChange}
-				/>
-			{:else}
-				<div class="empty">
-					<em>No se encontraron resultados</em>
-				</div>
-			{/if}
-		</div>
-	</div>
-	<div class="footer">
-		<span class="results-count"
-			>{addCardModalState.filteredCards.length}
-			{addCardModalState.filteredCards.length === 1 ? 'resultado' : 'resultados'}</span
-		>
-		<button onclick={closeAddCardModal}>Cerrar</button>
-	</div>
-</div>
+<AddCardModal
+	opened={addCardModalState.opened}
+	cards={addCardModalState.filteredCards}
+	{character}
+	onClose={closeAddCardModal}
+	onCardsChange={onCharacterCardsChange}
+	onPurchaseCard={handlePurchaseCard}
+/>
 
 <style>
 	.cards-tab {
@@ -259,79 +410,10 @@
 		gap: var(--spacing-md);
 	}
 
-	.empty {
+	.slot-input-row {
 		display: flex;
-		justify-content: center;
 		align-items: center;
-		height: 100%;
-		width: 100%;
-	}
-
-	.add-card-modal {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 2;
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-md);
-		padding: var(--spacing-md);
-		background-color: var(--secondary-bg);
-		box-shadow: var(--shadow-md);
-
-		.all-cards {
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-md);
-			padding-top: var(--spacing-md);
-
-			.cards-viewport {
-				height: 600px;
-				overflow-y: scroll;
-			}
-		}
-
-		.footer {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-			padding: var(--spacing-sm);
-
-			.results-count {
-				padding: var(--spacing-xs);
-			}
-		}
-	}
-
-	@media screen and (max-width: 850px) {
-		.cards-viewport {
-			height: 500px !important;
-		}
-	}
-
-	@media screen and (max-width: 640px) {
-		.cards-viewport {
-			height: 400px !important;
-		}
-	}
-
-	@media screen and (max-width: 1280px) {
-		.add-card-modal {
-			width: 95%;
-		}
-	}
-
-	@media screen and (min-width: 1600px) {
-		.add-card-modal {
-			width: 1000px;
-		}
-	}
-
-	@media screen and (min-width: 1800px) {
-		.add-card-modal {
-			width: 1200px;
-		}
+		gap: var(--spacing-md);
 	}
 
 	.controls {

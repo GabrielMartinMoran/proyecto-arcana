@@ -9,6 +9,24 @@ export const CONFIG = {
 	BASE_MAX_ACTIVE_CARDS: 3,
 	RELOAD_CARD_USES: 1,
 
+	CARD_LEVEL_PP_COST: {
+		1: 3,
+		2: 5,
+		3: 8,
+		4: 12,
+		5: 17,
+	},
+
+	ACTIVE_SLOT_PP_COST: {
+		3: 3, // Buy 4th slot
+		4: 5, // Buy 5th slot
+		5: 8, // Buy 6th slot
+		6: 11, // Buy 7th slot
+		7: 15, // Buy 8th slot
+		8: 19, // Buy 9th slot
+		9: 24, // Buy 10th slot
+	},
+
 	CHARACTER_TIERS: [
 		{ tier: 1, minPP: 0, maxPP: 25 },
 		{ tier: 2, minPP: 26, maxPP: 60 },

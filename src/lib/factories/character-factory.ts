@@ -1,5 +1,6 @@
 import { Character } from '$lib/types/character';
 import { CONFIG } from '../../config';
+import { generateDefaultSkills } from '$lib/constants/skills';
 
 export const createCharacter = () => {
 	return new Character({
@@ -17,6 +18,7 @@ export const createCharacter = () => {
 		goldHistory: [],
 		equipment: [],
 		modifiers: [],
+		skills: generateDefaultSkills(),
 		currentHP: 0,
 		tempHP: 0,
 		currentLuck: CONFIG.STARTING_LUCK,

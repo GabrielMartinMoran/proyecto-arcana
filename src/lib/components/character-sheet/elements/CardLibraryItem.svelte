@@ -1,54 +1,49 @@
 <script lang="ts">
-	import type { LibraryItem } from '$lib/types/item';
+	import type { Card } from '$lib/types/cards/card';
 
 	type Props = {
-		item: LibraryItem;
-		currentGold: number;
-		onAddFree: (item: LibraryItem) => void;
-		onPurchase: (item: LibraryItem) => void;
+		card: Card;
+		currentPP: number;
+		onAddFree: (card: Card) => void;
+		onPurchase: (card: Card) => void;
 	};
 
-	let { item, currentGold, onAddFree, onPurchase }: Props = $props();
+	let { card, currentPP, onAddFree, onPurchase }: Props = $props();
 
-	const canPurchase = $derived(currentGold >= item.price);
+	const costValue = $derived(() => {
+		const cost = (card as any).cost;
+		return cost ? parseInt(cost) || 0 : 0;
+	});
+	const canPurchase = $derived(currentPP >= costValue());
 </script>
 
-<div class="item-library-item">
-	<div class="item-info">
-		<span class="item-name">{item.name} ({item.price} o)</span>
-		<span class="item-notes">
-			{#if item.category === 'armors'}
-				Mitigación Física {item.physicalMitigation}
-			{:else if item.category === 'weapons'}
-				{@const weaponDetails = [item.damage, item.type, item.properties]
-					.filter(Boolean)
-					.join(', ')}
-				Daño {weaponDetails}
-			{:else}
-				{item.notes}
-			{/if}
+<div class="card-library-item">
+	<div class="card-info">
+		<span class="card-name">{card.name}</span>
+		<span class="card-meta">
+			Nivel {card.level} | {card.type}
 		</span>
 	</div>
-	<div class="item-actions">
-		<button onclick={() => onAddFree(item)} class="btn-add-free" title="Agregar gratuitamente">
+	<div class="card-actions">
+		<button onclick={() => onAddFree(card)} class="btn-add-free" title="Agregar gratuitamente">
 			Agregar gratis
 		</button>
 		<button
-			onclick={() => onPurchase(item)}
+			onclick={() => onPurchase(card)}
 			class="btn-purchase"
 			class:disabled={!canPurchase}
 			disabled={!canPurchase}
 			title={!canPurchase
-				? `Oro insuficiente (tienes ${currentGold} o)`
-				: `Comprar (${item.price} oro)`}
+				? `PP insuficiente (tienes ${currentPP} PP)`
+				: `Comprar por ${costValue()} PP`}
 		>
-			Comprar ({item.price} oro)
+			Comprar por {costValue()}PP
 		</button>
 	</div>
 </div>
 
 <style>
-	.item-library-item {
+	.card-library-item {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -58,28 +53,28 @@
 		gap: var(--spacing-md);
 	}
 
-	.item-library-item:last-child {
+	.card-library-item:last-child {
 		border-bottom: none;
 	}
 
-	.item-info {
+	.card-info {
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
 		flex: 1;
 	}
 
-	.item-name {
+	.card-name {
 		font-weight: 600;
 		color: var(--text-primary);
 	}
 
-	.item-notes {
+	.card-meta {
 		color: var(--text-secondary);
 		font-size: 0.8rem;
 	}
 
-	.item-actions {
+	.card-actions {
 		display: flex;
 		flex-direction: row;
 		gap: var(--spacing-sm);

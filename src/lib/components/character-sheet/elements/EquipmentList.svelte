@@ -1,8 +1,9 @@
 <script lang="ts">
 	import InputField from '$lib/components/ui/InputField.svelte';
-	import type { Character, Equipment } from '$lib/types/character';
+	import type { Character, Equipment, Modifier } from '$lib/types/character';
 	import type { LibraryItem } from '$lib/types/item';
 	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import { modifiersService } from '$lib/services/modifiers-service';
 	import ItemLibraryModal from './ItemLibraryModal.svelte';
 
 	type Props = {
@@ -32,9 +33,64 @@
 		libraryModalOpened = false;
 	};
 
-	const removeItem = (item: Equipment) => {
+	const handleRemoveItem = async (item: Equipment) => {
+		// Check if there's an associated modifier (with or without "Objeto: " prefix)
+		const itemNameLower = item.name.toLowerCase();
+		const associatedModifier = character.modifiers.find(
+			(m) => m.reason.toLowerCase() === itemNameLower ||
+				m.reason.toLowerCase() === `objeto: ${itemNameLower}`,
+		);
+
+		if (associatedModifier) {
+			const confirmed = await dialogService.confirm(
+				`¿Remover modificador '${associatedModifier.reason}'?`,
+				{ title: 'Modificador Asociado', confirmLabel: 'Sí, remover', cancelLabel: 'No' },
+			);
+
+			if (confirmed) {
+				// Remove the item
+				equipment = equipment.filter((i) => i.id !== item.id);
+				onChange(equipment);
+				// Also remove associated modifier
+				character.modifiers = character.modifiers.filter(
+					(m) => m.reason.toLowerCase() !== itemNameLower &&
+						m.reason.toLowerCase() !== `objeto: ${itemNameLower}`,
+				);
+				onCharacterChange(character);
+				return;
+			}
+			// If cancelled, do nothing (keep item and modifier)
+			return;
+		}
+
+		// No associated modifier - just remove the item
 		equipment = equipment.filter((i) => i.id !== item.id);
 		onChange(equipment);
+	};
+
+	const autoAddModifier = (itemName: string) => {
+		// Load modifiers if not loaded, then find matching modifier
+		const modifier = modifiersService.findByName(itemName);
+		if (modifier && modifier.subModifiers.length > 0) {
+			// Check if this modifier is not already present (with or without prefix)
+			const itemNameLower = itemName.toLowerCase();
+			const alreadyHas = character.modifiers.some(
+				(m) => m.reason.toLowerCase() === modifier.name.toLowerCase() ||
+					m.reason.toLowerCase() === `objeto: ${modifier.name.toLowerCase()}`,
+			);
+			if (!alreadyHas) {
+				const newModifiers: Modifier[] = modifier.subModifiers.map((sm) => ({
+					id: crypto.randomUUID(),
+					attribute: sm.attribute,
+					type: sm.type,
+					formula: sm.formula,
+					reason: `Objeto: ${sm.reason}`,
+					enabled: true,
+				}));
+				character.modifiers = [...character.modifiers, ...newModifiers];
+				onCharacterChange(character);
+			}
+		}
 	};
 
 	const handleAddItem = async (item: LibraryItem, isPurchase: boolean) => {
@@ -54,7 +110,7 @@
 				value: item.price,
 				reason: `Compra: ${item.name}`,
 			};
-			character.goldHistory = [...character.goldHistory, purchaseEntry];
+			character.goldHistory = [purchaseEntry, ...character.goldHistory];
 			onCharacterChange(character);
 		}
 
@@ -94,6 +150,10 @@
 		};
 		equipment = [...equipment, newItem];
 		onChange(equipment);
+
+		// Auto-add modifier if exists
+		await modifiersService.loadModifiers();
+		autoAddModifier(item.name);
 	};
 </script>
 
@@ -147,7 +207,7 @@
 					}}
 				/>
 				{#if !readonly}
-					<button onclick={() => removeItem(item)} title="Eliminar">🗑️</button>
+					<button onclick={() => handleRemoveItem(item)} title="Eliminar">🗑️</button>
 				{/if}
 			</div>
 		{/each}

@@ -181,6 +181,78 @@ describe('CardsTab', () => {
 		});
 	});
 
+	describe('buy active slot', () => {
+		it('shows buy button with correct cost for 4th slot', async () => {
+			const character = buildCharacter();
+			character.maxActiveCards = 3;
+			character.currentPP = 10;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			const buyButton = await screen.findByRole('button', { name: /Comprar.*3.*PP/ });
+			expect(buyButton).toBeInTheDocument();
+		});
+
+		it('hides buy button when readonly is true', () => {
+			const character = buildCharacter();
+			character.maxActiveCards = 3;
+			character.currentPP = 10;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: true,
+					onChange,
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: /Comprar/ })).not.toBeInTheDocument();
+		});
+
+		it('disables buy button when maxActiveCards >= 10', () => {
+			const character = buildCharacter();
+			character.maxActiveCards = 10;
+			character.currentPP = 100;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: /Comprar/ })).not.toBeInTheDocument();
+		});
+
+		it('disables buy button when currentPP is insufficient', () => {
+			const character = buildCharacter();
+			character.maxActiveCards = 3;
+			character.currentPP = 2; // Cost is 3
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			const buyButton = screen.getByRole('button', { name: /Comprar.*3.*PP/ });
+			expect(buyButton).toBeDisabled();
+		});
+	});
+
 	describe('reload mechanics', () => {
 		it('disables reload button when card is at max uses', async () => {
 			// For RELOAD type cards, max uses is CONFIG.RELOAD_CARD_USES = 1

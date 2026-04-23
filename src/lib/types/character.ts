@@ -54,7 +54,10 @@ export class Character {
 
 	protected calculateAttrModifiers(attr: string, baseValue: number) {
 		let value = baseValue;
-		const modifiers = this.modifiers.filter((x) => x.attribute === attr);
+		// Only consider enabled modifiers (default to enabled if not specified for backwards compat)
+		const modifiers = this.modifiers.filter(
+			(x) => x.attribute === attr && (x.enabled === undefined || x.enabled === true),
+		);
 		for (const modifier of modifiers) {
 			const formulaResult = calculateModifierFormula(modifier.formula, this);
 			if (modifier.type === 'set') return formulaResult;
@@ -204,6 +207,7 @@ export interface Modifier {
 	type: 'add' | 'set';
 	formula: string;
 	reason: string;
+	enabled?: boolean; // default false for backwards compatibility
 }
 
 export interface Note {

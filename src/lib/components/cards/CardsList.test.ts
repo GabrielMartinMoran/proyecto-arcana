@@ -107,9 +107,11 @@ describe('CardsList', () => {
 			expect(boxedToggle).toContainElement(overloadToggle);
 			expect(boxedToggle).toHaveAttribute('title', 'Sobrecargada');
 			expect(boxedToggle).toHaveTextContent('⚡ Sob');
-			expect(container.querySelector('.controls > .spacer + button')).toHaveTextContent(
-				'Desactivar',
-			);
+			// No spacer rendered when card is activable AND has reload uses
+			expect(container.querySelector('.controls > .spacer')).toBeNull();
+			// The deactivate button follows the overload toggle directly
+			const deactivateButton = container.querySelector('.controls > .overload-checkbox + button');
+			expect(deactivateButton).toHaveTextContent('Desactivar');
 		});
 
 		it('does not render ReloadControl for non-reloadable cards', () => {
