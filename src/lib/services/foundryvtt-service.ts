@@ -142,13 +142,13 @@ export const useFoundryVTTService = () => {
 			}
 		} catch (e) {
 			console.error('[Foundry] Error generando token circular:', e);
-			imageUrl = character.img; // Fallback a la cuadrada
+			imageUrl = character.img ?? undefined; // Fallback a la cuadrada
 		}
 
 		const state: CharacterState = {
 			name: character.name,
 			imageUrl: imageUrl,
-			imageSource: character.img, // Importante para el anti-bucle
+			imageSource: character.img ?? undefined, // Importante para el anti-bucle
 			hp: {
 				value: character.currentHP,
 				max: character.maxHP,
@@ -185,13 +185,13 @@ export const useFoundryVTTService = () => {
 			}
 		} catch (e) {
 			console.error('[Foundry] Error generando token de criatura:', e);
-			imageUrl = creature.img;
+			imageUrl = creature.img ?? undefined;
 		}
 
 		const state: CharacterState = {
 			name: creature.name,
 			imageUrl: imageUrl,
-			imageSource: creature.img,
+			imageSource: creature.img ?? undefined,
 			hp: {
 				// NOTA: Asumimos que si es criatura del bestiario, arranca full vida.
 				// Si tu objeto 'creature' tuviera currentHealth, úsalo aquí.

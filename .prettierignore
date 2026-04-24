@@ -7,3 +7,6 @@ bun.lockb
 
 # Miscellaneous
 /static/assets/
+
+# Generated reference output
+/tools/arcana-skill-builder/out/

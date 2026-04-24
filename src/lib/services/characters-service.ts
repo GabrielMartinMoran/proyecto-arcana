@@ -1,4 +1,4 @@
-import { resolve } from '$app/paths';
+import { asset } from '$app/paths';
 import { useFirebaseService } from '$lib/services/firebase-service';
 import { Character } from '$lib/types/character';
 import { get, writable } from 'svelte/store';
@@ -378,7 +378,7 @@ export const useCharactersService = () => {
 		if (state.exampleCharactersAlreadyLoaded) return;
 		let characters: any[] = [];
 		try {
-			const response = await fetch(resolve('/docs/example-characters.json'));
+			const response = await fetch(asset('/docs/example-characters.json'));
 			characters = await response.json();
 		} catch (error) {
 			console.error('Error fetching example characters:', error);

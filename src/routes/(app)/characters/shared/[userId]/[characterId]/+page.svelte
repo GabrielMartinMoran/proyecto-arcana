@@ -9,8 +9,8 @@
 	import { onDestroy, onMount } from 'svelte';
 
 	// Route params
-	let userId: string = $derived(page.params.userId);
-	let characterId: string = $derived(page.params.characterId);
+	let userId = $derived(page.params.userId ?? '');
+	let characterId = $derived(page.params.characterId ?? '');
 
 	// Tab handling (default to 'general' to avoid deep imports)
 	let currentTab: string = $derived(page.url.searchParams.get('tab') ?? 'general');
@@ -88,14 +88,14 @@
 		characters.update((arr) => [...arr, clone]);
 
 		// Navegar a la página de personajes con el importado seleccionado
-		goto(resolve(`/characters?characterId=${clone.id}`));
+		goto(`${resolve('/characters')}?${new URLSearchParams({ characterId: clone.id }).toString()}`);
 	};
 </script>
 
 <section class="shared-character-page">
 	<div class="header">
 		<h1>Personaje Compartido</h1>
-		<div class="spacer" />
+		<div class="spacer"></div>
 		<button onclick={importToMyCharacters} disabled={!$user || !sharedCharacter}>
 			Importar a mis personajes
 		</button>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/state';
-	import { SvelteURLSearchParams } from '$app/state';
 	import BestiaryFilter from '$lib/components/bestiary/BestiaryFilter.svelte';
 	import Statblock from '$lib/components/statblock/Statblock.svelte';
 	import { useCreaturesService } from '$lib/services/creatures-service';
@@ -30,32 +29,31 @@
 
 	// Sync query params when filters change
 	$effect(() => {
-		// Clone current params to avoid mutating the reactive source directly
-		const params = new SvelteURLSearchParams(page.url.searchParams);
+		const nextUrl = new URL(page.url);
 
 		const trimmedName = (nameFilter || '').trim();
 		const trimmedTier = (tierFilter || '').trim();
 
 		if (trimmedName) {
-			params.set('name', trimmedName);
+			nextUrl.searchParams.set('name', trimmedName);
 		} else {
-			params.delete('name');
+			nextUrl.searchParams.delete('name');
 		}
 
 		if (trimmedTier) {
-			params.set('tier', trimmedTier);
+			nextUrl.searchParams.set('tier', trimmedTier);
 		} else {
-			params.delete('tier');
+			nextUrl.searchParams.delete('tier');
 		}
 
 		const current = page.url.searchParams.toString();
-		const next = params.toString();
+		const next = nextUrl.searchParams.toString();
 
 		// Avoid navigation if there's no effective change
 		if (current === next) return;
 
 		// Update URL without navigation to preserve input focus
-		const newUrl = `${page.url.pathname}${next ? `?${next}` : ''}`;
+		const newUrl = `${nextUrl.pathname}${next ? `?${next}` : ''}`;
 		replaceState(newUrl, {});
 	});
 

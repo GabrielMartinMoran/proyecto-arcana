@@ -1,7 +1,13 @@
-export const clickOutsideDetector = (node: Node) => {
+type ClickOutsideDetectorOptions = {
+	onOutsideClick?: () => void;
+	justOpened?: boolean;
+};
+
+export const clickOutsideDetector = (node: Node, options: ClickOutsideDetectorOptions = {}) => {
 	// the node has been mounted in the DOM
 
-	let isJustOpened = false;
+	let isJustOpened = options.justOpened ?? false;
+	let onOutsideClick = options.onOutsideClick;
 
 	// Use mousedown instead of click because Svelte 5 flushes effects
 	// synchronously during click handlers, which can replace nodes before
@@ -12,7 +18,7 @@ export const clickOutsideDetector = (node: Node) => {
 		if (isJustOpened) return; // Ignore clicks right after open
 		// Use composedPath() which captures the path even if nodes are detached
 		if (!e.composedPath().includes(node)) {
-			node.dispatchEvent(new CustomEvent('outsideclick', { bubbles: true }));
+			onOutsideClick?.();
 		}
 	}
 
@@ -21,13 +27,16 @@ export const clickOutsideDetector = (node: Node) => {
 			// the node has been removed from the DOM
 			window.removeEventListener('mousedown', handleMouseDown);
 		},
-		update(options: { justOpened?: boolean }) {
-			if (options?.justOpened !== undefined) {
-				isJustOpened = options.justOpened;
-				if (options.justOpened) {
-					setTimeout(() => { isJustOpened = false; }, 100);
+		update(nextOptions: ClickOutsideDetectorOptions = {}) {
+			onOutsideClick = nextOptions.onOutsideClick;
+			if (nextOptions.justOpened !== undefined) {
+				isJustOpened = nextOptions.justOpened;
+				if (nextOptions.justOpened) {
+					setTimeout(() => {
+						isJustOpened = false;
+					}, 100);
 				}
 			}
-		}
+		},
 	};
 };

@@ -63,6 +63,13 @@ const buildCharacter = (): Character =>
 		],
 	}) as Character;
 
+const setCurrentPP = (character: Character, value: number) => {
+	Object.defineProperty(character, 'currentPP', {
+		configurable: true,
+		get: () => value,
+	});
+};
+
 describe('CardsTab', () => {
 	beforeEach(() => {
 		hoisted.loadAbilityCards.mockClear();
@@ -185,7 +192,7 @@ describe('CardsTab', () => {
 		it('shows buy button with correct cost for 4th slot', async () => {
 			const character = buildCharacter();
 			character.maxActiveCards = 3;
-			character.currentPP = 10;
+			setCurrentPP(character, 10);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
@@ -203,7 +210,7 @@ describe('CardsTab', () => {
 		it('hides buy button when readonly is true', () => {
 			const character = buildCharacter();
 			character.maxActiveCards = 3;
-			character.currentPP = 10;
+			setCurrentPP(character, 10);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
@@ -220,7 +227,7 @@ describe('CardsTab', () => {
 		it('disables buy button when maxActiveCards >= 10', () => {
 			const character = buildCharacter();
 			character.maxActiveCards = 10;
-			character.currentPP = 100;
+			setCurrentPP(character, 100);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
@@ -237,7 +244,7 @@ describe('CardsTab', () => {
 		it('disables buy button when currentPP is insufficient', () => {
 			const character = buildCharacter();
 			character.maxActiveCards = 3;
-			character.currentPP = 2; // Cost is 3
+			setCurrentPP(character, 2); // Cost is 3
 			const onChange = vi.fn();
 
 			render(CardsTab, {

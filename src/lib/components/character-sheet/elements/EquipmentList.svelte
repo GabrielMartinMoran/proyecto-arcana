@@ -37,7 +37,8 @@
 		// Check if there's an associated modifier (with or without "Objeto: " prefix)
 		const itemNameLower = item.name.toLowerCase();
 		const associatedModifier = character.modifiers.find(
-			(m) => m.reason.toLowerCase() === itemNameLower ||
+			(m) =>
+				m.reason.toLowerCase() === itemNameLower ||
 				m.reason.toLowerCase() === `objeto: ${itemNameLower}`,
 		);
 
@@ -53,7 +54,8 @@
 				onChange(equipment);
 				// Also remove associated modifier
 				character.modifiers = character.modifiers.filter(
-					(m) => m.reason.toLowerCase() !== itemNameLower &&
+					(m) =>
+						m.reason.toLowerCase() !== itemNameLower &&
 						m.reason.toLowerCase() !== `objeto: ${itemNameLower}`,
 				);
 				onCharacterChange(character);
@@ -73,9 +75,9 @@
 		const modifier = modifiersService.findByName(itemName);
 		if (modifier && modifier.subModifiers.length > 0) {
 			// Check if this modifier is not already present (with or without prefix)
-			const itemNameLower = itemName.toLowerCase();
 			const alreadyHas = character.modifiers.some(
-				(m) => m.reason.toLowerCase() === modifier.name.toLowerCase() ||
+				(m) =>
+					m.reason.toLowerCase() === modifier.name.toLowerCase() ||
 					m.reason.toLowerCase() === `objeto: ${modifier.name.toLowerCase()}`,
 			);
 			if (!alreadyHas) {

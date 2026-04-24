@@ -17,11 +17,16 @@
 	let filteredModifiers = $state<LibraryModifier[]>([]);
 	let categories = $state<string[]>([]);
 
-	$effect(async () => {
+	const loadLibraryModifiers = async () => {
+		await modifiersService.loadModifiers();
+		if (!opened) return;
+		categories = modifiersService.getCategories();
+		filteredModifiers = modifiersService.getModifiers();
+	};
+
+	$effect(() => {
 		if (opened) {
-			await modifiersService.loadModifiers();
-			categories = modifiersService.getCategories();
-			filteredModifiers = modifiersService.getModifiers();
+			void loadLibraryModifiers();
 		}
 	});
 
@@ -68,7 +73,7 @@
 	};
 </script>
 
-<Modal opened={opened} title="Biblioteca de Modificadores" onClose={handleClose}>
+<Modal {opened} title="Biblioteca de Modificadores" onClose={handleClose}>
 	<div class="filters">
 		<div class="search-box">
 			<input
@@ -86,7 +91,7 @@
 			>
 				Todos
 			</button>
-			{#each categories as category}
+			{#each categories as category (category)}
 				<button
 					class="category-tab"
 					class:active={selectedCategory === category}

@@ -36,21 +36,9 @@
 	const handleResetFilters = () => {
 		handleFiltersChange(buildEmptyFilters({ onlyAvailables: true }));
 	};
-
-	const handleAddCard = (card: Card) => {
-		const newCard: CharacterCard = {
-			id: card.id,
-			uses: null,
-			isActive: false,
-			level: card.level,
-			cardType: card.cardType,
-			isOvercharged: false,
-		};
-		onCardsChange([...character.cards, newCard]);
-	};
 </script>
 
-<Modal opened={opened} title="Agregar Carta" onClose={onClose}>
+<Modal {opened} title="Agregar Carta" {onClose}>
 	<CardsFilter
 		cards={filteredCards}
 		{filters}

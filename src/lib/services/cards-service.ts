@@ -1,4 +1,4 @@
-import { resolve } from '$app/paths';
+import { asset } from '$app/paths';
 import { mapAbilityCard, mapItemCard } from '$lib/mappers/card-mapper';
 
 import type { AbilityCard } from '$lib/types/cards/ability-card';
@@ -19,7 +19,7 @@ const loadCards = async <T extends Card>(
 ) => {
 	if (get(store).length > 0) return;
 
-	const response = await fetch(resolve(url));
+	const response = await fetch(asset(url));
 	const rawData = await response.text();
 
 	let rawCards = [];

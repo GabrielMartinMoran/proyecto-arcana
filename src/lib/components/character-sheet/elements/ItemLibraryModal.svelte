@@ -18,10 +18,15 @@
 	let searchQuery = $state('');
 	let filteredItems = $state<LibraryItem[]>([]);
 
-	$effect(async () => {
+	const loadLibraryItems = async () => {
+		await itemsService.loadItems();
+		if (!opened) return;
+		filteredItems = itemsService.getItems();
+	};
+
+	$effect(() => {
 		if (opened) {
-			await itemsService.loadItems();
-			filteredItems = itemsService.getItems();
+			void loadLibraryItems();
 		}
 	});
 
@@ -52,7 +57,7 @@
 	};
 </script>
 
-<Modal opened={opened} title="Biblioteca de Objetos" onClose={handleClose}>
+<Modal {opened} title="Biblioteca de Objetos" onClose={handleClose}>
 	<ItemCategoryFilter
 		{selectedCategory}
 		{searchQuery}
@@ -73,7 +78,7 @@
 			<div class="empty">No se encontraron objetos</div>
 		{/if}
 	</div>
-	
+
 	{#snippet footer()}
 		<span class="results-count"
 			>{filteredItems.length}

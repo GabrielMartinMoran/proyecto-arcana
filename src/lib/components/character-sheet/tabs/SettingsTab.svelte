@@ -158,7 +158,9 @@
 	};
 
 	const goToParty = () => {
-		goto(resolve(`/parties?partyId=${character.party.partyId}`));
+		goto(
+			`${resolve('/parties')}?${new URLSearchParams({ partyId: character.party.partyId ?? '' }).toString()}`,
+		);
 	};
 </script>
 

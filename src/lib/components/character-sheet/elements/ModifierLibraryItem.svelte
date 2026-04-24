@@ -15,9 +15,7 @@
 		<span class="modifier-description">{modifier.description}</span>
 	</div>
 	<div class="modifier-actions">
-		<button onclick={() => onAdd(modifier)} class="btn-add" title="Agregar">
-			Agregar
-		</button>
+		<button onclick={() => onAdd(modifier)} class="btn-add" title="Agregar"> Agregar </button>
 	</div>
 </div>
 

@@ -37,7 +37,7 @@
 	type Tab = {
 		name: string;
 		title: string;
-		component: Component<Props, any, any>;
+		component: Component<any>;
 		availableWhenReadOnly: boolean;
 	};
 
@@ -83,25 +83,6 @@
 			title: 'Configuración',
 			component: SettingsTab,
 			availableWhenReadOnly: false,
-			// Satisfy Props type which requires these even if SettingsTab doesn't use them (or uses different props)
-			// Actually, SettingsTab defines its own Props which are different from CharacterSheet Props.
-			// The issue is that we are using a dynamic component <currentTabReference.component> which TypeScript
-			// infers as a union of all possible component types in TABS.
-			// We need to make sure the props passed to <currentTabReference.component> are compatible with ALL components in TABS,
-			// OR we need to accept that TypeScript will complain if we don't differentiate.
-			// However, since we are passing extra props {allowPartyChange}, it causes issues for components that don't expect it?
-			// No, extra props are usually fine in Svelte unless strict.
-			// The error is: Type '{ ... }' is missing the following properties from type 'Props': currentTab, onTabChange
-			// This suggests that ONE of the components (SettingsTab?) expects 'Props' (the type defined in CharacterSheet?)
-			// Let's check SettingsTab props again.
-			// SettingsTab has: character, onChange, allowPartyChange.
-			// CharacterSheet Props has: character, readonly, onChange, currentTab, onTabChange, allowPartyChange.
-			// Wait, the error message said:
-			// Type '{ character: Character; readonly: boolean; onChange: (chara: Character) => void; allowPartyChange: boolean; }'
-			// is missing ... currentTab, onTabChange.
-			// This means the component at line 153 expects currentTab and onTabChange.
-			// But I removed them in the previous step!
-			// I need to put them BACK.
 		},
 		{
 			name: 'see_as_md',

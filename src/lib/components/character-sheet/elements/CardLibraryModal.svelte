@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Modal from '$lib/components/ui/Modal.svelte';
 	import type { Card } from '$lib/types/cards/card';
-	import CardLibraryItem from './CardLibraryItem.svelte';
 
 	type Props = {
 		opened: boolean;
@@ -12,22 +11,21 @@
 		children?: import('svelte').Snippet;
 	};
 
-	let { opened, currentPP, onClose, onAddCard, onPurchaseCard, children }: Props = $props();
-
-	const handleAddFree = (card: Card) => {
-		onAddCard(card);
-	};
-
-	const handlePurchase = (card: Card) => {
-		onPurchaseCard(card);
-	};
+	let {
+		opened,
+		currentPP,
+		onClose,
+		onAddCard: _onAddCard,
+		onPurchaseCard: _onPurchaseCard,
+		children,
+	}: Props = $props();
 
 	const handleClose = () => {
 		onClose();
 	};
 </script>
 
-<Modal opened={opened} title="Biblioteca de Cartas" onClose={handleClose}>
+<Modal {opened} title="Biblioteca de Cartas" onClose={handleClose}>
 	<div class="cards-list">
 		{@render children?.()}
 	</div>

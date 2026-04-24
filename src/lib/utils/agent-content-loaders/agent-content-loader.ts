@@ -1,6 +1,7 @@
-import { resolve } from '$app/paths';
+import { asset } from '$app/paths';
 
 export const loadAgentFile = async (path: string) => {
-	const response = await fetch(resolve(path));
+	const staticPath = `/${path}`.replaceAll('//', '/');
+	const response = await fetch(asset(staticPath));
 	return await response.text();
 };

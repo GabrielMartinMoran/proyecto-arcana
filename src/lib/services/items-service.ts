@@ -1,3 +1,4 @@
+import { asset } from '$app/paths';
 import type { LibraryItem } from '$lib/types/item';
 
 class ItemsService {
@@ -11,7 +12,7 @@ class ItemsService {
 		if (this.loaded) return;
 
 		try {
-			const response = await fetch('/docs/items.json');
+			const response = await fetch(asset('/docs/items.json'));
 			if (!response.ok) {
 				throw new Error(`Failed to load items: ${response.status}`);
 			}

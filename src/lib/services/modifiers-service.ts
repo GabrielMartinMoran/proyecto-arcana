@@ -1,3 +1,4 @@
+import { asset } from '$app/paths';
 import type { LibraryModifier } from '$lib/types/modifier';
 
 class ModifiersService {
@@ -11,7 +12,7 @@ class ModifiersService {
 		if (this.loaded) return;
 
 		try {
-			const response = await fetch('/docs/modifiers.json');
+			const response = await fetch(asset('/docs/modifiers.json'));
 			if (!response.ok) {
 				throw new Error(`Failed to load modifiers: ${response.status}`);
 			}
@@ -37,9 +38,7 @@ class ModifiersService {
 	 * Finds a modifier by exact name match
 	 */
 	findByName(name: string): LibraryModifier | undefined {
-		return this.modifiers.find(
-			(modifier) => modifier.name.toLowerCase() === name.toLowerCase(),
-		);
+		return this.modifiers.find((modifier) => modifier.name.toLowerCase() === name.toLowerCase());
 	}
 
 	/**
@@ -48,9 +47,7 @@ class ModifiersService {
 	findAllByNameMatch(name: string): LibraryModifier[] {
 		if (!name.trim()) return [];
 		const lowerName = name.toLowerCase();
-		return this.modifiers.filter((modifier) =>
-			modifier.name.toLowerCase().includes(lowerName),
-		);
+		return this.modifiers.filter((modifier) => modifier.name.toLowerCase().includes(lowerName));
 	}
 
 	/**

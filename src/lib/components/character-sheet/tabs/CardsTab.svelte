@@ -1,5 +1,4 @@
 <script lang="ts">
-	import CardsFilter from '$lib/components/cards/CardsFilter.svelte';
 	import CardsList from '$lib/components/cards/CardsList.svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
@@ -81,7 +80,10 @@
 		return null;
 	};
 
-	const findRemovedCardId = (oldCards: CharacterCard[], newCards: CharacterCard[]): string | null => {
+	const findRemovedCardId = (
+		oldCards: CharacterCard[],
+		newCards: CharacterCard[],
+	): string | null => {
 		const newIds = new Set(newCards.map((c) => c.id));
 		for (const card of oldCards) {
 			if (!newIds.has(card.id)) {
@@ -96,9 +98,9 @@
 		for (const modifier of matchingModifiers) {
 			if (modifier.subModifiers.length > 0) {
 				// Check if already has this modifier (with or without "Carta: " prefix)
-				const cardNameLower = cardName.toLowerCase();
 				const alreadyHas = character.modifiers.some(
-					(m) => m.reason.toLowerCase() === modifier.name.toLowerCase() ||
+					(m) =>
+						m.reason.toLowerCase() === modifier.name.toLowerCase() ||
 						m.reason.toLowerCase() === `carta: ${modifier.name.toLowerCase()}`,
 				);
 				if (!alreadyHas) {
@@ -112,27 +114,6 @@
 					}));
 					character.modifiers = [...character.modifiers, ...newModifiers];
 				}
-			}
-		}
-	};
-
-	const promptRemoveModifiersForCard = async (cardName: string) => {
-		// Match modifiers with or without "Carta: " prefix
-		const cardNameLower = cardName.toLowerCase();
-		const associatedModifiers = character.modifiers.filter(
-			(m) => m.reason.toLowerCase() === cardNameLower ||
-				m.reason.toLowerCase() === `carta: ${cardNameLower}`,
-		);
-		if (associatedModifiers.length > 0) {
-			const confirmed = await dialogService.confirm(
-				`¿Remover modificadores asociados a '${cardName}'?`,
-				{ title: 'Modificadores Asociados', confirmLabel: 'Sí, remover', cancelLabel: 'No' },
-			);
-			if (confirmed) {
-				character.modifiers = character.modifiers.filter(
-					(m) => m.reason.toLowerCase() !== cardNameLower &&
-						m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
-				);
 			}
 		}
 	};
@@ -152,36 +133,42 @@
 
 		// Handle modifier prompt for removed card - show confirmation BEFORE removing
 		if (removedCardId) {
-			const removedCard = updatedCards.find((c) => c.id === removedCardId) ||
+			const removedCard =
+				updatedCards.find((c) => c.id === removedCardId) ||
 				character.cards.find((c) => c.id === removedCardId);
 			if (removedCard) {
 				const cardInfo = findCardById(removedCardId);
 				const cardName = cardInfo?.name ?? removedCardId;
 				const cardNameLower = cardName.toLowerCase();
 				const associatedModifiers = character.modifiers.filter(
-					(m) => m.reason.toLowerCase() === cardNameLower ||
+					(m) =>
+						m.reason.toLowerCase() === cardNameLower ||
 						m.reason.toLowerCase() === `carta: ${cardNameLower}`,
 				);
 
 				if (associatedModifiers.length > 0) {
 					// Show confirmation BEFORE removing anything
-					dialogService.confirm(
-						`¿Remover modificadores asociados a '${cardName}'?`,
-						{ title: 'Modificadores Asociados', confirmLabel: 'Sí, remover', cancelLabel: 'No' },
-					).then((confirmed) => {
-						if (confirmed) {
-							// User confirmed: remove BOTH card and modifiers together
-							character.cards = character.cards.filter((c) => c.id !== removedCardId);
-							character.modifiers = character.modifiers.filter(
-								(m) => m.reason.toLowerCase() !== cardNameLower &&
-									m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
-							);
-						} else {
-							// User cancelled: restore card to the list, do NOT remove anything
-							character.cards = [...character.cards];
-						}
-						onChange(character);
-					});
+					dialogService
+						.confirm(`¿Remover modificadores asociados a '${cardName}'?`, {
+							title: 'Modificadores Asociados',
+							confirmLabel: 'Sí, remover',
+							cancelLabel: 'No',
+						})
+						.then((confirmed) => {
+							if (confirmed) {
+								// User confirmed: remove BOTH card and modifiers together
+								character.cards = character.cards.filter((c) => c.id !== removedCardId);
+								character.modifiers = character.modifiers.filter(
+									(m) =>
+										m.reason.toLowerCase() !== cardNameLower &&
+										m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
+								);
+							} else {
+								// User cancelled: restore card to the list, do NOT remove anything
+								character.cards = [...character.cards];
+							}
+							onChange(character);
+						});
 					return; // Don't call onChange yet - wait for async confirmation
 				}
 			}
@@ -292,7 +279,7 @@
 				id: crypto.randomUUID(),
 				type: 'subtract' as const,
 				value: cost,
-				reason: `Comprar ranura: ${currentSlots + 1}ª ranura`
+				reason: `Comprar ranura: ${currentSlots + 1}ª ranura`,
 			};
 
 			// Mutate existing proxy (like handlePurchaseCard does)
@@ -322,10 +309,7 @@
 				/>
 				{#if !readonly && character.maxActiveCards < 10}
 					{@const nextSlotCost = CONFIG.ACTIVE_SLOT_PP_COST[character.maxActiveCards] || 0}
-					<button
-						onclick={handleBuyActiveSlot}
-						disabled={character.currentPP < nextSlotCost}
-					>
+					<button onclick={handleBuyActiveSlot} disabled={character.currentPP < nextSlotCost}>
 						Comprar ranura ({nextSlotCost} PP)
 					</button>
 				{/if}

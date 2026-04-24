@@ -21,7 +21,9 @@
 	const onAddToMyCharacters = async (character: Character) => {
 		const newCharacter = new Character({ ...character, id: crypto.randomUUID() });
 		characters.update(() => [...$characters, newCharacter]);
-		goto(resolve(`/characters?characterId=${newCharacter.id}`));
+		goto(
+			`${resolve('/characters')}?${new URLSearchParams({ characterId: newCharacter.id }).toString()}`,
+		);
 	};
 </script>
 

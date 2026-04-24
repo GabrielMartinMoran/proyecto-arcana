@@ -75,7 +75,7 @@
 	{#if currentPartySheetTab === 'members'}
 		<PartyMembersTab {party} {readonly} {onChange} />
 	{:else if currentPartySheetTab === 'see_as_md'}
-		<PartySeeAsMDTab {party} {readonly} {onChange} />
+		<PartySeeAsMDTab {party} />
 	{:else}
 		<PartyNotesTab {party} {readonly} {onChange} />
 	{/if}
@@ -93,25 +93,6 @@
 			flex-direction: row;
 			flex-wrap: wrap;
 			gap: var(--spacing-sm);
-		}
-
-		.members-tab {
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-md);
-
-			.tabs {
-				margin-bottom: var(--spacing-sm);
-			}
-
-			.actions {
-				display: flex;
-				flex-direction: row;
-				justify-content: end;
-				align-items: center;
-				gap: var(--spacing-md);
-				margin-top: var(--spacing-md);
-			}
 		}
 
 		.spacer {

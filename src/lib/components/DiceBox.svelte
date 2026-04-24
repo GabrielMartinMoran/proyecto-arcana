@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
+	import { asset } from '$app/paths';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import DiceBox from '@3d-dice/dice-box';
 	import { onMount } from 'svelte';
@@ -18,7 +18,7 @@
 		const element = document.getElementById('dice-box');
 		if (element) {
 			diceBox = new DiceBox({
-				assetPath: resolve('/assets/dice-box/'),
+				assetPath: asset('/assets/dice-box/'),
 				container: '#dice-box',
 				scale: 4,
 				preloadThemes: ['default-extras'],

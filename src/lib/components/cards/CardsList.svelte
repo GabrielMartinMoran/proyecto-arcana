@@ -166,10 +166,7 @@
 						{@const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1}
 						{@const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0}
 						{@const canPurchase = currentPP >= costValue}
-						<button
-							onclick={() => addCard(card)}
-							class="btn-add"
-						>Agregar</button>
+						<button onclick={() => addCard(card)} class="btn-add">Agregar</button>
 						{#if costValue > 0}
 							<button
 								onclick={() => onPurchaseCard(card)}

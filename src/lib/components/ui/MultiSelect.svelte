@@ -38,7 +38,7 @@
 	};
 </script>
 
-<details use:clickOutsideDetector onoutsideclick={onOutsideClick} bind:open={isOpened}>
+<details use:clickOutsideDetector={{ onOutsideClick }} bind:open={isOpened}>
 	<summary>{summary} ({selectedOptions.size})</summary>
 	<form>
 		<fieldset>
@@ -60,7 +60,12 @@
 					</li>
 				{/each}
 			</ul>
-			<button onclick={clearAll} class="clear-btn" disabled={selectedOptions.size === 0}>
+			<button
+				type="button"
+				onclick={clearAll}
+				class="clear-btn"
+				disabled={selectedOptions.size === 0}
+			>
 				Limpiar
 			</button>
 		</fieldset>
