@@ -1,0 +1,530 @@
+[
+	{
+		"id": "sintonia-fluida",
+		"category": "arquetipos",
+		"name": "Sintonía Fluida",
+		"description": "+5 HP base, +6 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "5 + floor(ppGastados/10)*6",
+				"reason": "Sintonía Fluida"
+			}
+		]
+	},
+	{
+		"id": "estudios-magicos",
+		"category": "arquetipos",
+		"name": "Estudios Mágicos",
+		"description": "+4 PS por cada 10 PP gastados, +ceil(Mente/2) slots activos",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "floor(ppGastados/10)*4",
+				"reason": "Estudios Mágicos"
+			}
+		]
+	},
+	{
+		"id": "herencia-sobrenatural",
+		"category": "arquetipos",
+		"name": "Herencia Sobrenatural",
+		"description": "+3 HP base, +5 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "3 + floor(ppGastados/10)*5",
+				"reason": "Herencia Sobrenatural"
+			}
+		]
+	},
+	{
+		"id": "don-del-elocuente",
+		"category": "arquetipos",
+		"name": "Don del Elocuente",
+		"description": "+4 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "floor(ppGastados/10)*4",
+				"reason": "Don del Elocuente"
+			}
+		]
+	},
+	{
+		"id": "pacto-supremo",
+		"category": "arquetipos",
+		"name": "Pacto Supremo",
+		"description": "+5 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "floor(ppGastados/10)*5",
+				"reason": "Pacto Supremo"
+			}
+		]
+	},
+	{
+		"id": "disciplina-monastica",
+		"category": "arquetipos",
+		"name": "Disciplina Monástica",
+		"description": "+4 HP base, +6 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "4 + floor(ppGastados/10)*6",
+				"reason": "Disciplina Monástica"
+			}
+		]
+	},
+	{
+		"id": "sintonia-primordial",
+		"category": "arquetipos",
+		"name": "Sintonía Primordial",
+		"description": "+3 HP base, +5 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "3 + floor(ppGastados/10)*5",
+				"reason": "Sintonía Primordial"
+			}
+		]
+	},
+	{
+		"id": "senda-del-bribon",
+		"category": "arquetipos",
+		"name": "Senda del Bribón",
+		"description": "+4 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "floor(ppGastados/10)*4",
+				"reason": "Senda del Bribón"
+			}
+		]
+	},
+	{
+		"id": "sintonia-acero",
+		"category": "arquetipos",
+		"name": "Sintonía con el Acero",
+		"description": "+6 HP base, +7 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "6 + floor(ppGastados/10)*7",
+				"reason": "Sintonía con el Acero"
+			}
+		]
+	},
+	{
+		"id": "fe-inspiradora",
+		"category": "arquetipos",
+		"name": "Fe Inspiradora",
+		"description": "+3 HP base, +5 PS por cada 10 PP gastados",
+		"subModifiers": [
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "3 + floor(ppGastados/10)*5",
+				"reason": "Fe Inspiradora"
+			}
+		]
+	},
+	{
+		"id": "cuero",
+		"category": "armaduras",
+		"name": "Arm. de Cuero",
+		"description": "PF:1, Esquiva:0",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Arm. de Cuero"
+			},
+			{ "attribute": "evasion", "type": "add", "formula": "0", "reason": "Arm. de Cuero" }
+		]
+	},
+	{
+		"id": "gambeson",
+		"category": "armaduras",
+		"name": "Gambesón",
+		"description": "PF:2, Esquiva:-1, Sigilo:-1",
+		"subModifiers": [
+			{ "attribute": "physicalMitigation", "type": "add", "formula": "2", "reason": "Gambesón" },
+			{ "attribute": "evasion", "type": "add", "formula": "-1", "reason": "Gambesón" }
+		]
+	},
+	{
+		"id": "cota-mallas",
+		"category": "armaduras",
+		"name": "Cota de mallas",
+		"description": "PF:2, Esquiva:0, Sigilo:-2",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "2",
+				"reason": "Cota de mallas"
+			},
+			{ "attribute": "evasion", "type": "add", "formula": "0", "reason": "Cota de mallas" }
+		]
+	},
+	{
+		"id": "brigantina",
+		"category": "armaduras",
+		"name": "Brigantina",
+		"description": "PF:2, Esquiva:0, Sigilo:-1",
+		"subModifiers": [
+			{ "attribute": "physicalMitigation", "type": "add", "formula": "2", "reason": "Brigantina" },
+			{ "attribute": "evasion", "type": "add", "formula": "0", "reason": "Brigantina" }
+		]
+	},
+	{
+		"id": "placas-parcial",
+		"category": "armaduras",
+		"name": "Placas parcial",
+		"description": "PF:3, Esquiva:-1, Sigilo:-2",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "3",
+				"reason": "Placas parcial"
+			},
+			{ "attribute": "evasion", "type": "add", "formula": "-1", "reason": "Placas parcial" }
+		]
+	},
+	{
+		"id": "placas-completa",
+		"category": "armaduras",
+		"name": "Placas completa",
+		"description": "PF:4, Esquiva:-2, Sigilo:-2",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "4",
+				"reason": "Placas completa"
+			},
+			{ "attribute": "evasion", "type": "add", "formula": "-2", "reason": "Placas completa" }
+		]
+	},
+	{
+		"id": "escudo",
+		"category": "armaduras",
+		"name": "Escudo",
+		"description": "PF:0, Esquiva:+1",
+		"subModifiers": [
+			{ "attribute": "physicalMitigation", "type": "add", "formula": "0", "reason": "Escudo" },
+			{ "attribute": "evasion", "type": "add", "formula": "1", "reason": "Escudo" }
+		]
+	},
+	{
+		"id": "artes-marciales",
+		"category": "monje",
+		"name": "Artes Marciales",
+		"description": "Esquiva = 5 + Reflejos + floor(Instinto/2) (sin armadura)",
+		"subModifiers": [
+			{
+				"attribute": "evasion",
+				"type": "set",
+				"formula": "5 + reflejos + floor(instinto/2)",
+				"reason": "Artes Marciales"
+			}
+		]
+	},
+	{
+		"id": "defensa-impasible",
+		"category": "monje",
+		"name": "Defensa Impasible",
+		"description": "+PF y +PM = floor(Instinto/2) (sin armadura)",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "floor(instinto/2)",
+				"reason": "Defensa Impasible"
+			},
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "floor(instinto/2)",
+				"reason": "Defensa Impasible"
+			}
+		]
+	},
+	{
+		"id": "paso-ligero",
+		"category": "monje",
+		"name": "Paso Ligero",
+		"description": "Velocidad +ceil(Instinto/2) metros",
+		"subModifiers": [
+			{
+				"attribute": "speed",
+				"type": "add",
+				"formula": "ceil(instinto/2)",
+				"reason": "Paso Ligero"
+			}
+		]
+	},
+	{
+		"id": "piel-de-roble",
+		"category": "druida",
+		"name": "Piel de Roble",
+		"description": "+1 PF y +1 PM (sin armadura pesada)",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Piel de Roble"
+			},
+			{ "attribute": "magicalMitigation", "type": "add", "formula": "1", "reason": "Piel de Roble" }
+		]
+	},
+	{
+		"id": "golpe-primordial-tierra",
+		"category": "druida",
+		"name": "Golpe Primordial (Tierra)",
+		"description": "+1 PF hasta próximo turno",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Golpe Primordial (Tierra)"
+			}
+		]
+	},
+	{
+		"id": "golpe-primordial-viento",
+		"category": "druida",
+		"name": "Golpe Primordial (Viento)",
+		"description": "+1 Esquiva hasta próximo turno",
+		"subModifiers": [
+			{
+				"attribute": "evasion",
+				"type": "add",
+				"formula": "1",
+				"reason": "Golpe Primordial (Viento)"
+			}
+		]
+	},
+	{
+		"id": "golpe-primordial-agua",
+		"category": "druida",
+		"name": "Golpe Primordial (Agua)",
+		"description": "+1 PM hasta próximo turno",
+		"subModifiers": [
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Golpe Primordial (Agua)"
+			}
+		]
+	},
+	{
+		"id": "aspecto-combativo",
+		"category": "druida",
+		"name": "Aspecto Combativo",
+		"description": "Pellejo Grueso: +1 PF, Agilidad Depredadora: +2 velocidad",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Aspecto Combativo"
+			},
+			{ "attribute": "speed", "type": "add", "formula": "2", "reason": "Aspecto Combativo" }
+		]
+	},
+	{
+		"id": "furia-de-batalla",
+		"category": "guerrero",
+		"name": "Furia de Batalla",
+		"description": "+1 PF mientras furia activa",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Furia de Batalla"
+			}
+		]
+	},
+	{
+		"id": "ira-del-berserker",
+		"category": "guerrero",
+		"name": "Ira del Berserker",
+		"description": "+2 velocidad y +2 daño melee mientras furia activa",
+		"subModifiers": [
+			{ "attribute": "speed", "type": "add", "formula": "2", "reason": "Ira del Berserker" }
+		]
+	},
+	{
+		"id": "estilo-audaz",
+		"category": "picaro",
+		"name": "Estilo Audaz",
+		"description": "-2 Esquiva en Apertura Temeria",
+		"subModifiers": [
+			{ "attribute": "evasion", "type": "add", "formula": "-2", "reason": "Estilo Audaz" }
+		]
+	},
+	{
+		"id": "evasion-picaro",
+		"category": "picaro",
+		"name": "Evasión",
+		"description": "Save de Reflejos exitoso = sin daño (no la mitad)",
+		"subModifiers": []
+	},
+	{
+		"id": "barrera-arcana",
+		"category": "arcanista",
+		"name": "Barrera Arcana",
+		"description": "+1 PF y +1 PM (sin armadura, 8 horas)",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Barrera Arcana"
+			},
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Barrera Arcana"
+			}
+		]
+	},
+	{
+		"id": "bendecir-objeto",
+		"category": "sacerdote",
+		"name": "Bendecir Objeto",
+		"description": "+1 PF y +1 PM (10 minutos, modo armadura)",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Bendecir Objeto"
+			},
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Bendecir Objeto"
+			}
+		]
+	},
+	{
+		"id": "aura-divina",
+		"category": "sacerdote",
+		"name": "Aura Divina",
+		"description": "+1 a todos los saves",
+		"subModifiers": []
+	},
+	{
+		"id": "fortaleza-rocosa",
+		"category": "linajes",
+		"name": "Fortaleza Rocosa",
+		"description": "+3 HP máximo permanente (Goliath)",
+		"subModifiers": [
+			{ "attribute": "maxHP", "type": "add", "formula": "3", "reason": "Fortaleza Rocosa" }
+		]
+	},
+	{
+		"id": "gracia-elfica",
+		"category": "linajes",
+		"name": "Gracia Élfica",
+		"description": "+1 metro velocidad (Elfo)",
+		"subModifiers": [
+			{ "attribute": "speed", "type": "add", "formula": "1", "reason": "Gracia Élfica" }
+		]
+	},
+	{
+		"id": "adaptacion-climatica",
+		"category": "linajes",
+		"name": "Adaptación Climática",
+		"description": "+PM vs frío o calor = ceil(Cuerpo/2) (Goliath)",
+		"subModifiers": [
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "ceil(cuerpo/2)",
+				"reason": "Adaptación Climática"
+			}
+		]
+	},
+	{
+		"id": "herencia-draconiana",
+		"category": "linajes",
+		"name": "Herencia Draconiana",
+		"description": "+PM vs elemento elegido = Cuerpo (Dracónido)",
+		"subModifiers": [
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "cuerpo",
+				"reason": "Herencia Draconiana"
+			}
+		]
+	},
+	{
+		"id": "vigor",
+		"category": "dotes",
+		"name": "Vigor",
+		"description": "+HP máximo permanente = Cuerpo",
+		"subModifiers": [
+			{ "attribute": "maxHP", "type": "add", "formula": "cuerpo", "reason": "Vigor" }
+		]
+	},
+	{
+		"id": "atleta",
+		"category": "dotes",
+		"name": "Atleta",
+		"description": "+2 metros velocidad permanente",
+		"subModifiers": [{ "attribute": "speed", "type": "add", "formula": "2", "reason": "Atleta" }]
+	},
+	{
+		"id": "resistente",
+		"category": "dotes",
+		"name": "Resistente",
+		"description": "+2 PF y +2 PM contra un instance de daño (como reacción)",
+		"subModifiers": [
+			{ "attribute": "physicalMitigation", "type": "add", "formula": "2", "reason": "Resistente" },
+			{ "attribute": "magicalMitigation", "type": "add", "formula": "2", "reason": "Resistente" }
+		]
+	},
+	{
+		"id": "senor-yermo-indomable",
+		"category": "sinergias",
+		"name": "Señor del Yermo Indomable",
+		"description": "Piel de Corteza: +1 PF y +1 PM (sin armadura pesada)",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Señor del Yermo Indomable"
+			},
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "1",
+				"reason": "Señor del Yermo Indomable"
+			}
+		]
+	}
+]
