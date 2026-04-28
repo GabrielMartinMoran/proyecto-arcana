@@ -1660,7 +1660,8 @@ cards:
       - Brujo
     requirements: 'Pacto Supremo'
     description: >-
-      Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de Presencia, y su Esquiva es 10 + la mitad de tu Presencia (redondeado hacia abajo). Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br>
+      Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de Presencia, y su Esquiva es 5 + tu puntuación de Presencia. Posee una Velocidad de vuelo igual a 4 + tu puntuación de Presencia. Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br>
+      - **Desplazamiento:** Como Interacción, puedes ordenar a tu familiar que se mueva hasta su Velocidad total a un punto que puedas ver.<br>
       - **Vigía:** Mientras esté a distancia Larga o inferior, compartes sus sentidos perfectamente sin usar acciones.<br>
       - **Conducto Eldritch:** Puedes lanzar tu _Descarga Sobrenatural_ originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br>
       - **Detonación:** Si el familiar llega a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de Reflejos (ND 5 + Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).
@@ -1677,7 +1678,7 @@ cards:
     description: >-
       La esencia de tu familiar se vuelve más densa y peligrosa.<br>
       La Salud máxima de tu familiar pasa a ser igual a tres veces tu puntuación de Presencia, y el daño de su Detonación aumenta a 3d8.<br>
-      - **Detonación Táctica:** Como Reacción, cuando una criatura hostil entra a distancia Inmediata de tu familiar, puedes forzar la detonación inmediata de tu emisario (reduciendo sus PS a 0 instantáneamente y desvaneciéndolo). El objetivo debe superar una TS de Reflejos (ND 5 + Presencia) o sufrir el daño de la explosión (la mitad en caso de éxito).
+      - **Azote en Movimiento:** Al usar la acción de Desplazamiento de tu familar, si al finalizar este se encuentra a distancia Inmediata de una criatura a la que hayas atacado en este turno, el familiar desata un latigazo de energía inestable. Realizas un ataque de conjuro cuerpo a cuerpo usando tu Presencia. Si impactas, infliges 1d8 de daño del mismo tipo que tu _Descarga Sobrenatural_.
     uses:
       type: null
       qty: 0
@@ -3086,9 +3087,9 @@ cards:
       - Ritual
     requirements: Sintonía Primordial
     description: >-
-      Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de NA 1 o inferior. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.
-      Para que tu compañero pueda actuar en su turno, debes usar tu Acción para darle una orden. Esta orden solo aplica para el próximo turno de tu compañero.
-      El compañero usa su propio bloque de estadísticas, pero su salud máxima es igual a 3 + (tu Instinto x 2).
+      Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de NA 1 o inferior. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.<br>
+      - **Comandar:** Como Acción, puedes comandar a la bestia para que se mueva y realice una acción de forma inmediata. Si no usas tu Acción para comandarla, la bestia actuará de forma autónoma solo para moverse a tu lado y usar la acción de Ponerse en Guardia.<br>
+      - **Vitalidad:** El compañero usa su propio bloque de estadísticas, pero su Salud Máxima es igual a la Salud base de la bestia + tu puntuación de Instinto.<br>
       Si tu compañero muere, puedes vincularte con una nueva bestia.
     uses:
       type: null
@@ -3101,8 +3102,10 @@ cards:
       - Druida
     requirements: 'Vínculo Animal & Instinto 3'
     description: >-
-      Tu vínculo se fortalece. Ahora puedes comandar a tu compañero usando tu Interacción en lugar de tu Acción.
-      Su Salud Máxima aumenta a 5 + (tu Instinto x 3) y sus ataques se consideran mágicos para el propósito de superar resistencias.
+      Tu vínculo se fortalece.<br>
+      - **Fluidez de Mando:** Ahora puedes comandar a tu compañero usando tu Interacción en lugar de tu Acción.<br>
+      - **Bestia Mágica:** Los ataques de tu compañero se consideran mágicos para el propósito de superar resistencias.<br>
+      - **Salud Máxima:** La salud de tu compañero aumenta; ahora es igual a la Salud base de la bestia + (tu puntuación de Instinto x 3).<br>
     uses:
       type: null
       qty: 0
@@ -3115,10 +3118,15 @@ cards:
     requirements: 'Compañero Veterano & Instinto 4'
     description: >-
       Tu vínculo con tu compañero es ahora una extensión de tu alma. Eliges una de las siguientes especializaciones para tu compañero:
-      - **Guardián:** La Salud Máxima de tu compañero aumenta a 8 + (tu Instinto x 4). Además, como Reacción, cuando un enemigo a 1 metro de él ataca a un objetivo que no eres tú, puede imponer Desventaja (-1d4) en esa tirada.
+      - **Guardián:** La Salud Máxima de tu compañero aumenta a 8 + (tu Instinto x 4). Además, como Reacción, cuando un enemigo a distancia inmediata de él ataca a un objetivo que no eres tú, puede imponer Desventaja (-1d4) en esa tirada.
       - **Vínculo de Caza:** Tu compañero y tú os convertís en una unidad de caza letal. Tú ganas Ventaja (+1d4) en tus tiradas de ataque contra una criatura si tu compañero está adyacente a ella. Tu compañero gana Ventaja (+1d4) en sus tiradas de ataque contra una criatura si tú estás adyacente a ella.
       - **Rastreador:** El compañero obtiene Ventaja (+1d4) en Percepción y Sigilo. Como Acción, puedes usar los sentidos de tu compañero (ver y oír) mientras permanezcas a distancia Larga de él.
       Puedes cambiar la especialización cuando te vinculas con una nueva bestia.
+
+      Tu vínculo es ahora una extensión de tu alma. Eliges una especialización para tu compañero:<br>
+      - **Guardián:** La salud de tu compañero se vuelve la salud base de la bestia + (tu puntuación de Instinto x 5). Además, como Reacción, puede imponer Desventaja (-1d4) a un enemigo que ataque a un aliado a distancia inmediata de él.<br>
+      - **Vínculo de Caza:** Tú y tu compañero ganan Ventaja (+1d4) al atacar a un objetivo si el otro está a distancia inmediata a esa criatura.<br>
+      - **Rastreador:** El compañero obtiene Ventaja en Percepción y Sigilo. Además, mientras estés a distancia Larga o inferior de este, compartes sus sentidos.
     uses:
       type: null
       qty: 0
