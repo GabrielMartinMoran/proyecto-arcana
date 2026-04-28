@@ -1,10 +1,12 @@
 # Sistema de Rol ARCANA
 
-_Un sistema de reglas ligeras, narrativo y basado en cartas._
+_Un sistema de rol profundamente narrativo, moldeado por el destino y guiado por cartas._
 
 # 1. Filosofía de Diseño
 
-ARCANA es un sistema de rol diseñado para ser **simple, adaptable y centrado en la historia**. Su objetivo es proporcionar un marco de reglas ligero que dé poder al Director de Juego (DJ) y a los jugadores para crear narrativas emocionantes sin verse frenados por mecánicas complejas. La personalización y progresión del personaje se basan en un sistema de cartas coleccionables, lo que permite que el sistema sea agnóstico al escenario y se pueda adaptar a cualquier mundo, desde la fantasía medieval hasta el cyberpunk o el horror cósmico.
+ARCANA es un sistema de rol diseñado para entrelazar una resolución táctica elegante con una poderosa agencia narrativa.
+
+Su objetivo es proporcionar un motor de juego estructurado pero accesible, liberando a los jugadores de mecánicas sobrecargadas para que puedan concentrarse en la historia. A través de un intuitivo sistema de progresión por cartas y mecánicas de fuerte carga narrativa —como la dinámica de Suerte y Caos, o la capacidad de alterar la ficción comprando eventos del pasado—, las reglas de ARCANA se ponen al servicio de la creatividad. Es un juego donde las decisiones tácticas y los giros dramáticos tienen el mismo peso, permitiendo al Director de Juego y a los jugadores forjar momentos épicos con total fluidez.
 
 # 2. Creación de Personajes
 
