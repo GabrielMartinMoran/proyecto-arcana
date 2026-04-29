@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { useCreaturesService } from '$lib/services/creatures-service';
 	import type { Creature } from '$lib/types/creature';
-	import { dump } from 'js-yaml';
+	import { creatureToYaml } from '$lib/utils/creature-to-yaml';
 
 	interface Props {
 		onSelect: (yamlText: string) => void;
@@ -34,9 +34,7 @@
 	});
 
 	function selectCreature(creature: Creature) {
-		// Convert creature to YAML string, excluding the id
-		const { ...creatureWithoutId } = creature;
-		const yamlText = dump(creatureWithoutId, { indent: 2, lineWidth: 100 });
+		const yamlText = creatureToYaml(creature);
 		onSelect(yamlText);
 		open = false;
 	}

@@ -1,3 +1,47 @@
+<script module lang="ts">
+	export function getYamlFromUrl(url: URL): {
+		yaml: string | null;
+		readonly: boolean;
+		source: 'hash' | 'query' | null;
+	} {
+		const hashParams = new URLSearchParams(url.hash.replace(/^#/, ''));
+		const hashYaml = hashParams.get('yaml');
+		if (hashYaml !== null) {
+			return {
+				yaml: hashYaml,
+				readonly: hashParams.get('readonly') === '1',
+				source: 'hash',
+			};
+		}
+
+		const queryYaml = url.searchParams.get('yaml');
+		if (queryYaml !== null) {
+			return {
+				yaml: queryYaml,
+				readonly: url.searchParams.get('readonly') === '1',
+				source: 'query',
+			};
+		}
+
+		return { yaml: null, readonly: false, source: null };
+	}
+
+	export function buildNpcUrl(base: URL, yaml: string, readonly: boolean): string {
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
+		const url = new URL(base.toString());
+		url.searchParams.delete('yaml');
+		url.searchParams.delete('readonly');
+		// eslint-disable-next-line svelte/prefer-svelte-reactivity
+		const hash = new URLSearchParams();
+		hash.set('yaml', yaml);
+		if (readonly) {
+			hash.set('readonly', '1');
+		}
+		url.hash = hash.toString();
+		return url.toString();
+	}
+</script>
+
 <script lang="ts">
 	import { replaceState } from '$app/navigation';
 	import RollModal from '$lib/components/RollModal.svelte';
@@ -128,12 +172,9 @@ img: null
 			const now = Date.now();
 			const doUpdate = () => {
 				try {
-					const enc = encodeURIComponent(text);
 					const u = new URL(window.location.href);
-					if (enc && enc.length > 0) u.searchParams.set('yaml', enc);
-					else u.searchParams.delete('yaml');
-					if (readonlyMode) u.searchParams.set('readonly', '1');
-					replaceState(u.toString(), {});
+					const newUrl = buildNpcUrl(u, text, readonlyMode);
+					replaceState(newUrl, {});
 					lastUrlUpdate = Date.now();
 				} catch {
 					// ignore URL update errors
@@ -163,15 +204,17 @@ img: null
 	onMount(() => {
 		try {
 			const u = new URL(window.location.href);
-			const param = u.searchParams.get('yaml');
-			const ro = u.searchParams.get('readonly');
-			readonlyMode = ro === '1';
+			const { yaml, readonly, source } = getYamlFromUrl(u);
+			readonlyMode = readonly;
 
-			if (param) {
+			if (yaml !== null) {
 				try {
-					yamlText = decodeURIComponent(param);
+					yamlText = decodeURIComponent(yaml);
 				} catch {
 					parseError = 'Error al decodificar el parámetro YAML de la URL';
+				}
+				if (source === 'query') {
+					replaceState(buildNpcUrl(u, yamlText, readonlyMode), {});
 				}
 			} else {
 				yamlText = SAMPLE_YAML;
@@ -207,12 +250,8 @@ img: null
 
 	async function handleCopyLink() {
 		try {
-			const enc = encodeURIComponent(yamlText);
 			const u = new URL(window.location.href);
-			if (enc && enc.length > 0) u.searchParams.set('yaml', enc);
-			else u.searchParams.delete('yaml');
-			if (readonlyMode) u.searchParams.set('readonly', '1');
-			const full = u.toString();
+			const full = buildNpcUrl(u, yamlText, readonlyMode);
 			await navigator.clipboard.writeText(full);
 			await dialogService.alert('Enlace copiado al portapapeles.');
 		} catch (e) {
@@ -223,12 +262,9 @@ img: null
 
 	async function handleCopyIframe() {
 		try {
-			const enc = encodeURIComponent(yamlText);
 			const u = new URL(window.location.href);
-			if (enc && enc.length > 0) u.searchParams.set('yaml', enc);
-			else u.searchParams.delete('yaml');
-			u.searchParams.set('readonly', '1');
-			const iframeCode = `<iframe src="${u.toString()}" width="100%" height="600" style="border:none;"></iframe>`;
+			const full = buildNpcUrl(u, yamlText, true);
+			const iframeCode = `<iframe src="${full}" width="100%" height="600" style="border:none;"></iframe>`;
 			await navigator.clipboard.writeText(iframeCode);
 			await dialogService.alert('Código iframe copiado al portapapeles.');
 		} catch (e) {
