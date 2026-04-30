@@ -1,0 +1,21 @@
+cards:
+  - id: e06ae7ec9342dd019da9e93f8adb9539717efa86
+    name: Torrente de la Urdimbre
+    level: 5
+    type: activable
+    tags:
+      - Hechicero
+      - Reacción
+    requirements: Herencia Sobrenatural & Presencia 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Eres magia en estado puro, inestable y devastadora.<br> Una vez por día de descanso, cuando tus Puntos de Salud se
+      reducen a 0, puedes usar tu Reacción para negarte a caer, anclando tu alma a la Urdimbre. Quedas con 1 Punto de
+      Salud y tu cuerpo desata una onda de choque inestable de magia pura.<br> liges hasta un número de criaturas
+      hostiles a distancia Cercana igual a tu puntuación de Presencia. Cada objetivo debe superar una TS de Reflejos (ND
+      5 + Presencia) o recibir 5d8 de daño de Fuerza y ser empujado 3 metros lejos de ti. Si tiene éxito, recibe la
+      mitad del daño y no es empujado.<br> Además, la pura adrenalina mágica te permite recuperar instantáneamente el
+      uso de una carta de Arcanista que tuvieras agotada.
+    slug: torrente-de-la-urdimbre

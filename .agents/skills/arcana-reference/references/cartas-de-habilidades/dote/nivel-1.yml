@@ -1,0 +1,116 @@
+cards:
+  - id: f3bcd176b12b64b7554539bf6d27c32d76125395
+    name: Vigor
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu vitalidad es excepcional. Tu Salud máxima aumenta permanentemente en una cantidad igual a tu puntuación de
+      Cuerpo.
+    slug: vigor
+  - id: 601a9e8c3f70e0013d2c3bde7e653a4e3ff3cca0
+    name: Atleta
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 2
+    uses:
+      type: null
+      qty: 0
+    description: Tu Velocidad base aumenta permanentemente en 2 metros.
+    slug: atleta
+  - id: eea6c2c4f48988061902813445fe9229b09a2220
+    name: Reserva de Suerte
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 2
+    uses:
+      type: null
+      qty: 0
+    description: Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 3 puntos de suerte.
+    slug: reserva-de-suerte
+  - id: 25d08c64f7b753e755d290e56fb527af1466eefa
+    name: Polímata
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de
+      2 o más. Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br> Puedes elegir
+      esta carta más de una vez seleccionando una habilidad diferente en cada una.
+    slug: polimata
+  - id: ec0845a4007dc566aaa7be22068bf9d740bce35a
+    name: Intervención Oportuna
+    level: 1
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Presencia 2 | Instinto 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres un experto en leer la situación y tomar las riendas para salvar a un aliado de un error. Cuando un aliado a
+      distancia Cercana falla una prueba de habilidad de Presencia o Instinto, puedes usar tu Reacción y gastar 1 Punto
+      de Suerte para intervenir. Realizas tú mismo la misma prueba de habilidad; tu aliado puede usar el resultado de tu
+      tirada en lugar de la suya. Esta habilidad no puede usarse si el fallo de tu aliado fue un fallo crítico (pifia).
+    slug: intervencion-oportuna
+  - id: 0de09cec05af92450ff474b729110ea3af5479d7
+    name: Lingüista
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, adquieres ventaja en pruebas
+      para aprender otros idiomas.
+    slug: linguista
+  - id: afdb6ca3f65924f9b0df2f5cfd6fbbc1218e5337
+    name: Peleador Callejero
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Estás acostumbrado al combate cuerpo a cuerpo sin armas. Tus ataques desarmados infligen 1d4 de daño Contundente.
+      Además, inmediatamente después de impactar con un ataque desarmado, puedes usar tu Interacción para intentar una
+      maniobra de Agarrar contra ese objetivo mediante una Tirada Enfrentada de tu Cuerpo contra el Cuerpo o Reflejos
+      del objetivo.
+    slug: peleador-callejero
+  - id: 928ca03a4825862d9d3fa6de48a8e339bfddaa3a
+    name: Artesano Eficiente
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Eres hábil con las manos y no desperdicias material. Cuando realizas la actividad de "Fabricar un Objeto" durante
+      el tiempo entre aventuras, el tiempo requerido se reduce a la mitad. Además, si fallas la prueba de habilidad para
+      fabricar el objeto, solo pierdes la mitad de los materiales en lugar de todos.
+    slug: artesano-eficiente

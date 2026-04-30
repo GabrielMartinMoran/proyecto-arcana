@@ -1,0 +1,93 @@
+items:
+  - id: 4e31a1f7a39fb21028e2b8df0851b4e0d2e055b6
+    name: Anillo de Invisibilidad
+    level: 5
+    type: activable
+    tags:
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Como una Acción, te vuelves invisible. El efecto dura hasta que atacas, lanzas un conjuro, usas otra carta
+      activable o te quitas el anillo. Ocupa una ranura de carta activa mientras está en uso.
+    slug: anillo-de-invisibilidad
+    cost: 8000
+  - id: 8a896a16f186472b13abf5b4b8b770b6f375d8dd
+    name: Botas Aladas
+    level: 5
+    type: activable
+    tags:
+      - Movimiento
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras tengas esta carta activa, obtienes una velocidad de vuelo igual a tu velocidad terrestre. Puedes ascender
+      y descender a voluntad.
+    slug: botas-aladas
+    cost: 7500
+  - id: 9b5034aa1ef0ac62f56c8afb687428a82583fea8
+    name: Perla de Resonancia Arcana
+    level: 5
+    type: efecto
+    tags:
+      - Habilidades
+    requirements: null
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Interacción, puedes tocar esta perla para recuperar el aliento arcano o físico. Elige una de tus cartas
+      activables que ya hayas usado y que tenga un sistema de 'Recarga (X+)' o 'Usos por día'. Recuperas inmediatamente
+      un uso de esa carta.
+    slug: perla-de-resonancia-arcana
+    cost: 6000
+  - id: e5db2a1521119905183fd4ec58c12e723d196af3
+    name: Monóculo del Revelador
+    level: 5
+    type: activable
+    tags:
+      - Visión
+    requirements: Instinto 4
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Acción, puedes mirar a través de este monóculo para ver el mundo tal y como es. Durante 1 minuto,
+      obtienes visión verdadera hasta distancia Cercana, lo que te permite ver en la oscuridad total (mágica o no), ver
+      criaturas y objetos invisibles y ver la forma original de criaturas cambiaformas o transformadas por ilusiones.
+    slug: monoculo-del-revelador
+    cost: 5500
+  - id: 9b228d25ab21a785ba140238b28732fc31e4f2fb
+    name: Guanteletes del Azar Caótico
+    level: 5
+    type: activable
+    tags:
+      - Suerte
+    requirements: null
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como una Interacción, puedes activar estos guanteletes de hierro meteórico. Durante 1 minuto, tus dados de d8
+      "explotan" con un resultado de 7 u 8, en lugar de solo con un 8.
+    slug: guanteletes-del-azar-caotico
+    cost: 9000
+  - id: 0d31aaebff81af1772eb2de01e4cd1d77935a9d9
+    name: Anillo de Enfoque Arcano
+    level: 5
+    type: efecto
+    tags:
+      - Habilidades
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este anillo te permite organizar y acceder a tus habilidades de forma más eficiente. Mientras lo lleves puesto,
+      ganas una Ranura de Carta Activa adicional.
+    slug: anillo-de-enfoque-arcano
+    cost: 10000

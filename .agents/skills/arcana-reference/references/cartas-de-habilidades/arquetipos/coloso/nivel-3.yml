@@ -1,0 +1,19 @@
+cards:
+  - id: 3fa4cfbf69311fe97f9d07a152ba0b26f645d3d8
+    name: Ira del Berserker
+    level: 3
+    type: efecto
+    tags:
+      - Coloso
+    requirements: Furia de Batalla & Cuerpo 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable. Adquieres un uso
+      adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve potenciada con los siguientes
+      beneficios:<br> - **Furia Desatada:** Tus ataques con armas cuerpo a cuerpo infligen **+2 de daño adicional**.<br>
+      - **Mente Inexpugnable:** Obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de **Instinto** para resistir
+      los estados de _Encantado_ o efectos de miedo.<br> - **Impulso Imparable:** Tu **Velocidad** de movimiento aumenta
+      en **2 metros**.
+    slug: ira-del-berserker

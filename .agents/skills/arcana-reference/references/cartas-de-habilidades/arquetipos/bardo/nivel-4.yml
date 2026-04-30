@@ -1,0 +1,72 @@
+cards:
+  - id: f945cc7b6a39323bbf1ea7603585235277c9a96f
+    name: Canto de Héroes
+    level: 4
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Inspiración Superior & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu inspiración es revitalizante. El dado de tu _Canto de Inspiración_ aumenta a 1d8. Además, cualquier aliado que
+      use tu dado de inspiración también gana una cantidad de Puntos de Salud temporales igual al resultado del dado.
+    slug: canto-de-heroes
+  - id: afcd00e78ab6c56f16cf79dc384a472c3c8278c2
+    name: Dominar Persona
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Hechizar Persona & Presencia 5
+    uses:
+      type: RELOAD
+      qty: 7
+    description: >-
+      Como Acción, eliges a un humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Presencia). Si
+      falla, queda Encantado por ti durante 1 minuto. Mientras dure el efecto, tienes un vínculo telepático con él y
+      puedes usar tu Interacción para darle órdenes que obedecerá. Si le das una orden que atenta directamente contra su
+      vida, o si tu o tus aliados lo atacan, el objetivo puede repetir la tirada de Salvación, liberandose del efecto en
+      caso de éxito.
+    slug: dominar-persona
+  - id: 5fbe181d9a88b21a46ef45257485e2009ed7758f
+    name: Terror Primordial
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Liberas una onda psíquica de puro pavor en un cono de 5 metros. Las criaturas en el área deben superar una TS de
+      Instinto (ND 5 + Presencia).<br> Si fallan, reciben 4d6 de daño Psíquico y deben usar su Reacción (si la tienen
+      disponible) para moverse lo más lejos posible de ti por la ruta más segura posible.<br> Además, las criaturas que
+      fallaron quedan Asustadas de ti durante 1 minuto. Pueden repetir la TS al final de cada uno de sus turnos para
+      terminar el efecto.
+    slug: terror-primordial
+  - id: c1025756dad33b69f3fbfb84927b3652c8b30ce7
+    name: Discordia
+    level: 4
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Creas una distorsión psíquica en una esfera de 3 metros de radio a distancia Media. Las criaturas en el área deben
+      superar una TS de Mente (ND 5 + Presencia). Si fallan, quedan Confundidas durante 1 minuto. Una criatura
+      Confundida no puede usar Reacciones y debe tirar 1d4 al inicio de su turno para determinar su comportamiento:<br>
+      - **1-2:** No hace nada (balbucea).<br> - **3:** Huye en una dirección aleatoria.<br> - **4:** Ataca a la criatura
+      más cercana.<br> Pueden repetir la salvación al final de cada turno.
+    slug: discordia

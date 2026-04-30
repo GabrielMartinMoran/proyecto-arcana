@@ -1,0 +1,62 @@
+cards:
+  - id: 1248d541dcaa08e9c146e3d6e68179bb661a12fb
+    name: Anomalía Salvaje
+    level: 3
+    type: efecto
+    tags:
+      - Hechicero
+    requirements: Herencia Sobrenatural & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La magia errática desestabiliza la realidad a tu alrededor.<br> Inmediatamente después de sacrificar Puntos de
+      Salud usando tu carta _Sangre Mágica_, tira 1d4 para determinar qué efecto secundario se manifiesta:<br> -
+      **Parpadeo:** Te teletransportas hasta 3 metros a un espacio desocupado que puedas ver.<br> - **Distorsión:** El
+      próximo ataque que recibas antes del inicio de tu próximo turno se realiza con Desventaja (-1d4).<br> -
+      **Claridad:** Tu próxima tirada de ataque de conjuro antes del final de tu próximo turno obtiene Ventaja
+      (+1d4).<br> - **Ruptura Defensiva:** Eliges a una criatura a distancia Media que puedas ver. Esta sufre Desventaja
+      (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros antes del final de tu próximo
+      turno.
+    slug: anomalia-salvaje
+  - id: bbd84e57623036b103691dd66be554413061af16
+    name: Absorción Inestable
+    level: 3
+    type: activable
+    tags:
+      - Hechicero
+      - Reacción
+    requirements: Herencia Sobrenatural & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a absorber esa energía
+      para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente de esa magia queda
+      latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno,
+      puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.
+    slug: absorcion-inestable
+  - id: 8dd2631b84005e1b76a83f5e9a5aaf78a5bb1109
+    name: Esfera de Caos
+    level: 3
+    type: activable
+    tags:
+      - Hechicero
+      - Conjuro
+    requirements: Herencia Sobrenatural & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Lanzas un orbe de magia inestable a un punto a distancia Media, que detona en una esfera de 3 metros de radio.
+      Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño de la detonación
+      es de 4d6 de daño de Fuerza.<br> - **Cascada Inestable:** Por cada dado de daño que resulte en un "6" natural, la
+      magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales también generan más
+      dados si sacan un 6.<br> - **Anomalía Gravitacional:** Observa el número total final del daño. Las criaturas que
+      fallaron su Tirada de Salvación sufren uno de los siguientes efectos adicionales:<br> &nbsp;&nbsp;&nbsp;&nbsp; -
+      _Si el daño total es PAR (Implosión):_ Son arrastradas violentamente 2 metros hacia el centro de la esfera y su
+      Velocidad se reduce a la mitad hasta el final de tu próximo turno.<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño
+      total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección opuesta al centro de la esfera y caen
+      Derribadas.<br> Si una criatura tiene éxito en la salvación, recibe la mitad del daño total acumulado y no sufre
+      la anomalía gravitacional.
+    slug: esfera-de-caos

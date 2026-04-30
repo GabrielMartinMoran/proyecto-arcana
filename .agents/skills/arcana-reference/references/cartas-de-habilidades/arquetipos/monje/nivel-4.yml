@@ -1,0 +1,30 @@
+cards:
+  - id: 1072658733b228c25c1b338819edfd4f3ccf4e48
+    name: Toque Disruptor
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements: Golpe Aturdidor & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo
+      (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus 'Acciones' o 'Reacciones' que
+      especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
+    slug: toque-disruptor
+  - id: 6d7ff6250182ebbec5f1d1d49ee2fbd8050be464
+    name: Paso del Vacío
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements: Paso del Viento & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio
+      desocupado que puedas ver.
+    slug: paso-del-vacio

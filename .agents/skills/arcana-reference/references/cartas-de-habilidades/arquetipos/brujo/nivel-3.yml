@@ -1,0 +1,93 @@
+cards:
+  - id: 95fa5f50b8cd6761f817cbbae610b53d5d91d8f2
+    name: Escudo de Sombras
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: Pacto Supremo & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, invocas la protección de tu
+      patrón.<br> Reduces el daño de ese ataque a la mitad. Si el atacante se encuentra a distancia inmediata, sufre
+      daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.
+    slug: escudo-de-sombras
+  - id: b0471bea3d96fe003b0b216956fc0a6cec03b6c9
+    name: Manifestación del Patrón
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Conjuro
+    requirements: Pacto Supremo & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Abres una brecha espacio-temporal hacia el dominio de tu patrón en un punto a distancia Media, inundando una
+      esfera de 3 metros de radio con su esencia.<br> Todas las criaturas en el área deben superar una TS de Instinto
+      (ND 5 + Atributo Arcano).<br> Si fallan, reciben 4d6 de daño del mismo tipo que tu _Descarga Sobrenatural_ y
+      sufren una anomalía según el tipo de daño hasta el final de tu próximo turno:<br> - **Eléctrico:** Sobrecarga
+      nerviosa; no pueden usar Reacciones.<br> - **Frío:** Escarcha paralizante; su Velocidad se reduce a la mitad.<br>
+      - **Fuego:** Cenizas ardientes; reciben 1d6 de daño extra al inicio de su próximo turno.<br> - **Fuerza:** Impacto
+      cinético; son empujadas 2 metros lejos del centro y quedan Derribadas.<br> - **Necrótico:** Marchitamiento; no
+      pueden recuperar Puntos de Salud de ninguna forma.<br> - **Psíquico:** Terror incomprensible; quedan en el estado
+      Asustado por ti.<br> - **Radiante:** Destello cegador; quedan en el estado Cegado.<br> Si tienen éxito en la
+      salvación, reciben la mitad del daño y no sufren el efecto secundario.
+    slug: manifestacion-del-patron
+  - id: cc819c02c0e9db4191ccfc6a4a6054e002721fd5
+    name: Danza Eldritch
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+    requirements: Arma del Pacto & Presencia 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Has dominado la letal fluidez entre el acero eldritch y los conjuros.<br> Mientras tengas esta carta activa,
+      cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de
+      Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
+      Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso
+      de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma
+      del Pacto_.
+    slug: danza-eldritch
+  - id: fe84a8e9dad92d8eb0ae0c24a21e461d67273212
+    name: Revelación del Abismo
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Grimorio de las Sombras & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu mente se expande para comprender horrores mayores.<br> Eliges una carta de _Conjuro_ de Nivel 3 de la misma
+      lista que te otorgó tu _Grimorio de las Sombras_. Esta carta se añade a tu colección bajo las mismas reglas.<br> -
+      **Reescritura Pagana:** Ahora, si inviertes una semana entera de tiempo entre aventuras dedicado al estudio
+      exhaustivo, puedes reemplazar una o varias de las cartas otorgadas por este pacto por otras válidas de sus niveles
+      correspondientes.
+    slug: revelacion-del-abismo
+  - id: 0dd8d6104294f87abe7db1b392d31878a48d0afa
+    name: Entidad Desatada
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: Familiar Inescrutable & Presencia 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La esencia de tu familiar se vuelve más densa y peligrosa.<br> La Salud máxima de tu familiar pasa a ser igual a
+      tres veces tu puntuación de Presencia, y el daño de su Detonación aumenta a 3d8.<br> - **Azote en Movimiento:** Al
+      usar la acción de Desplazamiento de tu familar, si al finalizar este se encuentra a distancia Inmediata de una
+      criatura a la que hayas atacado en este turno, el familiar desata un latigazo de energía inestable. Realizas un
+      ataque de conjuro cuerpo a cuerpo usando tu Presencia. Si impactas, infliges 1d8 de daño del mismo tipo que tu
+      _Descarga Sobrenatural_.
+    slug: entidad-desatada

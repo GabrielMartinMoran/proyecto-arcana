@@ -1,0 +1,16 @@
+cards:
+  - id: 1b6c0b574dc90e1840a85ff892e5632ab4bc7f38
+    name: Torbellino de Acero
+    level: 3
+    type: activable
+    tags:
+      - Céfiro
+    requirements: Precisión Letal & Reflejos 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como Acción, desatas una ráfaga ineludible. Si usas un arma a distancia, eliges un punto a distancia Larga. Si
+      usas un arma cuerpo a cuerpo Precisa, el punto eres tú mismo. Todas las criaturas a 3 metros del punto elegido
+      deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño (del mismo tipo que tu arma).
+    slug: torbellino-de-acero

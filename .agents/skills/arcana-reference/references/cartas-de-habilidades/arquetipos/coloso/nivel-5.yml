@@ -1,0 +1,16 @@
+cards:
+  - id: df8aa62730f4dff4f8b378b715c106dca5fdaec7
+    name: Último Bastión
+    level: 5
+    type: activable
+    tags:
+      - Coloso
+      - Reacción
+    requirements: Sintonía con el Acero & Cuerpo 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      Eres la definición de la resistencia.<br> Como Reacción, cuando tú o un aliado a 1 metro van a recibir daño,
+      puedes interponer tu cuerpo o escudo. Al hacer esto, anulas completamente ese daño.
+    slug: ultimo-bastion

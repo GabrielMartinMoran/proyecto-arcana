@@ -1,0 +1,92 @@
+cards:
+  - id: 94a9e2f9de039aa0296a722e8c6ae855c1fdde91
+    name: Artes Marciales
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu entrenamiento en artes marciales, te ha conferido las siguientes capacidades:<br> - **Defensa sin Armadura:**
+      Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 +
+      Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br> - **Golpes de Ki:** Tus ataques desarmados
+      infligen 1d6 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de
+      Instinto para las Tiradas de Ataque.
+    slug: artes-marciales
+  - id: c3c0700582cbb2283d8c383245ab8157aa987608
+    name: Ráfaga de Golpes
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Cuando realizas la acción de Atacar con un ataque desarmado, puedes usar tu **Interacción** para realizar un
+      ataque desarmado adicional contra el **mismo objetivo**.
+    slug: rafaga-de-golpes
+  - id: da6e80765d24adbe89d643b8b9f3076157966436
+    name: Golpes Energéticos
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Has aprendido a canalizar tu ki en tus puños. Tus ataques desarmados ignoran una cantidad de Mitigación Física
+      igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba).
+    slug: golpes-energeticos
+  - id: e2cb851fa7728ecf5545f96c9db5327cf44cbb22
+    name: Flujo Vital
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      Controlas tu energía vital para protegerte o sanarte.<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu
+      energía en una barrera protectora. Ganas 1d4 + tu puntuación de Instinto en Puntos de Salud temporales.<br> -
+      **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al
+      finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu puntuación de Instinto.
+    slug: flujo-vital
+  - id: 623fdfe56c4c426d10ed419de444ba1467e7ff48
+    name: Presencia Serena
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      Como **Acción**, intentas calmar a una criatura hostil o en pánico a distancia Cercana. Realiza una **Tirada
+      Enfrentada** de tu **Instinto** contra el **Instinto** del objetivo. Si ganas, la criatura deja de ser activamente
+      hostil durante 1 minuto o sale de su estado de pánico. El efecto termina si la criatura es atacada. Esta habilidad
+      no puede usarse sobre una criatura que esté actualmente en combate contigo o con tus aliados.
+    slug: presencia-serena
+  - id: 8c33d0e8a8859576602bf34d824efa83488155da
+    name: Chispa de Vida
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: LONG_REST
+      qty: 2
+    description: >-
+      Como **Acción**, tocas a una criatura **Moribunda** y estabilizas su flujo de ki. La criatura se estabiliza
+      automáticamente. Si tú o el objetivo gastan 1 Punto de Suerte, la criatura recupera 1 Punto de Salud en su lugar.
+    slug: chispa-de-vida
