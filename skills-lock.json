@@ -5,6 +5,12 @@
 			"source": "pproenca/dot-skills",
 			"sourceType": "github",
 			"computedHash": "613e3421174049dfb4a528c072cafb5e805322a6d9e1522ec9b74077e07947d7"
+		},
+		"skill-creator": {
+			"source": "anthropics/skills",
+			"sourceType": "github",
+			"skillPath": "skills/skill-creator/SKILL.md",
+			"computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
 		}
 	}
 }

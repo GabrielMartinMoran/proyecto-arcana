@@ -1,54 +1,12 @@
-<script module lang="ts">
-	export function getYamlFromUrl(url: URL): {
-		yaml: string | null;
-		readonly: boolean;
-		source: 'hash' | 'query' | null;
-	} {
-		const hashParams = new URLSearchParams(url.hash.replace(/^#/, ''));
-		const hashYaml = hashParams.get('yaml');
-		if (hashYaml !== null) {
-			return {
-				yaml: hashYaml,
-				readonly: hashParams.get('readonly') === '1',
-				source: 'hash',
-			};
-		}
-
-		const queryYaml = url.searchParams.get('yaml');
-		if (queryYaml !== null) {
-			return {
-				yaml: queryYaml,
-				readonly: url.searchParams.get('readonly') === '1',
-				source: 'query',
-			};
-		}
-
-		return { yaml: null, readonly: false, source: null };
-	}
-
-	export function buildNpcUrl(base: URL, yaml: string, readonly: boolean): string {
-		// eslint-disable-next-line svelte/prefer-svelte-reactivity
-		const url = new URL(base.toString());
-		url.searchParams.delete('yaml');
-		url.searchParams.delete('readonly');
-		// eslint-disable-next-line svelte/prefer-svelte-reactivity
-		const hash = new URLSearchParams();
-		hash.set('yaml', yaml);
-		if (readonly) {
-			hash.set('readonly', '1');
-		}
-		url.hash = hash.toString();
-		return url.toString();
-	}
-</script>
-
 <script lang="ts">
+	import { buildNpcUrl } from '$lib/utils/build-npc-url';
 	import { replaceState } from '$app/navigation';
 	import RollModal from '$lib/components/RollModal.svelte';
 	import Statblock from '$lib/components/statblock/Statblock.svelte';
 	import { mapCreature } from '$lib/mappers/creature-mapper';
 	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { useFoundryVTTService } from '$lib/services/foundryvtt-service';
+	import { hashParams } from '$lib/stores/hash-params.svelte';
 	import type { Creature } from '$lib/types/creature';
 	import { load as yamlLoad } from 'js-yaml';
 	import { onMount } from 'svelte';
@@ -56,22 +14,6 @@
 	import CodeEditor from './CodeEditor.svelte';
 	import CreatureImportModal from './CreatureImportModal.svelte';
 	import EditorToolbar from './EditorToolbar.svelte';
-
-	// UI state
-	let activeTab: 'yaml' | 'sheet' | 'mixed' = $state('mixed');
-	let yamlText = $state('');
-	let parseError: string | null = $state(null);
-	let creature: Creature | undefined = $state(undefined);
-	let readonlyMode = $state(false);
-	let importModalOpen = $state(false);
-	let editorKey = $state(0);
-
-	let parseTimeout: ReturnType<typeof setTimeout> | null = null;
-	const PARSE_DEBOUNCE_MS = 400;
-
-	let urlUpdateTimeout: ReturnType<typeof setTimeout> | null = null;
-	const URL_UPDATE_INTERVAL = 2000;
-	let lastUrlUpdate = 0;
 
 	const SAMPLE_YAML = `# Ejemplo de criatura (editar aquí)
 name: Goblin
@@ -117,6 +59,27 @@ behavior: Actúa en pequeños grupos para emboscar.
 img: null
 `;
 
+	const PARSE_DEBOUNCE_MS = 400;
+	const URL_UPDATE_INTERVAL = 2000;
+
+	let parseTimeout: ReturnType<typeof setTimeout> | null = null;
+	let urlUpdateTimeout: ReturnType<typeof setTimeout> | null = null;
+	let lastUrlUpdate = 0;
+
+	// UI state
+	let activeTab: 'yaml' | 'sheet' | 'mixed' = $state('mixed');
+	let yamlText = $state(
+		(() => {
+			const yaml = hashParams.get('yaml');
+			return yaml !== null ? decodeURIComponent(yaml) : SAMPLE_YAML;
+		})(),
+	);
+	let parseError: string | null = $state(null);
+	let creature: Creature | undefined = $state(undefined);
+	let readonlyMode = $state(hashParams.get('readonly') === '1');
+	let importModalOpen = $state(false);
+	let editorKey = $state(0);
+
 	const { isInsideFoundry, syncCreatureState } = useFoundryVTTService();
 
 	const setCreature = (cr: Creature) => {
@@ -159,6 +122,22 @@ img: null
 	}
 
 	$effect(() => {
+		const yaml = hashParams.get('yaml');
+		const readonly = hashParams.get('readonly') === '1';
+
+		if (yaml !== null) {
+			const decoded = decodeURIComponent(yaml);
+			if (decoded !== yamlText) {
+				yamlText = decoded;
+			}
+		}
+
+		if (readonly !== readonlyMode) {
+			readonlyMode = readonly;
+		}
+	});
+
+	$effect(() => {
 		const text = yamlText;
 
 		if (parseTimeout) clearTimeout(parseTimeout);
@@ -174,7 +153,13 @@ img: null
 				try {
 					const u = new URL(window.location.href);
 					const newUrl = buildNpcUrl(u, text, readonlyMode);
+
+					const currentHash = hashParams.param;
+					const nextHash = new URLSearchParams(new URL(newUrl).hash.replace(/^#/, ''));
+					if (currentHash.toString() === nextHash.toString()) return;
+
 					replaceState(newUrl, {});
+					hashParams.sync();
 					lastUrlUpdate = Date.now();
 				} catch {
 					// ignore URL update errors
@@ -202,31 +187,9 @@ img: null
 	});
 
 	onMount(() => {
-		try {
-			const u = new URL(window.location.href);
-			const { yaml, readonly, source } = getYamlFromUrl(u);
-			readonlyMode = readonly;
-
-			if (yaml !== null) {
-				try {
-					yamlText = decodeURIComponent(yaml);
-				} catch {
-					parseError = 'Error al decodificar el parámetro YAML de la URL';
-				}
-				if (source === 'query') {
-					replaceState(buildNpcUrl(u, yamlText, readonlyMode), {});
-				}
-			} else {
-				yamlText = SAMPLE_YAML;
-			}
-		} catch {
-			yamlText = SAMPLE_YAML;
-			readonlyMode = false;
-		}
-
+		tryParseAndSetCreature(yamlText);
 		if (readonlyMode) {
 			activeTab = 'sheet';
-			tryParseAndSetCreature(yamlText);
 		}
 	});
 
@@ -367,7 +330,6 @@ img: null
 		</div>
 	{/if}
 </div>
-    
 
 <style>
 	:global(html, body) {

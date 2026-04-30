@@ -1,86 +1,98 @@
-import { describe, it, expect } from 'vitest';
-import { getYamlFromUrl, buildNpcUrl } from './+page.svelte';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render } from '@testing-library/svelte';
+import { tick } from 'svelte';
+import NpcPage from './+page.svelte';
 
-describe('getYamlFromUrl', () => {
-	it('returns hash yaml when present', () => {
-		const url = new URL('http://example.com/embedded/npc#yaml=hello%20world');
-		const result = getYamlFromUrl(url);
-		expect(result.yaml).toBe('hello world');
-		expect(result.source).toBe('hash');
-		expect(result.readonly).toBe(false);
+vi.mock('$app/navigation', () => ({
+	replaceState: vi.fn(),
+}));
+
+vi.mock('$app/stores', () => ({
+	page: {
+		subscribe(fn: (v: any) => void) {
+			fn({ url: new URL('http://localhost/embedded/npc') });
+			return () => {};
+		},
+	},
+}));
+
+vi.mock('$app/environment', () => ({
+	browser: true,
+}));
+
+describe('NpcPage regression: hash race condition', () => {
+	const originalHash = window.location.hash;
+	let fetchMock: ReturnType<typeof vi.fn>;
+
+	beforeEach(() => {
+		window.location.hash =
+			'#yaml=' +
+			encodeURIComponent(
+				'name: Goblin\ntier: 1\nlineage: Goblinoide\nsize: Mediano\nattributes:\n  body: 2\n  reflexes: 3\n  mind: 1\n  instinct: 2\n  presence: 1\nstats:\n  maxHealth: 8\n  evasion:\n    value: 1\n    note: null\n  physicalMitigation:\n    value: 0\n    note: null\n  magicalMitigation:\n    value: 0\n    note: null\n  speed:\n    value: 6\n    note: null\nlanguages: []\nattacks: []\ntraits: []\nactions: []\nreactions: []\ninteractions: []\nbehavior: test\nimg: null',
+			);
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+		fetchMock = vi.fn(() => Promise.resolve(new Response('')));
+		globalThis.fetch = fetchMock;
 	});
 
-	it('returns query yaml when hash is absent', () => {
-		const url = new URL('http://example.com/embedded/npc?yaml=query%20value');
-		const result = getYamlFromUrl(url);
-		expect(result.yaml).toBe('query value');
-		expect(result.source).toBe('query');
-		expect(result.readonly).toBe(false);
+	afterEach(() => {
+		window.location.hash = originalHash;
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+		vi.restoreAllMocks();
 	});
 
-	it('prefers hash over query', () => {
-		const url = new URL('http://example.com/embedded/npc?yaml=old#yaml=new');
-		const result = getYamlFromUrl(url);
-		expect(result.yaml).toBe('new');
-		expect(result.source).toBe('hash');
-	});
+	it('should initialize yamlText from hash and not overwrite URL with empty hash', async () => {
+		const { replaceState } = await import('$app/navigation');
+		const { container } = render(NpcPage);
+		await tick();
+		await new Promise((r) => setTimeout(r, 500));
 
-	it('returns null when neither is present', () => {
-		const url = new URL('http://example.com/embedded/npc');
-		const result = getYamlFromUrl(url);
-		expect(result.yaml).toBeNull();
-		expect(result.source).toBeNull();
-		expect(result.readonly).toBe(false);
-	});
+		// The bug: $effect overwrites hash to #yaml= before onMount reads it.
+		// We must NOT see replaceState called with an empty yaml hash.
+		const calls = (replaceState as ReturnType<typeof vi.fn>).mock.calls;
+		const emptyYamlCall = calls.find((call) => {
+			const url = call[0] as string;
+			return typeof url === 'string' && url.includes('#yaml=') && !url.includes('#yaml=name');
+		});
+		expect(emptyYamlCall).toBeUndefined();
 
-	it('reads readonly from hash first', () => {
-		const url = new URL('http://example.com/embedded/npc#yaml=a&readonly=1');
-		const result = getYamlFromUrl(url);
-		expect(result.readonly).toBe(true);
-	});
-
-	it('falls back to query readonly when hash lacks it', () => {
-		const url = new URL('http://example.com/embedded/npc?yaml=a&readonly=1');
-		const result = getYamlFromUrl(url);
-		expect(result.readonly).toBe(true);
-	});
-
-	it('ignores query readonly when hash has yaml even if hash lacks readonly', () => {
-		const url = new URL('http://example.com/embedded/npc?yaml=a&readonly=1#yaml=b');
-		const result = getYamlFromUrl(url);
-		expect(result.yaml).toBe('b');
-		expect(result.readonly).toBe(false);
+		// Verify the creature was parsed from the initial hash yaml
+		expect(container.textContent).toContain('Criatura válida: Goblin');
 	});
 });
 
-describe('buildNpcUrl', () => {
-	it('writes yaml into hash and clears query params', () => {
-		const base = new URL('http://example.com/embedded/npc?yaml=old&readonly=1&foo=bar');
-		const result = buildNpcUrl(base, 'new yaml', false);
-		expect(result).toBe('http://example.com/embedded/npc?foo=bar#yaml=new+yaml');
+describe('NpcPage hash reactivity', () => {
+	const originalHash = window.location.hash;
+
+	beforeEach(() => {
+		window.location.hash = '';
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+		const fetchMock = vi.fn(() => Promise.resolve(new Response('')));
+		globalThis.fetch = fetchMock;
 	});
 
-	it('includes readonly in hash when true', () => {
-		const base = new URL('http://example.com/embedded/npc');
-		const result = buildNpcUrl(base, 'data', true);
-		expect(result).toBe('http://example.com/embedded/npc#yaml=data&readonly=1');
+	afterEach(() => {
+		window.location.hash = originalHash;
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+		vi.restoreAllMocks();
 	});
 
-	it('omits readonly when false', () => {
-		const base = new URL('http://example.com/embedded/npc');
-		const result = buildNpcUrl(base, 'data', false);
-		expect(result).toBe('http://example.com/embedded/npc#yaml=data');
-	});
+	it('should update yamlText when hash changes via hashchange', async () => {
+		const { container } = render(NpcPage);
+		await tick();
+		await new Promise((r) => setTimeout(r, 100));
 
-	it('preserves other search params', () => {
-		const base = new URL('http://example.com/embedded/npc?foo=bar');
-		const result = buildNpcUrl(base, 'data', false);
-		expect(result).toBe('http://example.com/embedded/npc?foo=bar#yaml=data');
-	});
+		// Change hash to a new creature
+		window.location.hash =
+			'#yaml=' +
+			encodeURIComponent(
+				'name: Dragon\ntier: 2\nlineage: Dragón\nsize: Grande\nattributes:\n  body: 4\n  reflexes: 2\n  mind: 3\n  instinct: 3\n  presence: 5\nstats:\n  maxHealth: 40\n  evasion:\n    value: 2\n    note: null\n  physicalMitigation:\n    value: 2\n    note: null\n  magicalMitigation:\n    value: 2\n    note: null\n  speed:\n    value: 5\n    note: null\nlanguages: []\nattacks: []\ntraits: []\nactions: []\nreactions: []\ninteractions: []\nbehavior: test\nimg: null',
+			);
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
 
-	it('handles empty yaml', () => {
-		const base = new URL('http://example.com/embedded/npc');
-		const result = buildNpcUrl(base, '', false);
-		expect(result).toBe('http://example.com/embedded/npc#yaml=');
+		await tick();
+		await new Promise((r) => setTimeout(r, 500));
+
+		expect(container.textContent).toContain('Criatura válida: Dragon');
 	});
 });
