@@ -60,20 +60,14 @@ img: null
 `;
 
 	const PARSE_DEBOUNCE_MS = 400;
-	const URL_UPDATE_INTERVAL = 2000;
+	const URL_UPDATE_DEBOUNCE_MS = 300;
 
 	let parseTimeout: ReturnType<typeof setTimeout> | null = null;
 	let urlUpdateTimeout: ReturnType<typeof setTimeout> | null = null;
-	let lastUrlUpdate = 0;
 
 	// UI state
 	let activeTab: 'yaml' | 'sheet' | 'mixed' = $state('mixed');
-	let yamlText = $state(
-		(() => {
-			const yaml = hashParams.get('yaml');
-			return yaml !== null ? decodeURIComponent(yaml) : SAMPLE_YAML;
-		})(),
-	);
+	let yamlText = $state(hashParams.get('yaml') ?? SAMPLE_YAML);
 	let parseError: string | null = $state(null);
 	let creature: Creature | undefined = $state(undefined);
 	let readonlyMode = $state(hashParams.get('readonly') === '1');
@@ -122,23 +116,8 @@ img: null
 	}
 
 	$effect(() => {
-		const yaml = hashParams.get('yaml');
-		const readonly = hashParams.get('readonly') === '1';
-
-		if (yaml !== null) {
-			const decoded = decodeURIComponent(yaml);
-			if (decoded !== yamlText) {
-				yamlText = decoded;
-			}
-		}
-
-		if (readonly !== readonlyMode) {
-			readonlyMode = readonly;
-		}
-	});
-
-	$effect(() => {
 		const text = yamlText;
+		const readonly = readonlyMode;
 
 		if (parseTimeout) clearTimeout(parseTimeout);
 		parseTimeout = setTimeout(() => {
@@ -146,44 +125,23 @@ img: null
 			parseTimeout = null;
 		}, PARSE_DEBOUNCE_MS);
 
-		// Throttle URL updates
-		try {
-			const now = Date.now();
-			const doUpdate = () => {
-				try {
-					const u = new URL(window.location.href);
-					const newUrl = buildNpcUrl(u, text, readonlyMode);
+		if (urlUpdateTimeout) clearTimeout(urlUpdateTimeout);
+		urlUpdateTimeout = setTimeout(() => {
+			try {
+				const u = new URL(window.location.href);
+				const newUrl = buildNpcUrl(u, text, readonly);
 
-					const currentHash = hashParams.param;
-					const nextHash = new URLSearchParams(new URL(newUrl).hash.replace(/^#/, ''));
-					if (currentHash.toString() === nextHash.toString()) return;
+				const currentHash = hashParams.param;
+				const nextHash = new URLSearchParams(new URL(newUrl).hash.replace(/^#/, ''));
+				if (currentHash.toString() === nextHash.toString()) return;
 
-					replaceState(newUrl, {});
-					hashParams.sync();
-					lastUrlUpdate = Date.now();
-				} catch {
-					// ignore URL update errors
-				}
-			};
-
-			if (now - lastUrlUpdate >= URL_UPDATE_INTERVAL) {
-				if (urlUpdateTimeout) {
-					clearTimeout(urlUpdateTimeout);
-					urlUpdateTimeout = null;
-				}
-				doUpdate();
-			} else {
-				const remaining = URL_UPDATE_INTERVAL - (now - lastUrlUpdate);
-				if (!urlUpdateTimeout) {
-					urlUpdateTimeout = setTimeout(() => {
-						doUpdate();
-						urlUpdateTimeout = null;
-					}, remaining);
-				}
+				replaceState(newUrl, {});
+				hashParams.sync();
+			} catch {
+				// ignore URL update errors
 			}
-		} catch {
-			// ignore throttle/url errors
-		}
+			urlUpdateTimeout = null;
+		}, URL_UPDATE_DEBOUNCE_MS);
 	});
 
 	onMount(() => {
@@ -191,6 +149,17 @@ img: null
 		if (readonlyMode) {
 			activeTab = 'sheet';
 		}
+
+		const handleHashChange = () => {
+			const yaml = hashParams.get('yaml');
+			if (yaml !== null && yaml !== yamlText) {
+				yamlText = yaml;
+			}
+			readonlyMode = hashParams.get('readonly') === '1';
+		};
+
+		window.addEventListener('hashchange', handleHashChange);
+		return () => window.removeEventListener('hashchange', handleHashChange);
 	});
 
 	function handleImport(importedYaml: string) {
