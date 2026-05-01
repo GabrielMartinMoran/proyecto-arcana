@@ -31,6 +31,7 @@
 ## Rasgos
 - **Visión Verdadera:** El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
 - **Movimiento Incorpóreo:** El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
+- **Resistencia (Armas no mágicas):** El espectro recibe la mitad del daño de armas no mágicas.
 
 ## Interacciones
 - **Mirada Aterradora:** El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque). (Usos: 5 [Recarga 5+])

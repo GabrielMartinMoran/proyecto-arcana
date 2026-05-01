@@ -908,6 +908,8 @@ creatures:
         detail: El espectro puede moverse a través de otras criaturas y objetos sólidos
           como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno
           dentro de un objeto.
+      - name: Resistencia (Armas no mágicas)
+        detail: El espectro recibe la mitad del daño de armas no mágicas.
     actions: []
     reactions: []
     interactions:
@@ -1627,7 +1629,7 @@ creatures:
         damage: 3d8 Contundente
         note: null
     traits:
-      - name: Resistencia Mágica
+      - name: Voluntad Antimagia
         detail: El gólem tiene Ventaja en todas las Tiradas de Salvación contra conjuros
           y efectos mágicos.
       - name: Asalto Múltiple
@@ -1735,7 +1737,7 @@ creatures:
           queda Inmovilizado y el Thulu puede usar su acción "Devorar Cerebro" en el siguiente
           turno.
     traits:
-      - name: Resistencia Psíquica
+      - name: Baluarte Mental
         detail: El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
       - name: Vuelo (Levitar)
         detail: El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a
@@ -1880,7 +1882,7 @@ creatures:
       - name: Inmunidades
         detail: El liche es inmune al daño de Veneno y Frío, y a los estados Encantado,
           Envenenado y Dormido.
-      - name: Resistencia Mágica
+      - name: Voluntad Antimagia
         detail: El liche tiene Ventaja en todas las Tiradas de Salvación contra conjuros
           y efectos mágicos.
       - name: Rejuvenecimiento

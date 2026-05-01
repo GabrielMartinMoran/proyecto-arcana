@@ -29,7 +29,7 @@
 - **Choque Psiónico:** +9 para golpear. Daño: 3d10 Psíquico (Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el Thulu puede iniciar una Tirada Enfrentada de Mente contra Mente. Si gana, el objetivo queda Inmovilizado y el Thulu puede usar su acción "Devorar Cerebro" en el siguiente turno.)
 
 ## Rasgos
-- **Resistencia Psíquica:** El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
+- **Baluarte Mental:** El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
 - **Vuelo (Levitar):** El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
 - **Asalto Múltiple:** El Thulu puede realizar dos ataques de Choque Psiónico con su Acción.
 

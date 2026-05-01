@@ -2,7 +2,7 @@
 name: arcana-reference
 description: This skill should be used when the user asks to "consultar reglas de ARCANA", "buscar cartas de habilidades u objetos mágicos", "resumir capítulos del manual ARCANA", or "listar arquetipos y contenido derivado del sistema ARCANA".
 metadata:
-  updated_at: Thu, 30 Apr 2026 00:55:25 GMT
+  updated_at: Fri, 01 May 2026 01:07:54 GMT
 ---
 
 # ARCANA Reference Skill

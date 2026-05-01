@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-04-30T00:55:25.244Z",
+  "generatedAt": "2026-05-01T01:07:54.622Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -21,26 +21,26 @@
     {
       "path": "references/bestiario/rango-3.md",
       "kind": "file",
-      "size": 13514,
-      "sha1": "a7570202e664ab774bb075eabe6d984094edae99"
+      "size": 13613,
+      "sha1": "41df7f3ae2cc41c710efb541fb618bb7ee55a308"
     },
     {
       "path": "references/bestiario/rango-4.md",
       "kind": "file",
-      "size": 6726,
-      "sha1": "dd3e6eed3534de06599599de7d695f0a63b9a446"
+      "size": 6725,
+      "sha1": "e2e7f4ea9e3535bfc14925a585224841dee46926"
     },
     {
       "path": "references/bestiario/rango-5.md",
       "kind": "file",
-      "size": 1923,
-      "sha1": "c67f5cd20011ecc692c0a286039f2718d756a9e8"
+      "size": 1917,
+      "sha1": "e86ab115c2526e30d125617d6a73b2ae50010a41"
     },
     {
       "path": "references/bestiario/rango-6.md",
       "kind": "file",
-      "size": 4141,
-      "sha1": "a7f21798f7ea98a95b4fb0ec10b92534e224d384"
+      "size": 4140,
+      "sha1": "62d81ce94dceeeea7334275fb0760ce2462e8bf8"
     },
     {
       "path": "references/cartas-de-habilidades",
@@ -561,8 +561,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 59230,
-      "sha1": "29a502629c655cb1eb7ef4b6bec7d64fc2c56d98"
+      "size": 59344,
+      "sha1": "171865214b778f63e93c9b103c79954c04054567"
     },
     {
       "path": "references/datasets/cards.yml",
@@ -625,8 +625,8 @@
     {
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
       "kind": "file",
-      "size": 14934,
-      "sha1": "5ceb6ca7036edb08dde243249d56b7bcddaf9f0a"
+      "size": 16492,
+      "sha1": "9f5f3395cc88db4bb7bbdd5fd20a0a30061de8e3"
     },
     {
       "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md",

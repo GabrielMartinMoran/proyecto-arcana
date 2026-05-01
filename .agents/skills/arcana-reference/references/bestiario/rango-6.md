@@ -77,7 +77,7 @@
 - **Mente Dividida:** La mente fragmentada del Liche le permite procesar múltiples amenazas. Tiene 3 Reacciones por ronda de combate en lugar de una.
 - **Vuelo Arcano:** El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
 - **Inmunidades:** El liche es inmune al daño de Veneno y Frío, y a los estados Encantado, Envenenado y Dormido.
-- **Resistencia Mágica:** El liche tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
+- **Voluntad Antimagia:** El liche tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
 - **Rejuvenecimiento:** Si muere, reaparece junto a su filacteria en 1d6 días.
 
 ## Acciones

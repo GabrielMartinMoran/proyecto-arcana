@@ -146,7 +146,7 @@
 - **Puñetazo:** +8 para golpear. Daño: 3d8 Contundente
 
 ## Rasgos
-- **Resistencia Mágica:** El gólem tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
+- **Voluntad Antimagia:** El gólem tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
 - **Asalto Múltiple:** El gólem puede realizar dos ataques de Puñetazo con su Acción.
 
 
