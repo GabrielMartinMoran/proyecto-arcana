@@ -358,14 +358,14 @@ cards:
       qty: 0
   # ------------------------------ DOTES ------------------------------
   - name: Vigor
-    level: 1
+    level: 2
     type: efecto
     tags:
       - Dote
-    requirements: Cuerpo 2
+    requirements: Cuerpo 3
     description: >-
-      Tu vitalidad es excepcional. Tu Salud máxima aumenta permanentemente
-      en una cantidad igual a tu puntuación de Cuerpo.
+      Tu vitalidad es excepcional y tu cuerpo se fortalece con cada desafío superado.<br>
+      Tu Salud máxima aumenta permanentemente en 2 Puntos de Salud por cada 10 Puntos de Progreso (PP) que hayas gastado.
     uses:
       type: null
       qty: 0
@@ -637,7 +637,7 @@ cards:
       Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br><br>
       **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
       Además, aprendes la lengua Jerga de Ladrones.
-      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
     uses:
       type: null
       qty: 0
@@ -1707,12 +1707,12 @@ cards:
     requirements: Presencia 2
     description: >-
       La magia arcana fluye por tu sangre, es parte de tu herencia.<br><br>
-      Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de **Persuasión** e **Intimidación**.<br>
+      Obtienes Ventaja (+1d4) en pruebas de **Persuasión** e **Intimidación**.<br>
       Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Arcano para las cartas de _Arcanista_.<br>
       <br>
       **Beneficio de Arquetipo:** <br>
       - **Uno con la Magia:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Sangre Mágica_ a tu colección.<br>
-      Adicionalmente, aprendes un idioma y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+      Adicionalmente, tu Salud máxima aumenta en +3, aprendes un idioma (asociado con tu fuente de magia) y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
     uses:
       type: null
       qty: 0

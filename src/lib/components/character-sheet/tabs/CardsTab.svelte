@@ -9,6 +9,7 @@
 	import { modifiersService } from '$lib/services/modifiers-service';
 	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Card } from '$lib/types/cards/card';
+	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
 	import { filterCards } from '$lib/utils/card-filtering';
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
@@ -233,24 +234,45 @@
 	};
 
 	const handlePurchaseCard = (card: Card) => {
-		const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1;
-		const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0;
-		if (character.currentPP < costValue) {
-			dialogService.alert(
-				`No tienes suficiente PP. Tienes ${character.currentPP} PP y la carta cuesta ${costValue} PP.`,
-			);
-			return;
-		}
+		if (card.cardType === 'item') {
+			const costValue = parseFloat((card as ItemCard).cost);
+			if (isNaN(costValue)) {
+				return;
+			}
+			if (character.currentGold < costValue) {
+				dialogService.alert('No tienes suficiente oro');
+				return;
+			}
 
-		// Deduct PP and log transaction
-		const purchaseEntry = {
-			id: crypto.randomUUID(),
-			type: 'subtract' as const,
-			value: costValue,
-			reason: `Comprar carta: ${card.name}`,
-		};
-		character.ppHistory = [purchaseEntry, ...character.ppHistory];
-		onChange(character);
+			// Deduct gold and log transaction
+			const purchaseEntry = {
+				id: crypto.randomUUID(),
+				type: 'subtract' as const,
+				value: costValue,
+				reason: `Comprar objeto mágico: ${card.name}`,
+			};
+			character.goldHistory = [purchaseEntry, ...character.goldHistory];
+			onChange(character);
+		} else {
+			const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1;
+			const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0;
+			if (character.currentPP < costValue) {
+				dialogService.alert(
+					`No tienes suficiente PP. Tienes ${character.currentPP} PP y la carta cuesta ${costValue} PP.`,
+				);
+				return;
+			}
+
+			// Deduct PP and log transaction
+			const purchaseEntry = {
+				id: crypto.randomUUID(),
+				type: 'subtract' as const,
+				value: costValue,
+				reason: `Comprar carta: ${card.name}`,
+			};
+			character.ppHistory = [purchaseEntry, ...character.ppHistory];
+			onChange(character);
+		}
 
 		// Add the card
 		const newCard: CharacterCard = {

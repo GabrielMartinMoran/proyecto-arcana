@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/svelte';
 import { tick } from 'svelte';
 import CardsList from './CardsList.svelte';
 import type { AbilityCard } from '$lib/types/cards/ability-card';
+import type { ItemCard } from '$lib/types/cards/item-card';
 import type { CharacterCard } from '$lib/types/character';
 
 const mockCards: AbilityCard[] = [
@@ -50,6 +51,47 @@ const mockCharacterCards: CharacterCard[] = [
 		isOvercharged: false,
 	},
 ];
+
+const mockAbilityCard: AbilityCard = {
+	id: 'ability-1',
+	name: 'Fire Bolt',
+	description: 'A bolt of fire',
+	cardType: 'ability',
+	type: 'activable',
+	level: 2,
+	tags: ['arcanista'],
+	img: '',
+	uses: { type: 'RELOAD', qty: 3 },
+	requirements: null,
+};
+
+const mockItemCardNumeric: ItemCard = {
+	id: 'item-1',
+	name: 'Magic Sword',
+	description: 'A magic sword',
+	cardType: 'item',
+	type: 'activable',
+	level: 1,
+	tags: ['weapon'],
+	img: '',
+	uses: { type: 'USES', qty: 5 },
+	requirements: null,
+	cost: '50',
+};
+
+const mockItemCardIncalculable: ItemCard = {
+	id: 'item-2',
+	name: 'Legendary Artifact',
+	description: 'A legendary artifact',
+	cardType: 'item',
+	type: 'efecto',
+	level: 1,
+	tags: ['artifact'],
+	img: '',
+	uses: { type: 'USES', qty: 1 },
+	requirements: null,
+	cost: 'Incalculable',
+};
 
 describe('CardsList', () => {
 	describe('render', () => {
@@ -274,6 +316,81 @@ describe('CardsList', () => {
 			// Click reload - callback should fire again
 			await fireEvent.click(screen.getByRole('button', { name: '🎲' }));
 			expect(onCardReloadClick).toHaveBeenCalledWith('card-1');
+		});
+	});
+
+	describe('listMode="all"', () => {
+		it('renders purchase button with PP for ability card when currentPP is sufficient', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockAbilityCard],
+					listMode: 'all',
+					readonly: false,
+					currentPP: 5,
+				},
+			});
+
+			const purchaseButton = screen.getByRole('button', { name: /Comprar.*5.*PP/ });
+			expect(purchaseButton).toBeInTheDocument();
+			expect(purchaseButton).not.toBeDisabled();
+		});
+
+		it('renders purchase button with "o" for item card with numeric cost when currentGold is sufficient', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockItemCardNumeric],
+					listMode: 'all',
+					readonly: false,
+					currentGold: 100,
+				},
+			});
+
+			const purchaseButton = screen.getByRole('button', { name: /Comprar.*50.*o/ });
+			expect(purchaseButton).toBeInTheDocument();
+			expect(purchaseButton).not.toBeDisabled();
+		});
+
+		it('does not render purchase button for item card with Incalculable cost', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockItemCardIncalculable],
+					listMode: 'all',
+					readonly: false,
+					currentGold: 1000,
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: /Comprar/ })).not.toBeInTheDocument();
+		});
+
+		it('disables purchase button for item card when currentGold is insufficient', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockItemCardNumeric],
+					listMode: 'all',
+					readonly: false,
+					currentGold: 30,
+				},
+			});
+
+			const purchaseButton = screen.getByRole('button', { name: /Comprar.*50.*o/ });
+			expect(purchaseButton).toBeInTheDocument();
+			expect(purchaseButton).toBeDisabled();
+		});
+
+		it('disables purchase button for ability card when currentPP is insufficient', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockAbilityCard],
+					listMode: 'all',
+					readonly: false,
+					currentPP: 3,
+				},
+			});
+
+			const purchaseButton = screen.getByRole('button', { name: /Comprar.*5.*PP/ });
+			expect(purchaseButton).toBeInTheDocument();
+			expect(purchaseButton).toBeDisabled();
 		});
 	});
 });

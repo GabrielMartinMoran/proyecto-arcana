@@ -16,8 +16,59 @@ const hoisted = vi.hoisted(() => ({
 			cardType: 'ability',
 			img: '',
 		},
+		{
+			id: 'ability-2',
+			name: 'Strong Bolt',
+			level: 2,
+			tags: ['arcanista'],
+			requirements: null,
+			description: 'A strong bolt',
+			uses: { type: 'USES', qty: 2 },
+			type: 'efecto',
+			cardType: 'ability',
+			img: '',
+		},
+		{
+			id: 'ability-5',
+			name: 'Ultimate Bolt',
+			level: 5,
+			tags: ['arcanista'],
+			requirements: null,
+			description: 'An ultimate bolt',
+			uses: { type: 'USES', qty: 1 },
+			type: 'efecto',
+			cardType: 'ability',
+			img: '',
+		},
 	],
-	itemCardsValue: [],
+	itemCardsValue: [
+		{
+			id: 'item-1',
+			name: 'Magic Sword',
+			level: 1,
+			tags: ['weapon'],
+			requirements: null,
+			description: 'A magic sword',
+			uses: { type: 'USES', qty: 5 },
+			type: 'activable',
+			cardType: 'item',
+			img: '',
+			cost: '50',
+		},
+		{
+			id: 'item-2',
+			name: 'Legendary Artifact',
+			level: 1,
+			tags: ['artifact'],
+			requirements: null,
+			description: 'A legendary artifact',
+			uses: { type: 'USES', qty: 1 },
+			type: 'efecto',
+			cardType: 'item',
+			img: '',
+			cost: 'Incalculable',
+		},
+	],
 	loadAbilityCards: vi.fn(async () => {}),
 	loadItemCards: vi.fn(async () => {}),
 	rollExpression: vi.fn(),
@@ -44,6 +95,15 @@ vi.mock('$lib/services/dice-roller-service', () => ({
 	}),
 }));
 
+vi.mock('$lib/services/dialog-service.svelte', () => ({
+	dialogService: {
+		alert: vi.fn(async () => {}),
+		confirm: vi.fn(async () => true),
+		prompt: vi.fn(async () => ''),
+	},
+}));
+
+import { dialogService } from '$lib/services/dialog-service.svelte';
 import CardsTab from './CardsTab.svelte';
 
 const buildCharacter = (): Character =>
@@ -61,10 +121,26 @@ const buildCharacter = (): Character =>
 				isOvercharged: false,
 			},
 		],
-	}) as Character;
+		ppHistory: [],
+		goldHistory: [],
+		attributes: {
+			body: 1,
+			reflexes: 1,
+			mind: 1,
+			instinct: 1,
+			presence: 1,
+		},
+	}) as unknown as Character;
 
 const setCurrentPP = (character: Character, value: number) => {
 	Object.defineProperty(character, 'currentPP', {
+		configurable: true,
+		get: () => value,
+	});
+};
+
+const setCurrentGold = (character: Character, value: number) => {
+	Object.defineProperty(character, 'currentGold', {
 		configurable: true,
 		get: () => value,
 	});
@@ -339,6 +415,122 @@ describe('CardsTab', () => {
 
 			const reloadButton = await screen.findByRole('button', { name: '🎲' });
 			expect(reloadButton).not.toBeDisabled();
+		});
+	});
+
+	describe('handlePurchaseCard', () => {
+		it('purchases ability card: deducts PP, prepends to ppHistory, calls onChange', async () => {
+			const character = buildCharacter();
+			setCurrentPP(character, 10);
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			// Open ability card modal
+			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
+			await fireEvent.click(addAbilityButton);
+
+			// Find and click purchase button for level 2 ability card (5 PP)
+			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*5.*PP/ });
+			await fireEvent.click(purchaseButton);
+
+			expect(character.ppHistory.length).toBe(1);
+			expect(character.ppHistory[0]).toMatchObject({
+				type: 'subtract',
+				value: 5,
+				reason: 'Comprar carta: Strong Bolt',
+			});
+			expect(onChange).toHaveBeenCalled();
+		});
+
+		it('purchases item card: deducts gold, prepends to goldHistory, calls onChange', async () => {
+			const character = buildCharacter();
+			setCurrentGold(character, 100);
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			// Open item card modal
+			const addItemButton = screen.getByRole('button', { name: 'Agregar Carta de Objeto Mágico' });
+			await fireEvent.click(addItemButton);
+
+			// Find and click purchase button for item card (50 gold)
+			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*50.*o/ });
+			await fireEvent.click(purchaseButton);
+
+			expect(character.goldHistory.length).toBe(1);
+			expect(character.goldHistory[0]).toMatchObject({
+				type: 'subtract',
+				value: 50,
+				reason: 'Comprar objeto mágico: Magic Sword',
+			});
+			expect(onChange).toHaveBeenCalled();
+		});
+
+		it('shows alert when trying to purchase item with insufficient gold', async () => {
+			const character = buildCharacter();
+			setCurrentGold(character, 30);
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			// Open item card modal
+			const addItemButton = screen.getByRole('button', { name: 'Agregar Carta de Objeto Mágico' });
+			await fireEvent.click(addItemButton);
+
+			// Find and click purchase button for item card (50 gold)
+			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*50.*o/ });
+			await fireEvent.click(purchaseButton);
+
+			expect(dialogService.alert).toHaveBeenCalledWith('No tienes suficiente oro');
+			expect(character.goldHistory.length).toBe(0);
+			expect(onChange).not.toHaveBeenCalled();
+		});
+
+		it('shows alert when trying to purchase ability with insufficient PP', async () => {
+			const character = buildCharacter();
+			setCurrentPP(character, 10);
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			// Open ability card modal
+			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
+			await fireEvent.click(addAbilityButton);
+
+			// Find and click purchase button for level 5 ability card (17 PP)
+			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*17.*PP/ });
+			await fireEvent.click(purchaseButton);
+
+			expect(dialogService.alert).toHaveBeenCalledWith(
+				'No tienes suficiente PP. Tienes 10 PP y la carta cuesta 17 PP.',
+			);
+			expect(character.ppHistory.length).toBe(0);
+			expect(onChange).not.toHaveBeenCalled();
 		});
 	});
 });

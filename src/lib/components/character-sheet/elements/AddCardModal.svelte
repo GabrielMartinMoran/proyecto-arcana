@@ -55,6 +55,7 @@
 				readonly={false}
 				onChange={onCardsChange}
 				currentPP={character.currentPP}
+				currentGold={character.currentGold}
 				{onPurchaseCard}
 			/>
 		{:else}

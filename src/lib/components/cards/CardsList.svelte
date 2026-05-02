@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Card as CardType } from '$lib/types/cards/card';
+	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { CharacterCard } from '$lib/types/character';
 	import { CONFIG } from '../../../config';
 	import Card from './Card.svelte';
@@ -14,6 +15,7 @@
 		onCardReloadClick?: (cardId: string) => void;
 		// For purchase button in 'all' listMode
 		currentPP?: number;
+		currentGold?: number;
 		onPurchaseCard?: (card: CardType) => void;
 	};
 
@@ -25,6 +27,7 @@
 		onChange = () => {},
 		onCardReloadClick = () => {},
 		currentPP = 0,
+		currentGold = 0,
 		onPurchaseCard = () => {},
 	}: Props = $props();
 
@@ -163,22 +166,40 @@
 							{/if}
 						{/if}
 					{:else}
-						{@const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1}
-						{@const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0}
-						{@const canPurchase = currentPP >= costValue}
 						<button onclick={() => addCard(card)} class="btn-add">Agregar</button>
-						{#if costValue > 0}
-							<button
-								onclick={() => onPurchaseCard(card)}
-								class="btn-purchase"
-								class:disabled={!canPurchase}
-								disabled={!canPurchase}
-								title={!canPurchase
-									? `PP insuficiente (tienes ${currentPP} PP)`
-									: `Comprar (${costValue} PP)`}
-							>
-								Comprar ({costValue} PP)
-							</button>
+						{#if card.cardType === 'ability'}
+							{@const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1}
+							{@const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0}
+							{@const canPurchase = currentPP >= costValue}
+							{#if costValue > 0}
+								<button
+									onclick={() => onPurchaseCard(card)}
+									class="btn-purchase"
+									class:disabled={!canPurchase}
+									disabled={!canPurchase}
+									title={!canPurchase
+										? `PP insuficiente (tienes ${currentPP} PP)`
+										: `Comprar (${costValue} PP)`}
+								>
+									Comprar ({costValue} PP)
+								</button>
+							{/if}
+						{:else if card.cardType === 'item'}
+							{@const itemCost = parseFloat((card as ItemCard).cost)}
+							{#if !isNaN(itemCost) && itemCost > 0}
+								{@const canPurchase = currentGold !== undefined && currentGold >= itemCost}
+								<button
+									onclick={() => onPurchaseCard(card)}
+									class="btn-purchase"
+									class:disabled={!canPurchase}
+									disabled={!canPurchase}
+									title={!canPurchase
+										? `Oro insuficiente (tienes ${currentGold} o)`
+										: `Comprar (${itemCost} o)`}
+								>
+									Comprar ({itemCost} o)
+								</button>
+							{/if}
 						{/if}
 					{/if}
 				</div>
