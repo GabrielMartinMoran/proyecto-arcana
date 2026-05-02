@@ -101,12 +101,12 @@
 		"id": "senda-del-bribon",
 		"category": "arquetipos",
 		"name": "Senda del Bribón",
-		"description": "+4 PS por cada 10 PP gastados",
+		"description": "+5 PS por cada 10 PP gastados",
 		"subModifiers": [
 			{
 				"attribute": "maxHP",
 				"type": "add",
-				"formula": "floor(ppGastados/10)*4",
+				"formula": "floor(ppGastados/10)*5",
 				"reason": "Senda del Bribón"
 			}
 		]
@@ -485,9 +485,14 @@
 		"id": "vigor",
 		"category": "dotes",
 		"name": "Vigor",
-		"description": "+HP máximo permanente = Cuerpo",
+		"description": "+2 PS por cada 10 PP gastados",
 		"subModifiers": [
-			{ "attribute": "maxHP", "type": "add", "formula": "cuerpo", "reason": "Vigor" }
+			{
+				"attribute": "maxHP",
+				"type": "add",
+				"formula": "floor(ppGastados/10)*2",
+				"reason": "Vigor"
+			}
 		]
 	},
 	{
