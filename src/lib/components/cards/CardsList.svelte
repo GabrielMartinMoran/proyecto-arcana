@@ -137,7 +137,7 @@
 									(characterCard?.isOvercharged ?? false)}
 							/>
 						{/if}
-						{#if card.type === 'activable'}
+						{#if card.type === 'activable' && card.uses.type === 'RELOAD'}
 							<label
 								class="overload-checkbox boxed-control button-height-rhythm"
 								title="Sobrecargada"
@@ -151,7 +151,7 @@
 								<span class="label-text">Sob</span>
 							</label>
 						{/if}
-						{#if !(getCardTotalUses(card) !== null && card.type === 'activable')}
+						{#if !(getCardTotalUses(card) !== null && card.type === 'activable' && card.uses.type === 'RELOAD')}
 							<span class="spacer"></span>
 						{/if}
 						<button onclick={() => deactivateCard(card.id)}>Desactivar</button>

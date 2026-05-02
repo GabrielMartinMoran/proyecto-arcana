@@ -93,6 +93,71 @@ const mockItemCardIncalculable: ItemCard = {
 	cost: 'Incalculable',
 };
 
+const mockActivableReloadCard: AbilityCard = {
+	id: 'activable-reload-1',
+	name: 'Adrenaline Surge',
+	description: 'A surge of adrenaline',
+	cardType: 'ability',
+	type: 'activable',
+	level: 1,
+	tags: ['combatiente'],
+	img: '',
+	uses: { type: 'RELOAD', qty: 3 },
+	requirements: null,
+};
+
+const mockActivableLongRestCard: AbilityCard = {
+	id: 'activable-long-rest-1',
+	name: 'Second Wind',
+	description: 'A second wind',
+	cardType: 'ability',
+	type: 'activable',
+	level: 1,
+	tags: ['combatiente'],
+	img: '',
+	uses: { type: 'LONG_REST', qty: 1 },
+	requirements: null,
+};
+
+const mockActivableUsesCard: AbilityCard = {
+	id: 'activable-uses-1',
+	name: 'Shield Block',
+	description: 'Block with shield',
+	cardType: 'ability',
+	type: 'activable',
+	level: 1,
+	tags: ['combatiente'],
+	img: '',
+	uses: { type: 'USES', qty: 2 },
+	requirements: null,
+};
+
+const mockActivableDayCard: AbilityCard = {
+	id: 'activable-day-1',
+	name: 'Daily Power',
+	description: 'A daily power',
+	cardType: 'ability',
+	type: 'activable',
+	level: 1,
+	tags: ['combatiente'],
+	img: '',
+	uses: { type: 'DAY', qty: 1 },
+	requirements: null,
+};
+
+const mockEfectoUsesCard: AbilityCard = {
+	id: 'efecto-uses-1',
+	name: 'Passive Aura',
+	description: 'A passive aura',
+	cardType: 'ability',
+	type: 'efecto',
+	level: 1,
+	tags: ['combatiente'],
+	img: '',
+	uses: { type: 'USES', qty: 2 },
+	requirements: null,
+};
+
 describe('CardsList', () => {
 	describe('render', () => {
 		it('keeps reload control as the first active sibling with local button-rhythm styling', () => {
@@ -167,6 +232,120 @@ describe('CardsList', () => {
 			});
 			const diceButton = screen.queryByRole('button', { name: /tirar para recargar/i });
 			expect(diceButton).toBeNull();
+		});
+
+		it('renders overcharge toggle for activable + RELOAD card', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockActivableReloadCard],
+					characterCards: [
+						{
+							id: 'activable-reload-1',
+							uses: 3,
+							isActive: true,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+			const overloadToggle = screen.queryByRole('checkbox');
+			expect(overloadToggle).toBeInTheDocument();
+		});
+
+		it('does NOT render overcharge toggle for activable + LONG_REST card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockActivableLongRestCard],
+					characterCards: [
+						{
+							id: 'activable-long-rest-1',
+							uses: 1,
+							isActive: true,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+			const overloadToggle = screen.queryByRole('checkbox');
+			expect(overloadToggle).not.toBeInTheDocument();
+			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+		});
+
+		it('does NOT render overcharge toggle for activable + USES card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockActivableUsesCard],
+					characterCards: [
+						{
+							id: 'activable-uses-1',
+							uses: 2,
+							isActive: true,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+			const overloadToggle = screen.queryByRole('checkbox');
+			expect(overloadToggle).not.toBeInTheDocument();
+			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+		});
+
+		it('does NOT render overcharge toggle for activable + DAY card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockActivableDayCard],
+					characterCards: [
+						{
+							id: 'activable-day-1',
+							uses: 1,
+							isActive: true,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+			const overloadToggle = screen.queryByRole('checkbox');
+			expect(overloadToggle).not.toBeInTheDocument();
+			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+		});
+
+		it('does NOT render overcharge toggle for efecto + USES card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockEfectoUsesCard],
+					characterCards: [
+						{
+							id: 'efecto-uses-1',
+							uses: 2,
+							isActive: true,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+			const overloadToggle = screen.queryByRole('checkbox');
+			expect(overloadToggle).not.toBeInTheDocument();
+			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
 		});
 	});
 

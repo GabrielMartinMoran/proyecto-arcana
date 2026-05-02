@@ -64,7 +64,7 @@ export function buildSheetUrl(params: SheetUrlParams): SheetUrlResult {
 			urlWeb = urlWeb.replace('/characters/shared/', '/embedded/characters/');
 		}
 
-		const separator = urlWeb.includes('?') ? '&' : '?';
+		const separator = urlWeb.includes('?') || urlWeb.includes('#') ? '&' : '?';
 
 		result.health = actor.system.health || { value: 0, max: 0 };
 
