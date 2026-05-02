@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-05-01T01:07:54.622Z",
+  "generatedAt": "2026-05-02T16:19:27.211Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -291,8 +291,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 941,
-      "sha1": "bb718050b326dc8a6582b6fad9a64ae6594b70c2"
+      "size": 974,
+      "sha1": "56f491fe170ff4cbb2846420163791373d0b1394"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml",
@@ -412,7 +412,7 @@
       "path": "references/cartas-de-habilidades/arquetipos/picaro/arquetipo-nivel-1.yml",
       "kind": "file",
       "size": 733,
-      "sha1": "fc6f30eb4ef2f480bc06ab6fb8d774ea4137da98"
+      "sha1": "09a89405326ab28f39b51891779566865ddb10f0"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-1.yml",
@@ -525,14 +525,14 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-1.yml",
       "kind": "file",
-      "size": 3884,
-      "sha1": "cdf7b86dfa834ff0b0ed213775b4cdd4697a212b"
+      "size": 3531,
+      "sha1": "3a439f32f2b06f07bff2b7efb3cbd182fe430ad0"
     },
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
       "kind": "file",
-      "size": 8263,
-      "sha1": "6114b03521265f801bf0d375a9ed988586555478"
+      "size": 8698,
+      "sha1": "8828693db3009c0123e4e3b51fd03c584e1b708e"
     },
     {
       "path": "references/cartas-de-habilidades/linaje",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 202302,
-      "sha1": "dd64f9c5b90345f67d9d123372157227f032eada"
+      "size": 202417,
+      "sha1": "b83fbce308bc822eb38401ed8a455a0ff59e92c4"
     },
     {
       "path": "references/datasets/magical-items.yml",

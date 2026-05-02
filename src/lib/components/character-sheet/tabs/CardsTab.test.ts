@@ -533,4 +533,87 @@ describe('CardsTab', () => {
 			expect(onChange).not.toHaveBeenCalled();
 		});
 	});
+
+	describe('modal integration', () => {
+		it('does not show added card after closing and re-opening modal', async () => {
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			// Open ability card modal
+			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
+			await fireEvent.click(addAbilityButton);
+
+			// Strong Bolt should be visible in the modal
+			await waitFor(() => {
+				expect(screen.getByText('Strong Bolt')).toBeInTheDocument();
+			});
+
+			// Click "Agregar" for Strong Bolt (first unowned ability card in the list)
+			const addButtons = await screen.findAllByRole('button', { name: 'Agregar' });
+			await fireEvent.click(addButtons[0]);
+
+			expect(onChange).toHaveBeenCalled();
+
+			// Close modal
+			const closeButtons = screen.getAllByRole('button', { name: 'Cerrar' });
+			await fireEvent.click(closeButtons[0]);
+
+			// Re-open ability card modal
+			await fireEvent.click(addAbilityButton);
+
+			// Strong Bolt should no longer appear in the modal
+			await waitFor(() => {
+				expect(screen.queryByText('Strong Bolt')).not.toBeInTheDocument();
+			});
+		});
+
+		it('does not show purchased card after closing and re-opening modal', async () => {
+			const character = buildCharacter();
+			setCurrentPP(character, 10);
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			// Open ability card modal
+			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
+			await fireEvent.click(addAbilityButton);
+
+			// Strong Bolt should be visible
+			await waitFor(() => {
+				expect(screen.getByText('Strong Bolt')).toBeInTheDocument();
+			});
+
+			// Purchase Strong Bolt
+			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*5.*PP/ });
+			await fireEvent.click(purchaseButton);
+
+			expect(onChange).toHaveBeenCalled();
+
+			// Close modal
+			const closeButtons = screen.getAllByRole('button', { name: 'Cerrar' });
+			await fireEvent.click(closeButtons[0]);
+
+			// Re-open ability card modal
+			await fireEvent.click(addAbilityButton);
+
+			// Strong Bolt should no longer appear in the modal
+			await waitFor(() => {
+				expect(screen.queryByText('Strong Bolt')).not.toBeInTheDocument();
+			});
+		});
+	});
 });

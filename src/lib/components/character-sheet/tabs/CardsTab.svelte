@@ -2,16 +2,14 @@
 	import CardsList from '$lib/components/cards/CardsList.svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
-	import { useCardFiltersService } from '$lib/services/cards-filter-service';
 	import { useCardsService } from '$lib/services/cards-service';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { modifiersService } from '$lib/services/modifiers-service';
-	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Card } from '$lib/types/cards/card';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
-	import { filterCards } from '$lib/utils/card-filtering';
+
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
@@ -34,10 +32,6 @@
 
 	let { rollExpression } = useDiceRollerService();
 
-	const { buildEmptyFilters } = useCardFiltersService();
-
-	let filters: CardFilters = $state(buildEmptyFilters({ onlyAvailables: true }));
-
 	let allCards: Card[] = $state([]);
 
 	let corruptedCharacterCards = $derived(
@@ -46,7 +40,6 @@
 
 	let addCardModalState = $state({
 		opened: false,
-		filteredCards: [] as Card[],
 		allCards: [] as Card[],
 	});
 
@@ -54,7 +47,6 @@
 		addCardModalState = {
 			...addCardModalState,
 			allCards: [],
-			filteredCards: [],
 		};
 	});
 
@@ -219,7 +211,6 @@
 			const modalCards = type === 'ability' ? get(abilityCardsStore) : get(itemCardsStore);
 			addCardModalState = {
 				opened: true,
-				filteredCards: filterCards(modalCards, filters, character),
 				allCards: modalCards,
 			};
 		}, 0);
@@ -228,7 +219,6 @@
 	const closeAddCardModal = () => {
 		addCardModalState = {
 			opened: false,
-			filteredCards: [],
 			allCards: [],
 		};
 	};
@@ -252,7 +242,6 @@
 				reason: `Comprar objeto mágico: ${card.name}`,
 			};
 			character.goldHistory = [purchaseEntry, ...character.goldHistory];
-			onChange(character);
 		} else {
 			const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1;
 			const costValue = CONFIG.CARD_LEVEL_PP_COST[levelValue] || 0;
@@ -271,7 +260,6 @@
 				reason: `Comprar carta: ${card.name}`,
 			};
 			character.ppHistory = [purchaseEntry, ...character.ppHistory];
-			onChange(character);
 		}
 
 		// Add the card
@@ -400,7 +388,7 @@
 
 <AddCardModal
 	opened={addCardModalState.opened}
-	cards={addCardModalState.filteredCards}
+	cards={addCardModalState.allCards}
 	{character}
 	onClose={closeAddCardModal}
 	onCardsChange={onCharacterCardsChange}

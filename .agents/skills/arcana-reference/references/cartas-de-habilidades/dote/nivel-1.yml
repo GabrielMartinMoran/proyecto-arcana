@@ -1,18 +1,4 @@
 cards:
-  - id: f3bcd176b12b64b7554539bf6d27c32d76125395
-    name: Vigor
-    level: 1
-    type: efecto
-    tags:
-      - Dote
-    requirements: Cuerpo 2
-    uses:
-      type: null
-      qty: 0
-    description: >-
-      Tu vitalidad es excepcional. Tu Salud máxima aumenta permanentemente en una cantidad igual a tu puntuación de
-      Cuerpo.
-    slug: vigor
   - id: 601a9e8c3f70e0013d2c3bde7e653a4e3ff3cca0
     name: Atleta
     level: 1

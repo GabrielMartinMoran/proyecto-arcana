@@ -1,4 +1,18 @@
 cards:
+  - id: f3bcd176b12b64b7554539bf6d27c32d76125395
+    name: Vigor
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Tu vitalidad es excepcional y tu cuerpo se fortalece con cada desafío superado.<br> Tu Salud máxima aumenta
+      permanentemente en 2 Puntos de Salud por cada 10 Puntos de Progreso (PP) que hayas gastado.
+    slug: vigor
   - id: 26ebe2c0f4fd21050791e52fabf5ca0e694b0500
     name: Sanador
     level: 2
