@@ -11,15 +11,15 @@
  * @returns The dice formula string
  *
  * @example
- * buildInitiativeFormula(5, 'normal')     // "1d8e + 5"
- * buildInitiativeFormula(5, 'advantage') // "1d8e + 5 + 1d4"
- * buildInitiativeFormula(5, 'disadvantage') // "1d8e + 5 - 1d4"
+ * buildInitiativeFormula(5, 'normal')     // "1d8x + 5"
+ * buildInitiativeFormula(5, 'advantage') // "1d8x + 5 + 1d4"
+ * buildInitiativeFormula(5, 'disadvantage') // "1d8x + 5 - 1d4"
  */
 export function buildInitiativeFormula(
 	initMod: number,
 	mode: 'normal' | 'advantage' | 'disadvantage',
 ): string {
-	let formula = `1d8e + ${initMod}`;
+	let formula = `1d8x + ${initMod}`;
 
 	if (mode === 'advantage') {
 		formula += ' + 1d4';

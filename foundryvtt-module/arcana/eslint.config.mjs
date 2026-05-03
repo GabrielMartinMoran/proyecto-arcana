@@ -1,9 +1,16 @@
 import pluginJs from '@eslint/js';
+import pluginTs from '@typescript-eslint/eslint-plugin';
+import tseslint from '@typescript-eslint/parser';
 import globals from 'globals';
 
 export default [
 	{
+		files: ['src/**/*.ts'],
+		plugins: {
+			'@typescript-eslint': pluginTs,
+		},
 		languageOptions: {
+			parser: tseslint,
 			globals: {
 				...globals.browser,
 				...globals.jquery,
@@ -17,7 +24,7 @@ export default [
 				CONFIG: 'readonly',
 				CONST: 'readonly',
 
-				// --- DADOS & TIRADAS (Aquí faltaba Die) ---
+				// --- DADOS & TIRADAS ---
 				Roll: 'readonly',
 				Die: 'readonly',
 				FateDie: 'readonly',
@@ -88,14 +95,25 @@ export default [
 				getProperty: 'readonly',
 				setProperty: 'readonly',
 				randomID: 'readonly',
+
+				// --- TYPES (used in type annotations) ---
+				JQuery: 'readonly',
 			},
 		},
-	},
-	pluginJs.configs.recommended,
-	{
+		...pluginJs.configs.recommended,
 		rules: {
-			'no-unused-vars': 'warn',
+			'no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-vars': [
+				'warn',
+				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+			],
 			'no-undef': 'error',
+		},
+	},
+	{
+		files: ['src/types/**/*.ts'],
+		rules: {
+			'@typescript-eslint/no-unused-vars': 'off',
 		},
 	},
 ];

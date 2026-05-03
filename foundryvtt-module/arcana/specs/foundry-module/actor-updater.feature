@@ -47,11 +47,11 @@ Feature: Actor Updater
     And the imgSource flag should be "new-source"
 
   @foundry @actor @initiative
-  Scenario: Update initiative flag
-    Given an actor with initiative flag set to 5
+  Scenario: Update system initiative
+    Given an actor with system initiative set to 5
     And an initiative update payload with value 8
     When the ActorUpdater handles the update
-    Then the actor initiative flag should be 8
+    Then the actor system initiative should be 8
 
   @foundry @actor @skip-no-change
   Scenario: Skip update when no actual changes

@@ -9,6 +9,7 @@ export interface HealthData {
 
 export interface ActorSystemData {
 	health?: HealthData;
+	initiative?: number;
 }
 
 export interface ArcanaFlags {
@@ -50,18 +51,13 @@ export interface ArcanaActor {
 
 export interface ArcanaActorSheet {
 	rendered: boolean;
-	element: JQuery;
+	element: HTMLElement;
 	render(force: boolean, options?: { forceReload?: boolean }): void;
 }
 
 export interface TokenDocumentData {
 	actorLink: boolean;
 	baseActor: ArcanaActor;
-}
-
-export interface SpeakerData {
-	token?: string;
-	actor?: string;
 }
 
 export interface UpdatePayload {

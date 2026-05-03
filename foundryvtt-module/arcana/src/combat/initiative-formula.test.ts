@@ -10,51 +10,51 @@ describe('buildInitiativeFormula', () => {
 	describe('normal mode', () => {
 		it('should build formula with positive modifier', () => {
 			const result = buildInitiativeFormula(5, 'normal');
-			expect(result).toBe('1d8e + 5');
+			expect(result).toBe('1d8x + 5');
 		});
 
 		it('should build formula with zero modifier', () => {
 			const result = buildInitiativeFormula(0, 'normal');
-			expect(result).toBe('1d8e + 0');
+			expect(result).toBe('1d8x + 0');
 		});
 
 		it('should build formula with negative modifier', () => {
 			const result = buildInitiativeFormula(-3, 'normal');
-			expect(result).toBe('1d8e + -3');
+			expect(result).toBe('1d8x + -3');
 		});
 	});
 
 	describe('advantage mode', () => {
 		it('should add +1d4 to formula with positive modifier', () => {
 			const result = buildInitiativeFormula(5, 'advantage');
-			expect(result).toBe('1d8e + 5 + 1d4');
+			expect(result).toBe('1d8x + 5 + 1d4');
 		});
 
 		it('should add +1d4 to formula with zero modifier', () => {
 			const result = buildInitiativeFormula(0, 'advantage');
-			expect(result).toBe('1d8e + 0 + 1d4');
+			expect(result).toBe('1d8x + 0 + 1d4');
 		});
 
 		it('should add +1d4 to formula with negative modifier', () => {
 			const result = buildInitiativeFormula(-2, 'advantage');
-			expect(result).toBe('1d8e + -2 + 1d4');
+			expect(result).toBe('1d8x + -2 + 1d4');
 		});
 	});
 
 	describe('disadvantage mode', () => {
 		it('should add -1d4 to formula with positive modifier', () => {
 			const result = buildInitiativeFormula(5, 'disadvantage');
-			expect(result).toBe('1d8e + 5 - 1d4');
+			expect(result).toBe('1d8x + 5 - 1d4');
 		});
 
 		it('should add -1d4 to formula with zero modifier', () => {
 			const result = buildInitiativeFormula(0, 'disadvantage');
-			expect(result).toBe('1d8e + 0 - 1d4');
+			expect(result).toBe('1d8x + 0 - 1d4');
 		});
 
 		it('should add -1d4 to formula with negative modifier', () => {
 			const result = buildInitiativeFormula(-2, 'disadvantage');
-			expect(result).toBe('1d8e + -2 - 1d4');
+			expect(result).toBe('1d8x + -2 - 1d4');
 		});
 	});
 });

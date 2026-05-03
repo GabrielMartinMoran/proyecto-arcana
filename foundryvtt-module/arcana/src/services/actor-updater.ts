@@ -20,7 +20,11 @@ export class ActorUpdater {
 
 		await actor.update(updateData.changes, { render: false });
 		await this.updateTokens(actor, updateData.changes, data.payload);
-		this.updateSheet(actor, updateData.changes);
+		try {
+			this.updateSheet(actor, updateData.changes);
+		} catch (err) {
+			console.warn('[Arcana] updateSheet failed:', err);
+		}
 		ui?.actors?.render();
 	}
 
@@ -30,7 +34,7 @@ export class ActorUpdater {
 	private async findActor(data: UpdateActorData): Promise<ArcanaActor | undefined> {
 		if (data.uuid) {
 			const result = await fromUuid(data.uuid);
-			return result as ArcanaActor | undefined;
+			return (result as ArcanaActor | null) ?? undefined;
 		}
 		if (data.actorId) {
 			return findActorOrTokenActor(data.actorId);
@@ -81,7 +85,7 @@ export class ActorUpdater {
 		// Handle Initiative update
 		if (payload.initiative !== undefined) {
 			console.log(`[Arcana] Updating initiative for ${actor.name} to ${payload.initiative}`);
-			changes['flags.arcana.initiative'] = payload.initiative;
+			changes['system.initiative'] = payload.initiative;
 			hasChanges = true;
 		}
 
@@ -240,7 +244,8 @@ export class ActorUpdater {
 		const html = actor.sheet.element;
 
 		if (changes['system.health.max']) {
-			html.find("input[name='system.health.max']").val(changes['system.health.max']);
+			const maxInput = html.querySelector<HTMLInputElement>("input[name='system.health.max']");
+			if (maxInput) maxInput.value = String(changes['system.health.max']);
 			if (actor.isToken && actor.baseActor) {
 				actor.baseActor.update({
 					'system.health.max': changes['system.health.max'],
@@ -249,7 +254,8 @@ export class ActorUpdater {
 		}
 
 		if (changes['system.health.value']) {
-			html.find("input[name='system.health.value']").val(changes['system.health.value']);
+			const valueInput = html.querySelector<HTMLInputElement>("input[name='system.health.value']");
+			if (valueInput) valueInput.value = String(changes['system.health.value']);
 			if (actor.isToken && actor.baseActor) {
 				actor.baseActor.update({
 					'system.health.value': changes['system.health.value'],

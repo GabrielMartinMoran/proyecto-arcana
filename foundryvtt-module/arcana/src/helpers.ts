@@ -11,10 +11,12 @@ export function safeStr(val: any): string {
 }
 
 export function findActorOrTokenActor(actorId: string): ArcanaActor | undefined {
-	let actor = game.actors.get(actorId);
-	if (!actor && canvas.scene) {
-		const token = canvas.tokens.placeables.find((t) => t.actor && t.actor.id === actorId);
-		if (token) actor = token.actor;
+	const actor = game.actors?.get(actorId);
+	if (actor) return actor as unknown as ArcanaActor;
+
+	if (canvas.scene && canvas.tokens) {
+		const token = canvas.tokens.placeables.find((t: any) => t.actor && t.actor.id === actorId);
+		if (token) return token.actor as unknown as ArcanaActor;
 	}
-	return actor;
+	return undefined;
 }

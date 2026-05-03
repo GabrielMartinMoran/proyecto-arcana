@@ -62,6 +62,24 @@ describe('ActorUpdater', () => {
 	});
 
 	describe('handleUpdateActor', () => {
+		it('should call ui.actors.render() without arguments after update', async () => {
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/123',
+				name: 'Old Name',
+			});
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { name: 'New Name' },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			expect(ui.actors.render).toHaveBeenCalledWith();
+		});
+
 		it('should update actor name with [DEV] prefix for localhost URL', async () => {
 			// GIVEN a develop URL actor
 			const mockActor = createMockActor({
@@ -286,8 +304,8 @@ describe('ActorUpdater', () => {
 	});
 
 	describe('initiative updates', () => {
-		it('should update initiative flag', async () => {
-			// GIVEN an actor with initiative flag
+		it('should update system initiative', async () => {
+			// GIVEN an actor with system initiative
 			const mockActor = createMockActor({
 				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
 				initiative: 5,
@@ -304,10 +322,10 @@ describe('ActorUpdater', () => {
 
 			await actorUpdater.handleUpdateActor(updateData);
 
-			// THEN initiative flag should be updated
+			// THEN system initiative should be updated
 			expect(mockActor.update).toHaveBeenCalledWith(
 				expect.objectContaining({
-					'flags.arcana.initiative': 8,
+					'system.initiative': 8,
 				}),
 				{ render: false },
 			);
@@ -350,6 +368,92 @@ describe('ActorUpdater', () => {
 
 			// THEN update should NOT be called
 			expect(mockActor.update).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('updateSheet DOM updates', () => {
+		it('should update HP inputs via DOM for rendered NPC sheet', async () => {
+			// GIVEN an NPC with a rendered sheet and HTMLElement
+			const maxInput = document.createElement('input');
+			maxInput.name = 'system.health.max';
+			const valueInput = document.createElement('input');
+			valueInput.name = 'system.health.value';
+			const container = document.createElement('div');
+			container.appendChild(maxInput);
+			container.appendChild(valueInput);
+
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/bestiary/npc1',
+				health: { value: 50, max: 100 },
+			});
+			mockActor.sheet = {
+				rendered: true,
+				element: container,
+				render: vi.fn(),
+			};
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						return undefined;
+					}),
+				},
+			});
+
+			// WHEN updating HP (NPC only updates max when current value <= new max)
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 40, max: 80 } },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			// THEN max DOM input should be updated (NPC does not update value unless clamped)
+			expect(maxInput.value).toBe('80');
+			expect(valueInput.value).toBe('');
+			expect(mockActor.render).toHaveBeenCalled();
+		});
+
+		it('should not break update flow when updateSheet throws', async () => {
+			// GIVEN an NPC with a broken sheet element
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/bestiary/npc1',
+				health: { value: 50, max: 100 },
+			});
+			mockActor.sheet = {
+				rendered: true,
+				get element() {
+					throw new Error('DOM access error');
+				},
+				render: vi.fn(),
+			};
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						return undefined;
+					}),
+				},
+			});
+
+			// WHEN updating HP
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 40, max: 80 } },
+			};
+
+			// THEN should not throw and ui.actors.render should still be called
+			await expect(actorUpdater.handleUpdateActor(updateData)).resolves.not.toThrow();
+			expect(mockActor.update).toHaveBeenCalled();
+			expect(ui.actors.render).toHaveBeenCalledWith();
 		});
 	});
 });

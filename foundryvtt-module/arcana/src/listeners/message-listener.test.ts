@@ -64,7 +64,7 @@ describe('routeMessage', () => {
 			const data = {
 				type: 'UNKNOWN_TYPE',
 				someData: 'test',
-			} as MessageData;
+			} as unknown as MessageData;
 
 			// WHEN routeMessage is called with the unknown message
 			// THEN it should not throw

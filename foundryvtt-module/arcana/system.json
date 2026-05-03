@@ -1,0 +1,28 @@
+{
+	"id": "arcana",
+	"title": "Arcana",
+	"version": "1.0.0",
+	"compatibility": {
+		"minimum": "14",
+		"verified": "14"
+	},
+	"authors": [
+		{
+			"name": "Gabriel Martín Moran",
+			"email": "moran.gabriel.95@gmail.com"
+		}
+	],
+	"description": "Sistema de juego Arcana RPG para FoundryVTT",
+	"esmodules": ["main.js"],
+	"url": "",
+	"manifest": "",
+	"documentTypes": {
+		"Actor": {
+			"character": { "htmlFields": [] },
+			"npc": { "htmlFields": [] }
+		}
+	},
+	"initiative": "1d8x + @system.initiative",
+	"grid": { "distance": 5, "units": "m" },
+	"primaryTokenAttribute": "health"
+}
