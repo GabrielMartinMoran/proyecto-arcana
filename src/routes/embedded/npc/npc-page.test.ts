@@ -1,20 +1,31 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/svelte';
-import { tick } from 'svelte';
 import { replaceState } from '$app/navigation';
+import { fireEvent, render, screen } from '@testing-library/svelte';
+import { tick } from 'svelte';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import NpcPage from './+page.svelte';
 
 vi.mock('$app/navigation', () => ({
 	replaceState: vi.fn(),
 }));
 
+const { mockPageStore } = vi.hoisted(() => {
+	// eslint-disable-next-line @typescript-eslint/no-require-imports
+	const { writable } = require('svelte/store');
+	return {
+		mockPageStore: writable({ url: new URL('http://localhost/embedded/npc') }),
+	};
+});
+
+const mutableMockPage = vi.hoisted(() => ({
+	url: new URL('http://localhost/embedded/npc'),
+}));
+
 vi.mock('$app/stores', () => ({
-	page: {
-		subscribe(fn: (v: any) => void) {
-			fn({ url: new URL('http://localhost/embedded/npc') });
-			return () => {};
-		},
-	},
+	page: mockPageStore,
+}));
+
+vi.mock('$app/state', () => ({
+	page: mutableMockPage,
 }));
 
 vi.mock('$app/environment', () => ({
@@ -31,6 +42,8 @@ describe('NpcPage single source of truth (yamlText)', () => {
 	const originalHash = window.location.hash;
 
 	beforeEach(() => {
+		mockPageStore.set({ url: new URL('http://localhost/embedded/npc') });
+		mutableMockPage.url = new URL('http://localhost/embedded/npc');
 		window.location.hash = '';
 		window.dispatchEvent(new HashChangeEvent('hashchange'));
 		const fetchMock = vi.fn(() => Promise.resolve(new Response('')));
@@ -239,6 +252,72 @@ describe('NpcPage single source of truth (yamlText)', () => {
 		expect(container.querySelector('[data-testid="code-editor"]')).toBeNull();
 		// Statblock should be present
 		expect(document.body.textContent).toContain('Goblin');
+	});
+
+	it('should initialize readonlyMode from query params', async () => {
+		mutableMockPage.url = new URL('http://localhost/embedded/npc?readonly=1');
+		window.location.hash =
+			'#yaml=' +
+			encodeURIComponent(
+				'name: Goblin\ntier: 1\nlineage: Goblinoide\nsize: Mediano\nattributes:\n  body: 2\n  reflexes: 3\n  mind: 1\n  instinct: 2\n  presence: 1\nstats:\n  maxHealth: 8\n  evasion:\n    value: 1\n    note: null\n  physicalMitigation:\n    value: 0\n    note: null\n  magicalMitigation:\n    value: 0\n    note: null\n  speed:\n    value: 6\n    note: null\nlanguages: []\nattacks: []\ntraits: []\nactions: []\nreactions: []\ninteractions: []\nbehavior: test\nimg: null',
+			);
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+
+		const { container } = render(NpcPage);
+		await tick();
+		await new Promise((r) => setTimeout(r, 100));
+
+		// In readonly mode the editor should not be present
+		expect(container.querySelector('[data-testid="code-editor"]')).toBeNull();
+		// Statblock should be present
+		expect(document.body.textContent).toContain('Goblin');
+	});
+
+	it('should show the editor when neither query string nor hash contain readonly=1', async () => {
+		window.location.hash = '';
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+
+		const { container } = render(NpcPage);
+		await tick();
+		await new Promise((r) => setTimeout(r, 100));
+
+		// Editor should be present
+		expect(container.querySelector('[data-testid="code-editor"]')).not.toBeNull();
+		// Should show sample YAML creature
+		expect(document.body.textContent).toContain('Criatura válida: Goblin');
+	});
+
+	it('should keep readonly mode when hash changes and query string has readonly=1', async () => {
+		mutableMockPage.url = new URL('http://localhost/embedded/npc?readonly=1');
+		window.location.hash =
+			'#yaml=' +
+			encodeURIComponent(
+				'name: Goblin\ntier: 1\nlineage: Goblinoide\nsize: Mediano\nattributes:\n  body: 2\n  reflexes: 3\n  mind: 1\n  instinct: 2\n  presence: 1\nstats:\n  maxHealth: 8\n  evasion:\n    value: 1\n    note: null\n  physicalMitigation:\n    value: 0\n    note: null\n  magicalMitigation:\n    value: 0\n    note: null\n  speed:\n    value: 6\n    note: null\nlanguages: []\nattacks: []\ntraits: []\nactions: []\nreactions: []\ninteractions: []\nbehavior: test\nimg: null',
+			);
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+
+		const { container } = render(NpcPage);
+		await tick();
+		await new Promise((r) => setTimeout(r, 100));
+
+		// In readonly mode the editor should not be present
+		expect(container.querySelector('[data-testid="code-editor"]')).toBeNull();
+		expect(document.body.textContent).toContain('Goblin');
+
+		// Now simulate an external hashchange that does not include readonly
+		window.location.hash =
+			'#yaml=' +
+			encodeURIComponent(
+				'name: Dragon\ntier: 2\nlineage: Dragón\nsize: Grande\nattributes:\n  body: 4\n  reflexes: 2\n  mind: 3\n  instinct: 3\n  presence: 5\nstats:\n  maxHealth: 40\n  evasion:\n    value: 2\n    note: null\n  physicalMitigation:\n    value: 2\n    note: null\n  magicalMitigation:\n    value: 2\n    note: null\n  speed:\n    value: 5\n    note: null\nlanguages: []\nattacks: []\ntraits: []\nactions: []\nreactions: []\ninteractions: []\nbehavior: test\nimg: null',
+			);
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+
+		await tick();
+		await new Promise((r) => setTimeout(r, 800));
+
+		// Editor should still be hidden because query string still has readonly=1
+		expect(container.querySelector('[data-testid="code-editor"]')).toBeNull();
+		expect(document.body.textContent).toContain('Dragon');
 	});
 
 	it('should not double-decode percent signs from hash', async () => {

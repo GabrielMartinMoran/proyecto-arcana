@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { buildNpcUrl } from '$lib/utils/build-npc-url';
 	import { replaceState } from '$app/navigation';
+	import { page } from '$app/state';
 	import RollModal from '$lib/components/RollModal.svelte';
 	import Statblock from '$lib/components/statblock/Statblock.svelte';
 	import { mapCreature } from '$lib/mappers/creature-mapper';
@@ -8,12 +8,19 @@
 	import { useFoundryVTTService } from '$lib/services/foundryvtt-service';
 	import { hashParams } from '$lib/stores/hash-params.svelte';
 	import type { Creature } from '$lib/types/creature';
+	import { buildNpcUrl } from '$lib/utils/build-npc-url';
+
 	import { load as yamlLoad } from 'js-yaml';
 	import { onMount } from 'svelte';
 	import '../../../app.css';
 	import CodeEditor from './CodeEditor.svelte';
 	import CreatureImportModal from './CreatureImportModal.svelte';
 	import EditorToolbar from './EditorToolbar.svelte';
+
+	const isReadonly = () => {
+		const url = page.url;
+		return url.searchParams.get('readonly') === '1' || hashParams.get('readonly') === '1';
+	};
 
 	const SAMPLE_YAML = `# Ejemplo de criatura (editar aquí)
 name: Goblin
@@ -70,7 +77,7 @@ img: null
 	let yamlText = $state(hashParams.get('yaml') ?? SAMPLE_YAML);
 	let parseError: string | null = $state(null);
 	let creature: Creature | undefined = $state(undefined);
-	let readonlyMode = $state(hashParams.get('readonly') === '1');
+	let readonlyMode = $state(isReadonly());
 	let importModalOpen = $state(false);
 	let editorKey = $state(0);
 
@@ -155,7 +162,7 @@ img: null
 			if (yaml !== null && yaml !== yamlText) {
 				yamlText = yaml;
 			}
-			readonlyMode = hashParams.get('readonly') === '1';
+			readonlyMode = isReadonly();
 		};
 
 		window.addEventListener('hashchange', handleHashChange);

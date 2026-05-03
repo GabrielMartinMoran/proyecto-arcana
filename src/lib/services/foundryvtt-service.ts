@@ -37,15 +37,18 @@ export interface FoundryPrecalculatedRoll {
 
 // Unificamos la lectura de parámetros para ser más eficientes y robustos
 export const foundryParams = derived(page, ($page) => {
-	const params = $page.url.searchParams;
+	const searchParams = $page.url.searchParams;
+	const hashParams = new URLSearchParams($page.url.hash.slice(1));
+	const getParam = (key: string) => searchParams.get(key) ?? hashParams.get(key);
+
 	return {
 		// Buscamos 'uuid' (nuevo estándar) o 'actorId' (viejo estándar)
-		uuid: params.get('uuid') || params.get('actorId'),
+		uuid: getParam('uuid') || getParam('actorId'),
 		// Parámetros de inicialización (por si los necesitas en el UI para setear la barra inicial)
-		startHp: params.get('startHp'),
-		startMax: params.get('startMax'),
+		startHp: getParam('startHp'),
+		startMax: getParam('startMax'),
 		// Detectamos si estamos dentro de Foundry
-		isFoundry: params.get('mode') === 'foundry',
+		isFoundry: getParam('mode') === 'foundry',
 	};
 });
 

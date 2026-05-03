@@ -97,7 +97,6 @@ function buildSheetUrl(params) {
 		if (urlWeb.includes('/characters/shared/')) {
 			urlWeb = urlWeb.replace('/characters/shared/', '/embedded/characters/');
 		}
-		const separator = urlWeb.includes('?') ? '&' : '?';
 		result.health = actor.system.health || { value: 0, max: 0 };
 		const isNpc = urlWeb.includes('/npc');
 		if (urlWeb.includes('/bestiary/') || urlWeb.includes('/creatures/') || isNpc) {
@@ -105,11 +104,13 @@ function buildSheetUrl(params) {
 			result.localNotes = localNotes || '';
 		}
 		const targetId = actor.uuid || actor.id;
-		let finalUrl = `${urlWeb}${separator}mode=foundry&uuid=${targetId}&startHp=${result.health.value}&startMax=${result.health.max}`;
-		if (isNpc) {
-			finalUrl += '&readonly=1';
-		}
-		result.iframeUrl = finalUrl;
+		const url = new URL(urlWeb);
+		url.searchParams.set('mode', 'foundry');
+		url.searchParams.set('uuid', targetId);
+		url.searchParams.set('startHp', String(result.health.value));
+		url.searchParams.set('startMax', String(result.health.max));
+		if (isNpc) url.searchParams.set('readonly', '1');
+		result.iframeUrl = url.toString();
 	}
 	return result;
 }

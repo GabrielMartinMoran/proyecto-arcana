@@ -192,6 +192,63 @@ describe('buildSheetUrl', () => {
 			expect(result.iframeUrl).toContain('existing=param&mode=foundry');
 		});
 	});
+
+	describe('hash fragment handling', () => {
+		it('should place query params before hash for custom NPC URL', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/npc#yaml=goblin',
+				health: { value: 8, max: 8 },
+				uuid: 'Actor.123',
+			});
+
+			const result = buildSheetUrl(params);
+			const url = result.iframeUrl!;
+
+			const hashIndex = url.indexOf('#');
+			const queryIndex = url.indexOf('?');
+
+			expect(queryIndex).toBeGreaterThan(-1);
+			expect(hashIndex).toBeGreaterThan(-1);
+			expect(queryIndex).toBeLessThan(hashIndex);
+			expect(url).toContain('mode=foundry');
+			expect(url).toContain('uuid=Actor.123');
+			expect(url).toContain('startHp=8');
+			expect(url).toContain('startMax=8');
+			expect(url).toContain('readonly=1');
+			expect(url.endsWith('#yaml=goblin')).toBe(true);
+		});
+
+		it('should produce correct URL for bestiary without hash fragment', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/bestiary/goblin',
+				health: { value: 8, max: 8 },
+				uuid: 'Actor.123',
+			});
+
+			const result = buildSheetUrl(params);
+			const url = result.iframeUrl!;
+
+			expect(url).toBe(
+				'https://app.arcana.com/bestiary/goblin?mode=foundry&uuid=Actor.123&startHp=8&startMax=8',
+			);
+			expect(url).not.toContain('#');
+		});
+
+		it('should preserve existing query params and hash fragment', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1?existing=param#section',
+				health: { value: 8, max: 8 },
+				uuid: 'Actor.123',
+			});
+
+			const result = buildSheetUrl(params);
+			const url = result.iframeUrl!;
+
+			expect(url).toContain('existing=param');
+			expect(url).toContain('mode=foundry');
+			expect(url.endsWith('#section')).toBe(true);
+		});
+	});
 });
 
 describe('buildTokenSettings', () => {
