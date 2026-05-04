@@ -51,6 +51,12 @@ export class ArcanaSheetV2 extends MixedSheet {
 		},
 	};
 
+	/** @override */
+	// @ts-expect-error title getter exists at runtime in DocumentSheetV2 but types are incomplete
+	override get title(): string {
+		return this.actor.name;
+	}
+
 	/** Stored iframe reference for preservation across renders */
 	private _existingIframe: HTMLIFrameElement | null = null;
 

@@ -24,6 +24,9 @@ const mockActorSheetV2 = class MockActorSheetV2 {
 	async render(_options?: any): Promise<any> {
 		return this;
 	}
+	get title(): string {
+		return `TYPES.Actor.character: ${this.actor?.name ?? ''}`;
+	}
 };
 
 const mockHandlebarsMixin = (Base: any) => {
@@ -262,6 +265,12 @@ describe('ArcanaSheetV2', () => {
 			expect(superRender).toHaveBeenCalled();
 
 			superRender.mockRestore();
+		});
+	});
+
+	describe('title', () => {
+		it('should return the actor name instead of the raw localization key', () => {
+			expect(sheet.title).toBe(mockActor.name);
 		});
 	});
 
