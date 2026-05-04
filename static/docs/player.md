@@ -792,9 +792,9 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 | Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
 | Gambesón        | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
 | Cota de mallas  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
-| Brigantina      | 2                 | 0       | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
-| Placas parcial  | 3                 | -1      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
-| Placas completa | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
+| Brigantina      | 3                 | -1      | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
+| Placas parcial  | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
+| Placas completa | 5                 | -3      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
 | Escudo          | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
 
 ## Equipo de Aventura y Servicios
