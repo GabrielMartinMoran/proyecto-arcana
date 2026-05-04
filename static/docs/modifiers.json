@@ -183,40 +183,40 @@
 		"id": "brigantina",
 		"category": "armaduras",
 		"name": "Brigantina",
-		"description": "PF:2, Esquiva:0, Sigilo:-1",
+		"description": "PF:3, Esquiva:-1, Sigilo:-1",
 		"subModifiers": [
-			{ "attribute": "physicalMitigation", "type": "add", "formula": "2", "reason": "Brigantina" },
-			{ "attribute": "evasion", "type": "add", "formula": "0", "reason": "Brigantina" }
+			{ "attribute": "physicalMitigation", "type": "add", "formula": "3", "reason": "Brigantina" },
+			{ "attribute": "evasion", "type": "add", "formula": "-1", "reason": "Brigantina" }
 		]
 	},
 	{
 		"id": "placas-parcial",
 		"category": "armaduras",
 		"name": "Placas parcial",
-		"description": "PF:3, Esquiva:-1, Sigilo:-2",
-		"subModifiers": [
-			{
-				"attribute": "physicalMitigation",
-				"type": "add",
-				"formula": "3",
-				"reason": "Placas parcial"
-			},
-			{ "attribute": "evasion", "type": "add", "formula": "-1", "reason": "Placas parcial" }
-		]
-	},
-	{
-		"id": "placas-completa",
-		"category": "armaduras",
-		"name": "Placas completa",
 		"description": "PF:4, Esquiva:-2, Sigilo:-2",
 		"subModifiers": [
 			{
 				"attribute": "physicalMitigation",
 				"type": "add",
 				"formula": "4",
+				"reason": "Placas parcial"
+			},
+			{ "attribute": "evasion", "type": "add", "formula": "-2", "reason": "Placas parcial" }
+		]
+	},
+	{
+		"id": "placas-completa",
+		"category": "armaduras",
+		"name": "Placas completa",
+		"description": "PF:5, Esquiva:-3, Sigilo:-2",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "add",
+				"formula": "5",
 				"reason": "Placas completa"
 			},
-			{ "attribute": "evasion", "type": "add", "formula": "-2", "reason": "Placas completa" }
+			{ "attribute": "evasion", "type": "add", "formula": "-3", "reason": "Placas completa" }
 		]
 	},
 	{
