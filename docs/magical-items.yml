@@ -282,8 +282,7 @@ items:
       - 'Salud'
     requirements: null
     description: >-
-      Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta
-      permanentemente en 5.
+      Mientras lleves puesto este amuleto, la esencia de la piedra te infunde vitalidad. Tu Salud máxima aumenta en 5.
     uses:
       type: NULL
       qty: 0
