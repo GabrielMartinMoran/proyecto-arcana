@@ -21,6 +21,7 @@ declare global {
 			max: number;
 		};
 		initiative?: number;
+		nightVision?: string;
 	}
 
 	/**

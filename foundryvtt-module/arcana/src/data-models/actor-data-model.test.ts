@@ -26,6 +26,12 @@ describe('CharacterData', () => {
 							this.options = options;
 						}
 					},
+					StringField: class StringField {
+						options: Record<string, any>;
+						constructor(options: Record<string, any> = {}) {
+							this.options = options;
+						}
+					},
 				},
 			},
 			abstract: {
@@ -81,6 +87,13 @@ describe('CharacterData', () => {
 
 			expect(schema.health.fields.max.options.min).toBe(0);
 		});
+
+		it('should define nightVision string field with initial "none"', () => {
+			const schema = CharacterData.defineSchema();
+
+			expect(schema).toHaveProperty('nightVision');
+			expect(schema.nightVision.options.initial).toBe('none');
+		});
 	});
 
 	describe('NPCData schema', () => {
@@ -97,6 +110,13 @@ describe('CharacterData', () => {
 
 			expect(schema).toHaveProperty('initiative');
 			expect(schema.initiative.options.initial).toBe(0);
+		});
+
+		it('should define nightVision string field with initial "none"', () => {
+			const schema = NPCData.defineSchema();
+
+			expect(schema).toHaveProperty('nightVision');
+			expect(schema.nightVision.options.initial).toBe('none');
 		});
 	});
 });

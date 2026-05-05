@@ -10,6 +10,7 @@ export interface HealthData {
 export interface ActorSystemData {
 	health?: HealthData;
 	initiative?: number;
+	nightVision?: string;
 }
 
 export interface ArcanaFlags {
@@ -34,7 +35,7 @@ export interface ArcanaActor {
 		displayBars: number;
 		bar1: { attribute: string | null };
 		bar2: { attribute: string | null };
-		sight: { enabled: boolean };
+		sight: { enabled: boolean; visionMode?: string; range?: number | null };
 		name: string;
 		texture: { src: string };
 	};

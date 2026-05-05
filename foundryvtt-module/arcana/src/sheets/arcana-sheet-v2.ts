@@ -4,6 +4,7 @@
  */
 
 import { CONFIG } from '../config';
+import { getNightVisionSightUpdate, NIGHT_VISION_LABELS } from '../helpers/night-vision';
 import type { ArcanaActor } from '../types/actor';
 import { buildSheetUrl, buildTokenSettings } from './sheet-url-builder';
 
@@ -216,12 +217,22 @@ export class ArcanaSheetV2 extends MixedSheet {
 	): Promise<void> {
 		const currentUrl = this.actor.getFlag('arcana', 'sheetUrl') || '';
 		const isLinked = (this.actor.prototypeToken as any).actorLink;
+		const currentNightVision = (this.actor.system as any).nightVision || 'none';
+
+		const nightVisionOptions = Object.entries(NIGHT_VISION_LABELS)
+			.map(
+				([value, label]) =>
+					`<option value="${value}" ${value === currentNightVision ? 'selected' : ''}>${label}</option>`,
+			)
+			.join('');
 
 		new Dialog({
 			title: `Configurar: ${this.actor.name}`,
 			content: `
 				<form>
 					<div class="form-group"><label>URL Web:</label><input type="text" name="url" value="${currentUrl}" style="width:100%"/></div>
+					<hr>
+					<div class="form-group"><label>Visión Nocturna:</label><select name="nightVision">${nightVisionOptions}</select></div>
 					<hr>
 					<div class="form-group"><label>Personaje Único?</label><input type="checkbox" name="actorLink" ${isLinked ? 'checked' : ''} /></div>
 					<p class="notes">
@@ -237,11 +248,23 @@ export class ArcanaSheetV2 extends MixedSheet {
 					callback: async (html: JQuery) => {
 						const newUrl = html.find("input[name='url']").val() as string;
 						const newLinkState = html.find("input[name='actorLink']").is(':checked');
+						const newNightVision = html.find("select[name='nightVision']").val() as string;
 
 						await this.actor.setFlag('arcana', 'sheetUrl', newUrl.trim());
 
 						const tokenSettings = buildTokenSettings(newLinkState, this.actor.name);
-						await this.actor.update(tokenSettings as any);
+						const sightUpdate = getNightVisionSightUpdate(newNightVision as any);
+
+						const prototypeTokenSight: Record<string, unknown> = {};
+						for (const [key, value] of Object.entries(sightUpdate)) {
+							prototypeTokenSight[`prototypeToken.${key}`] = value;
+						}
+
+						await this.actor.update({
+							...tokenSettings,
+							'system.nightVision': newNightVision,
+							...prototypeTokenSight,
+						} as any);
 
 						const activeTokens = this.actor.getActiveTokens();
 						for (const t of activeTokens) {
@@ -250,6 +273,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 								'bar1.attribute': 'health',
 								'bar2.attribute': null,
 								'sight.enabled': true,
+								...sightUpdate,
 							});
 						}
 

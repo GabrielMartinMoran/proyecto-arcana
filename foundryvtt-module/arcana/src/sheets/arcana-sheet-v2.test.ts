@@ -5,7 +5,7 @@
 
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock Foundry V2 Application APIs before importing the sheet
 const mockActorSheetV2 = class MockActorSheetV2 {
@@ -311,6 +311,169 @@ describe('ArcanaSheetV2', () => {
 	describe('PARTS', () => {
 		it('should point to systems/arcana/template.html', () => {
 			expect((ArcanaSheetV2 as any).PARTS.form.template).toBe('systems/arcana/template.html');
+		});
+	});
+
+	describe('#configureSheet night vision', () => {
+		let dialogConstructorArgs: any;
+
+		beforeEach(() => {
+			mockActor.system.nightVision = 'none';
+			mockActor.prototypeToken = { actorLink: false };
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+			mockActor.setFlag = vi.fn().mockResolvedValue(undefined);
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([]);
+
+			vi.stubGlobal('CONFIG', {
+				Canvas: {
+					visionModes: {
+						darkvision: {
+							vision: {
+								defaults: {
+									saturation: -1.0,
+									brightness: 0.25,
+									contrast: 0.25,
+									attenuation: 0.1,
+									color: '#9edcff',
+								},
+							},
+						},
+						basic: {
+							vision: {
+								defaults: {
+									saturation: 0,
+									brightness: 0,
+									contrast: 0,
+									attenuation: 0.5,
+									color: null,
+								},
+							},
+						},
+					},
+				},
+			});
+
+			vi.stubGlobal(
+				'Dialog',
+				class MockDialog {
+					constructor(args: any) {
+						dialogConstructorArgs = args;
+					}
+					render(_state: boolean) {}
+				},
+			);
+		});
+
+		afterEach(() => {
+			vi.unstubAllGlobals();
+		});
+
+		it('should include night vision selector in dialog content', () => {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			expect(dialogConstructorArgs.content).toContain('name="nightVision"');
+			expect(dialogConstructorArgs.content).toContain('value="none"');
+			expect(dialogConstructorArgs.content).toContain('Inmediata');
+			expect(dialogConstructorArgs.content).toContain('Ilimitada');
+		});
+
+		it('should preselect current night vision value', () => {
+			mockActor.system.nightVision = 'medium';
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			expect(dialogConstructorArgs.content).toContain('value="medium" selected');
+		});
+
+		it('should update actor system.nightVision and prototype token sight on save', async () => {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			// Simulate dialog callback with HTML containing selected night vision
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => 'https://example.com' };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => false };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'long' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'system.nightVision': 'long',
+					'prototypeToken.sight.visionMode': 'darkvision',
+					'prototypeToken.sight.range': 100,
+					'prototypeToken.sight.saturation': -1.0,
+					'prototypeToken.sight.brightness': 0.25,
+					'prototypeToken.sight.contrast': 0.25,
+					'prototypeToken.sight.attenuation': 0.1,
+					'prototypeToken.sight.color': '#9edcff',
+				}),
+			);
+		});
+
+		it('should update active tokens with night vision sight settings', async () => {
+			const mockTokenDoc = { update: vi.fn().mockResolvedValue(undefined) };
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([{ document: mockTokenDoc }]);
+
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => '' };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => true };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'close' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			expect(mockTokenDoc.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'sight.visionMode': 'darkvision',
+					'sight.range': 10,
+					'sight.saturation': -1.0,
+					'sight.brightness': 0.25,
+					'sight.contrast': 0.25,
+					'sight.attenuation': 0.1,
+					'sight.color': '#9edcff',
+				}),
+			);
+		});
+
+		it('should set basic vision mode when night vision is none', async () => {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => '' };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => true };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'system.nightVision': 'none',
+					'prototypeToken.sight.visionMode': 'basic',
+					'prototypeToken.sight.range': 0,
+					'prototypeToken.sight.saturation': 0,
+					'prototypeToken.sight.brightness': 0,
+					'prototypeToken.sight.contrast': 0,
+					'prototypeToken.sight.attenuation': 0.5,
+					'prototypeToken.sight.color': null,
+				}),
+			);
 		});
 	});
 });
