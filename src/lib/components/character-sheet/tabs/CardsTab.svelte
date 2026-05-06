@@ -11,6 +11,7 @@
 	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
 
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
+	import CustomCardEditorModal from '$lib/components/character-sheet/elements/CustomCardEditorModal.svelte';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
 	import { CONFIG } from '../../../../config';
@@ -32,15 +33,26 @@
 
 	let { rollExpression } = useDiceRollerService();
 
-	let allCards: Card[] = $state([]);
+	let staticCards: Card[] = $state([]);
+
+	let allCards = $derived([...staticCards, ...(character.customCards ?? [])]);
 
 	let corruptedCharacterCards = $derived(
-		character.cards.filter((x) => !allCards.some((y) => y.id === x.id)),
+		character.cards.filter(
+			(x) => !allCards.some((y) => y.id === x.id) && !x.id.startsWith('custom-'),
+		),
 	);
 
 	let addCardModalState = $state({
 		opened: false,
 		allCards: [] as Card[],
+		cardType: 'ability' as 'ability' | 'item',
+	});
+
+	let customCardEditorState = $state({
+		opened: false,
+		cardType: 'ability' as 'ability' | 'item',
+		existingCard: undefined as Card | undefined,
 	});
 
 	const unsubscribe = abilityCardsStore.subscribe(() => {
@@ -56,11 +68,11 @@
 
 	onMount(async () => {
 		await Promise.all([loadItemCards(), loadAbilityCards()]);
-		allCards = [...get(itemCardsStore), ...get(abilityCardsStore)];
+		staticCards = [...get(itemCardsStore), ...get(abilityCardsStore)];
 	});
 
 	const findCardById = (id: string): Card | undefined => {
-		return allCards.find((c) => c.id === id);
+		return allCards.find((c) => c.id === id) ?? character.customCards?.find((c) => c.id === id);
 	};
 
 	const findAddedCardId = (oldCards: CharacterCard[], newCards: CharacterCard[]): string | null => {
@@ -91,7 +103,8 @@
 		for (const modifier of matchingModifiers) {
 			if (modifier.subModifiers.length > 0) {
 				// Check if already has this modifier (with or without "Carta: " prefix)
-				const alreadyHas = character.modifiers.some(
+				const currentModifiers = character.modifiers ?? [];
+				const alreadyHas = currentModifiers.some(
 					(m) =>
 						m.reason.toLowerCase() === modifier.name.toLowerCase() ||
 						m.reason.toLowerCase() === `carta: ${modifier.name.toLowerCase()}`,
@@ -105,7 +118,7 @@
 						reason: `Carta: ${sm.reason}`,
 						enabled: true,
 					}));
-					character.modifiers = [...character.modifiers, ...newModifiers];
+					character.modifiers = [...currentModifiers, ...newModifiers];
 				}
 			}
 		}
@@ -133,7 +146,7 @@
 				const cardInfo = findCardById(removedCardId);
 				const cardName = cardInfo?.name ?? removedCardId;
 				const cardNameLower = cardName.toLowerCase();
-				const associatedModifiers = character.modifiers.filter(
+				const associatedModifiers = (character.modifiers ?? []).filter(
 					(m) =>
 						m.reason.toLowerCase() === cardNameLower ||
 						m.reason.toLowerCase() === `carta: ${cardNameLower}`,
@@ -151,7 +164,7 @@
 							if (confirmed) {
 								// User confirmed: remove BOTH card and modifiers together
 								character.cards = character.cards.filter((c) => c.id !== removedCardId);
-								character.modifiers = character.modifiers.filter(
+								character.modifiers = (character.modifiers ?? []).filter(
 									(m) =>
 										m.reason.toLowerCase() !== cardNameLower &&
 										m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
@@ -169,6 +182,15 @@
 
 		// No removed card with associated modifiers - update cards directly
 		character.cards = updatedCards;
+
+		// If a custom card was removed and is no longer in character.cards, remove it from customCards too
+		if (removedCardId && removedCardId.startsWith('custom-')) {
+			const stillPresent = updatedCards.some((c) => c.id === removedCardId);
+			if (!stillPresent) {
+				character.customCards = (character.customCards ?? []).filter((c) => c.id !== removedCardId);
+			}
+		}
+
 		onChange(character);
 	};
 
@@ -212,6 +234,7 @@
 			addCardModalState = {
 				opened: true,
 				allCards: modalCards,
+				cardType: type,
 			};
 		}, 0);
 	};
@@ -220,7 +243,44 @@
 		addCardModalState = {
 			opened: false,
 			allCards: [],
+			cardType: 'ability',
 		};
+	};
+
+	const openCustomCardEditor = (cardType: 'ability' | 'item', existingCard?: Card) => {
+		customCardEditorState = {
+			opened: true,
+			cardType,
+			existingCard,
+		};
+	};
+
+	const handleCloseCustomCardEditor = () => {
+		customCardEditorState = {
+			opened: false,
+			cardType: 'ability',
+			existingCard: undefined,
+		};
+	};
+
+	const handleSaveCustomCard = (card: Card) => {
+		const existingIndex = character.customCards?.findIndex((c) => c.id === card.id) ?? -1;
+		if (existingIndex >= 0) {
+			character.customCards = character.customCards.map((c) => (c.id === card.id ? card : c));
+		} else {
+			character.customCards = [...(character.customCards ?? []), card];
+			const newCharacterCard: CharacterCard = {
+				id: card.id,
+				uses: null,
+				isActive: false,
+				level: card.level,
+				cardType: card.cardType,
+				isOvercharged: false,
+			};
+			character.cards = [...character.cards, newCharacterCard];
+		}
+		onChange(character);
+		handleCloseCustomCardEditor();
 	};
 
 	const handlePurchaseCard = (card: Card) => {
@@ -341,6 +401,7 @@
 			listMode="active"
 			onChange={onCharacterCardsChange}
 			{onCardReloadClick}
+			onEditCard={(card) => openCustomCardEditor(card.cardType, card)}
 		/>
 	</Container>
 
@@ -351,6 +412,7 @@
 			characterCards={character.cards}
 			listMode="collection"
 			onChange={onCharacterCardsChange}
+			onEditCard={(card) => openCustomCardEditor(card.cardType, card)}
 		/>
 	</Container>
 
@@ -389,10 +451,20 @@
 <AddCardModal
 	opened={addCardModalState.opened}
 	cards={addCardModalState.allCards}
+	cardType={addCardModalState.cardType}
 	{character}
 	onClose={closeAddCardModal}
 	onCardsChange={onCharacterCardsChange}
 	onPurchaseCard={handlePurchaseCard}
+	onCreateCustom={openCustomCardEditor}
+/>
+
+<CustomCardEditorModal
+	opened={customCardEditorState.opened}
+	cardType={customCardEditorState.cardType}
+	existingCard={customCardEditorState.existingCard}
+	onClose={handleCloseCustomCardEditor}
+	onSave={handleSaveCustomCard}
 />
 
 <style>

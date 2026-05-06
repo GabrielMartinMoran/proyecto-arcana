@@ -5,9 +5,10 @@
 	interface Props {
 		value: string;
 		language?: string;
+		onChange?: (value: string) => void;
 	}
 
-	let { value = $bindable(''), language = 'yaml' }: Props = $props();
+	let { value = $bindable(''), language = 'yaml', onChange }: Props = $props();
 
 	let editorElement: HTMLElement;
 	let jar: CodeJarType | null = null;
@@ -40,6 +41,7 @@
 				jar.onUpdate((code) => {
 					value = code;
 					currentContent = code;
+					onChange?.(code);
 				});
 
 				cleanup = () => {

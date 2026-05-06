@@ -616,4 +616,218 @@ describe('CardsTab', () => {
 			});
 		});
 	});
+
+	describe('custom cards', () => {
+		it('shows custom card in collection', async () => {
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Custom Fire Bolt',
+					level: 1,
+					tags: ['arcanista'],
+					requirements: null,
+					description: 'A custom bolt',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards.push({
+				id: 'custom-abc',
+				uses: null,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			await waitFor(() => {
+				expect(screen.getByText('Custom Fire Bolt')).toBeInTheDocument();
+			});
+		});
+
+		it('does not show custom card as corrupted', async () => {
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Custom Fire Bolt',
+					level: 1,
+					tags: ['arcanista'],
+					requirements: null,
+					description: 'A custom bolt',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards.push({
+				id: 'custom-abc',
+				uses: null,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			expect(screen.queryByText('Cartas Corruptas')).not.toBeInTheDocument();
+		});
+
+		it('can activate a custom card', async () => {
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Custom Fire Bolt',
+					level: 1,
+					tags: ['arcanista'],
+					requirements: null,
+					description: 'A custom bolt',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards.push({
+				id: 'custom-abc',
+				uses: null,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			await waitFor(() => {
+				expect(screen.getByText('Custom Fire Bolt')).toBeInTheDocument();
+			});
+
+			const activateButtons = screen.getAllByRole('button', { name: 'Activar' });
+			await fireEvent.click(activateButtons[0]);
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updatedCards = onChange.mock.calls[0][0].cards;
+			const customCard = updatedCards.find((c: { id: string }) => c.id === 'custom-abc');
+			expect(customCard.isActive).toBe(true);
+		});
+
+		it('shows edit button for custom cards', async () => {
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Custom Fire Bolt',
+					level: 1,
+					tags: ['arcanista'],
+					requirements: null,
+					description: 'A custom bolt',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards.push({
+				id: 'custom-abc',
+				uses: null,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			await waitFor(() => {
+				expect(screen.getByRole('button', { name: 'Editar' })).toBeInTheDocument();
+			});
+		});
+
+		it('removes custom card definition when removed from collection', async () => {
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Custom Fire Bolt',
+					level: 1,
+					tags: ['arcanista'],
+					requirements: null,
+					description: 'A custom bolt',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards.push({
+				id: 'custom-abc',
+				uses: null,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			await waitFor(() => {
+				expect(screen.getByText('Custom Fire Bolt')).toBeInTheDocument();
+			});
+
+			const quitarButtons = screen.getAllByRole('button', { name: 'Quitar' });
+			// The custom card should be in collection (second Quitar button if static card is also there)
+			await fireEvent.click(quitarButtons[quitarButtons.length - 1]);
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updatedCharacter = onChange.mock.calls[0][0];
+			expect(updatedCharacter.customCards).toHaveLength(0);
+			expect(updatedCharacter.cards.some((c: { id: string }) => c.id === 'custom-abc')).toBe(false);
+		});
+	});
 });

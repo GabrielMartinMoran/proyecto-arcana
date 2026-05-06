@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-05-02T16:19:27.211Z",
+  "generatedAt": "2026-05-06T23:53:49.779Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -211,14 +211,14 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 785,
-      "sha1": "dfb8ab5ead3cab62e95f73dee90d4cb0c1ca29ef"
+      "size": 795,
+      "sha1": "cb44de2c23bb6b53ad20fdd8047c0e9c035d54ff"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-1.yml",
       "kind": "file",
-      "size": 657,
-      "sha1": "d96b3414bce599ad136d8f965201a73d0533e817"
+      "size": 972,
+      "sha1": "757af859be2770a129d5eae3a67d27009a60cee1"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-2.yml",
@@ -331,8 +331,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 1195,
-      "sha1": "fed17fb04740a3d5a40fbebc6b9f0d361bd75a99"
+      "size": 1203,
+      "sha1": "54b47fb3b7ede671fc62cc09c0607d5cc1014eb7"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-1.yml",
@@ -567,14 +567,14 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 202417,
-      "sha1": "b83fbce308bc822eb38401ed8a455a0ff59e92c4"
+      "size": 202744,
+      "sha1": "4a0dabba29254bfeaa32761806af91c84a7b7634"
     },
     {
       "path": "references/datasets/magical-items.yml",
       "kind": "file",
-      "size": 32953,
-      "sha1": "a3b92eeb5c630d9739f288dfacaf661e7f04bd54"
+      "size": 32964,
+      "sha1": "dd006580987b00563b10d4ae84e38e1474c50c7e"
     },
     {
       "path": "references/manual-del-director",
@@ -702,7 +702,7 @@
       "path": "references/manual-del-jugador/11-equipo-y-economia.md",
       "kind": "file",
       "size": 9367,
-      "sha1": "0bd8454b0e3ee19bdb2d0ca025984d686203f9fe"
+      "sha1": "1b7e57e225dd722fa5138f4a8ce2e76db561b6a8"
     },
     {
       "path": "references/manual-del-jugador/12-reglas-narrativas-avanzadas.md",
@@ -729,8 +729,8 @@
     {
       "path": "references/objetos-magicos/nivel-2.yml",
       "kind": "file",
-      "size": 9096,
-      "sha1": "2d21dda7706009910820baca37c81b9ef9bb3a73"
+      "size": 9113,
+      "sha1": "1c6fcae130df6161cba78b2388229cb1270abdc7"
     },
     {
       "path": "references/objetos-magicos/nivel-3.yml",

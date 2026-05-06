@@ -9,10 +9,11 @@
 	type Props = {
 		card: Card;
 		isOvercharged?: boolean;
+		isCustom?: boolean;
 		children?: Snippet;
 	};
 
-	let { card, isOvercharged = false, children = undefined }: Props = $props();
+	let { card, isOvercharged = false, isCustom = false, children = undefined }: Props = $props();
 
 	const getBorderColor = (tags: string[]) => {
 		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
@@ -71,6 +72,9 @@
 				{/if}
 				{#if card.cardType === 'item'}
 					<span class="chip">Costo: {(card as ItemCard).cost} de oro</span>
+				{/if}
+				{#if isCustom}
+					<span class="chip custom-badge">Personalizada</span>
 				{/if}
 			</div>
 		</div>
@@ -240,19 +244,6 @@
 					gap: var(--spacing-sm);
 					width: 100%;
 					min-width: 0;
-
-					button {
-						flex-shrink: 1;
-						min-width: 0;
-						white-space: nowrap;
-						overflow: hidden;
-						text-overflow: ellipsis;
-					}
-
-					.spacer {
-						/* Used by the children */
-						flex-grow: 1;
-					}
 				}
 			}
 		}
@@ -269,6 +260,12 @@
 		background-color: #ded1b5;
 		padding: 0.25rem 0.5rem;
 		font-size: 0.8rem;
+	}
+
+	.custom-badge {
+		background-color: var(--accent-arcanista, #7c3aed);
+		color: white;
+		border: 1px solid white;
 	}
 
 	.spacer {

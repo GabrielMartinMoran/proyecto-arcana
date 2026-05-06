@@ -1,4 +1,4 @@
 export interface Uses {
 	qty: number | null;
-	type: 'RELOAD' | 'USES' | 'LONG_REST' | 'DAY';
+	type: 'RELOAD' | 'USES' | 'LONG_REST' | 'DAY' | null;
 }

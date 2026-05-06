@@ -13,7 +13,7 @@
 	import { load as yamlLoad } from 'js-yaml';
 	import { onMount } from 'svelte';
 	import '../../../app.css';
-	import CodeEditor from './CodeEditor.svelte';
+	import CodeEditor from '$lib/components/ui/CodeEditor.svelte';
 	import CreatureImportModal from './CreatureImportModal.svelte';
 	import EditorToolbar from './EditorToolbar.svelte';
 

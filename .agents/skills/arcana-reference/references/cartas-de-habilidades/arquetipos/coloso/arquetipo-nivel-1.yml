@@ -13,8 +13,8 @@ cards:
       qty: 0
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br> **Beneficio de Arquetipo:** Adquieres la
-      carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6. Además, puedes
-      usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de
-      Intimidación. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas
+      carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6. Además, por cada
+      punto de tu Atributo Cuerpo que supere el Requisito de la armadura que vistes, ignoras 1 punto de su Penalización
+      a la Esquiva. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas
       gastado.<br><br>
     slug: sintonia-con-el-acero

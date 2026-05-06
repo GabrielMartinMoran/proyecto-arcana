@@ -11,13 +11,24 @@
 	type Props = {
 		opened: boolean;
 		cards: Card[];
+		cardType: 'ability' | 'item';
 		character: Character;
 		onClose: () => void;
 		onCardsChange: (cards: CharacterCard[]) => void;
 		onPurchaseCard: (card: Card) => void;
+		onCreateCustom?: (cardType: 'ability' | 'item') => void;
 	};
 
-	let { opened, cards, character, onClose, onCardsChange, onPurchaseCard }: Props = $props();
+	let {
+		opened,
+		cards,
+		cardType,
+		character,
+		onClose,
+		onCardsChange,
+		onPurchaseCard,
+		onCreateCustom,
+	}: Props = $props();
 
 	const { buildEmptyFilters } = useCardFiltersService();
 
@@ -70,6 +81,16 @@
 			>{filteredCards.length}
 			{filteredCards.length === 1 ? 'resultado' : 'resultados'}</span
 		>
+		{#if onCreateCustom}
+			<button
+				onclick={() => {
+					onCreateCustom(cardType);
+					onClose();
+				}}
+			>
+				Crear carta personalizada
+			</button>
+		{/if}
 		<button onclick={onClose}>Cerrar</button>
 	{/snippet}
 </Modal>

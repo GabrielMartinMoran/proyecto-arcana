@@ -1002,7 +1002,7 @@ cards:
     requirements: Cuerpo 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br>
-      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6. Además, puedes usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
+      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6. Además, por cada punto de tu Atributo Cuerpo que supere el Requisito de la armadura que vistes, ignoras 1 punto de su Penalización a la Esquiva. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
     uses:
       type: null
       qty: 0
@@ -1102,10 +1102,11 @@ cards:
       - Coloso
     requirements: Sintonía con el Acero
     description: >-
-      Entras en furia por 1 minuto o hasta que quedes inconsciente.
-      Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.<br>
-      Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.
-      En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, el efecto termina.
+      Entras en furia por 1 minuto o hasta que quedes inconsciente. Mientras dure la furia, ganas los siguientes efectos:<br>
+      - **Temple de Hierro:** Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.<br>
+      - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación.<br>
+      - **Instinto Primordial:** Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.<br>
+      En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, tu furia termina.
     uses:
       type: LONG_REST
       qty: 2
@@ -1378,9 +1379,9 @@ cards:
       Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br>
       Adquieres la carta _Afinidad Arcana_, y puedes usar Mente como tu Atributo Arcano para las cartas de _Arcanista_.<br>
       <br>
-      **Beneficio de Arquetipo:**
+      **Beneficio de Arquetipo:**<br>
       - **Memoria Prodigia:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de Mente (redondeado hacia arriba).
-      Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas _Arcanista_ y _Conjuro_ (ambas).
+      Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas _Arcanista_ y _Conjuro_ (ambas).<br>
       - **Mente Ágil**: Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Grimorio de Preparación_ a tu colección.<br>
       Adicionalmente, aprendes dos idiomas y ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
     uses:

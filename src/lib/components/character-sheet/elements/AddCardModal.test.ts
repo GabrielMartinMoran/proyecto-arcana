@@ -75,11 +75,13 @@ describe('AddCardModal', () => {
 	const onClose = vi.fn();
 	const onCardsChange = vi.fn();
 	const onPurchaseCard = vi.fn();
+	const onCreateCustom = vi.fn();
 
 	beforeEach(() => {
 		onClose.mockClear();
 		onCardsChange.mockClear();
 		onPurchaseCard.mockClear();
+		onCreateCustom.mockClear();
 	});
 
 	describe('toggle "Ver Solo disponibles"', () => {
@@ -101,6 +103,7 @@ describe('AddCardModal', () => {
 				props: {
 					opened: true,
 					cards: allCards,
+					cardType: 'ability',
 					character,
 					onClose,
 					onCardsChange,
@@ -134,6 +137,7 @@ describe('AddCardModal', () => {
 				props: {
 					opened: true,
 					cards: allCards,
+					cardType: 'ability',
 					character,
 					onClose,
 					onCardsChange,
@@ -153,6 +157,51 @@ describe('AddCardModal', () => {
 		});
 	});
 
+	describe('custom card creation button', () => {
+		it('shows "Crear carta personalizada" button', async () => {
+			const character = buildCharacter();
+
+			render(AddCardModal, {
+				props: {
+					opened: true,
+					cards: allCards,
+					cardType: 'ability',
+					character,
+					onClose,
+					onCardsChange,
+					onPurchaseCard,
+					onCreateCustom,
+				},
+			});
+
+			const button = screen.getByRole('button', { name: /Crear carta personalizada/i });
+			expect(button).toBeInTheDocument();
+		});
+
+		it('calls onCreateCustom and closes modal when clicked', async () => {
+			const character = buildCharacter();
+
+			render(AddCardModal, {
+				props: {
+					opened: true,
+					cards: allCards,
+					cardType: 'item',
+					character,
+					onClose,
+					onCardsChange,
+					onPurchaseCard,
+					onCreateCustom,
+				},
+			});
+
+			const button = screen.getByRole('button', { name: /Crear carta personalizada/i });
+			await fireEvent.click(button);
+
+			expect(onCreateCustom).toHaveBeenCalledWith('item');
+			expect(onClose).toHaveBeenCalled();
+		});
+	});
+
 	describe('reactive recalculation', () => {
 		it('removes a card from the list after it is added to character.cards', async () => {
 			const character = buildCharacter();
@@ -161,6 +210,7 @@ describe('AddCardModal', () => {
 				props: {
 					opened: true,
 					cards: allCards,
+					cardType: 'ability',
 					character,
 					onClose,
 					onCardsChange,
@@ -200,6 +250,7 @@ describe('AddCardModal', () => {
 				props: {
 					opened: true,
 					cards: allCards,
+					cardType: 'ability',
 					character,
 					onClose,
 					onCardsChange,

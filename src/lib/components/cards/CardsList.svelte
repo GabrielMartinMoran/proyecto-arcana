@@ -13,6 +13,7 @@
 		listMode?: 'active' | 'collection' | 'all';
 		onChange?: (characterCards: CharacterCard[]) => void;
 		onCardReloadClick?: (cardId: string) => void;
+		onEditCard?: (card: CardType) => void;
 		// For purchase button in 'all' listMode
 		currentPP?: number;
 		currentGold?: number;
@@ -26,6 +27,7 @@
 		listMode = 'all',
 		onChange = () => {},
 		onCardReloadClick = () => {},
+		onEditCard = () => {},
 		currentPP = 0,
 		currentGold = 0,
 		onPurchaseCard = () => {},
@@ -123,10 +125,11 @@
 <div class="cards">
 	{#each cards as card (card.id)}
 		{@const characterCard = characterCards.find((cc) => cc.id === card.id)}
-		<Card {card} isOvercharged={characterCard?.isOvercharged ?? false}>
+		{@const isCustom = card.id.startsWith('custom-')}
+		<Card {card} isOvercharged={characterCard?.isOvercharged ?? false} {isCustom}>
 			{#if !readonly}
-				<div class="controls">
-					{#if listMode === 'active'}
+				{#if listMode === 'active'}
+					<div class="active-controls">
 						{#if getCardTotalUses(card) !== null}
 							<ReloadControl
 								value={getCurrentUses(card.id)!}
@@ -151,21 +154,37 @@
 								<span class="label-text">Sob</span>
 							</label>
 						{/if}
-						{#if !(getCardTotalUses(card) !== null && card.type === 'activable' && card.uses.type === 'RELOAD')}
-							<span class="spacer"></span>
-						{/if}
+					</div>
+					<div class="card-actions one active-one">
 						<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
-					{:else if listMode === 'collection'}
+					</div>
+				{:else if listMode === 'collection'}
+					{@const showEdit = isCustom}
+					{@const showActivate = card.type === 'activable'}
+					{@const actionCount = [showEdit, true, showActivate].filter(Boolean).length}
+					{@const actionLayoutClass =
+						actionCount === 1
+							? 'one'
+							: actionCount === 2
+								? 'two'
+								: actionCount === 3
+									? 'three'
+									: ''}
+					<div class="card-actions {actionLayoutClass}">
+						{#if showEdit}
+							<button onclick={() => onEditCard(card)}>Editar</button>
+						{/if}
 						<button onclick={() => removeCard(card.id)}>Quitar</button>
-						<span class="spacer"></span>
-						{#if card.type === 'activable'}
+						{#if showActivate}
 							{#if isCardActive(card)}
 								<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
 							{:else}
 								<button onclick={() => activateCard(card.id)}>Activar</button>
 							{/if}
 						{/if}
-					{:else}
+					</div>
+				{:else}
+					<div class="card-actions">
 						<button onclick={() => addCard(card)} class="btn-add">Agregar</button>
 						{#if card.cardType === 'ability'}
 							{@const levelValue = (card as any).level ? parseInt((card as any).level) || 1 : 1}
@@ -201,8 +220,8 @@
 								</button>
 							{/if}
 						{/if}
-					{/if}
-				</div>
+					</div>
+				{/if}
 			{/if}
 		</Card>
 	{/each}
@@ -219,11 +238,36 @@
 		gap: var(--spacing-md);
 		padding: var(--spacing-sm);
 
-		.controls {
+		.card-actions {
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			justify-content: space-between;
+			justify-content: space-around;
+			flex-grow: 1;
+			padding-top: var(--spacing-sm);
+			gap: var(--spacing-sm);
+		}
+
+		.card-actions.one {
+			justify-content: flex-start;
+		}
+
+		.card-actions.active-one {
+			justify-content: flex-end;
+		}
+
+		.card-actions {
+			&.two,
+			&.three {
+				justify-content: space-between;
+			}
+		}
+
+		.active-controls {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
 			flex-grow: 1;
 			padding-top: var(--spacing-sm);
 			gap: var(--spacing-sm);

@@ -1,5 +1,6 @@
 import { calculateModifierFormula } from '$lib/utils/modifiers-calculator';
 import { CONFIG } from '../../config';
+import type { Card } from '$lib/types/cards/card';
 import type { Attributes } from './attributes';
 import type { PartyReference } from './party-reference';
 
@@ -24,6 +25,7 @@ export class Character {
 	maxActiveCards: number;
 	version: number;
 	party: PartyReference;
+	customCards: Card[];
 
 	constructor(props: any) {
 		this.id = props.id;
@@ -50,6 +52,7 @@ export class Character {
 		this.maxActiveCards = props.maxActiveCards;
 		this.version = props.version;
 		this.skills = props.skills ?? [];
+		this.customCards = props.customCards ?? [];
 	}
 
 	protected calculateAttrModifiers(attr: string, baseValue: number) {

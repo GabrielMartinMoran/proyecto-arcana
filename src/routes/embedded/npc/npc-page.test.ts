@@ -32,7 +32,10 @@ vi.mock('$app/environment', () => ({
 	browser: true,
 }));
 
-vi.mock('./CodeEditor.svelte', async () => await import('./__mocks__/CodeEditor.svelte'));
+vi.mock(
+	'$lib/components/ui/CodeEditor.svelte',
+	async () => await import('./__mocks__/CodeEditor.svelte'),
+);
 vi.mock(
 	'./CreatureImportModal.svelte',
 	async () => await import('./__mocks__/CreatureImportModal.svelte'),

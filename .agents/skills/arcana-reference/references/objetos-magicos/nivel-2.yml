@@ -54,7 +54,7 @@ items:
     uses:
       type: null
       qty: 0
-    description: Este amuleto te infunde con una vitalidad rocosa. Tu Salud máxima aumenta permanentemente en 5.
+    description: Mientras lleves puesto este amuleto, la esencia de la piedra te infunde vitalidad. Tu Salud máxima aumenta en 5.
     slug: amuleto-del-troll-de-piedra
     cost: 500
   - id: bb466162f166635c52cc8c324000089039ec7a6b

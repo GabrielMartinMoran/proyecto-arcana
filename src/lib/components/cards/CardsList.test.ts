@@ -171,7 +171,7 @@ describe('CardsList', () => {
 			});
 
 			const reloadControl = container.querySelector('.reload-control');
-			const activeControls = reloadControl?.parentElement;
+			const activeControls = container.querySelector('.active-controls');
 			const overloadToggle = activeControls?.querySelector('.overload-checkbox');
 			expect(reloadControl).toBeInTheDocument();
 			expect(reloadControl).toHaveClass('button-height-rhythm');
@@ -214,11 +214,12 @@ describe('CardsList', () => {
 			expect(boxedToggle).toContainElement(overloadToggle);
 			expect(boxedToggle).toHaveAttribute('title', 'Sobrecargada');
 			expect(boxedToggle).toHaveTextContent('⚡ Sob');
-			// No spacer rendered when card is activable AND has reload uses
-			expect(container.querySelector('.controls > .spacer')).toBeNull();
-			// The deactivate button follows the overload toggle directly
-			const deactivateButton = container.querySelector('.controls > .overload-checkbox + button');
-			expect(deactivateButton).toHaveTextContent('Desactivar');
+			// Reload and overload live in .active-controls; action buttons live in .controls
+			expect(boxedToggle?.closest('.active-controls')).not.toBeNull();
+			expect(container.querySelector('.active-controls > .spacer')).toBeNull();
+			const deactivateButton = screen.getByRole('button', { name: 'Desactivar' });
+			expect(deactivateButton).toBeInTheDocument();
+			expect(deactivateButton.closest('.card-actions')).not.toBeNull();
 		});
 
 		it('does not render ReloadControl for non-reloadable cards', () => {
@@ -276,7 +277,7 @@ describe('CardsList', () => {
 			});
 			const overloadToggle = screen.queryByRole('checkbox');
 			expect(overloadToggle).not.toBeInTheDocument();
-			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
 		});
 
 		it('does NOT render overcharge toggle for activable + USES card', () => {
@@ -299,7 +300,7 @@ describe('CardsList', () => {
 			});
 			const overloadToggle = screen.queryByRole('checkbox');
 			expect(overloadToggle).not.toBeInTheDocument();
-			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
 		});
 
 		it('does NOT render overcharge toggle for activable + DAY card', () => {
@@ -322,7 +323,7 @@ describe('CardsList', () => {
 			});
 			const overloadToggle = screen.queryByRole('checkbox');
 			expect(overloadToggle).not.toBeInTheDocument();
-			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
 		});
 
 		it('does NOT render overcharge toggle for efecto + USES card', () => {
@@ -345,7 +346,7 @@ describe('CardsList', () => {
 			});
 			const overloadToggle = screen.queryByRole('checkbox');
 			expect(overloadToggle).not.toBeInTheDocument();
-			expect(container.querySelector('.controls > .spacer')).toBeInTheDocument();
+			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
 		});
 	});
 
@@ -495,6 +496,316 @@ describe('CardsList', () => {
 			// Click reload - callback should fire again
 			await fireEvent.click(screen.getByRole('button', { name: '🎲' }));
 			expect(onCardReloadClick).toHaveBeenCalledWith('card-1');
+		});
+	});
+
+	describe('custom cards', () => {
+		const mockCustomCard: AbilityCard = {
+			id: 'custom-abc',
+			name: 'Custom Fire Bolt',
+			description: 'A custom bolt',
+			cardType: 'ability',
+			type: 'activable',
+			level: 1,
+			tags: ['arcanista'],
+			img: '',
+			uses: { type: 'USES', qty: 2 },
+			requirements: null,
+		};
+
+		it('shows edit button for custom card in collection', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCustomCard],
+					characterCards: [
+						{
+							id: 'custom-abc',
+							uses: null,
+							isActive: false,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByRole('button', { name: 'Editar' })).toBeInTheDocument();
+		});
+
+		it('does not show edit button for non-custom card in collection', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCards[0]],
+					characterCards: [mockCharacterCards[0]],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: 'Editar' })).not.toBeInTheDocument();
+		});
+
+		it('does not show edit button for custom card in active mode', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCustomCard],
+					characterCards: [
+						{
+							id: 'custom-abc',
+							uses: 2,
+							isActive: true,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: 'Editar' })).not.toBeInTheDocument();
+		});
+
+		it('calls onEditCard when edit button is clicked', async () => {
+			const onEditCard = vi.fn();
+			render(CardsList, {
+				props: {
+					cards: [mockCustomCard],
+					characterCards: [
+						{
+							id: 'custom-abc',
+							uses: null,
+							isActive: false,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'collection',
+					readonly: false,
+					onEditCard,
+				},
+			});
+
+			const editButton = screen.getByRole('button', { name: 'Editar' });
+			await fireEvent.click(editButton);
+
+			expect(onEditCard).toHaveBeenCalledWith(mockCustomCard);
+		});
+	});
+
+	describe('layout and spacing', () => {
+		it('does not render spacers in collection mode for efecto card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockEfectoUsesCard],
+					characterCards: [
+						{
+							id: 'efecto-uses-1',
+							uses: 2,
+							isActive: false,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
+			expect(screen.getByRole('button', { name: 'Quitar' })).toBeInTheDocument();
+			expect(screen.queryByRole('button', { name: /Activar|Desactivar/ })).not.toBeInTheDocument();
+		});
+
+		it('distributes controls with space-around in collection mode for custom activable card', () => {
+			const mockCustomActivable: AbilityCard = {
+				id: 'custom-activable',
+				name: 'Custom Activable',
+				description: 'A custom activable card',
+				cardType: 'ability',
+				type: 'activable',
+				level: 1,
+				tags: ['arcanista'],
+				img: '',
+				uses: { type: 'USES', qty: 2 },
+				requirements: null,
+			};
+
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockCustomActivable],
+					characterCards: [
+						{
+							id: 'custom-activable',
+							uses: 2,
+							isActive: false,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			const controls = container.querySelector('.card-actions');
+			expect(controls).toBeInTheDocument();
+			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
+			expect(screen.getByRole('button', { name: 'Editar' })).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: 'Quitar' })).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: 'Activar' })).toBeInTheDocument();
+		});
+
+		describe('action button layout', () => {
+			it('applies flex-start for 1 action button in collection (static efecto)', () => {
+				const { container } = render(CardsList, {
+					props: {
+						cards: [mockEfectoUsesCard],
+						characterCards: [
+							{
+								id: 'efecto-uses-1',
+								uses: 2,
+								isActive: false,
+								level: 1,
+								cardType: 'ability',
+								isOvercharged: false,
+							},
+						],
+						listMode: 'collection',
+						readonly: false,
+					},
+				});
+
+				const controls = container.querySelector('.card-actions');
+				expect(controls).toHaveClass('one');
+				expect(controls).not.toHaveClass('two');
+				expect(controls).not.toHaveClass('three');
+			});
+
+			it('applies space-between for 2 action buttons in collection (custom efecto)', () => {
+				const mockCustomEfecto: AbilityCard = {
+					id: 'custom-efecto',
+					name: 'Custom Passive',
+					description: 'A custom passive',
+					cardType: 'ability',
+					type: 'efecto',
+					level: 1,
+					tags: ['arcanista'],
+					img: '',
+					uses: { type: 'USES', qty: 2 },
+					requirements: null,
+				};
+
+				const { container } = render(CardsList, {
+					props: {
+						cards: [mockCustomEfecto],
+						characterCards: [
+							{
+								id: 'custom-efecto',
+								uses: null,
+								isActive: false,
+								level: 1,
+								cardType: 'ability',
+								isOvercharged: false,
+							},
+						],
+						listMode: 'collection',
+						readonly: false,
+					},
+				});
+
+				const controls = container.querySelector('.card-actions');
+				expect(controls).toHaveClass('two');
+				expect(controls).not.toHaveClass('one');
+				expect(controls).not.toHaveClass('three');
+			});
+
+			it('applies space-between for 2 action buttons in collection (static activable)', () => {
+				const { container } = render(CardsList, {
+					props: {
+						cards: [mockCards[0]],
+						characterCards: [
+							{
+								id: 'card-1',
+								uses: 2,
+								isActive: false,
+								level: 1,
+								cardType: 'ability',
+								isOvercharged: false,
+							},
+						],
+						listMode: 'collection',
+						readonly: false,
+					},
+				});
+
+				const controls = container.querySelector('.card-actions');
+				expect(controls).toHaveClass('two');
+				expect(controls).not.toHaveClass('one');
+				expect(controls).not.toHaveClass('three');
+			});
+
+			it('applies space-around for 3 action buttons in collection (custom activable)', () => {
+				const mockCustomActivable: AbilityCard = {
+					id: 'custom-activable',
+					name: 'Custom Activable',
+					description: 'A custom activable card',
+					cardType: 'ability',
+					type: 'activable',
+					level: 1,
+					tags: ['arcanista'],
+					img: '',
+					uses: { type: 'USES', qty: 2 },
+					requirements: null,
+				};
+
+				const { container } = render(CardsList, {
+					props: {
+						cards: [mockCustomActivable],
+						characterCards: [
+							{
+								id: 'custom-activable',
+								uses: 2,
+								isActive: false,
+								level: 1,
+								cardType: 'ability',
+								isOvercharged: false,
+							},
+						],
+						listMode: 'collection',
+						readonly: false,
+					},
+				});
+
+				const controls = container.querySelector('.card-actions');
+				expect(controls).toHaveClass('three');
+				expect(controls).not.toHaveClass('one');
+				expect(controls).not.toHaveClass('two');
+			});
+
+			it('applies flex-end for 1 action button in active mode', () => {
+				const { container } = render(CardsList, {
+					props: {
+						cards: [mockCards[0]],
+						characterCards: [mockCharacterCards[0]],
+						listMode: 'active',
+						readonly: false,
+					},
+				});
+
+				const controls = container.querySelector('.card-actions');
+				expect(controls).toHaveClass('one');
+				expect(controls).toHaveClass('active-one');
+				expect(controls).not.toHaveClass('two');
+				expect(controls).not.toHaveClass('three');
+			});
 		});
 	});
 

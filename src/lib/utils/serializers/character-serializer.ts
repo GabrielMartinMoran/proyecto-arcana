@@ -58,7 +58,9 @@ export const serializeCharacterAsMD = (character: Character, cards: Card[]): str
 		md += '| Nombre | Tipo | Activa |\n';
 		md += '| - | - | - |\n';
 		for (const playerCard of character.cards) {
-			const card = cards.find((x) => x.id === playerCard.id);
+			const card =
+				cards.find((x) => x.id === playerCard.id) ??
+				character.customCards?.find((x) => x.id === playerCard.id);
 			if (!card) continue;
 			md += `| ${card.name} | ${card.cardType === 'item' ? 'Objeto Mágico' : 'Habilidad'} | ${playerCard.isActive ? 'Si' : 'No'} |\n`;
 		}
