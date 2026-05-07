@@ -289,6 +289,7 @@
 			{currentTab}
 			onTabChange={handleTabChange}
 			allowPartyChange={true}
+			isEmbedded={true}
 		/>
 		<RollModal />
 	{:else}

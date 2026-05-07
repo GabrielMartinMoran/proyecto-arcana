@@ -78,7 +78,7 @@
 				<InputField
 					value={controls.quantity}
 					placeholder="Cantidad"
-					fullWidth={false}
+					width="small"
 					onChange={(value) => {
 						controls.quantity = Number(value);
 					}}
@@ -86,7 +86,7 @@
 				<InputField
 					value={controls.reason}
 					placeholder="Razón"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						controls.reason = value.toString();
 					}}
@@ -146,7 +146,7 @@
 			gap: var(--spacing-sm);
 
 			.qty {
-				width: 8.2rem;
+				width: var(--input-width-small);
 			}
 
 			.reason {

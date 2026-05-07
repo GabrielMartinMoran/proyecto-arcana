@@ -60,6 +60,10 @@
 	--input-small-width: 5rem;
 	--input-small-height: 1.5rem;
 	--input-small-padding: var(--spacing-xs);
+
+	--input-width-normal: 8.2rem;
+	--input-width-small: 5rem;
+	--input-width-large: 12.3rem;
 }
 
 /* CSS reset (minimal) */

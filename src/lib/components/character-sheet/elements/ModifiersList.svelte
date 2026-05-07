@@ -92,52 +92,52 @@
 					onchange={() => toggleEnabled(modifier.id)}
 					title={isDisabled ? 'Habilitar' : 'Deshabilitar'}
 				/>
-				<div class="modifier-fields">
-					<SelectField
-						options={[
-							{ label: 'Sumar', value: 'add' },
-							{ label: 'Establecer', value: 'set' },
-						]}
-						value={modifier.type}
-						onChange={(value) => {
-							modifier.type = value.toString();
-							onChange(modifiers);
-						}}
-					/>
-					<SelectField
-						options={[
-							{ label: 'Salud Máxima', value: 'maxHP' },
-							{ label: 'Suerte Máxima', value: 'maxLuck' },
-							{ label: 'Esquiva', value: 'evasion' },
-							{ label: 'Mitigación Física', value: 'physicalMitigation' },
-							{ label: 'Mitigación Mágica', value: 'magicalMitigation' },
-							{ label: 'Velocidad', value: 'speed' },
-						]}
-						value={modifier.attribute}
-						onChange={(value) => {
-							modifier.attribute = value.toString();
-							onChange(modifiers);
-						}}
-					/>
-					<InputField
-						value={modifier.formula}
-						placeholder="1+cuerpo"
-						fullWidth={true}
-						onChange={(value) => {
-							modifier.formula = value.toString();
-							onChange(modifiers);
-						}}
-					/>
-					<InputField
-						value={modifier.reason}
-						placeholder="Razón"
-						fullWidth={true}
-						onChange={(value) => {
-							modifier.reason = value.toString();
-							onChange(modifiers);
-						}}
-					/>
-				</div>
+				<SelectField
+					options={[
+						{ label: 'Sumar', value: 'add' },
+						{ label: 'Establecer', value: 'set' },
+					]}
+					value={modifier.type}
+					width="normal"
+					onChange={(value) => {
+						modifier.type = value.toString();
+						onChange(modifiers);
+					}}
+				/>
+				<SelectField
+					options={[
+						{ label: 'Salud Máxima', value: 'maxHP' },
+						{ label: 'Suerte Máxima', value: 'maxLuck' },
+						{ label: 'Esquiva', value: 'evasion' },
+						{ label: 'Mitigación Física', value: 'physicalMitigation' },
+						{ label: 'Mitigación Mágica', value: 'magicalMitigation' },
+						{ label: 'Velocidad', value: 'speed' },
+					]}
+					value={modifier.attribute}
+					width="normal"
+					onChange={(value) => {
+						modifier.attribute = value.toString();
+						onChange(modifiers);
+					}}
+				/>
+				<InputField
+					value={modifier.formula}
+					placeholder="1+cuerpo"
+					width="full"
+					onChange={(value) => {
+						modifier.formula = value.toString();
+						onChange(modifiers);
+					}}
+				/>
+				<InputField
+					value={modifier.reason}
+					placeholder="Razón"
+					width="full"
+					onChange={(value) => {
+						modifier.reason = value.toString();
+						onChange(modifiers);
+					}}
+				/>
 				<button onclick={() => removeModifier(modifier)} title="Eliminar">🗑️</button>
 			</div>
 		{:else}
@@ -192,10 +192,10 @@
 					width: 24px;
 				}
 				.type {
-					width: 8rem;
+					width: var(--input-width-normal);
 				}
 				.field {
-					width: 9rem;
+					width: var(--input-width-normal);
 				}
 
 				.formula,
@@ -217,18 +217,9 @@
 				align-items: center;
 
 				input[type='checkbox'] {
-					width: 18px;
-					height: 18px;
+					width: 24px;
+					height: 24px;
 					accent-color: var(--color-primary);
-				}
-
-				.modifier-fields {
-					display: flex;
-					flex-direction: row;
-					flex-wrap: wrap;
-					gap: var(--spacing-md);
-					flex: 1;
-					align-items: center;
 				}
 
 				button {

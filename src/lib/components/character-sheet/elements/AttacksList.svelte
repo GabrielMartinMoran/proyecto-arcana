@@ -47,7 +47,7 @@
 					value={attack.name}
 					{readonly}
 					placeholder="Nombre"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						attack.name = value.toString();
 						onChange(attacks);
@@ -57,7 +57,7 @@
 					value={attack.atkFormula}
 					{readonly}
 					placeholder="1d8e+cuerpo"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						attack.atkFormula = value.toString();
 						onChange(attacks);
@@ -73,7 +73,7 @@
 					value={attack.dmgFormula}
 					{readonly}
 					placeholder="1d4"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						attack.dmgFormula = value.toString();
 						onChange(attacks);
@@ -89,7 +89,7 @@
 					value={attack.notes}
 					{readonly}
 					placeholder="Contundente"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						attack.notes = value.toString();
 						onChange(attacks);
@@ -135,11 +135,10 @@
 				.dmg-formula,
 				.notes {
 					flex: 1;
-					min-width: 8.2rem;
 				}
 
 				.actions {
-					width: 50px;
+					width: 40px;
 				}
 			}
 

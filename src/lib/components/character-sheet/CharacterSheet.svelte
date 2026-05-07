@@ -21,6 +21,7 @@
 		currentTab: string;
 		onTabChange: (tab: string) => void;
 		allowPartyChange?: boolean;
+		isEmbedded?: boolean;
 	};
 
 	let {
@@ -30,6 +31,7 @@
 		currentTab,
 		onTabChange,
 		allowPartyChange = true,
+		isEmbedded = false,
 	}: Props = $props();
 
 	let { user } = useFirebaseService();
@@ -137,7 +139,7 @@
 	</div>
 	<div class="tabs">
 		{#each TABS as tab, index (tab.title)}
-			{#if tab.availableWhenReadOnly || !readonly}
+			{#if (tab.availableWhenReadOnly || !readonly) && !(isEmbedded && tab.name === 'see_as_md')}
 				<button
 					class="tab"
 					class:selected={currentTabIndex === index}
@@ -145,7 +147,7 @@
 				>
 			{/if}
 		{/each}
-		{#if !readonly}
+		{#if !readonly && !isEmbedded}
 			<span class="spacer"></span>
 			<button onclick={copyPublicURL}>🔗 Compartir</button>
 		{/if}

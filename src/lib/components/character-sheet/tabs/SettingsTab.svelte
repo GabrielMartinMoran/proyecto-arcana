@@ -172,7 +172,7 @@
 				placeholder="Ninguno, pidele a tu DJ el ID del grupo"
 				value={partyName ?? character.party.partyId ?? ''}
 				readonly={true}
-				fullWidth={true}
+				width="full"
 			/>
 			<div class="buttons">
 				{#if !character.party.partyId}
@@ -191,7 +191,7 @@
 		<InputField
 			label="URL del Retrato"
 			value={character.img ?? ''}
-			fullWidth={true}
+			width="full"
 			placeholder="https://..."
 			textAlign="left"
 			onChange={(value) => {

@@ -81,6 +81,7 @@
 						{ label: 'Presencia', value: 'presence' },
 					]}
 					value={skill.attribute}
+					width="normal"
 					onChange={(value) => {
 						skill.attribute = value.toString();
 						onChange(skills);
@@ -89,7 +90,7 @@
 				<InputField
 					value={skill.description}
 					placeholder="Descripción"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						skill.description = value.toString();
 						onChange(skills);
@@ -152,16 +153,13 @@
 				padding-bottom: var(--spacing-xs);
 
 				.name {
-					flex: 1;
-					min-width: 8.2rem;
+					width: var(--input-width-normal);
 				}
 				.attribute {
-					flex: 1;
-					min-width: 8.2rem;
+					width: var(--input-width-normal);
 				}
 				.description {
-					flex: 2;
-					min-width: 8.2rem;
+					flex: 1;
 				}
 				.advantage {
 					flex: 0 0 4rem;

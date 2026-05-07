@@ -371,7 +371,7 @@
 					labelWidth="fit"
 					value={character.maxActiveCards}
 					{readonly}
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						character.maxActiveCards = Number(value);
 						onChange(character);

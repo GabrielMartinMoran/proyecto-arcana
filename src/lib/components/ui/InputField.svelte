@@ -6,10 +6,9 @@
 		max?: number;
 		readonly?: boolean;
 		onChange?: (value: number | string) => void;
-		fullWidth?: boolean;
 		placeholder?: string;
 		textAlign?: 'left' | 'center';
-		size?: 'small' | 'normal';
+		width?: 'small' | 'normal' | 'large' | 'full';
 		button?: {
 			icon: string;
 			onClick: () => void;
@@ -26,25 +25,25 @@
 		readonly = false,
 		onChange = () => {},
 		button = undefined,
-		fullWidth = false,
 		placeholder = '',
 		textAlign = 'center',
-		size = 'normal',
+		width = 'normal',
 	}: Props = $props();
 
 	let innerValue = $derived(value);
 </script>
 
-<div class="fieldgroup" class:fullWidth>
+<div class="fieldgroup" class:width-full={width === 'full'}>
 	{#if label}
 		<label class={labelWidth}>{label}</label>
 	{/if}
 	<span
 		class="field"
-		class:small={size === 'small'}
-		class:inputAlone={max === undefined && button === undefined && !fullWidth}
+		class:width-small={width === 'small'}
+		class:width-large={width === 'large'}
+		class:inputAlone={max === undefined && button === undefined && width !== 'full'}
 		class:inputWithButton={button !== undefined}
-		class:fullWidth
+		class:width-full={width === 'full'}
 		class:readonly
 	>
 		<input
@@ -52,7 +51,6 @@
 			bind:value={innerValue}
 			disabled={readonly}
 			class:alone={max === undefined && button === undefined}
-			class:fullWidth
 			class:withButton={button !== undefined}
 			class:withButtonAndMax={max !== undefined && button !== undefined}
 			class={`text-align-${textAlign}`}
@@ -110,8 +108,8 @@
 			gap: var(--spacing-sm);
 			border: 1px solid var(--border-color);
 			border-radius: var(--radius-md);
-			min-width: 8.2rem;
-			width: 8.2rem;
+			min-width: var(--input-width-normal);
+			width: var(--input-width-normal);
 			background-color: var(--secondary-bg);
 
 			&.readonly {
@@ -119,13 +117,17 @@
 			}
 
 			&.inputAlone {
-				width: 8.2rem;
+				width: var(--input-width-normal);
 			}
 
-			&.small {
-				width: var(--input-small-width);
-				height: var(--input-small-height);
-				padding: var(--input-small-padding);
+			&.width-small {
+				min-width: var(--input-width-small);
+				width: var(--input-width-small);
+			}
+
+			&.width-large {
+				min-width: var(--input-width-large);
+				width: var(--input-width-large);
 			}
 
 			&.inputWithButton {
@@ -153,7 +155,6 @@
 					text-align: left;
 				}
 
-				&.fullWidth,
 				&.alone {
 					padding-right: var(--spacing-md);
 					text-align: center;
@@ -209,7 +210,7 @@
 		}
 	}
 
-	.fullWidth {
+	.width-full {
 		width: 100% !important;
 		flex: 1;
 	}

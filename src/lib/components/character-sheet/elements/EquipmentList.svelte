@@ -184,6 +184,7 @@
 				<InputField
 					value={item.quantity}
 					{readonly}
+					width="small"
 					onChange={(value) => {
 						item.quantity = Number(value);
 						onChange(equipment);
@@ -193,6 +194,7 @@
 					value={item.name}
 					{readonly}
 					placeholder="Nombre"
+					width="large"
 					onChange={(value) => {
 						item.name = value.toString();
 						onChange(equipment);
@@ -202,7 +204,7 @@
 					value={item.notes}
 					{readonly}
 					placeholder="Notas"
-					fullWidth={true}
+					width="full"
 					onChange={(value) => {
 						item.notes = value.toString();
 						onChange(equipment);
@@ -256,9 +258,11 @@
 				width: 100%;
 				gap: var(--spacing-md);
 
-				.name,
+				.name {
+					width: var(--input-width-large);
+				}
 				.quantity {
-					width: 8.2rem;
+					width: var(--input-width-small);
 				}
 				.notes {
 					flex: 1;

@@ -281,7 +281,7 @@
 			label="Lenguas"
 			value={character.languages}
 			{readonly}
-			fullWidth={true}
+			width="full"
 			placeholder="Lista de lenguas concidas"
 			textAlign="left"
 			onChange={(value) => {
@@ -293,7 +293,7 @@
 </Container>
 <Container title="Equipo">
 	<div class="equipment">
-		<InputField label="Oro" value={character.currentGold} readonly={true} fullWidth={true} />
+		<InputField label="Oro" value={character.currentGold} readonly={true} width="full" />
 		<EquipmentList
 			equipment={character.equipment}
 			{readonly}
