@@ -6,6 +6,7 @@
 		onReload?: () => void;
 		reloadDisabled?: boolean;
 		reloadTitle?: string;
+		reloadButtonHiden?: boolean;
 	};
 
 	let {
@@ -15,6 +16,7 @@
 		onReload = () => {},
 		reloadDisabled = false,
 		reloadTitle = 'Tirar para recargar',
+		reloadButtonHiden = false,
 	}: Props = $props();
 </script>
 
@@ -31,14 +33,18 @@
 		<span class="divider">/</span>
 		<span class="max">{max}</span>
 	</div>
-	<button
-		class="reload-btn"
-		title={reloadTitle}
-		disabled={reloadDisabled}
-		onclick={() => !reloadDisabled && onReload()}
-	>
-		🎲
-	</button>
+	{#if reloadButtonHiden}
+		<span class="margin"></span>
+	{:else}
+		<button
+			class="reload-btn"
+			title={reloadTitle}
+			disabled={reloadDisabled}
+			onclick={() => !reloadDisabled && onReload()}
+		>
+			🎲
+		</button>
+	{/if}
 </div>
 
 <style>
@@ -71,9 +77,9 @@
 	}
 
 	.reload-control input {
-		width: 2rem;
+		width: 1.2rem;
 		height: 1.25rem;
-		padding: 0 0.125rem;
+		padding: 0 0 0 var(--spacing-xs);
 		text-align: center;
 		font-size: 0.875rem;
 		border: none;
@@ -97,16 +103,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--text-secondary);
 		font-size: 0.875rem;
 		line-height: 1;
+		width: 1rem;
 	}
 
 	.reload-control .max {
 		display: flex;
 		align-items: center;
 		font-size: 0.875rem;
-		color: var(--text-secondary);
 		line-height: 1;
 	}
 
@@ -125,5 +130,9 @@
 	.reload-control .reload-btn:disabled {
 		opacity: 0.4;
 		cursor: not-allowed;
+	}
+
+	.reload-control .margin {
+		width: var(--spacing-xs);
 	}
 </style>

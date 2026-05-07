@@ -1002,7 +1002,7 @@ cards:
     requirements: Cuerpo 2
     description: >-
       Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br>
-      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6. Además, por cada punto de tu Atributo Cuerpo que supere el Requisito de la armadura que vistes, ignoras 1 punto de su Penalización a la Esquiva. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
+      **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6 y obtienes Ventaja (+1d4) en pruebas de Fuerza Bruta. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>
     uses:
       type: null
       qty: 0
@@ -1102,14 +1102,39 @@ cards:
       - Coloso
     requirements: Sintonía con el Acero
     description: >-
-      Entras en furia por 1 minuto o hasta que quedes inconsciente. Mientras dure la furia, ganas los siguientes efectos:<br>
-      - **Temple de Hierro:** Ganas Mitigación Física +1 y ventaja en pruebas de habilidad de Cuerpo.<br>
+      Entras en furia por 1 minuto o hasta que quedes inconsciente.<br>
+      Al entrar en furia, ganas una cantidad de Puntos de Salud temporales igual a dos veces tu puntuación de Cuerpo. Además, mientras dure la furia, ganas los siguientes efectos:<br>
+      - **Temple de Hierro:** Ganas ventaja en Pruebas de Habilidad de Cuerpo.<br>
       - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación.<br>
       - **Instinto Primordial:** Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.<br>
       En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, tu furia termina.
     uses:
       type: LONG_REST
       qty: 2
+  - name: Baluarte de Acero
+    level: 1
+    type: efecto
+    tags:
+      - Coloso
+    requirements: Sintonía con el Acero
+    description: >-
+      Eres una fortaleza andante.<br>
+      Por cada punto de tu Atributo Cuerpo que supere el Requisito de la armadura que vistes, ignoras 1 punto de su Penalización a la Esquiva.
+    uses:
+      type: null
+      qty: 0
+  - name: Pellejo de Hierro
+    level: 1
+    type: efecto
+    tags:
+      - Coloso
+    requirements: Sintonía con el Acero
+    description: >-
+      Tu cuerpo curtido en batalla es tan duro como el acero.<br>
+      Mientras no lleves armadura, tu Mitigación Física es igual a tu puntuación de Cuerpo menos 1 (mínimo 1).
+    uses:
+      type: null
+      qty: 0
   - name: Ataque de Oportunidad
     level: 2
     type: activable
@@ -1202,9 +1227,9 @@ cards:
     description: >-
       Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable.
       Adquieres un uso adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve potenciada con los siguientes beneficios:<br>
-      - **Furia Desatada:** Tus ataques con armas cuerpo a cuerpo infligen **+2 de daño adicional**.<br>
-      - **Mente Inexpugnable:** Obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de **Instinto** para resistir los estados de _Encantado_ o efectos de miedo.<br>
-      - **Impulso Imparable:** Tu **Velocidad** de movimiento aumenta en **2 metros**.
+      - **Furia Desatada:** Tus ataques que utilicen Cuerpo infligen daño adicional igual a la mitad de tu puntuación de este atributo (redondeando hacia abajo).<br>
+      - **Mente Inexpugnable:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Instinto para resistir los estados de _Encantado_ o efectos de miedo.<br>
+      - **Impulso Imparable:** Tu Velocidad de movimiento aumenta en **2 metros**.
     uses:
       type: null
       qty: 0

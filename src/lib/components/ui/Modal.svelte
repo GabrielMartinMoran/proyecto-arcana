@@ -32,14 +32,13 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		z-index: 1000;
+		z-index: 1001;
 	}
 
 	.modal-content {
 		background: var(--color-bg, white);
 		border-radius: 8px;
 		max-width: 600px;
-		max-height: 80vh;
 		width: 90%;
 		display: flex;
 		flex-direction: column;

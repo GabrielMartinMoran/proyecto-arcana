@@ -2,19 +2,30 @@
 	import { clickOutsideDetector } from '$lib/utils/outside-click-detector';
 	import { SvelteSet } from 'svelte/reactivity';
 
+	type Option = {
+		label: string;
+		value: any;
+	};
+
+	type Group = {
+		group: string;
+		options: Option[];
+	};
+
 	type Props = {
 		summary: string;
 		value: any[];
-		options: {
-			label: string;
-			value: any;
-		}[];
+		options: Option[] | Group[];
 		onChange: (values: any[]) => void;
 	};
 
 	let { summary, options, onChange, value }: Props = $props();
 
 	let selectedOptions = $derived(new SvelteSet(value));
+
+	const isGrouped = (opts: Option[] | Group[]): opts is Group[] => {
+		return opts.length > 0 && 'group' in opts[0];
+	};
 
 	const onCheckboxChange = (checked: boolean, value: string) => {
 		if (checked) {
@@ -43,22 +54,44 @@
 	<form>
 		<fieldset>
 			<ul>
-				{#each options as option (option.value)}
-					<li>
-						<label for={option.value}
-							>{option.label}
-							<input
-								type="checkbox"
-								id={option.value}
-								name={option.value}
-								value={option.value}
-								checked={selectedOptions.has(option.value)}
-								oninput={(event: Event) =>
-									onCheckboxChange((event.target as HTMLInputElement).checked, option.value)}
-							/></label
-						>
-					</li>
-				{/each}
+				{#if isGrouped(options)}
+					{#each options as group (group.group)}
+						<li class="group-header">{group.group}</li>
+						{#each group.options as option (option.value)}
+							<li>
+								<label for={option.value}
+									>{option.label}
+									<input
+										type="checkbox"
+										id={option.value}
+										name={option.value}
+										value={option.value}
+										checked={selectedOptions.has(option.value)}
+										oninput={(event: Event) =>
+											onCheckboxChange((event.target as HTMLInputElement).checked, option.value)}
+									/></label
+								>
+							</li>
+						{/each}
+					{/each}
+				{:else}
+					{#each options as option (option.value)}
+						<li>
+							<label for={option.value}
+								>{option.label}
+								<input
+									type="checkbox"
+									id={option.value}
+									name={option.value}
+									value={option.value}
+									checked={selectedOptions.has(option.value)}
+									oninput={(event: Event) =>
+										onCheckboxChange((event.target as HTMLInputElement).checked, option.value)}
+								/></label
+							>
+						</li>
+					{/each}
+				{/if}
 			</ul>
 			<button
 				type="button"
@@ -163,6 +196,12 @@
 					input {
 						cursor: pointer;
 					}
+				}
+
+				.group-header {
+					font-weight: bold;
+					cursor: default;
+					padding: 4px 2px;
 				}
 			}
 

@@ -41,7 +41,13 @@
 
 <section>
 	<h1>Galería de Cartas</h1>
-	<CardsFilter cards={$cardsStore} {onFiltersChange} {onResetFilters} {filters} />
+	<CardsFilter
+		cards={$cardsStore}
+		{onFiltersChange}
+		{onResetFilters}
+		{filters}
+		cardType="ability"
+	/>
 	<CardsList {cards} />
 </section>
 

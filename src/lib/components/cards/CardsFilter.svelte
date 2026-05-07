@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { CONFIG } from '../../../config';
 	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Card } from '$lib/types/cards/card';
-	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
+	import { capitalize } from '$lib/utils/formatting';
+	import { groupTags } from '$lib/utils/tag-grouping';
 	import Container from '../ui/Container.svelte';
 	import MultiSelect from '../ui/MultiSelect.svelte';
 
@@ -11,6 +13,7 @@
 		onFiltersChange: (filters: CardFilters) => void;
 		onResetFilters: () => void;
 		includeOnlyAvailablesFilter?: boolean;
+		cardType: 'ability' | 'item';
 	};
 
 	let {
@@ -19,6 +22,7 @@
 		onFiltersChange,
 		onResetFilters,
 		includeOnlyAvailablesFilter = false,
+		cardType,
 	}: Props = $props();
 
 	let filters = $derived(receivedFilters);
@@ -36,6 +40,12 @@
 	const getAvailableTypes = () => {
 		const types = new Set(cards.map((card) => card.type));
 		return Array.from(types).sort();
+	};
+
+	const getGroupedTagOptions = () => {
+		const tags = getAvailableTags();
+		const groups = cardType === 'ability' ? CONFIG.ABILITY_TAG_GROUPS : CONFIG.ITEM_TAG_GROUPS;
+		return groupTags(tags, groups);
 	};
 </script>
 
@@ -69,9 +79,7 @@
 		/>
 		<MultiSelect
 			summary="Etiquetas"
-			options={getAvailableTags()
-				.map((x) => ({ value: x.toLowerCase(), label: x }))
-				.toSorted((a, b) => removeDiacritics(a.label).localeCompare(removeDiacritics(b.label)))}
+			options={getGroupedTagOptions()}
 			value={filters.tags}
 			onChange={(values: any[]) => {
 				filters.tags = values.map((x) => x.toLowerCase());

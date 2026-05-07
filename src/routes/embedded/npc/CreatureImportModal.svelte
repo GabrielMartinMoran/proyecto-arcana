@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { useCreaturesService } from '$lib/services/creatures-service';
 	import type { Creature } from '$lib/types/creature';
 	import { creatureToYaml } from '$lib/utils/creature-to-yaml';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		onSelect: (yamlText: string) => void;

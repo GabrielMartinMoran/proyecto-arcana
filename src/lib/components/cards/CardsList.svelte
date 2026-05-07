@@ -109,6 +109,10 @@
 		}
 	};
 
+	const isReloadableCard = (card: CardType) => {
+		return card.uses.type === 'RELOAD';
+	};
+
 	const toggleOverload = (cardId: string) => {
 		const updated = characterCards.map((card) =>
 			card.id === cardId ? { ...card, isOvercharged: !card.isOvercharged } : card,
@@ -138,6 +142,7 @@
 								onReload={() => onCardReloadClick(card.id)}
 								reloadDisabled={getCurrentUses(card.id) === getCardTotalUses(card) ||
 									(characterCard?.isOvercharged ?? false)}
+								reloadButtonHiden={!isReloadableCard(card)}
 							/>
 						{/if}
 						{#if card.type === 'activable' && card.uses.type === 'RELOAD'}
@@ -171,10 +176,10 @@
 									? 'three'
 									: ''}
 					<div class="card-actions {actionLayoutClass}">
+						<button onclick={() => removeCard(card.id)}>Quitar</button>
 						{#if showEdit}
 							<button onclick={() => onEditCard(card)}>Editar</button>
 						{/if}
-						<button onclick={() => removeCard(card.id)}>Quitar</button>
 						{#if showActivate}
 							{#if isCardActive(card)}
 								<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
@@ -242,7 +247,7 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			justify-content: space-around;
+			justify-content: space-between;
 			flex-grow: 1;
 			padding-top: var(--spacing-sm);
 			gap: var(--spacing-sm);

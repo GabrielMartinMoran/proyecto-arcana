@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { CodeJar as CodeJarType } from 'codejar';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		value: string;
@@ -81,6 +81,7 @@
 		border-radius: 6px;
 		background: var(--secondary-bg);
 		overflow: auto;
+		flex: 1;
 	}
 
 	.editor-content {

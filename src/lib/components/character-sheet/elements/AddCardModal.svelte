@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Modal from '$lib/components/ui/Modal.svelte';
 	import CardsFilter from '$lib/components/cards/CardsFilter.svelte';
 	import CardsList from '$lib/components/cards/CardsList.svelte';
-	import type { Card } from '$lib/types/cards/card';
-	import type { CardFilters } from '$lib/types/card-filters';
-	import type { Character, CharacterCard } from '$lib/types/character';
+	import Modal from '$lib/components/ui/Modal.svelte';
 	import { useCardFiltersService } from '$lib/services/cards-filter-service';
+	import type { CardFilters } from '$lib/types/card-filters';
+	import type { Card } from '$lib/types/cards/card';
+	import type { Character, CharacterCard } from '$lib/types/character';
 	import { filterCards } from '$lib/utils/card-filtering';
 
 	type Props = {
@@ -56,6 +56,7 @@
 		onFiltersChange={handleFiltersChange}
 		onResetFilters={handleResetFilters}
 		includeOnlyAvailablesFilter={true}
+		{cardType}
 	/>
 	<div class="cards-viewport">
 		{#if filteredCards.length > 0}

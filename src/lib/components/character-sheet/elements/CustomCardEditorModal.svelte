@@ -128,16 +128,16 @@ cost: '0'`;
 
 <style>
 	.editor-layout {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-		min-height: 400px;
+		display: flex;
+		flex-direction: row;
+		gap: var(--spacing-md);
 	}
 
 	.editor-pane {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+		flex: 1;
 	}
 
 	.preview-pane {
@@ -165,12 +165,5 @@ cost: '0'`;
 		justify-content: space-between;
 		flex: 1;
 		gap: 0.5rem;
-	}
-
-	@media (max-width: 768px) {
-		.editor-layout {
-			grid-template-columns: 1fr;
-			grid-template-rows: auto auto;
-		}
 	}
 </style>

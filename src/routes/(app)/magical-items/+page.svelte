@@ -41,7 +41,7 @@
 
 <section>
 	<h1>Objetos Mágicos</h1>
-	<CardsFilter cards={$cardsStore} {onFiltersChange} {onResetFilters} {filters} />
+	<CardsFilter cards={$cardsStore} {onFiltersChange} {onResetFilters} {filters} cardType="item" />
 	<CardsList {cards} />
 </section>
 
