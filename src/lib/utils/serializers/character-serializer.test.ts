@@ -102,4 +102,54 @@ describe('serializeCharacterAsMD', () => {
 		expect(md).toContain('Fire Bolt');
 		expect(md).toContain('Habilidad');
 	});
+
+	it('renders Habilidades con Ventaja section with correct grouping', () => {
+		const character = buildCharacter({
+			skills: [
+				{ id: 's1', name: 'Atletismo', attribute: 'body', description: '', hasAdvantage: true },
+			],
+		});
+		const md = serializeCharacterAsMD(character, staticCards);
+
+		expect(md).toContain('### Habilidades con Ventaja');
+		expect(md).toContain('**Cuerpo**');
+		expect(md).toContain('- Atletismo');
+	});
+
+	it('omits Habilidades con Ventaja section when no skills have advantage', () => {
+		const character = buildCharacter({
+			skills: [
+				{ id: 's1', name: 'Atletismo', attribute: 'body', description: '', hasAdvantage: false },
+			],
+		});
+		const md = serializeCharacterAsMD(character, staticCards);
+
+		expect(md).not.toContain('### Habilidades con Ventaja');
+	});
+
+	it('groups multiple advantage skills by attribute', () => {
+		const character = buildCharacter({
+			skills: [
+				{ id: 's1', name: 'Atletismo', attribute: 'body', description: '', hasAdvantage: true },
+				{ id: 's2', name: 'Sigilo', attribute: 'reflexes', description: '', hasAdvantage: true },
+				{
+					id: 's3',
+					name: 'Acrobacias',
+					attribute: 'reflexes',
+					description: '',
+					hasAdvantage: true,
+				},
+				{ id: 's4', name: 'Fuerza Bruta', attribute: 'body', description: '', hasAdvantage: false },
+			],
+		});
+		const md = serializeCharacterAsMD(character, staticCards);
+
+		expect(md).toContain('### Habilidades con Ventaja');
+		expect(md).toContain('**Cuerpo**');
+		expect(md).toContain('- Atletismo');
+		expect(md).toContain('**Reflejos**');
+		expect(md).toContain('- Sigilo');
+		expect(md).toContain('- Acrobacias');
+		expect(md).not.toContain('- Fuerza Bruta');
+	});
 });

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import InputField from '$lib/components/ui/InputField.svelte';
-	import type { Character, Equipment, Modifier } from '$lib/types/character';
-	import type { LibraryItem } from '$lib/types/item';
 	import { dialogService } from '$lib/services/dialog-service.svelte';
 	import { modifiersService } from '$lib/services/modifiers-service';
+	import type { Character, Equipment, Modifier } from '$lib/types/character';
+	import type { LibraryItem } from '$lib/types/item';
 	import ItemLibraryModal from './ItemLibraryModal.svelte';
 
 	type Props = {

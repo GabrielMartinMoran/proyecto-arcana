@@ -25,6 +25,31 @@ export const serializeCharacterAsMD = (character: Character, cards: Card[]): str
 	md += `- **Iniciativa:** ${character.initiative}\n`;
 	md += '\n';
 
+	const advantageSkills = character.skills.filter((s) => s.hasAdvantage);
+	if (advantageSkills.length > 0) {
+		const attributeNames: Record<string, string> = {
+			body: 'Cuerpo',
+			reflexes: 'Reflejos',
+			mind: 'Mente',
+			instinct: 'Instinto',
+			presence: 'Presencia',
+		};
+		const grouped = new Map<string, string[]>();
+		for (const skill of advantageSkills) {
+			const list = grouped.get(skill.attribute) ?? [];
+			list.push(skill.name);
+			grouped.set(skill.attribute, list);
+		}
+		md += `### Habilidades con Ventaja\n\n`;
+		for (const [attr, names] of grouped) {
+			md += `**${attributeNames[attr]}**\n`;
+			for (const name of names) {
+				md += `- ${name}\n`;
+			}
+			md += '\n';
+		}
+	}
+
 	if (character.quickInfo) {
 		md += `## Información Rápida\n`;
 		md += `\`\`\`${character.quickInfo}\n\`\`\`\n`;
