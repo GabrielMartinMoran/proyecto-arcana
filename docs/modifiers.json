@@ -531,5 +531,19 @@
 				"reason": "Señor del Yermo Indomable"
 			}
 		]
+	},
+	{
+		"id": "pellejo-de-hierro",
+		"category": "coloso",
+		"name": "Pellejo de Hierro",
+		"description": "Mientras no lleves armadura, tu Mitigación Física es igual a tu puntuación de Cuerpo menos 1 (mínimo 1).",
+		"subModifiers": [
+			{
+				"attribute": "physicalMitigation",
+				"type": "set",
+				"formula": "max(cuerpo - 1, 1)",
+				"reason": "Pellejo de Hierro"
+			}
+		]
 	}
 ]
