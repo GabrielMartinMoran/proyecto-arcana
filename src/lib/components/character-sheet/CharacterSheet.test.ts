@@ -71,7 +71,7 @@ const buildCharacter = (): Character => {
 		tempHP: 0,
 		currentLuck: 3,
 		img: null,
-		story: '',
+		narrativeContext: { appearance: '', background: '', beliefs: '' },
 		notes: [],
 		languages: '',
 		quickInfo: '',

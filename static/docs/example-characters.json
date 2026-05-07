@@ -149,7 +149,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/krfd4Zh.jpeg",
-		"story": "Finnian creció en una pequeña aldea, siempre observando, siempre aprendiendo. Un día, un bardo viajero pasó por su pueblo, y Finnian quedó fascinado no solo con su música, sino con su capacidad para adaptarse a cualquier situación, ya fuera negociando con un posadero o improvisando una ruta de escape.\n\nDecidió que ese era su camino. No es el mejor en nada, pero es decente en todo. Su memoria es prodigiosa, y su ingenio, más rápido que su espada. Viaja para coleccionar historias y, quizás, para descubrir qué es lo que realmente lo apasiona.\n\nSu ideal es la Adaptabilidad: Un buen bardo no solo canta, sino que sobrevive. Se enorgullece de poder encontrar una solución, un verso o una distracción en cualquier circunstancia, creyendo que la improvisación es la clave para la vida y la aventura.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Finnian creció en una pequeña aldea, siempre observando, siempre aprendiendo. Un día, un bardo viajero pasó por su pueblo, y Finnian quedó fascinado no solo con su música, sino con su capacidad para adaptarse a cualquier situación, ya fuera negociando con un posadero o improvisando una ruta de escape.\n\nDecidió que ese era su camino. No es el mejor en nada, pero es decente en todo. Su memoria es prodigiosa, y su ingenio, más rápido que su espada. Viaja para coleccionar historias y, quizás, para descubrir qué es lo que realmente lo apasiona.\n\nSu ideal es la Adaptabilidad: Un buen bardo no solo canta, sino que sobrevive. Se enorgullece de poder encontrar una solución, un verso o una distracción en cualquier circunstancia, creyendo que la improvisación es la clave para la vida y la aventura.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común, Élifico, Enano y Goblin",
 		"quickInfo": "Ventaja en: Interpretación, Persuasión, Engaño, Perspicacia, Intimidación, Historia, Investigación (estos últimos 3 por Talento de Familia)\n\nInstrumentos musicales: Flauta y Laúd",
@@ -317,7 +321,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/ife6HJU.jpeg",
-		"story": "Orfhein pertenece a la tribu del Pico Solitario, un clan Goliath que valora la resistencia por encima de la fuerza bruta. Se ganó su apodo \"La Montaña\" no porque no pueda ser movido, sino porque es igual de terco e impasible.\n\nHizo un juramento solemne de proteger un paso de montaña durante el invierno, pero una avalancha provocada por un temblor lo superó, y la ruta comercial quedó bloqueada. Aunque nadie resultó herido, Orfhein consideró esto un fracaso personal y una mancha en su honor.\n\nDejó su hogar en las alturas con un único ideal: la Resistencia. Busca vagar por las tierras bajas para probar su fuerza contra todos los desafíos que el mundo le arroje. Solo cuando haya construido un renombre tan pesado e inamovible como la montaña misma, se permitirá regresar.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Orfhein pertenece a la tribu del Pico Solitario, un clan Goliath que valora la resistencia por encima de la fuerza bruta. Se ganó su apodo \"La Montaña\" no porque no pueda ser movido, sino porque es igual de terco e impasible.\n\nHizo un juramento solemne de proteger un paso de montaña durante el invierno, pero una avalancha provocada por un temblor lo superó, y la ruta comercial quedó bloqueada. Aunque nadie resultó herido, Orfhein consideró esto un fracaso personal y una mancha en su honor.\n\nDejó su hogar en las alturas con un único ideal: la Resistencia. Busca vagar por las tierras bajas para probar su fuerza contra todos los desafíos que el mundo le arroje. Solo cuando haya construido un renombre tan pesado e inamovible como la montaña misma, se permitirá regresar.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común y Gigante",
 		"quickInfo": "Ventaja en: Atletismo, Percepción",
@@ -502,7 +510,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/3nVmGwm.jpeg",
-		"story": "Lyra siempre ha creído que el universo es un rompecabezas esperando ser resuelto. Creció en los pasillos de la Gran Biblioteca, leyendo tomos que advertían sobre el peligro de la magia, lo que solo aumentó su curiosidad.\n\nPara ella, la magia no es un don, es una ciencia. Salió al mundo no por gloria, sino para probar sus hipótesis. Considera que las ruinas antiguas son laboratorios y los monstruos, sujetos de prueba fascinantes, aunque peligrosos.\n\nSu ideal es el Conocimiento: No existe la magia \"prohibida\", solo el conocimiento que aún no se ha catalogado correctamente. Hará casi cualquier cosa por descubrir un secreto arcano perdido.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Lyra siempre ha creído que el universo es un rompecabezas esperando ser resuelto. Creció en los pasillos de la Gran Biblioteca, leyendo tomos que advertían sobre el peligro de la magia, lo que solo aumentó su curiosidad.\n\nPara ella, la magia no es un don, es una ciencia. Salió al mundo no por gloria, sino para probar sus hipótesis. Considera que las ruinas antiguas son laboratorios y los monstruos, sujetos de prueba fascinantes, aunque peligrosos.\n\nSu ideal es el Conocimiento: No existe la magia \"prohibida\", solo el conocimiento que aún no se ha catalogado correctamente. Hará casi cualquier cosa por descubrir un secreto arcano perdido.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común, Gnomo, Élifico y Arcaico",
 		"quickInfo": "Ventaja en: Conocimiento Arcano e Investigación.",
@@ -666,7 +678,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/Cinzqq5.jpeg",
-		"story": "Borin no es un clérigo de biblioteca; es un capataz de la fe. Pasó su primera centuria sirviendo en la Gran Forja del templo, donde aprendió que la fe, como el acero, debe ser golpeada y templada para ser fuerte. Para él, un cuerpo roto es solo metal que necesita ser reforjado.\n\nMoradin le habló no en un susurro, sino en el rugido del fuelle, ordenándole que fuera al mundo de la superficie. Su misión es proteger a las \"creaciones\" (la gente) de las fuerzas que buscan corromperlas o destruirlas.\n\nSu ideal es la Creación: Proteger lo que se ha construido, ya sea un muro, una comunidad o el alma de un compañero, es el acto de devoción más sagrado.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Borin no es un clérigo de biblioteca; es un capataz de la fe. Pasó su primera centuria sirviendo en la Gran Forja del templo, donde aprendió que la fe, como el acero, debe ser golpeada y templada para ser fuerte. Para él, un cuerpo roto es solo metal que necesita ser reforjado.\n\nMoradin le habló no en un susurro, sino en el rugido del fuelle, ordenándole que fuera al mundo de la superficie. Su misión es proteger a las \"creaciones\" (la gente) de las fuerzas que buscan corromperlas o destruirlas.\n\nSu ideal es la Creación: Proteger lo que se ha construido, ya sea un muro, una comunidad o el alma de un compañero, es el acto de devoción más sagrado.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común, Enano y Celestial",
 		"quickInfo": "Ventaja en:  Religión, Perpicacia, Tiradas de Salvación de Cuerpo contra venenos y enfermedades.",
@@ -851,7 +867,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/PowTha4.png",
-		"story": "Maëliv siempre encontró más compañía en el susurro del viento entre los árboles que en las charlas de los suyos. Pasó su juventud aprendiendo los secretos del bosque, cómo rastrear a una presa sin dejar rastro y cómo sentir el equilibrio de la vida y la muerte en cada hoja que cae.\n\nLos ecos de la civilización y sus conflictos la alcanzaron, y ahora siente que una \"enfermedad\" se extiende por la tierra (la trama del one-shot). Ha decidido dejar la tranquilidad de su hogar para actuar como un anticuerpo de la naturaleza, dispuesta a desatar su furia para restaurar el orden.\n\nSu ideal es el Equilibrio: La naturaleza es un ciclo de crecimiento violento y calma pacífica. Ella encarna ambos y no dudará en desatar la fuerza de la tormenta para proteger la quietud del bosque, o en ser el silencio antes de la caza.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Maëliv siempre encontró más compañía en el susurro del viento entre los árboles que en las charlas de los suyos. Pasó su juventud aprendiendo los secretos del bosque, cómo rastrear a una presa sin dejar rastro y cómo sentir el equilibrio de la vida y la muerte en cada hoja que cae.\n\nLos ecos de la civilización y sus conflictos la alcanzaron, y ahora siente que una \"enfermedad\" se extiende por la tierra (la trama del one-shot). Ha decidido dejar la tranquilidad de su hogar para actuar como un anticuerpo de la naturaleza, dispuesta a desatar su furia para restaurar el orden.\n\nSu ideal es el Equilibrio: La naturaleza es un ciclo de crecimiento violento y calma pacífica. Ella encarna ambos y no dudará en desatar la fuerza de la tormenta para proteger la quietud del bosque, o en ser el silencio antes de la caza.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común, Élifico y Silvano",
 		"quickInfo": "Ventaja en: Iniciativa, Supervivencia, Naturaleza, Trato con Animales.",
@@ -1038,7 +1058,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/miUp0Ag.jpeg",
-		"story": "Kaelus fue criado en un monasterio aislado en la cima de una montaña. Allí, los monjes le enseñaron a controlar la furia elemental de su sangre dracónida (Linaje de Dragón Blanco/Frío) y a canalizarla no como ira, sino como energía ki disciplinada.\n\nHa descendido de la montaña por orden de su maestro para probar su temple en el mundo caótico. Ve el conflicto no como algo a evitar, sino como la piedra de afilar que pule su espíritu. Es sereno, observador y extremadamente rápido.\n\nSu ideal es la Perfección: Cada acción, desde tomar el té hasta un combate a muerte, debe realizarse con intención y precisión absolutas. Busca alcanzar un estado de armonía perfecta entre su mente, su cuerpo y su ki.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Kaelus fue criado en un monasterio aislado en la cima de una montaña. Allí, los monjes le enseñaron a controlar la furia elemental de su sangre dracónida (Linaje de Dragón Blanco/Frío) y a canalizarla no como ira, sino como energía ki disciplinada.\n\nHa descendido de la montaña por orden de su maestro para probar su temple en el mundo caótico. Ve el conflicto no como algo a evitar, sino como la piedra de afilar que pule su espíritu. Es sereno, observador y extremadamente rápido.\n\nSu ideal es la Perfección: Cada acción, desde tomar el té hasta un combate a muerte, debe realizarse con intención y precisión absolutas. Busca alcanzar un estado de armonía perfecta entre su mente, su cuerpo y su ki.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común, Dracónico y Arcaico",
 		"quickInfo": "Ventaja en: Acrobacias, Percepción\n\nTipo de ancestro dragón: Blanco (frío)\n\nUsos de castigo elemental: 2/2",
@@ -1199,7 +1223,11 @@
 		"tempHP": 0,
 		"currentLuck": 2,
 		"img": "https://i.imgur.com/xzS5pBU.jpeg",
-		"story": "Elara nunca tuvo la intención de ser una aventurera. Simplemente \"tomó prestada\" una daga ornamental de un magistrado local, que resultó ser un artefacto buscado por un gremio de asesinos. Huyó de su ciudad natal y no ha parado de correr desde entonces.\n\nSe ha dado cuenta de que el mundo es mucho más grande de lo que pensaba y que está lleno de bolsillos que saquear y trampas que esquivar. Vive el momento, confiando en su increíble suerte para salir de los líos en los que su boca la mete.\n\nSu ideal es la Libertad: No soporta estar atada, ya sea por la ley, un juramento o un calabozo. Hará cualquier cosa para asegurarse de que siempre tenga una ruta de escape.",
+		"narrativeContext": {
+			"appearance": "",
+			"background": "Elara nunca tuvo la intención de ser una aventurera. Simplemente \"tomó prestada\" una daga ornamental de un magistrado local, que resultó ser un artefacto buscado por un gremio de asesinos. Huyó de su ciudad natal y no ha parado de correr desde entonces.\n\nSe ha dado cuenta de que el mundo es mucho más grande de lo que pensaba y que está lleno de bolsillos que saquear y trampas que esquivar. Vive el momento, confiando en su increíble suerte para salir de los líos en los que su boca la mete.\n\nSu ideal es la Libertad: No soporta estar atada, ya sea por la ley, un juramento o un calabozo. Hará cualquier cosa para asegurarse de que siempre tenga una ruta de escape.",
+			"beliefs": ""
+		},
 		"notes": [],
 		"languages": "Común, Mediano y Jerga de Ladrones",
 		"quickInfo": "Ventaja en:  Sigilo, Juego de Manos, Acrobacias.",

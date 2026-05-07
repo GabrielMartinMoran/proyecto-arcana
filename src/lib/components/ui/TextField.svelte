@@ -7,6 +7,7 @@
 		readonly: boolean;
 		placeholder?: string;
 		maxRows?: number | 'unlimited';
+		autoResize?: boolean;
 		onChange: (value: string) => void;
 	};
 
@@ -16,6 +17,7 @@
 		readonly,
 		placeholder = '',
 		maxRows = DEFAULT_ROWS,
+		autoResize = false,
 		onChange,
 	}: Props = $props();
 
@@ -34,6 +36,7 @@
 			oninput={() => onChange(innerValue)}
 			rows={maxRows === 'unlimited' ? undefined : maxRows}
 			class:expanded={maxRows === 'unlimited'}
+			class:auto-resize={autoResize}
 		/>
 	</div>
 </div>
@@ -62,5 +65,10 @@
 
 	.expanded {
 		flex-grow: 1;
+	}
+
+	textarea.auto-resize {
+		field-sizing: content;
+		min-height: 3rem;
 	}
 </style>

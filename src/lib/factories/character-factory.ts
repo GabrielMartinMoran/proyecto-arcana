@@ -23,7 +23,11 @@ export const createCharacter = () => {
 		tempHP: 0,
 		currentLuck: CONFIG.STARTING_LUCK,
 		img: null,
-		story: '',
+		narrativeContext: {
+			appearance: '',
+			background: '',
+			beliefs: '',
+		},
 		notes: [],
 		languages: '',
 		quickInfo: '',

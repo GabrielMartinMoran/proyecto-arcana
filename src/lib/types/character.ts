@@ -4,6 +4,12 @@ import type { Card } from '$lib/types/cards/card';
 import type { Attributes } from './attributes';
 import type { PartyReference } from './party-reference';
 
+export interface NarrativeContext {
+	appearance: string;
+	background: string;
+	beliefs: string;
+}
+
 export class Character {
 	id: string;
 	name: string;
@@ -17,7 +23,7 @@ export class Character {
 	tempHP: number;
 	currentLuck: number;
 	img: string | null;
-	story: string;
+	narrativeContext: NarrativeContext;
 	notes: Note[];
 	languages: string;
 	quickInfo: string;
@@ -44,7 +50,11 @@ export class Character {
 			partyId: null,
 			ownerId: null,
 		};
-		this.story = props.story;
+		this.narrativeContext = props.narrativeContext ?? {
+			appearance: '',
+			background: props.story ?? '',
+			beliefs: '',
+		};
 		this.notes = props.notes;
 		this.languages = props.languages;
 		this.quickInfo = props.quickInfo;

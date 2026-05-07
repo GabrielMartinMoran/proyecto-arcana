@@ -22,11 +22,41 @@
 
 <Container>
 	<TextField
-		label="Historia"
-		value={character.story}
+		label="Apariencia y Manierismos"
+		value={character.narrativeContext.appearance}
 		{readonly}
+		maxRows="unlimited"
+		autoResize
 		onChange={(value) => {
-			character.story = value;
+			character.narrativeContext.appearance = value;
+			onChange(character);
+		}}
+	/>
+</Container>
+
+<Container>
+	<TextField
+		label="Trasfondo y Origen"
+		value={character.narrativeContext.background}
+		{readonly}
+		maxRows="unlimited"
+		autoResize
+		onChange={(value) => {
+			character.narrativeContext.background = value;
+			onChange(character);
+		}}
+	/>
+</Container>
+
+<Container>
+	<TextField
+		label="Creencias y Objetivos"
+		value={character.narrativeContext.beliefs}
+		{readonly}
+		maxRows="unlimited"
+		autoResize
+		onChange={(value) => {
+			character.narrativeContext.beliefs = value;
 			onChange(character);
 		}}
 	/>

@@ -100,10 +100,17 @@ export const serializeCharacterAsMD = (character: Character, cards: Card[]): str
 	md += `- **Rango del Personaje:** ${character.tier}\n`;
 	md += '\n';
 
-	if (character.story) {
-		md += `## Historia\n`;
-		md += `${character.story}\n`;
-		md += '\n';
+	if (character.narrativeContext.appearance) {
+		md += `## Apariencia y Manierismos\n`;
+		md += `${character.narrativeContext.appearance}\n\n`;
+	}
+	if (character.narrativeContext.background) {
+		md += `## Trasfondo y Origen\n`;
+		md += `${character.narrativeContext.background}\n\n`;
+	}
+	if (character.narrativeContext.beliefs) {
+		md += `## Creencias y Objetivos\n`;
+		md += `${character.narrativeContext.beliefs}\n\n`;
 	}
 
 	if (character.notes.length > 0) {

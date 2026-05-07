@@ -39,7 +39,7 @@ const buildCharacter = (overrides: Partial<Character> = {}): Character =>
 		tempHP: 0,
 		currentLuck: 5,
 		img: null,
-		story: '',
+		narrativeContext: { appearance: '', background: '', beliefs: '' },
 		notes: [],
 		languages: '',
 		quickInfo: '',
@@ -151,5 +151,62 @@ describe('serializeCharacterAsMD', () => {
 		expect(md).toContain('- Sigilo');
 		expect(md).toContain('- Acrobacias');
 		expect(md).not.toContain('- Fuerza Bruta');
+	});
+
+	describe('narrative context sections', () => {
+		it('includes Apariencia y Manierismos section when appearance is set', () => {
+			const character = buildCharacter({
+				narrativeContext: { appearance: 'Tall and thin', background: '', beliefs: '' },
+			});
+			const md = serializeCharacterAsMD(character, staticCards);
+			expect(md).toContain('## Apariencia y Manierismos');
+			expect(md).toContain('Tall and thin');
+		});
+
+		it('includes Trasfondo y Origen section when background is set', () => {
+			const character = buildCharacter({
+				narrativeContext: { appearance: '', background: 'Born in a village', beliefs: '' },
+			});
+			const md = serializeCharacterAsMD(character, staticCards);
+			expect(md).toContain('## Trasfondo y Origen');
+			expect(md).toContain('Born in a village');
+		});
+
+		it('includes Creencias y Objetivos section when beliefs is set', () => {
+			const character = buildCharacter({
+				narrativeContext: { appearance: '', background: '', beliefs: 'Seeks truth' },
+			});
+			const md = serializeCharacterAsMD(character, staticCards);
+			expect(md).toContain('## Creencias y Objetivos');
+			expect(md).toContain('Seeks truth');
+		});
+
+		it('omits narrative context sections when all fields are empty', () => {
+			const character = buildCharacter({
+				narrativeContext: { appearance: '', background: '', beliefs: '' },
+			});
+			const md = serializeCharacterAsMD(character, staticCards);
+			expect(md).not.toContain('## Apariencia y Manierismos');
+			expect(md).not.toContain('## Trasfondo y Origen');
+			expect(md).not.toContain('## Creencias y Objetivos');
+			expect(md).not.toContain('## Historia');
+		});
+
+		it('includes all three narrative context sections when all fields are set', () => {
+			const character = buildCharacter({
+				narrativeContext: {
+					appearance: 'Red hair',
+					background: 'Ex-soldier',
+					beliefs: 'Honor above all',
+				},
+			});
+			const md = serializeCharacterAsMD(character, staticCards);
+			expect(md).toContain('## Apariencia y Manierismos');
+			expect(md).toContain('Red hair');
+			expect(md).toContain('## Trasfondo y Origen');
+			expect(md).toContain('Ex-soldier');
+			expect(md).toContain('## Creencias y Objetivos');
+			expect(md).toContain('Honor above all');
+		});
 	});
 });
