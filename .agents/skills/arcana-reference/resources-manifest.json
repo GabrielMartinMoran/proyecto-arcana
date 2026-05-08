@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-05-07T20:01:48.386Z",
+  "generatedAt": "2026-05-08T01:57:18.812Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -97,8 +97,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-1.yml",
       "kind": "file",
-      "size": 3826,
-      "sha1": "2c795bf88e66b45336c914ecd13f0790bd64989c"
+      "size": 3874,
+      "sha1": "0b1470c4f80d43774240bc91a3f282c3ffd5a2d5"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-2.yml",
@@ -531,8 +531,8 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
       "kind": "file",
-      "size": 8698,
-      "sha1": "8828693db3009c0123e4e3b51fd03c584e1b708e"
+      "size": 8856,
+      "sha1": "bcbd19fdc87eaf029bb60a73152c215205ac1739"
     },
     {
       "path": "references/cartas-de-habilidades/linaje",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 203534,
-      "sha1": "a81bf1b69d9bc41a4df54c24f2dd724ca14929f2"
+      "size": 203719,
+      "sha1": "eb1a672900bcc66226c71c31e5409b342d275709"
     },
     {
       "path": "references/datasets/magical-items.yml",

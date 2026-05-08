@@ -12,6 +12,7 @@ const mockActorSheetV2 = class MockActorSheetV2 {
 	actor: any;
 	element: HTMLElement | null = null;
 	window = { title: '' };
+	position = { width: 950, height: 800 };
 	constructor(options: any = {}) {
 		this.actor = options.document || options.actor;
 	}
@@ -22,6 +23,9 @@ const mockActorSheetV2 = class MockActorSheetV2 {
 		return [];
 	}
 	async render(_options?: any): Promise<any> {
+		return this;
+	}
+	async close(_options?: any): Promise<any> {
 		return this;
 	}
 	get title(): string {
@@ -268,6 +272,15 @@ describe('ArcanaSheetV2', () => {
 		});
 	});
 
+	describe('close', () => {
+		it('should reset position to default size', async () => {
+			const sheetInstance = new (ArcanaSheetV2 as any)({ document: mockActor });
+			(sheetInstance as any).position = { width: 500, height: 400 };
+			await (sheetInstance as any).close();
+			expect((sheetInstance as any).position).toEqual({ width: 950, height: 800 });
+		});
+	});
+
 	describe('title', () => {
 		it('should return the actor name instead of the raw localization key', () => {
 			expect(sheet.title).toBe(mockActor.name);
@@ -305,6 +318,10 @@ describe('ArcanaSheetV2', () => {
 		it('should include arcana and sheet classes', () => {
 			expect((ArcanaSheetV2 as any).DEFAULT_OPTIONS.classes).toContain('arcana');
 			expect((ArcanaSheetV2 as any).DEFAULT_OPTIONS.classes).toContain('sheet');
+		});
+
+		it('should have resizable window', () => {
+			expect((ArcanaSheetV2 as any).DEFAULT_OPTIONS.window.resizable).toBe(true);
 		});
 	});
 

@@ -85,6 +85,7 @@ var CharacterData = class extends foundry.abstract.TypeDataModel {
 				max: new fields.NumberField({ initial: 0, min: 0 }),
 			}),
 			initiative: new fields.NumberField({ initial: 0 }),
+			nightVision: new fields.StringField({ initial: 'none' }),
 		};
 	}
 };
@@ -97,6 +98,7 @@ var NPCData = class extends foundry.abstract.TypeDataModel {
 				max: new fields.NumberField({ initial: 0, min: 0 }),
 			}),
 			initiative: new fields.NumberField({ initial: 0 }),
+			nightVision: new fields.StringField({ initial: 'none' }),
 		};
 	}
 };
@@ -105,6 +107,53 @@ var NPCData = class extends foundry.abstract.TypeDataModel {
 var CONFIG2 = {
 	BASE_URL: '',
 };
+
+// src/helpers/night-vision.ts
+var NIGHT_VISION_LABELS = {
+	none: 'Ninguna',
+	immediate: 'Inmediata',
+	close: 'Cercana',
+	medium: 'Media',
+	long: 'Larga',
+	unlimited: 'Ilimitada',
+};
+function getNightVisionSightSettings(category) {
+	switch (category) {
+		case 'none':
+			return { visionMode: 'basic', range: 0 };
+		case 'immediate':
+			return { visionMode: 'darkvision', range: 1 };
+		case 'close':
+			return { visionMode: 'darkvision', range: 10 };
+		case 'medium':
+			return { visionMode: 'darkvision', range: 50 };
+		case 'long':
+			return { visionMode: 'darkvision', range: 100 };
+		case 'unlimited':
+			return { visionMode: 'darkvision', range: null };
+		default:
+			return { visionMode: 'basic', range: 0 };
+	}
+}
+function getNightVisionSightUpdate(category) {
+	const { visionMode, range } = getNightVisionSightSettings(category);
+	const defaults = globalThis.CONFIG?.Canvas?.visionModes?.[visionMode]?.vision?.defaults;
+	const base = {
+		'sight.visionMode': visionMode,
+		'sight.range': range,
+	};
+	if (!defaults) {
+		return base;
+	}
+	return {
+		...base,
+		...(defaults.saturation !== void 0 ? { 'sight.saturation': defaults.saturation } : {}),
+		...(defaults.brightness !== void 0 ? { 'sight.brightness': defaults.brightness } : {}),
+		...(defaults.contrast !== void 0 ? { 'sight.contrast': defaults.contrast } : {}),
+		...(defaults.attenuation !== void 0 ? { 'sight.attenuation': defaults.attenuation } : {}),
+		...(defaults.color !== void 0 ? { 'sight.color': defaults.color } : {}),
+	};
+}
 
 // src/sheets/sheet-url-builder.ts
 function buildSheetUrl(params) {
@@ -179,6 +228,11 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
 			template: 'systems/arcana/template.html',
 		},
 	};
+	/** @override */
+	// @ts-expect-error title getter exists at runtime in DocumentSheetV2 but types are incomplete
+	get title() {
+		return this.actor.name;
+	}
 	/** Stored iframe reference for preservation across renders */
 	_existingIframe = null;
 	/** AbortController for drag pointer event listeners */
@@ -310,11 +364,20 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
 	static async #configureSheet(_event, _target) {
 		const currentUrl = this.actor.getFlag('arcana', 'sheetUrl') || '';
 		const isLinked = this.actor.prototypeToken.actorLink;
+		const currentNightVision = this.actor.system.nightVision || 'none';
+		const nightVisionOptions = Object.entries(NIGHT_VISION_LABELS)
+			.map(
+				([value, label]) =>
+					`<option value="${value}" ${value === currentNightVision ? 'selected' : ''}>${label}</option>`,
+			)
+			.join('');
 		new Dialog({
 			title: `Configurar: ${this.actor.name}`,
 			content: `
 				<form>
 					<div class="form-group"><label>URL Web:</label><input type="text" name="url" value="${currentUrl}" style="width:100%"/></div>
+					<hr>
+					<div class="form-group"><label>Visi\xF3n Nocturna:</label><select name="nightVision">${nightVisionOptions}</select></div>
 					<hr>
 					<div class="form-group"><label>Personaje \xDAnico?</label><input type="checkbox" name="actorLink" ${isLinked ? 'checked' : ''} /></div>
 					<p class="notes">
@@ -330,9 +393,19 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
 					callback: async (html) => {
 						const newUrl = html.find("input[name='url']").val();
 						const newLinkState = html.find("input[name='actorLink']").is(':checked');
+						const newNightVision = html.find("select[name='nightVision']").val();
 						await this.actor.setFlag('arcana', 'sheetUrl', newUrl.trim());
 						const tokenSettings = buildTokenSettings(newLinkState, this.actor.name);
-						await this.actor.update(tokenSettings);
+						const sightUpdate = getNightVisionSightUpdate(newNightVision);
+						const prototypeTokenSight = {};
+						for (const [key, value] of Object.entries(sightUpdate)) {
+							prototypeTokenSight[`prototypeToken.${key}`] = value;
+						}
+						await this.actor.update({
+							...tokenSettings,
+							'system.nightVision': newNightVision,
+							...prototypeTokenSight,
+						});
 						const activeTokens = this.actor.getActiveTokens();
 						for (const t of activeTokens) {
 							await t.document.update({
@@ -340,6 +413,7 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
 								'bar1.attribute': 'health',
 								'bar2.attribute': null,
 								'sight.enabled': true,
+								...sightUpdate,
 							});
 						}
 						this.render({ force: true, forceReload: true });

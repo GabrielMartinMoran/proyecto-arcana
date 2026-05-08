@@ -480,10 +480,10 @@ cards:
       - Reacción
     requirements: Cuerpo 3
     description: >-
-      Como Reacción cuando recibes daño (ya sea físico o mágico), obtienes Mitigación +2 contra ese daño.
+      Como Reacción cuando recibes daño físico o elemental, tensas tu cuerpo para absorber el impacto. Obtienes Mitigación adicional igual a tu puntuación de Cuerpo contra ese daño en particular.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
   - name: Experto en Ballestas
     level: 2
     type: efecto
@@ -502,7 +502,8 @@ cards:
       - Dote
     requirements: null
     description: >-
-      Te has especializado en el combate táctico y el uso del entorno a tu favor. Obtienes Ventaja (+1d4) en todas las Tiradas Enfrentadas que realices para ejecutar una Maniobra de combate (como Zancadilla, Empujón, Desarmar, etc.).
+      Te has especializado en el combate físico táctico.<br>
+      Elige dos tipos de Maniobras Marciales (por ejemplo: Empujón, Zancadilla, Desarmar o Presa). Obtienes Ventaja (+1d4) en las Tiradas Enfrentadas o Pruebas de Habilidad que realices para ejecutar esas maniobras elegidas.
     uses:
       type: null
       qty: 0
@@ -3447,8 +3448,7 @@ cards:
       - Bardo
     requirements: Canto de Inspiración
     description: >-
-      Puedes usar armaduras de Gambesón sin sufrir su penalizador a la Esquiva.<br>
-      Además, puedes usar tu _Canto de Inspiración_ en ti mismo.
+      Puedes usar tu Canto de Inspiración en ti mismo. Además, mientras poseas un dado de Canto de Inspiración sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
     uses:
       type: null
       qty: 0

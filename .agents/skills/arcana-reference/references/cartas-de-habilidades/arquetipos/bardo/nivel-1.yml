@@ -58,8 +58,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      Puedes usar armaduras de Gambesón sin sufrir su penalizador a la Esquiva.<br> Además, puedes usar tu _Canto de
-      Inspiración_ en ti mismo.
+      Puedes usar tu Canto de Inspiración en ti mismo. Además, mientras poseas un dado de Canto de Inspiración sin
+      gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
     slug: inspiracion-marcial
   - id: 213573b4de38bed6f054ae8acae8977e2fb9146e
     name: Floritura Artística

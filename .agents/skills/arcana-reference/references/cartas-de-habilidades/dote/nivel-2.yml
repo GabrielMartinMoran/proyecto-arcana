@@ -52,8 +52,10 @@ cards:
     requirements: Cuerpo 3
     uses:
       type: RELOAD
-      qty: 6
-    description: Como Reacción cuando recibes daño (ya sea físico o mágico), obtienes Mitigación +2 contra ese daño.
+      qty: 5
+    description: >-
+      Como Reacción cuando recibes daño físico o elemental, tensas tu cuerpo para absorber el impacto. Obtienes
+      Mitigación adicional igual a tu puntuación de Cuerpo contra ese daño en particular.
     slug: resistente
   - id: 57b924122332d5a6768920855cb470c644f7e9a4
     name: Experto en Ballestas
@@ -80,8 +82,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Te has especializado en el combate táctico y el uso del entorno a tu favor. Obtienes Ventaja (+1d4) en todas las
-      Tiradas Enfrentadas que realices para ejecutar una Maniobra de combate (como Zancadilla, Empujón, Desarmar, etc.).
+      Te has especializado en el combate físico táctico.<br> Elige dos tipos de Maniobras Marciales (por ejemplo:
+      Empujón, Zancadilla, Desarmar o Presa). Obtienes Ventaja (+1d4) en las Tiradas Enfrentadas o Pruebas de Habilidad
+      que realices para ejecutar esas maniobras elegidas.
     slug: maestro-de-maniobras
   - id: 6a215e1c470fad53dfd174d8a45d27c8605e68db
     name: Reflejos Afortunados

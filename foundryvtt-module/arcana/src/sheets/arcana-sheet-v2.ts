@@ -11,6 +11,8 @@ import { buildSheetUrl, buildTokenSettings } from './sheet-url-builder';
 const ActorSheetV2Base = foundry.applications.sheets.ActorSheetV2;
 const MixedSheet = foundry.applications.api.HandlebarsApplicationMixin(ActorSheetV2Base);
 
+const DEFAULT_SHEET_POSITION = { width: 950, height: 800 };
+
 interface SheetContext {
 	actor: ArcanaActor;
 	iframeUrl: string | null;
@@ -33,6 +35,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 		},
 		window: {
 			title: '',
+			resizable: true,
 			controls: [
 				{
 					action: 'configureSheet',
@@ -42,7 +45,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 				},
 			],
 		},
-		position: { width: 950, height: 800 },
+		position: DEFAULT_SHEET_POSITION,
 	};
 
 	/** @override */
@@ -142,6 +145,18 @@ export class ArcanaSheetV2 extends MixedSheet {
 		}
 		// @ts-expect-error super.render is not typed in this Foundry version
 		return super.render(options);
+	}
+
+	/**
+	 * Override close to reset position so the sheet opens at default size next time.
+	 * In V14 the sheet instance is cached, so without this the last resized dimensions persist.
+	 */
+	// @ts-expect-error close may not be typed in this Foundry version
+	override async close(options?: any): Promise<this> {
+		((this as any).position as { width: number; height: number }).width = DEFAULT_SHEET_POSITION.width;
+		((this as any).position as { width: number; height: number }).height = DEFAULT_SHEET_POSITION.height;
+		// @ts-expect-error super.close is not typed in this Foundry version
+		return super.close(options);
 	}
 
 	/**
