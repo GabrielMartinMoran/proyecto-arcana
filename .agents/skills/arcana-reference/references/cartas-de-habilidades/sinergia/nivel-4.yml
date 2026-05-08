@@ -73,13 +73,13 @@ cards:
       type: null
       qty: 0
     description: >-
-      Has fusionado tu destreza marcial con el poder arcano.<br><br> **Beneficio de Sinergia:**<br> - **Acero
-      Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus
-      ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br> -
-      **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu
-      Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma
-      cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por
-      Recarga 6+)
+      _El acero de tu arma y la magia de los elementos se vuelven uno solo en tus manos letales._<br><br> **Beneficio de
+      Sinergia:**<br> - **Acero Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego,
+      Frío o Eléctrico). Tus ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu
+      próximo descanso.<br> - **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto
+      mágico, puedes usar tu Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo
+      impacto con un arma cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo
+      absorbido. (Usos: 1 por Recarga 6+)
     slug: maestria-de-la-hoja-arcana
   - id: 9370e150f5752018d606706904869adffe05e50f
     name: Señor del Yermo Indomable
@@ -169,10 +169,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu destreza manual se entrelaza con la magia ilusoria.<br><br> **Beneficio de Sinergia:**<br> - **Mano de Ladrón
-      Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano de Mago con Ventaja (+1d4), como si
-      fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas Invisibilidad sobre ti mismo, el
-      conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere Concentración).
+      _Entrelazas la perfección de la magia ilusoria con tu indudable destreza criminal._<br><br> **Beneficio de
+      Sinergia:**<br> - **Mano de Ladrón Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano de
+      Mago con Ventaja (+1d4), como si fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas
+      Invisibilidad sobre ti mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere
+      Concentración).
     slug: maestria-del-engano-arcano
   - id: 6db0a8f1b546c8dea440aba0fe32e8da4fd700dc
     name: Uno con la Naturaleza Salvaje
@@ -223,10 +224,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu Ki y la Urdimbre arcana fluyen como uno solo en ti.<br><br> **Beneficio de Sinergia:**<br> - **Golpes de Fuerza
-      Pura:** Tus ataques desarmados se consideran mágicos y puedes elegir que su daño sea de Fuerza.<br> - **Fluir
-      Arcano-Marcial:** Cuando usas Ráfaga de Golpes o Tormenta de Golpes, puedes reemplazar uno de los ataques
-      desarmados adicionales para lanzar un conjuro de Arcanista de Nivel 1 que tengas activo y que requiera una Acción.
+      _Tu Ki y la Urdimbre arcana fluyen en perfecta armonía, transformando tus golpes en pura energía._<br><br>
+      **Beneficio de Sinergia:**<br> - **Golpes de Fuerza Pura:** Tus ataques desarmados se consideran mágicos y puedes
+      elegir que su daño sea de Fuerza.<br> - **Fluir Arcano-Marcial:** Cuando usas Ráfaga de Golpes o Tormenta de
+      Golpes, puedes reemplazar uno de los ataques desarmados adicionales para lanzar un conjuro de Arcanista de Nivel 1
+      que tengas activo y que requiera una Acción.
     slug: voluntad-trascendente
   - id: 6803c90e40b66d36464ddd79d8e79e86f5da4064
     name: Furia Silvana
@@ -259,10 +261,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Dominas tanto la lógica arcana como la fe divina.<br><br> **Beneficio de Sinergia:**<br> - **Doble Senda Mágica:**
-      Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes elegir usar tu Atributo Arcano o tu Instinto como tu
-      atributo de lanzamiento.<br> - **Capacidad Expandida:** Ganas una Ranura de Carta Activa adicional que sirve para
-      activar cualquier carta con las etiquetas _Conjuro_ y _Arcanista_ o _Sacerdote_.
+      _Dominas tanto la rígida y calculadora lógica arcana como la fe divina más pura e inspiradora._<br><br>
+      **Beneficio de Sinergia:**<br> - **Doble Senda Mágica:** Cuando lanzas un conjuro de Arcanista o Sacerdote, puedes
+      elegir usar tu Atributo Arcano o tu Instinto como tu atributo de lanzamiento.<br> - **Capacidad Expandida:** Ganas
+      una Ranura de Carta Activa adicional que sirve para activar cualquier carta con las etiquetas _Conjuro_ y
+      _Arcanista_ o _Sacerdote_.
     slug: versatilidad-teurgica
   - id: 1eaa6818c5f423c85340fc1120ea617986a0eae4
     name: Maestría Elemental Compartida
@@ -277,12 +280,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Comandas tanto los elementos puros como la energía primordial de la naturaleza.<br><br> **Beneficio de
-      Sinergia:**<br> - **Control Preciso:** Cuando lanzas un conjuro con área de efecto del Druida, puedes elegir un
-      número de criaturas igual a tu Atributo Arcano dentro del área para que no se vean afectadas.<br> - **Potencia
-      Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico con un conjuro de Arcanista o
-      Druida, puedes añadir tu puntuación de Atributo Arcano o Instinto (la que sea más alta) a una de las tiradas de
-      daño.
+      _Comandas tanto los elementos destructivos arcanos como la energía primordial pura de la naturaleza
+      salvaje._<br><br> **Beneficio de Sinergia:**<br> - **Control Preciso:** Cuando lanzas un conjuro con área de
+      efecto del Druida, puedes elegir un número de criaturas igual a tu Atributo Arcano dentro del área para que no se
+      vean afectadas.<br> - **Potencia Elemental:** Una vez por turno, cuando infliges daño de Fuego, Frío o Eléctrico
+      con un conjuro de Arcanista o Druida, puedes añadir tu puntuación de Atributo Arcano o Instinto (la que sea más
+      alta) a una de las tiradas de daño.
     slug: maestria-elemental-compartida
   - id: 4ba6dedd0541eb10ca17df20d91d00194dd12ccd
     name: Mano Purgadora
@@ -373,12 +376,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Has fusionado el arte de la palabra con los secretos más profundos de la magia.<br><br> **Beneficio de
-      Sinergia:**<br> - **Secretos Arcanos Ampliados:** Tu carta _Secretos Mágicos_ (si la tienes) se vuelve mucho más
-      poderosa. Ahora te permite elegir conjuros de hasta **Nivel 4**, con un presupuesto total de 4 niveles, siempre
-      que los conjuros elegidos sean de la lista del **Arcanista**.<br> - **Marca de la Condena:** Añades la carta
-      _Maledicción_ a tu colección. Para ti, esta carta no requiere Concentración y puedes lanzarla usando tu atributo
-      de **Presencia**.
+      _Tus palabras son poder puro, desentrañando secretos mágicos y tejiendo maldiciones como si fueran simples
+      canciones._<br><br> **Beneficio de Sinergia:**<br> - **Secretos Arcanos Ampliados:** Tu carta _Secretos Mágicos_
+      (si la tienes) se vuelve mucho más poderosa. Ahora te permite elegir conjuros de hasta **Nivel 4**, con un
+      presupuesto total de 4 niveles, siempre que los conjuros elegidos sean de la lista del **Arcanista**.<br> -
+      **Marca de la Condena:** Añades la carta _Maledicción_ a tu colección. Para ti, esta carta no requiere
+      Concentración y puedes lanzarla usando tu atributo de **Presencia**.
     slug: virtuosismo-arcano
   - id: 5080da8f820ca5b701604cdd49ca37c47b37a9e0
     name: Danza del Ki Hipnótico

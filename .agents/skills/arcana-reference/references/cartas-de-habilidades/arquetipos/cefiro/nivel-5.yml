@@ -10,10 +10,10 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
-      Te conviertes en una ráfaga letal y omnipresente en el campo de batalla.<br> Como Acción, eliges hasta un número
-      de enemigos igual a tu puntuación de Reflejos que puedas ver a distancia Larga. Realizas un único ataque (usando
-      un arma Precisa o a distancia) contra cada uno de ellos.<br> Este asalto es tan rápido que parece que te
-      teletransportas.<br> Inmediatamente después de resolver todos los ataques, puedes elegir aparecer en un espacio
-      desocupado a distancia Inmediata de cualquiera de los objetivos atacados, o bien regresar a la posición desde
-      donde iniciaste la habilidad.
+      _Eres una ráfaga imparable que golpea múltiples objetivos en un parpadeo, moviéndote por el campo de batalla como
+      un rayo._<br><br> Como Acción, eliges hasta un número de enemigos igual a tu puntuación de Reflejos que puedas ver
+      a distancia Larga. Realizas un único ataque (usando un arma Precisa o a distancia) contra cada uno de ellos.<br>
+      Este asalto es tan rápido que parece que te teletransportas.<br> Inmediatamente después de resolver todos los
+      ataques, puedes elegir aparecer en un espacio desocupado a distancia Inmediata de cualquiera de los objetivos
+      atacados, o bien regresar a la posición desde donde iniciaste la habilidad.
     slug: tempestad-incesante

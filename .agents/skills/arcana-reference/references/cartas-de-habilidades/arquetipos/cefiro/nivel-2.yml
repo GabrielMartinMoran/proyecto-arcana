@@ -10,9 +10,9 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Tu paciencia y puntería te permiten realizar disparos y estocadas imposibles.<br> Mientras tengas esta carta
-      activa, si no has gastado nada de tu movimiento durante tu turno, puedes sacrificarlo para obtener un +1 a tus
-      tiradas de ataque con armas Precisas, a distancia y arrojadizas hasta el final de tu turno.<br> Como Acción,
-      puedes gastar un uso de esta carta para realizar un único ataque con una de estas armas. Si impacta, el golpe
-      ignora toda la Mitigación Física del objetivo.
+      _Con paciencia y un pulso de acero, esperas el momento perfecto para que tu disparo o estocada ignore cualquier
+      armadura._<br><br> Mientras tengas esta carta activa, si no has gastado nada de tu movimiento durante tu turno,
+      puedes sacrificarlo para obtener un +1 a tus tiradas de ataque con armas Precisas, a distancia y arrojadizas hasta
+      el final de tu turno.<br> Como Acción, puedes gastar un uso de esta carta para realizar un único ataque con una de
+      estas armas. Si impacta, el golpe ignora toda la Mitigación Física del objetivo.
     slug: precision-letal

@@ -10,7 +10,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu cuerpo convierte el dolor en una barrera protectora efímera.<br> Inmediatamente después de sacrificar Puntos de
-      Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos de Salud temporales igual a la mitad de los PS
-      sacrificados (redondeado hacia arriba). Estos puntos temporales duran hasta el inicio de tu próximo turno.
+      _Tu cuerpo instintivamente convierte el dolor de tu sacrificio arcano en una barrera protectora efímera._<br><br>
+      Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos
+      de Salud temporales igual a la mitad de los PS sacrificados (redondeado hacia arriba). Estos puntos temporales
+      duran hasta el inicio de tu próximo turno.
     slug: escudo-residual

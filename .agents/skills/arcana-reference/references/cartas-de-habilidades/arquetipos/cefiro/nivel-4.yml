@@ -10,8 +10,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu cuerpo lee y se adapta al ritmo de tus oponentes en tiempo real. Obtienes Ventaja (+1d4) en todas tus Tiradas
-      de Salvación de Reflejos.<br> Además, cada vez que un enemigo te impacta con un ataque, obtienes un +1 acumulativo
-      a tu Esquiva exclusivamente contra los próximos ataques de ese mismo enemigo. Este bonificador se mantiene hasta
-      el inicio de tu próximo turno.
+      _Tu cuerpo reacciona antes que tu mente; cada golpe que recibes te enseña cómo evitar el siguiente con una fluidez
+      instintiva._<br><br> Obtienes Ventaja (+1d4) en todas tus Tiradas de Salvación de Reflejos.<br> Además, cada vez
+      que un enemigo te impacta con un ataque, obtienes un +1 acumulativo a tu Esquiva exclusivamente contra los
+      próximos ataques de ese mismo enemigo.<br> Este bonificador se mantiene hasta el inicio de tu próximo turno.
     slug: memoria-muscular

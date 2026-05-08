@@ -10,8 +10,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Como **Acción**, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la
-      tirada o si un aliado está adyacente al objetivo, infliges +1d4 de daño adicional.
+      _Aprovechas la más mínima distracción de tu enemigo para asestar un golpe letal en sus puntos ciegos._<br><br>
+      Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada
+      o si un aliado está adyacente al objetivo, infliges +1d4 de daño adicional.
     slug: ataque-furtivo
   - id: 81ffe85b17bbc42175bd10e3c23ba5c2cf7b893e
     name: Sabotaje Táctico
@@ -24,12 +25,13 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de sabotearlo:<br> - **Jugar Sucio
-      (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS de Reflejos (ND 5 + Reflejos) o
-      tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu próximo turno.<br> -
-      **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de Instinto (ND 5 +
-      Presencia) o tener Desventaja (-1d4) en todos los ataques contra cualquier objetivo que no seas tú hasta el final
-      de tu próximo turno.
+      _Un insulto bien dirigido o un puñado de arena en los ojos pueden cambiar el rumbo de un duelo más rápido que
+      cualquier estocada._<br><br> Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de
+      sabotearlo:<br> - **Jugar Sucio (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS
+      de Reflejos (ND 5 + Reflejos) o tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu
+      próximo turno.<br> - **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de
+      Instinto (ND 5 + Presencia) o tener Desventaja (-1d4) en todos los ataques contra cualquier objetivo que no seas
+      tú hasta el final de tu próximo turno.
     slug: sabotaje-tactico
   - id: e79f14268ca199f9087d131aded8b481d5d77831
     name: Estilo Audaz
@@ -42,7 +44,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu forma de combatir es un espectáculo de agilidad y provocación.<br> - **Acróbata:** Obtienes Ventaja (+1d4) en
+      _El combate es un escenario y tú eres el protagonista; tu insolencia y piruetas confunden al enemigo mientras
+      buscas su garganta._<br><br> Adquieres los siguientes beneficios:<br> - **Acróbata:** Obtienes Ventaja (+1d4) en
       pruebas de Acrobacias.<br> - **Apertura Temeraria:** Puedes usar tu Interacción para bajar la guardia y fintar.
       Obtienes Ventaja (+1d4) en tu próximo ataque cuerpo a cuerpo que hagas con un arma Precisa en este turno. A
       cambio, sufres un -2 a tu Esquiva hasta el inicio de tu próximo turno.
@@ -58,8 +61,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Has perfeccionado las técnicas de seguridad y observación criminal.<br> - **Ojo Clínico:** Obtienes Ventaja (+1d4)
-      en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Si fallas una prueba de
+      _Ninguna cerradura es lo suficientemente compleja ni ninguna trampa lo bastante ingeniosa para detener tu paso o
+      tus dedos rápidos._<br><br> Adquieres los siguientes beneficios:<br> - **Ojo Clínico:** Obtienes Ventaja (+1d4) en
+      pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Si fallas una prueba de
       Juego de Manos o una prueba para desactivar una trampa, el fallo no tiene consecuencias negativas (no eres
       descubierto, no rompes la herramienta ni activas la trampa).<br> - **Rapidez:** Puedes usar tu Interacción para
       realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.
@@ -75,11 +79,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Te mueves por los bajos fondos como pez en el agua. Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener
-      información en entornos urbanos y en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una
-      ciudad.<br> Además, una vez por sesión, puedes declarar que "conoces a alguien" relevante en la localidad actual.
-      Gasta 2 Puntos de Suerte y define el perfil de tu contacto (siempre de reputación dudosa o del hampa: un
-      informante, un falsificador, un contrabandista, etc.). El DJ te revela cómo y dónde podrías encontrar a esa
-      persona, creando una nueva pista o un mini-objetivo para el grupo. El contacto estará, como mínimo, dispuesto a
-      escucharte, aunque obtener su ayuda pueda requerir persuasión, un favor o el pago adecuado.
+      _Conoces cada callejón, cada informante y cada código secreto; en la ciudad, las sombras te susurran sus
+      verdades._<br><br> Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener información en entornos urbanos y
+      en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una ciudad.<br> Además, una vez por sesión,
+      puedes declarar que "conoces a alguien" relevante en la localidad actual. Gasta 2 Puntos de Suerte y define el
+      perfil de tu contacto (siempre de reputación dudosa o del hampa: un informante, un falsificador, un
+      contrabandista, etc.). El DJ te revela cómo y dónde podrías encontrar a esa persona, creando una nueva pista o un
+      mini-objetivo para el grupo. El contacto estará, como mínimo, dispuesto a escucharte, aunque obtener su ayuda
+      pueda requerir persuasión, un favor o el pago adecuado.
     slug: senor-de-los-bajos-fondos

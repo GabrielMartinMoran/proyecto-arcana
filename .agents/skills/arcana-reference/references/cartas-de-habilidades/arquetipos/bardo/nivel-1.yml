@@ -10,9 +10,10 @@ cards:
       type: RELOAD
       qty: 3
     description: >-
-      Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte. El aliado obtiene un dado de
-      1d4 (dado de inspiración) que puede añadir a una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que
-      realice en el próximo minuto.
+      _Entonas una melodía épica o recitas un verso vibrante que enciende el coraje y la destreza en los corazones de
+      tus compañeros._<br><br> Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.<br>
+      Durante 1 minuto, el objetivo obtiene un dado de inspiración (1d4) que puede añadir a una Prueba de Habilidad,
+      Tirada de Ataque o Tirada de Salvación que realice.
     slug: canto-de-inspiracion
   - id: 33cc5cf3e4bc637bdef0e311aeb45ee634978e1e
     name: Palabras Hirientes
@@ -26,8 +27,10 @@ cards:
       type: RELOAD
       qty: 3
     description: >-
-      Insultas a una criatura que puedas ver a distancia Cercana que pueda oírte. El objetivo debe superar una TS de
-      Instinto (ND 5 + Presencia) o recibir 1d6 de daño Psíquico y tener Desventaja en su próximo ataque.
+      _Tus insultos no solo ofenden el orgullo, sino que llevan una carga mágica subyacente que desgarra la mente de tu
+      víctima._<br><br> Insultas a una criatura a distancia Cercana que puedas ver y que pueda oírte.<br> El objetivo
+      debe superar una TS de Instinto (ND 5 + Presencia) o recibir 1d6 de daño Psíquico y tener Desventaja en su próxima
+      tirada de ataque.
     slug: palabras-hirientes
   - id: f8bc512e468cd6cbedad948f761a5a3e10136f42
     name: Hechizar Persona
@@ -42,10 +45,11 @@ cards:
       type: LONG_REST
       qty: 2
     description: >-
-      Intentas encantar a un humanoide a distancia Cercana. Debe superar una TS de Instinto (ND 5 + Presencia, con
-      ventaja si tu o tus compañeros estan combatiendo contra la criatura) o quedar Encantado por ti durante 10 minutos.
-      Mientras este bajo este efecto, su postura hacia ti es amigable y como mínino tendra en cuenta tus peticiones o
-      sugerencias.
+      _Tus palabras se vuelven convincentes y tu mirada un refugio seguro; nublas el juicio de tu interlocutor para
+      convertirlo temporalmente en un amigo devoto._<br><br> Intentas encantar a un humanoide a distancia Cercana. Este
+      debe superar una TS de Instinto (ND 5 + Presencia, con ventaja si tu o tus compañeros estan combatiendo contra la
+      criatura) o quedar Encantado por ti durante 10 minutos.<br> Mientras este bajo este efecto, su postura hacia ti es
+      amigable y como mínino tendra en cuenta tus peticiones o sugerencias.
     slug: hechizar-persona
   - id: 9a6415f260feb5f59d51cc13970afbaa822d8ac6
     name: Inspiración Marcial
@@ -58,8 +62,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Puedes usar tu Canto de Inspiración en ti mismo. Además, mientras poseas un dado de Canto de Inspiración sin
-      gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
+      _El ritmo de tu propia música guía tus pasos, volviendo tu danza en el campo de batalla tan ágil, letal e
+      impredecible como tu arte._<br><br> Puedes usar tu Canto de Inspiración en ti mismo.<br> Además, mientras poseas
+      un dado de Canto de Inspiración sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
     slug: inspiracion-marcial
   - id: 213573b4de38bed6f054ae8acae8977e2fb9146e
     name: Floritura Artística
@@ -73,12 +78,14 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu magia altera la percepción y el ambiente a tu voluntad.<br> - **Puesta en Escena (Interacción):** Creas efectos
-      narraitvos menores: haces sonar música de fondo, amplificas tu voz, afinas instrumentos o generas efectos visuales
-      menores (lluvia de pétalos, foco de luz).<br> - **Trucos de Salón (Acción):** Realizas magia menor sobre objetos:
-      enciendes/apagas velas, creas una esfera de luz flotante, limpias/manchas ropa, o cambias el sabor y temperatura
-      de 1 litro de bebida o comida.<br> - **Ventriloquia (Acción):** Creas un sonido corto (como un susurro, pasos,
-      etc.) que parezca provenir de un punto específico a distancia Cercana.
+      _Moldeas el entorno a tu absoluto antojo, usando magia sutil para crear el escenario, la iluminación y el sonido
+      perfectos para tu entrada._<br><br> Adquieres la capacidad de conjurar la magia de tu arte en forma de los
+      siguientes trucos:<br> - **Puesta en Escena (Interacción):** Creas efectos narraitvos menores: haces sonar música
+      de fondo, amplificas tu voz, afinas instrumentos o generas efectos visuales menores (lluvia de pétalos, foco de
+      luz).<br> - **Trucos de Salón (Acción):** Realizas magia menor sobre objetos: enciendes/apagas velas, creas una
+      esfera de luz flotante, limpias/manchas ropa, o cambias el sabor y temperatura de 1 litro de bebida o comida.<br>
+      - **Ventriloquia (Acción):** Creas un sonido corto (como un susurro, pasos, etc.) que parezca provenir de un punto
+      específico a distancia Cercana.
     slug: floritura-artistica
   - id: b102103185da37dda8dd436b23aea3a6e6908ffc
     name: Versos Vigorizantes
@@ -92,7 +99,8 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Tu voz cierra heridas y fortalece espíritus. Al lanzar el conjuro, eliges un efecto:<br> - **Palabra de Esperanza
+      _Tus rimas son un bálsamo reconfortante para el alma, aliviando el cansancio y cerrando las heridas físicas con el
+      puro poder de tu arte._<br><br> Al lanzar el conjuro, eliges un efecto:<br> - **Palabra de Esperanza
       (Interacción):** Pronuncias una palabra revigorizante. Un aliado a distancia Cercana recupera 1d4 Puntos de
       Salud.<br> - **Canto Heroico (Acción):** Interpretas una breve y potente melodía. Hasta 2 aliados a distancia
       Cercana ganan 1d4 + Presencia en Puntos de Salud Temporales durante 1 minuto.

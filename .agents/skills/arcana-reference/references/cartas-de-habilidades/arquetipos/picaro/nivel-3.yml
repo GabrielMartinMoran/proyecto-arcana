@@ -10,8 +10,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Cuando un efecto te obliga a realizar una TS de Reflejos para recibir la mitad de daño, si tienes éxito no recibes
-      daño alguno, y si fallas, recibes solo la mitad.
+      _Tu agilidad sobrenatural te permite escapar ileso de explosiones y peligros de área que destrozarían a un
+      combatiente normal._<br><br> Cuando un efecto te obliga a realizar una TS de Reflejos para recibir la mitad de
+      daño, si tienes éxito no recibes daño alguno, y si fallas, recibes solo la mitad.
     slug: evasion
   - id: 94658c9652214cc2a5dc3c3b161ab120df302c08
     name: Ataque Furtivo Mejorado
@@ -23,7 +24,9 @@ cards:
     uses:
       type: null
       qty: 0
-    description: Tu conocimiento de la anatomía letal mejora.<br> El daño adicional de tu Ataque Furtivo aumenta a 2d4.
+    description: >-
+      _Tu conocimiento de la anatomía se vuelve quirúrgico; ahora sabes exactamente dónde clavar la daga para que no
+      haya un segundo asalto._<br><br> El daño adicional de tu Ataque Furtivo aumenta a 2d4.
     slug: ataque-furtivo-mejorado
   - id: b4524aeee335a145a52e072037c83776a4632055
     name: Celeridad de la Hoja
@@ -36,10 +39,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu velocidad con las armas ligeras es imperceptible.<br> Cuando usas tu Acción para Atacar o para realizar un
-      _Ataque Furtivo_ con un arma Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma
-      Precisa. Si utilizaste la acción de _Ataque Furtivo_ y fallaste el primer golpe, puedes aplicar su daño adicional
-      en este impacto extra (siempre que cumplas las condiciones).
+      _Tus manos se mueven más rápido de lo que la vista de tus enemigos puede seguir, permitiéndote encadenar ataques
+      en un pestañeo._<br><br> Cuando usas tu Acción para Atacar o para realizar un _Ataque Furtivo_ con un arma
+      Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma Precisa. Si utilizaste la acción
+      de _Ataque Furtivo_ y fallaste el primer golpe, puedes aplicar su daño adicional en este impacto extra (siempre
+      que cumplas las condiciones).
     slug: celeridad-de-la-hoja
   - id: 7977b4877ec4df8f3dabfe02e4d4aa8a2e6427ed
     name: Maestría del Duelista
@@ -52,10 +56,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Te mueves por el campo de batalla como en un baile mortal. Ganas los siguientes beneficios:<br> - **Paso
-      Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Durante
-      este movimiento, no puede ser interceptado por una Reacción del objetivo de tu ataque.<br> - **Réplica Maestra:**
-      Puedes usar tu carta Riposta una vez por ronda sin gastar su uso de recarga.
+      _Te deslizas por el campo de batalla como si estuvieras en un salón de baile, respondiendo a cada golpe con una
+      elegancia letal._<br><br> Ganas los siguientes beneficios:<br> - **Paso Desconcertante:** Cuando impactas a una
+      criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Durante este movimiento, no puede ser
+      interceptado por una Reacción del objetivo de tu ataque.<br> - **Réplica Maestra:** Puedes usar tu carta Riposta
+      una vez por ronda sin gastar su uso de recarga.
     slug: maestria-del-duelista
   - id: 18ef62cc00152a6e5131c2b325ad24d71efab842
     name: Parada del Duelista
@@ -69,10 +74,11 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando un arma Precisa (y
-      ninguna otra arma), puedes un bono a tu Esquiva contra ese ataque igual a tu puntuación de Presencia, pudiendo
-      hacer que falle. Si el ataque falla de esta manera, tu próximo ataque contra ese enemigo antes del final de tu
-      próximo turno tiene Ventaja (+1d4).
+      _Un giro de muñeca y una sonrisa arrogante son suficientes para desviar el ataque más feroz y preparar tu
+      contraataque._<br><br> Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando
+      un arma Precisa (y ninguna otra arma), puedes un bono a tu Esquiva contra ese ataque igual a tu puntuación de
+      Presencia, pudiendo hacer que falle. Si el ataque falla de esta manera, tu próximo ataque contra ese enemigo antes
+      del final de tu próximo turno tiene Ventaja (+1d4).
     slug: parada-del-duelista
   - id: c3a2dc3fdfea53d3c162c684549d2d94a6a87fb5
     name: Maestría Tóxica
@@ -85,10 +91,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Perfeccionas tus venenos. Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 +
-      Mente):<br> - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu
-      próximo turno.<br> - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu
-      próximo turno.
+      _Tus venenos no solo matan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a
+      tu merced._<br><br> Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br> -
+      **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo
+      turno.<br> - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo
+      turno.
     slug: maestria-toxica
   - id: 308348974e7c8b1dea95f602e94d18c17866393f
     name: Paso Veloz
@@ -101,9 +108,10 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Interacción, te mueves con una explosión de velocidad sobrenatural, duplicando tu Velocidad total para este
-      turno. Además, obtienes Ventaja (+1d4) en la próxima tirada de ataque que realices este turno, y el primer ataque
-      que te realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).
+      _En un instante, te conviertes en una ráfaga de movimiento que cruza la estancia antes de que el enemigo pueda
+      parpadear._<br><br> Como Interacción, duplicas tu Velocidad de movimiento para este turno. Además, obtienes
+      Ventaja (+1d4) en la próxima tirada de ataque que realices este turno, y el primer ataque que te realicen antes
+      del inicio de tu próximo turno se hace con Desventaja (-1d4).
     slug: paso-veloz
   - id: 1e2d71cd9b997340bbf84efd9efd9754db66065f
     name: Punto Vital
@@ -116,10 +124,11 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de
-      Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito,
-      identificas un punto vital. La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu
-      Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+      _Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con
+      un solo toque._<br><br> Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti.
+      Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del
+      objetivo. Si tienes éxito, identificas un punto vital. La próxima vez que impactes a esa criatura con tu habilidad
+      Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
     slug: punto-vital
   - id: 5aab682a89e0e192852d7f582cec7dd0d0b19e00
     name: Especialista Táctico
@@ -132,7 +141,7 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu eficiencia en el campo de batalla es inigualable. Ganas una segunda Interacción en cada uno de tus turnos. Esta
-      interacción adicional solo puede usarse para tu Acción Astuta (Correr o Esconderse) o para tu Mano Rápida (Usar un
-      Objeto).
+      _Tu eficiencia en combate es tal que eres capaz de realizar malabares con tus herramientas mientras te desvaneces
+      en las sombras._<br><br> Ganas una segunda Interacción en cada uno de tus turnos. Esta interacción adicional solo
+      puede usarse para tu Acción Astuta (Correr o Esconderse) o para tu Mano Rápida (Usar un Objeto).
     slug: especialista-tactico

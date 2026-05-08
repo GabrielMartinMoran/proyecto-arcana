@@ -10,7 +10,9 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Acción, desatas una ráfaga ineludible. Si usas un arma a distancia, eliges un punto a distancia Larga. Si
-      usas un arma cuerpo a cuerpo Precisa, el punto eres tú mismo. Todas las criaturas a 3 metros del punto elegido
-      deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño (del mismo tipo que tu arma).
+      _Te conviertes en un ciclón de filos que barre todo lo que te rodea, dejando un rastro de destrucción a tu
+      paso._<br><br> Como Acción, desatas una ráfaga ineludible.<br> Si usas un arma a distancia, eliges un punto a
+      distancia Larga. Si usas un arma cuerpo a cuerpo Precisa, el punto eres tú mismo.<br> Todas las criaturas a 3
+      metros del punto elegido deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño (del mismo tipo
+      que tu arma).
     slug: torbellino-de-acero

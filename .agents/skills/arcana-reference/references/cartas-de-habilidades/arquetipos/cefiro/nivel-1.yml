@@ -10,8 +10,9 @@ cards:
       type: LONG_REST
       qty: 2
     description: >-
-      Como Interacción, entras en un estado de concentración absoluta durante 1 minuto o hasta que quedes inconsciente.
-      Mientras dure este estado, tu velocidad de reacción te otorga un +1 a tu Esquiva y puedes desenvainar o guardar
-      armas sin gastar tu Interacción.<br> Mientras dure el foco, no puedes mantener concentración en otras habilidades
-      o usar cartas con la etiqueta _Conjuro_.
+      _Entras en un estado de calma absoluta donde el tiempo parece ralentizarse, permitiéndote reaccionar a cada
+      amenaza antes de que ocurra._<br><br> Como Interacción, entras en un estado de concentración absoluta durante 1
+      minuto o hasta que quedes inconsciente. Mientras dure este estado, tu velocidad de reacción te otorga un +1 a tu
+      Esquiva y puedes desenvainar o guardar armas sin gastar tu Interacción.<br> Mientras dure el foco, no puedes
+      mantener concentración en otras habilidades o usar cartas con la etiqueta _Conjuro_.
     slug: foco-del-escaramuzador

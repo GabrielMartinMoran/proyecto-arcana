@@ -11,8 +11,9 @@ cards:
       type: RELOAD
       qty: 3
     description: >-
-      Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu Reacción para realizar un
-      único ataque cuerpo a cuerpo contra él.
+      _Nunca dejas que un enemigo se retire impunemente; cualquier descuido en su guardia es castigado con un golpe
+      instantáneo._<br><br> Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu
+      Reacción para realizar un único ataque cuerpo a cuerpo contra él.
     slug: ataque-de-oportunidad
   - id: 40af6a3a3fb72bcc973edd890074bd674fa62e22
     name: Duelo de Honor
@@ -25,10 +26,11 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo desafías. Realizas una
-      Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el objetivo está marcado por ti hasta
-      el inicio de tu próximo turno. Mientras esté marcado, sufre Desventaja (-1d4) en cualquier tirada de ataque que
-      realice contra un objetivo que no seas tú.
+      _Tu presencia exige atención; con un grito de desafío o una mirada gélida, obligas a tu enemigo a centrarse solo
+      en ti._<br><br> Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo
+      desafías.<br> Realizas una Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el
+      objetivo está marcado por ti hasta el inicio de tu próximo turno.<br> Mientras esté marcado, sufre Desventaja
+      (-1d4) en cualquier tirada de ataque que realice contra un objetivo que no seas tú.
     slug: duelo-de-honor
   - id: 98a67402e68c1c4b3eda1621e649d11bc2144fca
     name: Maestría de Armas
@@ -42,18 +44,19 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu entrenamiento marcial es extenso y adaptable. Al finalizar un día de descanso, adoptas una Postura de Combate
-      que te otorga beneficios según el equipo que empuñes:<br> - **Destructor (A dos manos):** Cuando atacas con un
-      arma a dos manos o versátil (usando ambas manos), puedes volver a tirar cualquier dado de daño que resulte en un 1
-      o un 2 (debes usar el nuevo resultado).<br> - **Torbellino (Dos armas):** Cuando atacas con un arma de una mano,
-      puedes usar tu Interacción para realizar un ataque adicional con otra arma de una mano que empuñes.<br> -
-      **Duelista (Un arma):** Cuando empuñas un arma de una mano y ninguna otra arma (puedes llevar escudo), puedes usar
-      tu Reacción al ser golpeado para añadir +1 a tu Esquiva contra ese ataque.<br> - **Guardián (Escudo):** Cuando un
-      enemigo ataca a un aliado a distancia Inmediata de ti y estás usando un escudo, puedes usar tu Reacción para
-      imponer Desventaja (-1d4) en su tirada de ataque.<br> - **Tirador (A distancia):** Tus ataques a distancia ignoran
-      la cobertura parcial y su alcance aumenta un rango (Por ejemplo: Media a Larga).<br> - **Hostigador
-      (Arrojadizas):** Puedes desenvainar armas arrojadizas como parte de cada ataque (sin gastar interacción) y su
-      alcance aumenta un rango (Por ejemplo: Cercana a Media).
+      _Has entrenado con cada herramienta de muerte conocida, adoptando posturas que maximizan la eficacia de tu equipo
+      actual._<br><br> Al finalizar un día de descanso, adoptas una Postura de Combate que te otorga beneficios según el
+      equipo que empuñes:<br> - **Destructor (A dos manos):** Cuando atacas con un arma a dos manos o versátil (usando
+      ambas manos), puedes volver a tirar cualquier dado de daño que resulte en un 1 o un 2 (debes usar el nuevo
+      resultado).<br> - **Torbellino (Dos armas):** Cuando atacas con un arma de una mano, puedes usar tu Interacción
+      para realizar un ataque adicional con otra arma de una mano que empuñes.<br> - **Duelista (Un arma):** Cuando
+      empuñas un arma de una mano y ninguna otra arma (puedes llevar escudo), puedes usar tu Reacción al ser golpeado
+      para añadir +1 a tu Esquiva contra ese ataque.<br> - **Guardián (Escudo):** Cuando un enemigo ataca a un aliado a
+      distancia Inmediata de ti y estás usando un escudo, puedes usar tu Reacción para imponer Desventaja (-1d4) en su
+      tirada de ataque.<br> - **Tirador (A distancia):** Tus ataques a distancia ignoran la cobertura parcial y su
+      alcance aumenta un rango (Por ejemplo: Media a Larga).<br> - **Hostigador (Arrojadizas):** Puedes desenvainar
+      armas arrojadizas como parte de cada ataque (sin gastar interacción) y su alcance aumenta un rango (Por ejemplo:
+      Cercana a Media).
     slug: maestria-de-armas
   - id: 40b1749a5f2db0c93903cf744d526ce541b2befc
     name: Grito de Guerra
@@ -66,8 +69,9 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Usas tu Interacción para inspirar a tus aliados. Elige un número de aliados igual a tu puntuación de Presencia a
-      distancia Cercana. Ganan Puntos de Salud temporales iguales a 1d4 + tu puntuación de Presencia.
+      _Alzas la voz en un rugido que resuena en los corazones de tus aliados, infundiéndoles una vitalidad
+      renovada._<br><br> Como Interacción, elige un número de aliados a distancia Cercana igual a tu puntuación de
+      Presencia. Estos ganan Puntos de Salud temporales iguales a 1d4 + tu puntuación de Presencia.
     slug: grito-de-guerra
   - id: 3254a24cdf671197f84b3597764ae298c393920a
     name: Ojo Táctico
@@ -80,9 +84,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu experiencia en incontables batallas y marchas te ha enseñado a leer tanto a la gente como al terreno. Obtienes
-      Ventaja (+1d4) en las siguientes pruebas de habilidad:<br> - **Instinto (Supervivencia):** Para evitar perderte,
-      encontrar un camino seguro o prever peligros naturales.<br> - **Mente (Investigación):** Para encontrar
-      debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena,
-      etc.).<br>
+      _Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más
+      seguro o el punto más frágil._<br><br> Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br> -
+      **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br> -
+      **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared
+      agrietada, el eslabón débil de una cadena, etc.).<br>
     slug: ojo-tactico

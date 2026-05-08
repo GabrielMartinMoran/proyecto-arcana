@@ -10,10 +10,11 @@ cards:
       type: RELOAD
       qty: 8
     description: >-
-      Como Interacción, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia
-      Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura
-      adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se
-      maximiza.
+      _Te fundes con la oscuridad y reapareces en el punto más débil de tu enemigo para asestar el golpe de
+      gracia._<br><br> Como Interacción, te fundes con las sombras y reapareces instantáneamente en un espacio
+      desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo
+      contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas, puedes usar tu _Ataque
+      Furtivo_, y su daño se maximiza.
     slug: paso-sombrio-letal
   - id: 22ebd754635741069ef9fa03a0cf5bfdb95bd9f5
     name: Golpe Fantasma
@@ -26,9 +27,10 @@ cards:
       type: RELOAD
       qty: 8
     description: >-
-      Tu golpe es tan rápido y preciso que atraviesa las defensas.<br> Como Acción, realizas un único ataque con un arma
-      Precisa o a distancia. Este ataque ignora toda Mitigación Física, Mitigación Mágica y Puntos de Salud temporales
-      del objetivo. Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.
+      _Tu ataque trasciende las defensas materiales; ni la armadura más gruesa ni los escudos mágicos pueden proteger a
+      tu objetivo de tu precisión._<br><br> Como Acción, realizas un único ataque con un arma Precisa o a distancia.
+      Este ataque ignora toda Mitigación Física, Mitigación Mágica y Puntos de Salud temporales del objetivo. Si
+      impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.
     slug: golpe-fantasma
   - id: 8c00a0217146f26727777666732a671f2168b4a1
     name: Ataque Furtivo Maestro
@@ -41,6 +43,6 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu precisión es legendaria, un solo corte basta para acabar el trabajo.<br> El daño adicional de tu Ataque Furtivo
-      aumenta a 6d4.
+      _Tu letalidad es una leyenda; un solo roce de tu hoja es una sentencia de muerte que nadie puede evitar._<br><br>
+      El daño adicional de tu Ataque Furtivo aumenta a 6d4.
     slug: ataque-furtivo-maestro

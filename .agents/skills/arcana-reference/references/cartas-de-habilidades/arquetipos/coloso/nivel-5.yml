@@ -11,6 +11,7 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
-      Eres la definición de la resistencia.<br> Como Reacción, cuando tú o un aliado a 1 metro van a recibir daño,
-      puedes interponer tu cuerpo o escudo. Al hacer esto, anulas completamente ese daño.
+      _Te interpones entre el peligro y tus aliados, convirtiéndote en el escudo definitivo que anula cualquier
+      daño._<br><br> Como Reacción, cuando tú o un aliado a distancia Inmediata de ti van a recibir daño, puedes
+      interponer tu cuerpo o escudo. Al hacer esto, anulas completamente ese daño.
     slug: ultimo-bastion

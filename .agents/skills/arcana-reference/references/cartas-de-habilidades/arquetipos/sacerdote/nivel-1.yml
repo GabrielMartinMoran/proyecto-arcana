@@ -11,12 +11,13 @@ cards:
       type: null
       qty: 0
     description: >-
-      Manifiestas la voluntad de tu deidad en el mundo físico con pequeños milagros.<br> - **Signos (Interacción):**
-      Creas efectos sensoriales inofensivos: tu voz retumba, las llamas cambian de color, el suelo tiembla o tus ojos
-      brillan.<br> - **Luz Sagrada (Acción):** Tocas un objeto y haces que emita luz brillante en un radio de 5 metros
-      durante 1 hora.<br> - **Restauración Menor (Acción):** Tocas un objeto para limpiarlo, reparar una rotura pequeña
-      o purificar comida y bebida.<br> - **Voluntad a Distancia (Interacción):** Puedes abrir o cerrar de golpe una
-      puerta o ventana sin seguro a distancia Cercana.
+      _Manifiestas la voluntad de tu deidad en el mundo físico con pequeños pero innegables milagros
+      cotidianos._<br><br> Aprendes a manifestar tu don divino mediante los siguientes trucos:<br> - **Signos
+      (Interacción):** Creas efectos sensoriales inofensivos: tu voz retumba, las llamas cambian de color, el suelo
+      tiembla o tus ojos brillan.<br> - **Luz Sagrada (Acción):** Tocas un objeto y haces que emita luz brillante en un
+      radio de 5 metros durante 1 hora.<br> - **Restauración Menor (Acción):** Tocas un objeto para limpiarlo, reparar
+      una rotura pequeña o purificar comida y bebida.<br> - **Voluntad a Distancia (Interacción):** Puedes abrir o
+      cerrar de golpe una puerta o ventana sin seguro a distancia Cercana.
     slug: taumaturgia-divina
   - id: 45145e56d7230a7422db4e2211c8d58a8b021458
     name: Guía Divina
@@ -31,8 +32,9 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Como Reacción, cuando un aliado a distancia Cercana falla una Prueba de Habilidad, puedes interceder por él. El
-      aliado suma **1d4** al resultado de su tirada, lo que podría convertir el fallo en un éxito.
+      _Una oración susurrada en el momento justo guía la mano de tu aliado hacia el éxito._<br><br> Como Reacción,
+      cuando un aliado a distancia Cercana falla una Prueba de Habilidad, puedes interceder por él. El aliado suma
+      **1d4** al resultado de su tirada, lo que podría convertir el fallo en un éxito.
     slug: guia-divina
   - id: 2a8d46598771dc9dcc91992dec7033c9efee553c
     name: Toque Restaurador
@@ -46,8 +48,9 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Tocas a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente, puedes eliminar una
-      de estas condiciones: Cegado, Ensordecido o Envenenado.
+      _Canalizas la energía de la vida misma a través de tus manos para cerrar heridas y purgar toxinas._<br><br> Tocas
+      a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente, puedes eliminar una de
+      estas condiciones: Cegado, Ensordecido o Envenenado.
     slug: toque-restaurador
   - id: 1f49450e4b2de47bfc0aab65184d3ab8236ac03c
     name: Escudo de Fe
@@ -61,10 +64,10 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer
-      un escudo de energía divina. El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación
-      de Instinto justo antes de recibir el daño. Estos Puntos de Salud temporales duran hasta el inicio de tu próximo
-      turno.
+      _Invocas una barrera de luz sagrada para desviar un golpe mortal destinado a un compañero._<br><br> Como Reacción,
+      cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de
+      energía divina. El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación de Instinto
+      justo antes de recibir el daño. Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
     slug: escudo-de-fe
   - id: 591c9b98fcb403fb1697731f113169934c0516b0
     name: Llama Sagrada
@@ -78,10 +81,11 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de
-      ataque de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar
-      hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br> Mientras brille, el siguiente ataque
-      contra el objetivo obtiene Ventaja (+1d4) en el ataque.
+      _Invocas la luz purificadora de tu deidad en forma de un proyectil de energía radiante, marcando e iluminando a tu
+      enemigo para el próximo ataque._<br><br> Lanzas un virote de energía radiante a una criatura que puedas ver a
+      distancia Cercana. Realiza una tirada de ataque de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño
+      Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir
+      daño.<br> Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
     slug: llama-sagrada
   - id: 5ed0ebfb169365f313b49dfbbcb2f6314fc2a0a0
     name: Mirada Penetrante
@@ -94,6 +98,7 @@ cards:
       type: null
       qty: 0
     description: >-
+      _Tus ojos, imbuidos de verdad divina, ven a través de las mentiras y desnudan el alma de los pecadores._<br><br>
       Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras y en pruebas de Intimidación para
       interrogar u obtener información.
     slug: mirada-penetrante

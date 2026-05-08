@@ -10,10 +10,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Has aprendido a canalizar tu furia hasta convertirla en un torbellino de destrucción imparable. Adquieres un uso
-      adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve potenciada con los siguientes
-      beneficios:<br> - **Furia Desatada:** Tus ataques que utilicen Cuerpo infligen daño adicional igual a la mitad de
-      tu puntuación de este atributo (redondeando hacia abajo).<br> - **Mente Inexpugnable:** Obtienes Ventaja (+1d4) en
-      Tiradas de Salvación de Instinto para resistir los estados de _Encantado_ o efectos de miedo.<br> - **Impulso
-      Imparable:** Tu Velocidad de movimiento aumenta en **2 metros**.
+      _Tu furia se convierte en un torbellino de destrucción imparable, donde el miedo se desvanece y tus músculos arden
+      con poder._<br><br> Adquieres un uso adicional de tu _Furia de Batalla_. Además, cuando la activas, esta se ve
+      potenciada con los siguientes beneficios:<br> - **Furia Desatada:** Tus ataques que utilicen Cuerpo infligen daño
+      adicional igual a la mitad de tu puntuación de este atributo (redondeando hacia abajo).<br> - **Mente
+      Inexpugnable:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Instinto para resistir los estados de
+      _Encantado_ o efectos de miedo.<br> - **Impulso Imparable:** Tu Velocidad de movimiento aumenta en **2 metros**.
     slug: ira-del-berserker

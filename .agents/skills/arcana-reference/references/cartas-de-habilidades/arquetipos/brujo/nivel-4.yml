@@ -9,8 +9,9 @@ cards:
     requirements: Pacto Supremo & Presencia 5
     uses:
       type: RELOAD
-      qty: 1
+      qty: 6
     description: >-
+      _Tu mirada sella el destino de tu enemigo, asegurando que la magia de tu señor se aferre con más fuerza._<br><br>
       Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros,
-      impones Desventaja (-1d4) a su tirada. (Recarga 6+)
+      impones Desventaja (-1d4) a su tirada.
     slug: condena-ineludible

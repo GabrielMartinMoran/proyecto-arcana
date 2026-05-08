@@ -141,6 +141,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 			if (titleEl) {
 				titleEl.textContent = this.actor.name;
 			}
+			// @ts-expect-error bringToFront exists at runtime in ApplicationV2 but types are incomplete
+			this.bringToFront?.();
 			return Promise.resolve(this);
 		}
 		// @ts-expect-error super.render is not typed in this Foundry version
@@ -153,8 +155,10 @@ export class ArcanaSheetV2 extends MixedSheet {
 	 */
 	// @ts-expect-error close may not be typed in this Foundry version
 	override async close(options?: any): Promise<this> {
-		((this as any).position as { width: number; height: number }).width = DEFAULT_SHEET_POSITION.width;
-		((this as any).position as { width: number; height: number }).height = DEFAULT_SHEET_POSITION.height;
+		((this as any).position as { width: number; height: number }).width =
+			DEFAULT_SHEET_POSITION.width;
+		((this as any).position as { width: number; height: number }).height =
+			DEFAULT_SHEET_POSITION.height;
 		// @ts-expect-error super.close is not typed in this Foundry version
 		return super.close(options);
 	}

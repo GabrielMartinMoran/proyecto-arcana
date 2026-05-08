@@ -10,14 +10,14 @@ cards:
       type: null
       qty: 0
     description: >-
-      La magia errática desestabiliza la realidad a tu alrededor.<br> Inmediatamente después de sacrificar Puntos de
-      Salud usando tu carta _Sangre Mágica_, tira 1d4 para determinar qué efecto secundario se manifiesta:<br> -
-      **Parpadeo:** Te teletransportas hasta 3 metros a un espacio desocupado que puedas ver.<br> - **Distorsión:** El
-      próximo ataque que recibas antes del inicio de tu próximo turno se realiza con Desventaja (-1d4).<br> -
-      **Claridad:** Tu próxima tirada de ataque de conjuro antes del final de tu próximo turno obtiene Ventaja
-      (+1d4).<br> - **Ruptura Defensiva:** Eliges a una criatura a distancia Media que puedas ver. Esta sufre Desventaja
-      (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros antes del final de tu próximo
-      turno.
+      _Al forzar tu poder, la magia errática desestabiliza la realidad a tu alrededor, creando efectos
+      aleatorios._<br><br> Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, tira
+      1d4 para determinar qué efecto secundario se manifiesta:<br> - **Parpadeo:** Te teletransportas hasta 3 metros a
+      un espacio desocupado que puedas ver.<br> - **Distorsión:** El próximo ataque que recibas antes del inicio de tu
+      próximo turno se realiza con Desventaja (-1d4).<br> - **Claridad:** Tu próxima tirada de ataque de conjuro antes
+      del final de tu próximo turno obtiene Ventaja (+1d4).<br> - **Ruptura Defensiva:** Eliges a una criatura a
+      distancia Media que puedas ver. Esta sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra
+      uno de tus conjuros antes del final de tu próximo turno.
     slug: anomalia-salvaje
   - id: bbd84e57623036b103691dd66be554413061af16
     name: Absorción Inestable
@@ -31,10 +31,12 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a absorber esa energía
-      para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente de esa magia queda
-      latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno,
-      puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.
+      _En lugar de rehuir del daño mágico, obligas a tu cuerpo a absorber esa energía para alimentar tus próximos
+      conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a
+      absorber esa energía para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente
+      de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu
+      próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de
+      Salud.
     slug: absorcion-inestable
   - id: 8dd2631b84005e1b76a83f5e9a5aaf78a5bb1109
     name: Esfera de Caos
@@ -48,7 +50,8 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Lanzas un orbe de magia inestable a un punto a distancia Media, que detona en una esfera de 3 metros de radio.
+      _Lanzas un orbe de magia cruda que detona violentamente, alterando la gravedad y la masa en su centro de
+      impacto._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3 metros de radio.
       Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño de la detonación
       es de 4d6 de daño de Fuerza.<br> - **Cascada Inestable:** Por cada dado de daño que resulte en un "6" natural, la
       magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales también generan más

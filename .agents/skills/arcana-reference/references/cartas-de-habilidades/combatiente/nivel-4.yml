@@ -10,7 +10,7 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu conciencia del campo de batalla es absoluta.<br> No puedes ser sorprendido mientres estes consciente. Además,
-      tienes una Reacción adicional en cada ronda de combate, que solo puedes usar para habilidades de cartas con la
-      etiqueta _Combatiente_.
+      _Tu conciencia del campo de batalla es total; reaccionas a múltiples amenazas con la velocidad de un
+      depredador._<br><br> No puedes ser sorprendido mientres estes consciente.<br> Además, tienes una Reacción
+      adicional en cada ronda de combate, que solo puedes usar para habilidades de cartas con la etiqueta _Combatiente_.
     slug: reflejos-de-combate

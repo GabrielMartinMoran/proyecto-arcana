@@ -10,7 +10,8 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Cuando realizas la acción de Atacar, puedes reemplazar uno de tus ataques. Si lo haces, debes estar empuñando un
-      arma a dos manos o un arma Versátil con ambas manos. Todas las criaturas a 1 metro de ti deben superar una TS de
-      Cuerpo (ND 5 + Cuerpo) o caer en el estado Derribado.
+      _Usas el peso de tu arma y la inercia de tu cuerpo para derribar a todos los oponentes a tu alrededor en un arco
+      devastador._<br><br> Cuando realizas la acción de Atacar mientras empuñas un arma a dos manos o un arma Versátil
+      con ambas manos, puedes renunciar a uno de tus ataques para forzar a todas las criaturas a distancia Inmediata de
+      ti a superar una TS de Cuerpo (ND 5 + Cuerpo) o caer Derribados.
     slug: barrido-de-piernas

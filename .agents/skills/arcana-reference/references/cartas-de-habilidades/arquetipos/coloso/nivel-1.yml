@@ -10,13 +10,15 @@ cards:
       type: LONG_REST
       qty: 2
     description: >-
-      Entras en furia por 1 minuto o hasta que quedes inconsciente.<br> Al entrar en furia, ganas una cantidad de Puntos
-      de Salud temporales igual a dos veces tu puntuación de Cuerpo. Además, mientras dure la furia, ganas los
-      siguientes efectos:<br> - **Temple de Hierro:** Ganas ventaja en Pruebas de Habilidad de Cuerpo.<br> - **Presencia
-      Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de
-      Presencia al realizar pruebas de habilidad de Intimidación.<br> - **Instinto Primordial:** Mientras dure la furia,
-      no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.<br> En caso de no
-      recibir ninguna agresión o agredir a alguien durante una ronda, tu furia termina.
+      _Dejas que el instinto primordial tome el control, convirtiéndote en una fuerza de la naturaleza que ignora el
+      dolor y siembra el caos._<br><br> Entras en furia por 1 minuto o hasta que quedes inconsciente.<br> Al entrar en
+      furia, ganas una cantidad de Puntos de Salud temporales igual a dos veces tu puntuación de Cuerpo. Además,
+      mientras dure la furia, ganas los siguientes efectos:<br> - **Temple de Hierro:** Ganas ventaja en Pruebas de
+      Habilidad de Cuerpo.<br> - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de
+      Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación.<br> - **Instinto
+      Primordial:** Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la
+      etiqueta _Conjuro_.<br> En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, tu furia
+      termina.
     slug: furia-de-batalla
   - id: 35650dbb1975c3ee855a00e3df75a49dcfbf4aea
     name: Baluarte de Acero
@@ -29,8 +31,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Eres una fortaleza andante.<br> Por cada punto de tu Atributo Cuerpo que supere el Requisito de la armadura que
-      vistes, ignoras 1 punto de su Penalización a la Esquiva.
+      _Tu maestría con la armadura es tal que su peso no te entorpece, sino que se convierte en una segunda piel
+      inexpugnable._<br><br> Por cada punto de tu Atributo Cuerpo que supere el Requisito de la armadura que vistes,
+      ignoras 1 punto de su Penalización a la Esquiva.
     slug: baluarte-de-acero
   - id: 1aca8b839b30a017a4767d47ab88177b649b9339
     name: Pellejo de Hierro
@@ -43,6 +46,7 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu cuerpo curtido en batalla es tan duro como el acero.<br> Mientras no lleves armadura, tu Mitigación Física es
-      igual a tu puntuación de Cuerpo menos 1 (mínimo 1).
+      _Años de cicatrices y entrenamiento han vuelto tu carne tan resistente como el cuero endurecido, incluso sin
+      llevar protección._<br><br> Mientras no lleves armadura, tu Mitigación Física es igual a tu puntuación de Cuerpo
+      menos 1 (mínimo 1).
     slug: pellejo-de-hierro

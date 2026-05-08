@@ -10,9 +10,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu entrenamiento marcial te permite dominar el campo de batalla con tu enfoque preferido.<br>Tienes acceso a la
-      lista de cartas de _Combatiente_ y usas tu **Atributo Marcial** para cumplir los requerimientos y calcular los
-      efectos de estas cartas.
+      _El campo de batalla es tu lienzo y el acero tu pincel. Ya sea mediante fuerza bruta o la agilidad magistral, has
+      convertido el arte de la guerra en una parte intrínseca de tu ser._<br><br> Tienes acceso a la lista de cartas de
+      _Combatiente_ y usas tu **Atributo Marcial** para cumplir los requerimientos y calcular los efectos de estas
+      cartas.
     slug: maestria-marcial
   - id: 009b3d369dc13a39a42bf8c00fd124351871b96d
     name: Segundo Aliento
@@ -25,7 +26,10 @@ cards:
     uses:
       type: LONG_REST
       qty: 2
-    description: Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo Marcial.
+    description: >-
+      _Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco
+      más._<br><br> Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo
+      Marcial.
     slug: segundo-aliento
   - id: 95991f73fff4e6d124008b7b924fd4ab6b60f215
     name: Presencia Inspiradora
@@ -38,8 +42,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Obtienes Ventaja (+1d4) en Pruebas de Persuasión. Aliados a distancia Cercana que puedan verte y oírte ganan un +1
-      a las Tiradas de Salvación contra miedo.
+      _Tu sola estancia en el campo de batalla levanta el ánimo de tus compañeros, recordándoles por qué
+      luchan._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Persuasión.<br> Además, todos los aliados a distancia
+      Cercana que puedan verte y oírte ganan un +1 a las Tiradas de Salvación contra miedo.
     slug: presencia-inspiradora
   - id: 519028c7d0d06285fa5f05cdd545201164e53b93
     name: Marcha Incansable
@@ -52,7 +57,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas. Además, cuando
-      lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a tu capacidad para marcar
-      el ritmo y elegir las mejores rutas.
+      _Tu resistencia es legendaria; marcas un ritmo que permite a tu grupo cruzar leguas sin que el cansancio haga
+      mella._<br><br> Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas
+      marchas.<br> Además, cuando lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25%
+      gracias a tu capacidad para marcar el ritmo y elegir las mejores rutas.
     slug: marcha-incansable

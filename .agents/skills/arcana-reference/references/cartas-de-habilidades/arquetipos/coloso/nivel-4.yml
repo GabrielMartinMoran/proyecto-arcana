@@ -10,7 +10,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      Eres una montaña inamovible en el campo de batalla. Ganas los siguientes beneficios:<br> - **Inquebrantable:**
-      Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br> - **Resistencia
-      Titánica:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+      _Eres una montaña contra la que se estrellan las olas; nadie puede moverte de tu sitio ni doblegar tu espíritu
+      físico._<br><br> Ganas los siguientes beneficios:<br> - **Inquebrantable:** Eres inmune a ser Derribado o movido
+      contra tu voluntad por criaturas de tu tamaño o inferior.<br> - **Resistencia Titánica:** Obtienes Ventaja (+1d4)
+      en Tiradas de Salvación de Cuerpo.
     slug: bastion-inamovible

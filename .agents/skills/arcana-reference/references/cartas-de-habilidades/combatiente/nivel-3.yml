@@ -9,7 +9,10 @@ cards:
     uses:
       type: RELOAD
       qty: 8
-    description: Ganas una Acción extra en este turno.
+    description: >-
+      _Apretando los dientes y forzando tus músculos al límite, desatas una ráfaga de determinación que desafía el
+      cansancio._<br><br> Inmediatamente luego de utilizar tu Acción, puedes agotar esta carta para ganar una Acción
+      extra en este turno.
     slug: oleada-de-accion
   - id: b7c37b66747a498175032891b26a47d11228e8b6
     name: Ataque Adicional
@@ -21,7 +24,10 @@ cards:
     uses:
       type: null
       qty: 0
-    description: Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar de uno.
+    description: >-
+      _Tu entrenamiento te permite encontrar huecos en la defensa enemiga que otros no ven, permitiéndote golpear dos
+      veces por cada oportunidad._<br><br> Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar de
+      solo uno.
     slug: ataque-adicional
   - id: bd61db968c9dc08dfe9899fe0091052fd03c654e
     name: Indomable
@@ -33,7 +39,9 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
-    description: Puedes repetir una Tirada de Salvación fallida.
+    description: >-
+      _Te niegas a sucumbir a los efectos que intentarían doblegar tu voluntad o tu cuerpo, forzando un nuevo intento
+      por pura tenacidad._<br><br> Puedes repetir una Tirada de Salvación fallida.
     slug: indomable
   - id: a0c1ba88318fa598c90723c2fa5fca590a882f15
     name: Inquebrantable
@@ -47,8 +55,9 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
-      Como Reacción, cuando un golpe te reduciría a 0 Puntos de Salud, puedes hacer que te dejen con 1 Punto de Salud en
-      su lugar.
+      _Ni siquiera el golpe más letal puede detenerte; te mantienes en pie por puro orgullo y determinación cuando otros
+      ya habrían muerto._<br><br> Como Reacción, cuando un golpe te reduciría a 0 Puntos de Salud, puedes resitir con 1
+      Punto de Salud en su lugar.
     slug: inquebrantable
   - id: a8206a7589d0e3ff8db9282430ff8f09a10488f3
     name: Comando de Batalla
@@ -61,8 +70,9 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu puntuación de Presencia. Esos aliados
-      pueden usar su Reacción para moverse hasta la mitad de su velocidad. Este movimiento no puede ser interceptado por
-      Reacciones enemigas. Además, el primer ataque que realice cada uno de esos aliados en su próximo turno obtiene
-      Ventaja (+1d4).
+      _Diriges a tus compañeros con la precisión de un general, permitiéndoles reposicionarse y golpear con una
+      coordinación letal._<br><br> Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu
+      puntuación de Presencia.<br> Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad.<br>
+      Este movimiento no puede ser interceptado por Reacciones enemigas.<br> Además, el primer ataque que realice cada
+      uno de esos aliados en su próximo turno obtiene Ventaja (+1d4).
     slug: comando-de-batalla

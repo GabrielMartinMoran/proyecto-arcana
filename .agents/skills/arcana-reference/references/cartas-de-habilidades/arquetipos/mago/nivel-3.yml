@@ -10,7 +10,7 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros en el momento de lanzarlos.<br>
+      _Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros al momento de lanzarlos._<br><br>
       Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes
       efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres
       recuperarlo:<br> - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas
@@ -35,9 +35,11 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Esta carta tiene dos modos de uso:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un
-      conjuro, realizas una Tirada Enfrentada de tu Atributo Arcano contra el atributo de lanzamiento del conjurador. Si
-      ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a
-      distancia Cercana afectado por un efecto mágico. Realizas una prueba de Atributo Arcano contra una ND establecida
-      por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+      _Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los
+      existentes._<br><br> Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br> - **Contraconjurar:**
+      Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Atributo Arcano
+      contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como
+      Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una
+      prueba de Atributo Arcano contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes
+      éxito, el efecto mágico.
     slug: rompeconjuros

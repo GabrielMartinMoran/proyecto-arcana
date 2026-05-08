@@ -11,9 +11,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br> **Beneficio de Arquetipo:** Mientras este
-      sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu
-      colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar. Además, aprendes una
-      lengua convencional. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas
-      gastado.<br><br>
+      _Tu cuerpo es un templo de perfección y tu mente una calma imperturbable. Has aprendido que el poder verdadero
+      fluye desde el equilibrio interior._<br><br> Obtienes Ventaja (+1d4) en pruebas de Acrobacias y
+      Percepción.<br><br> **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud
+      máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus
+      Ranuras de Cartas Activas para funcionar. Además, aprendes una lengua convencional. Adicionalmente, ganas un bono
+      a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
     slug: disciplina-monastica
