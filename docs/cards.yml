@@ -13,7 +13,8 @@
 #   requirements: "(A & B) | C"          # (Opcional) Soporta lógica booleana: & (AND), | (OR), ().
 #                                        # Ejemplo: "(Cuerpo 2 & Mente 1) | (Instinto 3)".
 #   description: >-                      # (Requerido) Descripción detallada. Usa >- para bloques de texto.
-#     Texto de la descripción.
+#     _Texto de sabor narrativo_<br><br>
+#     Texto de la descripción mecánica.
 #     - Usa <br> para saltos de línea.
 #     - Usa **Negrita** SOLO para nombres al inicio de viñetas/bullets.
 #     - Usa _Cursiva_ para referencias a nombres de otras cartas o etiquetas.
@@ -1996,7 +1997,7 @@ cards:
     uses:
       type: RELOAD
       qty: 3
-  - name: Toque Entrópico
+  - name: Rayo Entrópico
     level: 1
     type: activable
     tags:
@@ -2004,8 +2005,8 @@ cards:
       - Conjuro
     requirements: Afinidad Arcana
     description: >-
-      _Tu mano se imbuye de una energía oscura y corrosiva que marchita la vitalidad de quien tocas._<br><br>
-      Realizas un ataque de conjuro cuerpo a cuerpo (1d8+Atributo Arcano) contra un objetivo.
+      _Proyectas un haz de energía oscura y corrosiva que marchita la vitalidad de tu objetivo.._<br><br>
+      Realizas un ataque de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo.<br>
       Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
     uses:
       type: RELOAD
@@ -2555,6 +2556,108 @@ cards:
     uses:
       type: LONG_REST
       qty: 1
+
+  - name: 'Festín Macabro'
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Mientras la vida abandona el cuerpo de una criatura, inhalas violentamente su esencia deshilachada, fortaleciendo tu propia carne._<br><br>
+      Como Reacción, cuando una criatura a distancia Cercana es reducida a 0 Puntos de Salud, arrancas parte de su alma antes de que escape.<br>
+      Ganas Puntos de Salud temporales igual a 2d6 + tu Atributo Arcano.<br>
+      Mientras poseas estos Puntos de Salud temporales, tus ojos brillan con una luz cadavérica y emites un aura de frío antinatural.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Enjambre Parasitario'
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu enemigo._<br><br>
+      Realizas un ataque de conjuro (1d8 + Atributo Arcano) contra una criatura a distancia Cercana.<br>
+      Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br>
+      La criatura sufre 1d6 de daño Perforante al inicio de cada uno de sus turnos.<br>
+      Además, mientras el enjambre la cubra, la criatura sufre Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br>
+      El objetivo u otra criatura a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: 'Fosa de los Lamentos'
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _El suelo se pudre y se vuelve fangoso, vomitando cientos de manos esqueléticas que arrastran a los vivos hacia la tumba._<br><br>
+      Eliges un punto a distancia Media, creando un área de terreno difícil en un radio de 3 metros durante 1 minuto.<br>
+      Toda criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Atributo Arcano).
+      Si falla, recibe 2d6 de daño Necrótico y queda Inmovilizada hasta el inicio de su próximo turno mientras los huesos tiran de ella. Si tiene éxito, recibe la mitad del daño y no queda atrapada.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Niebla de Putrefacción'
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Exhalas una espesa nube de gas amarillo y verdoso que corroe la carne y nubla los sentidos._<br><br>
+      Creas una esfera de 5 metros de radio en un punto a distancia Media.<br>
+      El área queda fuertemente oscurecida (bloquea la visión) durante 1 minuto.<br>
+      Cualquier criatura que empiece su turno en el interior de la nube debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 3d6 de daño de Ácido o Veneno (a tu elección al lanzar el conjuro) y sufre el estado Envenenado hasta el inicio de su próximo turno. Si tiene éxito, recibe la mitad del daño y no se envenena.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Segador Incorpóreo'
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
+    description: >-
+      _Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de sombra._<br><br>
+      Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1 minuto.<br>
+      El segador es invulnerable, pero no bloquea el paso.<br>
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8 + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: 'Legión de los Condenados'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 6'
+    description: >-
+      _Abres las puertas del inframundo por un segundo, liberando una marea de espectros aullantes que arrasan con todo a su paso._<br><br>
+      Liberas un cono de 10 metros de espíritus atormentados.<br>
+      Las criaturas en el área deben superar una TS de Instinto (ND 5 + Atributo Arcano). Si fallan, reciben 6d6 de daño Necrótico y quedan Asustadas y Ensordecidas hasta el final de tu próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.
+    uses:
+      type: RELOAD
+      qty: 8
 
   # ------------------------------ SACERDOTE ------------------------------
   - name: Fe Inspiradora
