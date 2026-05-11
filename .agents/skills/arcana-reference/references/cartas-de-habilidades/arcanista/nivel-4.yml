@@ -88,3 +88,24 @@ cards:
       con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes usar tu Interacción para
       sobrecargar el lanzamiento. Si lo haces, duplicas la cantidad de dados de daño del conjuro.
     slug: sobrecarga-arcana
+  - id: 016e5895a908e37a73c37aa26d6c1c42335c024c
+    name: Segador Incorpóreo
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 5
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      _Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de
+      sombra._<br><br> Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1
+      minuto.<br> El segador es invulnerable, pero no bloquea el paso.<br> Cuando lanzas el conjuro, y en cada uno de
+      tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en
+      cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8 + Atributo Arcano) contra un enemigo a
+      distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de
+      Salud hasta el inicio de tu próximo turno.
+    slug: segador-incorporeo

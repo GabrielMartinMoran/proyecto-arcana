@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { clickOutsideDetector } from '$lib/utils/outside-click-detector';
-	import { SvelteSet } from 'svelte/reactivity';
 
 	type Option = {
 		label: string;
@@ -21,20 +20,23 @@
 
 	let { summary, options, onChange, value }: Props = $props();
 
-	let selectedOptions = $derived(new SvelteSet(value));
+	let selectedCount = $derived(value.length);
 
 	const isGrouped = (opts: Option[] | Group[]): opts is Group[] => {
 		return opts.length > 0 && 'group' in opts[0];
 	};
 
-	const onCheckboxChange = (checked: boolean, value: string) => {
+	const isSelected = (optionValue: any) => value.includes(optionValue);
+
+	const onCheckboxChange = (checked: boolean, optionValue: any) => {
 		if (checked) {
-			selectedOptions.add(value);
-		} else {
-			selectedOptions.delete(value);
+			if (!isSelected(optionValue)) {
+				onChange([...value, optionValue]);
+			}
+			return;
 		}
-		selectedOptions = new SvelteSet(selectedOptions);
-		onChange(Array.from(selectedOptions));
+
+		onChange(value.filter((selectedValue) => selectedValue !== optionValue));
 	};
 
 	let isOpened = $state(false);
@@ -44,69 +46,60 @@
 	};
 
 	const clearAll = () => {
-		selectedOptions = new SvelteSet();
-		onChange(Array.from(selectedOptions));
+		onChange([]);
 	};
 </script>
 
-<details use:clickOutsideDetector={{ onOutsideClick }} bind:open={isOpened}>
-	<summary>{summary} ({selectedOptions.size})</summary>
-	<form>
-		<fieldset>
-			<ul>
-				{#if isGrouped(options)}
-					{#each options as group (group.group)}
-						<li class="group-header">{group.group}</li>
-						{#each group.options as option (option.value)}
-							<li>
-								<label for={option.value}
-									>{option.label}
-									<input
-										type="checkbox"
-										id={option.value}
-										name={option.value}
-										value={option.value}
-										checked={selectedOptions.has(option.value)}
-										oninput={(event: Event) =>
-											onCheckboxChange((event.target as HTMLInputElement).checked, option.value)}
-									/></label
-								>
-							</li>
+{#snippet optionRow(option: Option)}
+	<li>
+		<label
+			>{option.label}
+			<input
+				type="checkbox"
+				name={option.value}
+				value={option.value}
+				bind:checked={
+					() => isSelected(option.value), (checked) => onCheckboxChange(checked, option.value)
+				}
+			/></label
+		>
+	</li>
+{/snippet}
+
+<div class="multi-select" use:clickOutsideDetector={{ onOutsideClick }}>
+	<button
+		type="button"
+		class="summary"
+		aria-expanded={isOpened}
+		onclick={() => (isOpened = !isOpened)}>{summary} ({selectedCount})</button
+	>
+	{#if isOpened}
+		<form>
+			<fieldset>
+				<ul>
+					{#if isGrouped(options)}
+						{#each options as group (group.group)}
+							<li class="group-header">{group.group}</li>
+							{#each group.options as option (option.value)}
+								{@render optionRow(option)}
+							{/each}
 						{/each}
-					{/each}
-				{:else}
-					{#each options as option (option.value)}
-						<li>
-							<label for={option.value}
-								>{option.label}
-								<input
-									type="checkbox"
-									id={option.value}
-									name={option.value}
-									value={option.value}
-									checked={selectedOptions.has(option.value)}
-									oninput={(event: Event) =>
-										onCheckboxChange((event.target as HTMLInputElement).checked, option.value)}
-								/></label
-							>
-						</li>
-					{/each}
-				{/if}
-			</ul>
-			<button
-				type="button"
-				onclick={clearAll}
-				class="clear-btn"
-				disabled={selectedOptions.size === 0}
-			>
-				Limpiar
-			</button>
-		</fieldset>
-	</form>
-</details>
+					{:else}
+						{#each options as option (option.value)}
+							{@render optionRow(option)}
+						{/each}
+					{/if}
+				</ul>
+				<button type="button" onclick={clearAll} class="clear-btn" disabled={selectedCount === 0}>
+					Limpiar
+				</button>
+			</fieldset>
+		</form>
+	{/if}
+</div>
 
 <style>
-	details {
+	.multi-select {
 		position: relative;
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
@@ -115,26 +108,20 @@
 		cursor: pointer;
 		width: 200px;
 
-		summary {
+		.summary {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
 			padding: var(--spacing-sm);
+			border: 0;
+			background: transparent;
+			cursor: pointer;
+			width: 100%;
 		}
 	}
 
-	details summary::marker {
-		display: none;
-		font-size: 0;
-	}
-
-	details summary::-webkit-details-marker {
-		display: none;
-		font-size: 0;
-	}
-
-	details summary::after {
+	.summary::after {
 		content: '\25BC' / '';
 		display: inline-block;
 		font-size: 0.6rem;
@@ -145,7 +132,7 @@
 		transition: transform 0.25s;
 	}
 
-	details[open] summary::after {
+	.summary[aria-expanded='true']::after {
 		top: -0.15rem;
 		transform: rotate(180deg);
 	}

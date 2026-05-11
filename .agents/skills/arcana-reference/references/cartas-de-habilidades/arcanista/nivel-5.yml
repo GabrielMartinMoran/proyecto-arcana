@@ -32,7 +32,7 @@ cards:
       sistema de Recarga, puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.
     slug: maestria-arcana
   - id: c66e21de47f990391825dad62eecb51918ad614b
-    name: "Palabra de Poder: Aturdir"
+    name: 'Palabra de Poder: Aturdir'
     level: 5
     type: activable
     tags:
@@ -48,3 +48,21 @@ cards:
       o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7 +
       Atributo Arcano) para terminar el efecto.
     slug: palabra-de-poder-aturdir
+  - id: d7c6414cfc87ec48fa4ea8e136af8fabe0bcd778
+    name: Legión de los Condenados
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Arcano 6
+    uses:
+      type: RELOAD
+      qty: 8
+    description: >-
+      _Abres las puertas del inframundo por un segundo, liberando una marea de espectros aullantes que arrasan con todo
+      a su paso._<br><br> Liberas un cono de 10 metros de espíritus atormentados.<br> Las criaturas en el área deben
+      superar una TS de Instinto (ND 5 + Atributo Arcano). Si fallan, reciben 6d6 de daño Necrótico y quedan Asustadas y
+      Ensordecidas hasta el final de tu próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos
+      adicionales.
+    slug: legion-de-los-condenados

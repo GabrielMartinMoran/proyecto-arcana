@@ -10,8 +10,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu control sobre el ki es absoluto. Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del
-      objetivo igual al total de tu puntuación de Instinto.
+      _Tu control sobre la energía vital es total; tus ataques desarmados ignoran por completo la resistencia de las
+      armaduras._<br><br> Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del objetivo igual al
+      total de tu puntuación de Instinto.
     slug: golpes-energeticos-mejorados
   - id: 791a3bbee0af57d46c5bb31ca40b88fa3f430410
     name: Cuerpo Puro
@@ -24,8 +25,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu disciplina te ha purificado. Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra
-      venenos y enfermedades. Además, eres inmune al estado Envenenado.
+      _Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a
+      los mortales._<br><br> Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra venenos y
+      enfermedades.<br> Además, eres inmune al estado Envenenado.
     slug: cuerpo-puro
   - id: 973133e715149bccf83728b202966fed538360bc
     name: Proyección de Ki
@@ -38,8 +40,9 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Usas tu Interacción para canalizar tu ki. Hasta el final de tu turno, tus ataques desarmados ganan la propiedad
-      Arrojadiza (Cercana).
+      _Extiendes tu energía vital más allá de tus puños, permitiéndote golpear a enemigos que se encuentran a varios
+      metros de distancia._<br><br> Usas tu Interacción para hacer que hasta el final de tu turno, tus ataques
+      desarmados se proyecten para poder golpear a criaturas que se encuentren hasta distancia Cercana.
     slug: proyeccion-de-ki
   - id: d05eb5e37aa8832465ef09ecd8dd3ac920aa1717
     name: Tormenta de Golpes
@@ -52,8 +55,9 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Tu fluidez en combate es absoluta. Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga. Además,
-      cuando activas Ráfaga de Golpes, realizas dos ataques desarmados adicionales en lugar de uno.
+      _Tu fluidez en combate alcanza niveles sobrenaturales, abrumando a tu objetivo con una lluvia incesante de
+      impactos._<br><br> Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga.<br> Además, cuando activas
+      _Ráfaga de Golpes_, realizas dos ataques desarmados adicionales en lugar de uno.
     slug: tormenta-de-golpes
   - id: 58effe6f19693a2945055f21551785511e96ee4d
     name: Golpe Aturdidor
@@ -66,8 +70,9 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una
-      **Tirada de Salvación de Cuerpo (ND 5 + Instinto)** o quedar **Aturdido** hasta el final de tu próximo turno.
+      _Golpeas un punto de presión con la precisión de un maestro, colapsando el sistema nervioso de tu oponente en un
+      instante._<br><br> Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo
+      debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Aturdido hasta el final de tu próximo turno.
     slug: golpe-aturdidor
   - id: 05a1823921393aa96bff3385c135cfd2daadfbb5
     name: Visión del Ki
@@ -81,10 +86,12 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
-      Usas tu **Acción** para cerrar los ojos y sentir el flujo de energía vital a tu alrededor. Durante 1 minuto o
-      hasta que pierdas la concentración, eres consciente de la ubicación y el movimiento de cualquier criatura viva a
-      distancia **Cercana**, incluso si son invisibles o están detrás de cobertura total. Mientras este efecto está
-      activo, fallas automáticamente cualquier prueba de habilidad que dependa de la vista.
+      _Cierras tus ojos físicos para abrir los espirituales, percibiendo el latido vital de todo lo que te rodea,
+      incluso a través de muros._<br><br> Como Acción, renuncias a tu visión mundana para entrar en en un estado de
+      consciencia pura durante 1 minuto o hasta que pierdas la concentración.<br> Mientras dure el efecto, eres
+      consciente de la ubicación y el movimiento de cualquier criatura a distancia Cercana, incluso si son invisibles o
+      están detrás de cobertura total.<br> Mientras este efecto está activo, fallas automáticamente cualquier prueba de
+      habilidad que dependa de la vista.
     slug: vision-del-ki
   - id: ade718058e7050cf4f4aca1552f99e5f21175eae
     name: Mente Adamantina
@@ -97,8 +104,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu mente es una fortaleza de disciplina. Eres inmune a los efectos mágicos que causan miedo y al estado
-      **Encantado**. Además, obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de **Instinto**.
+      _Tu voluntad es inquebrantable; ninguna magia puede nublar tu juicio o llenar tu corazón de un miedo que no
+      controlas._<br><br> Eres inmune a los efectos mágicos que causan miedo y al estado Encantado.<br> Además, obtienes
+      Ventaja (+1d4) en todas las Tiradas de Salvación de Instinto.
     slug: mente-adamantina
   - id: 1b5ec5536590dbbc0ee37684750aaab8d7ede624
     name: Gracia del Viento
@@ -111,8 +119,9 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto. Debes terminar cada uno de
-      tus turnos en una superficie sólida o caerás.
+      _Durante breves instantes, anulas tu propio peso y flotas en el aire, moviéndote con una libertad
+      absoluta._<br><br> Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto.<br>
+      Debes terminar cada uno de tus turnos en una superficie sólida o caerás.
     slug: gracia-del-viento
   - id: 6250000b59e5a00c60df316cdde5bfd2792bd646
     name: Limpiar Energías
@@ -125,8 +134,9 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> -
-      **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto
-      contra el atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes
-      suprimir sus efectos negativos durante 1 hora.
+      _Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como
+      Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> - **Criatura:**
+      Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el
+      atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes suprimir sus
+      efectos negativos durante 1 hora.
     slug: limpiar-energias

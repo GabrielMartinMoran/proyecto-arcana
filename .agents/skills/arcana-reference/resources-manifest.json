@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-05-08T20:31:32.800Z",
+  "generatedAt": "2026-05-11T15:43:58.724Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -53,32 +53,32 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml",
       "kind": "file",
-      "size": 6571,
-      "sha1": "ce5085da8a7cd90ebf2f960162429cb02d707f44"
+      "size": 6573,
+      "sha1": "c29e38312d2f8ce96b1fc183cbc4cf0ddcaa77e6"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml",
       "kind": "file",
-      "size": 11077,
-      "sha1": "050d318c79e501e8b41cec4582e992cfd45476c4"
+      "size": 12927,
+      "sha1": "7ae35ac7ea882c8c7d19d62ae0818c075a7b5fd6"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-3.yml",
       "kind": "file",
-      "size": 7744,
-      "sha1": "629acabd1f1d2db958f50399ca9507936dab326e"
+      "size": 9629,
+      "sha1": "e063713570cacfea91e4f6ec44234d33b8c39281"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
       "kind": "file",
-      "size": 3964,
-      "sha1": "837ba337e966acf612d524fd5c6bcdcf430f63f0"
+      "size": 5032,
+      "sha1": "6bdbd2d093e24c3ff52df41f3e2633c306de5f8b"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml",
       "kind": "file",
-      "size": 2084,
-      "sha1": "8e19c764b6d2c9e9c39d9df82ac0897e5560b74b"
+      "size": 2899,
+      "sha1": "9ddaa0d2912cfc5943397b819a9125ce444573c1"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos",
@@ -121,8 +121,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-5.yml",
       "kind": "file",
-      "size": 2787,
-      "sha1": "3a09396b8997163d350ba4d1ce3d1c59907652fa"
+      "size": 2797,
+      "sha1": "05f7f9c045243c36a501b2ceec5e456426a8ec1b"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo",
@@ -263,8 +263,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
       "kind": "file",
-      "size": 5721,
-      "sha1": "eb7cc384a1cc22f57f0d5be07e2d03853896ad5d"
+      "size": 5725,
+      "sha1": "0f38c19a98de7aa04c54d2e279d5443e910b9065"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-3.yml",
@@ -377,32 +377,32 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
       "kind": "file",
-      "size": 3629,
-      "sha1": "71bb2757ed022b5f6d6ba26e0fe06bba7c7d1969"
+      "size": 4348,
+      "sha1": "07bb106c7cbc131110ab95974a758f8fa01b6e8d"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
       "kind": "file",
-      "size": 7734,
-      "sha1": "80ab9a23b8ed52a1333f78a27720bb0f2e2e4457"
+      "size": 9377,
+      "sha1": "238b3e7b63ec18d4099f31c0cb95279b41065fcf"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml",
       "kind": "file",
-      "size": 4708,
-      "sha1": "1720b73de58cfa0ba9004cf40ec41503e38732d1"
+      "size": 5842,
+      "sha1": "050f3b841a136b945f2d5a465ef24e7716f1df41"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-4.yml",
       "kind": "file",
-      "size": 1013,
-      "sha1": "2176efe222763704142247d9c21b24a86f212278"
+      "size": 1269,
+      "sha1": "163e792c21ef6730aa161edbb87e45cface78de4"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-5.yml",
       "kind": "file",
-      "size": 1581,
-      "sha1": "ee73ecc5f6a8325430ded4ef961dad5f196a639b"
+      "size": 1888,
+      "sha1": "dcb8d034c7337d26f2c83f616d4d3a9909e46396"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro",
@@ -551,8 +551,8 @@
     {
       "path": "references/cartas-de-habilidades/sinergia/nivel-4.yml",
       "kind": "file",
-      "size": 18870,
-      "sha1": "6dc4e14064b47e0d6e0425ba5f8303c875e89e8c"
+      "size": 19757,
+      "sha1": "892a4e5c8a9ab8fdb4c7f5fb9b214fa4f3d91ead"
     },
     {
       "path": "references/datasets",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 230851,
-      "sha1": "49dc36bf5c8ec4dafeede6b5020669680f4912ea"
+      "size": 240987,
+      "sha1": "1c763b314922765a5c27f30c1640e2c2b3376ed7"
     },
     {
       "path": "references/datasets/magical-items.yml",

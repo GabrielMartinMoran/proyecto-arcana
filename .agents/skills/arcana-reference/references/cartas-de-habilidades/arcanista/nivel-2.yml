@@ -242,3 +242,42 @@ cards:
       esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido) y toda fuente
       de luz, mágica o no, se reduce a una penumbra tenue.
     slug: zona-nula
+  - id: ffd7344d0c1eda6455b1eefcc501fec323ee8f20
+    name: Festín Macabro
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+    requirements: Afinidad Arcana & Atributo Arcano 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Mientras la vida abandona el cuerpo de una criatura, inhalas violentamente su esencia deshilachada, fortaleciendo
+      tu propia carne._<br><br> Como Reacción, cuando una criatura a distancia Cercana es reducida a 0 Puntos de Salud,
+      arrancas parte de su alma antes de que escape.<br> Ganas Puntos de Salud temporales igual a 2d6 + tu Atributo
+      Arcano.<br> Mientras poseas estos Puntos de Salud temporales, tus ojos brillan con una luz cadavérica y emites un
+      aura de frío antinatural.
+    slug: festin-macabro
+  - id: f62ff2a49100473fc6cb81ed37c6cd78588be471
+    name: Enjambre Parasitario
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      _De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu
+      enemigo._<br><br> Realizas un ataque de conjuro (1d8 + Atributo Arcano) contra una criatura a distancia
+      Cercana.<br> Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br> La criatura sufre 1d6 de daño
+      Perforante al inicio de cada uno de sus turnos.<br> Además, mientras el enjambre la cubra, la criatura sufre
+      Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br> El objetivo u otra criatura
+      a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.
+    slug: enjambre-parasitario

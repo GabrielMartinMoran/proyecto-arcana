@@ -5,6 +5,12 @@ export interface GroupedOption {
 	options: Array<{ value: string; label: string }>;
 }
 
+const formatTagLabel = (tag: string) => {
+	const lowercaseTag = tag.toLowerCase();
+	const hasMixedCase = tag !== lowercaseTag && tag !== tag.toUpperCase();
+	return capitalize(hasMixedCase ? tag : lowercaseTag);
+};
+
 export function groupTags(tags: string[], groups: Record<string, string[]>): GroupedOption[] {
 	if (tags.length === 0) {
 		return [];
@@ -23,19 +29,20 @@ export function groupTags(tags: string[], groups: Record<string, string[]>): Gro
 
 	for (const tag of tags) {
 		const normalizedTag = removeDiacritics(tag).toLowerCase();
+		const option = { value: tag.toLowerCase(), label: formatTagLabel(tag) };
 		let placed = false;
 		for (const { group, tags: groupTagSet } of normalizedGroups.values()) {
 			if (groupTagSet.has(normalizedTag)) {
 				if (!groupBuckets.has(group)) {
 					groupBuckets.set(group, []);
 				}
-				groupBuckets.get(group)!.push({ value: tag, label: capitalize(tag) });
+				groupBuckets.get(group)!.push(option);
 				placed = true;
 				break;
 			}
 		}
 		if (!placed) {
-			otrosBucket.push({ value: tag, label: capitalize(tag) });
+			otrosBucket.push(option);
 		}
 	}
 

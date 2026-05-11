@@ -73,7 +73,7 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tu piel se endurece y se agrieta, adoptando la formidable resiliencia de un árbol milenario._<br> Mientras no
+      _Tu piel se endurece y se agrieta, adoptando la formidable resiliencia de un árbol milenario._<br><br> Mientras no
       lleves armadura que imponga alguna penalización a tu Esquiva o Sigilo, obtienes Mitigación Física y Mágica +1.
     slug: piel-de-roble
   - id: 7fb255b4fca1e9fd2c475e8100c9c5dfa17cace2

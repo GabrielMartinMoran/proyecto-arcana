@@ -28,14 +28,15 @@ cards:
       qty: 1
     description: >-
       _Tu música es tan perfecta que trasciende la simple ilusión, solidificando la materia a partir del mismísimo
-      silencio._<br> Tras 10 minutos de interpretación ininterrumpida, tejes una ilusión semi-real y duradera a partir
-      de la música. Eliges uno de los siguientes efectos:<br> - **Crear Materia:** Creas un objeto no mágico que puede
-      ocupar hasta un cubo de 10 metros de lado (como una casa pequeña o un puente de piedra). El objeto se ve y se
-      siente real ante una inspección superficial. Sin embargo, puede ser identificado como una creación mágica mediante
-      efectos de Visión Verdadera o realizando una inspección física exhaustiva superando una Prueba de Percepción vs
-      (ND 5 + Presencia). El objeto es sólido y su duración se mantiene hasta ser disipado.<br> - **Reescribir
-      Memoria:** Alteras permanentemente la memoria de una criatura sobre un evento específico. Si el objetivo no es
-      voluntario, debe superar una Tirada de Salvación de Instinto (ND 5 + Presencia) para evitar el efecto.
+      silencio._<br><br> Tras 10 minutos de interpretación ininterrumpida, tejes una ilusión semi-real y duradera a
+      partir de la música. Eliges uno de los siguientes efectos:<br> - **Crear Materia:** Creas un objeto no mágico que
+      puede ocupar hasta un cubo de 10 metros de lado (como una casa pequeña o un puente de piedra). El objeto se ve y
+      se siente real ante una inspección superficial. Sin embargo, puede ser identificado como una creación mágica
+      mediante efectos de Visión Verdadera o realizando una inspección física exhaustiva superando una Prueba de
+      Percepción vs (ND 5 + Presencia). El objeto es sólido y su duración se mantiene hasta ser disipado.<br> -
+      **Reescribir Memoria:** Alteras permanentemente la memoria de una criatura sobre un evento específico. Si el
+      objetivo no es voluntario, debe superar una Tirada de Salvación de Instinto (ND 5 + Presencia) para evitar el
+      efecto.
     slug: cancion-de-la-creacion
   - id: 85fde679c3d7f84c9507b2b0fde60e3ac869ed35
     name: Danza de Magia y Acero

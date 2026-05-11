@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { CONFIG } from '../../../config';
 	import type { CardFilters } from '$lib/types/card-filters';
 	import type { Card } from '$lib/types/cards/card';
 	import { capitalize } from '$lib/utils/formatting';
 	import { groupTags } from '$lib/utils/tag-grouping';
+	import { CONFIG } from '../../../config';
 	import Container from '../ui/Container.svelte';
 	import MultiSelect from '../ui/MultiSelect.svelte';
 
@@ -24,8 +24,6 @@
 		includeOnlyAvailablesFilter = false,
 		cardType,
 	}: Props = $props();
-
-	let filters = $derived(receivedFilters);
 
 	const getAvailableLevels = () => {
 		const levels = new Set(cards.map((card) => card.level));
@@ -54,13 +52,20 @@
 		<input
 			type="text"
 			placeholder="Buscar por nombre"
-			bind:value={filters.name}
-			oninput={() => onFiltersChange({ ...filters })}
+			value={receivedFilters.name}
+			oninput={(event) =>
+				onFiltersChange({
+					...receivedFilters,
+					name: (event.target as HTMLInputElement).value,
+				})}
 		/>
 		<select
+			value={receivedFilters.type}
 			onchange={(event) => {
-				filters.type = (event.target as HTMLSelectElement).value;
-				onFiltersChange({ ...filters });
+				onFiltersChange({
+					...receivedFilters,
+					type: (event.target as HTMLSelectElement).value,
+				});
 			}}
 		>
 			<option value="">Todos los Tipos</option>
@@ -71,19 +76,17 @@
 		<MultiSelect
 			summary="Niveles"
 			options={getAvailableLevels().map((x) => ({ value: x, label: `Nivel ${x}` }))}
-			value={filters.level}
+			value={receivedFilters.level}
 			onChange={(values: any[]) => {
-				filters.level = values;
-				onFiltersChange({ ...filters });
+				onFiltersChange({ ...receivedFilters, level: values });
 			}}
 		/>
 		<MultiSelect
 			summary="Etiquetas"
 			options={getGroupedTagOptions()}
-			value={filters.tags}
+			value={receivedFilters.tags}
 			onChange={(values: any[]) => {
-				filters.tags = values.map((x) => x.toLowerCase());
-				onFiltersChange({ ...filters });
+				onFiltersChange({ ...receivedFilters, tags: values });
 			}}
 		/>
 		{#if includeOnlyAvailablesFilter}
@@ -92,10 +95,12 @@
 					><input
 						type="checkbox"
 						id="only-availables"
-						checked={filters.onlyAvailables}
-						oninput={(event: Event) => {
-							filters.onlyAvailables = (event.target as HTMLInputElement).checked;
-							onFiltersChange({ ...filters });
+						checked={receivedFilters.onlyAvailables}
+						onchange={(event: Event) => {
+							onFiltersChange({
+								...receivedFilters,
+								onlyAvailables: (event.target as HTMLInputElement).checked,
+							});
 						}}
 					/>Ver Solo disponibles
 				</label>

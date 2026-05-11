@@ -10,8 +10,9 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
+      _Tus golpes bloquean los canales de energía del enemigo, impidiéndole usar sus habilidades más poderosas._<br><br>
       Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo
-      (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus 'Acciones' o 'Reacciones' que
+      (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus Acciones o Reacciones que
       especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
     slug: toque-disruptor
   - id: 6d7ff6250182ebbec5f1d1d49ee2fbd8050be464
@@ -25,6 +26,7 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio
-      desocupado que puedas ver.
+      _Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un
+      suspiro._<br><br> Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un
+      espacio desocupado que puedas ver.
     slug: paso-del-vacio

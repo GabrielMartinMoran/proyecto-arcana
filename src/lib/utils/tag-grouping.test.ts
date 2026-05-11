@@ -68,17 +68,17 @@ describe('groupTags', () => {
 		]);
 	});
 
-	it('matches tags case-insensitively against group definitions', () => {
+	it('matches tags case-insensitively against group definitions and emits canonical values', () => {
 		const tags = ['arcanista', 'HUMANO', 'CURACION'];
 		const result = groupTags(tags, ABILITY_TAG_GROUPS);
 		expect(result.find((g) => g.group === 'Arquetipos')!.options.map((o) => o.value)).toContain(
 			'arcanista',
 		);
 		expect(result.find((g) => g.group === 'Linajes')!.options.map((o) => o.value)).toContain(
-			'HUMANO',
+			'humano',
 		);
 		expect(result.find((g) => g.group === 'Mecánicas')!.options.map((o) => o.value)).toContain(
-			'CURACION',
+			'curacion',
 		);
 	});
 
@@ -87,8 +87,8 @@ describe('groupTags', () => {
 		expect(result).toEqual([]);
 	});
 
-	it('preserves original tag string as value and capitalizes label', () => {
-		const tags = ['arcanista'];
+	it('uses canonical lowercase tag values and capitalized labels', () => {
+		const tags = ['ARCANISTA'];
 		const result = groupTags(tags, ABILITY_TAG_GROUPS);
 		const option = result.find((g) => g.group === 'Arquetipos')!.options[0];
 		expect(option.value).toBe('arcanista');

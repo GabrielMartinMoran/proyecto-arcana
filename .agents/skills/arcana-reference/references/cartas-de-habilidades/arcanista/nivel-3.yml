@@ -157,3 +157,42 @@ cards:
       bonificador (1d8 + Atributo Arcano) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la
       barrera.
     slug: santuario-arcano
+  - id: 95f0c6f6d2e2080790ebf23c792fa4dbe0a0a58a
+    name: Fosa de los Lamentos
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _El suelo se pudre y se vuelve fangoso, vomitando cientos de manos esqueléticas que arrastran a los vivos hacia la
+      tumba._<br><br> Eliges un punto a distancia Media, creando un área de terreno difícil en un radio de 3 metros
+      durante 1 minuto.<br> Toda criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos
+      (ND 5 + Atributo Arcano). Si falla, recibe 2d6 de daño Necrótico y queda Inmovilizada hasta el inicio de su
+      próximo turno mientras los huesos tiran de ella. Si tiene éxito, recibe la mitad del daño y no queda atrapada.
+    slug: fosa-de-los-lamentos
+  - id: 90ae85bbd2fe30a58c0ba84501d35ad63a4e92f2
+    name: Niebla de Putrefacción
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Exhalas una espesa nube de gas amarillo y verdoso que corroe la carne y nubla los sentidos._<br><br> Creas una
+      esfera de 5 metros de radio en un punto a distancia Media.<br> El área queda fuertemente oscurecida (bloquea la
+      visión) durante 1 minuto.<br> Cualquier criatura que empiece su turno en el interior de la nube debe superar una
+      TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 3d6 de daño de Ácido o Veneno (a tu elección al lanzar el
+      conjuro) y sufre el estado Envenenado hasta el inicio de su próximo turno. Si tiene éxito, recibe la mitad del
+      daño y no se envenena.
+    slug: niebla-de-putrefaccion

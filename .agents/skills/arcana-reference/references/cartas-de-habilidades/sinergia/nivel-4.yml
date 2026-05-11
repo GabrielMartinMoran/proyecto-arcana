@@ -12,13 +12,13 @@ cards:
       type: null
       qty: 0
     description: >-
-      Has perfeccionado la fusión de la agilidad letal y la precisión marcial.<br><br> **Beneficio de Sinergia:**<br> -
-      **Fusión Marcial:** Tu letalidad se integra en tu cadencia de combate. Cuando usas la acción de Atacar y te
-      beneficias de la carta _Ataque Adicional_ o _Torrente de Acero_, puedes reemplazar uno de los ataques de esa
-      acción por tu _Ataque Furtivo_ (siempre que cumplas las condiciones para el daño furtivo).<br> - **Réplica
-      Precisa:** Cuando usas una Reacción defensiva del Pícaro (_Riposta_ o _Parada del Duelista_), obtienes Ventaja
-      (+1d4) en tu próxima tirada de ataque contra el enemigo que activó tu reacción, antes del final de tu próximo
-      turno.
+      _Has perfeccionado la fusión de la agilidad letal y la precisión marcial, donde cada paso es un golpe
+      mortal._<br><br> **Beneficio de Sinergia:**<br> - **Fusión Marcial:** Tu letalidad se integra en tu cadencia de
+      combate. Cuando usas la acción de Atacar y te beneficias de la carta _Ataque Adicional_ o _Torrente de Acero_,
+      puedes reemplazar uno de los ataques de esa acción por tu _Ataque Furtivo_ (siempre que cumplas las condiciones
+      para el daño furtivo).<br> - **Réplica Precisa:** Cuando usas una Reacción defensiva del Pícaro (_Riposta_ o
+      _Parada del Duelista_), obtienes Ventaja (+1d4) en tu próxima tirada de ataque contra el enemigo que activó tu
+      reacción, antes del final de tu próximo turno.
     slug: maestro-de-la-danza-letal
   - id: d1e1d85e48aee347d902994d3161c3b92a2f8311
     name: Campeón Consagrado
@@ -33,12 +33,13 @@ cards:
       type: null
       qty: 0
     description: >-
-      Eres el faro de esperanza en el campo de batalla.<br><br> **Beneficio de Sinergia:**<br> - **Presencia
-      Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados
-      a 3 metros de ti también se benefician.<br> - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu
-      Interacción en lugar de tu Acción.<br> - **Castigo Imponente:** Cuando activas tu carta Golpe Divino, puedes
-      elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo haces, el objetivo debe superar una TS de
-      Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final de tu próximo turno (en lugar de Cegado).
+      _Eres el faro de esperanza en el campo de batalla, un guerrero cuya fe es tan afilada como su acero._<br><br>
+      **Beneficio de Sinergia:**<br> - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra
+      efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br> - **Toque de Combate:**
+      Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br> - **Castigo Imponente:** Cuando
+      activas tu carta Golpe Divino, puedes elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo
+      haces, el objetivo debe superar una TS de Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final
+      de tu próximo turno (en lugar de Cegado).
     slug: campeon-consagrado
   - id: b8ffaa7f29e59650fe4bb469a12c5f252aa72bc7
     name: Voluntad Indomable
@@ -53,12 +54,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu disciplina marcial y tu fortaleza interior se fusionan.<br><br> **Beneficio de Sinergia:**<br> - **Defensa
-      Mental y Física:** Como Reacción, cuando te ves obligado a realizar una Tirada de Salvación para resistir ser
-      Aturdido, Encantado o Inmovilizado, puedes otorgarte Ventaja (+1d4) en esa tirada.<br> - **Mente de Acero:**
-      Cuando fallas una Tirada de Salvación de Cuerpo o Instinto, puedes usar tu Reacción para volver a tirar el dado.
-      Debes usar el nuevo resultado. Puedes usar esta habilidad una cantidad de veces igual a la mitad de tu Instinto
-      (redondeado hacia abajo) por día de descanso.
+      _Tu disciplina marcial y tu fortaleza interior se fusionan en un estilo que ni el tiempo ni la fatiga pueden
+      doblegar._<br><br> **Beneficio de Sinergia:**<br> - **Defensa Mental y Física:** Como Reacción, cuando te ves
+      obligado a realizar una Tirada de Salvación para resistir ser Aturdido, Encantado o Inmovilizado, puedes otorgarte
+      Ventaja (+1d4) en esa tirada.<br> - **Mente de Acero:** Cuando fallas una Tirada de Salvación de Cuerpo o
+      Instinto, puedes usar tu Reacción para volver a tirar el dado. Debes usar el nuevo resultado. Puedes usar esta
+      habilidad una cantidad de veces igual a la mitad de tu Instinto (redondeado hacia abajo) por día de descanso.
     slug: voluntad-indomable
   - id: c8040605c81b0bced9d9e6733bf82880390db938
     name: Maestría de la Hoja Arcana
@@ -94,11 +95,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero.<br><br> **Beneficio de Sinergia:**<br> -
-      **Piel de Corteza:** Mientras no lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br> -
-      **Golpe Enredante:** Una vez por turno, cuando impactas a un enemigo con un ataque con arma (cuerpo a cuerpo o a
-      distancia), puedes hacer que broten espinas en el impacto. El objetivo queda Enredado hasta el inicio de tu
-      próximo turno. Mientras esté enredado, sufre 1d4 de daño Perforante por cada 2 metros que se mueva.
+      _Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero, convirtiéndote en el guardián de los
+      bosques._<br><br> **Beneficio de Sinergia:**<br> - **Piel de Corteza:** Mientras no lleves armadura pesada,
+      obtienes un +1 a tu Mitigación Física y Mágica.<br> - **Golpe Enredante:** Una vez por turno, cuando impactas a un
+      enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas en el impacto. El
+      objetivo queda Enredado hasta el inicio de tu próximo turno. Mientras esté enredado, sufre 1d4 de daño Perforante
+      por cada 2 metros que se mueva.
     slug: senor-del-yermo-indomable
   - id: 07183bb737614c3784a0806f215d919ee7df2db7
     name: Aura de Héroe
@@ -113,11 +115,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu presencia inspira hazañas legendarias en el campo de batalla.<br><br> **Beneficio de Sinergia:**<br> -
-      **Presencia Inspiradora Mejorada:** El bonificador a las Tiradas de Salvación contra miedo otorgado por tu
-      Presencia Inspiradora aumenta a +1d4.<br> - **Grito de Guerra Definitivo:** Cuando usas Grito de Guerra, los dados
-      de Puntos de Salud temporales se maximizan (cada d4 cuenta como 4) y los aliados afectados obtienen Ventaja (+1d4)
-      en su próxima tirada de ataque antes del final de su próximo turno.
+      _Tu presencia inspira hazañas legendarias; lideras con el ejemplo y tus palabras resuenan como trompetas de
+      victoria._<br><br> **Beneficio de Sinergia:**<br> - **Presencia Inspiradora Mejorada:** El bonificador a las
+      Tiradas de Salvación contra miedo otorgado por tu Presencia Inspiradora aumenta a +1d4.<br> - **Grito de Guerra
+      Definitivo:** Cuando usas Grito de Guerra, los dados de Puntos de Salud temporales se maximizan (cada d4 cuenta
+      como 4) y los aliados afectados obtienen Ventaja (+1d4) en su próxima tirada de ataque antes del final de su
+      próximo turno.
     slug: aura-de-heroe
   - id: d2f45bf2f6b7fcfab6042b87e8f2852b80092b58
     name: Juicio Ineludible
@@ -132,10 +135,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Combinas el sigilo con la fe para purgar la oscuridad.<br><br> **Beneficio de Sinergia:**<br> - **Marca del
-      Purgador:** Como Interacción, puedes marcar a una criatura impía (Infernal o No-muerta) durante 1 minuto
-      (Concentración). Tus ataques con arma contra ella se benefician de Ataque Furtivo (sin condiciones).<br> - **Toque
-      Purificador Sigiloso:** Puedes usar Toque Purificador (si lo tienes) usando tu Interacción en lugar de tu Acción.
+      _Combinas el sigilo con la fe para purgar la oscuridad, acechando a los impíos desde las sombras
+      consagradas._<br><br> **Beneficio de Sinergia:**<br> - **Marca del Purgador:** Como Interacción, puedes marcar a
+      una criatura impía (Infernal o No-muerta) durante 1 minuto (Concentración). Tus ataques con arma contra ella se
+      benefician de Ataque Furtivo (sin condiciones).<br> - **Toque Purificador Sigiloso:** Puedes usar Toque
+      Purificador (si lo tienes) usando tu Interacción en lugar de tu Acción.
     slug: juicio-ineludible
   - id: ae03e016ea7e3fd0134c43be47ee94c039052936
     name: Camino del Viento Fantasma
@@ -150,11 +154,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu agilidad trasciende lo físico, fusionando sigilo y Ki.<br><br> **Beneficio de Sinergia:**<br> - **Acción Astuta
-      Etérea:** Cuando usas Acción Astuta, puedes elegir teletransportarte hasta 3 metros a un espacio desocupado que
-      puedas ver, en lugar de Correr o Esconderte.<br> - **Golpe desde el Vacío:** Inmediatamente después de usar Acción
-      Astuta Etérea para teletransportarte, tu próxima tirada de ataque antes del final de tu turno obtiene Ventaja
-      (+1d4).
+      _Tu agilidad trasciende lo físico, fusionando el sigilo del pícaro con el control del Ki para volverte
+      inalcanzable._<br><br> **Beneficio de Sinergia:**<br> - **Acción Astuta Etérea:** Cuando usas Acción Astuta,
+      puedes elegir teletransportarte hasta 3 metros a un espacio desocupado que puedas ver, en lugar de Correr o
+      Esconderte.<br> - **Golpe desde el Vacío:** Inmediatamente después de usar Acción Astuta Etérea para
+      teletransportarte, tu próxima tirada de ataque antes del final de tu turno obtiene Ventaja (+1d4).
     slug: camino-del-viento-fantasma
   - id: 20ec81b52a3808dba5d63528a522029388723e4c
     name: Maestría del Engaño Arcano
@@ -188,10 +192,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Te fundes con el entorno, combinando el sigilo del depredador con el instinto natural.<br><br> **Beneficio de
-      Sinergia:**<br> - **Camuflaje Perfecto:** Mientras estés en terreno natural y no te muevas en tu turno, eres
-      invisible para las criaturas que estén a más de 5 metros de ti.<br> - **Forma Furtiva:** Puedes aplicar tu Ataque
-      Furtivo mientras estás en Forma Salvaje, siempre que cumplas las condiciones normales para hacerlo.
+      _Te fundes con el entorno, combinando el sigilo del depredador con el instinto natural para atacar sin ser
+      visto._<br><br> **Beneficio de Sinergia:**<br> - **Camuflaje Perfecto:** Mientras estés en terreno natural y no te
+      muevas en tu turno, eres invisible para las criaturas que estén a más de 5 metros de ti.<br> - **Forma Furtiva:**
+      Puedes aplicar tu Ataque Furtivo mientras estás en Forma Salvaje, siempre que cumplas las condiciones normales
+      para hacerlo.
     slug: uno-con-la-naturaleza-salvaje
   - id: 11a8711efe28d5fa71198c003a9d8c841a8ed514
     name: Golpe de Gracia Engañoso
@@ -206,10 +211,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu letalidad se oculta tras una sonrisa encantadora.<br><br> **Beneficio de Sinergia:**<br> - **Filo Hipnótico:**
-      Una vez por turno, al impactar con un arma, gasta un dado de Canto de Inspiración. Añade el resultado como daño
-      Psíquico y fuerza TS Instinto (ND 5 + Presencia) vs Encantado (1 turno).<br> - **Explotar Confianza:** Puedes
-      aplicar tu Ataque Furtivo contra criaturas Encantadas por ti, incluso si no cumples las condiciones normales.
+      _Tu letalidad se oculta tras una sonrisa encantadora, aprovechando la fascinación de tu público para dar el golpe
+      final._<br><br> **Beneficio de Sinergia:**<br> - **Filo Hipnótico:** Una vez por turno, al impactar con un arma,
+      gasta un dado de Canto de Inspiración. Añade el resultado como daño Psíquico y fuerza TS Instinto (ND 5 +
+      Presencia) vs Encantado (1 turno).<br> - **Explotar Confianza:** Puedes aplicar tu Ataque Furtivo contra criaturas
+      Encantadas por ti, incluso si no cumples las condiciones normales.
     slug: golpe-de-gracia-enganoso
   - id: fbcf522bb947a2fb6e3da4097c8d0360da412471
     name: Voluntad Trascendente
@@ -243,10 +249,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Encarnas la furia indomable de la naturaleza.<br><br> **Beneficio de Sinergia:**<br> - **Movimiento Primordial:**
-      Puedes usar Paso Ligero y Paso Etéreo (si los tienes) incluso mientras estás en Forma Salvaje.<br> - **Ráfaga
-      Salvaje:** Mientras estás en tu forma de combate de Aspecto Combativo o Maestría Salvaje, puedes usar las cartas
-      Ráfaga de Golpes y Tormenta de Golpes (si las tienes).
+      _Encarnas la furia indomable de la naturaleza, llevando la disciplina de tus golpes a las formas más salvajes del
+      mundo._<br><br> **Beneficio de Sinergia:**<br> - **Movimiento Primordial:** Puedes usar Paso Ligero y Paso Etéreo
+      (si los tienes) incluso mientras estás en Forma Salvaje.<br> - **Ráfaga Salvaje:** Mientras estás en tu forma de
+      combate de Aspecto Combativo o Maestría Salvaje, puedes usar las cartas Ráfaga de Golpes y Tormenta de Golpes (si
+      las tienes).
     slug: furia-silvana
   - id: 051c256cd09ec2e7bbea428dfeecfdf53d1ea8d8
     name: Versatilidad Teúrgica
@@ -300,11 +307,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu Ki se purifica con fe, convirtiendo tus manos en instrumentos de juicio y sanación.<br><br> **Beneficio de
-      Sinergia:**<br> - **Golpes Selladores:** Tus ataques desarmados son mágicos y pueden ser Radiantes. Si infligen
-      daño Radiante, el objetivo no recupera PH 1 turno.<br> - **Oleada de Vida:** Cuando usas Ráfaga de Golpes o
-      Tormenta de Golpes, puedes renunciar a uno de los ataques adicionales para lanzar Toque Restaurador (si lo tienes)
-      sobre ti mismo o un aliado adyacente, sin gastar su uso de recarga.
+      _Tu Ki se purifica con fe, convirtiendo tus manos en instrumentos de juicio divino y sanación milagrosa._<br><br>
+      **Beneficio de Sinergia:**<br> - **Golpes Selladores:** Tus ataques desarmados son mágicos y pueden ser Radiantes.
+      Si infligen daño Radiante, el objetivo no recupera PH 1 turno.<br> - **Oleada de Vida:** Cuando usas Ráfaga de
+      Golpes o Tormenta de Golpes, puedes renunciar a uno de los ataques adicionales para lanzar Toque Restaurador (si
+      lo tienes) sobre ti mismo o un aliado adyacente, sin gastar su uso de recarga.
     slug: mano-purgadora
   - id: 1088f97cf35d3877e12381652e46e041097c4061
     name: Bendición de Ciclo Vital
@@ -319,11 +326,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Canalizas la energía divina a través del ciclo natural de la vida y la muerte.<br><br> **Beneficio de
-      Sinergia:**<br> - **Regeneración Persistente:** Cuando restauras Puntos de Salud a una criatura con un conjuro
-      instantáneo, esa criatura también recupera 1d4 PS al inicio de su próximo turno.<br> - **Refugio Sanador:** Tus
-      conjuros de zona protegen la vida. Al inicio de cada uno de sus turnos, cualquier aliado que se encuentre dentro
-      del área de tu Santuario o Santuario Silencioso gana Puntos de Salud Temporales igual a tu puntuación de Instinto.
+      _Canalizas la energía divina a través del ciclo natural de la vida y la muerte, donde cada final sagrado da paso a
+      un nuevo renacer._<br><br> **Beneficio de Sinergia:**<br> - **Regeneración Persistente:** Cuando restauras Puntos
+      de Salud a una criatura con un conjuro instantáneo, esa criatura también recupera 1d4 PS al inicio de su próximo
+      turno.<br> - **Refugio Sanador:** Tus conjuros de zona protegen la vida. Al inicio de cada uno de sus turnos,
+      cualquier aliado que se encuentre dentro del área de tu Santuario o Santuario Silencioso gana Puntos de Salud
+      Temporales igual a tu puntuación de Instinto.
     slug: bendicion-de-ciclo-vital
   - id: 0447ea2f4c5e032e676a109f9c4806e115213c2e
     name: Palabras Divinas
@@ -338,11 +346,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu voz es un conducto de inspiración divina y curación.<br><br> **Beneficio de Sinergia:**<br> - **Inspiración
-      Sanadora:** Cuando usas Canto de Inspiración en un aliado, este también recupera 1d4 Puntos de Salud.<br> -
-      **Mandato Convincente:** Tu Palabra de Autoridad ahora puede dar órdenes ligeramente más complejas (una frase
-      corta). Además, las criaturas normalmente inmunes al estado Encantado pueden ser afectadas, pero realizan su
-      Tirada de Salvación con Ventaja (+1d4).
+      _Tu voz es un conducto de inspiración divina y curación, entonando plegarias que resuenan en los corazones como
+      verdaderos cánticos celestiales._<br><br> **Beneficio de Sinergia:**<br> - **Inspiración Sanadora:** Cuando usas
+      Canto de Inspiración en un aliado, este también recupera 1d4 Puntos de Salud.<br> - **Mandato Convincente:** Tu
+      Palabra de Autoridad ahora puede dar órdenes ligeramente más complejas (una frase corta). Además, las criaturas
+      normalmente inmunes al estado Encantado pueden ser afectadas, pero realizan su Tirada de Salvación con Ventaja
+      (+1d4).
     slug: palabras-divinas
   - id: 1d87cb20cb219b9f67768b93ab73aeaaca50d2f2
     name: Forma del Cuentacuentos
@@ -357,11 +366,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu arte trasciende las formas, permitiéndote encantar incluso en tu aspecto salvaje.<br><br> **Beneficio de
-      Sinergia:**<br> - **Forma Salvaje Parlante:** Mientras estás en Forma Salvaje (combatiente o no), conservas la
-      capacidad de hablar y puedes intentar usar habilidades de Presencia.<br> - **Actuación Primordial:** Mientras
-      estás en Forma Salvaje, usa Acción para forzar TS Instinto (ND 5 + Presencia) a enemigos Cercanos o quedan
-      Encantados 1 min (se rompe si actúas hostilmente).
+      _Tu arte trasciende las formas, permitiéndote encantar incluso en tu aspecto salvaje, demostrando que la música
+      del mundo resuena en todas las bestias._<br><br> **Beneficio de Sinergia:**<br> - **Forma Salvaje Parlante:**
+      Mientras estás en Forma Salvaje (combatiente o no), conservas la capacidad de hablar y puedes intentar usar
+      habilidades de Presencia.<br> - **Actuación Primordial:** Mientras estás en Forma Salvaje, usa Acción para forzar
+      TS Instinto (ND 5 + Presencia) a enemigos Cercanos o quedan Encantados 1 min (se rompe si actúas hostilmente).
     slug: forma-del-cuentacuentos
   - id: b3533a8adad34bc1526f4b0ab303e8e8f5971dd3
     name: Virtuosismo Arcano
@@ -396,9 +405,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu movimiento es una performance letal, tu Ki una melodía cautivadora.<br><br> **Beneficio de Sinergia:**<br> -
-      **Movimiento Fascinante:** Cuando un enemigo te falla c/c, usa Reacción para forzar TS Instinto (ND 5 + Presencia)
-      vs Encantado (1 min, se rompe si hostil).<br> - **Ki Resonante:** Una vez por turno, puedes gastar un uso de tu
-      Canto de Inspiración (sin necesidad de activarlo en un objetivo) para imbuir tus golpes. Si lo haces, todos tus
-      ataques desarmados infligen 1d4 de daño Psíquico adicional hasta el inicio de tu próximo turno.
+      _Tu movimiento es una performance letal y tu Ki una melodía cautivadora que fascina a quienes intentan
+      golpearte._<br><br> **Beneficio de Sinergia:**<br> - **Movimiento Fascinante:** Cuando un enemigo te falla c/c,
+      usa Reacción para forzar TS Instinto (ND 5 + Presencia) vs Encantado (1 min, se rompe si hostil).<br> - **Ki
+      Resonante:** Una vez por turno, puedes gastar un uso de tu Canto de Inspiración (sin necesidad de activarlo en un
+      objetivo) para imbuir tus golpes. Si lo haces, todos tus ataques desarmados infligen 1d4 de daño Psíquico
+      adicional hasta el inicio de tu próximo turno.
     slug: danza-del-ki-hipnotico

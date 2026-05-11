@@ -10,8 +10,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu Velocidad total de movimiento aumenta en una cantidad igual a la mitad de tu puntuación de Instinto
-      (redondeando hacia arriba). Además, levantarte del estado Derribado solo te cuesta 1 metro de tu movimiento.
+      _Te mueves con la gracia de una pluma en el viento, recorriendo distancias y levantándote del suelo con una
+      facilidad asombrosa._<br><br> Tu Velocidad total de movimiento aumenta en una cantidad igual a la mitad de tu
+      puntuación de Instinto (redondeando hacia arriba).<br> Además, levantarte del estado Derribado solo te cuesta 1
+      metro de tu movimiento.
     slug: paso-ligero
   - id: d4d2ba2aade508df77553c52c6ea435802c08f99
     name: Desviar Proyectiles
@@ -25,10 +27,11 @@ cards:
       type: RELOAD
       qty: 4
     description: >-
-      Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes
-      reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br> En caso de reducir el
-      daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de
-      ataque de Reflejos, el daño del ataque es 1d4.
+      _Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de
+      muñeca._<br><br> Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que
+      puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br> En
+      caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza
+      una tirada de ataque de Reflejos, el daño del ataque es 1d4.
     slug: desviar-proyectiles
   - id: b64d487c1ddc2bc81b0e01939f4e12918a59bdc4
     name: Golpes Resonantes
@@ -41,13 +44,14 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Cuando impactas a una criatura con un ataque desarmado, puedes imbuir tu golpe con energía ki para desatar un
-      efecto adicional. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto).<br> - **Golpe
+      _Imbuyes tus ataques con vibraciones de Ki que retumban en el interior de tu enemigo, afectando sus sentidos o su
+      equilibrio._<br><br> Cuando impactas a una criatura con un ataque desarmado, puedes forzar al objetivo a superar
+      una Tirada de Salvación de Cuerpo (ND 5 + Instinto) o sufrir uno de los siguientes efectos:<br> - **Golpe
       Radiante:** Si falla, el objetivo sufre 1d6 de daño de Radiante adicional. Si tiene éxito, recibe la mitad de ese
       daño.<br> - **Golpe Realentizante:** Si falla, la Velocidad del objetivo se reduce a la mitad hasta el final de tu
       próximo turno. Si tiene éxito, su Velocidad solo se reduce en 2 metros hasta el final de tu próximo turno.<br> -
       **Golpe Desestabilizante:** El objetivo es empujado 1 metro en línea recta lejos de ti. Si falla la tirada, además
-      cae **Derribado**.
+      cae Derribado.
     slug: golpes-resonantes
   - id: 723e1c1426a2df1f09a7fdf05aa384b3fd9716fa
     name: Defensa Impasible
@@ -60,9 +64,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Mediante la respiración y la concentración, puedes endurecer tu cuerpo y tu espíritu contra el daño. Mientras no
-      lleves armadura ni uses escudo, obtienes una **Mitigación Física y Mágica** igual a **la mitad de tu puntuación de
-      Instinto** (redondeando hacia abajo).
+      _Mediante la respiración y la concentración, endureces tu espíritu, creando una barrera invisible contra cualquier
+      tipo de daño._<br><br> Mientras no lleves armadura ni uses escudo, obtienes una Mitigación Física y Mágica igual a
+      la mitad de tu puntuación de Instinto (redondeanda hacia abajo).
     slug: defensa-impasible
   - id: c6e3f9be7534d4567ee4d7af9ad7f238c5d2f2da
     name: Contraataque Fluido
@@ -76,8 +80,9 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Como Reacción, cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes realizar un único ataque
-      desarmado contra él.
+      _Usas la inercia del fallo de tu enemigo para castigarlo con un golpe instantáneo y certero._<br><br> Como
+      Reacción, cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes realizar un único ataque desarmado
+      contra él.
     slug: contraataque-fluido
   - id: 3cbe9aa73803c14511484bc93613c8add7f85b5c
     name: Paso del Viento
@@ -90,8 +95,9 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      Tu control sobre tu Ki influye la distribución de tu peso. - **Paso Ligero (Interacción):** Hasta el final de tu
-      turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu
+      _Controlas tu peso mediante el Ki, permitiéndote correr por paredes o el agua, y suavizando las caídas más
+      peligrosas._<br><br> Adquieres las siguientes capacidades:<br> - **Paso Ligero (Interacción):** Hasta el final de
+      tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu
       movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.<br> - **Caída Ralentizada
       (Reacción):** Cuando caes, puedes reducir el daño por caída como si la distancia de la caída fuera 10 metros
       menor. Si esto reduce el daño a 0, aterrizas de pie sin sufrir daño.
@@ -107,9 +113,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu disciplina te permite ignorar las debilidades del cuerpo. Obtienes Ventaja (+1d4) en todas las pruebas de
-      **Cuerpo (Aguante)**, como las que se realizan para resistir los efectos del cansancio, el hambre, la sed o las
-      temperaturas extremas.
+      _Tu disciplina te permite ignorar las necesidades mundanas y resistir climas extremos mediante la pura fuerza de
+      tu espíritu._<br><br> Ganas los siguientes beneficios:
+        - **Resistente**: Obtienes Ventaja (+1d4) en todas las pruebas de Aguante.
+        - **Duelo con la Muerte**: Si llegas a 0 de Salud y quedas Moribundo, obtienes Ventaja (+1d4) en tus Tiradas de Salvación de Cuerpo para mantenerte con vida. Además, si superas esa TS con un éxito crítico, despiertas del estado Inconsciente recuperando Puntos de Salud iguales a tu puntuación de Instinto (en lugar de solo 1).
     slug: fortaleza-interior
   - id: be4b923e41fc4348132a436ecd415dc69d4277b4
     name: Percepción Empática
@@ -122,9 +129,10 @@ cards:
       type: null
       qty: 0
     description: >-
-      Siempre estás en sintonía con el estado emocional de los demás. Obtienes Ventaja (+1d4) en todas las pruebas de
-      Perspicacia. Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su
-      estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
+      _Estás en sintonía con las emociones del mundo, leyendo los corazones de los demás como si fueran libros
+      abiertos._<br><br> Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia.<br> Además, con solo observar o
+      escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por
+      ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
     slug: percepcion-empatica
   - id: 1a2eece706b7d0c6f5813356c678a0ff012943b9
     name: Lenguaje del Espíritu
@@ -137,8 +145,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Comprendes que el ki es un lenguaje universal. Puedes comunicarte de forma rudimentaria (transmitiendo conceptos
-      simples, emociones e intenciones) con cualquier criatura viva, sin importar el idioma.
+      _Has descubierto que el Ki es la lengua común de la vida, permitiéndote comunicarte con cualquier ser vivo
+      mediante la intención._<br><br> Puedes comunicarte de forma rudimentaria (transmitiendo conceptos simples,
+      emociones e intenciones) con cualquier criatura viva, sin importar el idioma.
     slug: lenguaje-del-espiritu
   - id: f09d80064c6cab43a194bc3dacd6b84c6d0eadd7
     name: Canalización Sanadora
@@ -151,8 +160,9 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
+      _Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre de venenos y enfermedades._<br><br>
       Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un
-      efecto de **enfermedad** o **veneno** que afecte al objetivo.
+      efecto de enfermedad o veneno que afecte al objetivo.
     slug: canalizacion-sanadora
   - id: 688e77f37633d7f839078c846e1a85264c354490
     name: Centro Inquebrantable
@@ -165,8 +175,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu concentración es absoluta. Obtienes Ventaja (+1d4) en todas las pruebas de habilidad o Tiradas de Salvación
-      para resistir ser Derribado o movido contra tu voluntad.
+      _Tu concentración es como una raíz profunda que te ancla al mundo, impidiendo que nada te mueva contra tu
+      voluntad_<br><br> Obtienes Ventaja (+1d4) en todas las pruebas de habilidad o TS para resistir ser Derribado o
+      movido contra tu voluntad.
     slug: centro-inquebrantable
   - id: b54319fc30ae82830f72885ea78b04108f3ca86e
     name: Paso Etéreo
@@ -179,8 +190,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      Tu movimiento no se ve afectado por terreno difícil. Además, puedes moverte a través del espacio de criaturas
-      hostiles sin impedimento.
+      _Te deslizas por el campo de batalla sin que el terreno o los enemigos supongan un obstáculo para tu avance
+      fluido._<br><br> Tu movimiento no se ve afectado por terreno difícil.<br> Además, puedes moverte a través del
+      espacio de criaturas hostiles sin impedimento.
     slug: paso-etereo
   - id: 221e16ded0fdc00df6ddd6beaae08ec8faebc919
     name: Trance de Piedra
@@ -194,8 +206,9 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
-      Tras 10 minutos de meditación ininterrumpida, puedes hacer una pregunta sobre el entorno inmediato (una
-      habitación, un claro). Recibes una respuesta sensorial y críptica del "espíritu del lugar" (a discreción del DJ),
-      como el eco de una emoción fuerte, la sensación de una presencia oculta o la imagen de un evento significativo que
-      ocurrió allí.
+      _Sintonizas con la memoria del entorno, escuchando los ecos del pasado que han quedado grabados en el espíritu del
+      lugar._<br><br> Tras 10 minutos de meditación ininterrumpida, puedes hacer una pregunta sobre el entorno inmediato
+      (una habitación, un claro).<br> Recibes una respuesta sensorial y críptica del "espíritu del lugar" (a discreción
+      del DJ), como el eco de una emoción fuerte, la sensación de una presencia oculta o la imagen de un evento
+      significativo que ocurrió allí.
     slug: trance-de-piedra
