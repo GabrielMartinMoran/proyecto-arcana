@@ -255,6 +255,7 @@
 			.items-header {
 				display: flex;
 				flex-direction: row;
+				flex-wrap: wrap;
 				width: 100%;
 				gap: var(--spacing-md);
 
@@ -272,6 +273,7 @@
 			.item {
 				display: flex;
 				flex-direction: row;
+				flex-wrap: wrap;
 				gap: var(--spacing-md);
 				width: 100%;
 			}
