@@ -24,6 +24,8 @@ describe('buildSheetUrl', () => {
 				},
 			},
 			localNotes: overrides.localNotes ?? null,
+			tokenOffsetX: overrides.tokenOffsetX,
+			tokenOffsetY: overrides.tokenOffsetY,
 		};
 	};
 
@@ -190,6 +192,32 @@ describe('buildSheetUrl', () => {
 			const result = buildSheetUrl(params);
 
 			expect(result.iframeUrl).toContain('existing=param&mode=foundry');
+		});
+	});
+
+	describe('token offset params', () => {
+		it('should include tokenOffsetX and tokenOffsetY in URL when provided', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				tokenOffsetX: -25,
+				tokenOffsetY: 15,
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(result.iframeUrl).toContain('tokenOffsetX=-25');
+			expect(result.iframeUrl).toContain('tokenOffsetY=15');
+		});
+
+		it('should NOT include token offset params when undefined', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(result.iframeUrl).not.toContain('tokenOffsetX');
+			expect(result.iframeUrl).not.toContain('tokenOffsetY');
 		});
 	});
 

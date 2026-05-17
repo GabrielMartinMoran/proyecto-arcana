@@ -51,6 +51,30 @@ describe('foundryParams', () => {
 			expect(params.startMax).toBe('10');
 		});
 
+		it('reads tokenOffsetX and tokenOffsetY from query string', () => {
+			mockPage.set({
+				url: new URL(
+					'http://localhost/?mode=foundry&uuid=Actor.123&tokenOffsetX=-25&tokenOffsetY=15',
+				),
+			});
+
+			const params = get(foundryParams);
+
+			expect(params.tokenOffsetX).toBe(-25);
+			expect(params.tokenOffsetY).toBe(15);
+		});
+
+		it('defaults token offsets to 0 when not provided', () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const params = get(foundryParams);
+
+			expect(params.tokenOffsetX).toBe(0);
+			expect(params.tokenOffsetY).toBe(0);
+		});
+
 		it('returns isFoundry false when mode is missing', () => {
 			mockPage.set({
 				url: new URL('http://localhost/?uuid=Actor.123'),
@@ -196,6 +220,61 @@ describe('useFoundryVTTService', () => {
 			await syncCreatureState(creature);
 
 			expect(postMessageSpy).not.toHaveBeenCalled();
+		});
+
+		it('calls createCircularToken with offset params from URL', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			mockPage.set({
+				url: new URL(
+					'http://localhost/?mode=foundry&uuid=Actor.123&tokenOffsetX=-30&tokenOffsetY=20',
+				),
+			});
+
+			const creature = createTestCreature({ img: 'creature.png' });
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature);
+
+			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#990000', -30, 20);
+		});
+	});
+
+	describe('syncCharacterState', () => {
+		const createTestCharacter = (overrides: any = {}) => ({
+			id: 'char-1',
+			name: 'Test Character',
+			img: 'character.png',
+			currentHP: 50,
+			maxHP: 100,
+			initiative: 5,
+			...overrides,
+		});
+
+		it('calls createCircularToken with offset params from URL', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			mockPage.set({
+				url: new URL(
+					'http://localhost/?mode=foundry&uuid=Actor.123&tokenOffsetX=10&tokenOffsetY=-15',
+				),
+			});
+
+			const character = createTestCharacter();
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+
+			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 10, -15);
+		});
+
+		it('uses default offset 0 when URL params are missing', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const character = createTestCharacter();
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+
+			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 0, 0);
 		});
 	});
 });

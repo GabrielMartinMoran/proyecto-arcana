@@ -118,6 +118,29 @@ describe('ArcanaSheetV2', () => {
 			const context = await (sheet as any)._prepareContext({});
 			expect(context.iframeUrl).toBeNull();
 		});
+
+		it('should include tokenOffsetX and tokenOffsetY in iframeUrl when flags are set', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana') {
+					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
+					if (key === 'tokenOffsetX') return -30;
+					if (key === 'tokenOffsetY') return 20;
+				}
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('tokenOffsetX=-30');
+			expect(context.iframeUrl).toContain('tokenOffsetY=20');
+		});
+
+		it('should include default token offset params when flags are missing', async () => {
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('tokenOffsetX=0');
+			expect(context.iframeUrl).toContain('tokenOffsetY=0');
+		});
 	});
 
 	describe('_onRender', () => {
@@ -491,6 +514,161 @@ describe('ArcanaSheetV2', () => {
 					'prototypeToken.sight.color': null,
 				}),
 			);
+		});
+	});
+
+	describe('#configureSheet token offset sliders', () => {
+		let dialogConstructorArgs: any;
+
+		beforeEach(() => {
+			mockActor.system.nightVision = 'none';
+			mockActor.prototypeToken = { actorLink: false };
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+			mockActor.setFlag = vi.fn().mockResolvedValue(undefined);
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([]);
+
+			vi.stubGlobal('CONFIG', {
+				Canvas: {
+					visionModes: {
+						darkvision: {
+							vision: {
+								defaults: {
+									saturation: -1.0,
+									brightness: 0.25,
+									contrast: 0.25,
+									attenuation: 0.1,
+									color: '#9edcff',
+								},
+							},
+						},
+						basic: {
+							vision: {
+								defaults: {
+									saturation: 0,
+									brightness: 0,
+									contrast: 0,
+									attenuation: 0.5,
+									color: null,
+								},
+							},
+						},
+					},
+				},
+			});
+
+			vi.stubGlobal(
+				'Dialog',
+				class MockDialog {
+					constructor(args: any) {
+						dialogConstructorArgs = args;
+					}
+					render(_state: boolean) {}
+				},
+			);
+		});
+
+		afterEach(() => {
+			vi.unstubAllGlobals();
+		});
+
+		it('should include offset sliders with default values when no flags exist', () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana') {
+					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
+					if (key === 'localNotes') return 'Some notes';
+					if (key === 'tokenOffsetX') return undefined;
+					if (key === 'tokenOffsetY') return undefined;
+				}
+				return undefined;
+			});
+
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			expect(dialogConstructorArgs.content).toContain('name="tokenOffsetX"');
+			expect(dialogConstructorArgs.content).toContain('name="tokenOffsetY"');
+			expect(dialogConstructorArgs.content).toContain('min="-50"');
+			expect(dialogConstructorArgs.content).toContain('max="50"');
+			expect(dialogConstructorArgs.content).toContain('value="0"');
+		});
+
+		it('should preselect existing offset values', () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana') {
+					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
+					if (key === 'localNotes') return 'Some notes';
+					if (key === 'tokenOffsetX') return -25;
+					if (key === 'tokenOffsetY') return 15;
+				}
+				return undefined;
+			});
+
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			expect(dialogConstructorArgs.content).toContain('value="-25"');
+			expect(dialogConstructorArgs.content).toContain('value="15"');
+		});
+
+		it('should include oninput handlers for real-time slider labels', () => {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			expect(dialogConstructorArgs.content).toContain(
+				'oninput="this.nextElementSibling.textContent = this.value + \'%\'"',
+			);
+		});
+
+		it('should store flags and NOT update actor with anchors on save', async () => {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => '' };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => false };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					if (selector === "input[name='tokenOffsetX']") return { val: (): string => '25' };
+					if (selector === "input[name='tokenOffsetY']") return { val: (): string => '-10' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'tokenOffsetX', 25);
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'tokenOffsetY', -10);
+			const updateCall = vi.mocked(mockActor.update).mock.calls[0][0] as Record<string, any>;
+			expect(updateCall).not.toHaveProperty('prototypeToken.texture.anchorX');
+			expect(updateCall).not.toHaveProperty('prototypeToken.texture.anchorY');
+		});
+
+		it('should NOT update active tokens with anchor values on save', async () => {
+			const mockTokenDoc = { update: vi.fn().mockResolvedValue(undefined) };
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([{ document: mockTokenDoc }]);
+
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => '' };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => true };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					if (selector === "input[name='tokenOffsetX']") return { val: (): string => '0' };
+					if (selector === "input[name='tokenOffsetY']") return { val: (): string => '50' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			const tokenUpdateCall = vi.mocked(mockTokenDoc.update).mock.calls[0][0] as Record<
+				string,
+				any
+			>;
+			expect(tokenUpdateCall).not.toHaveProperty('texture.anchorX');
+			expect(tokenUpdateCall).not.toHaveProperty('texture.anchorY');
 		});
 	});
 });

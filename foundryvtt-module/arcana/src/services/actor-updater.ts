@@ -129,32 +129,25 @@ export class ActorUpdater {
 		imageUrl: string,
 		imageSource?: string,
 	): Record<string, any> | null {
-		const lastSource = actor.getFlag('arcana', 'imgSource');
+		const lastSource = safeStr(actor.getFlag('arcana', 'imgSource'));
 		const newSource = safeStr(imageSource);
+		const oldImg = safeStr(actor.img);
+		const newImg = safeStr(imageUrl);
+		const sourceChanged = Boolean(newSource && newSource !== lastSource);
+		const imageChanged = oldImg !== newImg;
 
-		if (newSource && lastSource) {
-			if (newSource !== lastSource) {
-				actor.setFlag('arcana', 'imgSource', newSource);
-				return {
-					img: imageUrl,
-					'prototypeToken.texture.src': imageUrl,
-				};
-			}
-		} else {
-			const oldImg = safeStr(actor.img);
-			const newImg = safeStr(imageUrl);
-			if (oldImg !== newImg) {
-				if (newSource) {
-					actor.setFlag('arcana', 'imgSource', newSource);
-				}
-				return {
-					img: newImg,
-					'prototypeToken.texture.src': newImg,
-				};
-			}
+		if (!sourceChanged && !imageChanged) {
+			return null;
 		}
 
-		return null;
+		if (sourceChanged) {
+			actor.setFlag('arcana', 'imgSource', newSource);
+		}
+
+		return {
+			img: newImg,
+			'prototypeToken.texture.src': newImg,
+		};
 	}
 
 	/**

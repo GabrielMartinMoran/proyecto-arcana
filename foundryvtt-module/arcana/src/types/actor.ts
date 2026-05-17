@@ -17,6 +17,8 @@ export interface ArcanaFlags {
 	sheetUrl?: string;
 	localNotes?: string;
 	imgSource?: string;
+	tokenOffsetX?: number;
+	tokenOffsetY?: number;
 }
 
 export interface ActorFlags {

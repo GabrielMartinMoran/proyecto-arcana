@@ -82,6 +82,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 		const context = (await super._prepareContext(options)) as Record<string, any>;
 		const sheetUrl = this.actor.getFlag('arcana', 'sheetUrl') as string | null;
 		const localNotes = this.actor.getFlag('arcana', 'localNotes') as string | null;
+		const tokenOffsetX = (this.actor.getFlag('arcana', 'tokenOffsetX') as number | undefined) ?? 0;
+		const tokenOffsetY = (this.actor.getFlag('arcana', 'tokenOffsetY') as number | undefined) ?? 0;
 
 		const urlResult = buildSheetUrl({
 			sheetUrl,
@@ -93,6 +95,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 				system: this.actor.system as { health?: { value: number; max: number } },
 			},
 			localNotes,
+			tokenOffsetX,
+			tokenOffsetY,
 		});
 
 		return {
@@ -237,6 +241,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 		const currentUrl = this.actor.getFlag('arcana', 'sheetUrl') || '';
 		const isLinked = (this.actor.prototypeToken as any).actorLink;
 		const currentNightVision = (this.actor.system as any).nightVision || 'none';
+		const tokenOffsetX = (this.actor.getFlag('arcana', 'tokenOffsetX') as number | undefined) ?? 0;
+		const tokenOffsetY = (this.actor.getFlag('arcana', 'tokenOffsetY') as number | undefined) ?? 0;
 
 		const nightVisionOptions = Object.entries(NIGHT_VISION_LABELS)
 			.map(
@@ -253,6 +259,9 @@ export class ArcanaSheetV2 extends MixedSheet {
 					<hr>
 					<div class="form-group"><label>Visión Nocturna:</label><select name="nightVision">${nightVisionOptions}</select></div>
 					<hr>
+					<div class="form-group"><label>Desplazamiento X:</label><input type="range" name="tokenOffsetX" min="-50" max="50" value="${tokenOffsetX}" oninput="this.nextElementSibling.textContent = this.value + '%'" /><span class="token-offset-value">${tokenOffsetX}%</span></div>
+					<div class="form-group"><label>Desplazamiento Y:</label><input type="range" name="tokenOffsetY" min="-50" max="50" value="${tokenOffsetY}" oninput="this.nextElementSibling.textContent = this.value + '%'" /><span class="token-offset-value">${tokenOffsetY}%</span></div>
+					<hr>
 					<div class="form-group"><label>Personaje Único?</label><input type="checkbox" name="actorLink" ${isLinked ? 'checked' : ''} /></div>
 					<p class="notes">
 						<b>Check:</b> PJ (Vida sincronizada).<br>
@@ -268,8 +277,12 @@ export class ArcanaSheetV2 extends MixedSheet {
 						const newUrl = html.find("input[name='url']").val() as string;
 						const newLinkState = html.find("input[name='actorLink']").is(':checked');
 						const newNightVision = html.find("select[name='nightVision']").val() as string;
+						const newTokenOffsetX = Number(html.find("input[name='tokenOffsetX']").val());
+						const newTokenOffsetY = Number(html.find("input[name='tokenOffsetY']").val());
 
 						await this.actor.setFlag('arcana', 'sheetUrl', newUrl.trim());
+						await this.actor.setFlag('arcana', 'tokenOffsetX', newTokenOffsetX);
+						await this.actor.setFlag('arcana', 'tokenOffsetY', newTokenOffsetY);
 
 						const tokenSettings = buildTokenSettings(newLinkState, this.actor.name);
 						const sightUpdate = getNightVisionSightUpdate(newNightVision as any);

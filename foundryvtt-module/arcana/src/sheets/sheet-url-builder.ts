@@ -13,6 +13,8 @@ export interface SheetUrlParams {
 		system: { health?: { value: number; max: number } };
 	};
 	localNotes: string | null;
+	tokenOffsetX?: number;
+	tokenOffsetY?: number;
 }
 
 export interface SheetUrlResult {
@@ -81,6 +83,10 @@ export function buildSheetUrl(params: SheetUrlParams): SheetUrlResult {
 		url.searchParams.set('startHp', String(result.health.value));
 		url.searchParams.set('startMax', String(result.health.max));
 		if (isNpc) url.searchParams.set('readonly', '1');
+		if (params.tokenOffsetX !== undefined)
+			url.searchParams.set('tokenOffsetX', String(params.tokenOffsetX));
+		if (params.tokenOffsetY !== undefined)
+			url.searchParams.set('tokenOffsetY', String(params.tokenOffsetY));
 		result.iframeUrl = url.toString();
 	}
 

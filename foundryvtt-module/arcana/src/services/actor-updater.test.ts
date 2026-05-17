@@ -39,6 +39,8 @@ describe('ActorUpdater', () => {
 				if (key === 'sheetUrl') return overrides.sheetUrl || '';
 				if (key === 'imgSource') return overrides.imgSource;
 				if (key === 'initiative') return overrides.initiative;
+				if (key === 'tokenOffsetX') return overrides.tokenOffsetX;
+				if (key === 'tokenOffsetY') return overrides.tokenOffsetY;
 			}
 			return undefined;
 		}),
@@ -300,6 +302,144 @@ describe('ActorUpdater', () => {
 				{ render: false },
 			);
 			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'imgSource', 'new-source');
+		});
+
+		it('should update actor image when source is unchanged but generated image URL differs', async () => {
+			// GIVEN an actor whose original image source is already tracked
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				imgSource: 'same-source.jpg',
+			});
+			mockActor.img = 'old-crop.webp';
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			// WHEN the web app sends a regenerated crop for the same source
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { imageUrl: 'offset-crop.webp', imageSource: 'same-source.jpg' },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			// THEN the new generated crop should still be applied
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					img: 'offset-crop.webp',
+					'prototypeToken.texture.src': 'offset-crop.webp',
+				}),
+				{ render: false },
+			);
+			expect(mockActor.setFlag).not.toHaveBeenCalledWith('arcana', 'imgSource', 'same-source.jpg');
+		});
+
+		it('should skip actor image update when source and generated image URL are unchanged', async () => {
+			// GIVEN an actor whose tracked source and generated image are current
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				imgSource: 'same-source.jpg',
+			});
+			mockActor.img = 'current-crop.webp';
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			// WHEN the same image payload is received again
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { imageUrl: 'current-crop.webp', imageSource: 'same-source.jpg' },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			// THEN no update should be persisted
+			expect(mockActor.update).not.toHaveBeenCalled();
+			expect(mockActor.setFlag).not.toHaveBeenCalled();
+		});
+
+		it('should NOT include anchors when offset flags exist', async () => {
+			// GIVEN an actor with offset flags
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				imgSource: 'old-source',
+				tokenOffsetX: -25,
+				tokenOffsetY: 15,
+			});
+			mockActor.img = 'old-image.jpg';
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			// WHEN updating image
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { imageUrl: 'new-image.jpg', imageSource: 'new-source' },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			// THEN anchors should NOT be included
+			const updateCall = vi.mocked(mockActor.update).mock.calls[0][0] as Record<string, any>;
+			expect(updateCall).toHaveProperty('img', 'new-image.jpg');
+			expect(updateCall).toHaveProperty('prototypeToken.texture.src', 'new-image.jpg');
+			expect(updateCall).not.toHaveProperty('prototypeToken.texture.anchorX');
+			expect(updateCall).not.toHaveProperty('prototypeToken.texture.anchorY');
+		});
+
+		it('should NOT include anchors when no offset flags exist', async () => {
+			// GIVEN an actor without offset flags
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				imgSource: 'old-source',
+			});
+			mockActor.img = 'old-image.jpg';
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			// WHEN updating image
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { imageUrl: 'new-image.jpg', imageSource: 'new-source' },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			// THEN anchors should NOT be included
+			const updateCall = vi.mocked(mockActor.update).mock.calls[0][0] as Record<string, any>;
+			expect(updateCall).not.toHaveProperty('prototypeToken.texture.anchorX');
+			expect(updateCall).not.toHaveProperty('prototypeToken.texture.anchorY');
+		});
+
+		it('should NOT update active tokens with anchor values', async () => {
+			// GIVEN an actor with offset flags and active tokens
+			const mockToken = { update: vi.fn().mockResolvedValue(undefined) };
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				imgSource: 'old-source',
+				tokenOffsetX: 50,
+				tokenOffsetY: -50,
+			});
+			mockActor.img = 'old-image.jpg';
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([mockToken]);
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			// WHEN updating image
+			const updateData = {
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { imageUrl: 'new-image.jpg', imageSource: 'new-source' },
+			};
+
+			await actorUpdater.handleUpdateActor(updateData);
+
+			// THEN active token should NOT receive anchor updates
+			const tokenUpdateCall = vi.mocked(mockToken.update).mock.calls[0][0] as Record<string, any>;
+			expect(tokenUpdateCall).toHaveProperty('texture.src', 'new-image.jpg');
+			expect(tokenUpdateCall).not.toHaveProperty('texture.anchorX');
+			expect(tokenUpdateCall).not.toHaveProperty('texture.anchorY');
 		});
 	});
 

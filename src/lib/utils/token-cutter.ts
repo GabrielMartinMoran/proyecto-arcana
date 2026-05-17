@@ -10,6 +10,8 @@ export async function createCircularToken(
 	size: number = 256,
 	borderWidth: number = 8, // Grosor por defecto
 	borderColor: string = '#000000', // Color por defecto (Negro)
+	offsetX: number = 0,
+	offsetY: number = 0,
 ): Promise<string> {
 	return new Promise((resolve, reject) => {
 		const img = new Image();
@@ -45,8 +47,16 @@ export async function createCircularToken(
 				// --- 3. DIBUJAR LA IMAGEN ---
 				// Cálculos para centrar y llenar (object-fit: cover manual)
 				const minDim = Math.min(img.width, img.height);
-				const sx = (img.width - minDim) / 2;
-				const sy = (img.height - minDim) / 2;
+				const marginX = img.width - minDim;
+				const marginY = img.height - minDim;
+				const sx = Math.max(
+					0,
+					Math.min(marginX, (img.width - minDim) / 2 + (offsetX / 100) * marginX),
+				);
+				const sy = Math.max(
+					0,
+					Math.min(marginY, (img.height - minDim) / 2 + (offsetY / 100) * marginY),
+				);
 
 				ctx.drawImage(
 					img,

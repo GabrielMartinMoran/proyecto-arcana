@@ -49,6 +49,9 @@ export const foundryParams = derived(page, ($page) => {
 		startMax: getParam('startMax'),
 		// Detectamos si estamos dentro de Foundry
 		isFoundry: getParam('mode') === 'foundry',
+		// Offset del token para ajustar el recorte circular
+		tokenOffsetX: Number(getParam('tokenOffsetX') ?? 0),
+		tokenOffsetY: Number(getParam('tokenOffsetY') ?? 0),
 	};
 });
 
@@ -141,7 +144,14 @@ export const useFoundryVTTService = () => {
 		try {
 			// Procesamos el token solo si hay imagen
 			if (character.img) {
-				imageUrl = await createCircularToken(character.img, 256, 8, '#000000');
+				imageUrl = await createCircularToken(
+					character.img,
+					256,
+					8,
+					'#000000',
+					params.tokenOffsetX,
+					params.tokenOffsetY,
+				);
 			}
 		} catch (e) {
 			console.error('[Foundry] Error generando token circular:', e);
@@ -184,7 +194,14 @@ export const useFoundryVTTService = () => {
 		let imageUrl: string | undefined;
 		try {
 			if (creature.img) {
-				imageUrl = await createCircularToken(creature.img, 256, 8, '#990000'); // Borde rojo para enemigos?
+				imageUrl = await createCircularToken(
+					creature.img,
+					256,
+					8,
+					'#990000',
+					params.tokenOffsetX,
+					params.tokenOffsetY,
+				);
 			}
 		} catch (e) {
 			console.error('[Foundry] Error generando token de criatura:', e);

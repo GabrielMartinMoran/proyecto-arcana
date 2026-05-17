@@ -33,6 +33,8 @@ declare global {
 				sheetUrl?: string;
 				localNotes?: string;
 				imgSource?: string;
+				tokenOffsetX?: number;
+				tokenOffsetY?: number;
 			};
 		};
 	}
