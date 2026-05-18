@@ -102,9 +102,7 @@ creatures:
     behavior: 'Más grande y cruel que el resto. Lidera desde atrás, disparando con una
       ballesta robada a un guardia y empujando a sus subordinados hacia el peligro.
       Su principal táctica de supervivencia es usar a otros goblins como escudos vivientes.
-      Solo desenvaina la cimitarra si se ve acorralado.
-
-      '
+      Solo desenvaina la cimitarra si se ve acorralado.'
     img: https://i.imgur.com/KoSYgNz.jpeg
     size: Pequeño
   - name: Chamán Goblin
@@ -1762,9 +1760,7 @@ creatures:
     behavior: 'Un depredador psíquico que flota sobre el campo de batalla. Controla
       el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar
       a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente
-      y huirá levitando si su salud baja del 25%.
-
-      '
+      y huirá levitando si su salud baja del 25%.'
     img: null
     size: Inmenso
   - name: Dragón Rojo Adulto
@@ -1833,9 +1829,7 @@ creatures:
     behavior: 'Un ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar
       las amenazas, desatando su Aliento de Fuego sobre el grupo más concentrado. Aterrizará
       solo para eliminar a supervivientes heridos, usando su Asalto Múltiple para abrumar.
-      Su Presencia Aterradora rompe la coordinación del grupo al inicio.
-
-      '
+      Su Presencia Aterradora rompe la coordinación del grupo al inicio.'
     img: null
     size: Inmenso
   - name: Liche
@@ -1913,8 +1907,317 @@ creatures:
       la presión constante lanzando Descargas Arcanas, hechizos rápidos o intentando
       recuperar sus poderes más letales con Recarga Mental. Su objetivo no es solo ganar,
       es demostrar su abrumadora superioridad intelectual y mágica en cada instante
-      del combate.
+      del combate.'
+    img: null
+    size: Mediano
 
-      '
+  - name: No Combatiente
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 1
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 4
+      evasion:
+        value: 6
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Ataque Desesperado
+        bonus: 2
+        damage: 1d4 Contundente
+        note: Puñetazo, patada o arrojar objeto
+    traits: []
+    actions: []
+    reactions: []
+    interactions:
+      - name: Presa del Pánico
+        uses: null
+        detail: Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
+    behavior: 'Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intention será ganar tiempo para huir, no abatir al agresor.'
+    img: null
+    size: Mediano
+  - name: Iniciado Arcano
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 2
+      mind: 2
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Arcaico
+    attacks:
+      - name: Proyectil Volátil
+        bonus: 4
+        damage: 1d8 Fuerza
+        note: Alcance Media
+    traits: []
+    actions: []
+    reactions:
+      - name: Escudo Reactivo Menor
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque.
+    interactions: []
+    behavior: 'Se mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.'
+    img: null
+    size: Mediano
+  - name: Ratero de los Bajos Fondos
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+      - Jerga de Ladrones
+    attacks:
+      - name: Daga Oculta
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: null
+      - name: Ballesta Ligera
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: Alcance Media, Recarga (Interacción)
+    traits:
+      - name: Golpe Traicionero
+        detail: Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: 'Evita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.'
+    img: null
+    size: Mediano
+  - name: Juglar Errante
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 2
+      mind: 1
+      instinct: 1
+      presence: 2
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Élfico
+    attacks:
+      - name: Espada Corta
+        bonus: 2
+        damage: 1d6 Cortante
+        note: null
+      - name: Dardo
+        bonus: 2
+        damage: 1d4 Perforante
+        note: Arrojadiza (Cercana)
+    traits: []
+    actions:
+      - name: Acorde Disconcordante
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Acción, elige a un enemigo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 8). Si falla, recibe 1d6 de daño Psíquico y sufre Desventaja (-1d4) en su próxima tirada de ataque antes del final del próximo turno del juglar.
+    reactions: []
+    interactions:
+      - name: Nota Inspiradora
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Como Interacción, otorga 2 Puntos de Salud Temporales a un aliado a distancia Cercana.
+    behavior: 'El juglar evita ser el blanco principal. Se dedica a entorpecer la ofensiva enemiga con su música destructiva mientras da pequeños impulsos de vitalidad a sus defensores.'
+    img: null
+    size: Mediano
+  - name: Iniciado del Círculo
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Silvano
+    attacks:
+      - name: Látigo de Espinas
+        bonus: 3
+        damage: 1d6+1 Cortante
+        note: Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.
+    traits: []
+    actions: []
+    reactions: []
+    interactions:
+      - name: Bálsamo de Hojas
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado.
+    behavior: 'Protege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.'
+    img: null
+    size: Mediano
+  - name: Lobo de Mar
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 3
+      reflexes: 2
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Estoque
+        bonus: 3
+        damage: 1d8 Perforante
+        note: null
+    traits:
+      - name: Piernas de Barco
+        detail: El Lobo de Mar tiene Ventaja en cualquier Tirada de Salvación o Prueba de Habilidad para resistir ser Derribado o movido contra su voluntad.
+    actions: []
+    reactions:
+      - name: Parada del Marinero
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque.
+    interactions: []
+    behavior: 'Directo y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.'
+    img: null
+    size: Mediano
+  - name: Capitán Corsario
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 2
+      presence: 3
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Armadura Ligera
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Estoque de Oficial
+        bonus: 4
+        damage: 1d8 Perforante
+        note: null
+    traits:
+      - name: Asalto Múltiple
+        detail: El Capitán Corsario puede realizar dos ataques de Estoque de Oficial con su Acción.
+    actions:
+      - name: ¡Al Abordaje!
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Acción, el Capitán ruge una directiva y designa a un objetivo. Hasta el inicio del próximo turno del Capitán, todos sus aliados ganan +2 metros de velocidad si se mueven en línea recta hacia la criatura marcada, y obtienen Ventaja (+1d4) en su primera tirada de ataque contra ella.
+    reactions: []
+    interactions: []
+    behavior: 'Es una figura de autoridad que orquesta el caos marino a su favor. Utilizará ¡Al Abordaje! para coordinar las cargas de sus lobos de mar y rateros, concentrando el fuego del grupo mientras él desgasta objetivos con la precisión quirúrgica de sus dos estocadas.'
     img: null
     size: Mediano
