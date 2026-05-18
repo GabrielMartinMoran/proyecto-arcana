@@ -15,7 +15,9 @@
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
+import { Character } from '$lib/types/character';
+import { Party } from '$lib/types/party';
 
 // ---- Mock Firebase service ----
 const mockFirebase = {
@@ -79,6 +81,59 @@ const createMockParty = (overrides: Partial<TestParty> = {}): TestParty => ({
 	characters: [],
 	...overrides,
 });
+
+const createPartyCharacter = (overrides: Partial<Character> = {}) =>
+	new Character({
+		id: 'char-1',
+		name: 'Previous Name',
+		attributes: {},
+		cards: [],
+		ppHistory: [],
+		goldHistory: [],
+		equipment: [],
+		modifiers: [],
+		currentHP: 0,
+		tempHP: 0,
+		currentLuck: 0,
+		img: null,
+		notes: [],
+		languages: '',
+		quickInfo: '',
+		attacks: [],
+		maxActiveCards: 0,
+		version: 1,
+		party: { partyId: 'party-1', ownerId: 'party-owner' },
+		...overrides,
+	});
+
+const createServiceParty = (character = createPartyCharacter()) =>
+	new Party({
+		id: 'party-1',
+		name: 'Party One',
+		ownerId: 'party-owner',
+		members: { 'member-user': [character.id] },
+		notes: [],
+		characters: [character],
+	});
+
+const loadAuthenticatedPartiesService = async (userId = 'party-owner') => {
+	vi.resetModules();
+	mockFirebase.onAuthState.mockImplementation(
+		async (cb: (u: { uid: string; displayName?: string } | null) => void) => {
+			cb({ uid: userId, displayName: 'Test User' });
+			return () => {};
+		},
+	);
+	const { usePartiesService } = await import('$lib/services/parties-service');
+	const service = usePartiesService();
+	await service.loadParties();
+	return service;
+};
+
+const flushPromises = async () => {
+	await Promise.resolve();
+	await Promise.resolve();
+};
 
 // ---- Module under test ----
 // Since parties-service is a singleton with module-level state,
@@ -500,6 +555,133 @@ describe('parties-service', () => {
 
 			expect(recentEdit1).toBe(true); // party-1 is protected
 			expect(recentEdit2).toBe(false); // party-2 can be overwritten
+		});
+	});
+
+	// ===== Group character editing sync =====
+
+	describe('FEAT-group-character-editing-sync service integration', () => {
+		it('FEAT-group-character-editing-sync — optimistically updates the party character copy before Firebase save resolves', async () => {
+			vi.useFakeTimers();
+			const service = await loadAuthenticatedPartiesService();
+			await service.saveParty(createServiceParty());
+			const editedCharacter = createPartyCharacter({ name: 'Latest Typed Name' });
+
+			await service.savePartyMemberCharacter('party-1', 'member-user', editedCharacter);
+
+			const party = get(service.parties).find((item) => item.id === 'party-1');
+			expect(party?.characters.find((character) => character.id === 'char-1')?.name).toBe(
+				'Latest Typed Name',
+			);
+			expect(mockFirebase.saveCharactersForUser).not.toHaveBeenCalled();
+		});
+
+		it('FEAT-group-character-editing-sync — debounces rapid edits and saves only the latest character state remotely', async () => {
+			vi.useFakeTimers();
+			const service = await loadAuthenticatedPartiesService();
+			await service.saveParty(createServiceParty());
+
+			await service.savePartyMemberCharacter(
+				'party-1',
+				'member-user',
+				createPartyCharacter({ name: 'A' }),
+			);
+			await vi.advanceTimersByTimeAsync(250);
+			await service.savePartyMemberCharacter(
+				'party-1',
+				'member-user',
+				createPartyCharacter({ name: 'AB' }),
+			);
+			await vi.advanceTimersByTimeAsync(250);
+			await service.savePartyMemberCharacter(
+				'party-1',
+				'member-user',
+				createPartyCharacter({ name: 'ABC' }),
+			);
+
+			expect(mockFirebase.saveCharactersForUser).not.toHaveBeenCalled();
+			await vi.advanceTimersByTimeAsync(500);
+			await flushPromises();
+
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledTimes(1);
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledWith(
+				'member-user',
+				expect.arrayContaining([expect.objectContaining({ id: 'char-1', name: 'ABC' })]),
+			);
+		});
+
+		it('FEAT-group-character-editing-sync — ignores stale character listener snapshots during the local guard window', async () => {
+			vi.useFakeTimers();
+			let partiesListener: ((parties: Party[]) => void) | undefined;
+			let charactersListener: ((characters: Character[]) => void) | undefined;
+			mockFirebase.listenToUserParties.mockImplementation(
+				(_userId: string, cb: (parties: Party[]) => void) => {
+					partiesListener = cb;
+					return () => {};
+				},
+			);
+			mockFirebase.listenCharactersByIds.mockImplementation(
+				(_ids: unknown[], cb: (characters: Character[]) => void) => {
+					charactersListener = cb;
+					return () => {};
+				},
+			);
+
+			const service = await loadAuthenticatedPartiesService();
+			partiesListener?.([createServiceParty(createPartyCharacter({ name: 'Previous Name' }))]);
+			await vi.advanceTimersByTimeAsync(500);
+			charactersListener?.([createPartyCharacter({ name: 'Previous Name' })]);
+
+			await service.savePartyMemberCharacter(
+				'party-1',
+				'member-user',
+				createPartyCharacter({ name: 'Recent Local Edit' }),
+			);
+			charactersListener?.([createPartyCharacter({ name: 'Previous Name' })]);
+
+			const party = get(service.parties).find((item) => item.id === 'party-1');
+			expect(party?.characters.find((character) => character.id === 'char-1')?.name).toBe(
+				'Recent Local Edit',
+			);
+		});
+
+		it('FEAT-group-character-editing-sync — serializes in-flight saves and sends the latest queued edit after an older save completes', async () => {
+			vi.useFakeTimers();
+			let resolveFirstSave: (() => void) | undefined;
+			mockFirebase.saveCharactersForUser.mockImplementationOnce(
+				() => new Promise<void>((resolve) => (resolveFirstSave = resolve)),
+			);
+			mockFirebase.saveCharactersForUser.mockResolvedValueOnce(undefined);
+			const service = await loadAuthenticatedPartiesService();
+			await service.saveParty(createServiceParty());
+
+			await service.savePartyMemberCharacter(
+				'party-1',
+				'member-user',
+				createPartyCharacter({ name: 'First Edit' }),
+			);
+			await vi.advanceTimersByTimeAsync(500);
+			await flushPromises();
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledTimes(1);
+
+			await service.savePartyMemberCharacter(
+				'party-1',
+				'member-user',
+				createPartyCharacter({ name: 'Second Edit' }),
+			);
+			await vi.advanceTimersByTimeAsync(500);
+			await flushPromises();
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledTimes(1);
+
+			resolveFirstSave?.();
+			await flushPromises();
+
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledTimes(2);
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenLastCalledWith(
+				'member-user',
+				expect.arrayContaining([expect.objectContaining({ id: 'char-1', name: 'Second Edit' })]),
+			);
+			expect(get(service.parties)[0].characters[0].name).toBe('Second Edit');
 		});
 	});
 

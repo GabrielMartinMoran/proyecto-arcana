@@ -14,7 +14,7 @@
 
 import { createParty as factoryCreateParty } from '$lib/factories/party-factory';
 import { useFirebaseService } from '$lib/services/firebase-service';
-import type { Character } from '$lib/types/character';
+import { Character } from '$lib/types/character';
 import { Party } from '$lib/types/party';
 import { get, writable } from 'svelte/store';
 
@@ -29,6 +29,12 @@ const state = {
 	scheduledStoreUpdate: null as NodeJS.Timeout | null,
 };
 
+type PendingCharacterSave = {
+	timeout: NodeJS.Timeout | null;
+	inFlight: boolean;
+	character: Character | null;
+};
+
 let currentUserId: string | null = null;
 let unsubscribeAuth: (() => void) | null = null;
 let unsubscribeRemote: (() => void) | null = null;
@@ -37,8 +43,104 @@ let applyingRemoteUpdate = false;
 // Track last local edit timestamps per party and previous saved snapshots (plain payload)
 const lastLocalPartyEditAt: Record<string, number> = {};
 const prevPartySnapshotById: Map<string, string> = new Map();
+const lastLocalCharacterEditAt: Record<string, number> = {};
+const pendingCharacterSavesByKey: Map<string, PendingCharacterSave> = new Map();
 
 const firebase = useFirebaseService();
+
+const getPartyCharacterSyncKey = (ownerId: string, characterId: string) =>
+	`${ownerId}:${characterId}`;
+
+const getCharacterOwnerId = (party: Party, characterId: string) => {
+	for (const ownerId of Object.keys(party.members)) {
+		if ((party.members[ownerId] ?? []).includes(characterId)) return ownerId;
+	}
+	return null;
+};
+
+const getPendingCharacterSave = (key: string): PendingCharacterSave => {
+	const existing = pendingCharacterSavesByKey.get(key);
+	if (existing) return existing;
+	const created = { timeout: null, inFlight: false, character: null };
+	pendingCharacterSavesByKey.set(key, created);
+	return created;
+};
+
+const savePendingPartyCharacter = async (key: string, ownerId: string) => {
+	const pending = pendingCharacterSavesByKey.get(key);
+	if (!pending || pending.inFlight) return;
+	const character = pending.character;
+	if (!character) {
+		pendingCharacterSavesByKey.delete(key);
+		return;
+	}
+
+	pending.character = null;
+	pending.inFlight = true;
+	try {
+		await firebase.saveCharactersForUser(ownerId, [character]);
+		console.debug('[parties-service] saved party member character to remote', {
+			ownerId,
+			characterId: character.id,
+		});
+	} catch (err) {
+		console.error('[parties-service] Error saving party member character to remote:', err);
+	} finally {
+		pending.inFlight = false;
+		if (pending.character) {
+			void savePendingPartyCharacter(key, ownerId);
+		} else {
+			pendingCharacterSavesByKey.delete(key);
+		}
+	}
+};
+
+const schedulePartyCharacterSave = (ownerId: string, character: Character) => {
+	const key = getPartyCharacterSyncKey(ownerId, character.id);
+	const pending = getPendingCharacterSave(key);
+	pending.character = new Character(character);
+	if (pending.timeout) clearTimeout(pending.timeout);
+	pending.timeout = setTimeout(() => {
+		pending.timeout = null;
+		void savePendingPartyCharacter(key, ownerId);
+	}, UPDATE_STORE_DEBOUNCE_MS);
+};
+
+const mergePartyCharacters = (party: Party, characters: Character[]) => {
+	const now = Date.now();
+	const remoteById = new Map<string, Character>();
+	for (const character of characters) {
+		if (character?.id) remoteById.set(character.id, character);
+	}
+
+	const merged = [...party.characters];
+	for (const character of characters) {
+		if (!character?.id) continue;
+		const ownerId = getCharacterOwnerId(party, character.id);
+		const syncKey = ownerId ? getPartyCharacterSyncKey(ownerId, character.id) : null;
+		const recentLocalEdit =
+			syncKey !== null &&
+			lastLocalCharacterEditAt[syncKey] !== undefined &&
+			now - lastLocalCharacterEditAt[syncKey] < LOCAL_EDIT_GUARD_MS;
+		if (recentLocalEdit) continue;
+
+		const instance = new Character(character);
+		const index = merged.findIndex((item) => item.id === character.id);
+		if (index !== -1) merged[index] = instance;
+		else merged.push(instance);
+	}
+
+	return merged.filter((character) => {
+		if (remoteById.has(character.id)) return true;
+		const ownerId = getCharacterOwnerId(party, character.id);
+		if (!ownerId) return false;
+		const syncKey = getPartyCharacterSyncKey(ownerId, character.id);
+		return (
+			lastLocalCharacterEditAt[syncKey] !== undefined &&
+			now - lastLocalCharacterEditAt[syncKey] < LOCAL_EDIT_GUARD_MS
+		);
+	});
+};
 
 // pending deletes persisted locally so deletes survive reloads / offline
 const pendingDeletes: string[] = (() => {
@@ -252,7 +354,7 @@ const updatePartiesStore = (newParties: Party[]) => {
 				state.partiesStore.update((parties) => {
 					const index = parties.findIndex((x) => x.id === p.id);
 					if (index !== -1) {
-						parties[index].characters = characters;
+						parties[index].characters = mergePartyCharacters(parties[index], characters);
 						parties[index] = parties[index].copy();
 					}
 					return [...parties];
@@ -487,6 +589,41 @@ export const usePartiesService = () => {
 		// Cloud save handled by background persistence subscription to avoid duplicate writes
 	};
 
+	const savePartyMemberCharacter = async (
+		partyId: string,
+		ownerId: string,
+		character: Character,
+	) => {
+		if (!partyId) throw new Error('partyId required');
+		if (!ownerId) throw new Error('ownerId required');
+		if (!character?.id) throw new Error('character.id required');
+
+		const characterCopy = new Character(character);
+		const syncKey = getPartyCharacterSyncKey(ownerId, characterCopy.id);
+		lastLocalCharacterEditAt[syncKey] = Date.now();
+
+		state.partiesStore.update((parties) => {
+			const index = parties.findIndex((party) => party.id === partyId);
+			if (index === -1) return parties;
+
+			const partyCopy = new Party(parties[index]);
+			partyCopy.unsubscribeCharacterListener = parties[index].unsubscribeCharacterListener;
+			const characterIndex = partyCopy.characters.findIndex((item) => item.id === characterCopy.id);
+			if (characterIndex === -1) {
+				partyCopy.characters = [...partyCopy.characters, characterCopy];
+			} else {
+				partyCopy.characters = [...partyCopy.characters];
+				partyCopy.characters[characterIndex] = characterCopy;
+			}
+
+			const updated = [...parties];
+			updated[index] = partyCopy;
+			return updated;
+		});
+
+		if (firebase.isEnabled()) schedulePartyCharacterSave(ownerId, characterCopy);
+	};
+
 	/**
 	 * Delete a party locally and attempt remote deletion. If remote deletion fails, queue it.
 	 */
@@ -546,6 +683,7 @@ export const usePartiesService = () => {
 		parties: state.partiesStore,
 		createParty,
 		saveParty,
+		savePartyMemberCharacter,
 		deleteParty,
 		cleanup: () => {
 			// Cleanup subscriptions and listeners

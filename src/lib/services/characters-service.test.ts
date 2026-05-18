@@ -13,6 +13,7 @@
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { writable } from 'svelte/store';
+import type { Character } from '$lib/types/character';
 
 // ---- Mock Firebase service ----
 const mockFirebase = {
@@ -36,6 +37,14 @@ vi.mock('$app/paths', () => ({ resolve: (p: string) => p }));
 // ---- Mock firebase-service ----
 vi.mock('$lib/services/firebase-service', () => ({
 	useFirebaseService: () => mockFirebase,
+}));
+
+const mockPartiesService = {
+	savePartyMemberCharacter: vi.fn(async (..._args: [string, string, unknown]) => {}),
+};
+
+vi.mock('$lib/services/parties-service', () => ({
+	usePartiesService: () => mockPartiesService,
 }));
 
 // ---- Character type for test fixtures ----
@@ -81,6 +90,42 @@ describe('characters-service', () => {
 	// ===== Debounce tests =====
 
 	describe('saveCharacter debounce', () => {
+		it('FEAT-group-character-editing-sync @outside-group-unchanged @regression — outside-group edits continue through the character service path only', async () => {
+			vi.useFakeTimers();
+			vi.resetModules();
+			mockFirebase.isEnabled.mockReturnValue(true);
+			mockFirebase.onAuthState.mockImplementation(
+				async (cb: (u: { uid: string; displayName?: string } | null) => void) => {
+					cb({ uid: 'user-1', displayName: 'Outside Group User' });
+					return () => {};
+				},
+			);
+			mockFirebase.listenCharactersForUser.mockImplementation((...args: unknown[]) => {
+				const cb = args[1] as (characters: TestCharacter[]) => void;
+				cb([createMockCharacter({ id: 'outside-char', name: 'Previous Value' })]);
+				return () => {};
+			});
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+
+			await service.loadCharacters();
+			service.characters.set([
+				createMockCharacter({ id: 'outside-char', name: 'the edited value' }) as Character,
+			]);
+			await vi.advanceTimersByTimeAsync(UPDATE_STORE_DEBOUNCE_MS);
+			await Promise.resolve();
+			await Promise.resolve();
+
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledWith(
+				'user-1',
+				expect.arrayContaining([
+					expect.objectContaining({ id: 'outside-char', name: 'the edited value' }),
+				]),
+			);
+			expect(mockPartiesService.savePartyMemberCharacter).not.toHaveBeenCalled();
+			expect(localStorage.getItem('arcana:characters')).toContain('the edited value');
+		});
+
 		it('should debounce multiple rapid saves into a single Firebase write', async () => {
 			// This test verifies that rapid store updates do NOT trigger
 			// multiple Firebase writes. The debounce timer (UPDATE_STORE_DEBOUNCE_MS=500ms)
