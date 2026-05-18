@@ -2175,7 +2175,7 @@ creatures:
         detail: Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque.
     interactions: []
     behavior: 'Directo y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.'
-    img: null
+    img: https://i.imgur.com/JDG1te1.jpeg
     size: Mediano
   - name: Capitán Corsario
     lineage: Humanoide
@@ -2203,7 +2203,7 @@ creatures:
     languages:
       - Común
     attacks:
-      - name: Estoque de Oficial
+      - name: Estoque
         bonus: 4
         damage: 1d8 Perforante
         note: null
@@ -2219,5 +2219,5 @@ creatures:
     reactions: []
     interactions: []
     behavior: 'Es una figura de autoridad que orquesta el caos marino a su favor. Utilizará ¡Al Abordaje! para coordinar las cargas de sus lobos de mar y rateros, concentrando el fuego del grupo mientras él desgasta objetivos con la precisión quirúrgica de sus dos estocadas.'
-    img: null
+    img: https://i.imgur.com/jCx0W79.jpeg
     size: Mediano
