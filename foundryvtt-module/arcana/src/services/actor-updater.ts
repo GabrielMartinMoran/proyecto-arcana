@@ -236,7 +236,7 @@ export class ActorUpdater {
 
 		const html = actor.sheet.element;
 
-		if (changes['system.health.max']) {
+		if (Object.hasOwn(changes, 'system.health.max')) {
 			const maxInput = html.querySelector<HTMLInputElement>("input[name='system.health.max']");
 			if (maxInput) maxInput.value = String(changes['system.health.max']);
 			if (actor.isToken && actor.baseActor) {
@@ -246,7 +246,7 @@ export class ActorUpdater {
 			}
 		}
 
-		if (changes['system.health.value']) {
+		if (Object.hasOwn(changes, 'system.health.value')) {
 			const valueInput = html.querySelector<HTMLInputElement>("input[name='system.health.value']");
 			if (valueInput) valueInput.value = String(changes['system.health.value']);
 			if (actor.isToken && actor.baseActor) {

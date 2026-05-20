@@ -16,7 +16,11 @@ export function init(): void {
 
 	// Configure trackable attributes for tokens/bars
 	CONFIG.Actor.trackableAttributes = {
-		arcana: {
+		character: {
+			bar: ['health'],
+			value: ['initiative'],
+		},
+		npc: {
 			bar: ['health'],
 			value: ['initiative'],
 		},

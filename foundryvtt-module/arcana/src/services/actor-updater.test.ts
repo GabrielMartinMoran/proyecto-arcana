@@ -162,6 +162,79 @@ describe('ActorUpdater', () => {
 	});
 
 	describe('HP updates', () => {
+		it.each([
+			'https://app.arcana.com/characters/shared/user-1/char-1',
+			'https://app.arcana.com/embedded/characters/user-1/char-1',
+			'http://localhost:5173/characters/shared/user-1/char-1',
+			'http://localhost:5173/embedded/characters/user-1/char-1',
+		])(
+			'FEAT foundry-v14-health-sync — stored character sheet URL %s is classified as a character sheet',
+			async (sheetUrl) => {
+				const mockActor = createMockActor({
+					sheetUrl,
+					health: { value: 3, max: 8 },
+				});
+
+				vi.mocked(game.actors.get).mockReturnValue(mockActor);
+				vi.stubGlobal('foundry', {
+					utils: {
+						getProperty: vi.fn((obj: any, path: string) => {
+							if (path === 'system.health.value') return obj.system?.health?.value;
+							if (path === 'system.health.max') return obj.system?.health?.max;
+							return undefined;
+						}),
+					},
+				});
+
+				await actorUpdater.handleUpdateActor({
+					type: MESSAGE_TYPES.UPDATE_ACTOR,
+					actorId: 'actor-123',
+					payload: { hp: { value: 5, max: 9 } },
+				});
+
+				expect(mockActor.update).toHaveBeenCalledWith(
+					expect.objectContaining({
+						'system.health.value': 5,
+						'system.health.max': 9,
+					}),
+					{ render: false },
+				);
+			},
+		);
+
+		it('FEAT foundry-v14-health-sync — zero current health synchronizes and redraws token bars', async () => {
+			const drawBars = vi.fn();
+			const mockToken = { object: { drawBars } };
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				health: { value: 3, max: 10 },
+			});
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([mockToken]);
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 0, max: 10 } },
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({ 'system.health.value': 0 }),
+				{ render: false },
+			);
+			expect(drawBars).toHaveBeenCalledOnce();
+		});
+
 		it('should clamp NPC HP value when it exceeds new max', async () => {
 			// GIVEN an NPC with HP value 80 and max 100
 			const mockActor = createMockActor({
@@ -264,12 +337,11 @@ describe('ActorUpdater', () => {
 			await actorUpdater.handleUpdateActor(updateData);
 
 			// THEN only max should be updated (value stays at 50)
-			expect(mockActor.update).toHaveBeenCalledWith(
-				expect.objectContaining({
-					'system.health.max': 150,
-				}),
-				{ render: false },
-			);
+			const updateCall = vi.mocked(mockActor.update).mock.calls[0][0] as Record<string, any>;
+			expect(updateCall).toMatchObject({
+				'system.health.max': 150,
+			});
+			expect(updateCall).not.toHaveProperty('system.health.value');
 		});
 	});
 
@@ -512,6 +584,42 @@ describe('ActorUpdater', () => {
 	});
 
 	describe('updateSheet DOM updates', () => {
+		it('FEAT foundry-v14-health-sync — rendered NPC health controls show clamped zero health', async () => {
+			const maxInput = document.createElement('input');
+			maxInput.name = 'system.health.max';
+			const valueInput = document.createElement('input');
+			valueInput.name = 'system.health.value';
+			const container = document.createElement('div');
+			container.appendChild(maxInput);
+			container.appendChild(valueInput);
+
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/bestiary/npc1',
+				health: { value: 3, max: 10 },
+			});
+			mockActor.sheet = { rendered: true, element: container, render: vi.fn() };
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 0, max: 0 } },
+			});
+
+			expect(maxInput.value).toBe('0');
+			expect(valueInput.value).toBe('0');
+		});
+
 		it('should update HP inputs via DOM for rendered NPC sheet', async () => {
 			// GIVEN an NPC with a rendered sheet and HTMLElement
 			const maxInput = document.createElement('input');

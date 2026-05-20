@@ -5,6 +5,7 @@
 export const MESSAGE_TYPES = {
 	PRECALCULATED_ROLL: 'PRECALCULATED_ROLL',
 	UPDATE_ACTOR: 'UPDATE_ACTOR',
+	FOUNDRY_HEALTH_UPDATE: 'FOUNDRY_HEALTH_UPDATE',
 } as const;
 
 export type MessageType = (typeof MESSAGE_TYPES)[keyof typeof MESSAGE_TYPES];
@@ -37,4 +38,14 @@ export interface UpdateActorData {
 	};
 }
 
-export type MessageData = PrecalculatedRollData | UpdateActorData;
+export interface FoundryHealthUpdateData {
+	type: typeof MESSAGE_TYPES.FOUNDRY_HEALTH_UPDATE;
+	payload: {
+		hp: {
+			value: number;
+			max: number;
+		};
+	};
+}
+
+export type MessageData = PrecalculatedRollData | UpdateActorData | FoundryHealthUpdateData;

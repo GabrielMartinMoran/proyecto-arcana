@@ -6,6 +6,7 @@
 import { CONFIG } from '../config';
 import { getNightVisionSightUpdate, NIGHT_VISION_LABELS } from '../helpers/night-vision';
 import type { ArcanaActor } from '../types/actor';
+import { MESSAGE_TYPES } from '../types/messages';
 import { buildSheetUrl, buildTokenSettings } from './sheet-url-builder';
 
 const ActorSheetV2Base = foundry.applications.sheets.ActorSheetV2;
@@ -124,6 +125,9 @@ export class ArcanaSheetV2 extends MixedSheet {
 			iframe.replaceWith(this._existingIframe);
 		}
 		this._existingIframe = null;
+		if (iframe instanceof HTMLIFrameElement && !options.forceReload) {
+			this.#postHealthToIframe(iframe);
+		}
 
 		this.#attachBestiaryListeners(element);
 		this.#attachDragPointerEvents(element, iframe);
@@ -147,6 +151,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 			}
 			// @ts-expect-error bringToFront exists at runtime in ApplicationV2 but types are incomplete
 			this.bringToFront?.();
+			this.#postHealthToIframe(existingIframe as HTMLIFrameElement);
 			return Promise.resolve(this);
 		}
 		// @ts-expect-error super.render is not typed in this Foundry version
@@ -211,6 +216,19 @@ export class ArcanaSheetV2 extends MixedSheet {
 				(iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
 			},
 			{ signal },
+		);
+	}
+
+	#postHealthToIframe(iframe: HTMLIFrameElement): void {
+		const hp = (this.actor.system as { health?: { value: number; max: number } }).health;
+		if (!hp || !iframe.contentWindow) return;
+
+		iframe.contentWindow.postMessage(
+			{
+				type: MESSAGE_TYPES.FOUNDRY_HEALTH_UPDATE,
+				payload: { hp: { value: hp.value, max: hp.max } },
+			},
+			'*',
 		);
 	}
 

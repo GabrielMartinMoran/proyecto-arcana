@@ -21,16 +21,24 @@
 	// Initialize dice roller service so roll modal and target subscription are active
 	void useDiceRollerService();
 
-	const { isInsideFoundry, syncCharacterState } = useFoundryVTTService();
+	const {
+		applyFoundryHealthToCharacter,
+		foundryParams,
+		isInsideFoundry,
+		subscribeToFoundryHealthUpdates,
+		syncCharacterState,
+	} = useFoundryVTTService();
 
 	// Local UI state
-	let loading: boolean = true;
-	let error: string | null = null;
-	let errorDetails: string | null = null;
-	let character: Character | undefined = undefined;
+	let loading = $state<boolean>(true);
+	let error = $state<string | null>(null);
+	let errorDetails = $state<string | null>(null);
+	let character = $state<Character | undefined>(undefined);
 	let unsubscribeShared: (() => void) | null = null;
+	let unsubscribeFoundryHealth: (() => void) | null = null;
+	let hasAppliedStartupFoundryHealth = false;
 
-	let currentTab: string = 'general';
+	let currentTab = $state<string>('general');
 
 	function shortMsg(e: unknown): string {
 		try {
@@ -119,9 +127,32 @@
 		}
 	}
 
+	function applyStartupFoundryHealth(ch: Character): { character: Character; hydrated: boolean } {
+		const params = get(foundryParams);
+		if (
+			hasAppliedStartupFoundryHealth ||
+			!params.isFoundry ||
+			params.startHp === null ||
+			params.startMax === null
+		) {
+			return { character: ch, hydrated: false };
+		}
+		hasAppliedStartupFoundryHealth = true;
+
+		return {
+			character: applyFoundryHealthToCharacter(ch, {
+				value: Number(params.startHp),
+				max: Number(params.startMax),
+			}),
+			hydrated: true,
+		};
+	}
+
 	const setCharacter = (ch: Character) => {
+		const hydrated = applyStartupFoundryHealth(ch);
+		ch = hydrated.character;
 		character = ch;
-		if (isInsideFoundry()) {
+		if (isInsideFoundry() && !hydrated.hydrated) {
 			syncCharacterState(character);
 		}
 	};
@@ -146,6 +177,11 @@
 		loading = true;
 		error = null;
 		errorDetails = null;
+
+		unsubscribeFoundryHealth = subscribeToFoundryHealthUpdates((hp) => {
+			if (!character) return;
+			character = applyFoundryHealthToCharacter(character, hp);
+		});
 
 		if (!userId || !characterId) {
 			loading = false;
@@ -243,6 +279,10 @@
 	});
 
 	onDestroy(() => {
+		if (unsubscribeFoundryHealth) {
+			unsubscribeFoundryHealth();
+			unsubscribeFoundryHealth = null;
+		}
 		if (unsubscribeShared) {
 			try {
 				unsubscribeShared();

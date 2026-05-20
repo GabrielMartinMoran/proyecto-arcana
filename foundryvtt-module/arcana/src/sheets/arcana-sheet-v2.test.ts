@@ -141,6 +141,19 @@ describe('ArcanaSheetV2', () => {
 			expect(context.iframeUrl).toContain('tokenOffsetX=0');
 			expect(context.iframeUrl).toContain('tokenOffsetY=0');
 		});
+
+		it('FEAT foundry-health-precedence — token actor startup iframe URL uses synthetic token actor HP', async () => {
+			mockActor.uuid = 'Scene.scene-1.Token.token-1';
+			mockActor.isToken = true;
+			mockActor.system.health = { value: 3, max: 9 };
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('uuid=Scene.scene-1.Token.token-1');
+			expect(context.iframeUrl).toContain('startHp=3');
+			expect(context.iframeUrl).toContain('startMax=9');
+			expect(context.health).toEqual({ value: 3, max: 9 });
+		});
 	});
 
 	describe('_onRender', () => {
@@ -246,6 +259,36 @@ describe('ArcanaSheetV2', () => {
 	});
 
 	describe('render', () => {
+		it('FEAT foundry-health-precedence — cached iframe receives current Foundry health without force reload', async () => {
+			const postMessage = vi.fn();
+			const existingIframe = document.createElement('iframe');
+			Object.defineProperty(existingIframe, 'contentWindow', {
+				value: { postMessage },
+			});
+			const container = document.createElement('div');
+			const titleEl = document.createElement('span');
+			titleEl.className = 'window-title';
+			container.appendChild(existingIframe);
+			container.appendChild(titleEl);
+			(sheet as any).element = container;
+
+			const baseProto = Object.getPrototypeOf(Object.getPrototypeOf(ArcanaSheetV2.prototype));
+			const superRender = vi.spyOn(baseProto, 'render').mockResolvedValue(sheet);
+
+			await sheet.render({});
+
+			expect(superRender).not.toHaveBeenCalled();
+			expect(postMessage).toHaveBeenCalledWith(
+				{
+					type: 'FOUNDRY_HEALTH_UPDATE',
+					payload: { hp: { value: 25, max: 50 } },
+				},
+				'*',
+			);
+
+			superRender.mockRestore();
+		});
+
 		it('should abort super.render when existing iframe and no forceReload', async () => {
 			// GIVEN an element with an existing iframe and window title
 			const existingIframe = document.createElement('iframe');

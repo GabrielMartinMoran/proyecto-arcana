@@ -13,13 +13,17 @@ const isEmbeddedURLFor = (url: string, identifier: string): boolean => {
 	return url.includes(`/${BASE_EMBEDDED_PATH}/${identifier}`);
 };
 
+const isSharedCharacterURL = (url: string): boolean => {
+	return url.includes('/characters/shared/');
+};
+
 export const isCharacter = (actor: ArcanaActor): boolean => {
 	const sheetUrl = actor.getFlag('arcana', 'sheetUrl') || '';
-	return isEmbeddedURLFor(sheetUrl, URL_IDENTIFIERS.CHARACTER);
+	return isCharacterURL(sheetUrl);
 };
 
 export const isCharacterURL = (url: string): boolean => {
-	return isEmbeddedURLFor(url, URL_IDENTIFIERS.CHARACTER);
+	return isEmbeddedURLFor(url, URL_IDENTIFIERS.CHARACTER) || isSharedCharacterURL(url);
 };
 
 export const isDevelopURL = (url: string): boolean => {

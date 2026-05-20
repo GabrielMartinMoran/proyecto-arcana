@@ -85,6 +85,10 @@ export class Character {
 	}
 
 	get maxHP() {
+		const foundryOverride = (this as { foundryMaxHPOverride?: number }).foundryMaxHPOverride;
+		if (typeof foundryOverride === 'number' && Number.isFinite(foundryOverride))
+			return foundryOverride;
+
 		const base = CONFIG.BASE_HEALTH + this.attributes.body * CONFIG.HEALTH_BODY_MULTIPIER;
 		return this.calculateAttrModifiers('maxHP', base);
 	}

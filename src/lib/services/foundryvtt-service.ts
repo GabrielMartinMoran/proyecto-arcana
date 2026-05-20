@@ -33,6 +33,16 @@ export interface FoundryPrecalculatedRoll {
 	flavor: string;
 }
 
+export interface FoundryHealthUpdateMessage {
+	type: 'FOUNDRY_HEALTH_UPDATE';
+	payload: {
+		hp: {
+			value: number;
+			max: number;
+		};
+	};
+}
+
 // --- 2. STORES (Lectura de URL) ---
 
 // Unificamos la lectura de parámetros para ser más eficientes y robustos
@@ -125,6 +135,37 @@ export const useFoundryVTTService = () => {
 	const isInsideFoundry = () => {
 		if (!browser) return false;
 		return window.self !== window.top || get(foundryParams).isFoundry;
+	};
+
+	const applyFoundryHealthToCharacter = (
+		character: Character,
+		hp: { value: number; max: number },
+	): Character => {
+		const updated = character.copy();
+		updated.currentHP = hp.value;
+		Object.defineProperty(updated, 'foundryMaxHPOverride', {
+			configurable: true,
+			enumerable: false,
+			value: hp.max,
+			writable: true,
+		});
+		return updated;
+	};
+
+	const subscribeToFoundryHealthUpdates = (
+		onHealth: (hp: { value: number; max: number }) => void,
+	): (() => void) => {
+		if (!browser) return () => {};
+
+		const listener = (event: MessageEvent<FoundryHealthUpdateMessage>) => {
+			if (event.data?.type !== 'FOUNDRY_HEALTH_UPDATE') return;
+			const hp = event.data.payload?.hp;
+			if (!hp) return;
+			onHealth({ value: hp.value, max: hp.max });
+		};
+
+		window.addEventListener('message', listener as EventListener);
+		return () => window.removeEventListener('message', listener as EventListener);
 	};
 
 	// --- SINCRONIZACIÓN DE PERSONAJE ---
@@ -232,8 +273,10 @@ export const useFoundryVTTService = () => {
 	};
 
 	return {
+		applyFoundryHealthToCharacter,
 		broadcastRollResult,
 		isInsideFoundry,
+		subscribeToFoundryHealthUpdates,
 		syncCharacterState,
 		syncCreatureState,
 		foundryParams, // Exportamos por si necesitas leer 'startHp' en el componente

@@ -1,4 +1,5 @@
 import type { Creature } from '$lib/types/creature';
+import { Character } from '$lib/types/character';
 import { get } from 'svelte/store';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { foundryParams, useFoundryVTTService } from './foundryvtt-service';
@@ -276,5 +277,105 @@ describe('useFoundryVTTService', () => {
 
 			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 0, 0);
 		});
+
+		it('FEAT foundry-v14-health-sync — sends zero current health to Foundry', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const character = createTestCharacter({ currentHP: 0, maxHP: 12, img: null });
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+
+			expect(postMessageSpy).toHaveBeenCalledTimes(1);
+			expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 0, max: 12 });
+		});
+	});
+
+	describe('Foundry-originated health updates', () => {
+		it('FEAT foundry-health-precedence — applies Foundry current and maximum health to a character instance', async () => {
+			const { applyFoundryHealthToCharacter } = useFoundryVTTService();
+			const character = createCharacterInstance({ currentHP: 10, body: 2 });
+
+			const updated = applyFoundryHealthToCharacter(character, { value: 5, max: 9 });
+
+			expect(updated.currentHP).toBe(5);
+			expect(updated.maxHP).toBe(9);
+		});
+
+		it('FEAT foundry-health-precedence — applies Foundry max HP without overriding the original maxHP getter', async () => {
+			const { applyFoundryHealthToCharacter } = useFoundryVTTService();
+			const character = createCharacterInstance({ currentHP: 10, body: 2 });
+
+			const updated = applyFoundryHealthToCharacter(character, { value: 5, max: 9 });
+
+			expect(updated).not.toBe(character);
+			expect(Object.getOwnPropertyDescriptor(character, 'maxHP')).toBeUndefined();
+			expect(Object.getOwnPropertyDescriptor(updated, 'maxHP')).toBeUndefined();
+			expect(character.maxHP).toBe(11);
+			expect(updated.maxHP).toBe(9);
+		});
+
+		it('FEAT foundry-health-precedence — receives typed Foundry health messages without forcing iframe reload', () => {
+			const { subscribeToFoundryHealthUpdates } = useFoundryVTTService();
+			const onHealth = vi.fn();
+
+			const unsubscribe = subscribeToFoundryHealthUpdates(onHealth);
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: {
+						type: 'FOUNDRY_HEALTH_UPDATE',
+						payload: { hp: { value: 6, max: 12 } },
+					},
+				}),
+			);
+
+			expect(onHealth).toHaveBeenCalledWith({ value: 6, max: 12 });
+
+			unsubscribe();
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: {
+						type: 'FOUNDRY_HEALTH_UPDATE',
+						payload: { hp: { value: 4, max: 12 } },
+					},
+				}),
+			);
+
+			expect(onHealth).toHaveBeenCalledTimes(1);
+		});
 	});
 });
+
+function createCharacterInstance({
+	currentHP,
+	body,
+}: {
+	currentHP: number;
+	body: number;
+}): Character {
+	return new Character({
+		id: 'char-1',
+		name: 'Test Character',
+		attributes: { body, reflexes: 3, mind: 1, instinct: 2, presence: 1 },
+		cards: [],
+		ppHistory: [],
+		goldHistory: [],
+		equipment: [],
+		modifiers: [],
+		currentHP,
+		tempHP: 0,
+		currentLuck: 0,
+		img: null,
+		party: { partyId: null, ownerId: null },
+		narrativeContext: { appearance: '', background: '', beliefs: '' },
+		notes: [],
+		languages: '',
+		quickInfo: '',
+		attacks: [],
+		maxActiveCards: 3,
+		version: 1,
+		skills: [],
+		customCards: [],
+	});
+}
