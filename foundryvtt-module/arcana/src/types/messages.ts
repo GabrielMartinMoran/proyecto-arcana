@@ -36,6 +36,7 @@ export interface UpdateActorData {
 			max: number;
 		};
 		initiative?: number;
+		npcAbilityDefinitions?: import('../services/npc-ability-usage').NpcAbilityDefinition[];
 	};
 }
 

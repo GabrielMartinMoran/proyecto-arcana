@@ -250,6 +250,87 @@ describe('useFoundryVTTService', () => {
 
 			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#990000', -30, 20);
 		});
+
+		it('FEAT npc-ability-usage-metadata-sync — sync sends only explicit valid uses declarations', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const creature = createTestCreature({
+				actions: [
+					{
+						name: 'Aliento de fuego',
+						detail: 'Área cercana.',
+						uses: { type: 'RELOAD', qty: 6 },
+					},
+					{
+						name: 'Golpe poderoso',
+						detail: 'Uso limitado.',
+						uses: { type: 'USES', qty: 3 },
+					},
+					{
+						name: 'Presencia menor',
+						detail: 'Sin contador.',
+						uses: null,
+					},
+				],
+				attacks: [
+					{
+						name: 'Mordisco',
+						bonus: 4,
+						damage: '1d8',
+						note: 'Recarga 6 en texto libre',
+					},
+				],
+			});
+
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature);
+
+			const definitions = postMessageSpy.mock.calls[0][0].payload.npcAbilityDefinitions;
+			expect(definitions).toEqual([
+				expect.objectContaining({
+					id: 'goblin-1:actions:aliento-de-fuego:1',
+					name: 'Aliento de fuego',
+					source: 'actions',
+					type: 'RELOAD',
+					max: 1,
+					rechargeTarget: 6,
+					order: 0,
+				}),
+				expect.objectContaining({
+					id: 'goblin-1:actions:golpe-poderoso:1',
+					name: 'Golpe poderoso',
+					source: 'actions',
+					type: 'USES',
+					max: 3,
+					order: 1,
+				}),
+			]);
+		});
+
+		it('FEAT npc-ability-usage-metadata-sync — reload definitions use recharge target as target not max uses', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const creature = createTestCreature({
+				actions: [
+					{
+						name: 'Aliento de fuego',
+						detail: 'Recarga.',
+						uses: { type: 'RELOAD', qty: 6 },
+					},
+				],
+			});
+
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature);
+
+			const [definition] = postMessageSpy.mock.calls[0][0].payload.npcAbilityDefinitions;
+			expect(definition.max).toBe(1);
+			expect(definition.rechargeTarget).toBe(6);
+		});
 	});
 
 	describe('syncCharacterState', () => {

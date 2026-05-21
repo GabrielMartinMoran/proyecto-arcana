@@ -2,6 +2,7 @@ import { findActorOrTokenActor, safeNum, safeStr } from '../helpers';
 import { isCharacterURL, isDevelopURL } from '../helpers/actor-urls';
 import type { ArcanaActor, UpdatePayload } from '../types/actor';
 import type { UpdateActorData } from '../types/messages';
+import { mergeNpcAbilityUsage, readUsage, resolveNpcAbilityUsageOwner } from './npc-ability-usage';
 
 type TokenDocumentLike = {
 	object?: { drawBars?: () => void };
@@ -24,6 +25,7 @@ export class ActorUpdater {
 		if (!updateData.hasChanges) return;
 
 		await actor.update(updateData.changes, { render: false });
+		await this.updateTokenLocalNpcAbilityUsage(actor, data.payload);
 		await this.updateTokens(actor, updateData.changes, data.payload);
 		try {
 			this.updateSheet(actor, updateData.changes);
@@ -102,6 +104,18 @@ export class ActorUpdater {
 			}
 		}
 
+		if (!isCharacter && payload.npcAbilityDefinitions !== undefined) {
+			const owner = resolveNpcAbilityUsageOwner(actor);
+			changes['flags.arcana.npcAbilityDefinitions'] = payload.npcAbilityDefinitions;
+			if (owner === actor) {
+				changes['flags.arcana.npcAbilityUsage'] = mergeNpcAbilityUsage(
+					payload.npcAbilityDefinitions,
+					readUsage(owner),
+				);
+			}
+			hasChanges = true;
+		}
+
 		return { changes, hasChanges };
 	}
 
@@ -112,6 +126,25 @@ export class ActorUpdater {
 		if (newSpeed === oldSpeed) return null;
 
 		return { 'system.speed': newSpeed };
+	}
+
+	private async updateTokenLocalNpcAbilityUsage(
+		actor: ArcanaActor,
+		payload: UpdatePayload,
+	): Promise<void> {
+		if (!payload.npcAbilityDefinitions) return;
+
+		const sheetUrl = actor.getFlag('arcana', 'sheetUrl') || '';
+		if (isCharacterURL(sheetUrl)) return;
+
+		const owner = resolveNpcAbilityUsageOwner(actor);
+		if (owner === actor) return;
+
+		await owner.setFlag(
+			'arcana',
+			'npcAbilityUsage',
+			mergeNpcAbilityUsage(payload.npcAbilityDefinitions, readUsage(owner)),
+		);
 	}
 
 	/**

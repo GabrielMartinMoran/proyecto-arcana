@@ -74,4 +74,5 @@ export interface UpdatePayload {
 		max: number;
 	};
 	initiative?: number;
+	npcAbilityDefinitions?: import('../services/npc-ability-usage').NpcAbilityDefinition[];
 }

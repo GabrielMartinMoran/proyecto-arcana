@@ -164,6 +164,141 @@ describe('ActorUpdater', () => {
 			);
 		});
 
+		it('FEAT npc-ability-counter-initialization — new counters start available from synchronized definitions', async () => {
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/bestiary/goblin',
+				npcAbilityDefinitions: undefined,
+				npcAbilityUsage: undefined,
+			});
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/goblin';
+				if (key === 'npcAbilityUsage') return undefined;
+				return undefined;
+			});
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: {
+					npcAbilityDefinitions: [
+						{
+							id: 'goblin:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+						{
+							id: 'goblin:actions:golpe:1',
+							name: 'Golpe',
+							source: 'actions',
+							type: 'USES',
+							max: 3,
+							order: 1,
+						},
+					],
+				},
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'flags.arcana.npcAbilityDefinitions': expect.any(Array),
+					'flags.arcana.npcAbilityUsage': {
+						'goblin:actions:aliento:1': { current: 1, max: 1 },
+						'goblin:actions:golpe:1': { current: 3, max: 3 },
+					},
+				}),
+				{ render: false },
+			);
+		});
+
+		it('FEAT npc-ability-counter-initialization — existing counters survive a metadata refresh', async () => {
+			const mockActor = createMockActor({ sheetUrl: 'https://app.arcana.com/bestiary/goblin' });
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/goblin';
+				if (key === 'npcAbilityUsage') {
+					return { 'goblin:actions:aliento:1': { current: 0, max: 1 } };
+				}
+				return undefined;
+			});
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: {
+					npcAbilityDefinitions: [
+						{
+							id: 'goblin:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+					],
+				},
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'flags.arcana.npcAbilityUsage': {
+						'goblin:actions:aliento:1': { current: 0, max: 1 },
+					},
+				}),
+				{ render: false },
+			);
+		});
+
+		it('FEAT npc-ability-usage-state-ownership — unlinked token NPC counters are initialized on token flags', async () => {
+			const tokenDocument = {
+				actorLink: false,
+				getFlag: vi.fn().mockReturnValue(undefined),
+				setFlag: vi.fn().mockResolvedValue(undefined),
+			};
+			const mockActor = createMockActor({ sheetUrl: 'https://app.arcana.com/bestiary/goblin' });
+			mockActor.isToken = true;
+			mockActor.token = tokenDocument;
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana' && key === 'sheetUrl')
+					return 'https://app.arcana.com/bestiary/goblin';
+				return undefined;
+			});
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: {
+					npcAbilityDefinitions: [
+						{
+							id: 'goblin:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+					],
+				},
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.not.objectContaining({ 'flags.arcana.npcAbilityUsage': expect.anything() }),
+				{ render: false },
+			);
+			expect(tokenDocument.setFlag).toHaveBeenCalledWith('arcana', 'npcAbilityUsage', {
+				'goblin:actions:aliento:1': { current: 1, max: 1 },
+			});
+		});
+
 		it('should call ui.actors.render() without arguments after update', async () => {
 			const mockActor = createMockActor({
 				sheetUrl: 'https://app.arcana.com/embedded/characters/123',

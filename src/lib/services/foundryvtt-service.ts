@@ -3,6 +3,8 @@ import { page } from '$app/stores';
 import type { Character } from '$lib/types/character';
 import type { Creature } from '$lib/types/creature';
 import type { DiceRoll } from '$lib/types/dice-roll';
+import type { NpcAbilityDefinition } from '$lib/utils/foundry-npc-abilities';
+import { buildNpcAbilityDefinitions } from '$lib/utils/foundry-npc-abilities';
 import { createCircularToken } from '$lib/utils/token-cutter';
 import { derived, get } from 'svelte/store';
 
@@ -18,6 +20,7 @@ export interface CharacterState {
 		max: number;
 	};
 	initiative?: number;
+	npcAbilityDefinitions?: NpcAbilityDefinition[];
 }
 
 export interface FoundryUpdateMessage {
@@ -262,6 +265,7 @@ export const useFoundryVTTService = () => {
 				value: creature.stats.maxHealth,
 				max: creature.stats.maxHealth,
 			},
+			npcAbilityDefinitions: buildNpcAbilityDefinitions(creature),
 		};
 
 		const payload: FoundryUpdateMessage = {

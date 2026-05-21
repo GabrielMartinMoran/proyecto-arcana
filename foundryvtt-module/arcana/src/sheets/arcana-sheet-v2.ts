@@ -5,6 +5,15 @@
 
 import { CONFIG } from '../config';
 import { getNightVisionSightUpdate, NIGHT_VISION_LABELS } from '../helpers/night-vision';
+import {
+	buildNpcAbilityUsageGroups,
+	readUsage,
+	resolveNpcAbilityUsageOwner,
+	rollNpcAbilityRecharge,
+	updateNpcAbilityCurrent,
+	type NpcAbilityDefinition,
+	type NpcAbilityUsageGroup,
+} from '../services/npc-ability-usage';
 import type { ArcanaActor } from '../types/actor';
 import { MESSAGE_TYPES } from '../types/messages';
 import { buildSheetUrl, buildTokenSettings } from './sheet-url-builder';
@@ -20,6 +29,8 @@ interface SheetContext {
 	isBestiary: boolean;
 	localNotes: string;
 	health: { value: number; max: number };
+	npcAbilityGroups: NpcAbilityUsageGroup[];
+	hasNpcAbilityUsage: boolean;
 }
 
 /**
@@ -100,6 +111,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 			tokenOffsetY,
 		});
 
+		const npcAbilityGroups = urlResult.isBestiary ? this.#getNpcAbilityGroups() : [];
+
 		return {
 			...context,
 			actor: this.actor as unknown as ArcanaActor,
@@ -107,6 +120,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 			isBestiary: urlResult.isBestiary,
 			localNotes: urlResult.localNotes,
 			health: urlResult.health,
+			npcAbilityGroups,
+			hasNpcAbilityUsage: npcAbilityGroups.length > 0,
 		};
 	}
 
@@ -143,6 +158,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 			'iframe',
 		);
 		if (existingIframe && !options?.forceReload) {
+			const element = (this as any).element as HTMLElement | undefined;
+			if (element) this.#refreshNpcAbilityControls(element);
 			const titleEl = ((this as any).element as HTMLElement | undefined)?.querySelector(
 				'.window-title',
 			);
@@ -178,6 +195,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 	 */
 	#attachBestiaryListeners(element: HTMLElement): void {
 		element.querySelectorAll('input, textarea').forEach((input: Element) => {
+			if ((input as HTMLElement).dataset.npcAbilityControl) return;
 			input.addEventListener('change', async (ev: Event) => {
 				const target = ev.target as HTMLInputElement | HTMLTextAreaElement;
 				const field = target.name;
@@ -186,6 +204,117 @@ export class ArcanaSheetV2 extends MixedSheet {
 				ui?.actors?.render();
 			});
 		});
+		this.#attachNpcAbilityListeners(element);
+	}
+
+	#attachNpcAbilityListeners(element: HTMLElement): void {
+		element.querySelectorAll<HTMLElement>('[data-npc-ability-control]').forEach((control) => {
+			control.addEventListener('change', async (event) => {
+				const target = event.target as HTMLInputElement;
+				const abilityId = target.dataset.abilityId;
+				if (!abilityId) return;
+				await this.#setNpcAbilityCurrent(abilityId, Number(target.value));
+			});
+		});
+
+		element.querySelectorAll<HTMLElement>('[data-npc-ability-action]').forEach((control) => {
+			control.addEventListener('click', async () => {
+				const abilityId = control.dataset.abilityId;
+				if (!abilityId) return;
+				if (control.dataset.npcAbilityAction === 'use') {
+					const current = this.#getCurrentAbilityValue(abilityId) - 1;
+					await this.#setNpcAbilityCurrent(abilityId, current);
+				}
+				if (control.dataset.npcAbilityAction === 'recharge') {
+					await rollNpcAbilityRecharge(this.#actor(), abilityId, this.#getNpcAbilityDefinitions());
+					this.#refreshNpcAbilityControls((this as any).element as HTMLElement);
+				}
+			});
+		});
+	}
+
+	async #setNpcAbilityCurrent(abilityId: string, current: number): Promise<void> {
+		const usage = await updateNpcAbilityCurrent(
+			this.#actor(),
+			abilityId,
+			current,
+			this.#getNpcAbilityDefinitions(),
+		);
+		const counter = usage[abilityId];
+		if (!counter) return;
+		this.#updateNpcAbilityDisplay(abilityId, counter.current, counter.max);
+	}
+
+	#getCurrentAbilityValue(abilityId: string): number {
+		const usage = readUsage(resolveNpcAbilityUsageOwner(this.#actor()));
+		return usage?.[abilityId]?.current ?? 0;
+	}
+
+	#getNpcAbilityDefinitions(): NpcAbilityDefinition[] {
+		const definitions = this.#actor().getFlag('arcana', 'npcAbilityDefinitions');
+		return Array.isArray(definitions) ? definitions : [];
+	}
+
+	#getNpcAbilityGroups(): NpcAbilityUsageGroup[] {
+		return buildNpcAbilityUsageGroups(
+			this.#getNpcAbilityDefinitions(),
+			readUsage(resolveNpcAbilityUsageOwner(this.#actor())) ?? {},
+		);
+	}
+
+	#actor(): ArcanaActor {
+		return this.actor as unknown as ArcanaActor;
+	}
+
+	#refreshNpcAbilityControls(element: HTMLElement): void {
+		const groups = this.#getNpcAbilityGroups();
+		const existing = element.querySelector('.npc-ability-usage-section');
+		if (groups.length === 0) {
+			existing?.remove();
+			return;
+		}
+
+		const html = this.#renderNpcAbilitySection(groups);
+		if (existing) {
+			existing.outerHTML = html;
+		} else {
+			element.querySelector('.bestiary-controls')?.insertAdjacentHTML('beforeend', html);
+		}
+		this.#attachNpcAbilityListeners(element);
+	}
+
+	#renderNpcAbilitySection(groups: NpcAbilityUsageGroup[]): string {
+		const groupsHtml = groups.map((group) => this.#renderNpcAbilityGroup(group)).join('');
+		return `<div class="npc-ability-usage-section npc-ability-usage-compact" style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px">${groupsHtml}</div>`;
+	}
+
+	#renderNpcAbilityGroup(group: NpcAbilityUsageGroup): string {
+		const abilitiesHtml = group.abilities
+			.map(
+				(ability) => `
+					<div class="npc-ability-row npc-ability-row-compact" data-ability-id="${escapeHtml(ability.id)}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px">
+						<span class="npc-ability-name" style="flex: 1 1 140px">${escapeHtml(ability.name)}</span>
+						<div class="npc-ability-controls-inline" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
+							<button type="button" data-npc-ability-action="use" data-ability-id="${escapeHtml(ability.id)}">Usar</button>
+							<input type="number" data-npc-ability-control="current" data-ability-id="${escapeHtml(ability.id)}" value="${ability.current}" min="0" max="${ability.max}" style="width: 44px; text-align: center" />
+							<span style="font-size: 1.1rem" data-ability-display="${escapeHtml(ability.id)}">/${ability.max}</span>
+							${ability.isRecharge ? `<button type="button" data-npc-ability-action="recharge" data-ability-id="${escapeHtml(ability.id)}">Recarga</button>` : ''}
+						</div>
+					</div>`,
+			)
+			.join('');
+		return `<section style="flex: 1 1 calc((100% - 16px) / 3); min-width: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between" class="npc-ability-group npc-ability-group-compact" data-npc-ability-group="${group.source}"><h4 style="margin: 2px 0; font-size: 1rem">${group.label}</h4>${abilitiesHtml}</section>`;
+	}
+
+	#updateNpcAbilityDisplay(abilityId: string, current: number, max: number): void {
+		const element = (this as any).element as HTMLElement | undefined;
+		const escapedId = cssEscape(abilityId);
+		const input = element?.querySelector<HTMLInputElement>(
+			`[data-npc-ability-control][data-ability-id="${escapedId}"]`,
+		);
+		const display = element?.querySelector<HTMLElement>(`[data-ability-display="${escapedId}"]`);
+		if (input) input.value = String(current);
+		if (display) display.textContent = `/${max}`;
 	}
 
 	/**
@@ -334,4 +463,17 @@ export class ArcanaSheetV2 extends MixedSheet {
 			default: 'save',
 		} as any).render(true);
 	}
+}
+
+function escapeHtml(value: string): string {
+	return value
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
+function cssEscape(value: string): string {
+	return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }

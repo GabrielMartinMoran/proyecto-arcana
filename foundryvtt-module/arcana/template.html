@@ -64,6 +64,62 @@
 {{localNotes}}</textarea
 			>
 		</div>
+
+		{{#if hasNpcAbilityUsage}}
+		<div
+			class="npc-ability-usage-section npc-ability-usage-compact"
+			style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px"
+		>
+			{{#each npcAbilityGroups}}
+			<section
+				style="
+					flex: 1 1 calc((100% - 16px) / 3);
+					min-width: 220px;
+					box-sizing: border-box;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+				"
+				class="npc-ability-group npc-ability-group-compact"
+				data-npc-ability-group="{{source}}"
+			>
+				<h4 style="margin: 2px 0; font-size: 1rem">{{label}}</h4>
+				{{#each abilities}}
+				<div
+					class="npc-ability-row npc-ability-row-compact"
+					data-ability-id="{{id}}"
+					style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px"
+				>
+					<span class="npc-ability-name" style="flex: 1 1 140px">{{name}}</span>
+					<div
+						class="npc-ability-controls-inline"
+						style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px"
+					>
+						<button type="button" data-npc-ability-action="use" data-ability-id="{{id}}">
+							Usar
+						</button>
+						<input
+							type="number"
+							data-npc-ability-control="current"
+							data-ability-id="{{id}}"
+							value="{{current}}"
+							min="0"
+							max="{{max}}"
+							style="width: 44px; text-align: center"
+						/>
+						<span style="font-size: 1.1rem" data-ability-display="{{id}}">/{{max}}</span>
+						{{#if isRecharge}}
+						<button type="button" data-npc-ability-action="recharge" data-ability-id="{{id}}">
+							Recarga
+						</button>
+						{{/if}}
+					</div>
+				</div>
+				{{/each}}
+			</section>
+			{{/each}}
+		</div>
+		{{/if}}
 	</div>
 	{{/if}} {{#if iframeUrl}}
 	<div style="flex-grow: 1; position: relative; width: 100%; height: 100%">

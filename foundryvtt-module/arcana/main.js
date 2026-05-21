@@ -284,6 +284,105 @@ function getNightVisionSightUpdate(category) {
   };
 }
 
+// src/services/npc-ability-usage.ts
+var USAGE_FLAG = "npcAbilityUsage";
+var GROUPS = [
+  { source: "actions", label: "Acciones" },
+  { source: "reactions", label: "Reacciones" },
+  { source: "interactions", label: "Interacciones" },
+  { source: "traits", label: "Rasgos defensivos" }
+];
+function resolveNpcAbilityUsageOwner(actor) {
+  const tokenDocument = actor.token;
+  const isLinkedToken = Boolean(tokenDocument?.actorLink || actor.prototypeToken?.actorLink);
+  if (actor.isToken && !isLinkedToken && hasFlagApi(tokenDocument)) {
+    return tokenDocument;
+  }
+  return actor.baseActor ?? actor;
+}
+function mergeNpcAbilityUsage(definitions, existing) {
+  return Object.fromEntries(
+    definitions.map((definition) => {
+      const current = clampNpcAbilityCurrent(
+        existing?.[definition.id]?.current ?? definition.max,
+        definition.max
+      );
+      return [definition.id, { current, max: definition.max }];
+    })
+  );
+}
+function buildNpcAbilityUsageGroups(definitions = [], usage = {}) {
+  const views = definitions.map((definition) => {
+    const counter = usage[definition.id] ?? { current: definition.max, max: definition.max };
+    return {
+      ...definition,
+      current: clampNpcAbilityCurrent(counter.current, definition.max),
+      max: definition.max,
+      isRecharge: definition.type === "RELOAD"
+    };
+  }).sort((a, b) => a.order - b.order);
+  return GROUPS.map((group) => ({
+    ...group,
+    abilities: views.filter((ability) => ability.source === group.source)
+  })).filter((group) => group.abilities.length > 0);
+}
+function clampNpcAbilityCurrent(value, max) {
+  const numericValue = Number.isFinite(value) ? Math.trunc(value) : 0;
+  return Math.min(Math.max(numericValue, 0), max);
+}
+async function updateNpcAbilityCurrent(actor, abilityId, current, definitions) {
+  const owner = resolveNpcAbilityUsageOwner(actor);
+  const usage = mergeNpcAbilityUsage(definitions, readUsage(owner));
+  const definition = definitions.find((ability) => ability.id === abilityId);
+  if (!definition) return usage;
+  usage[abilityId] = {
+    current: clampNpcAbilityCurrent(current, definition.max),
+    max: definition.max
+  };
+  await owner.setFlag("arcana", USAGE_FLAG, usage);
+  return usage;
+}
+async function rollNpcAbilityRecharge(actor, abilityId, definitions) {
+  const definition = definitions.find((ability) => ability.id === abilityId);
+  if (!definition || definition.type !== "RELOAD" || !definition.rechargeTarget) {
+    throw new Error(`NPC recharge ability not found: ${abilityId}`);
+  }
+  const roll = await rollOneD8();
+  const result = Number(roll.total ?? 0);
+  const success = result >= definition.rechargeTarget;
+  const usage = await updateNpcAbilityCurrent(
+    actor,
+    abilityId,
+    success ? definition.max : 0,
+    definitions
+  );
+  await sendRechargeRollMessage(actor, definition, roll, success);
+  return { result, success, usage };
+}
+function readUsage(owner) {
+  const value = owner.getFlag("arcana", USAGE_FLAG);
+  return isUsageRecord(value) ? value : void 0;
+}
+async function rollOneD8() {
+  const roll = new Roll("1d8");
+  await roll.evaluate();
+  return roll;
+}
+async function sendRechargeRollMessage(actor, definition, roll, success) {
+  await roll.toMessage({
+    flavor: `${definition.name}: recarga \u2014 ${success ? "\xE9xito" : "fallo"}`,
+    speaker: ChatMessage.getSpeaker({ actor })
+  });
+}
+function hasFlagApi(value) {
+  return Boolean(
+    value && typeof value.getFlag === "function" && typeof value.setFlag === "function"
+  );
+}
+function isUsageRecord(value) {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value));
+}
+
 // src/types/messages.ts
 var MESSAGE_TYPES = {
   PRECALCULATED_ROLL: "PRECALCULATED_ROLL",
@@ -407,13 +506,16 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
       tokenOffsetX,
       tokenOffsetY
     });
+    const npcAbilityGroups = urlResult.isBestiary ? this.#getNpcAbilityGroups() : [];
     return {
       ...context,
       actor: this.actor,
       iframeUrl: urlResult.iframeUrl,
       isBestiary: urlResult.isBestiary,
       localNotes: urlResult.localNotes,
-      health: urlResult.health
+      health: urlResult.health,
+      npcAbilityGroups,
+      hasNpcAbilityUsage: npcAbilityGroups.length > 0
     };
   }
   /**
@@ -444,6 +546,8 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
       "iframe"
     );
     if (existingIframe && !options?.forceReload) {
+      const element = this.element;
+      if (element) this.#refreshNpcAbilityControls(element);
       const titleEl = this.element?.querySelector(
         ".window-title"
       );
@@ -472,6 +576,7 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
    */
   #attachBestiaryListeners(element) {
     element.querySelectorAll("input, textarea").forEach((input) => {
+      if (input.dataset.npcAbilityControl) return;
       input.addEventListener("change", async (ev) => {
         const target = ev.target;
         const field = target.name;
@@ -480,6 +585,103 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
         ui?.actors?.render();
       });
     });
+    this.#attachNpcAbilityListeners(element);
+  }
+  #attachNpcAbilityListeners(element) {
+    element.querySelectorAll("[data-npc-ability-control]").forEach((control) => {
+      control.addEventListener("change", async (event) => {
+        const target = event.target;
+        const abilityId = target.dataset.abilityId;
+        if (!abilityId) return;
+        await this.#setNpcAbilityCurrent(abilityId, Number(target.value));
+      });
+    });
+    element.querySelectorAll("[data-npc-ability-action]").forEach((control) => {
+      control.addEventListener("click", async () => {
+        const abilityId = control.dataset.abilityId;
+        if (!abilityId) return;
+        if (control.dataset.npcAbilityAction === "use") {
+          const current = this.#getCurrentAbilityValue(abilityId) - 1;
+          await this.#setNpcAbilityCurrent(abilityId, current);
+        }
+        if (control.dataset.npcAbilityAction === "recharge") {
+          await rollNpcAbilityRecharge(this.#actor(), abilityId, this.#getNpcAbilityDefinitions());
+          this.#refreshNpcAbilityControls(this.element);
+        }
+      });
+    });
+  }
+  async #setNpcAbilityCurrent(abilityId, current) {
+    const usage = await updateNpcAbilityCurrent(
+      this.#actor(),
+      abilityId,
+      current,
+      this.#getNpcAbilityDefinitions()
+    );
+    const counter = usage[abilityId];
+    if (!counter) return;
+    this.#updateNpcAbilityDisplay(abilityId, counter.current, counter.max);
+  }
+  #getCurrentAbilityValue(abilityId) {
+    const usage = readUsage(resolveNpcAbilityUsageOwner(this.#actor()));
+    return usage?.[abilityId]?.current ?? 0;
+  }
+  #getNpcAbilityDefinitions() {
+    const definitions = this.#actor().getFlag("arcana", "npcAbilityDefinitions");
+    return Array.isArray(definitions) ? definitions : [];
+  }
+  #getNpcAbilityGroups() {
+    return buildNpcAbilityUsageGroups(
+      this.#getNpcAbilityDefinitions(),
+      readUsage(resolveNpcAbilityUsageOwner(this.#actor())) ?? {}
+    );
+  }
+  #actor() {
+    return this.actor;
+  }
+  #refreshNpcAbilityControls(element) {
+    const groups = this.#getNpcAbilityGroups();
+    const existing = element.querySelector(".npc-ability-usage-section");
+    if (groups.length === 0) {
+      existing?.remove();
+      return;
+    }
+    const html = this.#renderNpcAbilitySection(groups);
+    if (existing) {
+      existing.outerHTML = html;
+    } else {
+      element.querySelector(".bestiary-controls")?.insertAdjacentHTML("beforeend", html);
+    }
+    this.#attachNpcAbilityListeners(element);
+  }
+  #renderNpcAbilitySection(groups) {
+    const groupsHtml = groups.map((group) => this.#renderNpcAbilityGroup(group)).join("");
+    return `<div class="npc-ability-usage-section npc-ability-usage-compact" style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px">${groupsHtml}</div>`;
+  }
+  #renderNpcAbilityGroup(group) {
+    const abilitiesHtml = group.abilities.map(
+      (ability) => `
+					<div class="npc-ability-row npc-ability-row-compact" data-ability-id="${escapeHtml(ability.id)}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px">
+						<span class="npc-ability-name" style="flex: 1 1 140px">${escapeHtml(ability.name)}</span>
+						<div class="npc-ability-controls-inline" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
+							<button type="button" data-npc-ability-action="use" data-ability-id="${escapeHtml(ability.id)}">Usar</button>
+							<input type="number" data-npc-ability-control="current" data-ability-id="${escapeHtml(ability.id)}" value="${ability.current}" min="0" max="${ability.max}" style="width: 44px; text-align: center" />
+							<span style="font-size: 1.1rem" data-ability-display="${escapeHtml(ability.id)}">/${ability.max}</span>
+							${ability.isRecharge ? `<button type="button" data-npc-ability-action="recharge" data-ability-id="${escapeHtml(ability.id)}">Recarga</button>` : ""}
+						</div>
+					</div>`
+    ).join("");
+    return `<section style="flex: 1 1 calc((100% - 16px) / 3); min-width: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between" class="npc-ability-group npc-ability-group-compact" data-npc-ability-group="${group.source}"><h4 style="margin: 2px 0; font-size: 1rem">${group.label}</h4>${abilitiesHtml}</section>`;
+  }
+  #updateNpcAbilityDisplay(abilityId, current, max) {
+    const element = this.element;
+    const escapedId = cssEscape(abilityId);
+    const input = element?.querySelector(
+      `[data-npc-ability-control][data-ability-id="${escapedId}"]`
+    );
+    const display = element?.querySelector(`[data-ability-display="${escapedId}"]`);
+    if (input) input.value = String(current);
+    if (display) display.textContent = `/${max}`;
   }
   /**
    * Disable pointer events on the iframe while the user drags or resizes
@@ -606,6 +808,12 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
     }).render(true);
   }
 };
+function escapeHtml(value) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function cssEscape(value) {
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+}
 
 // src/sidebar/actor-directory.ts
 var ActorDirectoryBase = foundry.applications.sidebar.tabs.ActorDirectory;
@@ -812,6 +1020,7 @@ var ActorUpdater = class {
     const updateData = this.buildUpdateData(actor, data.payload);
     if (!updateData.hasChanges) return;
     await actor.update(updateData.changes, { render: false });
+    await this.updateTokenLocalNpcAbilityUsage(actor, data.payload);
     await this.updateTokens(actor, updateData.changes, data.payload);
     try {
       this.updateSheet(actor, updateData.changes);
@@ -874,6 +1083,17 @@ var ActorUpdater = class {
         hasChanges = true;
       }
     }
+    if (!isCharacter2 && payload.npcAbilityDefinitions !== void 0) {
+      const owner = resolveNpcAbilityUsageOwner(actor);
+      changes["flags.arcana.npcAbilityDefinitions"] = payload.npcAbilityDefinitions;
+      if (owner === actor) {
+        changes["flags.arcana.npcAbilityUsage"] = mergeNpcAbilityUsage(
+          payload.npcAbilityDefinitions,
+          readUsage(owner)
+        );
+      }
+      hasChanges = true;
+    }
     return { changes, hasChanges };
   }
   buildSpeedUpdate(actor, speed) {
@@ -881,6 +1101,18 @@ var ActorUpdater = class {
     const newSpeed = safeNum(speed);
     if (newSpeed === oldSpeed) return null;
     return { "system.speed": newSpeed };
+  }
+  async updateTokenLocalNpcAbilityUsage(actor, payload) {
+    if (!payload.npcAbilityDefinitions) return;
+    const sheetUrl = actor.getFlag("arcana", "sheetUrl") || "";
+    if (isCharacterURL(sheetUrl)) return;
+    const owner = resolveNpcAbilityUsageOwner(actor);
+    if (owner === actor) return;
+    await owner.setFlag(
+      "arcana",
+      "npcAbilityUsage",
+      mergeNpcAbilityUsage(payload.npcAbilityDefinitions, readUsage(owner))
+    );
   }
   /**
    * Build name update data

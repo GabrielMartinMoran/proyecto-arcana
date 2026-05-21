@@ -5,6 +5,9 @@
 
 // @vitest-environment jsdom
 
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { cwd } from 'node:process';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // Mock Foundry V2 Application APIs before importing the sheet
@@ -45,6 +48,17 @@ vi.stubGlobal('foundry', {
 });
 
 const { ArcanaSheetV2 } = await import('./arcana-sheet-v2');
+
+function renderTemplateFragment(): HTMLElement {
+	const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+	const fragment = document.createElement('div');
+	fragment.innerHTML = template;
+	return fragment;
+}
+
+function inlineStyle(element: Element | null): string {
+	return element?.getAttribute('style')?.replace(/\s+/g, ' ').trim() ?? '';
+}
 
 describe('ArcanaSheetV2', () => {
 	let sheet: InstanceType<typeof ArcanaSheetV2>;
@@ -154,9 +168,133 @@ describe('ArcanaSheetV2', () => {
 			expect(context.iframeUrl).toContain('startMax=9');
 			expect(context.health).toEqual({ value: 3, max: 9 });
 		});
+
+		it('FEAT npc-ability-controls-grouped-on-bestiary-sheet — prepares grouped NPC ability controls for bestiary actors', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+						{
+							id: 'npc:reactions:parada:1',
+							name: 'Parada',
+							source: 'reactions',
+							type: 'USES',
+							max: 2,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') {
+					return {
+						'npc:actions:aliento:1': { current: 1, max: 1 },
+						'npc:reactions:parada:1': { current: 2, max: 2 },
+					};
+				}
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.hasNpcAbilityUsage).toBe(true);
+			expect(context.npcAbilityGroups.map((group: any) => group.label)).toEqual([
+				'Acciones',
+				'Reacciones',
+			]);
+		});
+
+		it('FEAT npc-ability-usage-state-ownership — unlinked token sheet reads token-local counters', async () => {
+			const tokenDocument = {
+				actorLink: false,
+				getFlag: vi.fn((scope: string, key: string) => {
+					if (scope === 'arcana' && key === 'npcAbilityUsage') {
+						return { 'npc:actions:aliento:1': { current: 0, max: 1 } };
+					}
+					return undefined;
+				}),
+				setFlag: vi.fn(),
+			};
+			mockActor.isToken = true;
+			mockActor.token = tokenDocument;
+			mockActor.prototypeToken = { actorLink: false };
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') return { 'npc:actions:aliento:1': { current: 1, max: 1 } };
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.npcAbilityGroups[0].abilities[0].current).toBe(0);
+		});
 	});
 
 	describe('_onRender', () => {
+		it('FEAT npc-ability-controls-compact-layout — initial template uses compact inline flex classes and Usar action', () => {
+			const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+
+			expect(template).toContain('class="npc-ability-usage-section npc-ability-usage-compact"');
+			expect(template).toContain('class="npc-ability-group npc-ability-group-compact"');
+			expect(template).toContain('class="npc-ability-row npc-ability-row-compact"');
+			expect(template).toContain('class="npc-ability-name"');
+			expect(template).toContain('class="npc-ability-controls-inline"');
+			expect(template).toContain('data-npc-ability-action="use"');
+			expect(template).toContain('Usar');
+			expect(template).not.toContain('data-npc-ability-action="decrement"');
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — initial template groups wrap as flex columns with min-width fallback', () => {
+			const fragment = renderTemplateFragment();
+			const sectionStyle = inlineStyle(fragment.querySelector('.npc-ability-usage-section'));
+			const groupStyle = inlineStyle(fragment.querySelector('.npc-ability-group'));
+
+			expect(sectionStyle).toContain('display: flex');
+			expect(sectionStyle).toContain('flex-wrap: wrap');
+			expect(sectionStyle).toContain('align-items: flex-start');
+			expect(sectionStyle).toContain('gap: 8px');
+			expect(sectionStyle).not.toContain('display: grid');
+			expect(groupStyle).toContain('flex: 1 1 calc((100% - 16px) / 3)');
+			expect(groupStyle).toContain('min-width: 220px');
+			expect(groupStyle).toContain('box-sizing: border-box');
+			expect(groupStyle).toContain('display: flex');
+			expect(groupStyle).toContain('flex-direction: column');
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — initial template counter display uses current input and max suffix', () => {
+			const fragment = renderTemplateFragment();
+			const currentInput = fragment.querySelector<HTMLInputElement>(
+				'[data-npc-ability-control="current"]',
+			);
+			const display = fragment.querySelector('[data-ability-display]');
+
+			expect(currentInput?.getAttribute('value')).toBe('{{current}}');
+			expect(display?.textContent).toBe('/{{max}}');
+			expect(display?.textContent).not.toBe('{{current}}/{{max}}');
+		});
+
 		it('should preserve existing iframe when not forceReload', () => {
 			// GIVEN an already rendered element with an iframe
 			const existingIframe = document.createElement('iframe');
@@ -233,6 +371,104 @@ describe('ArcanaSheetV2', () => {
 				{ render: false },
 			);
 			expect(ui.actors.render).toHaveBeenCalledWith();
+		});
+
+		it('FEAT manual-npc-ability-use-tracking — generic input listener ignores NPC ability controls', async () => {
+			const input = document.createElement('input');
+			input.dataset.npcAbilityControl = 'current';
+			input.value = '0';
+			const container = document.createElement('div');
+			container.appendChild(input);
+			(sheet as any).element = container;
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+
+			(sheet as any)._onRender({}, {});
+			input.dispatchEvent(new Event('change'));
+			await new Promise((r) => setTimeout(r, 0));
+
+			expect(mockActor.update).not.toHaveBeenCalled();
+		});
+
+		it('FEAT npc-ability-controls-update-without-iframe-reload — ability controls refresh after Usar without replacing the iframe', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:golpe:1',
+							name: 'Golpe',
+							source: 'actions',
+							type: 'USES',
+							max: 3,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') return { 'npc:actions:golpe:1': { current: 1, max: 3 } };
+				return undefined;
+			});
+			mockActor.setFlag = vi.fn().mockResolvedValue(undefined);
+			const useButton = document.createElement('button');
+			useButton.dataset.npcAbilityAction = 'use';
+			useButton.dataset.abilityId = 'npc:actions:golpe:1';
+			const display = document.createElement('span');
+			display.dataset.abilityDisplay = 'npc:actions:golpe:1';
+			display.textContent = '/3';
+			const existingIframe = document.createElement('iframe');
+			const container = document.createElement('div');
+			container.append(useButton, display, existingIframe);
+			(sheet as any).element = container;
+
+			(sheet as any)._onRender({}, {});
+			useButton.click();
+			await new Promise((r) => setTimeout(r, 0));
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'npcAbilityUsage', {
+				'npc:actions:golpe:1': { current: 0, max: 3 },
+			});
+			expect(display.textContent).toBe('/3');
+			expect(container.querySelector('iframe')).toBe(existingIframe);
+		});
+
+		it('FEAT manual-npc-ability-use-tracking — Usar spends one use and clamps at zero', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:golpe:1',
+							name: 'Golpe',
+							source: 'actions',
+							type: 'USES',
+							max: 3,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') return { 'npc:actions:golpe:1': { current: 0, max: 3 } };
+				return undefined;
+			});
+			mockActor.setFlag = vi.fn().mockResolvedValue(undefined);
+			const useButton = document.createElement('button');
+			useButton.dataset.npcAbilityAction = 'use';
+			useButton.dataset.abilityId = 'npc:actions:golpe:1';
+			const display = document.createElement('span');
+			display.dataset.abilityDisplay = 'npc:actions:golpe:1';
+			display.textContent = '/3';
+			const container = document.createElement('div');
+			container.append(useButton, display);
+			(sheet as any).element = container;
+
+			(sheet as any)._onRender({}, {});
+			useButton.click();
+			await new Promise((r) => setTimeout(r, 0));
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'npcAbilityUsage', {
+				'npc:actions:golpe:1': { current: 0, max: 3 },
+			});
+			expect(display.textContent).toBe('/3');
 		});
 
 		it('should abort previous drag pointer event listeners before registering new ones', () => {
@@ -335,6 +571,185 @@ describe('ArcanaSheetV2', () => {
 			expect(superRender).toHaveBeenCalled();
 
 			superRender.mockRestore();
+		});
+
+		it('FEAT npc-ability-controls-update-without-iframe-reload — synchronized metadata appears without losing iframe state', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') return { 'npc:actions:aliento:1': { current: 0, max: 1 } };
+				return undefined;
+			});
+			const existingIframe = document.createElement('iframe');
+			const controls = document.createElement('div');
+			controls.className = 'bestiary-controls';
+			const container = document.createElement('div');
+			container.append(controls, existingIframe);
+			(sheet as any).element = container;
+
+			await sheet.render({});
+
+			expect(container.querySelector('iframe')).toBe(existingIframe);
+			expect(container.querySelector('.npc-ability-usage-section')?.textContent).toContain(
+				'Aliento',
+			);
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — dynamic refresh uses the initial template compact layout contract', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:aliento:1',
+							name: 'Aliento',
+							source: 'actions',
+							type: 'RELOAD',
+							max: 1,
+							rechargeTarget: 6,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') return { 'npc:actions:aliento:1': { current: 0, max: 1 } };
+				return undefined;
+			});
+			const existingIframe = document.createElement('iframe');
+			const controls = document.createElement('div');
+			controls.className = 'bestiary-controls';
+			const container = document.createElement('div');
+			container.append(controls, existingIframe);
+			(sheet as any).element = container;
+
+			await sheet.render({});
+
+			const section = container.querySelector('.npc-ability-usage-section');
+			const group = container.querySelector('.npc-ability-group');
+			const row = container.querySelector('.npc-ability-row');
+			expect(section?.classList.contains('npc-ability-usage-compact')).toBe(true);
+			expect(group?.classList.contains('npc-ability-group-compact')).toBe(true);
+			expect(row?.classList.contains('npc-ability-row-compact')).toBe(true);
+			expect(row?.querySelector('.npc-ability-name')?.textContent).toBe('Aliento');
+			expect(row?.querySelector('.npc-ability-controls-inline')).toBeTruthy();
+			expect(row?.querySelector('[data-npc-ability-action="use"]')?.textContent).toContain('Usar');
+			expect(row?.querySelector('[data-npc-ability-action="decrement"]')).toBeNull();
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — dynamic refresh preserves wrapping group-column layout and iframe', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:golpe:1',
+							name: 'Golpe',
+							source: 'actions',
+							type: 'USES',
+							max: 3,
+							order: 0,
+						},
+						{
+							id: 'npc:interactions:mirada:1',
+							name: 'Mirada',
+							source: 'interactions',
+							type: 'USES',
+							max: 2,
+							order: 0,
+						},
+						{
+							id: 'npc:reactions:parada:1',
+							name: 'Parada',
+							source: 'reactions',
+							type: 'USES',
+							max: 1,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') {
+					return {
+						'npc:actions:golpe:1': { current: 1, max: 3 },
+						'npc:interactions:mirada:1': { current: 2, max: 2 },
+						'npc:reactions:parada:1': { current: 1, max: 1 },
+					};
+				}
+				return undefined;
+			});
+			const existingIframe = document.createElement('iframe');
+			const controls = document.createElement('div');
+			controls.className = 'bestiary-controls';
+			const container = document.createElement('div');
+			container.append(controls, existingIframe);
+			(sheet as any).element = container;
+
+			await sheet.render({});
+
+			const sectionStyle = inlineStyle(container.querySelector('.npc-ability-usage-section'));
+			const groups = Array.from(container.querySelectorAll('.npc-ability-group'));
+			expect(sectionStyle).toContain('display: flex');
+			expect(sectionStyle).toContain('flex-wrap: wrap');
+			expect(sectionStyle).toContain('align-items: flex-start');
+			expect(sectionStyle).toContain('gap: 8px');
+			expect(groups).toHaveLength(3);
+			for (const group of groups) {
+				expect(inlineStyle(group)).toContain('flex: 1 1 calc((100% - 16px) / 3)');
+				expect(inlineStyle(group)).toContain('min-width: 220px');
+				expect(inlineStyle(group)).toContain('box-sizing: border-box');
+				expect(inlineStyle(group)).toContain('flex-direction: column');
+			}
+			expect(container.querySelector('iframe')).toBe(existingIframe);
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — dynamic refresh counter display uses current input and max suffix', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+				if (key === 'npcAbilityDefinitions') {
+					return [
+						{
+							id: 'npc:actions:golpe:1',
+							name: 'Golpe',
+							source: 'actions',
+							type: 'USES',
+							max: 3,
+							order: 0,
+						},
+					];
+				}
+				if (key === 'npcAbilityUsage') return { 'npc:actions:golpe:1': { current: 1, max: 3 } };
+				return undefined;
+			});
+			const existingIframe = document.createElement('iframe');
+			const controls = document.createElement('div');
+			controls.className = 'bestiary-controls';
+			const container = document.createElement('div');
+			container.append(controls, existingIframe);
+			(sheet as any).element = container;
+
+			await sheet.render({});
+
+			const currentInput = container.querySelector<HTMLInputElement>(
+				'[data-npc-ability-control="current"][data-ability-id="npc:actions:golpe:1"]',
+			);
+			const display = container.querySelector('[data-ability-display="npc:actions:golpe:1"]');
+			expect(currentInput?.value).toBe('1');
+			expect(display?.textContent).toBe('/3');
+			expect(display?.textContent).not.toBe('1/3');
 		});
 	});
 
