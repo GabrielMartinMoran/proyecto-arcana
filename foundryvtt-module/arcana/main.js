@@ -85,7 +85,8 @@ var CharacterData = class extends foundry.abstract.TypeDataModel {
         max: new fields.NumberField({ initial: 0, min: 0 })
       }),
       initiative: new fields.NumberField({ initial: 0 }),
-      nightVision: new fields.StringField({ initial: "none" })
+      nightVision: new fields.StringField({ initial: "none" }),
+      speed: new fields.NumberField({ initial: 0, min: 0 })
     };
   }
 };
@@ -98,10 +99,138 @@ var NPCData = class extends foundry.abstract.TypeDataModel {
         max: new fields.NumberField({ initial: 0, min: 0 })
       }),
       initiative: new fields.NumberField({ initial: 0 }),
-      nightVision: new fields.StringField({ initial: "none" })
+      nightVision: new fields.StringField({ initial: "none" }),
+      speed: new fields.NumberField({ initial: 0, min: 0 })
     };
   }
 };
+
+// src/ruler/movement-bands.ts
+function movementBandForDistance({
+  speed,
+  effectiveDistance
+}) {
+  if (!isValidSpeed(speed)) return "default";
+  if (effectiveDistance <= speed) return "green";
+  if (effectiveDistance <= speed * 2) return "yellow";
+  return "red";
+}
+function isValidSpeed(speed) {
+  return typeof speed === "number" && Number.isFinite(speed) && speed > 0;
+}
+
+// src/ruler/turn-movement-tracker.ts
+var TurnMovementTracker = class {
+  movementByTurn = /* @__PURE__ */ new Map();
+  recordMovement({ combatId, turnKey, tokenId, meters }) {
+    if (!Number.isFinite(meters) || meters <= 0) return;
+    const key = this.keyFor({ combatId, turnKey, tokenId });
+    this.movementByTurn.set(key, this.getAlreadyMoved({ combatId, turnKey, tokenId }) + meters);
+  }
+  getAlreadyMoved(input) {
+    return this.movementByTurn.get(this.keyFor(input)) ?? 0;
+  }
+  keyFor({ combatId, turnKey, tokenId }) {
+    return `${combatId}:${turnKey}:${tokenId}`;
+  }
+};
+var turnMovementTracker = new TurnMovementTracker();
+
+// src/ruler/arcana-token-ruler.ts
+var BAND_COLORS = {
+  green: 65280,
+  yellow: 16776960,
+  red: 16711680
+};
+var DefaultTokenRuler = getDefaultTokenRuler();
+var ArcanaTokenRuler = class extends DefaultTokenRuler {
+  lastMeasuredDistance = 0;
+  _getSegmentStyle(waypoint) {
+    const defaultStyle = getDefaultSegmentStyle(this, waypoint);
+    const speed = getActorSpeed(this);
+    const plannedDistance = getWaypointDistance(waypoint);
+    const band = movementBandForDistance({
+      speed,
+      effectiveDistance: getAlreadyMoved(this) + plannedDistance
+    });
+    this.lastMeasuredDistance = Math.max(this.lastMeasuredDistance, plannedDistance);
+    if (band === "default") return defaultStyle;
+    return { ...defaultStyle, color: BAND_COLORS[band] };
+  }
+  async _endMeasurement(...args) {
+    const result = await callBaseMethod(this, "_endMeasurement", args);
+    this.recordLastMovement();
+    return result;
+  }
+  async moveToken(...args) {
+    const result = await callBaseMethod(this, "moveToken", args);
+    this.recordLastMovement();
+    return result;
+  }
+  recordLastMovement() {
+    const turnKey = getTurnKey();
+    const tokenId = getTokenId(this);
+    const combatId = getCombatId();
+    if (!turnKey || !tokenId || !combatId) return;
+    turnMovementTracker.recordMovement({
+      combatId,
+      turnKey,
+      tokenId,
+      meters: this.lastMeasuredDistance
+    });
+    this.lastMeasuredDistance = 0;
+  }
+};
+function getDefaultTokenRuler() {
+  return CONFIG?.Token?.rulerClass ?? class {
+  };
+}
+function getDefaultSegmentStyle(ruler, waypoint) {
+  const method = getBasePrototype()?._getSegmentStyle;
+  if (typeof method !== "function") return {};
+  return method.call(ruler, waypoint) ?? {};
+}
+function callBaseMethod(ruler, methodName, args) {
+  const method = getBasePrototype()?.[methodName];
+  if (typeof method !== "function") return void 0;
+  return method.apply(ruler, args);
+}
+function getBasePrototype() {
+  return Object.getPrototypeOf(ArcanaTokenRuler.prototype);
+}
+function getActorSpeed(ruler) {
+  return foundry.utils.getProperty(ruler.token?.actor, "system.speed");
+}
+function getWaypointDistance(waypoint) {
+  const distance = waypoint.measurement?.distance ?? waypoint.distance ?? 0;
+  return Number.isFinite(distance) ? distance : 0;
+}
+function getAlreadyMoved(ruler) {
+  const foundryManagedDistance = getFoundryManagedMovement(ruler);
+  if (foundryManagedDistance !== void 0) return foundryManagedDistance;
+  const turnKey = getTurnKey();
+  const tokenId = getTokenId(ruler);
+  const combatId = getCombatId();
+  if (!turnKey || !tokenId || !combatId) return 0;
+  return turnMovementTracker.getAlreadyMoved({ combatId, turnKey, tokenId });
+}
+function getFoundryManagedMovement(ruler) {
+  const token = ruler.token;
+  const distance = token?.document?.movement?.distance ?? token?.document?.movementDistance;
+  return typeof distance === "number" && Number.isFinite(distance) ? distance : void 0;
+}
+function getTokenId(ruler) {
+  const token = ruler.token;
+  return token?.document?.id ?? token?.id;
+}
+function getCombatId() {
+  return globalThis.game?.combat?.id;
+}
+function getTurnKey() {
+  const combat = globalThis.game?.combat;
+  if (!combat) return void 0;
+  return `${combat.round ?? 0}:${combat.turn ?? 0}:${combat.current?.tokenId ?? ""}`;
+}
 
 // src/config.ts
 var CONFIG2 = {
@@ -513,6 +642,7 @@ function init() {
     }
   };
   CONFIG.Combat.documentClass = ArcanaCombat;
+  CONFIG.Token.rulerClass = ArcanaTokenRuler;
   CONFIG.Combat.initiative = {
     formula: "1d8x + @system.initiative",
     decimals: 2
@@ -551,13 +681,25 @@ var isDevelopURL = (url) => {
 };
 
 // src/hooks/render-token-hud.ts
-function renderTokenHUD(app, html) {
+function renderTokenHUD(app, _html) {
   const tokenDocument = app.object.document;
   console.log("TOKEN DOC", tokenDocument);
   console.log("IS CHARACTER", isCharacter(tokenDocument.baseActor));
 }
 
 // src/hooks/setup-esc-interceptor.ts
+function getFoundryApplications() {
+  return globalThis.foundry;
+}
+function getFoundryTour() {
+  return globalThis.Tour;
+}
+function getFoundryCanvas() {
+  return globalThis.canvas;
+}
+function getFoundryNotifications() {
+  return ui.notifications;
+}
 function isCollapsible(app) {
   if (!app) return false;
   if (app.options?.window?.minimizable === true && app.hasFrame === true) return true;
@@ -570,7 +712,7 @@ function isMinimized(app) {
 }
 function getAllWindows() {
   const v1 = Object.values(ui.windows ?? {});
-  const v2 = Array.from(foundry.applications?.instances?.values() ?? []).filter(
+  const v2 = Array.from(getFoundryApplications().applications?.instances?.values() ?? []).filter(
     (app) => app.rendered === true
   );
   return [...v1, ...v2];
@@ -599,8 +741,9 @@ function setupEscInterceptor() {
         ui.context.close?.();
         return true;
       }
-      if (typeof globalThis.Tour !== "undefined" && globalThis.Tour.tourInProgress) {
-        globalThis.Tour.close?.();
+      const tour = getFoundryTour();
+      if (tour?.tourInProgress) {
+        tour.close?.();
         return true;
       }
       const windows = getAllWindows();
@@ -615,17 +758,20 @@ function setupEscInterceptor() {
         (a, b) => (b.position?.zIndex ?? 0) - (a.position?.zIndex ?? 0)
       )[0];
       if (frontmost && isCollapsible(frontmost) && isMinimized(frontmost)) {
-        if (globalThis.canvas?.activeLayer?.controlled?.length) {
-          globalThis.canvas.activeLayer.releaseAll?.();
+        const canvas3 = getFoundryCanvas();
+        if (canvas3?.activeLayer?.controlled?.length) {
+          canvas3.activeLayer.releaseAll?.();
         }
         return true;
       }
-      if (globalThis.canvas?.activeLayer?.controlled?.length) {
-        globalThis.canvas.activeLayer.releaseAll?.();
+      const canvas2 = getFoundryCanvas();
+      if (canvas2?.activeLayer?.controlled?.length) {
+        canvas2.activeLayer.releaseAll?.();
         return true;
       }
-      if (ui.notifications?.queue?.length) {
-        ui.notifications.closeAll?.();
+      const notifications = getFoundryNotifications();
+      if (notifications?.queue?.length) {
+        notifications.closeAll?.();
         return true;
       }
       return originalOnDown(ctx);
@@ -721,7 +867,20 @@ var ActorUpdater = class {
       changes["system.initiative"] = payload.initiative;
       hasChanges = true;
     }
+    if (payload.speed !== void 0) {
+      const speedUpdate = this.buildSpeedUpdate(actor, payload.speed);
+      if (speedUpdate) {
+        Object.assign(changes, speedUpdate);
+        hasChanges = true;
+      }
+    }
     return { changes, hasChanges };
+  }
+  buildSpeedUpdate(actor, speed) {
+    const oldSpeed = safeNum(actor.system.speed);
+    const newSpeed = safeNum(speed);
+    if (newSpeed === oldSpeed) return null;
+    return { "system.speed": newSpeed };
   }
   /**
    * Build name update data
@@ -802,7 +961,7 @@ var ActorUpdater = class {
    * Update all active tokens for the actor
    */
   async updateTokens(actor, changes, _payload) {
-    const tokensToUpdate = actor.isToken ? [actor.token] : actor.getActiveTokens();
+    const tokensToUpdate = this.getTokenDocuments(actor);
     const tokenUpdates = {};
     let needsTokenUpdate = false;
     if (changes["img"]) {
@@ -814,13 +973,22 @@ var ActorUpdater = class {
       needsTokenUpdate = true;
     }
     for (const t of tokensToUpdate) {
-      if (needsTokenUpdate) {
+      if (needsTokenUpdate && t.update) {
         await t.update(tokenUpdates);
       }
       if (_payload.hp) {
-        t.object?.drawBars();
+        t.object?.drawBars?.();
       }
     }
+  }
+  getTokenDocuments(actor) {
+    if (actor.isToken) {
+      return actor.token ? [actor.token] : [];
+    }
+    return actor.getActiveTokens(
+      false,
+      true
+    );
   }
   /**
    * Update the actor sheet UI if rendered

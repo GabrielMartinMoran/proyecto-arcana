@@ -7,7 +7,7 @@ interface TokenHUDApp {
 	};
 }
 
-export function renderTokenHUD(app: TokenHUDApp, html: JQuery): void {
+export function renderTokenHUD(app: TokenHUDApp, _html: JQuery): void {
 	//const $html = $(html);
 	const tokenDocument = app.object.document;
 

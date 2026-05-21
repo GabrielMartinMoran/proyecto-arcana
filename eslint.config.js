@@ -18,7 +18,7 @@ export default defineConfig(
 	prettier,
 	...svelte.configs.prettier,
 	{
-		ignores: ['foundryvtt-module/arcana/dist/**', 'foundryvtt-module/arcana/main.js'],
+		ignores: ['.agents/**', 'foundryvtt-module/arcana/dist/**', 'foundryvtt-module/arcana/main.js'],
 	},
 	{
 		languageOptions: {

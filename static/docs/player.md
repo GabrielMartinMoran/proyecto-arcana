@@ -113,7 +113,7 @@ Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empeza
 
 ## Paso 6: Equipo Inicial
 
-Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#8 Equipo y Economía** encontrarás una lista de precios y objetos.
+Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#11 Equipo y Economía** encontrarás una lista de precios y objetos.
 
 ## Paso 7: Lenguas
 

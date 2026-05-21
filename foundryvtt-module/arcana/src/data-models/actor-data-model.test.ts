@@ -64,6 +64,14 @@ describe('CharacterData', () => {
 			expect(schema.initiative.options.initial).toBe(0);
 		});
 
+		it('FEAT foundry-actor-speed-synchronization — character schema stores movement speed', () => {
+			const schema = CharacterData.defineSchema();
+
+			expect(schema).toHaveProperty('speed');
+			expect(schema.speed.options.initial).toBe(0);
+			expect(schema.speed.options.min).toBe(0);
+		});
+
 		it('should set health value initial to 0', () => {
 			const schema = CharacterData.defineSchema();
 
@@ -110,6 +118,14 @@ describe('CharacterData', () => {
 
 			expect(schema).toHaveProperty('initiative');
 			expect(schema.initiative.options.initial).toBe(0);
+		});
+
+		it('FEAT foundry-actor-speed-synchronization — NPC schema stores movement speed', () => {
+			const schema = NPCData.defineSchema();
+
+			expect(schema).toHaveProperty('speed');
+			expect(schema.speed.options.initial).toBe(0);
+			expect(schema.speed.options.min).toBe(0);
 		});
 
 		it('should define nightVision string field with initial "none"', () => {

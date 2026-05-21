@@ -20,6 +20,7 @@ describe('ActorUpdater', () => {
 				value: 50,
 				max: 100,
 			},
+			speed: overrides.speed ?? 0,
 		},
 		isToken: false,
 		prototypeToken: {
@@ -64,6 +65,105 @@ describe('ActorUpdater', () => {
 	});
 
 	describe('handleUpdateActor', () => {
+		it('FEAT foundry-actor-token-updates-tolerate-v14-token-shapes — regular actor updates TokenDocuments requested from active tokens', async () => {
+			const tokenDocument = {
+				update: vi.fn().mockResolvedValue(undefined),
+			};
+			const tokenPlaceable = { document: tokenDocument };
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/123',
+				name: 'Old Name',
+				imgSource: 'old-source',
+			});
+			mockActor.img = 'old-image.jpg';
+			mockActor.getActiveTokens = vi.fn((_linked?: boolean, document?: boolean) =>
+				document ? [tokenDocument] : [tokenPlaceable],
+			);
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			await expect(
+				actorUpdater.handleUpdateActor({
+					type: MESSAGE_TYPES.UPDATE_ACTOR,
+					actorId: 'actor-123',
+					payload: {
+						name: 'New Name',
+						imageUrl: 'new-image.jpg',
+						imageSource: 'new-source',
+					},
+				}),
+			).resolves.not.toThrow();
+
+			expect(mockActor.getActiveTokens).toHaveBeenCalledWith(false, true);
+			expect(tokenDocument.update).toHaveBeenCalledWith({
+				name: 'New Name',
+				'texture.src': 'new-image.jpg',
+			});
+		});
+
+		it('FEAT foundry-actor-token-updates-tolerate-v14-token-shapes — synthetic actor updates owning token document', async () => {
+			const drawBars = vi.fn();
+			const tokenDocument = {
+				object: { drawBars },
+				update: vi.fn().mockResolvedValue(undefined),
+			};
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/123',
+				name: 'Old Synthetic',
+				health: { value: 2, max: 5 },
+				imgSource: 'old-source',
+			});
+			mockActor.isToken = true;
+			mockActor.token = tokenDocument;
+			mockActor.img = 'old-image.jpg';
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						return undefined;
+					}),
+				},
+			});
+
+			await expect(
+				actorUpdater.handleUpdateActor({
+					type: MESSAGE_TYPES.UPDATE_ACTOR,
+					actorId: 'actor-123',
+					payload: {
+						name: 'Synthetic Updated',
+						imageUrl: 'synthetic-image.jpg',
+						imageSource: 'new-source',
+						hp: { value: 3, max: 5 },
+					},
+				}),
+			).resolves.not.toThrow();
+
+			expect(mockActor.getActiveTokens).not.toHaveBeenCalled();
+			expect(tokenDocument.update).toHaveBeenCalledWith({
+				name: 'Synthetic Updated',
+				'texture.src': 'synthetic-image.jpg',
+			});
+			expect(drawBars).toHaveBeenCalledOnce();
+		});
+
+		it('FEAT foundry-actor-speed-synchronization — Foundry stores synchronized speed on the actor', async () => {
+			const mockActor = createMockActor({ speed: 0 });
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { speed: 7 },
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({ 'system.speed': 7 }),
+				{ render: false },
+			);
+		});
+
 		it('should call ui.actors.render() without arguments after update', async () => {
 			const mockActor = createMockActor({
 				sheetUrl: 'https://app.arcana.com/embedded/characters/123',
@@ -162,6 +262,39 @@ describe('ActorUpdater', () => {
 	});
 
 	describe('HP updates', () => {
+		it('FEAT foundry-actor-token-updates-tolerate-v14-token-shapes — health updates redraw active TokenDocument bars', async () => {
+			const drawBars = vi.fn();
+			const tokenDocument = { object: { drawBars } };
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				health: { value: 3, max: 10 },
+			});
+			mockActor.getActiveTokens = vi.fn((_linked?: boolean, document?: boolean) =>
+				document ? [tokenDocument] : [{ document: tokenDocument }],
+			);
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 5, max: 10 } },
+			});
+
+			expect(mockActor.getActiveTokens).toHaveBeenCalledWith(false, true);
+			expect(drawBars).toHaveBeenCalledOnce();
+			expect(ui.actors.render).toHaveBeenCalledWith();
+		});
+
 		it.each([
 			'https://app.arcana.com/characters/shared/user-1/char-1',
 			'https://app.arcana.com/embedded/characters/user-1/char-1',

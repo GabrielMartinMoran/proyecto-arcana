@@ -30,6 +30,7 @@ export interface UpdateActorData {
 		name?: string;
 		imageUrl?: string;
 		imageSource?: string;
+		speed?: number;
 		hp?: {
 			value: number;
 			max: number;

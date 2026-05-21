@@ -12,6 +12,7 @@ export interface CharacterState {
 	name?: string;
 	imageUrl?: string;
 	imageSource?: string; // Clave para evitar bucles de recarga infinitos
+	speed?: number;
 	hp?: {
 		value: number;
 		max: number;
@@ -203,6 +204,7 @@ export const useFoundryVTTService = () => {
 			name: character.name,
 			imageUrl: imageUrl,
 			imageSource: character.img ?? undefined, // Importante para el anti-bucle
+			speed: character.speed,
 			hp: {
 				value: character.currentHP,
 				max: character.maxHP,
@@ -253,6 +255,7 @@ export const useFoundryVTTService = () => {
 			name: creature.name,
 			imageUrl: imageUrl,
 			imageSource: creature.img ?? undefined,
+			speed: creature.stats.speed.value,
 			hp: {
 				// NOTA: Asumimos que si es criatura del bestiario, arranca full vida.
 				// Si tu objeto 'creature' tuviera currentHealth, úsalo aquí.

@@ -82,7 +82,7 @@ describe('Embedded character Foundry health precedence', () => {
 		vi.unstubAllGlobals();
 	});
 
-	it('FEAT foundry-health-precedence — closed-sheet startup hydration shows Foundry HP and does not echo stale web HP', async () => {
+	it('FEAT foundry-character-startup-sync — valid Foundry startup health syncs identity without stale web health echo', async () => {
 		mockPageStore.set({
 			params: { userId: 'user-1', characterId: 'char-1' },
 			url: new URL(
@@ -97,7 +97,14 @@ describe('Embedded character Foundry health precedence', () => {
 		render(CharacterPage);
 
 		expect(await screen.findByTestId('character-health')).toHaveTextContent('7/12');
-		expect(postMessageSpy).not.toHaveBeenCalled();
+		const update = await findUpdateActorPayload(postMessageSpy);
+		expect(update.hp).toEqual({ value: 7, max: 12 });
+		expect(update.hp).not.toEqual({ value: 10, max: 11 });
+		expect(update).toMatchObject({
+			name: 'Test Character',
+			speed: 9,
+			initiative: 3,
+		});
 	});
 
 	it('FEAT foundry-health-precedence — token actor startup hydration uses token actor HP', async () => {
@@ -115,8 +122,85 @@ describe('Embedded character Foundry health precedence', () => {
 		render(CharacterPage);
 
 		expect(await screen.findByTestId('character-health')).toHaveTextContent('3/9');
-		expect(postMessageSpy).not.toHaveBeenCalled();
+		const update = await findUpdateActorPayload(postMessageSpy);
+		expect(update.hp).toEqual({ value: 3, max: 9 });
 	});
+
+	it('FEAT foundry-character-startup-sync — invalid zero over zero startup health is ignored for a fresh actor', async () => {
+		mockPageStore.set({
+			params: { userId: 'user-1', characterId: 'char-1' },
+			url: new URL(
+				'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&startHp=0&startMax=0',
+			),
+		});
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10 })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+
+		expect(await screen.findByTestId('character-health')).toHaveTextContent('10/11');
+		const update = await findUpdateActorPayload(postMessageSpy);
+		expect(update.hp).toEqual({ value: 10, max: 11 });
+		expect(update.hp?.max).toBeGreaterThan(0);
+	});
+
+	it('FEAT foundry-character-startup-sync — opening a Foundry character sheet syncs name image speed and initiative', async () => {
+		mockPageStore.set({
+			params: { userId: 'user-1', characterId: 'char-1' },
+			url: new URL(
+				'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123',
+			),
+		});
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10, img: 'https://example.com/token.png' })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+
+		expect(await screen.findByTestId('character-health')).toHaveTextContent('10/11');
+		const update = await findUpdateActorPayload(postMessageSpy);
+		expect(update).toMatchObject({
+			name: 'Test Character',
+			imageUrl: 'mock-token-url',
+			imageSource: 'https://example.com/token.png',
+			speed: 9,
+			initiative: 3,
+		});
+	});
+
+	it.each([
+		['0/0', 'startHp=0&startMax=0'],
+		['missing/0', 'startMax=0'],
+		['NaN/12', 'startHp=NaN&startMax=12'],
+		['5/NaN', 'startHp=5&startMax=NaN'],
+	])(
+		'FEAT foundry-character-startup-sync — startup health validation prevents invalid Health Estimate fractions for %s',
+		async (_label, startupQuery) => {
+			mockPageStore.set({
+				params: { userId: 'user-1', characterId: 'char-1' },
+				url: new URL(
+					`http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&${startupQuery}`,
+				),
+			});
+			firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+				callback([createCharacterRaw({ currentHP: 10 })]);
+				return vi.fn();
+			});
+
+			render(CharacterPage);
+
+			expect(await screen.findByTestId('character-health')).toHaveTextContent('10/11');
+			const update = await findUpdateActorPayload(postMessageSpy);
+			expect(update.hp?.value).toEqual(expect.any(Number));
+			expect(update.hp?.max).toEqual(expect.any(Number));
+			expect(Number.isFinite(update.hp?.value)).toBe(true);
+			expect(Number.isFinite(update.hp?.max)).toBe(true);
+			expect(update.hp?.max).toBeGreaterThan(0);
+		},
+	);
 
 	it('FEAT foundry-health-precedence — Foundry-originated health does not echo stale HP and later user edits still sync', async () => {
 		mockPageStore.set({
@@ -150,7 +234,22 @@ describe('Embedded character Foundry health precedence', () => {
 	});
 });
 
-function createCharacterRaw({ currentHP, body = 2 }: { currentHP: number; body?: number }) {
+async function findUpdateActorPayload(postMessageSpy: ReturnType<typeof vi.fn>) {
+	await waitFor(() => expect(postMessageSpy).toHaveBeenCalled());
+	const call = postMessageSpy.mock.calls.find(([message]) => message?.type === 'UPDATE_ACTOR');
+	expect(call).toBeDefined();
+	return call?.[0].payload;
+}
+
+function createCharacterRaw({
+	currentHP,
+	body = 2,
+	img = null,
+}: {
+	currentHP: number;
+	body?: number;
+	img?: string | null;
+}) {
 	return {
 		id: 'char-1',
 		name: 'Test Character',
@@ -163,7 +262,7 @@ function createCharacterRaw({ currentHP, body = 2 }: { currentHP: number; body?:
 		currentHP,
 		tempHP: 0,
 		currentLuck: 0,
-		img: null,
+		img,
 		party: { partyId: null, ownerId: null },
 		narrativeContext: { appearance: '', background: '', beliefs: '' },
 		notes: [],

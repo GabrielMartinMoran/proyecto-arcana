@@ -199,6 +199,19 @@ describe('useFoundryVTTService', () => {
 			expect(payload.payload.hp.max).toBe(8);
 		});
 
+		it('FEAT foundry-actor-speed-synchronization — NPC speed is sent to Foundry', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const creature = createTestCreature();
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature);
+
+			expect(postMessageSpy).toHaveBeenCalledTimes(1);
+			expect(postMessageSpy.mock.calls[0][0].payload.speed).toBe(6);
+		});
+
 		it('does not send message when not in Foundry mode', async () => {
 			mockPage.set({
 				url: new URL('http://localhost/'),
@@ -263,6 +276,19 @@ describe('useFoundryVTTService', () => {
 			await syncCharacterState(character);
 
 			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 10, -15);
+		});
+
+		it('FEAT foundry-actor-speed-synchronization — character speed is sent to Foundry', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const character = createTestCharacter({ speed: 7, img: null });
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+
+			expect(postMessageSpy).toHaveBeenCalledTimes(1);
+			expect(postMessageSpy.mock.calls[0][0].payload.speed).toBe(7);
 		});
 
 		it('uses default offset 0 when URL params are missing', async () => {

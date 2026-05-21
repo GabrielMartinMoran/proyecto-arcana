@@ -1,5 +1,6 @@
 import { ArcanaCombat } from '../combat/arcana-combat';
 import { CharacterData, NPCData } from '../data-models/actor-data-model';
+import { ArcanaTokenRuler } from '../ruler/arcana-token-ruler';
 import { ArcanaSheetV2 } from '../sheets/arcana-sheet-v2';
 import { ArcanaActorDirectory } from '../sidebar/actor-directory';
 
@@ -29,6 +30,8 @@ export function init(): void {
 	// Register Custom Combat Class
 	// @ts-expect-error - ArcanaCombat return types differ from generic Combat<SubType>
 	CONFIG.Combat.documentClass = ArcanaCombat;
+
+	(CONFIG.Token as any).rulerClass = ArcanaTokenRuler;
 
 	// Set default initiative formula (uses system data model)
 	CONFIG.Combat.initiative = {

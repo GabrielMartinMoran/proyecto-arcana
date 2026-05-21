@@ -7,6 +7,11 @@ bun.lockb
 
 # Miscellaneous
 /static/assets/
+.agents/**
 
 # Generated reference output
 /tools/arcana-skill-builder/out/
+
+# Generated Foundry output
+foundryvtt-module/arcana/main.js
+foundryvtt-module/arcana/dist/**

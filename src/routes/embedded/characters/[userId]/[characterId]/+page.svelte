@@ -127,23 +127,28 @@
 		}
 	}
 
+	function getValidStartupFoundryHealth(): { value: number; max: number } | null {
+		const params = get(foundryParams);
+		if (params.startHp === null || params.startMax === null) return null;
+
+		const value = Number(params.startHp);
+		const max = Number(params.startMax);
+		if (!Number.isFinite(value) || !Number.isFinite(max) || max <= 0) return null;
+
+		return { value, max };
+	}
+
 	function applyStartupFoundryHealth(ch: Character): { character: Character; hydrated: boolean } {
 		const params = get(foundryParams);
-		if (
-			hasAppliedStartupFoundryHealth ||
-			!params.isFoundry ||
-			params.startHp === null ||
-			params.startMax === null
-		) {
+		if (hasAppliedStartupFoundryHealth || !params.isFoundry) {
 			return { character: ch, hydrated: false };
 		}
 		hasAppliedStartupFoundryHealth = true;
+		const hp = getValidStartupFoundryHealth();
+		if (!hp) return { character: ch, hydrated: false };
 
 		return {
-			character: applyFoundryHealthToCharacter(ch, {
-				value: Number(params.startHp),
-				max: Number(params.startMax),
-			}),
+			character: applyFoundryHealthToCharacter(ch, hp),
 			hydrated: true,
 		};
 	}
@@ -152,7 +157,7 @@
 		const hydrated = applyStartupFoundryHealth(ch);
 		ch = hydrated.character;
 		character = ch;
-		if (isInsideFoundry() && !hydrated.hydrated) {
+		if (isInsideFoundry()) {
 			syncCharacterState(character);
 		}
 	};

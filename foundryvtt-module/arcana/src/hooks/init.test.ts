@@ -11,6 +11,7 @@ describe('FEAT foundry-v14-health-sync — init token resources', () => {
 		});
 		vi.stubGlobal('CONFIG', {
 			Actor: {},
+			Token: {},
 			Combat: {},
 			ui: {},
 		});
@@ -23,6 +24,7 @@ describe('FEAT foundry-v14-health-sync — init token resources', () => {
 			CharacterData: class {},
 			NPCData: class {},
 		}));
+		vi.doMock('../ruler/arcana-token-ruler', () => ({ ArcanaTokenRuler: class {} }));
 		vi.doMock('../sheets/arcana-sheet-v2', () => ({ ArcanaSheetV2: class {} }));
 		vi.doMock('../sidebar/actor-directory', () => ({ ArcanaActorDirectory: class {} }));
 	});
@@ -36,5 +38,14 @@ describe('FEAT foundry-v14-health-sync — init token resources', () => {
 			character: { bar: ['health'] },
 			npc: { bar: ['health'] },
 		});
+	});
+
+	it('FEAT foundry-token-movement-ruler-speed-colors — registers the Arcana token ruler class', async () => {
+		const { init } = await import('./init');
+		const { ArcanaTokenRuler } = await import('../ruler/arcana-token-ruler');
+
+		init();
+
+		expect(CONFIG.Token.rulerClass).toBe(ArcanaTokenRuler);
 	});
 });

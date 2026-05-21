@@ -3,6 +3,11 @@ import { isCharacterURL, isDevelopURL } from '../helpers/actor-urls';
 import type { ArcanaActor, UpdatePayload } from '../types/actor';
 import type { UpdateActorData } from '../types/messages';
 
+type TokenDocumentLike = {
+	object?: { drawBars?: () => void };
+	update?: (data: Record<string, any>) => Promise<void>;
+};
+
 /**
  * Service responsible for updating actor data from external sources
  * Follows Single Responsibility Principle and Dependency Inversion
@@ -89,7 +94,24 @@ export class ActorUpdater {
 			hasChanges = true;
 		}
 
+		if (payload.speed !== undefined) {
+			const speedUpdate = this.buildSpeedUpdate(actor, payload.speed);
+			if (speedUpdate) {
+				Object.assign(changes, speedUpdate);
+				hasChanges = true;
+			}
+		}
+
 		return { changes, hasChanges };
+	}
+
+	private buildSpeedUpdate(actor: ArcanaActor, speed: number): Record<string, any> | null {
+		const oldSpeed = safeNum(actor.system.speed);
+		const newSpeed = safeNum(speed);
+
+		if (newSpeed === oldSpeed) return null;
+
+		return { 'system.speed': newSpeed };
 	}
 
 	/**
@@ -202,7 +224,7 @@ export class ActorUpdater {
 		changes: Record<string, any>,
 		_payload: UpdatePayload,
 	): Promise<void> {
-		const tokensToUpdate = actor.isToken ? [actor.token] : actor.getActiveTokens();
+		const tokensToUpdate = this.getTokenDocuments(actor);
 		const tokenUpdates: Record<string, any> = {};
 		let needsTokenUpdate = false;
 
@@ -216,13 +238,24 @@ export class ActorUpdater {
 		}
 
 		for (const t of tokensToUpdate) {
-			if (needsTokenUpdate) {
+			if (needsTokenUpdate && t.update) {
 				await t.update(tokenUpdates);
 			}
 			if (_payload.hp) {
-				t.object?.drawBars();
+				t.object?.drawBars?.();
 			}
 		}
+	}
+
+	private getTokenDocuments(actor: ArcanaActor): TokenDocumentLike[] {
+		if (actor.isToken) {
+			return actor.token ? [actor.token] : [];
+		}
+
+		return (actor.getActiveTokens as (linked: boolean, document: boolean) => TokenDocumentLike[])(
+			false,
+			true,
+		);
 	}
 
 	/**

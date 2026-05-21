@@ -3,7 +3,62 @@
  * collapsible window and bring the next one to the front.
  */
 
-function isCollapsible(app: any): boolean {
+type CollapsibleWindow = {
+	_minimized?: boolean;
+	bringToFront?: () => void;
+	bringToTop?: () => void;
+	close: () => void;
+	hasFrame?: boolean;
+	minimized?: boolean;
+	options?: {
+		minimizable?: boolean;
+		window?: { minimizable?: boolean };
+	};
+	popOut?: boolean;
+	position?: { zIndex?: number };
+	rendered?: boolean;
+};
+
+type FoundryApplications = {
+	applications?: {
+		instances?: { values: () => Iterable<CollapsibleWindow> };
+	};
+};
+
+type FoundryTour = {
+	close?: () => void;
+	tourInProgress?: boolean;
+};
+
+type FoundryCanvas = {
+	activeLayer?: {
+		controlled?: unknown[];
+		releaseAll?: () => void;
+	};
+};
+
+type FoundryNotifications = {
+	closeAll?: () => void;
+	queue?: unknown[];
+};
+
+function getFoundryApplications(): FoundryApplications {
+	return globalThis.foundry as FoundryApplications;
+}
+
+function getFoundryTour(): FoundryTour | undefined {
+	return (globalThis as typeof globalThis & { Tour?: FoundryTour }).Tour;
+}
+
+function getFoundryCanvas(): FoundryCanvas | undefined {
+	return (globalThis as typeof globalThis & { canvas?: FoundryCanvas }).canvas;
+}
+
+function getFoundryNotifications(): FoundryNotifications | undefined {
+	return (ui as typeof ui & { notifications?: FoundryNotifications }).notifications;
+}
+
+function isCollapsible(app: CollapsibleWindow | undefined): boolean {
 	if (!app) return false;
 	// V2
 	if (app.options?.window?.minimizable === true && app.hasFrame === true) return true;
@@ -12,21 +67,20 @@ function isCollapsible(app: any): boolean {
 	return false;
 }
 
-function isMinimized(app: any): boolean {
+function isMinimized(app: CollapsibleWindow | undefined): boolean {
 	if (!app) return false;
 	return Boolean(app.minimized) || Boolean(app._minimized);
 }
 
-function getAllWindows(): any[] {
-	const v1 = Object.values(ui.windows ?? {});
-	// @ts-expect-error — foundry.applications.instances is not typed in v13-beta types
-	const v2 = Array.from(foundry.applications?.instances?.values() ?? []).filter(
-		(app) => (app as any).rendered === true,
+function getAllWindows(): CollapsibleWindow[] {
+	const v1 = Object.values(ui.windows ?? {}) as unknown as CollapsibleWindow[];
+	const v2 = Array.from(getFoundryApplications().applications?.instances?.values() ?? []).filter(
+		(app) => app.rendered === true,
 	);
 	return [...v1, ...v2];
 }
 
-function getActiveCollapsibleWindow(windows: any[]): any | undefined {
+function getActiveCollapsibleWindow(windows: CollapsibleWindow[]): CollapsibleWindow | undefined {
 	const active = windows
 		.filter((w) => !isMinimized(w))
 		.sort((a, b) => (b.position?.zIndex ?? 0) - (a.position?.zIndex ?? 0))[0];
@@ -34,7 +88,7 @@ function getActiveCollapsibleWindow(windows: any[]): any | undefined {
 	return undefined;
 }
 
-function bringWindowToFront(app: any): void {
+function bringWindowToFront(app: CollapsibleWindow | undefined): void {
 	if (!app) return;
 	if (typeof app.bringToFront === 'function') {
 		app.bringToFront();
@@ -61,9 +115,9 @@ export function setupEscInterceptor(): void {
 			}
 
 			// Priority 2: Tours
-			if (typeof globalThis.Tour !== 'undefined' && globalThis.Tour.tourInProgress) {
-				// @ts-expect-error
-				globalThis.Tour.close?.();
+			const tour = getFoundryTour();
+			if (tour?.tourInProgress) {
+				tour.close?.();
 				return true;
 			}
 
@@ -86,27 +140,24 @@ export function setupEscInterceptor(): void {
 				(a, b) => (b.position?.zIndex ?? 0) - (a.position?.zIndex ?? 0),
 			)[0];
 			if (frontmost && isCollapsible(frontmost) && isMinimized(frontmost)) {
-				// @ts-expect-error
-				if (globalThis.canvas?.activeLayer?.controlled?.length) {
-					// @ts-expect-error
-					globalThis.canvas.activeLayer.releaseAll?.();
+				const canvas = getFoundryCanvas();
+				if (canvas?.activeLayer?.controlled?.length) {
+					canvas.activeLayer.releaseAll?.();
 				}
 				return true;
 			}
 
 			// Priority 5: Canvas selection
-			// @ts-expect-error
-			if (globalThis.canvas?.activeLayer?.controlled?.length) {
-				// @ts-expect-error
-				globalThis.canvas.activeLayer.releaseAll?.();
+			const canvas = getFoundryCanvas();
+			if (canvas?.activeLayer?.controlled?.length) {
+				canvas.activeLayer.releaseAll?.();
 				return true;
 			}
 
 			// Priority 6: Notifications
-			// @ts-expect-error
-			if (ui.notifications?.queue?.length) {
-				// @ts-expect-error
-				ui.notifications.closeAll?.();
+			const notifications = getFoundryNotifications();
+			if (notifications?.queue?.length) {
+				notifications.closeAll?.();
 				return true;
 			}
 

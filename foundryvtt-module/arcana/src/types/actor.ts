@@ -11,6 +11,7 @@ export interface ActorSystemData {
 	health?: HealthData;
 	initiative?: number;
 	nightVision?: string;
+	speed?: number;
 }
 
 export interface ArcanaFlags {
@@ -67,6 +68,7 @@ export interface UpdatePayload {
 	name?: string;
 	imageUrl?: string;
 	imageSource?: string;
+	speed?: number;
 	hp?: {
 		value: number;
 		max: number;

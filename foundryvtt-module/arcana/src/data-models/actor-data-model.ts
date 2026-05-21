@@ -13,6 +13,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 			}),
 			initiative: new fields.NumberField({ initial: 0 }),
 			nightVision: new fields.StringField({ initial: 'none' }),
+			speed: new fields.NumberField({ initial: 0, min: 0 }),
 		};
 	}
 }
@@ -27,6 +28,7 @@ export class NPCData extends foundry.abstract.TypeDataModel {
 			}),
 			initiative: new fields.NumberField({ initial: 0 }),
 			nightVision: new fields.StringField({ initial: 'none' }),
+			speed: new fields.NumberField({ initial: 0, min: 0 }),
 		};
 	}
 }
