@@ -105,7 +105,8 @@ cards:
     requirements: Solo Creación de Personaje
     description: >-
       _Tus ojos ven más allá de la simple luz y la sombra._<br><br>
-      Obtienes Visión en la Oscuridad. Además, puedes usar tu Acción para abrir tus sentidos al mundo invisible durante 1 minuto, volviéndote consciente de la presencia y ubicación de cualquier criatura invisible o escondida a 10 metros de ti. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
+      Obtienes Visión en la Oscuridad hasta distancia Cercana.<br>
+      Además, puedes usar tu Acción para abrir tus sentidos al mundo invisible durante 1 minuto, volviéndote consciente de la presencia y ubicación de cualquier criatura invisible o escondida a 10 metros de ti. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
     uses:
       type: null
       qty: 0
@@ -146,7 +147,8 @@ cards:
     requirements: Solo Creación de Personaje
     description: >-
       _Tu conexión con la piedra es tan profunda que puedes sentir las vibraciones a través de ella._<br><br>
-      Obtienes Visión en la Oscuridad. Además, mientras estés en contacto con una superficie de piedra o tierra, puedes usar tu Interacción para "escuchar" el suelo. Hasta el inicio de tu próximo turno, eres consciente de la ubicación y movimiento de cualquier criatura en contacto con la misma superficie a 10 metros de ti. Puedes usar esta habilidad un número de veces igual a tu puntuación de Instinto por día de descanso.
+      Obtienes Visión en la Oscuridad hasta distancia Cercana.<br>
+      Además, mientras estés en contacto con una superficie de piedra o tierra, puedes usar tu Interacción para "escuchar" el suelo. Hasta el inicio de tu próximo turno, eres consciente de la ubicación y movimiento de cualquier criatura en contacto con la misma superficie a 10 metros de ti. Puedes usar esta habilidad un número de veces igual a tu puntuación de Instinto por día de descanso.
     uses:
       type: null
       qty: 0
@@ -188,7 +190,8 @@ cards:
     requirements: Solo Creación de Personaje
     description: >-
       _Eres un maestro en el arte de la distracción._<br><br>
-      Obtienes Visión en la Oscuridad. Además, cuando un enemigo declara un ataque contra ti pero antes de que realice la tirada, puedes usar tu Reacción para crear una breve ilusión de ti mismo. El enemigo debe superar una TS de Instinto (ND 5 + Mente). Si falla, el ataque se redirige a la ilusión y falla. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
+      Obtienes Visión en la Oscuridad hasta distancia Cercana.<br>
+      Además, cuando un enemigo declara un ataque contra ti pero antes de que realice la tirada, puedes usar tu Reacción para crear una breve ilusión de ti mismo. El enemigo debe superar una TS de Instinto (ND 5 + Mente). Si falla, el ataque se redirige a la ilusión y falla. Puedes usar esta habilidad un número de veces igual a tu puntuación de Mente por día de descanso.
     uses:
       type: null
       qty: 0
@@ -276,7 +279,8 @@ cards:
     requirements: Solo Creación de Personaje
     description: >-
       _Puedes hacer un pacto con tu propia sangre para forzar el destino cuando más lo necesites._<br><br>
-      Obtienes Visión en la Oscuridad. Además, una vez por día de descanso, puedes elegir sacar un 8 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br>
+      Obtienes Visión en la Oscuridad hasta distancia Cercana.<br>
+      Además, una vez por día de descanso, puedes elegir sacar un 8 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br>
       Al hacerlo, obtienes un "Dado de Deuda" (un d6). Mientras tengas este dado, la próxima vez que debas realizar una tirada de ataque, prueba de habilidad o tirada de salvación, debes lanzar el Dado de Deuda junto con tu tirada normal.<br>
       - Si el Dado de Deuda resulta en un 1, tu tirada se considera un fallo crítico independientemente de tu resultado, y la deuda se salda (el dado se retira).<br>
       - Si el resultado es cualquier otro número, no ocurre nada adicional y conservas el Dado de Deuda para tu siguiente tirada.
@@ -334,7 +338,7 @@ cards:
     requirements: Solo Creación de Personaje
     description: >-
       _Tus ojos brillan con una intensidad de otro mundo._<br><br>
-      Obtienes Visión en la Oscuridad.<br>
+      Obtienes Visión en la Oscuridad hasta distancia Cercana.<br>
       Adicionalmente, tu mirada refleja la ancestral sabiduría y poder de tu linaje. Al finalizar un día de descanso, eliges uno de los siguientes focos para tu mirada. Hasta tu próximo día de descanso, obtienes Ventaja (+1d4) en todas las pruebas de habilidad de la pericia elegida:<br>
       - **Foco del Terror:** Intimidación.<br>
       - **Foco de la Verdad:** Perspicacia.<br>
