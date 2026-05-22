@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { CreatureAction } from '$lib/types/creature';
+	import InlineRollText from './InlineRollText.svelte';
 
-	type Props = { action: CreatureAction };
-	let { action }: Props = $props();
+	type Props = { action: CreatureAction; rollTitle: string };
+	let { action, rollTitle }: Props = $props();
 </script>
 
 <div class="action">
@@ -13,6 +14,6 @@
 			: ''}:</strong
 	>
 	<span>
-		{action.detail}
+		<InlineRollText text={action.detail} {rollTitle} />
 	</span>
 </div>

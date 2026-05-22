@@ -5,8 +5,10 @@
 	import type { Creature, CreatureAttack } from '$lib/types/creature';
 	import { parseCreatureDamageExpression } from '$lib/utils/dice-rolling';
 	import { capitalize } from '$lib/utils/formatting';
+	import { marked } from 'marked';
 	import { CONFIG } from '../../../config';
 	import CreatureAction from './CreatureAction.svelte';
+	import InlineRollText from './InlineRollText.svelte';
 
 	type Props = { creature: Creature };
 	let { creature }: Props = $props();
@@ -44,6 +46,8 @@
 			title: `${creature.name}: Daño de ${attack.name}`,
 		});
 	};
+
+	const inlineRollTitle = (sourceName: string) => `${creature.name}: ${sourceName}`;
 
 	// Copy embedded bestiary URL for this creature to clipboard
 	const copyEmbeddedURL = async () => {
@@ -104,34 +108,46 @@
 			</div>
 			<div class="attribute">
 				<strong>Esquiva</strong>
-				<span
-					>{creature.stats.evasion.value}{creature.stats.evasion.note
-						? ` (${creature.stats.evasion.note})`
-						: ''}</span
+				<span>
+					{creature.stats.evasion.value}{#if creature.stats.evasion.note}
+						(<InlineRollText
+							text={creature.stats.evasion.note}
+							rollTitle={inlineRollTitle('Esquiva')}
+						/>)
+					{/if}</span
 				>
 			</div>
 			<div class="attribute">
 				<strong>Mitigación Física</strong>
-				<span
-					>{creature.stats.physicalMitigation.value}{creature.stats.physicalMitigation.note
-						? ` (${creature.stats.physicalMitigation.note})`
-						: ''}</span
+				<span>
+					{creature.stats.physicalMitigation.value}{#if creature.stats.physicalMitigation.note}
+						(<InlineRollText
+							text={creature.stats.physicalMitigation.note}
+							rollTitle={inlineRollTitle('Mitigación Física')}
+						/>)
+					{/if}</span
 				>
 			</div>
 			<div class="attribute">
 				<strong>Mitigación Mágica</strong>
-				<span
-					>{creature.stats.magicalMitigation.value}{creature.stats.magicalMitigation.note
-						? ` (${creature.stats.magicalMitigation.note})`
-						: ''}</span
+				<span>
+					{creature.stats.magicalMitigation.value}{#if creature.stats.magicalMitigation.note}
+						(<InlineRollText
+							text={creature.stats.magicalMitigation.note}
+							rollTitle={inlineRollTitle('Mitigación Mágica')}
+						/>)
+					{/if}</span
 				>
 			</div>
 			<div class="attribute">
 				<strong>Velocidad</strong>
-				<span
-					>{creature.stats.speed.value}{creature.stats.speed.note
-						? ` (${creature.stats.speed.note})`
-						: ''}</span
+				<span>
+					{creature.stats.speed.value}{#if creature.stats.speed.note}
+						(<InlineRollText
+							text={creature.stats.speed.note}
+							rollTitle={inlineRollTitle('Velocidad')}
+						/>)
+					{/if}</span
 				>
 			</div>
 			<div class="attribute">
@@ -161,7 +177,12 @@
 							{#each creature.traits as trait (trait.name)}
 								<li>
 									<strong>{trait.name}: </strong>
-									<span>{trait.detail}</span>
+									<span
+										><InlineRollText
+											text={trait.detail}
+											rollTitle={inlineRollTitle(trait.name)}
+										/></span
+									>
 								</li>
 							{/each}
 						</ul>
@@ -179,7 +200,12 @@
 											>{attack.bonus > 0 ? '+' + attack.bonus : attack.bonus} 🎯</button
 										>
 										<button onclick={() => rollDamage(attack)}>{attack.damage} 💥</button
-										>{attack.note ? attack.note : ''}
+										>{#if attack.note}<span class="description"
+												><InlineRollText
+													text={attack.note}
+													rollTitle={inlineRollTitle(attack.name)}
+												/></span
+											>{/if}
 									</span>
 								</li>
 							{/each}
@@ -192,7 +218,7 @@
 						<ul>
 							{#each creature.actions as action (action.name)}
 								<li>
-									<CreatureAction {action} />
+									<CreatureAction {action} rollTitle={inlineRollTitle(action.name)} />
 								</li>
 							{/each}
 						</ul>
@@ -204,7 +230,7 @@
 						<ul>
 							{#each creature.reactions as reaction (reaction.name)}
 								<li>
-									<CreatureAction action={reaction} />
+									<CreatureAction action={reaction} rollTitle={inlineRollTitle(reaction.name)} />
 								</li>
 							{/each}
 						</ul>
@@ -216,15 +242,20 @@
 						<ul>
 							{#each creature.interactions as interaction (interaction.name)}
 								<li>
-									<CreatureAction action={interaction} />
+									<CreatureAction
+										action={interaction}
+										rollTitle={inlineRollTitle(interaction.name)}
+									/>
 								</li>
 							{/each}
 						</ul>
 					</div>
 				{/if}
 				<div class="behavior">
-					<strong>Comportamiento: </strong>
-					<span>{creature.behavior}</span>
+					<strong>Comportamiento</strong>
+					<span class="behavior-text">
+						{@html marked.parse(creature.behavior)}
+					</span>
 				</div>
 			</div>
 			{#if creature.img}
@@ -325,7 +356,17 @@
 
 				.attacks {
 					button {
-						margin-left: var(--spacing-sm);
+						display: inline;
+						margin: 0 0.125rem;
+						padding: 0.1rem var(--spacing-xs);
+						border: 1px solid var(--border-color);
+						background: var(--secondary-bg);
+						font: inherit;
+						cursor: pointer;
+					}
+
+					.description {
+						margin-left: var(--spacing-xs);
 					}
 				}
 
