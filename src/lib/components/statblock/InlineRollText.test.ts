@@ -27,7 +27,7 @@ describe('InlineRollText', () => {
 		});
 
 		expect(document.body).toHaveTextContent('Inflige');
-		expect(screen.getByRole('button', { name: '1d6' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: '1d6 🎲' })).toBeInTheDocument();
 		expect(document.body).toHaveTextContent('de daño');
 	});
 
@@ -39,7 +39,7 @@ describe('InlineRollText', () => {
 			},
 		});
 
-		await fireEvent.click(screen.getByRole('button', { name: '1d8+1' }));
+		await fireEvent.click(screen.getByRole('button', { name: '1d8+1 🎲' }));
 
 		expect(mocks.rollExpression).toHaveBeenCalledWith({
 			expression: '1d8+1',
@@ -56,7 +56,7 @@ describe('InlineRollText', () => {
 		});
 
 		expect(screen.getByText('<img src=x onerror=alert(1)> causa')).toBeInTheDocument();
-		expect(screen.getByRole('button', { name: '1d6' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: '1d6 🎲' })).toBeInTheDocument();
 		expect(document.querySelector('img')).toBeNull();
 	});
 });

@@ -13,6 +13,7 @@
  */
 
 import { createParty as factoryCreateParty } from '$lib/factories/party-factory';
+import { createCharacterSyncCoordinator } from '$lib/services/character-sync-coordinator';
 import { useFirebaseService } from '$lib/services/firebase-service';
 import { Character } from '$lib/types/character';
 import { Party } from '$lib/types/party';
@@ -29,12 +30,6 @@ const state = {
 	scheduledStoreUpdate: null as NodeJS.Timeout | null,
 };
 
-type PendingCharacterSave = {
-	timeout: NodeJS.Timeout | null;
-	inFlight: boolean;
-	character: Character | null;
-};
-
 let currentUserId: string | null = null;
 let unsubscribeAuth: (() => void) | null = null;
 let unsubscribeRemote: (() => void) | null = null;
@@ -43,13 +38,24 @@ let applyingRemoteUpdate = false;
 // Track last local edit timestamps per party and previous saved snapshots (plain payload)
 const lastLocalPartyEditAt: Record<string, number> = {};
 const prevPartySnapshotById: Map<string, string> = new Map();
-const lastLocalCharacterEditAt: Record<string, number> = {};
-const pendingCharacterSavesByKey: Map<string, PendingCharacterSave> = new Map();
 
 const firebase = useFirebaseService();
 
-const getPartyCharacterSyncKey = (ownerId: string, characterId: string) =>
-	`${ownerId}:${characterId}`;
+const partyCharacterSync = createCharacterSyncCoordinator<Character>({
+	debounceMs: UPDATE_STORE_DEBOUNCE_MS,
+	localEditGuardMs: LOCAL_EDIT_GUARD_MS,
+	clone: (character) => new Character(character),
+	saveLatest: async (ownerId, character) => {
+		await firebase.saveCharactersForUser(ownerId, [character]);
+		console.debug('[parties-service] saved party member character to remote', {
+			ownerId,
+			characterId: character.id,
+		});
+	},
+	onSaveError: (err) => {
+		console.error('[parties-service] Error saving party member character to remote:', err);
+	},
+});
 
 const getCharacterOwnerId = (party: Party, characterId: string) => {
 	for (const ownerId of Object.keys(party.members)) {
@@ -58,56 +64,7 @@ const getCharacterOwnerId = (party: Party, characterId: string) => {
 	return null;
 };
 
-const getPendingCharacterSave = (key: string): PendingCharacterSave => {
-	const existing = pendingCharacterSavesByKey.get(key);
-	if (existing) return existing;
-	const created = { timeout: null, inFlight: false, character: null };
-	pendingCharacterSavesByKey.set(key, created);
-	return created;
-};
-
-const savePendingPartyCharacter = async (key: string, ownerId: string) => {
-	const pending = pendingCharacterSavesByKey.get(key);
-	if (!pending || pending.inFlight) return;
-	const character = pending.character;
-	if (!character) {
-		pendingCharacterSavesByKey.delete(key);
-		return;
-	}
-
-	pending.character = null;
-	pending.inFlight = true;
-	try {
-		await firebase.saveCharactersForUser(ownerId, [character]);
-		console.debug('[parties-service] saved party member character to remote', {
-			ownerId,
-			characterId: character.id,
-		});
-	} catch (err) {
-		console.error('[parties-service] Error saving party member character to remote:', err);
-	} finally {
-		pending.inFlight = false;
-		if (pending.character) {
-			void savePendingPartyCharacter(key, ownerId);
-		} else {
-			pendingCharacterSavesByKey.delete(key);
-		}
-	}
-};
-
-const schedulePartyCharacterSave = (ownerId: string, character: Character) => {
-	const key = getPartyCharacterSyncKey(ownerId, character.id);
-	const pending = getPendingCharacterSave(key);
-	pending.character = new Character(character);
-	if (pending.timeout) clearTimeout(pending.timeout);
-	pending.timeout = setTimeout(() => {
-		pending.timeout = null;
-		void savePendingPartyCharacter(key, ownerId);
-	}, UPDATE_STORE_DEBOUNCE_MS);
-};
-
 const mergePartyCharacters = (party: Party, characters: Character[]) => {
-	const now = Date.now();
 	const remoteById = new Map<string, Character>();
 	for (const character of characters) {
 		if (character?.id) remoteById.set(character.id, character);
@@ -117,12 +74,7 @@ const mergePartyCharacters = (party: Party, characters: Character[]) => {
 	for (const character of characters) {
 		if (!character?.id) continue;
 		const ownerId = getCharacterOwnerId(party, character.id);
-		const syncKey = ownerId ? getPartyCharacterSyncKey(ownerId, character.id) : null;
-		const recentLocalEdit =
-			syncKey !== null &&
-			lastLocalCharacterEditAt[syncKey] !== undefined &&
-			now - lastLocalCharacterEditAt[syncKey] < LOCAL_EDIT_GUARD_MS;
-		if (recentLocalEdit) continue;
+		if (ownerId && partyCharacterSync.shouldIgnoreRemoteSnapshot(ownerId, character.id)) continue;
 
 		const instance = new Character(character);
 		const index = merged.findIndex((item) => item.id === character.id);
@@ -134,11 +86,7 @@ const mergePartyCharacters = (party: Party, characters: Character[]) => {
 		if (remoteById.has(character.id)) return true;
 		const ownerId = getCharacterOwnerId(party, character.id);
 		if (!ownerId) return false;
-		const syncKey = getPartyCharacterSyncKey(ownerId, character.id);
-		return (
-			lastLocalCharacterEditAt[syncKey] !== undefined &&
-			now - lastLocalCharacterEditAt[syncKey] < LOCAL_EDIT_GUARD_MS
-		);
+		return partyCharacterSync.shouldIgnoreRemoteSnapshot(ownerId, character.id);
 	});
 };
 
@@ -599,8 +547,7 @@ export const usePartiesService = () => {
 		if (!character?.id) throw new Error('character.id required');
 
 		const characterCopy = new Character(character);
-		const syncKey = getPartyCharacterSyncKey(ownerId, characterCopy.id);
-		lastLocalCharacterEditAt[syncKey] = Date.now();
+		partyCharacterSync.markLocalEdit(ownerId, characterCopy.id);
 
 		state.partiesStore.update((parties) => {
 			const index = parties.findIndex((party) => party.id === partyId);
@@ -621,7 +568,7 @@ export const usePartiesService = () => {
 			return updated;
 		});
 
-		if (firebase.isEnabled()) schedulePartyCharacterSave(ownerId, characterCopy);
+		if (firebase.isEnabled()) partyCharacterSync.scheduleSave(ownerId, characterCopy);
 	};
 
 	/**
@@ -686,6 +633,7 @@ export const usePartiesService = () => {
 		savePartyMemberCharacter,
 		deleteParty,
 		cleanup: () => {
+			partyCharacterSync.dispose();
 			// Cleanup subscriptions and listeners
 			if (unsubscribeAuth) {
 				try {

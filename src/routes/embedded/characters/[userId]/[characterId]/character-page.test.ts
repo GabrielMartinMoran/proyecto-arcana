@@ -78,8 +78,109 @@ describe('Embedded character Foundry health precedence', () => {
 	});
 
 	afterEach(() => {
+		vi.useRealTimers();
 		vi.clearAllMocks();
 		vi.unstubAllGlobals();
+	});
+
+	it('FEAT embedded-character-sync — recent embedded edits are not overwritten by stale remote snapshots', async () => {
+		vi.useFakeTimers();
+		let charactersListener: ((characters: unknown[]) => void) | undefined;
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			charactersListener = callback;
+			callback([createCharacterRaw({ currentHP: 10, attackName: 'Old Strike' })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+		const attackInput = await screen.findByTestId('attack-name-input');
+		expect(attackInput).toHaveValue('Old Strike');
+
+		await fireEvent.input(attackInput, { target: { value: 'Local Strike' } });
+		expect(await screen.findByTestId('attack-name-input')).toHaveValue('Local Strike');
+
+		charactersListener?.([createCharacterRaw({ currentHP: 10, attackName: 'Old Strike' })]);
+
+		expect(await screen.findByTestId('attack-name-input')).toHaveValue('Local Strike');
+	});
+
+	it('FEAT embedded-character-sync — rapid embedded edits save only the latest character state', async () => {
+		vi.useFakeTimers();
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10, attackName: 'Old Strike' })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+		const attackInput = await screen.findByTestId('attack-name-input');
+
+		await fireEvent.input(attackInput, { target: { value: 'A' } });
+		await vi.advanceTimersByTimeAsync(250);
+		await fireEvent.input(await screen.findByTestId('attack-name-input'), {
+			target: { value: 'AB' },
+		});
+		await vi.advanceTimersByTimeAsync(250);
+		await fireEvent.input(await screen.findByTestId('attack-name-input'), {
+			target: { value: 'ABC' },
+		});
+
+		expect(firebaseMock.saveCharactersForUser).not.toHaveBeenCalled();
+		await vi.advanceTimersByTimeAsync(500);
+		await flushPromises();
+
+		expect(firebaseMock.saveCharactersForUser).toHaveBeenCalledTimes(1);
+		expect(firebaseMock.saveCharactersForUser).toHaveBeenLastCalledWith(
+			'user-1',
+			expect.arrayContaining([
+				expect.objectContaining({
+					id: 'char-1',
+					attacks: expect.arrayContaining([expect.objectContaining({ name: 'ABC' })]),
+				}),
+			]),
+		);
+	});
+
+	it('FEAT embedded-character-sync — in-flight embedded saves are serialized latest-only', async () => {
+		vi.useFakeTimers();
+		const firstSave = createDeferred();
+		firebaseMock.saveCharactersForUser
+			.mockReturnValueOnce(firstSave.promise)
+			.mockResolvedValueOnce(undefined);
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10, attackName: 'Old Strike' })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+		const attackInput = await screen.findByTestId('attack-name-input');
+
+		await fireEvent.input(attackInput, { target: { value: 'First Strike' } });
+		await vi.advanceTimersByTimeAsync(500);
+		await flushPromises();
+		expect(firebaseMock.saveCharactersForUser).toHaveBeenCalledTimes(1);
+
+		await fireEvent.input(await screen.findByTestId('attack-name-input'), {
+			target: { value: 'Second Strike' },
+		});
+		expect(await screen.findByTestId('attack-name-input')).toHaveValue('Second Strike');
+
+		await vi.advanceTimersByTimeAsync(500);
+		await flushPromises();
+		expect(firebaseMock.saveCharactersForUser).toHaveBeenCalledTimes(1);
+
+		firstSave.resolve();
+		await flushPromises();
+
+		expect(firebaseMock.saveCharactersForUser).toHaveBeenCalledTimes(2);
+		expect(firebaseMock.saveCharactersForUser).toHaveBeenLastCalledWith(
+			'user-1',
+			expect.arrayContaining([
+				expect.objectContaining({
+					id: 'char-1',
+					attacks: expect.arrayContaining([expect.objectContaining({ name: 'Second Strike' })]),
+				}),
+			]),
+		);
 	});
 
 	it('FEAT foundry-character-startup-sync — valid Foundry startup health syncs identity without stale web health echo', async () => {
@@ -241,14 +342,29 @@ async function findUpdateActorPayload(postMessageSpy: ReturnType<typeof vi.fn>) 
 	return call?.[0].payload;
 }
 
+const flushPromises = async () => {
+	await Promise.resolve();
+	await Promise.resolve();
+};
+
+const createDeferred = () => {
+	let resolve!: () => void;
+	const promise = new Promise<void>((done) => {
+		resolve = done;
+	});
+	return { promise, resolve };
+};
+
 function createCharacterRaw({
 	currentHP,
 	body = 2,
 	img = null,
+	attackName = 'Old Strike',
 }: {
 	currentHP: number;
 	body?: number;
 	img?: string | null;
+	attackName?: string;
 }) {
 	return {
 		id: 'char-1',
@@ -268,7 +384,7 @@ function createCharacterRaw({
 		notes: [],
 		languages: '',
 		quickInfo: '',
-		attacks: [],
+		attacks: [{ id: 'attack-1', name: attackName }],
 		maxActiveCards: 3,
 		version: 1,
 		skills: [],

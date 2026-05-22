@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CharacterSheet from '$lib/components/character-sheet/CharacterSheet.svelte';
 	import RollModal from '$lib/components/RollModal.svelte';
+	import { createCharacterSyncCoordinator } from '$lib/services/character-sync-coordinator';
 	import { useFirebaseService } from '$lib/services/firebase-service';
 	import { useRollTargetService } from '$lib/services/roll-target-service';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
@@ -10,6 +11,9 @@
 	import { get } from 'svelte/store';
 	import { useFoundryVTTService } from '$lib/services/foundryvtt-service';
 	import '../../../../../app.css';
+
+	const EMBEDDED_SAVE_DEBOUNCE_MS = 500;
+	const EMBEDDED_LOCAL_EDIT_GUARD_MS = 1500;
 
 	// route params (will be retrieved on client mount)
 	let userId: string | undefined = undefined;
@@ -37,6 +41,18 @@
 	let unsubscribeShared: (() => void) | null = null;
 	let unsubscribeFoundryHealth: (() => void) | null = null;
 	let hasAppliedStartupFoundryHealth = false;
+	const embeddedCharacterSync = createCharacterSyncCoordinator<Character>({
+		debounceMs: EMBEDDED_SAVE_DEBOUNCE_MS,
+		localEditGuardMs: EMBEDDED_LOCAL_EDIT_GUARD_MS,
+		clone: (updated) => new Character(updated),
+		saveLatest: async (targetUserId, updated) => {
+			await (firebase as any).saveCharactersForUser(targetUserId, [updated]);
+		},
+		onSaveError: (e) => {
+			console.error('[embed-character] save failed', e);
+			errorDetails = shortMsg(e);
+		},
+	});
 
 	let currentTab = $state<string>('general');
 
@@ -83,23 +99,25 @@
 		}
 	}
 
-	async function persistCharacter(updated: Character) {
+	function canPersistCharacter(updated: Character): boolean {
 		try {
 			const u: any = get(firebase.user as any);
-			if (!u) return;
-			if (
+			if (!u) return false;
+			return Boolean(
 				u.uid === userId ||
-				(updated.party && updated.party.ownerId && u.uid === updated.party.ownerId)
-			) {
-				await (firebase as any).saveCharactersForUser(userId as string, [updated]);
-				if (isInsideFoundry()) {
-					syncCharacterState(updated);
-				}
-			}
+					(updated.party && updated.party.ownerId && u.uid === updated.party.ownerId),
+			);
 		} catch (e) {
-			console.error('[embed-character] save failed', e);
 			errorDetails = shortMsg(e);
+			return false;
 		}
+	}
+
+	function scheduleCharacterSave(updated: Character) {
+		if (!userId || !updated?.id) return;
+		embeddedCharacterSync.markLocalEdit(userId, updated.id);
+		if (!canPersistCharacter(updated)) return;
+		embeddedCharacterSync.scheduleSave(userId, updated);
 	}
 
 	function handleTabChange(tab: string) {
@@ -220,6 +238,16 @@
 					try {
 						const foundRaw = (chars || []).find((c) => c && c.id === characterId);
 						if (foundRaw) {
+							if (
+								character &&
+								userId &&
+								characterId &&
+								embeddedCharacterSync.shouldIgnoreRemoteSnapshot(userId, characterId)
+							) {
+								loading = false;
+								error = null;
+								return;
+							}
 							try {
 								setCharacter(new Character(foundRaw));
 							} catch (e) {
@@ -284,6 +312,7 @@
 	});
 
 	onDestroy(() => {
+		embeddedCharacterSync.dispose();
 		if (unsubscribeFoundryHealth) {
 			unsubscribeFoundryHealth();
 			unsubscribeFoundryHealth = null;
@@ -325,11 +354,13 @@
 				// update local, set roll target according to the (possibly changed) character,
 				// then persist if allowed. We intentionally don't await setting the target to
 				// avoid blocking UI; the dice-roller service will pick up the target change.
-				character = ch;
-				trySetRollTargetFromCharacter(ch);
-				persistCharacter(ch).catch((e) => {
-					console.error('[embed-character] persistCharacter error', e);
-				});
+				const updated = ch instanceof Character ? ch : new Character(ch);
+				character = updated;
+				if (isInsideFoundry()) {
+					syncCharacterState(updated);
+				}
+				trySetRollTargetFromCharacter(updated);
+				scheduleCharacterSave(updated);
 			}}
 			{currentTab}
 			onTabChange={handleTabChange}

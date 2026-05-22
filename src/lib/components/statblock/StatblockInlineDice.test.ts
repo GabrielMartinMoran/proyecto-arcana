@@ -74,11 +74,12 @@ describe('Statblock inline dice formula buttons', () => {
 			},
 		});
 
-		const buttons = screen
-			.getAllByRole('button')
-			.filter((button) => ['1d6 + 5 + 4d2', '2d6 + 3'].includes(button.textContent ?? ''));
+		const action = screen.getByText(/Explosión arcana/).closest('.action') as HTMLElement;
+		const buttons = within(action).getAllByRole('button', { name: /🎲$/ });
 
-		expect(buttons.map((button) => button.textContent)).toEqual(['1d6 + 5 + 4d2', '2d6 + 3']);
+		expect(buttons).toHaveLength(2);
+		expect(buttons[0]).toHaveAccessibleName('1d6 + 5 + 4d2 🎲');
+		expect(buttons[1]).toHaveAccessibleName('2d6 + 3 🎲');
 	});
 
 	it('FEAT-statblock-inline-dice @attack-notes — rolls attack note formulas with creature-prefixed attack name', async () => {
@@ -93,7 +94,7 @@ describe('Statblock inline dice formula buttons', () => {
 			},
 		});
 
-		await fireEvent.click(screen.getByRole('button', { name: '1d6 + 2' }));
+		await fireEvent.click(screen.getByRole('button', { name: '1d6 + 2 🎲' }));
 
 		expect(mocks.rollExpression).toHaveBeenCalledWith({
 			expression: '1d6+2',
@@ -111,7 +112,7 @@ describe('Statblock inline dice formula buttons', () => {
 			},
 		});
 
-		await fireEvent.click(screen.getByRole('button', { name: '1d8+1' }));
+		await fireEvent.click(screen.getByRole('button', { name: '1d8+1 🎲' }));
 
 		expect(mocks.rollExpression).toHaveBeenCalledWith({
 			expression: '1d8+1',
@@ -129,7 +130,7 @@ describe('Statblock inline dice formula buttons', () => {
 			},
 		});
 
-		await fireEvent.click(screen.getByRole('button', { name: '2d6' }));
+		await fireEvent.click(screen.getByRole('button', { name: '2d6 🎲' }));
 
 		expect(mocks.rollExpression).toHaveBeenCalledWith({
 			expression: '2d6',
@@ -148,7 +149,7 @@ describe('Statblock inline dice formula buttons', () => {
 			},
 		});
 
-		await fireEvent.click(screen.getByRole('button', { name: '1d6' }));
+		await fireEvent.click(screen.getByRole('button', { name: '1d6 🎲' }));
 
 		expect(mocks.rollExpression).toHaveBeenCalledWith({
 			expression: '1d6',
@@ -156,23 +157,61 @@ describe('Statblock inline dice formula buttons', () => {
 		});
 	});
 
+	it('FEAT-statblock-inline-dice @reactions @rolling — rolls reaction formulas with creature-prefixed reaction name', async () => {
+		render(Statblock, {
+			props: {
+				creature: buildCreature({
+					name: 'Bestia ígnea',
+					reactions: [{ name: 'Contraataque', detail: 'Responde con 2d6 + 3', uses: null }],
+				}),
+			},
+		});
+
+		await fireEvent.click(screen.getByRole('button', { name: '2d6 + 3 🎲' }));
+
+		expect(mocks.rollExpression).toHaveBeenCalledWith({
+			expression: '2d6+3',
+			title: 'Bestia ígnea: Contraataque',
+		});
+	});
+
+	it('FEAT-statblock-inline-dice @interactions @rolling — rolls interaction formulas with creature-prefixed interaction name', async () => {
+		render(Statblock, {
+			props: {
+				creature: buildCreature({
+					name: 'Bestia ígnea',
+					interactions: [
+						{ name: 'Amenaza arcana', detail: 'Fuerza una tirada de 3d4', uses: null },
+					],
+				}),
+			},
+		});
+
+		await fireEvent.click(screen.getByRole('button', { name: '3d4 🎲' }));
+
+		expect(mocks.rollExpression).toHaveBeenCalledWith({
+			expression: '3d4',
+			title: 'Bestia ígnea: Amenaza arcana',
+		});
+	});
+
 	it.each([
 		[
 			'Sangre ígnea',
 			{ traits: [{ name: 'Sangre ígnea', detail: 'Al ser golpeado causa 1d6' }] },
-			'1d6',
+			'1d6 🎲',
 		],
 		[
 			'Contraataque',
 			{ reactions: [{ name: 'Contraataque', detail: 'Responde con 2d6 + 3', uses: null }] },
-			'2d6 + 3',
+			'2d6 + 3 🎲',
 		],
 		[
 			'Amenaza arcana',
 			{
 				interactions: [{ name: 'Amenaza arcana', detail: 'Fuerza una tirada de 3d4', uses: null }],
 			},
-			'3d4',
+			'3d4 🎲',
 		],
 	])(
 		'FEAT-statblock-inline-dice @traits @reactions @interactions — renders %s formula',
@@ -183,12 +222,12 @@ describe('Statblock inline dice formula buttons', () => {
 		},
 	);
 
-	it('FEAT-statblock-inline-dice @behavior @stat-notes — rolls behavior and speed note formulas with creature-prefixed source titles', async () => {
+	it('FEAT-statblock-inline-dice @behavior @stat-notes — renders behavior as Markdown-only text and rolls speed note formulas', async () => {
 		render(Statblock, {
 			props: {
 				creature: buildCreature({
 					name: 'Bestia ígnea',
-					behavior: 'Prefiere usar 1d6 trucos',
+					behavior: 'Prefiere usar **1d6** trucos',
 					stats: {
 						maxHealth: 10,
 						evasion: { value: 12, note: null },
@@ -200,15 +239,12 @@ describe('Statblock inline dice formula buttons', () => {
 			},
 		});
 
-		expect(screen.getByRole('button', { name: '1d6' })).toBeInTheDocument();
+		const behavior = screen.getByText('Comportamiento').closest('.behavior') as HTMLElement;
+		expect(behavior).toHaveTextContent('Prefiere usar 1d6 trucos');
+		expect(screen.queryByRole('button', { name: '1d6 🎲' })).toBeNull();
 
-		await fireEvent.click(screen.getByRole('button', { name: '1d6' }));
-		await fireEvent.click(screen.getByRole('button', { name: '2d6' }));
+		await fireEvent.click(screen.getByRole('button', { name: '2d6 🎲' }));
 
-		expect(mocks.rollExpression).toHaveBeenCalledWith({
-			expression: '1d6',
-			title: 'Bestia ígnea: Comportamiento',
-		});
 		expect(mocks.rollExpression).toHaveBeenCalledWith({
 			expression: '2d6',
 			title: 'Bestia ígnea: Velocidad',
@@ -247,6 +283,6 @@ describe('Statblock inline dice formula buttons', () => {
 		});
 
 		expect(screen.getByRole('button', { name: '1d6 💥' })).toBeInTheDocument();
-		expect(screen.queryByRole('button', { name: '1d6' })).toBeNull();
+		expect(screen.queryByRole('button', { name: '1d6 🎲' })).toBeNull();
 	});
 });
