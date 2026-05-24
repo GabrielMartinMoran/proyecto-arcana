@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-05-11T15:43:58.724Z",
+  "generatedAt": "2026-05-24T00:31:04.668Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -9,14 +9,14 @@
     {
       "path": "references/bestiario/rango-1.md",
       "kind": "file",
-      "size": 9997,
-      "sha1": "9447d549d37f258119483dc8ebdf1468b044cfc3"
+      "size": 16236,
+      "sha1": "c40e746f29a51c2fab0388d57d40bc2638eb1ff5"
     },
     {
       "path": "references/bestiario/rango-2.md",
       "kind": "file",
-      "size": 10044,
-      "sha1": "01a067c881388f7c920a9a7de301b0921c086afc"
+      "size": 11227,
+      "sha1": "6bc7c73edfa984024aaf76c8f09589ce839af376"
     },
     {
       "path": "references/bestiario/rango-3.md",
@@ -33,14 +33,14 @@
     {
       "path": "references/bestiario/rango-5.md",
       "kind": "file",
-      "size": 1917,
-      "sha1": "e86ab115c2526e30d125617d6a73b2ae50010a41"
+      "size": 1916,
+      "sha1": "38d5edbc529b67a3113e2ae9ffbec7013558f307"
     },
     {
       "path": "references/bestiario/rango-6.md",
       "kind": "file",
-      "size": 4140,
-      "sha1": "62d81ce94dceeeea7334275fb0760ce2462e8bf8"
+      "size": 4138,
+      "sha1": "ddfb33ebf9c01071adb357467bd61299b5b6fdcb"
     },
     {
       "path": "references/cartas-de-habilidades",
@@ -541,8 +541,8 @@
     {
       "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
       "kind": "file",
-      "size": 17907,
-      "sha1": "d65282b7fd76d4cfefb18ba4c4cbb392294e529c"
+      "size": 18043,
+      "sha1": "277304f0661713e1b593b1effe138487fe777889"
     },
     {
       "path": "references/cartas-de-habilidades/sinergia",
@@ -561,14 +561,14 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 59344,
-      "sha1": "171865214b778f63e93c9b103c79954c04054567"
+      "size": 68769,
+      "sha1": "02d3e2ad25da1a691184eef2b986a5d802498c85"
     },
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 240987,
-      "sha1": "1c763b314922765a5c27f30c1640e2c2b3376ed7"
+      "size": 241147,
+      "sha1": "8a3b29eee6a9848ea144d0103dfb6711a2f6f7e1"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -647,8 +647,8 @@
     {
       "path": "references/manual-del-jugador/02-creacion-de-personajes.md",
       "kind": "file",
-      "size": 14754,
-      "sha1": "d86eb1cd15463201a7ba204021b351c9f2c7dea0"
+      "size": 14755,
+      "sha1": "808ba5938ef2c9aaaa939bd084d1b55e9f81fd2e"
     },
     {
       "path": "references/manual-del-jugador/03-mecanicas-de-juego.md",

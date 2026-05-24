@@ -326,3 +326,40 @@
 - **Asalto Múltiple:** El matón puede realizar dos ataques con su Acción (Maza o Ballesta).
 - **Ataque en Grupo:** El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si al menos uno de sus aliados (que no esté incapacitado) está adyacente a dicho enemigo.
 
+
+---
+
+# Capitán Corsario
+
+**Linaje:** Humanoide
+
+**Rango:** 2
+
+**Comportamiento:** Es una figura de autoridad que orquesta el caos marino a su favor. Utilizará ¡Al Abordaje! para coordinar las cargas de sus lobos de mar y rateros, concentrando el fuego del grupo mientras él desgasta objetivos con la precisión quirúrgica de sus dos estocadas.
+
+**Lenguas:** Común
+
+## Atributos
+- **Cuerpo:** 3
+- **Reflejos:** 3
+- **Mente:** 2
+- **Instinto:** 2
+- **Presencia:** 3
+
+## Estadísticas
+- **Salud Máxima:** 25
+- **Esquiva:** 8
+- **Mitigación Física:** 1 (Armadura Ligera)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 9
+- **Iniciativa:** 3
+
+## Ataques
+- **Estoque:** +4 para golpear. Daño: 1d8 Perforante
+
+## Rasgos
+- **Asalto Múltiple:** El Capitán Corsario puede realizar dos ataques de Estoque de Oficial con su Acción.
+
+## Acciones
+- **¡Al Abordaje!:** Como Acción, el Capitán ruge una directiva y designa a un objetivo. Hasta el inicio del próximo turno del Capitán, todos sus aliados ganan +2 metros de velocidad si se mueven en línea recta hacia la criatura marcada, y obtienen Ventaja (+1d4) en su primera tirada de ataque contra ella. (Usos: 5 [Recarga 5+])
+

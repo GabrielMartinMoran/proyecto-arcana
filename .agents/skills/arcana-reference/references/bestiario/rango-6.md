@@ -7,7 +7,6 @@
 
 **Comportamiento:** Un ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar las amenazas, desatando su Aliento de Fuego sobre el grupo más concentrado. Aterrizará solo para eliminar a supervivientes heridos, usando su Asalto Múltiple para abrumar. Su Presencia Aterradora rompe la coordinación del grupo al inicio.
 
-
 **Lenguas:** Dracónico, Común
 
 ## Atributos
@@ -51,7 +50,6 @@
 **Rango:** 6
 
 **Comportamiento:** Un archimago no-muerto con un estilo muy táctico. Su estrategia se basa en la economía de acción superior. Flota fuera de alcance, bombardeando con magia de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones para mantener la presión constante lanzando Descargas Arcanas, hechizos rápidos o intentando recuperar sus poderes más letales con Recarga Mental. Su objetivo no es solo ganar, es demostrar su abrumadora superioridad intelectual y mágica en cada instante del combate.
-
 
 **Lenguas:** Común, Dracónico, Abisal, Umbral, Arcaico
 

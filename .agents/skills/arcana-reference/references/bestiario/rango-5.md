@@ -7,7 +7,6 @@
 
 **Comportamiento:** Un depredador psíquico que flota sobre el campo de batalla. Controla el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente y huirá levitando si su salud baja del 25%.
 
-
 **Lenguas:** Habla Profunda, Telepatía (Larga)
 
 ## Atributos

@@ -46,7 +46,6 @@
 
 **Comportamiento:** Más grande y cruel que el resto. Lidera desde atrás, disparando con una ballesta robada a un guardia y empujando a sus subordinados hacia el peligro. Su principal táctica de supervivencia es usar a otros goblins como escudos vivientes. Solo desenvaina la cimitarra si se ve acorralado.
 
-
 **Lenguas:** Goblin, Común (jerga)
 
 ## Atributos
@@ -302,4 +301,216 @@
 
 ## Rasgos
 - **Carga Imprudente:** Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
+
+
+---
+
+# No Combatiente
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intention será ganar tiempo para huir, no abatir al agresor.
+
+**Lenguas:** Común
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 1
+- **Mente:** 1
+- **Instinto:** 1
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 4
+- **Esquiva:** 6
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 7
+- **Iniciativa:** 1
+
+## Ataques
+- **Ataque Desesperado:** +2 para golpear. Daño: 1d4 Contundente (Puñetazo, patada o arrojar objeto)
+
+## Interacciones
+- **Presa del Pánico:** Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
+
+
+---
+
+# Iniciado Arcano
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Se mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.
+
+**Lenguas:** Común, Arcaico
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 2
+- **Mente:** 2
+- **Instinto:** 1
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 7
+- **Esquiva:** 7
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Proyectil Volátil:** +4 para golpear. Daño: 1d8 Fuerza (Alcance Media)
+
+## Reacciones
+- **Escudo Reactivo Menor:** Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque. (Usos: 4 [Recarga 4+])
+
+
+---
+
+# Ratero de los Bajos Fondos
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Evita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.
+
+**Lenguas:** Común, Jerga de Ladrones
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 3
+- **Mente:** 1
+- **Instinto:** 1
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 9
+- **Iniciativa:** 3
+
+## Ataques
+- **Daga Oculta:** +3 para golpear. Daño: 1d4+1 Perforante
+- **Ballesta Ligera:** +3 para golpear. Daño: 1d4+1 Perforante (Alcance Media, Recarga (Interacción))
+
+## Rasgos
+- **Golpe Traicionero:** Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
+
+
+---
+
+# Juglar Errante
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** El juglar evita ser el blanco principal. Se dedica a entorpecer la ofensiva enemiga con su música destructiva mientras da pequeños impulsos de vitalidad a sus defensores.
+
+**Lenguas:** Común, Élfico
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 2
+- **Mente:** 1
+- **Instinto:** 1
+- **Presencia:** 2
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Espada Corta:** +2 para golpear. Daño: 1d6 Cortante
+- **Dardo:** +2 para golpear. Daño: 1d4 Perforante (Arrojadiza (Cercana))
+
+## Acciones
+- **Acorde Disconcordante:** Como Acción, elige a un enemigo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 8). Si falla, recibe 1d6 de daño Psíquico y sufre Desventaja (-1d4) en su próxima tirada de ataque antes del final del próximo turno del juglar. (Usos: 5 [Recarga 5+])
+
+## Interacciones
+- **Nota Inspiradora:** Como Interacción, otorga 2 Puntos de Salud Temporales a un aliado a distancia Cercana. (Usos: 4 [Recarga 4+])
+
+
+---
+
+# Iniciado del Círculo
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Protege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.
+
+**Lenguas:** Común, Silvano
+
+## Atributos
+- **Cuerpo:** 2
+- **Reflejos:** 2
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Látigo de Espinas:** +3 para golpear. Daño: 1d6+1 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)
+
+## Interacciones
+- **Bálsamo de Hojas:** Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Lobo de Mar
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Directo y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.
+
+**Lenguas:** Común
+
+## Atributos
+- **Cuerpo:** 3
+- **Reflejos:** 2
+- **Mente:** 1
+- **Instinto:** 1
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Estoque:** +3 para golpear. Daño: 1d8 Perforante
+
+## Rasgos
+- **Piernas de Barco:** El Lobo de Mar tiene Ventaja en cualquier Tirada de Salvación o Prueba de Habilidad para resistir ser Derribado o movido contra su voluntad.
+
+## Reacciones
+- **Parada del Marinero:** Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque. (Usos: 4 [Recarga 4+])
 
