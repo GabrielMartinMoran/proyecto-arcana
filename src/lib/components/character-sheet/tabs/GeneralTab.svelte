@@ -5,6 +5,7 @@
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { Character, type Attack, type Skill } from '$lib/types/character';
 	import { capitalize } from '$lib/utils/formatting';
+	import { sortEmojiedStrings } from '$lib/utils/strings-sorter';
 	import AttacksList from '../elements/AttacksList.svelte';
 	import AttributeField from '../elements/AttributeField.svelte';
 	import EquipmentList from '../elements/EquipmentList.svelte';
@@ -121,7 +122,7 @@
 <Container title="Atributos Principales">
 	<div class="attributes">
 		<AttributeField
-			name="Cuerpo"
+			name="💪🏻 Cuerpo"
 			value={character.attributes.body}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('cuerpo')}
@@ -131,7 +132,7 @@
 			}}
 		/>
 		<AttributeField
-			name="Reflejos"
+			name="🐈 Reflejos"
 			value={character.attributes.reflexes}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('reflejos')}
@@ -141,7 +142,7 @@
 			}}
 		/>
 		<AttributeField
-			name="Mente"
+			name="🧠 Mente"
 			value={character.attributes.mind}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('mente')}
@@ -151,7 +152,7 @@
 			}}
 		/>
 		<AttributeField
-			name="Instinto"
+			name="🦉 Instinto"
 			value={character.attributes.instinct}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('instinto')}
@@ -161,7 +162,7 @@
 			}}
 		/>
 		<AttributeField
-			name="Presencia"
+			name="🎭 Presencia"
 			value={character.attributes.presence}
 			{readonly}
 			onDiceRoll={() => onAttributeDiceRoll('presencia')}
@@ -171,7 +172,7 @@
 			}}
 		/>
 		<InputField
-			label="Suerte"
+			label="🍀 Suerte"
 			value={character.currentLuck}
 			max={character.maxLuck}
 			{readonly}
@@ -185,7 +186,7 @@
 <Container title="Atributos Derivados">
 	<div class="attributes">
 		<InputField
-			label="Salud"
+			label={`${character.currentHP >= character.maxHP ? '❤️' : '❤️‍🩹'} Salud`}
 			value={character.currentHP}
 			max={character.maxHP}
 			{readonly}
@@ -195,7 +196,7 @@
 			}}
 		/>
 		<InputField
-			label="Salud Temporal"
+			label="🖤 Salud Temp."
 			value={character.tempHP}
 			{readonly}
 			onChange={(value) => {
@@ -203,12 +204,12 @@
 				onChange(character);
 			}}
 		/>
-		<InputField label="Velocidad" value={character.speed} readonly={true} />
-		<InputField label="Esquiva" value={character.evasion} readonly={true} />
-		<InputField label="Mitigación Física" value={character.physicalMitigation} readonly={true} />
-		<InputField label="Mitigación Mágica" value={character.magicalMitigation} readonly={true} />
+		<InputField label="⚡ Velocidad" value={character.speed} readonly={true} />
+		<InputField label="👻 Esquiva" value={character.evasion} readonly={true} />
+		<InputField label="🛡️ Mitig. Física" value={character.physicalMitigation} readonly={true} />
+		<InputField label="🌀 Mitig. Mágica" value={character.magicalMitigation} readonly={true} />
 		<InputField
-			label="Iniciativa"
+			label="⏳ Iniciativa"
 			value={character.initiative}
 			readonly={true}
 			button={{
@@ -227,7 +228,7 @@
 				<div class="skill-group">
 					<div class="group-header">{capitalize(attr)}</div>
 					<div class="skills-list">
-						{#each skills as skill (skill.name)}
+						{#each sortEmojiedStrings(skills, (x) => x.name) as skill (skill.name)}
 							<button
 								class="skill-btn"
 								class:advantage={skill.hasAdvantage}
@@ -235,7 +236,6 @@
 								title={skill.description}
 							>
 								{skill.name}
-								<span class="dice">🎲</span>
 							</button>
 						{/each}
 					</div>
@@ -268,7 +268,7 @@
 			</div>
 		{/if}
 		<TextField
-			label="Información Rápida"
+			label="📌 Información Rápida"
 			value={character.quickInfo}
 			{readonly}
 			placeholder="Información general, habilidades, etc."
@@ -278,7 +278,7 @@
 			}}
 		/>
 		<InputField
-			label="Lenguas"
+			label="💬 Lenguas"
 			value={character.languages}
 			{readonly}
 			width="full"
@@ -293,7 +293,7 @@
 </Container>
 <Container title="Equipo">
 	<div class="equipment">
-		<InputField label="Oro" value={character.currentGold} readonly={true} width="full" />
+		<InputField label="🪙 Oro" value={character.currentGold} readonly={true} width="full" />
 		<EquipmentList
 			equipment={character.equipment}
 			{readonly}

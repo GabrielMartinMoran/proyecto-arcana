@@ -1,20 +1,21 @@
 <script lang="ts">
-	import CardsList from '$lib/components/cards/CardsList.svelte';
-	import Container from '$lib/components/ui/Container.svelte';
-	import InputField from '$lib/components/ui/InputField.svelte';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import { useCardsService } from '$lib/services/cards-service';
-	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { dialogService } from '$lib/services/dialog-service.svelte';
+	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { modifiersService } from '$lib/services/modifiers-service';
 	import type { Card } from '$lib/types/cards/card';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
+	import { CONFIG } from '../../../../config';
 
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
 	import CustomCardEditorModal from '$lib/components/character-sheet/elements/CustomCardEditorModal.svelte';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
-	import { CONFIG } from '../../../../config';
+	import AvailableCardsView from './AvailableCardsView.svelte';
+	import ManageCardsView from './ManageCardsView.svelte';
 
 	type Props = {
 		character: Character;
@@ -42,6 +43,14 @@
 			(x) => !allCards.some((y) => y.id === x.id) && !x.id.startsWith('custom-'),
 		),
 	);
+
+	// URL-synced sub-tab state
+	let currentView: string = $derived(page.url.searchParams.get('view') ?? 'available');
+
+	const onViewChange = (view: string) => {
+		page.url.searchParams.set('view', view);
+		goto(`?${page.url.searchParams.toString()}`);
+	};
 
 	let addCardModalState = $state({
 		opened: false,
@@ -102,7 +111,6 @@
 		const matchingModifiers = modifiersService.findAllByNameMatch(cardName);
 		for (const modifier of matchingModifiers) {
 			if (modifier.subModifiers.length > 0) {
-				// Check if already has this modifier (with or without "Carta: " prefix)
 				const currentModifiers = character.modifiers ?? [];
 				const alreadyHas = currentModifiers.some(
 					(m) =>
@@ -125,11 +133,9 @@
 	};
 
 	const onCharacterCardsChange = (updatedCards: CharacterCard[]) => {
-		// Detect if a card was added or removed
 		const addedCardId = findAddedCardId(character.cards, updatedCards);
 		const removedCardId = findRemovedCardId(character.cards, updatedCards);
 
-		// Handle modifier auto-add for added card
 		if (addedCardId) {
 			const addedCard = findCardById(addedCardId);
 			if (addedCard) {
@@ -137,7 +143,6 @@
 			}
 		}
 
-		// Handle modifier prompt for removed card - show confirmation BEFORE removing
 		if (removedCardId) {
 			const removedCard =
 				updatedCards.find((c) => c.id === removedCardId) ||
@@ -153,7 +158,6 @@
 				);
 
 				if (associatedModifiers.length > 0) {
-					// Show confirmation BEFORE removing anything
 					dialogService
 						.confirm(`¿Remover modificadores asociados a '${cardName}'?`, {
 							title: 'Modificadores Asociados',
@@ -162,7 +166,6 @@
 						})
 						.then((confirmed) => {
 							if (confirmed) {
-								// User confirmed: remove BOTH card and modifiers together
 								character.cards = character.cards.filter((c) => c.id !== removedCardId);
 								character.modifiers = (character.modifiers ?? []).filter(
 									(m) =>
@@ -170,20 +173,17 @@
 										m.reason.toLowerCase() !== `carta: ${cardNameLower}`,
 								);
 							} else {
-								// User cancelled: restore card to the list, do NOT remove anything
 								character.cards = [...character.cards];
 							}
 							onChange(character);
 						});
-					return; // Don't call onChange yet - wait for async confirmation
+					return;
 				}
 			}
 		}
 
-		// No removed card with associated modifiers - update cards directly
 		character.cards = updatedCards;
 
-		// If a custom card was removed and is no longer in character.cards, remove it from customCards too
 		if (removedCardId && removedCardId.startsWith('custom-')) {
 			const stillPresent = updatedCards.some((c) => c.id === removedCardId);
 			if (!stillPresent) {
@@ -226,7 +226,6 @@
 	};
 
 	const openAddCardModal = (type: 'ability' | 'item') => {
-		// Load modifiers when opening modal
 		modifiersService.loadModifiers();
 
 		setTimeout(() => {
@@ -294,7 +293,6 @@
 				return;
 			}
 
-			// Deduct gold and log transaction
 			const purchaseEntry = {
 				id: crypto.randomUUID(),
 				type: 'subtract' as const,
@@ -312,7 +310,6 @@
 				return;
 			}
 
-			// Deduct PP and log transaction
 			const purchaseEntry = {
 				id: crypto.randomUUID(),
 				type: 'subtract' as const,
@@ -322,7 +319,6 @@
 			character.ppHistory = [purchaseEntry, ...character.ppHistory];
 		}
 
-		// Add the card
 		const newCard: CharacterCard = {
 			id: card.id,
 			uses: null,
@@ -352,11 +348,9 @@
 				reason: `Comprar ranura: ${currentSlots + 1}ª ranura`,
 			};
 
-			// Mutate existing proxy (like handlePurchaseCard does)
 			character.ppHistory = [purchaseEntry, ...character.ppHistory];
 			character.maxActiveCards = currentSlots + 1;
 
-			// Pass same proxy reference
 			onChange(character);
 		}
 	};
@@ -364,87 +358,43 @@
 
 <div class="cards-tab">
 	{#if !readonly}
-		<Container>
-			<div class="slot-input-row">
-				<InputField
-					label="Ranuras de Cartas Activas"
-					labelWidth="fit"
-					value={character.maxActiveCards}
-					{readonly}
-					width="full"
-					onChange={(value) => {
-						character.maxActiveCards = Number(value);
-						onChange(character);
-					}}
-				/>
-				{#if !readonly && character.maxActiveCards < 10}
-					{@const nextSlotCost = CONFIG.ACTIVE_SLOT_PP_COST[character.maxActiveCards] || 0}
-					<button onclick={handleBuyActiveSlot} disabled={character.currentPP < nextSlotCost}>
-						Comprar ranura ({nextSlotCost} PP)
-					</button>
-				{/if}
-			</div>
-			<div class="controls">
-				<span>Agregar cartas a tu colección</span>
-				<div class="buttons">
-					<button onclick={() => openAddCardModal('ability')}>Agregar Carta de Habilidad</button>
-					<button onclick={() => openAddCardModal('item')}>Agregar Carta de Objeto Mágico</button>
-				</div>
-			</div>
-		</Container>
+		<div class="sub-tabs">
+			<button
+				class="sub-tab"
+				class:selected={currentView === 'available'}
+				onclick={() => onViewChange('available')}>🚀 Disponibles</button
+			>
+			<button
+				class="sub-tab"
+				class:selected={currentView === 'manage'}
+				onclick={() => onViewChange('manage')}>⚙️ Gestionar</button
+			>
+		</div>
 	{/if}
-	<Container title="Cartas Activas ({character.numActiveCards}/{character.maxActiveCards})">
-		<CardsList
-			cards={allCards.filter((x) => character.cards.some((y) => y.isActive && y.id === x.id))}
-			{readonly}
+
+	{#if currentView === 'available'}
+		<AvailableCardsView
+			cards={allCards}
 			characterCards={character.cards}
-			listMode="active"
+			maxActiveCards={character.maxActiveCards}
+			{readonly}
 			onChange={onCharacterCardsChange}
 			{onCardReloadClick}
-			onEditCard={(card) => openCustomCardEditor(card.cardType, card)}
 		/>
-	</Container>
-
-	<Container title={`Colección (${character.cards.length})`}>
-		<CardsList
-			cards={allCards.filter((x) => character.cards.some((y) => y.id === x.id))}
-			{readonly}
+	{:else}
+		<ManageCardsView
+			cards={allCards}
 			characterCards={character.cards}
-			listMode="collection"
+			{readonly}
+			{character}
 			onChange={onCharacterCardsChange}
 			onEditCard={(card) => openCustomCardEditor(card.cardType, card)}
+			{onCorruptedCardsChange}
+			onAddAbilityClick={() => openAddCardModal('ability')}
+			onAddItemClick={() => openAddCardModal('item')}
+			onBuyActiveSlot={handleBuyActiveSlot}
+			corruptedCards={corruptedCharacterCards}
 		/>
-	</Container>
-
-	<!-- Filter all cards that no longer exist -->
-
-	{#if !readonly && corruptedCharacterCards.length > 0}
-		<Container title={`Cartas Corruptas (${corruptedCharacterCards.length})`}>
-			<CardsList
-				cards={corruptedCharacterCards.map(
-					(x) =>
-						({
-							id: x.id,
-							name: 'Carta Corrupta',
-							level: x.level,
-							tags: ['Corrupta'],
-							requirements: null,
-							description: 'Esta carta ya no existe. Por favor, eliminala.',
-							uses: {
-								qty: 0,
-								type: 'USES',
-							},
-							type: 'corrupta',
-							cardType: x.cardType,
-							img: CONFIG.ABILITY_CARD_BACKGROUNDS.default,
-						}) as Card,
-				)}
-				{readonly}
-				characterCards={corruptedCharacterCards}
-				listMode="collection"
-				onChange={onCorruptedCardsChange}
-			/>
-		</Container>
 	{/if}
 </div>
 
@@ -456,7 +406,7 @@
 	onClose={closeAddCardModal}
 	onCardsChange={onCharacterCardsChange}
 	onPurchaseCard={handlePurchaseCard}
-	onCreateCustom={openCustomCardEditor}
+	onCreateCustom={(cardType: 'ability' | 'item') => openCustomCardEditor(cardType)}
 />
 
 <CustomCardEditorModal
@@ -476,29 +426,10 @@
 		gap: var(--spacing-md);
 	}
 
-	.slot-input-row {
+	.sub-tabs {
 		display: flex;
-		align-items: center;
-		gap: var(--spacing-md);
-	}
-
-	.controls {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-md);
-		padding-top: var(--spacing-md);
-
-		span {
-			color: var(--text-secondary);
-			font-size: 0.9rem;
-		}
-
-		.buttons {
-			display: flex;
-			flex-direction: row;
-			gap: var(--spacing-md);
-			justify-content: space-evenly;
-			align-items: center;
-		}
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--spacing-sm);
 	}
 </style>

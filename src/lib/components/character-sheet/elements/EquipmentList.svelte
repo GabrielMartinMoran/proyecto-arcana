@@ -161,7 +161,7 @@
 
 <div class="equipment-list">
 	<div class="header">
-		<label>Equipo</label>
+		<label>🎒 Equipo</label>
 		{#if !readonly}
 			<div class="header-buttons">
 				<button onclick={addBlankItem} title="Agregar item en blanco"

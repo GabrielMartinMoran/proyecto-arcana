@@ -89,7 +89,7 @@
 		gap: var(--spacing-md);
 
 		label {
-			text-align: left;
+			text-align: center;
 
 			&.normalized {
 				width: 7rem;

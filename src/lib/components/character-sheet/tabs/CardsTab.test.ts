@@ -1,6 +1,6 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
 import type { Character } from '$lib/types/character';
+import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const hoisted = vi.hoisted(() => ({
 	abilityCardsValue: [
@@ -72,6 +72,20 @@ const hoisted = vi.hoisted(() => ({
 	loadAbilityCards: vi.fn(async () => {}),
 	loadItemCards: vi.fn(async () => {}),
 	rollExpression: vi.fn(),
+	pageUrl: new URL('http://localhost/?tab=cards&view=available'),
+	goto: vi.fn(),
+}));
+
+vi.mock('$app/state', () => ({
+	page: {
+		get url() {
+			return hoisted.pageUrl;
+		},
+	},
+}));
+
+vi.mock('$app/navigation', () => ({
+	goto: hoisted.goto,
 }));
 
 vi.mock('$lib/services/cards-service', async () => {
@@ -146,65 +160,108 @@ const setCurrentGold = (character: Character, value: number) => {
 	});
 };
 
+const setViewParam = (view: string) => {
+	hoisted.pageUrl.searchParams.set('view', view);
+};
+
 describe('CardsTab', () => {
 	beforeEach(() => {
 		hoisted.loadAbilityCards.mockClear();
 		hoisted.loadItemCards.mockClear();
 		hoisted.rollExpression.mockReset();
+		hoisted.goto.mockClear();
+		hoisted.pageUrl = new URL('http://localhost/?tab=cards&view=available');
 	});
 
-	it('marks the card as overcharged and preserves uses on a natural 1 reload', async () => {
-		hoisted.rollExpression.mockResolvedValueOnce(1);
-		const character = buildCharacter();
-		const onChange = vi.fn();
+	describe('sub-tab navigation', () => {
+		it('defaults to available view when no view param is set', () => {
+			hoisted.pageUrl = new URL('http://localhost/?tab=cards');
+			const character = buildCharacter();
+			const onChange = vi.fn();
 
-		render(CardsTab, {
-			props: {
-				character,
-				readonly: false,
-				onChange,
-			},
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			// Should show Cartas Activas from AvailableCardsView
+			expect(screen.getByText(/Cartas Activas/)).toBeInTheDocument();
 		});
 
-		const reloadButton = await screen.findByRole('button', { name: '🎲' });
-		await fireEvent.click(reloadButton);
+		it('shows sub-tab buttons Disponibles and Gestionar', () => {
+			const character = buildCharacter();
+			const onChange = vi.fn();
 
-		await waitFor(() => expect(onChange).toHaveBeenCalled());
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
 
-		expect(character.cards[0]).toMatchObject({
-			id: 'card-1',
-			uses: 2,
-			isOvercharged: true,
+			expect(screen.getByRole('button', { name: '🚀 Disponibles' })).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: '⚙️ Gestionar' })).toBeInTheDocument();
+		});
+
+		it('highlights the active sub-tab with selected class', () => {
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const disponiblesBtn = screen.getByRole('button', { name: '🚀 Disponibles' });
+			expect(disponiblesBtn.classList.contains('selected')).toBe(true);
+		});
+
+		it('switches to Gestionar view and updates URL when clicking Gestionar', async () => {
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const gestionarBtn = screen.getByRole('button', { name: '⚙️ Gestionar' });
+			await fireEvent.click(gestionarBtn);
+
+			expect(hoisted.goto).toHaveBeenCalled();
+			const gotoUrl = hoisted.goto.mock.calls[0][0];
+			expect(gotoUrl).toContain('view=manage');
+		});
+
+		it('shows Gestionar content when view=manage param is set', () => {
+			setViewParam('manage');
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			// ManageCardsView shows Controles section
+			expect(screen.getByText('Ranuras de Cartas Activas')).toBeInTheDocument();
+			expect(screen.getByText(/Colección Completa/)).toBeInTheDocument();
+		});
+
+		it('switches back to available view when clicking Disponibles', async () => {
+			setViewParam('manage');
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const disponiblesBtn = screen.getByRole('button', { name: '🚀 Disponibles' });
+			await fireEvent.click(disponiblesBtn);
+
+			expect(hoisted.goto).toHaveBeenCalled();
+			const gotoUrl = hoisted.goto.mock.calls[0][0];
+			expect(gotoUrl).toContain('view=available');
 		});
 	});
 
-	it('keeps the existing reload success behavior for non-natural-1 results', async () => {
-		hoisted.rollExpression.mockResolvedValueOnce(3);
-		const character = buildCharacter();
-		const onChange = vi.fn();
-
-		render(CardsTab, {
-			props: {
-				character,
-				readonly: false,
-				onChange,
-			},
-		});
-
-		const reloadButton = await screen.findByRole('button', { name: '🎲' });
-		await fireEvent.click(reloadButton);
-
-		await waitFor(() => expect(onChange).toHaveBeenCalled());
-
-		expect(character.cards[0]).toMatchObject({
-			id: 'card-1',
-			uses: 3,
-			isOvercharged: false,
-		});
-	});
-
-	describe('card activation and deactivation', () => {
-		it('deactivates an active card when Deactivate button is clicked', async () => {
+	describe('reload mechanics', () => {
+		it('marks the card as overcharged and preserves uses on a natural 1 reload', async () => {
+			hoisted.rollExpression.mockResolvedValueOnce(1);
 			const character = buildCharacter();
 			const onChange = vi.fn();
 
@@ -216,9 +273,113 @@ describe('CardsTab', () => {
 				},
 			});
 
-			// There may be multiple "Desactivar" buttons (one in active list, one in collection)
-			// Click the first one (should be in the active cards section)
+			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			await fireEvent.click(reloadButton);
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			expect(character.cards[0]).toMatchObject({
+				id: 'card-1',
+				uses: 2,
+				isOvercharged: true,
+			});
+		});
+
+		it('keeps the existing reload success behavior for non-natural-1 results', async () => {
+			hoisted.rollExpression.mockResolvedValueOnce(3);
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			await fireEvent.click(reloadButton);
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			expect(character.cards[0]).toMatchObject({
+				id: 'card-1',
+				uses: 3,
+				isOvercharged: false,
+			});
+		});
+
+		it('disables reload button when card is at max uses', async () => {
+			const character = buildCharacter();
+			character.cards[0].uses = 1;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			expect(reloadButton).toBeDisabled();
+		});
+
+		it('disables reload button when card is overcharged', async () => {
+			const character = buildCharacter();
+			character.cards[0].isOvercharged = true;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			expect(reloadButton).toBeDisabled();
+		});
+
+		it('does not reload when roll result is below card uses threshold', async () => {
+			hoisted.rollExpression.mockResolvedValueOnce(2);
+			const character = buildCharacter();
+			character.cards[0].uses = 0;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			await fireEvent.click(reloadButton);
+
+			await new Promise((r) => setTimeout(r, 100));
+			expect(onChange).not.toHaveBeenCalled();
+			expect(character.cards[0].uses).toBe(0);
+			expect(character.cards[0].isOvercharged).toBe(false);
+		});
+
+		it('enables reload button when uses are below max', async () => {
+			const character = buildCharacter();
+			character.cards[0].uses = 0;
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			expect(reloadButton).not.toBeDisabled();
+		});
+	});
+
+	describe('card activation and deactivation', () => {
+		it('deactivates an active card when Deactivate button is clicked', async () => {
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
 			const deactivateButtons = await screen.findAllByRole('button', { name: 'Desactivar' });
+			expect(deactivateButtons.length).toBeGreaterThan(0);
 			await fireEvent.click(deactivateButtons[0]);
 
 			await waitFor(() => expect(onChange).toHaveBeenCalled());
@@ -233,11 +394,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: true,
-					onChange,
-				},
+				props: { character, readonly: true, onChange },
 			});
 
 			expect(screen.queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
@@ -245,26 +402,23 @@ describe('CardsTab', () => {
 	});
 
 	describe('uses tracking', () => {
-		it('calls onChange when ReloadControl value is edited', async () => {
+		it('calls onChange when ReloadControl value is edited', () => {
 			const character = buildCharacter();
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// The reload button exists and can be clicked
-			// The onChange callback is used for various card state changes
-			// Just verify that onChange is a function that gets called
 			expect(onChange).toBeDefined();
 		});
 	});
 
 	describe('buy active slot', () => {
+		beforeEach(() => {
+			setViewParam('manage');
+		});
+
 		it('shows buy button with correct cost for 4th slot', async () => {
 			const character = buildCharacter();
 			character.maxActiveCards = 3;
@@ -272,11 +426,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			const buyButton = await screen.findByRole('button', { name: /Comprar.*3.*PP/ });
@@ -284,51 +434,42 @@ describe('CardsTab', () => {
 		});
 
 		it('hides buy button when readonly is true', () => {
+			setViewParam('manage');
 			const character = buildCharacter();
 			character.maxActiveCards = 3;
 			setCurrentPP(character, 10);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: true,
-					onChange,
-				},
+				props: { character, readonly: true, onChange },
 			});
 
 			expect(screen.queryByRole('button', { name: /Comprar/ })).not.toBeInTheDocument();
 		});
 
 		it('disables buy button when maxActiveCards >= 10', () => {
+			setViewParam('manage');
 			const character = buildCharacter();
 			character.maxActiveCards = 10;
 			setCurrentPP(character, 100);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			expect(screen.queryByRole('button', { name: /Comprar/ })).not.toBeInTheDocument();
 		});
 
 		it('disables buy button when currentPP is insufficient', () => {
+			setViewParam('manage');
 			const character = buildCharacter();
 			character.maxActiveCards = 3;
-			setCurrentPP(character, 2); // Cost is 3
+			setCurrentPP(character, 2);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			const buyButton = screen.getByRole('button', { name: /Comprar.*3.*PP/ });
@@ -336,107 +477,23 @@ describe('CardsTab', () => {
 		});
 	});
 
-	describe('reload mechanics', () => {
-		it('disables reload button when card is at max uses', async () => {
-			// For RELOAD type cards, max uses is CONFIG.RELOAD_CARD_USES = 1
-			const character = buildCharacter();
-			character.cards[0].uses = 1; // At max (which is 1 for RELOAD)
-			const onChange = vi.fn();
-
-			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
-			});
-
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
-			expect(reloadButton).toBeDisabled();
-		});
-
-		it('disables reload button when card is overcharged', async () => {
-			const character = buildCharacter();
-			character.cards[0].isOvercharged = true;
-			const onChange = vi.fn();
-
-			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
-			});
-
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
-			expect(reloadButton).toBeDisabled();
-		});
-
-		it('does not reload when roll result is below card uses threshold', async () => {
-			hoisted.rollExpression.mockResolvedValueOnce(2); // Below 3 (card uses qty threshold)
-			const character = buildCharacter();
-			character.cards[0].uses = 0; // Start with 0 uses
-			const onChange = vi.fn();
-
-			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
-			});
-
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
-			await fireEvent.click(reloadButton);
-
-			// onChange should NOT be called because reload failed (roll 2 < threshold 3)
-			// Wait a short time to ensure onChange is not called
-			await new Promise((r) => setTimeout(r, 100));
-
-			expect(onChange).not.toHaveBeenCalled();
-			// Uses should remain at 0 (reload failed)
-			expect(character.cards[0].uses).toBe(0);
-			expect(character.cards[0].isOvercharged).toBe(false);
-		});
-
-		it('enables reload button when uses are below max', async () => {
-			// For RELOAD type cards, max uses is CONFIG.RELOAD_CARD_USES = 1
-			const character = buildCharacter();
-			character.cards[0].uses = 0; // Below max of 1
-			const onChange = vi.fn();
-
-			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
-			});
-
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
-			expect(reloadButton).not.toBeDisabled();
-		});
-	});
-
 	describe('handlePurchaseCard', () => {
+		beforeEach(() => {
+			setViewParam('manage');
+		});
+
 		it('purchases ability card: deducts PP, prepends to ppHistory, calls onChange', async () => {
 			const character = buildCharacter();
 			setCurrentPP(character, 10);
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// Open ability card modal
 			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
 			await fireEvent.click(addAbilityButton);
 
-			// Find and click purchase button for level 2 ability card (5 PP)
 			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*5.*PP/ });
 			await fireEvent.click(purchaseButton);
 
@@ -455,18 +512,12 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// Open item card modal
 			const addItemButton = screen.getByRole('button', { name: 'Agregar Carta de Objeto Mágico' });
 			await fireEvent.click(addItemButton);
 
-			// Find and click purchase button for item card (50 gold)
 			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*50.*o/ });
 			await fireEvent.click(purchaseButton);
 
@@ -485,18 +536,12 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// Open item card modal
 			const addItemButton = screen.getByRole('button', { name: 'Agregar Carta de Objeto Mágico' });
 			await fireEvent.click(addItemButton);
 
-			// Find and click purchase button for item card (50 gold)
 			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*50.*o/ });
 			await fireEvent.click(purchaseButton);
 
@@ -511,18 +556,12 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// Open ability card modal
 			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
 			await fireEvent.click(addAbilityButton);
 
-			// Find and click purchase button for level 5 ability card (17 PP)
 			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*17.*PP/ });
 			await fireEvent.click(purchaseButton);
 
@@ -535,41 +574,34 @@ describe('CardsTab', () => {
 	});
 
 	describe('modal integration', () => {
+		beforeEach(() => {
+			setViewParam('manage');
+		});
+
 		it('does not show added card after closing and re-opening modal', async () => {
 			const character = buildCharacter();
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// Open ability card modal
 			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
 			await fireEvent.click(addAbilityButton);
 
-			// Strong Bolt should be visible in the modal
 			await waitFor(() => {
 				expect(screen.getByText('Strong Bolt')).toBeInTheDocument();
 			});
 
-			// Click "Agregar" for Strong Bolt (first unowned ability card in the list)
 			const addButtons = await screen.findAllByRole('button', { name: 'Agregar' });
 			await fireEvent.click(addButtons[0]);
-
 			expect(onChange).toHaveBeenCalled();
 
-			// Close modal
 			const closeButtons = screen.getAllByRole('button', { name: 'Cerrar' });
 			await fireEvent.click(closeButtons[0]);
 
-			// Re-open ability card modal
 			await fireEvent.click(addAbilityButton);
 
-			// Strong Bolt should no longer appear in the modal
 			await waitFor(() => {
 				expect(screen.queryByText('Strong Bolt')).not.toBeInTheDocument();
 			});
@@ -581,36 +613,25 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
-			// Open ability card modal
 			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
 			await fireEvent.click(addAbilityButton);
 
-			// Strong Bolt should be visible
 			await waitFor(() => {
 				expect(screen.getByText('Strong Bolt')).toBeInTheDocument();
 			});
 
-			// Purchase Strong Bolt
 			const purchaseButton = await screen.findByRole('button', { name: /Comprar.*5.*PP/ });
 			await fireEvent.click(purchaseButton);
-
 			expect(onChange).toHaveBeenCalled();
 
-			// Close modal
 			const closeButtons = screen.getAllByRole('button', { name: 'Cerrar' });
 			await fireEvent.click(closeButtons[0]);
 
-			// Re-open ability card modal
 			await fireEvent.click(addAbilityButton);
 
-			// Strong Bolt should no longer appear in the modal
 			await waitFor(() => {
 				expect(screen.queryByText('Strong Bolt')).not.toBeInTheDocument();
 			});
@@ -618,6 +639,10 @@ describe('CardsTab', () => {
 	});
 
 	describe('custom cards', () => {
+		beforeEach(() => {
+			setViewParam('manage');
+		});
+
 		it('shows custom card in collection', async () => {
 			const character = buildCharacter();
 			character.customCards = [
@@ -645,11 +670,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			await waitFor(() => {
@@ -684,11 +705,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			expect(screen.queryByText('Cartas Corruptas')).not.toBeInTheDocument();
@@ -721,11 +738,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			await waitFor(() => {
@@ -769,11 +782,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			await waitFor(() => {
@@ -808,11 +817,7 @@ describe('CardsTab', () => {
 			const onChange = vi.fn();
 
 			render(CardsTab, {
-				props: {
-					character,
-					readonly: false,
-					onChange,
-				},
+				props: { character, readonly: false, onChange },
 			});
 
 			await waitFor(() => {
@@ -820,7 +825,6 @@ describe('CardsTab', () => {
 			});
 
 			const quitarButtons = screen.getAllByRole('button', { name: 'Quitar' });
-			// The custom card should be in collection (second Quitar button if static card is also there)
 			await fireEvent.click(quitarButtons[quitarButtons.length - 1]);
 
 			await waitFor(() => expect(onChange).toHaveBeenCalled());

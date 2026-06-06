@@ -28,7 +28,7 @@
 
 <div class="attack-list">
 	<div class="header">
-		<label>Ataques</label>
+		<label>⚔️ Ataques</label>
 		{#if !readonly}
 			<button onclick={addAttack} title="Agregar Ataque">➕</button>
 		{/if}
