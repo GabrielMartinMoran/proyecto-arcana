@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-05-24T00:31:04.668Z",
+  "generatedAt": "2026-06-12T15:53:18.079Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -423,8 +423,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-2.yml",
       "kind": "file",
-      "size": 4105,
-      "sha1": "d9146bf96cdbadda6a88761d968237abd35915ec"
+      "size": 4108,
+      "sha1": "7065f73c522a24450baf5cab073f428b49efaa77"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-3.yml",
@@ -567,8 +567,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 241147,
-      "sha1": "8a3b29eee6a9848ea144d0103dfb6711a2f6f7e1"
+      "size": 241150,
+      "sha1": "3a36344b048741fc017e21a5f6016dbc15a8704e"
     },
     {
       "path": "references/datasets/magical-items.yml",

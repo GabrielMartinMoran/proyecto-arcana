@@ -87,7 +87,7 @@ cards:
     type: efecto
     tags:
       - Pícaro
-    requirements: Manos Hábiles & Reflejos 3
+    requirements: Senda del Bribón & Reflejos 3
     uses:
       type: null
       qty: 0

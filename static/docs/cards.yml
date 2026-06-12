@@ -952,7 +952,7 @@ cards:
     type: efecto
     tags:
       - Pícaro
-    requirements: 'Manos Hábiles & Reflejos 3'
+    requirements: 'Senda del Bribón & Reflejos 3'
     description: >-
       _Tus dedos operan con una velocidad que desafía la física, permitiéndote usar objetos y herramientas en mitad del caos sin perder el ritmo._<br><br>
       Puedes usar tu Interacción para realizar la acción de Usar un Objeto, incluso aquellos que normalmente requerirían una Acción para activarse.
