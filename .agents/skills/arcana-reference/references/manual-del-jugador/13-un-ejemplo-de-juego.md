@@ -5,7 +5,7 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 **Los Personajes:**
 
 - **Kaelen:** Un Combatiente robusto con **Cuerpo 3** e **Instinto 2**. Tiene las cartas `Sintonía con el Acero` y `Segundo Aliento`.
-- **Elara:** Una Pícara ágil con **Reflejos 3** e **Instinto 3**. Tiene las cartas `Senda del Bribón` y `Manos Hábiles`.
+- **Elara:** Una Pícara ágil con **Reflejos 3** e **Instinto 3**. Tiene las cartas `Senda del Bribón` y `Infiltrador Experto`.
 
 ---
 
@@ -13,9 +13,9 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 **Elara:** "Un pasillo tan obvio en una tumba... me huele a trampa. Antes de avanzar, me detengo y reviso el suelo con mucho cuidado. Quiero buscar cualquier cosa fuera de lugar: baldosas flojas, agujeritos en las paredes, cualquier cosa sospechosa."
 
-> **DJ:** _Claro. Es una buena idea. Hacé una Prueba de Habilidad de Instinto (Percepción) para ver si encontrás algo. La dificultad es Normal, así que tenés que superar un ND 8._
+> **DJ:** _Claro. Es una buena idea. Hacé una Prueba de Habilidad de Instinto (Percepción) para ver si encontrás algo. La dificultad es Normal, así que tenés que superar un ND 8. Como tenés la carta `Infiltrador Experto`, que te da Ventaja, podés tirar un d4 adicional._
 
-**Elara:** "Perfecto. Tiro 1d8 más mi Instinto, que es 3. Saco un 5 en el dado... ¡un total de 8! Supero el ND."
+**Elara:** "Perfecto. Tiro 1d8 más mi Instinto (3), y le sumo 1d4 por la Ventaja. Saco un 5 en el d8, y un 2 en el d4. Mi total es 3 + 5 + 2... ¡un 10! Éxito."
 
 > **DJ:** _Con ese resultado, tu ojo entrenado nota algo que Kaelen se hubiera perdido. Justo a la mitad del pasillo, una de las baldosas tiene un poco menos de polvo que las demás, como si tuviera un mecanismo debajo. Además, ves unas finas ranuras en las paredes a ambos lados del pasillo, a la altura del pecho._
 
@@ -23,9 +23,9 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 **Elara:** "Voy a intentar desarmarla. Me acerco con cuidado, esquivando esa baldosa, y saco mis herramientas. Quiero ver si puedo inutilizar el mecanismo sin que se active."
 
-> **DJ:** _Eso requiere una mano firme. Es una Prueba de Habilidad de Reflejos (Juego de Manos). Como tenés la carta `Manos Hábiles`, que te da Ventaja, podés tirar un d4 adicional. El ND también es 8._
+> **DJ:** _Eso requiere una mano firme. Es una Prueba de Habilidad de Reflejos (Juego de Manos). Acordate que tenés la carta `Senda del Bribón`, asi que tenes Ventaja en la tirada. El ND también es 8._
 
-**Elara:** "¡Genial! Tiro 1d8 más mis Reflejos (3), y le sumo 1d4 por la Ventaja. Saco un 3 en el d8 y un 3 en el d4. Mi total es 3 + 3 + 3... ¡un 9! Éxito."
+**Elara:** "¡Genial! Tiro 1d8 más mis Reflejos (3), y le sumo 1d4 por la Ventaja. Saco un 3 en el d8 y un 3 en el d4. ¡un total de 9! Supero el ND."
 
 > **DJ:** _Con una precisión increíble, metés una de tus ganzúas en la delgada línea entre las baldosas y, con un suave 'click', escuchás cómo un mecanismo interno se frena. Las ranuras de las paredes ya no parecen una amenaza. El camino hacia el pedestal parece seguro._
 

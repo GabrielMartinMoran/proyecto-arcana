@@ -1,6 +1,6 @@
 {
   "root": "references",
-  "generatedAt": "2026-06-12T15:53:18.079Z",
+  "generatedAt": "2026-06-12T17:08:20.114Z",
   "entries": [
     {
       "path": "references/bestiario",
@@ -713,8 +713,8 @@
     {
       "path": "references/manual-del-jugador/13-un-ejemplo-de-juego.md",
       "kind": "file",
-      "size": 5789,
-      "sha1": "af3a60de175bb70e5aab42360deda712ec19cd29"
+      "size": 5923,
+      "sha1": "bf108ee6f9a5d76b796b61a51c9ae83bad98644a"
     },
     {
       "path": "references/objetos-magicos",
