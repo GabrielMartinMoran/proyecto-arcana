@@ -109,7 +109,7 @@
 			<div class="attribute">
 				<strong>Esquiva</strong>
 				<span>
-					{creature.stats.evasion.value}{#if creature.stats.evasion.note}
+					{creature.stats.evasion.value} {#if creature.stats.evasion.note}
 						(<InlineRollText
 							text={creature.stats.evasion.note}
 							rollTitle={inlineRollTitle('Esquiva')}
@@ -120,7 +120,7 @@
 			<div class="attribute">
 				<strong>Mitigación Física</strong>
 				<span>
-					{creature.stats.physicalMitigation.value}{#if creature.stats.physicalMitigation.note}
+					{creature.stats.physicalMitigation.value} {#if creature.stats.physicalMitigation.note}
 						(<InlineRollText
 							text={creature.stats.physicalMitigation.note}
 							rollTitle={inlineRollTitle('Mitigación Física')}
@@ -131,7 +131,7 @@
 			<div class="attribute">
 				<strong>Mitigación Mágica</strong>
 				<span>
-					{creature.stats.magicalMitigation.value}{#if creature.stats.magicalMitigation.note}
+					{creature.stats.magicalMitigation.value} {#if creature.stats.magicalMitigation.note}
 						(<InlineRollText
 							text={creature.stats.magicalMitigation.note}
 							rollTitle={inlineRollTitle('Mitigación Mágica')}
@@ -142,7 +142,7 @@
 			<div class="attribute">
 				<strong>Velocidad</strong>
 				<span>
-					{creature.stats.speed.value}{#if creature.stats.speed.note}
+					{creature.stats.speed.value} {#if creature.stats.speed.note}
 						(<InlineRollText
 							text={creature.stats.speed.note}
 							rollTitle={inlineRollTitle('Velocidad')}
