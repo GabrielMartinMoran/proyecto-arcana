@@ -54,6 +54,7 @@
 		"js-sha1": "^0.7.0",
 		"js-yaml": "^4.1.0",
 		"marked": "^16.3.0",
+		"marked-gfm-heading-id": "^4.1.4",
 		"prismjs": "^1.30.0",
 		"sha1": "^1.1.1",
 		"uuid": "^13.0.0"

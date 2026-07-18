@@ -5,7 +5,7 @@
 <section>
 	<h1>Manual del Director de Juego</h1>
 
-	<MarkdownDoc src="/docs/gm.md" />
+	<MarkdownDoc src="/docs/gm.md" manualNavTitle="Índice del manual" />
 </section>
 
 <style>

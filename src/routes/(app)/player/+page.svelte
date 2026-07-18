@@ -6,7 +6,7 @@
 <section>
 	<h1>Manual del Jugador</h1>
 
-	<MarkdownDoc src={CONFIG.PLAYER_MANUAL_PATH} />
+	<MarkdownDoc src={CONFIG.PLAYER_MANUAL_PATH} manualNavTitle="Índice del manual" />
 </section>
 
 <style>
