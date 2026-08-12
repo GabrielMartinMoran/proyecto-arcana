@@ -1,3 +1,5 @@
+> Esta sección explica cómo funcionan las Cartas como núcleo de la progresión de personajes en ARCANA y cómo su aprendizaje puede integrarse en la ficción de la campaña. Las Cartas pueden representar talento, conocimiento adquirido o fragmentos del destino, según el enfoque del Director de Juego. Su estética y narrativa pueden adaptarse al concepto del personaje con aprobación del DJ, pero sus reglas mecánicas permanecen intactas.
+
 # 4. El Sistema de Cartas
 
 ### ¿Qué es una Carta en el Mundo?

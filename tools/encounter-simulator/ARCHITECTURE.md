@@ -272,7 +272,7 @@ User sees result
 - **Memory Management**: ConversationBufferMemory may grow large
   - Consider switching to `ConversationBufferWindowMemory` for long combats
 - **LLM Calls**: Most expensive operation
-  - GPT-4o provides good balance of speed and quality
+  - gpt-5.6-luna provides good balance of speed and quality
   - Use gpt-3.5-turbo for faster/cheaper simulations
   - Use caching for rule documents
 - **Dice Rolling**: Negligible overhead

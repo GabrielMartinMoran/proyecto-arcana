@@ -1,4 +1,6 @@
 # Bestiario — Rango 4
+> El Bestiario de Rango 4 reúne criaturas poderosas y resistentes, capaces de enfrentarse a grupos bien preparados. Incluye gigantes como el troll, cuya Regeneración exige explotar el fuego o el ácido, y el cíclope, un combatiente devastador pero vulnerable a ataques coordinados y desde varios flancos. Sus perfiles detallan comportamiento, atributos, estadísticas, ataques y rasgos especiales para facilitar su uso en combate.
+
 # Troll
 
 **Linaje:** Gigante
@@ -29,6 +31,7 @@
 - **Desgarrar:** +8 para golpear. Daño: 3d10 Cortante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Aguante, Percepción
 - **Visión en la Oscuridad:** El troll puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
 - **Regeneración (10 PS):** Al inicio de su turno, el troll recupera 10 Puntos de Salud. Si recibe daño por Fuego o Ácido en la ronda anterior, esta habilidad no funciona en el turno siguiente. El troll solo muere permanentemente si empieza su turno con 0 Puntos de Salud y no puede regenerar.
 - **Asalto Múltiple:** El troll puede realizar dos ataques de Desgarrar con su Acción.
@@ -67,6 +70,8 @@
 - **Arrojar Roca:** +8 para golpear. Daño: 4d10 Contundente (Alcance Largo)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Fuerza Bruta, Atletismo, Intimidación
+- **Mole Inamovible:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 - **Asalto Múltiple (Solo Garrote):** El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o uno de Arrojar Roca y uno de Gran Garrote.
 - **Visión Deficiente:** El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista. Además, no puede realizar ataques como Reacción.
 
@@ -104,6 +109,7 @@
 - **Mordisco:** +8 para golpear. Daño: 3d8 Perforante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Supervivencia, Intimidación
 - **Asalto Múltiple (2 Garras, 1 Mordisco):** La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco con su Acción.
 - **Vuelo:** La mantícora tiene una velocidad de Vuelo de 10 metros.
 
@@ -122,7 +128,7 @@
 
 **Rango:** 4
 
-**Comportamiento:** Un guardián autómata sin emociones, programado para proteger un lugar o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en su camino. Es inmune al miedo y a la persuasión. Su única directiva es destruir a los intrusos.
+**Comportamiento:** Un guardián autómata sin emociones, programado para proteger un lugar o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en su camino. Su falta de emociones hace que siga sus órdenes sin considerar amenazas, súplicas o argumentos. Su única directiva es destruir a los intrusos.
 
 
 **Lenguas:** Ninguna
@@ -146,7 +152,9 @@
 - **Puñetazo:** +8 para golpear. Daño: 3d8 Contundente
 
 ## Rasgos
-- **Voluntad Antimagia:** El gólem tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
+- **Habilidades con Ventaja:** Fuerza Bruta, Atletismo, Percepción
+- **Voluntad Antimagia:** Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+- **Inmunidades a Estados:** Envenenado, Asustado
 - **Asalto Múltiple:** El gólem puede realizar dos ataques de Puñetazo con su Acción.
 
 
@@ -182,6 +190,7 @@
 - **Mordisco:** +8 para golpear. Daño: 3d12 Perforante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Sigilo, Supervivencia
 - **Aura Petrificante:** Cualquier criatura que comience su turno a distancia Inmediata del basilisco siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce a la mitad hasta el inicio de su próximo turno.
 
 ## Acciones

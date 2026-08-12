@@ -1,3 +1,5 @@
+> Esta sección explica cómo los personajes progresan mediante los **Puntos de Progreso (PP)**, obtenidos durante sus aventuras y gastados normalmente durante el descanso. Los PP permiten mejorar Atributos, añadir ranuras de Cartas Activas y adquirir nuevas cartas para ampliar las capacidades del personaje. Cada mejora tiene costes específicos y límites máximos, detallados en las tablas correspondientes.
+
 # 9. Progresión del Personaje
 
 A lo largo de sus aventuras, los personajes acumulan experiencia y aprenden de sus triunfos y fracasos. Esta evolución se representa mediante los **Puntos de Progreso (PP)**, que pueden invertir para desbloquear nuevas capacidades, ampliar su repertorio de habilidades o mejorar sus aptitudes innatas.

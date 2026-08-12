@@ -1,3 +1,5 @@
+> Esta sección ofrece un marco para diseñar conjuros y habilidades equilibrados en ARCANA, considerando el **Poder**, la **Utilidad** y la **Fiabilidad** mediante el sistema de Recarga. Incluye valores de daño por nivel, costes para añadir efectos tácticos o persistentes y pautas específicas para acciones, interacciones y reacciones.
+
 # Guía de Diseño de Conjuros y Habilidades
 
 ## El Triángulo del Balance

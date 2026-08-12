@@ -1,11 +1,13 @@
 # Bestiario — Rango 3
+> El Bestiario de Rango 3 reúne criaturas capaces de plantear amenazas especializadas y exigir respuestas tácticas al grupo. Incluye enemigos como el Espectro, centrado en el miedo, el aislamiento y el daño necrótico; el Ogro, una fuerza bruta resistente con control de área; y el Sacerdote, un apoyo estratégico y espiritual. Cada entrada detalla linaje, comportamiento, atributos, estadísticas, ataques, rasgos e interacciones relevantes.
+
 # Espectro
 
 **Linaje:** No-muerto
 
 **Rango:** 3
 
-**Comportamiento:** Una entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Drenar Vida para prolongar su macabra existencia.
+**Comportamiento:** Una entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Toque Gélido para prolongar su macabra existencia.
 
 
 **Lenguas:** Umbral, Común (comprende)
@@ -29,9 +31,11 @@
 - **Toque Gélido:** +6 para golpear. Daño: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Intimidación, Percepción
+- **Resistencias:** Contundente, Cortante y Perforante de fuentes no mágicas
+- **Inmunidades a Estados:** Envenenado
 - **Visión Verdadera:** El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
 - **Movimiento Incorpóreo:** El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
-- **Resistencia (Armas no mágicas):** El espectro recibe la mitad del daño de armas no mágicas.
 
 ## Interacciones
 - **Mirada Aterradora:** El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque). (Usos: 5 [Recarga 5+])
@@ -68,6 +72,10 @@
 ## Ataques
 - **Gran Garrote:** +6 para golpear. Daño: 3d8 Contundente
 - **Lanzar Escombro:** +6 para golpear. Daño: 2d8 Contundente (Alcance Cercano)
+
+## Rasgos
+- **Habilidades con Ventaja:** Fuerza Bruta, Atletismo, Intimidación
+- **Mole Inamovible:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 
 ## Acciones
 - **Barrido:** El ogro blande su garrote en un arco amplio. Todos los personajes a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 11) o recibir 2d6 de daño Contundente y ser Derribados. (Usos: 6 [Recarga 6+])
@@ -106,6 +114,8 @@
 - **Llama Radiante:** +6 para golpear. Daño: 2d6 Radiante (Alcance Cercano)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Religión, Perspicacia, Persuasión
+- **Fe Inquebrantable:** Ventaja (+1d4) en Tiradas de Salvación contra efectos que provoquen el estado Asustado.
 - **Asalto Múltiple:** El sacerdote puede realizar dos ataques con su Acción, usando Maza Consagrada o Llama Radiante en cualquier combinación.
 
 ## Acciones
@@ -145,6 +155,9 @@
 - **Golpe Sísmico:** +6 para golpear. Daño: 1d10+3 Contundente
 
 ## Rasgos
+- **Habilidades con Ventaja:** Fuerza Bruta, Atletismo, Percepción
+- **Estabilidad Pétrea:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+- **Inmunidades a Estados:** Envenenado
 - **Deslizarse por la Tierra:** El elemental puede moverse a través de piedra y tierra no trabajada como si fuera terreno normal.
 
 ## Acciones
@@ -183,9 +196,11 @@
 - **Toque Ardiente:** +7 para golpear. Daño: 3d6 Fuego
 
 ## Rasgos
+- **Habilidades con Ventaja:** Acrobacias, Intimidación, Percepción
+- **Reflejos Ígneos:** Ventaja (+1d4) en Tiradas de Salvación de Reflejos.
+- **Inmunidades al Daño:** Fuego
 - **Aura de Fuego:** Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.
 - **Forma Ígnea:** El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
-- **Inmunidad (Fuego):** El elemental es inmune al daño de Fuego.
 
 
 ---
@@ -217,7 +232,10 @@
 - **Iniciativa:** 4
 
 ## Ataques
-- **Golpe Acuático:** +7 para golpear. Daño: 2d8 Contundente (Si impacta, el elemental puede intentar engullir al objetivo (si es de su tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12) o quedará Inmovilizado y sin poder respirar dentro de él. Por cada turno que una criatura sea engullida, recibira 1d6 de daño por asfixia. Al final de su turno, una criatura engullida puede intentar liberarse repitiento la TS. El elemental no puede engullir a más de una criatura a la vez.)
+- **Golpe Acuático:** +7 para golpear. Daño: 2d8 Contundente (Si impacta, el elemental puede intentar engullir al objetivo (si es de su tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12) o quedará Inmovilizado y sin poder respirar dentro de él. Por cada turno que una criatura sea engullida, recibirá 1d6 de daño por asfixia. Al final de su turno, una criatura engullida puede intentar liberarse repitiendo la TS. El elemental no puede engullir a más de una criatura a la vez.)
+
+## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Acrobacias, Percepción
 
 ## Acciones
 - **Marea Arrasadora:** El elemental proyecta una línea de agua de 5 metros de largo y 1 de ancho. Toda criatura en la línea debe superar una Tirada de Salvación de Cuerpo (ND 12) o recibir 2d6 de daño Contundente y ser empujada hasta el final de la línea. (Usos: 4 [Recarga 4+])
@@ -255,6 +273,7 @@
 - **Ráfaga de Viento:** +6 para golpear. Daño: 2d6 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Acrobacias, Sigilo, Percepción
 - **Forma Gaseosa:** El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.
 - **Vuelo:** El elemental tiene una velocidad de Vuelo de 12 metros.
 
@@ -270,7 +289,7 @@
 
 **Rango:** 3
 
-**Comportamiento:** Un intelectual táctico que controla el campo de batalla desde la retaguardia. Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para mantener la distancia y guarda siempre su Reacción para el Escudo Arcano, sabiendo que su túnica no detendrá una espada.
+**Comportamiento:** Un intelectual táctico que controla el campo de batalla desde la retaguardia. Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para mantener la distancia y reserva su Reacción para Contraconjuro, intentando neutralizar la magia enemiga más peligrosa.
 
 
 **Lenguas:** Común, Otras 3 lenguas
@@ -293,6 +312,9 @@
 ## Ataques
 - **Virote Arcano:** +7 para golpear. Daño: 3d10 Fuerza (Distancia Media)
 - **Daga:** +7 para golpear. Daño: 1d4 Perforante
+
+## Rasgos
+- **Habilidades con Ventaja:** Conocimiento Arcano, Investigación, Historia
 
 ## Acciones
 - **Bola de Fuego:** El mago elige un punto a distancia Media. Todas las criaturas en un radio de 3 metros deben superar una TS de Reflejos (ND 12). Si fallan, reciben 3d6 de daño de Fuego. Si tienen éxito, reciben la mitad. (Usos: 5 [Recarga 5+])
@@ -337,8 +359,9 @@
 - **Pico:** +6 para golpear. Daño: 2d8 Perforante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Supervivencia, Atletismo
+- **Mole Bestial:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 - **Asalto Múltiple (2 Garras, 1 Pico):** El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico con su Acción.
-- **Sentidos Agudos:** El ozo-lechuza tiene Ventaja en pruebas de Instinto (Percepción) que dependan de la vista o el oído.
 
 ## Interacciones
 - **Despedazar y Apresar:** Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).
@@ -376,7 +399,9 @@
 - **Pseudópodo:** +6 para golpear. Daño: 2d6 Contundente (Si impacta, aplica el rasgo Adhesivo.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Engaño, Percepción
+- **Forma Adhesiva:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 - **Forma de Objeto:** Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 11 para notar su verdadera naturaleza antes de tocarlo.
 - **Asalto Múltiple:** El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
-- **Adhesivo:** El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir la TS y asi tratar de liberarse a uno mismo o a un objeto pegado.
+- **Adhesivo:** El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir la TS y así tratar de liberarse a uno mismo o a un objeto pegado.
 

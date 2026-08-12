@@ -2,7 +2,7 @@
 name: arcana-reference
 description: This skill should be used when the user asks to "consultar reglas de ARCANA", "buscar cartas de habilidades u objetos mágicos", "resumir capítulos del manual ARCANA", or "listar arquetipos y contenido derivado del sistema ARCANA".
 metadata:
-  updated_at: Fri, 12 Jun 2026 17:08:20 GMT
+  updated_at: Wed, 12 Aug 2026 17:26:41 GMT
 ---
 
 # ARCANA Reference Skill
@@ -62,6 +62,8 @@ Puedes definir `ARCANA_DATASET_DIR` para apuntar a YAML externos; por defecto le
 - Mantén sincronizada la jerarquía `references/` con el contenido generado automáticamente.
 
 ---
+
+> **ARCANA — Referencia del Sistema** es un documento hub que reúne y enlaza las reglas, mecánicas y contenidos del sistema de rol ARCANA para su consulta por un LLM. Incluye la creación y progresión de personajes, exploración, interacción social, combate, cartas, magia, equipo y reglas narrativas, además de guías para el Director de Juego, clases, dotes, objetos mágicos y bestiario.
 
 ## Manual del Jugador
 

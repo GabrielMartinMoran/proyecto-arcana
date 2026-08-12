@@ -1,4 +1,6 @@
 # Bestiario — Rango 6
+> El Bestiario de Rango 6 reúne criaturas de amenaza extrema, con altos valores de Salud, ataques potentes, defensas relevantes y capacidades capaces de alterar decisivamente el combate. Incluye enemigos como el Dragón Rojo Adulto, centrado en movilidad aérea, daño de fuego y control mediante miedo, y el Liche, especializado en magia táctica, economía de acción y presión constante. Estas criaturas están diseñadas para encuentros contra grupos experimentados y requieren estrategias específicas para contrarrestar sus fortalezas.
+
 # Dragón Rojo Adulto
 
 **Linaje:** Dragón
@@ -29,13 +31,15 @@
 - **Garras:** +11 para golpear. Daño: 3d8 Cortante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Intimidación, Percepción, Perspicacia, Historia
+- **Fortaleza Dracónica:** Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+- **Inmunidades al Daño:** Fuego
 - **Asalto Múltiple (1 Mordisco, 2 Garras):** El dragón puede realizar un ataque de Mordisco y dos ataques de Garras con su Acción.
-- **Inmunidad (Fuego):** El dragón es inmune al daño de Fuego.
 - **Vuelo:** El dragón tiene una velocidad de Vuelo de 15 metros.
 
 ## Acciones
 - **Aliento de Fuego:** El dragón exhala un cono de fuego de 15 metros. Toda criatura en el área debe superar una Tirada de Salvación de Reflejos (ND 16). Si falla, recibe 10d6 de daño de Fuego (35 Dmg AoE); si tiene éxito, recibe la mitad. (Usos: 6 [Recarga 6+])
-- **Presencia Aterradora:** El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1 minuto (Desventaja en todo). Save termina efecto. (Usos: 1)
+- **Presencia Aterradora:** El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1 minuto (Desventaja en todo). El objetivo puede repetir la Tirada de Salvación al final de cada uno de sus turnos. El estado Asustado termina para ese objetivo cuando supera la tirada. (Usos: 1)
 
 ## Reacciones
 - **Coletazo:** Como Reacción cuando un enemigo termina su movimiento adyacente, el dragón golpea con la cola. TS Cuerpo (ND 16) o 2d8 Contundente y Derribado.
@@ -61,7 +65,7 @@
 - **Presencia:** 8
 
 ## Estadísticas
-- **Salud Máxima:** 180
+- **Salud Máxima:** 195
 - **Esquiva:** 10
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
@@ -72,10 +76,12 @@
 - **Descarga Arcana:** +11 para golpear. Daño: 4d8 Fuerza (Alcance Media. Ataque de energía pura que no requiere recarga.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Conocimiento Arcano, Historia, Investigación, Religión
+- **Voluntad Antimagia:** Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+- **Inmunidades al Daño:** Veneno, Frío
+- **Inmunidades a Estados:** Encantado, Envenenado, Dormido
 - **Mente Dividida:** La mente fragmentada del Liche le permite procesar múltiples amenazas. Tiene 3 Reacciones por ronda de combate en lugar de una.
 - **Vuelo Arcano:** El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
-- **Inmunidades:** El liche es inmune al daño de Veneno y Frío, y a los estados Encantado, Envenenado y Dormido.
-- **Voluntad Antimagia:** El liche tiene Ventaja en todas las Tiradas de Salvación contra conjuros y efectos mágicos.
 - **Rejuvenecimiento:** Si muere, reaparece junto a su filacteria en 1d6 días.
 
 ## Acciones

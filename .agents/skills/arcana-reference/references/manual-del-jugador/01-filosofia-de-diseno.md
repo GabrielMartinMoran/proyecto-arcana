@@ -1,3 +1,5 @@
+> Esta sección presenta la filosofía de ARCANA: un sistema que combina resolución táctica elegante con una fuerte agencia narrativa. Sus reglas buscan ser accesibles y poco sobrecargadas, apoyándose en la progresión mediante cartas, la dinámica entre Suerte y Caos y la posibilidad de modificar el pasado para impulsar la creatividad.
+
 # 1. Filosofía de Diseño
 
 ARCANA es un sistema de rol diseñado para entrelazar una resolución táctica elegante con una poderosa agencia narrativa.

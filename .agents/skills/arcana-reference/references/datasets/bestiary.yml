@@ -35,6 +35,8 @@ creatures:
         damage: 1d4 Perforante
         note: Alcance Largo
     traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Juego de Manos
       - name: Visión en la Oscuridad
         detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
@@ -89,6 +91,8 @@ creatures:
         damage: 1d6 Perforante
         note: Alcance Media. Requiere Interacción para recargar.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Perspicacia
       - name: Visión en la Oscuridad
         detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
@@ -141,6 +145,8 @@ creatures:
         damage: 1d6 Fuego
         note: Alcance Cercano.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Naturaleza, Religión
       - name: Visión en la Oscuridad
         detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
@@ -198,7 +204,9 @@ creatures:
         bonus: 3
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Interacción)
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Sigilo
     actions: []
     reactions: []
     interactions:
@@ -224,7 +232,7 @@ creatures:
       instinct: 3
       presence: 2
     stats:
-      maxHealth: 4
+      maxHealth: 7
       evasion:
         value: 6
         note: null
@@ -249,9 +257,8 @@ creatures:
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Interacción)
     traits:
-      - name: Fanático
-        detail: El cultista tiene Ventaja en Tiradas de Salvación de Instinto para resistir
-          efectos de miedo.
+      - name: Habilidades con Ventaja
+        detail: Religión, Intimidación
     actions: []
     reactions:
       - name: Sacrificio Devoto
@@ -302,11 +309,15 @@ creatures:
         damage: 1d4 Perforante
         note: Alcance Largo
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Atletismo
+      - name: Inmunidades a Estados
+        detail: Envenenado, Dormido
+      - name: Vulnerabilidades
+        detail: Contundente
       - name: Visión en la Oscuridad
         detail: El esqueleto puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
-      - name: Vulnerabilidad (Contundente)
-        detail: El esqueleto recibe el doble de daño de fuentes de daño Contundente.
       - name: Formación de Huesos
         detail: El esqueleto obtiene un +1 a su Esquiva por cada otro esqueleto aliado
           que esté adyacente a él (hasta un máximo de +2).
@@ -352,14 +363,19 @@ creatures:
         damage: 1d6 Necrótico
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Aguante
+      - name: Inmunidades a Estados
+        detail: Envenenado
       - name: Visión en la Oscuridad
         detail: El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra hasta distancia Cercana.
       - name: Fortaleza de No-Muerto
-        detail: Si un daño reduce al zombi a 0 Puntos de Salud, este debe hacer una Tirada
+        detail: Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada
           de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1
-          Punto de Salud en su lugar. Esta habilidad no funciona si el daño es Radiante
-          o proviene de un golpe crítico.
+          Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida
+          hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla.
+          Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
     actions:
       - name: Agarrón Necrótico
         detail: Como una Acción (en lugar de morder), el zombi puede intentar apresar
@@ -407,6 +423,8 @@ creatures:
         damage: 1d6 Perforante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
       - name: Carga Imprudente
         detail: Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo
           y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño
@@ -454,6 +472,8 @@ creatures:
         damage: 1d6 Cortante
         note: Arrojadiza (Cercana)
     traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Intimidación
       - name: Furia
         detail: Mientras el orco tenga la mitad de su Salud o menos, obtiene +2 al daño
           de sus ataques.
@@ -507,6 +527,8 @@ creatures:
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
     traits:
+      - name: Habilidades con Ventaja
+        detail: Perspicacia, Intimidación
       - name: Asalto Múltiple
         detail: El capitán puede realizar dos ataques con su Acción, usando Cimitarra
           o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
@@ -555,9 +577,8 @@ creatures:
         damage: 1d6 Perforante
         note: null
     traits:
-      - name: Sentidos Agudos
-        detail: El lobo tiene Ventaja en pruebas de Instinto (Percepción) que dependan
-          del olfato o el oído.
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
       - name: Tácticas de Manada
         detail: El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si
           al menos uno de sus aliados (que no esté incapacitado) está adyacente a la criatura.
@@ -606,7 +627,9 @@ creatures:
         bonus: 5
         damage: 1d6 Perforante + 1d4 Veneno
         note: null
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
     actions:
       - name: Telaraña
         uses:
@@ -657,6 +680,8 @@ creatures:
         damage: 1d6 Cortante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
       - name: Asalto Múltiple
         detail: El oso puede realizar dos ataques de Garra con su Acción.
     actions: []
@@ -706,7 +731,12 @@ creatures:
         damage: 1d4 Contundente
         note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND
           10) o ser empujado 1 metro hacia atrás.
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Perspicacia
+      - name: Posición Firme
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+          forzado.
     actions: []
     reactions: []
     interactions: []
@@ -753,6 +783,8 @@ creatures:
         damage: 1d4 Perforante
         note: Arrojadiza (Cercana)
     traits:
+      - name: Habilidades con Ventaja
+        detail: Supervivencia, Percepción
       - name: Asalto Múltiple
         detail: El guerrero puede realizar dos ataques con su Acción (usando Lanza o Jabalina).
     actions: []
@@ -801,6 +833,10 @@ creatures:
         note: Si impacta, el objetivo debe superar una TS de Cuerpo (ND 10) o quedar Inmovilizado
           hasta el final del próximo turno del ghoul.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Inmunidades a Estados
+        detail: Envenenado
       - name: Frenesí Necrófago
         detail: El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier criatura
           que esté Inmovilizada o Moribunda.
@@ -850,6 +886,8 @@ creatures:
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
     traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Atletismo
       - name: Asalto Múltiple
         detail: El matón puede realizar dos ataques con su Acción (Maza o Ballesta).
       - name: Ataque en Grupo
@@ -899,6 +937,12 @@ creatures:
         damage: 3d6 Necrótico
         note: Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Intimidación, Percepción
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+      - name: Inmunidades a Estados
+        detail: Envenenado
       - name: Visión Verdadera
         detail: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y
           detectar criaturas invisibles.
@@ -906,8 +950,6 @@ creatures:
         detail: El espectro puede moverse a través de otras criaturas y objetos sólidos
           como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno
           dentro de un objeto.
-      - name: Resistencia (Armas no mágicas)
-        detail: El espectro recibe la mitad del daño de armas no mágicas.
     actions: []
     reactions: []
     interactions:
@@ -921,7 +963,7 @@ creatures:
     behavior: 'Una entidad de tormento y frío, consumida por el odio. Flota a través
       de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor
       Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba
-      en él, usando Drenar Vida para prolongar su macabra existencia.
+      en él, usando Toque Gélido para prolongar su macabra existencia.
 
       '
     img: https://i.imgur.com/3LAtxZ4.png
@@ -960,7 +1002,12 @@ creatures:
         bonus: 6
         damage: 2d8 Contundente
         note: Alcance Cercano
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Fuerza Bruta, Atletismo, Intimidación
+      - name: Mole Inamovible
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+          forzado.
     actions:
       - name: Barrido
         uses:
@@ -1015,6 +1062,11 @@ creatures:
         damage: 2d6 Radiante
         note: Alcance Cercano
     traits:
+      - name: Habilidades con Ventaja
+        detail: Religión, Perspicacia, Persuasión
+      - name: Fe Inquebrantable
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra efectos que provoquen el
+          estado Asustado.
       - name: Asalto Múltiple
         detail: El sacerdote puede realizar dos ataques con su Acción, usando Maza Consagrada
           o Llama Radiante en cualquier combinación.
@@ -1073,6 +1125,13 @@ creatures:
         damage: 1d10+3 Contundente
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Fuerza Bruta, Atletismo, Percepción
+      - name: Estabilidad Pétrea
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+          forzado.
+      - name: Inmunidades a Estados
+        detail: Envenenado
       - name: Deslizarse por la Tierra
         detail: El elemental puede moverse a través de piedra y tierra no trabajada como
           si fuera terreno normal.
@@ -1124,14 +1183,18 @@ creatures:
         damage: 3d6 Fuego
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Acrobacias, Intimidación, Percepción
+      - name: Reflejos Ígneos
+        detail: Ventaja (+1d4) en Tiradas de Salvación de Reflejos.
+      - name: Inmunidades al Daño
+        detail: Fuego
       - name: Aura de Fuego
         detail: Al final del turno del elemental, toda criatura a distancia Inmediata
           recibe 1d8 de daño de Fuego.
       - name: Forma Ígnea
         detail: El elemental puede moverse a través de espacios de hasta 5 cm de ancho
           sin problemas.
-      - name: Inmunidad (Fuego)
-        detail: El elemental es inmune al daño de Fuego.
     actions: []
     reactions: []
     interactions: []
@@ -1175,10 +1238,12 @@ creatures:
         note: Si impacta, el elemental puede intentar engullir al objetivo (si es de su
           tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12)
           o quedará Inmovilizado y sin poder respirar dentro de él. Por cada turno que
-          una criatura sea engullida, recibira 1d6 de daño por asfixia. Al final de su
-          turno, una criatura engullida puede intentar liberarse repitiento la TS. El
+          una criatura sea engullida, recibirá 1d6 de daño por asfixia. Al final de su
+          turno, una criatura engullida puede intentar liberarse repitiendo la TS. El
           elemental no puede engullir a más de una criatura a la vez.
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Acrobacias, Percepción
     actions:
       - name: Marea Arrasadora
         uses:
@@ -1229,6 +1294,8 @@ creatures:
         note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND
           11) o ser empujado 3 metros hacia atrás en línea recta.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Acrobacias, Sigilo, Percepción
       - name: Forma Gaseosa
         detail: El elemental puede moverse a través de cualquier abertura por la que pueda
           pasar el aire.
@@ -1284,7 +1351,9 @@ creatures:
         bonus: 7
         damage: 1d4 Perforante
         note: null
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Investigación, Historia
     actions:
       - name: Bola de Fuego
         uses:
@@ -1311,8 +1380,8 @@ creatures:
     behavior: 'Un intelectual táctico que controla el campo de batalla desde la retaguardia.
       Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos
       prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para
-      mantener la distancia y guarda siempre su Reacción para el Escudo Arcano, sabiendo
-      que su túnica no detendrá una espada.
+      mantener la distancia y reserva su Reacción para Contraconjuro, intentando
+      neutralizar la magia enemiga más peligrosa.
 
       '
     img: null
@@ -1351,12 +1420,14 @@ creatures:
         damage: 2d8 Perforante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo
+      - name: Mole Bestial
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+          forzado.
       - name: Asalto Múltiple (2 Garras, 1 Pico)
         detail: El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico
           con su Acción.
-      - name: Sentidos Agudos
-        detail: El ozo-lechuza tiene Ventaja en pruebas de Instinto (Percepción) que dependan
-          de la vista o el oído.
     actions: []
     reactions: []
     interactions:
@@ -1405,6 +1476,11 @@ creatures:
         damage: 2d6 Contundente
         note: Si impacta, aplica el rasgo Adhesivo.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Engaño, Percepción
+      - name: Forma Adhesiva
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+          forzado.
       - name: Forma de Objeto
         detail: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado
           (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto
@@ -1415,7 +1491,7 @@ creatures:
         detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que
           lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el
           afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir
-          la TS y asi tratar de liberarse a uno mismo o a un objeto pegado.
+          la TS y así tratar de liberarse a uno mismo o a un objeto pegado.
     actions: []
     reactions: []
     interactions: []
@@ -1460,6 +1536,8 @@ creatures:
         damage: 3d10 Cortante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Aguante, Percepción
       - name: Visión en la Oscuridad
         detail: El troll puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra hasta distancia Cercana.
@@ -1517,6 +1595,11 @@ creatures:
         damage: 4d10 Contundente
         note: Alcance Largo
     traits:
+      - name: Habilidades con Ventaja
+        detail: Fuerza Bruta, Atletismo, Intimidación
+      - name: Mole Inamovible
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+          forzado.
       - name: Asalto Múltiple (Solo Garrote)
         detail: El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o
           uno de Arrojar Roca y uno de Gran Garrote.
@@ -1570,6 +1653,8 @@ creatures:
         damage: 3d8 Perforante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Intimidación
       - name: Asalto Múltiple (2 Garras, 1 Mordisco)
         detail: La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco
           con su Acción.
@@ -1627,9 +1712,12 @@ creatures:
         damage: 3d8 Contundente
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Fuerza Bruta, Atletismo, Percepción
       - name: Voluntad Antimagia
-        detail: El gólem tiene Ventaja en todas las Tiradas de Salvación contra conjuros
-          y efectos mágicos.
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+      - name: Inmunidades a Estados
+        detail: Envenenado, Asustado
       - name: Asalto Múltiple
         detail: El gólem puede realizar dos ataques de Puñetazo con su Acción.
     actions: []
@@ -1637,8 +1725,8 @@ creatures:
     interactions: []
     behavior: 'Un guardián autómata sin emociones, programado para proteger un lugar
       o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en
-      su camino. Es inmune al miedo y a la persuasión. Su única directiva es destruir
-      a los intrusos.
+      su camino. Su falta de emociones hace que siga sus órdenes sin considerar amenazas, súplicas o argumentos.
+      Su única directiva es destruir a los intrusos.
 
       '
     img: null
@@ -1673,6 +1761,8 @@ creatures:
         damage: 3d12 Perforante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Sigilo, Supervivencia
       - name: Aura Petrificante
         detail: Cualquier criatura que comience su turno a distancia Inmediata del basilisco
           siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce
@@ -1735,8 +1825,10 @@ creatures:
           queda Inmovilizado y el Thulu puede usar su acción "Devorar Cerebro" en el siguiente
           turno.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Perspicacia, Percepción, Intimidación
       - name: Baluarte Mental
-        detail: El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
+        detail: Ventaja (+1d4) en Tiradas de Salvación de Mente e Instinto.
       - name: Vuelo (Levitar)
         detail: El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a
           su velocidad terrestre.
@@ -1799,11 +1891,15 @@ creatures:
         damage: 3d8 Cortante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Percepción, Perspicacia, Historia
+      - name: Fortaleza Dracónica
+        detail: Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+      - name: Inmunidades al Daño
+        detail: Fuego
       - name: Asalto Múltiple (1 Mordisco, 2 Garras)
         detail: El dragón puede realizar un ataque de Mordisco y dos ataques de Garras
           con su Acción.
-      - name: Inmunidad (Fuego)
-        detail: El dragón es inmune al daño de Fuego.
       - name: Vuelo
         detail: El dragón tiene una velocidad de Vuelo de 15 metros.
     actions:
@@ -1820,7 +1916,9 @@ creatures:
           qty: 1
         detail: El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo
           debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1 minuto (Desventaja
-          en todo). Save termina efecto.
+          en todo). El objetivo puede repetir la Tirada de Salvación al final de cada uno
+          de sus turnos. El estado Asustado termina para ese objetivo cuando supera la
+          tirada.
     reactions:
       - name: Coletazo
         detail: Como Reacción cuando un enemigo termina su movimiento adyacente, el dragón
@@ -1842,7 +1940,7 @@ creatures:
       instinct: 7
       presence: 8
     stats:
-      maxHealth: 180
+      maxHealth: 195
       evasion:
         value: 10
         note: null
@@ -1867,18 +1965,20 @@ creatures:
         damage: 4d8 Fuerza
         note: Alcance Media. Ataque de energía pura que no requiere recarga.
     traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Historia, Investigación, Religión
+      - name: Voluntad Antimagia
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+      - name: Inmunidades al Daño
+        detail: Veneno, Frío
+      - name: Inmunidades a Estados
+        detail: Encantado, Envenenado, Dormido
       - name: Mente Dividida
         detail: La mente fragmentada del Liche le permite procesar múltiples amenazas.
           Tiene 3 Reacciones por ronda de combate en lugar de una.
       - name: Vuelo Arcano
         detail: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a
           su velocidad terrestre.
-      - name: Inmunidades
-        detail: El liche es inmune al daño de Veneno y Frío, y a los estados Encantado,
-          Envenenado y Dormido.
-      - name: Voluntad Antimagia
-        detail: El liche tiene Ventaja en todas las Tiradas de Salvación contra conjuros
-          y efectos mágicos.
       - name: Rejuvenecimiento
         detail: Si muere, reaparece junto a su filacteria en 1d6 días.
     actions:
@@ -1941,14 +2041,16 @@ creatures:
         bonus: 2
         damage: 1d4 Contundente
         note: Puñetazo, patada o arrojar objeto
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Perspicacia
     actions: []
     reactions: []
     interactions:
       - name: Presa del Pánico
         uses: null
         detail: Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
-    behavior: 'Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intention será ganar tiempo para huir, no abatir al agresor.'
+    behavior: 'Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intención será ganar tiempo para huir, no abatir al agresor.'
     img: null
     size: Mediano
   - name: Iniciado Arcano
@@ -1982,7 +2084,9 @@ creatures:
         bonus: 4
         damage: 1d8 Fuerza
         note: Alcance Media
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Investigación
     actions: []
     reactions:
       - name: Escudo Reactivo Menor
@@ -2030,6 +2134,8 @@ creatures:
         damage: 1d4+1 Perforante
         note: Alcance Media, Recarga (Interacción)
     traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Juego de Manos
       - name: Golpe Traicionero
         detail: Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
     actions: []
@@ -2073,7 +2179,9 @@ creatures:
         bonus: 2
         damage: 1d4 Perforante
         note: Arrojadiza (Cercana)
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Interpretación, Persuasión
     actions:
       - name: Acorde Disconcordante
         uses:
@@ -2121,7 +2229,9 @@ creatures:
         bonus: 3
         damage: 1d6+1 Cortante
         note: Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.
-    traits: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Naturaleza, Trato con Animales
     actions: []
     reactions: []
     interactions:
@@ -2164,8 +2274,11 @@ creatures:
         damage: 1d8 Perforante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Pilotaje, Atletismo
       - name: Piernas de Barco
-        detail: El Lobo de Mar tiene Ventaja en cualquier Tirada de Salvación o Prueba de Habilidad para resistir ser Derribado o movido contra su voluntad.
+        detail: Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra
+          Derribo y desplazamiento forzado.
     actions: []
     reactions:
       - name: Parada del Marinero
@@ -2208,8 +2321,10 @@ creatures:
         damage: 1d8 Perforante
         note: null
     traits:
+      - name: Habilidades con Ventaja
+        detail: Pilotaje, Intimidación
       - name: Asalto Múltiple
-        detail: El Capitán Corsario puede realizar dos ataques de Estoque de Oficial con su Acción.
+        detail: El Capitán Corsario puede realizar dos ataques de Estoque con su Acción.
     actions:
       - name: ¡Al Abordaje!
         uses:

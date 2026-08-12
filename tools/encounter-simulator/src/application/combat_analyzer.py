@@ -10,13 +10,13 @@ from langchain_openai import ChatOpenAI
 class CombatAnalyzer:
     """Analyzes completed combat encounters for balance assessment"""
 
-    def __init__(self, rules: Dict[str, str], llm_model: str = "gpt-4o"):
+    def __init__(self, rules: Dict[str, str], llm_model: str = "gpt-5.6-luna"):
         """
         Initialize the combat analyzer.
 
         Args:
             rules: Dictionary containing rule documents
-            llm_model: Name of the LLM model to use (default: gpt-4o)
+            llm_model: Name of the LLM model to use (default: gpt-5.6-luna)
         """
         self.rules = rules
         self.llm = ChatOpenAI(model=llm_model, temperature=0.3)

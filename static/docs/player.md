@@ -499,7 +499,7 @@ iniciativa (+1d4), y quienes son sorprendidos, tendran desventaja (-1d4).
 
 Una vez llegado tu turno, puedes realizar lo siguiente:
 
-- **1 Acción:** Atacar, usar una carta accionable, realizar una maniobra compleja, utilizar un objeto mágico, **Correr** o **Ponerte en Guardia**.
+- **1 Acción:** Atacar, usar una carta accionable, realizar una maniobra compleja, utilizar un objeto mágico, **Correr**, **Ponerte en Guardia** o **Esconderse**.
 - **1 Interacción:** Abrir una puerta, desenvainar un arma, pasar un objeto a un aliado, beber una poción.
 - **Movimiento:** Puedes desplazarte una distancia en metros igual a tu valor de **Velocidad**. Puedes dividir este movimiento como quieras, antes y después de tu Acción.
 - **Reaccion:** Se puede utilizar para disparar una acción preparada o actuar frente a un evento (esto podría ocurrir incluso fuera de tu turno).
@@ -525,6 +525,7 @@ El objetivo no es tener una regla para cada situación, sino fomentar la creativ
 - **Empujón:** Quieres mover a un enemigo de su sitio, quizás para empujarlo por un saliente. Se resolvería con una Tirada Enfrentada de tu **Cuerpo** contra el **Cuerpo** del objetivo.
 - **Desarmar:** Intentas quitarle el arma a tu oponente. Podría ser una Tirada Enfrentada de tus **Reflejos** contra los **Reflejos** o **Cuerpo** del enemigo, a discreción del DJ.
 - **Usar el Entorno:** Haces algo para alterar el campo de batalla, como patear un brasero para crear una distracción, cortar la cuerda de un candelabro para que caiga, o volcar una mesa para crear cobertura. El DJ determinará la tirada necesaria y el efecto resultante.
+- **Esconderse:** Esta maniobra normalmente utiliza la **Acción** del personaje. Si dispones de cobertura, oscuridad, ocultamiento u otra circunstancia razonable que permita ocultar tu posición, puedes intentar esconderte mediante una Tirada Enfrentada de **Reflejos (Sigilo)** contra **Instinto (Percepción)** de las criaturas capaces de detectarte. Si ganas la Tirada Enfrentada, esas criaturas pierden conocimiento preciso de tu posición mientras permanezcas oculto. Atacar, utilizar una carta o abandonar el ocultamiento o realizar una acción que revele claramente tu posición termina este beneficio cuando resulte apropiado.
 
 ## Maniobra Arcana: El Uso Creativo de la Magia
 

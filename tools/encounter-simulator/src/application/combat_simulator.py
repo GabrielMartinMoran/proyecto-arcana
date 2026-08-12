@@ -33,13 +33,13 @@ class InMemoryChatHistory(BaseChatMessageHistory):
 class CombatSimulator:
     """Orchestrates combat simulation using LangChain with direct tool calling"""
 
-    def __init__(self, rules: Dict[str, str], llm_model: str = "gpt-4o"):
+    def __init__(self, rules: Dict[str, str], llm_model: str = "gpt-5.6-luna"):
         """
         Initialize the combat simulator.
 
         Args:
             rules: Dictionary containing rule documents
-            llm_model: Name of the LLM model to use (default: gpt-4o)
+            llm_model: Name of the LLM model to use (default: gpt-5.6-luna)
         """
         self.rules = rules
         self.llm = ChatOpenAI(model=llm_model, temperature=0.7)

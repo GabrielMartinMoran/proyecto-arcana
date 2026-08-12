@@ -1,3 +1,5 @@
+> Esta guía establece un presupuesto de tesoro por misión basado en el PP promedio del grupo, la dificultad y el número de personajes. El presupuesto representa el valor total de monedas, gemas, arte y equipo obtenido, y puede distribuirse entre varias recompensas en lugar de entregarse como oro directo. Los objetos mágicos deben tratarse como hallazgos excepcionales y trofeos narrativos, no como mercancía común.
+
 # Guía de Recompensas: Tesoro y Equipo
 
 Además de los Puntos de Progreso, las recompensas materiales son un motor clave de la aventura. Un tesoro bien administrado no solo permite a los personajes comprar mejor equipo, sino que también puede ser un objetivo narrativo en sí mismo. La filosofía de ARCANA es que los objetos mágicos son hallazgos extraordinarios y raros, trofeos de grandes hazañas, no artículos en el catálogo de una tienda.

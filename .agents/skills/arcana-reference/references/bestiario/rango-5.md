@@ -1,4 +1,6 @@
 # Bestiario — Rango 5
+> El Bestiario de Rango 5 reúne criaturas peligrosas con capacidades capaces de dominar encuentros exigentes. El Thulu es un depredador psíquico volador que combina control de masas, telepatía e inmovilización para aislar y devorar a sus presas. Su elevada Mente, defensa psiónica y capacidad de huida lo convierten en una amenaza especialmente táctica.
+
 # Thulu
 
 **Linaje:** Aberración
@@ -28,7 +30,8 @@
 - **Choque Psiónico:** +9 para golpear. Daño: 3d10 Psíquico (Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el Thulu puede iniciar una Tirada Enfrentada de Mente contra Mente. Si gana, el objetivo queda Inmovilizado y el Thulu puede usar su acción "Devorar Cerebro" en el siguiente turno.)
 
 ## Rasgos
-- **Baluarte Mental:** El Thulu tiene Ventaja en Tiradas de Salvación de Mente e Instinto.
+- **Habilidades con Ventaja:** Conocimiento Arcano, Perspicacia, Percepción, Intimidación
+- **Baluarte Mental:** Ventaja (+1d4) en Tiradas de Salvación de Mente e Instinto.
 - **Vuelo (Levitar):** El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
 - **Asalto Múltiple:** El Thulu puede realizar dos ataques de Choque Psiónico con su Acción.
 

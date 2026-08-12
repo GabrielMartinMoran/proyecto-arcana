@@ -1,3 +1,5 @@
+> Esta sección presenta el sistema de riqueza de ARCANA, usando el Oro (o) como moneda estándar y rangos orientativos para bienes y servicios. Incluye una tabla de armas con su daño, tipo, precio, requisitos y propiedades especiales. Si un personaje no cumple el requisito de un arma, la utiliza con Desventaja (-1d4).
+
 # 11. Equipo y Economía
 
 ## Moneda y Riqueza

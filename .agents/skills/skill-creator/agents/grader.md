@@ -61,7 +61,6 @@ This catches issues that predefined expectations might miss.
 ### Step 5: Read User Notes
 
 If `{outputs_dir}/user_notes.md` exists:
-
 1. Read it and note any uncertainties or issues flagged by the executor
 2. Include relevant concerns in the grading output
 3. These may reveal problems even when expectations pass
@@ -70,10 +69,9 @@ If `{outputs_dir}/user_notes.md` exists:
 
 After grading, consider whether the evals themselves could be improved. Only surface suggestions when there's a clear gap.
 
-Good suggestions test meaningful outcomes — assertions that are hard to satisfy without actually doing the work correctly. Think about what makes an assertion _discriminating_: it passes when the skill genuinely succeeds and fails when it doesn't.
+Good suggestions test meaningful outcomes — assertions that are hard to satisfy without actually doing the work correctly. Think about what makes an assertion *discriminating*: it passes when the skill genuinely succeeds and fails when it doesn't.
 
 Suggestions worth raising:
-
 - An assertion that passed but would also pass for a clearly wrong output (e.g., checking filename existence but not file content)
 - An important outcome you observed — good or bad — that no assertion covers at all
 - An assertion that can't actually be verified from the available outputs
@@ -87,13 +85,11 @@ Save results to `{outputs_dir}/../grading.json` (sibling to outputs_dir).
 ## Grading Criteria
 
 **PASS when**:
-
 - The transcript or outputs clearly demonstrate the expectation is true
 - Specific evidence can be cited
 - The evidence reflects genuine substance, not just surface compliance (e.g., a file exists AND contains correct content, not just the right filename)
 
 **FAIL when**:
-
 - No evidence found for the expectation
 - Evidence contradicts the expectation
 - The expectation cannot be verified from available information
@@ -113,77 +109,77 @@ Write a JSON file with this structure:
 
 ```json
 {
-	"expectations": [
-		{
-			"text": "The output includes the name 'John Smith'",
-			"passed": true,
-			"evidence": "Found in transcript Step 3: 'Extracted names: John Smith, Sarah Johnson'"
-		},
-		{
-			"text": "The spreadsheet has a SUM formula in cell B10",
-			"passed": false,
-			"evidence": "No spreadsheet was created. The output was a text file."
-		},
-		{
-			"text": "The assistant used the skill's OCR script",
-			"passed": true,
-			"evidence": "Transcript Step 2 shows: 'Tool: Bash - python ocr_script.py image.png'"
-		}
-	],
-	"summary": {
-		"passed": 2,
-		"failed": 1,
-		"total": 3,
-		"pass_rate": 0.67
-	},
-	"execution_metrics": {
-		"tool_calls": {
-			"Read": 5,
-			"Write": 2,
-			"Bash": 8
-		},
-		"total_tool_calls": 15,
-		"total_steps": 6,
-		"errors_encountered": 0,
-		"output_chars": 12450,
-		"transcript_chars": 3200
-	},
-	"timing": {
-		"executor_duration_seconds": 165.0,
-		"grader_duration_seconds": 26.0,
-		"total_duration_seconds": 191.0
-	},
-	"claims": [
-		{
-			"claim": "The form has 12 fillable fields",
-			"type": "factual",
-			"verified": true,
-			"evidence": "Counted 12 fields in field_info.json"
-		},
-		{
-			"claim": "All required fields were populated",
-			"type": "quality",
-			"verified": false,
-			"evidence": "Reference section was left blank despite data being available"
-		}
-	],
-	"user_notes_summary": {
-		"uncertainties": ["Used 2023 data, may be stale"],
-		"needs_review": [],
-		"workarounds": ["Fell back to text overlay for non-fillable fields"]
-	},
-	"eval_feedback": {
-		"suggestions": [
-			{
-				"assertion": "The output includes the name 'John Smith'",
-				"reason": "A hallucinated document that mentions the name would also pass — consider checking it appears as the primary contact with matching phone and email from the input"
-			},
-			{
-				"reason": "No assertion checks whether the extracted phone numbers match the input — I observed incorrect numbers in the output that went uncaught"
-			}
-		],
-		"overall": "Assertions check presence but not correctness. Consider adding content verification."
-	}
+  "expectations": [
+    {
+      "text": "The output includes the name 'John Smith'",
+      "passed": true,
+      "evidence": "Found in transcript Step 3: 'Extracted names: John Smith, Sarah Johnson'"
+    },
+    {
+      "text": "The spreadsheet has a SUM formula in cell B10",
+      "passed": false,
+      "evidence": "No spreadsheet was created. The output was a text file."
+    },
+    {
+      "text": "The assistant used the skill's OCR script",
+      "passed": true,
+      "evidence": "Transcript Step 2 shows: 'Tool: Bash - python ocr_script.py image.png'"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 1,
+    "total": 3,
+    "pass_rate": 0.67
+  },
+  "execution_metrics": {
+    "tool_calls": {
+      "Read": 5,
+      "Write": 2,
+      "Bash": 8
+    },
+    "total_tool_calls": 15,
+    "total_steps": 6,
+    "errors_encountered": 0,
+    "output_chars": 12450,
+    "transcript_chars": 3200
+  },
+  "timing": {
+    "executor_duration_seconds": 165.0,
+    "grader_duration_seconds": 26.0,
+    "total_duration_seconds": 191.0
+  },
+  "claims": [
+    {
+      "claim": "The form has 12 fillable fields",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Counted 12 fields in field_info.json"
+    },
+    {
+      "claim": "All required fields were populated",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Reference section was left blank despite data being available"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": ["Used 2023 data, may be stale"],
+    "needs_review": [],
+    "workarounds": ["Fell back to text overlay for non-fillable fields"]
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "The output includes the name 'John Smith'",
+        "reason": "A hallucinated document that mentions the name would also pass — consider checking it appears as the primary contact with matching phone and email from the input"
+      },
+      {
+        "reason": "No assertion checks whether the extracted phone numbers match the input — I observed incorrect numbers in the output that went uncaught"
+      }
+    ],
+    "overall": "Assertions check presence but not correctness. Consider adding content verification."
+  }
 }
 ```
 

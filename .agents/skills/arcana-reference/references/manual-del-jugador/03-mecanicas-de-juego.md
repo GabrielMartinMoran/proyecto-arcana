@@ -1,3 +1,5 @@
+> Este capítulo explica cómo resolver acciones inciertas y conflictos en ARCANA mediante Pruebas de Habilidad y Tiradas Enfrentadas, usando 1d8 + el Atributo relevante contra un Nivel de Dificultad o la tirada rival. También describe los efectos de la Ayuda, la Ventaja y la Desventaja, así como los éxitos excepcionales, las pifias y los dados explosivos. Finalmente, presenta el sistema de Suerte, un recurso que permite a los personajes influir en sus resultados.
+
 # 3. Mecánicas de Juego
 
 Este capítulo detalla las reglas fundamentales para resolver acciones y situaciones en ARCANA.

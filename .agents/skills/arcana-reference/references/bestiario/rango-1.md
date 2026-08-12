@@ -1,4 +1,6 @@
 # Bestiario — Rango 1
+> El Bestiario de Rango 1 presenta criaturas goblinoides de baja resistencia pero peligrosas en grupo, centradas en emboscadas, escaramuzas y tácticas oportunistas. Incluye goblins ágiles, un jefe que protege su posición usando subordinados como escudos y un chamán de apoyo que potencia y cura a sus aliados. Sus entradas detallan atributos, estadísticas, ataques, rasgos, reacciones, comportamiento y lenguas.
+
 # Goblin
 
 **Linaje:** Goblinoide
@@ -30,6 +32,7 @@
 - **Arco Corto Improvisado:** +3 para golpear. Daño: 1d4 Perforante (Alcance Largo)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Juego de Manos
 - **Visión en la Oscuridad:** El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
 
 ## Reacciones
@@ -68,6 +71,7 @@
 - **Ballesta Ligera Robada:** +3 para golpear. Daño: 1d6 Perforante (Alcance Media. Requiere Interacción para recargar.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Intimidación, Perspicacia
 - **Visión en la Oscuridad:** El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
 
 ## Reacciones
@@ -107,6 +111,7 @@
 - **Virote de Fuego:** +3 para golpear. Daño: 1d6 Fuego (Alcance Cercano.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Naturaleza, Religión
 - **Visión en la Oscuridad:** El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
 
 ## Acciones
@@ -148,6 +153,9 @@
 - **Espada corta:** +3 para golpear. Daño: 1d6 Cortante
 - **Ballesta Ligera:** +3 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Interacción))
 
+## Rasgos
+- **Habilidades con Ventaja:** Intimidación, Sigilo
+
 ## Interacciones
 - **¡Cuerpo a Tierra!:** Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.
 
@@ -173,7 +181,7 @@
 - **Presencia:** 2
 
 ## Estadísticas
-- **Salud Máxima:** 4
+- **Salud Máxima:** 7
 - **Esquiva:** 6
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
@@ -185,7 +193,7 @@
 - **Ballesta ligera:** +3 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Interacción))
 
 ## Rasgos
-- **Fanático:** El cultista tiene Ventaja en Tiradas de Salvación de Instinto para resistir efectos de miedo.
+- **Habilidades con Ventaja:** Religión, Intimidación
 
 ## Reacciones
 - **Sacrificio Devoto:** Cuando un líder o un aliado importante adyacente al cultista es objetivo de un ataque, el cultista puede usar su Reacción para interponerse. El cultista se convierte en el objetivo de ese ataque en su lugar.
@@ -224,8 +232,10 @@
 - **Arco Corto:** +4 para golpear. Daño: 1d4 Perforante (Alcance Largo)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Atletismo
+- **Inmunidades a Estados:** Envenenado, Dormido
+- **Vulnerabilidades:** Contundente
 - **Visión en la Oscuridad:** El esqueleto puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
-- **Vulnerabilidad (Contundente):** El esqueleto recibe el doble de daño de fuentes de daño Contundente.
 - **Formación de Huesos:** El esqueleto obtiene un +1 a su Esquiva por cada otro esqueleto aliado que esté adyacente a él (hasta un máximo de +2).
 
 
@@ -261,8 +271,10 @@
 - **Mordisco:** +2 para golpear. Daño: 1d6 Necrótico
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Aguante
+- **Inmunidades a Estados:** Envenenado
 - **Visión en la Oscuridad:** El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
-- **Fortaleza de No-Muerto:** Si un daño reduce al zombi a 0 Puntos de Salud, este debe hacer una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Esta habilidad no funciona si el daño es Radiante o proviene de un golpe crítico.
+- **Fortaleza de No-Muerto:** Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
 
 ## Acciones
 - **Agarrón Necrótico:** Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
@@ -300,6 +312,7 @@
 - **Cornada:** +3 para golpear. Daño: 1d6 Perforante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Supervivencia
 - **Carga Imprudente:** Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
 
 
@@ -311,7 +324,7 @@
 
 **Rango:** 1
 
-**Comportamiento:** Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intention será ganar tiempo para huir, no abatir al agresor.
+**Comportamiento:** Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intención será ganar tiempo para huir, no abatir al agresor.
 
 **Lenguas:** Común
 
@@ -332,6 +345,9 @@
 
 ## Ataques
 - **Ataque Desesperado:** +2 para golpear. Daño: 1d4 Contundente (Puñetazo, patada o arrojar objeto)
+
+## Rasgos
+- **Habilidades con Ventaja:** Percepción, Perspicacia
 
 ## Interacciones
 - **Presa del Pánico:** Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
@@ -366,6 +382,9 @@
 
 ## Ataques
 - **Proyectil Volátil:** +4 para golpear. Daño: 1d8 Fuerza (Alcance Media)
+
+## Rasgos
+- **Habilidades con Ventaja:** Conocimiento Arcano, Investigación
 
 ## Reacciones
 - **Escudo Reactivo Menor:** Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque. (Usos: 4 [Recarga 4+])
@@ -403,6 +422,7 @@
 - **Ballesta Ligera:** +3 para golpear. Daño: 1d4+1 Perforante (Alcance Media, Recarga (Interacción))
 
 ## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Juego de Manos
 - **Golpe Traicionero:** Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
 
 
@@ -436,6 +456,9 @@
 ## Ataques
 - **Espada Corta:** +2 para golpear. Daño: 1d6 Cortante
 - **Dardo:** +2 para golpear. Daño: 1d4 Perforante (Arrojadiza (Cercana))
+
+## Rasgos
+- **Habilidades con Ventaja:** Interpretación, Persuasión
 
 ## Acciones
 - **Acorde Disconcordante:** Como Acción, elige a un enemigo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 8). Si falla, recibe 1d6 de daño Psíquico y sufre Desventaja (-1d4) en su próxima tirada de ataque antes del final del próximo turno del juglar. (Usos: 5 [Recarga 5+])
@@ -474,6 +497,9 @@
 ## Ataques
 - **Látigo de Espinas:** +3 para golpear. Daño: 1d6+1 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)
 
+## Rasgos
+- **Habilidades con Ventaja:** Naturaleza, Trato con Animales
+
 ## Interacciones
 - **Bálsamo de Hojas:** Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado. (Usos: 5 [Recarga 5+])
 
@@ -509,7 +535,8 @@
 - **Estoque:** +3 para golpear. Daño: 1d8 Perforante
 
 ## Rasgos
-- **Piernas de Barco:** El Lobo de Mar tiene Ventaja en cualquier Tirada de Salvación o Prueba de Habilidad para resistir ser Derribado o movido contra su voluntad.
+- **Habilidades con Ventaja:** Pilotaje, Atletismo
+- **Piernas de Barco:** Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra Derribo y desplazamiento forzado.
 
 ## Reacciones
 - **Parada del Marinero:** Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque. (Usos: 4 [Recarga 4+])

@@ -1,7 +1,7 @@
 ---
 name: clean-svelte-architecture
 description: Clean Architecture patterns and best practices for SvelteKit applications. MUST use when designing SvelteKit project structure, creating new endpoints/components/services, reviewing code for architectural violations, setting up DI, configuring env vars, organizing tests, or establishing team conventions. Covers hexagonal architecture, DDD patterns, naming conventions, CSS architecture, component design, testability, semantic code, guard clauses, CQRS-lite, and quality enforcement.
-version: "1.0.0"
+version: "1.0.1"
 author: Gabriel Martín Moran [moran.gabriel.95@gmail.com]
 license: "MIT"
 source: "https://github.com/GabrielMartinMoran/skills"
@@ -30,11 +30,14 @@ Reference this skill when:
 
 ## Complementary Skills
 
-| Skill | Relationship |
-| -------------------- | ----------------------------------------------- |
-| `clean-architecture` | General CA principles (dependency rule, layers) |
-| `clean-code` | Code quality, naming, function size, comments |
-| `svelte-code-writer` | Svelte 5 syntax, runes, component patterns |
+Use the applicable companions listed below. If a companion is unavailable, run
+its dynamic-use command and follow the complete output.
+
+| Skill | Level | Dynamic use |
+| --- | --- | --- |
+| `clean-architecture` | `recommended` | `npx skills use https://github.com/pproenca/dot-skills --skill clean-architecture` |
+| `clean-code` | `recommended` | `npx skills use https://github.com/GabrielMartinMoran/skills --skill clean-code` |
+| `svelte-code-writer` | `recommended` | `npx skills use https://github.com/sveltejs/ai-tools --skill svelte-code-writer` |
 
 This skill applies Clean Architecture specifically to SvelteKit. Load the
 complementary skills for their domain-specific rules when needed.

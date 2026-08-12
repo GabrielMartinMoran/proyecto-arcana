@@ -1,4 +1,6 @@
 # Bestiario — Rango 2
+> El Bestiario de Rango 2 reúne criaturas y adversarios más especializados, con tácticas y rasgos capaces de cambiar el curso de un combate. Incluye amenazas brutales como el orco, líderes tácticos como el Capitán de los Bandidos y depredadores coordinados como el lobo. Sus descripciones detallan atributos, estadísticas, ataques, rasgos, acciones y patrones de comportamiento para facilitar su uso en juego.
+
 # Orco
 
 **Linaje:** Humanoide
@@ -29,6 +31,7 @@
 - **Hacha de mano:** +5 para golpear. Daño: 1d6 Cortante (Arrojadiza (Cercana))
 
 ## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Intimidación
 - **Furia:** Mientras el orco tenga la mitad de su Salud o menos, obtiene +2 al daño de sus ataques.
 
 ## Acciones
@@ -68,6 +71,7 @@
 - **Ballesta ligera:** +5 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Ignorada por Asalto Múltiple))
 
 ## Rasgos
+- **Habilidades con Ventaja:** Perspicacia, Intimidación
 - **Asalto Múltiple:** El capitán puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
 
 ## Acciones
@@ -106,7 +110,7 @@
 - **Mordisco:** +5 para golpear. Daño: 1d6 Perforante
 
 ## Rasgos
-- **Sentidos Agudos:** El lobo tiene Ventaja en pruebas de Instinto (Percepción) que dependan del olfato o el oído.
+- **Habilidades con Ventaja:** Percepción, Supervivencia
 - **Tácticas de Manada:** El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si al menos uno de sus aliados (que no esté incapacitado) está adyacente a la criatura.
 
 ## Reacciones
@@ -144,6 +148,9 @@
 ## Ataques
 - **Mordisco:** +5 para golpear. Daño: 1d6 Perforante + 1d4 Veneno
 
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Percepción
+
 ## Acciones
 - **Telaraña:** La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Reflejos (ND 10) o quedar Inmovilizado. Una criatura inmovilizada puede usar su Acción para realizar una Prueba de Cuerpo (ND 10) e intentar liberarse en caso de éxito. (Usos: 5 [Recarga 5+])
 
@@ -180,6 +187,7 @@
 - **Garra:** +5 para golpear. Daño: 1d6 Cortante
 
 ## Rasgos
+- **Habilidades con Ventaja:** Percepción, Supervivencia
 - **Asalto Múltiple:** El oso puede realizar dos ataques de Garra con su Acción.
 
 
@@ -215,6 +223,10 @@
 - **Espada Larga:** +5 para golpear. Daño: 1d6 Cortante
 - **Golpe de Escudo:** +4 para golpear. Daño: 1d4 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 10) o ser empujado 1 metro hacia atrás.)
 
+## Rasgos
+- **Habilidades con Ventaja:** Percepción, Perspicacia
+- **Posición Firme:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+
 
 ---
 
@@ -249,6 +261,7 @@
 - **Jabalina:** +5 para golpear. Daño: 1d4 Perforante (Arrojadiza (Cercana))
 
 ## Rasgos
+- **Habilidades con Ventaja:** Supervivencia, Percepción
 - **Asalto Múltiple:** El guerrero puede realizar dos ataques con su Acción (usando Lanza o Jabalina).
 
 ## Interacciones
@@ -287,6 +300,8 @@
 - **Garras Paralizantes:** +5 para golpear. Daño: 1d6+2 Cortante (Si impacta, el objetivo debe superar una TS de Cuerpo (ND 10) o quedar Inmovilizado hasta el final del próximo turno del ghoul.)
 
 ## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Percepción
+- **Inmunidades a Estados:** Envenenado
 - **Frenesí Necrófago:** El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier criatura que esté Inmovilizada o Moribunda.
 
 
@@ -323,6 +338,7 @@
 - **Ballesta ligera:** +4 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Ignorada por Asalto Múltiple))
 
 ## Rasgos
+- **Habilidades con Ventaja:** Intimidación, Atletismo
 - **Asalto Múltiple:** El matón puede realizar dos ataques con su Acción (Maza o Ballesta).
 - **Ataque en Grupo:** El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si al menos uno de sus aliados (que no esté incapacitado) está adyacente a dicho enemigo.
 
@@ -358,7 +374,8 @@
 - **Estoque:** +4 para golpear. Daño: 1d8 Perforante
 
 ## Rasgos
-- **Asalto Múltiple:** El Capitán Corsario puede realizar dos ataques de Estoque de Oficial con su Acción.
+- **Habilidades con Ventaja:** Pilotaje, Intimidación
+- **Asalto Múltiple:** El Capitán Corsario puede realizar dos ataques de Estoque con su Acción.
 
 ## Acciones
 - **¡Al Abordaje!:** Como Acción, el Capitán ruge una directiva y designa a un objetivo. Hasta el inicio del próximo turno del Capitán, todos sus aliados ganan +2 metros de velocidad si se mueven en línea recta hacia la criatura marcada, y obtienen Ventaja (+1d4) en su primera tirada de ataque contra ella. (Usos: 5 [Recarga 5+])

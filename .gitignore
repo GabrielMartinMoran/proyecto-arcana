@@ -25,3 +25,7 @@ coverage/
 
 
 .playwright-mcp/
+
+.pas/
+
+__pycache__/

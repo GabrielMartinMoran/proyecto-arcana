@@ -1,3 +1,5 @@
+> Esta sección explica cómo resolver la interacción social en ARCANA mediante Presencia, Mente e Instinto, aplicados a acciones como persuadir, intimidar, engañar, argumentar o leer intenciones. Las pruebas sociales representan influencia y apoyo a la interpretación, pero no controlan mentalmente a los PNJ ni los obligan a actuar contra su naturaleza, creencias u objetivos.
+
 # 6. Interacción Social
 
 La interacción social es el campo de batalla de las palabras, las ideas y las voluntades. Es el arte de convencer a un rey para que te preste su ejército, engañar a un guardia para que abandone su puesto, inspirar a un pueblo a rebelarse o intimidar a un mercader para que te dé un precio justo. En muchas aventuras, una conversación en el momento adecuado puede ser más poderosa que cualquier espada.

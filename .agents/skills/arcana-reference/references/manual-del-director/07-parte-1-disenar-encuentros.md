@@ -1,3 +1,5 @@
+> Esta sección explica cómo diseñar encuentros balanceados en ARCANA usando el Poder Promedio (PP) del grupo y la dificultad deseada, sin depender de reglas rígidas. Calcula el PP Promedio, consulta la tabla para obtener los Puntos de Amenaza Base por Personaje (PA Base/PJ) y el rango de monstruo sugerido, y luego determina el presupuesto total del encuentro según el número de personajes. El DJ puede ajustar estos valores aplicando su criterio y los principios del sistema.
+
 # Parte 1: Diseñar Encuentros
 
 Este sistema te permite preparar un encuentro balanceado rápidamente, basándose en el poder promedio de tu grupo y la dificultad deseada. Empodera al Director de Juego (DJ) para tomar decisiones informadas, guiado por principios en lugar de reglas estrictas.
@@ -60,12 +62,12 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
 
 1.  **Conoce a tu Grupo (Regla de Oro):** Adapta la composición (número vs. Rango de enemigos) a _tu_ mesa específica. ¿Son tácticos? ¿Tienen AoE (efecto en área)? ¿Les falta curación? El "Rango Máx. Sugerido" de la Tabla Maestra es un buen punto de partida para encuentros _estándar_, pero si tu grupo tiene debilidades claras (ej. nula respuesta a voladores), sé cauto al explotarlas, incluso si el presupuesto lo permite. Un encuentro Fácil para un grupo optimizado puede ser Normal o Difícil para otro. **Tu objetivo es desafiar, no frustrar.**
 2.  **Calidad sobre Cantidad (Cantidad Adecuada de Enemigos):**
-    - **Objetivo:** Intenta que la mayoría de tus encuentros (Normal, Difícil) tengan una cantidad de enemigos que estre entre el numero de personajes y el doble de este valor (por ejemplo, entre 4 y 8 criaturas para un grupo de 4 personajes). Esto suele generar el mejor equilibrio entre desafío táctico y fluidez del combate, evitando turnos excesivamente largos.
+    - **Objetivo:** Intenta que la mayoría de tus encuentros (Normal, Difícil) tengan una cantidad de enemigos que esté entre el número de personajes y el doble de ese valor (por ejemplo, entre 4 y 8 criaturas para un grupo de 4 personajes). Esto suele generar el mejor equilibrio entre desafío táctico y fluidez del combate, evitando turnos excesivamente largos.
     - **Gestión del Presupuesto:** Si tu presupuesto te permite comprar muchos monstruos de bajo rango (>10-12), **considera activamente gastar _menos_ del presupuesto total** o (preferiblemente) **sustituir** grupos de enemigos de bajo Rango por **uno o dos de Rango superior** (respetando las guías sobre Rangos Superiores). El coste exponencial de R4+ te ayudará naturalmente a mantener bajo el número total de enemigos en niveles altos.
     - **Hordas Intencionales:** Si buscas una sensación de asedio, puedes usar hordas (>10 R1), pero sé consciente de que alargará el combate y la economía de acciones puede ser brutal. Resérvalo para momentos clave y considera usar monstruos R1 con _muy_ baja salud (menos PPF invertidos en PS) para acelerar su resolución.
 3.  **Economía de Acciones:** El bando con más acciones suele tener ventaja. Compensa la desventaja numérica de Jefes solitarios (R4+) asegurándote de que tengan buena Salud/Mitigación y **Rasgos Tácticos clave** (especialmente Reacciones, Control AoE o habilidades de Movilidad Superior) que les permitan impactar el combate significativamente más allá de su único turno.
 4.  **El Peligro (y Oportunidad) de Rangos Superiores:**
-    - **Coste Elevado:** Incluir monstruos R4 (5 PA), R5 (8 PA) o R6 (13 PA) consume una porción significativa de tu presupuesto. Esto limita naturalmente su número y los posiciona como amenazas centrales.
+    - **Coste Elevado:** Incluir monstruos de Rangos superiores consume rápidamente una porción significativa del presupuesto: R3 cuesta 6 PA, R4 cuesta 10 PA, R5 cuesta 20 PA y R6 cuesta 40 PA. Este crecimiento limita naturalmente su número y posiciona a las criaturas de mayor Rango como amenazas centrales del encuentro.
     - **Advertencia Fuerte (R+2 o más):** Usar monstruos con un Rango _dos o más niveles por encima_ del Rango Nominal del grupo es **extremadamente peligroso** y debe ser una decisión **consciente, justificada narrativamente** y reservada para encuentros **Épicos** o climáticos. Realiza siempre la **Evaluación Crítica Obligatoria** antes de hacerlo:
       - _Viabilidad:_ ¿Pueden los PJs interactuar _significativamente_ (impactar con >20% chance, superar Mitigación, sobrevivir 1-2 golpes estándar)? Un enemigo invulnerable o que mata de un golpe no es un desafío interesante.
       - _Letalidad:_ ¿Hay riesgo real de muerte _instantánea_ con ataques normales o habilidades recargables? Si es así, ¿es apropiado? ¿Puedes _telegrafiar_ (anunciar o dar pistas claras) esos ataques devastadores para dar oportunidad de reacción?
@@ -94,10 +96,9 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
 > **Ejemplo Final:** Grupo de **4 Jugadores**, **PP Promedio 95** (R3 Avanzado), Dificultad **Difícil**.
 >
 > - Presupuesto Total: **42 PA**. Rango Máx. Sugerido: R3 (_Considerar 1x R4_).
-> - **Opción 1 (Horda R3 - Evitar):** 14x Monstruos R3 (42 PA). _Análisis: Demasiados enemigos (14), combate probablemente largo y repetitivo._
-> - **Opción 2 (Jefe R4 + Élites - Recomendado):** 1x Troll R4 (5 PA) + 7x Ogros R3 (21 PA) + 8x Bandidos R2 (16 PA) = 42 PA. (16 enemigos). _Análisis: Número aún alto. Podríamos reducir._
-> - **Opción 3 (Calidad sobre Cantidad):** 1x Troll R4 (5 PA) + 5x Ogros R3 (15 PA) + 6x Bandidos R2 (12 PA) = 32 PA (12 enemigos). _Análisis: Gasta menos del presupuesto, pero tiene menos enemigos y sigue siendo muy desafiante._
-> - **Opción 4 (Doble Jefe R4):** 2x Troll R4 (10 PA) + 6x Ogros R3 (18 PA) + 7x Bandidos R2 (14 PA) = 42 PA. (15 enemigos). _Análisis: Muy difícil, al borde de Épico._
+> - **Opción 1 (Élites R3):** 7x Monstruos R3 (42 PA). _Análisis: Un encuentro homogéneo de enemigos poderosos. Tiene una cantidad de criaturas razonable, aunque puede volverse tácticamente repetitivo si todas cumplen funciones similares._
+> - **Opción 2 (Jefe R4 + Élites - Recomendada):** 1x Monstruo R4 (10 PA) + 4x Monstruos R3 (24 PA) + 4x Monstruos R2 (8 PA) = **42 PA**. _Análisis: 9 enemigos con una jerarquía clara y una combinación equilibrada entre amenaza central, élites y apoyo._
+> - **Opción 3 (Calidad sobre Cantidad):** 2x Monstruos R4 (20 PA) + 3x Monstruos R3 (18 PA) + 2x Monstruos R2 (4 PA) = **42 PA**. _Análisis: 7 enemigos de mayor calidad individual. La economía de acciones es más contenida, pero cada enemigo representa una amenaza considerable._
 
 ### Paso 5: Diseño Avanzado de Criaturas (Resumen)
 

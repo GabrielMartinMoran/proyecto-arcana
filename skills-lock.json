@@ -1,28 +1,28 @@
 {
-	"version": 1,
-	"skills": {
-		"clean-architecture": {
-			"source": "pproenca/dot-skills",
-			"sourceType": "github",
-			"computedHash": "613e3421174049dfb4a528c072cafb5e805322a6d9e1522ec9b74077e07947d7"
-		},
-		"clean-code": {
-			"source": "GabrielMartinMoran/skills",
-			"sourceType": "github",
-			"skillPath": "skills/clean-code/SKILL.md",
-			"computedHash": "20aadc36d60873da645455532234906de5dc34deb2bb5c792979e2a910c5e773"
-		},
-		"clean-svelte-architecture": {
-			"source": "GabrielMartinMoran/skills",
-			"sourceType": "github",
-			"skillPath": "skills/clean-svelte-architecture/SKILL.md",
-			"computedHash": "3cf2ec29811a5f2427b4017a01eddd4ba527c70376f09473904b31aa3c6d46e5"
-		},
-		"skill-creator": {
-			"source": "anthropics/skills",
-			"sourceType": "github",
-			"skillPath": "skills/skill-creator/SKILL.md",
-			"computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
-		}
-	}
+  "version": 1,
+  "skills": {
+    "clean-architecture": {
+      "source": "pproenca/dot-skills",
+      "sourceType": "github",
+      "computedHash": "613e3421174049dfb4a528c072cafb5e805322a6d9e1522ec9b74077e07947d7"
+    },
+    "clean-code": {
+      "source": "GabrielMartinMoran/skills",
+      "sourceType": "github",
+      "skillPath": "skills/clean-code/SKILL.md",
+      "computedHash": "20aadc36d60873da645455532234906de5dc34deb2bb5c792979e2a910c5e773"
+    },
+    "clean-svelte-architecture": {
+      "source": "GabrielMartinMoran/skills",
+      "sourceType": "github",
+      "skillPath": "skills/clean-svelte-architecture/SKILL.md",
+      "computedHash": "258ee86e6eb9b735990c6563818d8137ba387ef51db5df6650f2573c5394c56f"
+    },
+    "skill-creator": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/skill-creator/SKILL.md",
+      "computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
+    }
+  }
 }
