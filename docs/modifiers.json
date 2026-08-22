@@ -373,15 +373,6 @@
 		]
 	},
 	{
-		"id": "estilo-audaz",
-		"category": "picaro",
-		"name": "Estilo Audaz",
-		"description": "-2 Esquiva en Apertura Temeria",
-		"subModifiers": [
-			{ "attribute": "evasion", "type": "add", "formula": "-2", "reason": "Estilo Audaz" }
-		]
-	},
-	{
 		"id": "evasion-picaro",
 		"category": "picaro",
 		"name": "Evasión",

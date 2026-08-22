@@ -803,7 +803,7 @@ cards:
     description: >-
       _Tu confianza es un escudo y tu mirada un arma; en un duelo singular, nadie puede igualar tu ingenio y vigor._<br><br>
       Ganas los siguientes beneficios:<br>
-      - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no haya ninguna otra criatura a 1 metro de ti o del objetivo.<br>
+      - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no tengas Desventaja o haya ningun otro enemigo a 1 metro de ti o del objetivo.<br>
       - **Vigor del Duelista:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo que cumple las condiciones de "Duelo de Ingenio", ganas una cantidad de Puntos de Salud temporales igual a tu puntuación de Presencia. Estos Puntos de Salud temporales duran 1 minuto.
     uses:
       type: null
@@ -2937,7 +2937,7 @@ cards:
     requirements: 'Fe Inspiradora & Presencia 2'
     description: >-
       _Tus ojos, imbuidos de verdad divina, ven a través de las mentiras y desnudan el alma de los pecadores._<br><br>
-      Obtienes Ventaja (+1d4) en pruebas de Perspicacia para detectar mentiras y en pruebas de Intimidación para interrogar u obtener información.
+      Obtienes Ventaja (+1d4) en pruebas de Investigación y en pruebas de Intimidación.
     uses:
       type: null
       qty: 0
