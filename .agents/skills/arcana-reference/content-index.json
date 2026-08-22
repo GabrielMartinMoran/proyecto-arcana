@@ -4582,8 +4582,8 @@
         "type": "efecto",
         "requirements": "Fe Inspiradora & Presencia 2"
       },
-      "search": "_Tus ojos, imbuidos de verdad divina, ven a través de las mentiras y desnudan el alma de los pecadores._<br><br> Obtienes Ventaja (+1d4) en pruebas de Investigación y en pruebas de Intimidación para interrogar u obtener información.",
-      "hash": "4226bf1b073859af60f7a524cec635a70e90f6a2"
+      "search": "_Tus ojos, imbuidos de verdad divina, ven a través de las mentiras y desnudan el alma de los pecadores._<br><br> Obtienes Ventaja (+1d4) en pruebas de Investigación y en pruebas de Intimidación.",
+      "hash": "5c316b2a875538f2be2b425191efd5f93f673848"
     },
     {
       "kind": "card",

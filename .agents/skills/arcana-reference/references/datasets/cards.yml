@@ -2937,7 +2937,7 @@ cards:
     requirements: 'Fe Inspiradora & Presencia 2'
     description: >-
       _Tus ojos, imbuidos de verdad divina, ven a través de las mentiras y desnudan el alma de los pecadores._<br><br>
-      Obtienes Ventaja (+1d4) en pruebas de Investigación y en pruebas de Intimidación para interrogar u obtener información.
+      Obtienes Ventaja (+1d4) en pruebas de Investigación y en pruebas de Intimidación.
     uses:
       type: null
       qty: 0

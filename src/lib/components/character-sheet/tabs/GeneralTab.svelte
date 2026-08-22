@@ -375,7 +375,7 @@
 				gap: var(--spacing-sm);
 
 				&.advantage {
-					border-color: var(--selected-bg);
+					border-color: var(--selected-border);
 					box-shadow: 0 0 1px var(--selected-border);
 
 					&:hover {

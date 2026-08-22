@@ -456,8 +456,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-1.yml",
       "kind": "file",
-      "size": 4348,
-      "sha1": "9bf50f2a496ca8ea27881266ee2e3ca813b5be3a"
+      "size": 4303,
+      "sha1": "abb5730f7d464fb2bd17ba30c5746387096d7fd8"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-2.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 241148,
-      "sha1": "895aa88c1c34195027f8997274f40abc26c75da9"
+      "size": 241109,
+      "sha1": "ef42b6115a6319d10fe0d8ba4640721992219b8e"
     },
     {
       "path": "references/datasets/magical-items.yml",
