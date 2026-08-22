@@ -1,5 +1,3 @@
-> Este capítulo explica paso a paso cómo crear un personaje de ARCANA, desde sus capacidades innatas hasta las habilidades y el equipo inicial. Comienza distribuyendo 10 puntos entre cinco Atributos —Cuerpo, Reflejos, Mente, Instinto y Presencia—, con valores iniciales de 1 a 3. Después, define sus Habilidades usando la lista como guía flexible, pudiendo proponer aptitudes que encajen con su concepto e historia.
-
 # 2. Creación de Personajes
 
 Este capítulo te guiará paso a paso para crear tu personaje, desde sus capacidades innatas hasta el equipo con el que empieza su aventura.

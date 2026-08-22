@@ -29,3 +29,5 @@ coverage/
 .pas/
 
 __pycache__/
+
+*/dist/

@@ -1,69 +1,118 @@
 ---
 name: arcana-reference
-description: This skill should be used when the user asks to "consultar reglas de ARCANA", "buscar cartas de habilidades u objetos mágicos", "resumir capítulos del manual ARCANA", or "listar arquetipos y contenido derivado del sistema ARCANA".
-metadata:
-  updated_at: Wed, 12 Aug 2026 17:26:41 GMT
+description: >-
+  Consulta el sistema de reglas ARCANA y responde con citas verificables.
+  Activa en español o inglés cuando el usuario pregunte por reglas o rules,
+  manuales o manuals, capítulos o chapters, mecánicas o mechanics, cartas de
+  habilidades o cards, arquetipos o archetypes, linajes o lineages, dotes o
+  feats, sinergias o synergies, objetos mágicos o magic items, criaturas o
+  creatures, NPCs, bestiario o bestiary, o diseño de criaturas o creature
+  design, incluso si no dice "arcana-reference".
 ---
 
-# ARCANA Reference Skill
+# ARCANA Reference
 
-## Alcance
+Busca con el CLI incluido y responde citando la fuente exacta. No adivines
+capítulos ni rutas: primero consulta el índice global.
 
-- Consulta rápidamente manuales, cartas de habilidades, objetos mágicos y bestiario del sistema ARCANA.
-- Extrae listas filtradas o detalla contenido específico mediante la herramienta CLI incluida.
-- Mantiene el material organizado con orientación sobre qué archivo abrir según la tarea.
+## Flujo
 
-## Cuándo aplicar la skill
+1. **Clasifica la intención**: regla de jugador, regla de director, carta,
+   objeto, criatura o diseño de criaturas.
+2. **Busca** desde el directorio real del CLI (`scripts/arcana-content-searcher/`):
 
-- Solicitan describir mecánicas del jugador o director dentro de ARCANA.
-- Requieren inventariar o comparar cartas de habilidades, arquetipos u objetos mágicos.
-- Necesitan estadísticas o filtros rápidos sobre el compendio (por tag, nivel, requisitos).
-- Piden guiar al usuario hacia recursos detallados almacenados en `references/`.
+   ```bash
+   cd scripts/arcana-content-searcher
+   node dist/index.js search --query "<tu consulta>"
+   ```
 
-## Herramientas
+   Añade filtros cuando la intención los declare: `--kind`, `--level`, `--tag`,
+   `--source`, `--limit 3`. El CLI ya viene empaquetado: no necesitas instalar
+   dependencias ni compilarlo.
 
-### arcana-content-searcher
+3. **Abre solo la fuente devuelta**: el campo `source` es una ruta `ruta#ancla`
+   relativa a la raíz de la skill. No cargues el documento completo ni el
+   índice: abre únicamente esa sección o esa entrada YAML.
+4. **Responde citando** la sección que acabas de leer, con la misma ruta y
+   heading del resultado.
 
-CLI residente en `scripts/arcana-content-searcher/` (Node.js ≥ 18, depende de `js-yaml`).
+## Familias disponibles
 
-Pasos rápidos:
+| Familia               | Dónde se abre                       | Ejemplo de consulta                                              |
+| --------------------- | ----------------------------------- | ---------------------------------------------------------------- |
+| Manual del Jugador    | `references/manual-del-jugador/`    | `search --query "qué es Ventaja"`                                |
+| Manual del Director   | `references/manual-del-director/`   | `search --query "diseñar criaturas con PPF" --source gm.md`      |
+| Cartas de habilidades | `references/cartas-de-habilidades/` | `search --query "Bardo" --kind card --level 3`                   |
+| Objetos mágicos       | `references/objetos-magicos/`       | `search --query "Utilidad" --kind item --level 3 --tag Utilidad` |
+| Bestiario             | `references/bestiario/`             | `search --query "Liche"`                                         |
 
-1. `cd scripts/arcana-content-searcher`
-2. `npm install`
-3. `npm run build` (genera `dist/index.js`)
+Ejemplos ejecutables (desde el directorio del CLI):
 
-Comandos útiles:
+- Regla de jugador: `node dist/index.js search --query "qué es Ventaja"` — sección
+  `references/manual-del-jugador/03-mecanicas-de-juego.md#ayuda-ventaja-y-desventaja`.
+- Cartas por clase y nivel: `node dist/index.js search --query "Bardo" --kind card --level 2` —
+  cartas de `references/cartas-de-habilidades/arquetipos/bardo/nivel-2.yml`.
+- Carta exacta: `node dist/index.js search --query "Pacto Supremo"` — carta con slug
+  canónico `pacto-supremo` en `references/cartas-de-habilidades/arquetipos/brujo/arquetipo-nivel-1.yml`.
+- Objetos con filtros: `node dist/index.js search --query "Utilidad" --kind item --level 3 --tag Utilidad`.
+- Criatura sin conocer su rango: `node dist/index.js search --query "Liche"` —
+  `references/bestiario/rango-6.md#liche`.
+- Diseño avanzado (PPF): `node dist/index.js search --query "PPF" --source gm.md`.
 
-- **Listar cartas filtradas** (tipo, etiquetas, niveles, etc.):  
-  `node scripts/arcana-content-searcher/dist/index.js list --kind ability --tag "Bardo" --levels 2,3 --show-slug`
-- **Mostrar el detalle de una carta** (id, slug o nombre; opcional `--kind ability|item`):  
-  `node scripts/arcana-content-searcher/dist/index.js detail "arquetipo-brujo-pacto-siniestro" --hide-tags`
-- **Ver ayuda integrada**:  
-  `node scripts/arcana-content-searcher/dist/index.js help`
+Para catálogos de cartas y objetos conserva también `list` y `detail`:
 
-Puedes definir `ARCANA_DATASET_DIR` para apuntar a YAML externos; por defecto lee `references/`.
+- `node dist/index.js list --kind ability --tag "Bardo" --levels 2,3 --show-slug`
+- `node dist/index.js detail "pacto-supremo"`
 
-## Uso de referencias
+## Salida del buscador (contrato mínimo)
 
-- Manual del Jugador: `references/manual-del-jugador/` (capítulos 01-13).
-- Manual del Director: `references/manual-del-director/` (guías 01-09).
-- Bestiario: `references/bestiario/rango-#.md`.
-- Cartas de Habilidades:
-  - Arquetipos consolidados: `references/cartas-de-habilidades/arquetipos/<clase>/`.
-  - Cartas generales: `references/cartas-de-habilidades/<tag>/`.
-- Objetos Mágicos: `references/objetos-magicos/nivel-#.yml`.
+Por defecto `search` devuelve JSON compacto: no incluye el documento completo
+ni el score.
 
-> Carga únicamente los archivos necesarios para mantener la ventana de contexto liviana.
+```json
+{
+	"status": "found",
+	"results": [
+		{
+			"rank": 1,
+			"confidence": "high",
+			"kind": "creature",
+			"name": "Liche",
+			"source": "references/bestiario/rango-6.md#liche"
+		}
+	],
+	"nextAction": "Abrir el resultado 1 y responder citando esa sección."
+}
+```
 
-## Buenas prácticas
+- `status`: `found`, `ambiguous`, `not_found` o `invalid_query`.
+- Cada resultado: `rank`, `confidence` (`high`/`medium`/`low`), `kind`, `name` y `source` (`ruta#ancla`).
+- `nextAction`: qué hacer con el resultado.
+- Para depurar coincidencias, añade `--explain` (expone score, campos y tipo de
+  coincidencia). Eso es solo para depuración: no lo pidas en cada consulta.
 
-- Responde de forma concisa citando secciones relevantes.
-- Usa el CLI cuando necesites filtrar o validar datos antes de responder.
-- Mantén sincronizada la jerarquía `references/` con el contenido generado automáticamente.
+## Fallback: si la primera fuente no responde
+
+1. Conserva la consulta original; no la reescribas ni la "mejores".
+2. Marca esa fuente como insuficiente para la intención.
+3. Abre la siguiente referencia en orden de `rank` (2, 3, ...).
+4. No presentes la primera fuente como normativa.
+5. Si agotas la lista, declara la ausencia con `not_found`.
+
+## Reglas de respuesta
+
+- **Cita verificable**: responde con `ruta#ancla` de la fuente que leíste.
+- **No inventes** reglas, cartas, objetos, criaturas ni rangos.
+- **Ambigüedad**: si `status` es `ambiguous`, muestra las alternativas con su
+  `source` y pide elegir; no resuelvas por el usuario sin verificar.
+- **Fuzzy**: la coincidencia fuzzy tiene confianza `medium` como máximo; abre la
+  fuente real antes de afirmar cualquier cosa.
+- **No encontrado**: con `not_found` declara que no hay una fuente suficiente y
+  ofrece solo las sugerencias verificadas que devuelva el CLI.
+- **Consulta inválida**: con `invalid_query` pide términos o reformula con un
+  término concreto de la consulta original.
 
 ---
-
-> **ARCANA — Referencia del Sistema** es un documento hub que reúne y enlaza las reglas, mecánicas y contenidos del sistema de rol ARCANA para su consulta por un LLM. Incluye la creación y progresión de personajes, exploración, interacción social, combate, cartas, magia, equipo y reglas narrativas, además de guías para el Director de Juego, clases, dotes, objetos mágicos y bestiario.
 
 ## Manual del Jugador
 

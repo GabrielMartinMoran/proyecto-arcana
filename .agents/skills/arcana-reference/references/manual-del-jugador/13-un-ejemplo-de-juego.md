@@ -1,5 +1,3 @@
-> Esta sección presenta una escena de juego que muestra cómo se aplican las reglas de ARCANA durante una partida. A través de la interacción entre el Director de Juego y los jugadores, se ejemplifican la narración, la toma de decisiones, las Pruebas de Habilidad, los Niveles de Dificultad y el uso de cartas para obtener Ventaja.
-
 # 13. Un Ejemplo de Juego
 
 Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presentamos una escena de ejemplo para ilustrar cómo fluye una partida de ARCANA, combinando la narración del Director de Juego (DJ) con las acciones y decisiones de los jugadores.

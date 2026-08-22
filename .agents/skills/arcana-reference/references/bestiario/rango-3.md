@@ -1,6 +1,4 @@
 # Bestiario — Rango 3
-> El Bestiario de Rango 3 reúne criaturas capaces de plantear amenazas especializadas y exigir respuestas tácticas al grupo. Incluye enemigos como el Espectro, centrado en el miedo, el aislamiento y el daño necrótico; el Ogro, una fuerza bruta resistente con control de área; y el Sacerdote, un apoyo estratégico y espiritual. Cada entrada detalla linaje, comportamiento, atributos, estadísticas, ataques, rasgos e interacciones relevantes.
-
 # Espectro
 
 **Linaje:** No-muerto

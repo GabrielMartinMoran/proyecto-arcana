@@ -1,5 +1,3 @@
-> Este capítulo presenta la exploración como el conjunto de viajes, investigaciones, infiltraciones y descubrimientos que conectan los momentos de una aventura en ARCANA. Explica cómo superar obstáculos mediante Pruebas de Habilidad (`1d8 + Atributo` vs. ND), eligiendo entre Mente, Instinto, Reflejos y Cuerpo según la situación. También introduce la importancia de las herramientas y el equipo adecuados durante la exploración.
-
 # 5. Exploración
 
 La exploración es el tejido que conecta los momentos de la aventura. Es el viaje a través de un bosque ancestral, la tensa infiltración en la guarida de un villano, la meticulosa investigación de una ruina olvidada o el descubrimiento de un secreto que cambia el curso de la historia. En ARCANA, estos desafíos son tan cruciales y emocionantes como el combate.

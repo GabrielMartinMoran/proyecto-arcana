@@ -1,5 +1,3 @@
-> Este capítulo reúne reglas opcionales que permiten a los jugadores influir directamente en la narrativa mediante recursos como los Puntos de Suerte. Explica cómo introducir, a través de flashbacks, preparativos previos, coincidencias o vínculos del pasado que afecten a la situación actual, siempre con la aprobación del DJ y respetando la coherencia de la historia.
-
 # 12. Reglas Narrativas Avanzadas
 
 Este capítulo presenta mecánicas opcionales diseñadas para dar a los jugadores un mayor grado de control sobre la narrativa, permitiéndoles contribuir a la historia de maneras creativas y sorprendentes.

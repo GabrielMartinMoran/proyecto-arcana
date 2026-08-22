@@ -1,5 +1,3 @@
-> Esta sección explica cómo establecer el Nivel de Dificultad (ND) de las pruebas de habilidad para reflejar la incertidumbre y las consecuencias narrativas de las acciones. Enseña cuándo no pedir una tirada, cómo usar la escala base de ND 6 a 14+ y cómo ajustar la dificultad según las herramientas, las condiciones y la presión.
-
 # Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad
 
 Establecer el **Nivel de Dificultad (ND)** para las acciones de los jugadores es tu herramienta principal para modelar el mundo. Es más un arte que una ciencia.

@@ -1,5 +1,3 @@
-> Esta sección explica cómo aprovechar el tiempo entre aventuras para progresar y desarrollar al personaje fuera de escena. Durante un período de descanso significativo, cada personaje puede gastar PP para adquirir cartas o mejorar Atributos, y realizar un proyecto personal definido por el DJ. Estos proyectos pueden requerir tiempo, Oro y Pruebas de Habilidad, e incluyen investigar misterios, fabricar objetos o aprender nuevas capacidades.
-
 # 10. Tiempo Entre Aventuras
 
 Las aventuras son momentos de alta intensidad, peligro y gloria, pero ¿qué hace tu personaje cuando el polvo se asienta? El tiempo que pasa entre una misión y la siguiente, conocido como "tiempo de descanso" o "downtime", es una oportunidad para que tu personaje crezca, entrene, investigue y se conecte con el mundo de una forma más personal.

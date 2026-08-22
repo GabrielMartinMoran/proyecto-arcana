@@ -1,6 +1,4 @@
 # Bestiario — Rango 4
-> El Bestiario de Rango 4 reúne criaturas poderosas y resistentes, capaces de enfrentarse a grupos bien preparados. Incluye gigantes como el troll, cuya Regeneración exige explotar el fuego o el ácido, y el cíclope, un combatiente devastador pero vulnerable a ataques coordinados y desde varios flancos. Sus perfiles detallan comportamiento, atributos, estadísticas, ataques y rasgos especiales para facilitar su uso en combate.
-
 # Troll
 
 **Linaje:** Gigante

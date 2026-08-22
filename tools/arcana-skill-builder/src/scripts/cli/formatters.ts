@@ -1,4 +1,5 @@
 import type { Card, ItemCard, Uses } from '../../types/card.js';
+import type { OutputFormat, SearchDetailResult, SearchEngineResult } from './search/types.js';
 
 export interface CardSummaryOptions {
 	showId?: boolean;
@@ -182,4 +183,77 @@ export const formatListWithHeader = (
 	const header = formatListHeader(title, cards.length);
 	const body = formatCardSummaries(cards, options);
 	return `${header}\n${body}`;
+};
+
+const STATUS_LABEL: Record<SearchEngineResult['output']['status'], string> = {
+	found: 'Encontrado',
+	ambiguous: 'Ambiguo',
+	not_found: 'No encontrado',
+	invalid_query: 'Consulta inválida',
+};
+
+/**
+ * Search output is intentionally minimal by default. Rich detail (score, match
+ * type, matched fields, metadata) is rendered only behind `--explain` for tests
+ * and maintenance.
+ */
+export const formatSearchOutput = (
+	result: SearchEngineResult,
+	format: OutputFormat,
+	explain: boolean,
+	query: string = '',
+): string => {
+	if (format === 'text') return formatSearchText(result, explain, query);
+	return formatSearchJson(result, explain, query);
+};
+
+export const formatSearchJson = (
+	result: SearchEngineResult,
+	explain: boolean,
+	query: string = '',
+): string => {
+	if (!explain) {
+		return JSON.stringify(result.output, null, 2);
+	}
+	const detailResults: SearchDetailResult[] = result.detail;
+	const payload = {
+		status: result.output.status,
+		query,
+		results: detailResults,
+		nextAction: result.output.nextAction,
+	};
+	return JSON.stringify(payload, null, 2);
+};
+
+export const formatSearchText = (
+	result: SearchEngineResult,
+	explain: boolean,
+	query: string = '',
+): string => {
+	const lines: string[] = [];
+	lines.push(`Estado: ${STATUS_LABEL[result.output.status]}`);
+	if (query) lines.push(`Consulta: ${query}`);
+
+	if (result.output.results.length === 0) {
+		lines.push('Sin resultados.');
+	} else {
+		for (const entry of result.output.results) {
+			lines.push(
+				`  ${entry.rank}. [${entry.confidence}] ${entry.kind}: ${entry.name} — ${entry.source}`,
+			);
+		}
+	}
+
+	if (explain) {
+		for (const detail of result.detail) {
+			lines.push(
+				`     score=${detail.score} match=${detail.matchType} campos=[${detail.matchedFields.join(
+					', ',
+				)}] slug=${detail.slug}`,
+			);
+		}
+	}
+
+	lines.push(`Próxima acción: ${result.output.nextAction}`);
+	return lines.join('\n');
 };

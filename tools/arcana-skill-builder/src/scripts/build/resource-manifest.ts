@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import fs from 'fs/promises';
+import type { Stats } from 'fs';
 import path from 'path';
 
 export type ResourceKind = 'file' | 'directory';
@@ -65,7 +66,7 @@ const computeSha1 = async (absolutePath: string): Promise<string> => {
 const createEntry = (
 	absolutePath: string,
 	relativePath: string,
-	stats: fs.Stats,
+	stats: Stats,
 ): ResourceManifestEntry => {
 	return {
 		path: relativePath.split(path.sep).join('/'),
@@ -143,7 +144,6 @@ export const writeResourceManifest = async (
 					.relative(options.relativeTo ?? rootDir, rootDir)
 					.split(path.sep)
 					.join('/') || '.',
-			generatedAt: new Date().toISOString(),
 			entries: manifest,
 		},
 		null,

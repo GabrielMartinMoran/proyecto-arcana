@@ -2,12 +2,19 @@ import { HumanMessage } from '@langchain/core/messages';
 import { ChatOpenAI } from '@langchain/openai';
 import { CONFIG } from '../config.js';
 
+const DEFAULT_MODEL = 'gpt-4o-mini';
+
 let client: ChatOpenAI | null = null;
-const getClient = () => {
+
+const getClient = (): ChatOpenAI | null => {
+	const apiKey = process.env.OPENAI_API_KEY;
+	// Strict opt-in: no client is constructed (and therefore no network access)
+	// unless summarization was explicitly enabled and a key is available.
+	if (!CONFIG.AI_ENABLED || !apiKey) return null;
 	if (!client) {
 		client = new ChatOpenAI({
-			model: CONFIG.OPENAI_MODEL,
-			apiKey: CONFIG.OPENAI_API_KEY,
+			model: process.env.OPENAI_MODEL ?? DEFAULT_MODEL,
+			apiKey,
 			maxTokens: 200,
 		});
 	}
@@ -19,7 +26,11 @@ export const generateSummary = async (
 	content: string,
 	contextHint: string,
 ): Promise<string> => {
-	if (CONFIG.SKIP_AI || !CONFIG.OPENAI_API_KEY) return '';
+	if (!CONFIG.AI_ENABLED) return '';
+	if (!process.env.OPENAI_API_KEY) return '';
+
+	const c = getClient();
+	if (!c) return '';
 
 	const prompt = `Eres un asistente experto en el sistema de rol ARCANA.
 Escribe una introducción/resumen breve (2-4 oraciones en español) para la sección "${sectionTitle}".
@@ -31,7 +42,7 @@ ${content.slice(0, 3000)}`;
 
 	for (let attempt = 1; attempt <= 3; attempt++) {
 		try {
-			const res = await getClient().invoke([new HumanMessage(prompt)]);
+			const res = await c.invoke([new HumanMessage(prompt)]);
 			return (res.content as string).trim();
 		} catch (err: any) {
 			if (attempt === 3) {

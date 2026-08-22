@@ -1,5 +1,3 @@
-> El Pacto de Caos es una reserva persistente que el DJ acumula cuando los jugadores compran Puntos de Suerte, reflejando la deuda narrativa que el grupo contrae con el destino. El DJ puede gastar estos puntos para fortalecer a PNJ y criaturas, aumentar dificultades o permitirles repetir tiradas fallidas. Su uso debe introducir consecuencias y complicaciones de forma narrativa, evitando castigar directamente la misma acción en la que se empleó Suerte.
-
 # El Pacto de Caos
 
 El Caos es un recurso narrativo y mecánico que el DJ acumula cuando los jugadores eligen forzar su suerte. Representa cómo el mundo y el destino reaccionan para reequilibrar la balanza.

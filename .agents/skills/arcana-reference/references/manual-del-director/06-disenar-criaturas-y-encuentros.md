@@ -1,5 +1,3 @@
-> Esta sección presenta un sistema ligero e intuitivo para diseñar criaturas y encuentros justos, desafiantes y divertidos en ARCANA. Incluye una guía fundamental para preparar encuentros durante las sesiones y reglas opcionales para crear criaturas personalizadas desde cero.
-
 # Diseñar Criaturas y Encuentros
 
 La esencia de una aventura emocionante reside en los desafíos que presenta. Esta guía te proporcionará un sistema de reglas ligeras, rápido e intuitivo para diseñar encuentros que sean justos, desafiantes y divertidos, alineados con la filosofía de ARCANA.

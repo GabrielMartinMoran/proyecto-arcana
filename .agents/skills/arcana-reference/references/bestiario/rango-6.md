@@ -1,6 +1,4 @@
 # Bestiario — Rango 6
-> El Bestiario de Rango 6 reúne criaturas de amenaza extrema, con altos valores de Salud, ataques potentes, defensas relevantes y capacidades capaces de alterar decisivamente el combate. Incluye enemigos como el Dragón Rojo Adulto, centrado en movilidad aérea, daño de fuego y control mediante miedo, y el Liche, especializado en magia táctica, economía de acción y presión constante. Estas criaturas están diseñadas para encuentros contra grupos experimentados y requieren estrategias específicas para contrarrestar sus fortalezas.
-
 # Dragón Rojo Adulto
 
 **Linaje:** Dragón

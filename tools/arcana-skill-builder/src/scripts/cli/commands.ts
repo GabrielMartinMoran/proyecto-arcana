@@ -1,6 +1,9 @@
 import type { Card } from '../../types/card.js';
+import type { ContentIndex } from '../../types/content-index.js';
 import { removeDiacritics } from '../../utils/formatting.js';
-import type { CardsDataset } from './data-loader.js';
+import { loadContentIndex, type CardsDataset } from './data-loader.js';
+import { searchContentIndex } from './search/engine.js';
+import type { SearchOptions } from './search/types.js';
 import {
 	filterCards,
 	sortCardsByLevelThenName,
@@ -11,6 +14,7 @@ import {
 import {
 	formatCardDetails,
 	formatListWithHeader,
+	formatSearchOutput,
 	type CardDetailOptions,
 	type CardSummaryOptions,
 } from './formatters.js';
@@ -161,4 +165,24 @@ export const showCardDetail = (dataset: CardsDataset, options: DetailCommandOpti
 	}
 
 	return formatCardDetails(card, options.display);
+};
+
+export interface SearchCommandDeps {
+	/** Injectable index loader so tests never depend on generated artifacts. */
+	loadIndex?: () => ContentIndex;
+}
+
+/**
+ * Global search over the generated content index. Defaults to the minimal
+ * agent-facing projection; `--explain` exposes the rich ranking detail.
+ */
+export const runSearch = (options: SearchOptions, deps: SearchCommandDeps = {}): string => {
+	const index = (deps.loadIndex ?? loadContentIndex)();
+	const result = searchContentIndex(index, options);
+	return formatSearchOutput(
+		result,
+		options.format ?? 'json',
+		options.explain === true,
+		options.query,
+	);
 };

@@ -1,6 +1,4 @@
 # Bestiario — Rango 1
-> El Bestiario de Rango 1 presenta criaturas goblinoides de baja resistencia pero peligrosas en grupo, centradas en emboscadas, escaramuzas y tácticas oportunistas. Incluye goblins ágiles, un jefe que protege su posición usando subordinados como escudos y un chamán de apoyo que potencia y cura a sus aliados. Sus entradas detallan atributos, estadísticas, ataques, rasgos, reacciones, comportamiento y lenguas.
-
 # Goblin
 
 **Linaje:** Goblinoide

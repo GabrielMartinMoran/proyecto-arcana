@@ -1,6 +1,4 @@
 # Bestiario — Rango 2
-> El Bestiario de Rango 2 reúne criaturas y adversarios más especializados, con tácticas y rasgos capaces de cambiar el curso de un combate. Incluye amenazas brutales como el orco, líderes tácticos como el Capitán de los Bandidos y depredadores coordinados como el lobo. Sus descripciones detallan atributos, estadísticas, ataques, rasgos, acciones y patrones de comportamiento para facilitar su uso en juego.
-
 # Orco
 
 **Linaje:** Humanoide

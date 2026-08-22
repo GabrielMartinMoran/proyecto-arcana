@@ -5,6 +5,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildBestiaryGroups } from './builders/bestiary-builder.js';
 import { buildCardGroups, buildItemGroups } from './builders/cards-builder.js';
+import {
+	buildContentIndex,
+	scanForSecretLeaks,
+	validateContentIndex,
+} from './builders/content-index-builder.js';
 import { buildManual } from './builders/manual-builder.js';
 
 import { CONFIG } from './config.js';
@@ -21,6 +26,7 @@ import {
 import { splitGMManual, splitPlayerManual } from './processors/manual-processor.js';
 import { writeResourceManifest } from './scripts/build/resource-manifest.js';
 import { isCardsCliCommand, printCliUsage, runCardsCliCommand } from './scripts/cli/index.js';
+import { serializeContentIndex } from './types/content-index.js';
 import { ensureDir, writeJson, writeMarkdown } from './writers/file-writer.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -28,7 +34,6 @@ const __dirname = path.dirname(__filename);
 const BUILDER_ROOT = path.resolve(__dirname, '..');
 const SKILL_TEMPLATE_PATH = path.join(BUILDER_ROOT, 'skill-template.md');
 const TEMPLATE_PLACEHOLDER = '<!-- BUILD:INSERT-GENERATED-CONTENT -->';
-const TEMPLATE_COMPILED_AT = '<!-- BUILD:COMPILED-AT -->';
 
 interface HubSection {
 	heading: string;
@@ -39,7 +44,11 @@ export const buildAll = async (): Promise<void> => {
 	console.log('arcana-skill-builder starting...');
 	console.log(`Output: ${CONFIG.OUT_PATH}`);
 	console.log(
-		`AI summaries: ${CONFIG.SKIP_AI ? 'disabled (SKIP_AI=true)' : `enabled (${CONFIG.OPENAI_MODEL})`}`,
+		`AI summaries: ${
+			CONFIG.AI_ENABLED
+				? 'enabled (explicit opt-in)'
+				: 'disabled (ENABLE_AI=true required to enable)'
+		}`,
 	);
 	ensureDir(CONFIG.OUT_PATH);
 
@@ -55,6 +64,9 @@ export const buildAll = async (): Promise<void> => {
 	const creatures = ((yamlLoad(loadDocFile(CONFIG.BESTIARY_FILE)) as any).creatures ?? []).map(
 		mapCreature,
 	);
+	const flatCardGroups = flattenCardGroups(groupCardsByTagAndLevel(abilityCards));
+	const itemGroups = groupItemsByLevel(magicalItems);
+	const creatureGroups = groupCreaturesByTier(creatures);
 
 	console.log('\nBuilding all sections in parallel...');
 
@@ -63,15 +75,9 @@ export const buildAll = async (): Promise<void> => {
 	const [playerLinks, gmLinks, cardLinks, itemLinks, bestiaryLinks] = await Promise.all([
 		buildManual(playerChapters, path.join(resourcesPath, CONFIG.PLAYER_DIR), 'Manual del Jugador'),
 		buildManual(gmChapters, path.join(resourcesPath, CONFIG.GM_DIR), 'Manual del Director'),
-		buildCardGroups(
-			flattenCardGroups(groupCardsByTagAndLevel(abilityCards)),
-			path.join(resourcesPath, CONFIG.CARDS_DIR),
-		),
-		buildItemGroups(groupItemsByLevel(magicalItems), path.join(resourcesPath, CONFIG.ITEMS_DIR)),
-		buildBestiaryGroups(
-			groupCreaturesByTier(creatures),
-			path.join(resourcesPath, CONFIG.BESTIARY_DIR),
-		),
+		buildCardGroups(flatCardGroups, path.join(resourcesPath, CONFIG.CARDS_DIR)),
+		buildItemGroups(itemGroups, path.join(resourcesPath, CONFIG.ITEMS_DIR)),
+		buildBestiaryGroups(creatureGroups, path.join(resourcesPath, CONFIG.BESTIARY_DIR)),
 	]);
 
 	const sections: HubSection[] = [
@@ -100,6 +106,60 @@ export const buildAll = async (): Promise<void> => {
 			includeDirectories: true,
 		},
 	);
+
+	console.log('\nGenerating deterministic content index...');
+	const contentIndex = buildContentIndex({
+		playerChapters,
+		gmChapters,
+		cardGroups: flatCardGroups,
+		itemGroups,
+		creatureGroups,
+		playerDir: CONFIG.PLAYER_DIR,
+		gmDir: CONFIG.GM_DIR,
+	});
+	const contentIndexPath = path.join(CONFIG.OUT_PATH, 'content-index.json');
+	await fs.mkdir(path.dirname(contentIndexPath), { recursive: true });
+	await fs.writeFile(contentIndexPath, serializeContentIndex(contentIndex), 'utf-8');
+
+	console.log('\nValidating content index integrity...');
+	const indexIssues = await validateContentIndex(contentIndex, {
+		pathExists: async (relPath) => {
+			try {
+				const stats = await fs.stat(path.join(CONFIG.OUT_PATH, relPath));
+				return stats.isFile() || stats.isDirectory();
+			} catch {
+				return false;
+			}
+		},
+	});
+	if (indexIssues.length > 0) {
+		throw new Error(
+			`Content index integrity validation failed:\n${indexIssues
+				.map((issue) => `  - ${issue}`)
+				.join('\n')}`,
+		);
+	}
+
+	console.log('\nScanning generated output for secret leaks...');
+	const secretLeaks: string[] = [];
+	for (const fileName of [
+		'content-index.json',
+		'resources-manifest.json',
+		'references-index.json',
+	]) {
+		const artifactPath = path.join(CONFIG.OUT_PATH, fileName);
+		const text = await fs.readFile(artifactPath, 'utf-8');
+		for (const leak of scanForSecretLeaks(text)) {
+			secretLeaks.push(`${fileName}: ${leak}`);
+		}
+	}
+	if (secretLeaks.length > 0) {
+		throw new Error(
+			`Secret data detected in generated output:\n${secretLeaks
+				.map((leak) => `  - ${leak}`)
+				.join('\n')}`,
+		);
+	}
 
 	console.log('\nDone. Output at:', CONFIG.OUT_PATH);
 };
@@ -176,11 +236,7 @@ const injectSkillTemplate = async (content: string): Promise<void> => {
 	const normalizedContent = content.trimEnd();
 	const replacement = normalizedContent.length > 0 ? `${normalizedContent}\n` : '';
 
-	const compiledAt = new Date().toUTCString();
-
-	const finalSkill = template
-		.replace(TEMPLATE_COMPILED_AT, compiledAt)
-		.replace(TEMPLATE_PLACEHOLDER, replacement);
+	const finalSkill = template.replace(TEMPLATE_PLACEHOLDER, replacement);
 	writeMarkdown(path.join(CONFIG.OUT_PATH, 'SKILL.md'), finalSkill);
 };
 

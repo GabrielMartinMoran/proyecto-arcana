@@ -1,5 +1,3 @@
-> Esta sección explica cómo estructurar y resolver los combates en ARCANA, desde la iniciativa y la economía de acciones hasta el movimiento, las reacciones y las acciones preparadas. También presenta las maniobras de combate, que permiten realizar acciones creativas más allá de las cartas mediante pruebas de habilidad o tiradas enfrentadas, según determine el Director de Juego.
-
 # 7. Combate
 
 Esta sección cubre las reglas para resolver enfrentamientos de forma estructurada.

@@ -1,5 +1,3 @@
-> Esta sección explica cómo diseñar encuentros balanceados en ARCANA usando el Poder Promedio (PP) del grupo y la dificultad deseada, sin depender de reglas rígidas. Calcula el PP Promedio, consulta la tabla para obtener los Puntos de Amenaza Base por Personaje (PA Base/PJ) y el rango de monstruo sugerido, y luego determina el presupuesto total del encuentro según el número de personajes. El DJ puede ajustar estos valores aplicando su criterio y los principios del sistema.
-
 # Parte 1: Diseñar Encuentros
 
 Este sistema te permite preparar un encuentro balanceado rápidamente, basándose en el poder promedio de tu grupo y la dificultad deseada. Empodera al Director de Juego (DJ) para tomar decisiones informadas, guiado por principios en lugar de reglas estrictas.

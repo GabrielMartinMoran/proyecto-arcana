@@ -1,6 +1,4 @@
 # Bestiario — Rango 5
-> El Bestiario de Rango 5 reúne criaturas peligrosas con capacidades capaces de dominar encuentros exigentes. El Thulu es un depredador psíquico volador que combina control de masas, telepatía e inmovilización para aislar y devorar a sus presas. Su elevada Mente, defensa psiónica y capacidad de huida lo convierten en una amenaza especialmente táctica.
-
 # Thulu
 
 **Linaje:** Aberración

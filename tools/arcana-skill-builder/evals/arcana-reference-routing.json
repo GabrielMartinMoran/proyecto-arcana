@@ -1,0 +1,411 @@
+{
+	"skill_name": "arcana-reference",
+	"artifact": "arcana-reference-routing",
+	"version": "T4-v1",
+	"kind": "routing",
+	"note": "Static, deterministic routing evals. Los valores esperados se verificaron contra el índice generado desde las fuentes actuales (static/docs) y el CLI empaquetado; tras QA FAIL, los casos 2, 4 y 8 se alinearon al comportamiento real: las búsquedas de categoría devuelven found con múltiples referencias ordenadas (no ambiguous). T8b añade casos para Afinidad Arcana, Arma Enriquecida, Adquirir Nueva Carta (top-k), LS (not_found), cobertura insuficiente y la raíz de arquetipo (Céfiro), y corrige el caso Bardo a --level 2 --level 3. No se invoca ningún LLM para generarlos ni para ejecutarlos, y no se escriben resultados inventados. Cada caso define prompt, ruta esperada (status/familia/kind), expectations y assertions objetivas.",
+	"evals": [
+		{
+			"id": 1,
+			"name": "ventaja-seccion-manual-jugador",
+			"polarity": "positive",
+			"prompt": "¿Qué es Ventaja en ARCANA?",
+			"expected_route": {
+				"status": "found",
+				"kind": "section",
+				"family": "Manual del Jugador",
+				"command": "node dist/index.js search --query \"qué es Ventaja\""
+			},
+			"expected_output": "El agente abre la sección 'Ayuda, Ventaja y Desventaja' del Manual del Jugador y cita mecánicas/03-mecanicas-de-juego.md#ayuda-ventaja-y-desventaja.",
+			"expectations": [
+				"La primera fuente es del Manual del Jugador (source player.md).",
+				"La respuesta incluye una ruta y un ancla verificables."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"primer resultado kind === 'section'",
+				"source contiene 'manual-del-jugador/03-mecanicas-de-juego.md#ayuda-ventaja-y-desventaja'"
+			]
+		},
+		{
+			"id": 2,
+			"name": "bardo-cartas-nivel-2-y-3",
+			"polarity": "positive",
+			"prompt": "Lista cartas de Bardo de nivel 2 y 3",
+			"expected_route": {
+				"status": "found",
+				"kind": "card",
+				"family": "Cartas de habilidades",
+				"command": "node dist/index.js search --query \"Bardo\" --kind card --level 2 --level 3"
+			},
+			"expected_output": "El CLI devuelve solo cartas (kind card) del Bardo en los niveles 2 y 3; el agente lista las referencias ordenadas sin cargar el contenido de cada carta.",
+			"expectations": [
+				"Todos los resultados son de kind card.",
+				"Los resultados pertenecen al nivel 2 o al nivel 3 y a la familia de cartas.",
+				"No se devuelve el contenido completo de cada carta."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"todos los resultados kind === 'card'",
+				"todos los resultados con level === 2 o level === 3 cuando la consulta usa --level 2 --level 3",
+				"source contiene 'cartas-de-habilidades/arquetipos/bardo/'"
+			]
+		},
+		{
+			"id": 3,
+			"name": "pacto-supremo-slug-canonico",
+			"polarity": "positive",
+			"prompt": "Detalla Pacto Supremo",
+			"expected_route": {
+				"status": "found",
+				"kind": "card",
+				"family": "Cartas de habilidades",
+				"slug": "pacto-supremo",
+				"command": "node dist/index.js search --query \"Pacto Supremo\""
+			},
+			"expected_output": "El agente resuelve la carta 'Pacto Supremo' con el slug canónico pacto-supremo y abre arquetipos/brujo/arquetipo-nivel-1.yml.",
+			"expectations": [
+				"El slug del resultado es pacto-supremo.",
+				"No se usa el slug obsoleto arquetipo-brujo-pacto-siniestro."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 name === 'Pacto Supremo'",
+				"source contiene 'cartas-de-habilidades/arquetipos/brujo/arquetipo-nivel-1.yml'",
+				"slug === 'pacto-supremo'",
+				"slug !== 'arquetipo-brujo-pacto-siniestro'"
+			]
+		},
+		{
+			"id": 4,
+			"name": "objetos-nivel-3-utilidad",
+			"polarity": "positive",
+			"prompt": "Busca objetos mágicos de nivel 3 con etiqueta Utilidad",
+			"expected_route": {
+				"status": "found",
+				"kind": "item",
+				"family": "Objetos mágicos",
+				"command": "node dist/index.js search --query \"Utilidad\" --kind item --level 3 --tag Utilidad"
+			},
+			"expected_output": "El agente recibe referencias ordenadas de objetos mágicos nivel 3 con la etiqueta Utilidad y muestra la fuente de cada resultado.",
+			"expectations": [
+				"Todos los resultados son objetos (kind item) de nivel 3 con etiqueta Utilidad.",
+				"Cada resultado muestra su fuente (objetos-magicos/nivel-3.yml)."
+			],
+			"assertions": [
+				"todos los resultados kind === 'item'",
+				"todos los resultados con level === 3",
+				"todos los resultados con tags que incluyen 'Utilidad'",
+				"source contiene 'objetos-magicos/nivel-3.yml'"
+			]
+		},
+		{
+			"id": 5,
+			"name": "liche-bestiario-sin-rango",
+			"polarity": "positive",
+			"prompt": "Dame el bloque del Liche",
+			"expected_route": {
+				"status": "found",
+				"kind": "creature",
+				"family": "Bestiario",
+				"command": "node dist/index.js search --query \"Liche\""
+			},
+			"expected_output": "El agente resuelve el Liche sin conocer su rango y abre references/bestiario/rango-6.md#liche.",
+			"expectations": [
+				"La primera fuente es del bestiario.",
+				"La ruta incluye el ancla del heading del Liche."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 kind === 'creature'",
+				"resultado 1 name === 'Liche'",
+				"source === 'references/bestiario/rango-6.md#liche'"
+			]
+		},
+		{
+			"id": 6,
+			"name": "diseno-ppf-manual-director",
+			"polarity": "positive",
+			"prompt": "¿Cómo diseño criaturas avanzadas usando PPF?",
+			"expected_route": {
+				"status": "ambiguous",
+				"kind": "section",
+				"family": "Manual del Director",
+				"command": "node dist/index.js search --query \"PPF\" --source gm.md --limit 3"
+			},
+			"expected_output": "El agente consulta el Manual del Director (source gm.md) y abre las secciones de diseño avanzado con PPF (08-parte-2-diseno-avanzado-de-criaturas.md).",
+			"expectations": [
+				"Las fuentes pertenecen al Manual del Director.",
+				"Las secciones tratan de diseño avanzado de criaturas y PPF."
+			],
+			"assertions": [
+				"todos los resultados con source === 'gm.md' o path dentro de manual-del-director",
+				"source contiene 'manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md'"
+			]
+		},
+		{
+			"id": 7,
+			"name": "ciclope-typo-fuzzy",
+			"polarity": "negative",
+			"prompt": "¿Qué estadísticas tiene el ciclpe?",
+			"expected_route": {
+				"status": "found",
+				"kind": "creature",
+				"family": "Bestiario",
+				"confidence": "medium",
+				"command": "node dist/index.js search --query \"ciclpe\""
+			},
+			"expected_output": "El agente obtiene la criatura Cíclope como sugerencia fuzzy de confianza media y abre la fuente antes de afirmar cualquier estadística.",
+			"expectations": [
+				"El typo 'ciclpe' resuelve a Cíclope por fuzzy.",
+				"La confianza es medium (nunca high).",
+				"El agente abre la fuente antes de responder."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 name === 'Cíclope'",
+				"resultado 1 confidence === 'medium'",
+				"source === 'references/bestiario/rango-4.md#cíclope'"
+			]
+		},
+		{
+			"id": 8,
+			"name": "consulta-ambigua-alternativas",
+			"polarity": "negative",
+			"prompt": "¿Qué cartas de Bardo usan Concentración?",
+			"expected_route": {
+				"status": "found",
+				"kind": "card",
+				"family": "Cartas de habilidades",
+				"command": "node dist/index.js search --query \"Bardo\""
+			},
+			"expected_output": "Una búsqueda de categoría (Bardo) devuelve estado found con múltiples referencias de cartas ordenadas y sus rutas; el agente presenta las coincidencias verificadas y, si la intención no es unívoca, pide al usuario elegir sin tratar ninguna como normativa ni inventar.",
+			"expectations": [
+				"El estado es found con múltiples referencias ordenadas.",
+				"Cada coincidencia incluye su ruta verificada.",
+				"El agente no elige una carta sin verificar su fuente."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"results.length >= 2",
+				"todos los resultados incluyen 'source'",
+				"nextAction instruye abrir el resultado 1 y continuar con los siguientes sin repetir la consulta"
+			]
+		},
+		{
+			"id": 9,
+			"name": "consulta-no-encontrada",
+			"polarity": "negative",
+			"prompt": "¿Qué dice ARCANA sobre la habilidad inexistente Zzznope?",
+			"expected_route": {
+				"status": "not_found",
+				"command": "node dist/index.js search --query \"zzznope\""
+			},
+			"expected_output": "El agente declara explícitamente que no existe una fuente suficiente y no inventa una regla ni una fuente.",
+			"expectations": ["El estado es not_found.", "La respuesta no inventa reglas ni fuentes."],
+			"assertions": [
+				"expected_route.status === 'not_found'",
+				"results.length === 0",
+				"nextAction declara la ausencia sin inventar"
+			]
+		},
+		{
+			"id": 10,
+			"name": "fallback-siguiente-fuente",
+			"polarity": "negative",
+			"prompt": "Busca dónde se describe el pacto del brujo; la primera fuente no responde a la intención",
+			"expected_route": {
+				"status": "found",
+				"kind": "card",
+				"family": "Cartas de habilidades",
+				"command": "node dist/index.js search --query \"Pacto Supremo\" --limit 3"
+			},
+			"expected_output": "El agente conserva la consulta original, marca la primera fuente como insuficiente y continúa con el siguiente resultado ordenado (Arma del Pacto) sin rehacer la búsqueda con una consulta improvisada.",
+			"expectations": [
+				"El agente mantiene la misma consulta original entre intentos.",
+				"La primera fuente no se presenta como respuesta normativa.",
+				"El agente abre la siguiente fuente ordenada."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"results.length >= 2",
+				"resultado 2.name existe y es distinto de resultado 1.name",
+				"el flujo documentado conserva la consulta original (no reescribe ni improvisa)"
+			]
+		},
+		{
+			"id": 11,
+			"name": "afinidad-arcana-top-k",
+			"polarity": "positive",
+			"prompt": "¿Qué hace Afinidad Arcana y qué requisitos tiene?",
+			"expected_route": {
+				"status": "found",
+				"kind": "card",
+				"family": "Cartas de habilidades",
+				"command": "node dist/index.js search --query \"Afinidad Arcana\""
+			},
+			"expected_output": "El agente resuelve la carta 'Afinidad Arcana' en el primer resultado y abre cartas-de-habilidades/arcanista/nivel-1.yml antes de citar requisitos.",
+			"expectations": [
+				"Afinidad Arcana aparece en el top-k (rank 1).",
+				"La fuente corresponde a la familia de cartas de habilidades."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 name === 'Afinidad Arcana'",
+				"resultado 1 kind === 'card'",
+				"source contiene 'cartas-de-habilidades/arcanista/nivel-1.yml'"
+			]
+		},
+		{
+			"id": 12,
+			"name": "arma-enriquecida-top-k",
+			"polarity": "positive",
+			"prompt": "¿Cómo consigo el objeto Arma Enriquecida?",
+			"expected_route": {
+				"status": "found",
+				"kind": "item",
+				"family": "Objetos mágicos",
+				"command": "node dist/index.js search --query \"Arma Enriquecida\""
+			},
+			"expected_output": "El agente resuelve 'Arma Enriquecida' en el primer resultado y abre objetos-magicos/nivel-2.yml sin confundirla con la carta Arma del Pacto.",
+			"expectations": [
+				"Arma Enriquecida aparece en el top-k (rank 1).",
+				"El resultado es un objeto mágico, no una carta de habilidad genérica."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 name === 'Arma Enriquecida'",
+				"resultado 1 kind === 'item'",
+				"source contiene 'objetos-magicos/nivel-2.yml'"
+			]
+		},
+		{
+			"id": 13,
+			"name": "adquirir-nueva-carta-top-k",
+			"polarity": "positive",
+			"prompt": "¿Cuánto cuesta adquirir una carta nueva al subir de nivel?",
+			"expected_route": {
+				"status": "found",
+				"kind": "section",
+				"family": "Manual del Jugador",
+				"command": "node dist/index.js search --query \"cuánto cuesta adquirir una carta nueva al subir de nivel\""
+			},
+			"expected_output": "El agente resuelve la sección 'Adquirir Nueva Carta' en el primer resultado y cita la tabla de costes en PP de 09-progresion-del-personaje.md.",
+			"expectations": [
+				"Adquirir Nueva Carta aparece en el top-k (rank 1).",
+				"La fuente pertenece al Manual del Jugador."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 name === 'Adquirir Nueva Carta'",
+				"resultado 1 kind === 'section'",
+				"source contiene 'manual-del-jugador/09-progresion-del-personaje.md#adquirir-nueva-carta'"
+			]
+		},
+		{
+			"id": 14,
+			"name": "ls-no-encontrada",
+			"polarity": "negative",
+			"prompt": "¿Qué dice ARCANA sobre la habilidad LS?",
+			"expected_route": {
+				"status": "not_found",
+				"command": "node dist/index.js search --query \"LS\""
+			},
+			"expected_output": "El token corto LS no coincide dentro de palabras como bálsamo, bolsa o pulso; el agente declara que no existe una fuente suficiente y no inventa una regla.",
+			"expectations": ["El estado es not_found.", "La respuesta no inventa reglas ni fuentes."],
+			"assertions": [
+				"expected_route.status === 'not_found'",
+				"results.length === 0",
+				"nextAction declara la ausencia sin inventar"
+			]
+		},
+		{
+			"id": 15,
+			"name": "cobertura-insuficiente-sugerencias",
+			"polarity": "negative",
+			"prompt": "¿Qué dice la magia sobre el poder misterioso antiguo prohibido?",
+			"expected_route": {
+				"status": "not_found",
+				"command": "node dist/index.js search --query \"poder misterioso antiguo prohibido\""
+			},
+			"expected_output": "Una consulta de varios términos que solo cubre términos genéricos no es un found fiable: el agente presenta sugerencias de confianza baja y pide verificación antes de responder.",
+			"expectations": [
+				"El estado es not_found con sugerencias, no found.",
+				"Las sugerencias tienen confianza baja y requieren verificación."
+			],
+			"assertions": [
+				"expected_route.status === 'not_found'",
+				"results.length > 0",
+				"todos los resultados con confidence === 'low'",
+				"nextAction pide verificar las sugerencias antes de responder"
+			]
+		},
+		{
+			"id": 16,
+			"name": "cefiro-raiz-de-arquetipo",
+			"polarity": "positive",
+			"prompt": "Enumera las cartas de Céfiro de nivel 1",
+			"expected_route": {
+				"status": "found",
+				"kind": "card",
+				"family": "Cartas de habilidades",
+				"command": "node dist/index.js search --query \"Céfiro\""
+			},
+			"expected_output": "La carta raíz del arquetipo (Sintonía Fluida, etiqueta Arquetipo y archivo arquetipo-nivel-1.yml) encabeza el listado por la regla genérica de raíz; el agente abre esa fuente y continúa con las siguientes referencias del conjunto.",
+			"expectations": [
+				"La raíz del arquetipo Céfiro ocupa el rank 1.",
+				"El listado conserva todas las cartas de Céfiro como referencias ordenadas.",
+				"La regla de raíz es genérica (etiqueta Arquetipo + arquetipo-nivel-1.yml), no un nombre hardcodeado."
+			],
+			"assertions": [
+				"expected_route.status === 'found'",
+				"resultado 1 name === 'Sintonía Fluida'",
+				"resultado 1 source termina en 'arquetipo-nivel-1.yml'",
+				"results.length >= 5",
+				"los resultados 2..n conservan las demás cartas de Céfiro (fuentes bajo 'cartas-de-habilidades/arquetipos/cefiro/')"
+			]
+		}
+	],
+	"trigger_cases": [
+		{
+			"id": 1,
+			"query": "¿Qué es Ventaja en el sistema ARCANA?",
+			"should_trigger": true
+		},
+		{
+			"id": 2,
+			"query": "Lista cartas de Bardo de nivel 2 y 3 para mi personaje",
+			"should_trigger": true
+		},
+		{
+			"id": 3,
+			"query": "Dame el bloque de estadísticas del Liche",
+			"should_trigger": true
+		},
+		{
+			"id": 4,
+			"query": "Find magic items of level 3 with the Utility tag",
+			"should_trigger": true
+		},
+		{
+			"id": 5,
+			"query": "¿Cómo diseño criaturas avanzadas con puntos de progreso?",
+			"should_trigger": true
+		},
+		{
+			"id": 6,
+			"query": "Refactoriza el componente Svelte del panel de personaje",
+			"should_trigger": false
+		},
+		{
+			"id": 7,
+			"query": "¿Qué módulos usa la app web de ARCANA en Vite?",
+			"should_trigger": false
+		},
+		{
+			"id": 8,
+			"query": "Crea una integración para Foundry VTT",
+			"should_trigger": false
+		}
+	]
+}

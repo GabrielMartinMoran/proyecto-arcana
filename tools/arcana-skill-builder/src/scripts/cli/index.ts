@@ -1,5 +1,6 @@
 import {
 	listCards,
+	runSearch,
 	showCardDetail,
 	type DetailCommandOptions,
 	type ListCommandOptions,
@@ -7,8 +8,9 @@ import {
 } from './commands.js';
 import { loadCardsDataset } from './data-loader.js';
 import type { CardKind } from './filters.js';
+import type { OutputFormat, SearchFilterKind, SearchOptions } from './search/types.js';
 
-const SUPPORTED_COMMANDS = new Set<string>(['list', 'detail']);
+const SUPPORTED_COMMANDS = new Set<string>(['list', 'detail', 'search']);
 
 const expectValue = (args: string[], index: number, flag: string): string => {
 	const value = args[index + 1];
@@ -65,6 +67,165 @@ const parseLevelsValue = (flag: string, raw: string): number[] => {
 		.map((part) => part.trim())
 		.filter(Boolean)
 		.map((part) => parseInteger(flag, part));
+};
+
+const parseSearchKind = (raw: string): SearchFilterKind => {
+	const normalized = raw.trim().toLocaleLowerCase();
+	switch (normalized) {
+		case 'chapter':
+		case 'capitulo':
+			return 'chapter';
+		case 'card':
+		case 'carta':
+			return 'card';
+		case 'item':
+		case 'objeto':
+		case 'object':
+			return 'item';
+		case 'creature':
+		case 'criatura':
+			return 'creature';
+		case 'section':
+		case 'seccion':
+			return 'section';
+		case 'any':
+		case 'cualquiera':
+			return 'any';
+		default:
+			throw new Error(
+				`Valor inválido "${raw}" para "--kind". Usa chapter, card, item, creature, section o any.`,
+			);
+	}
+};
+
+const parseOutputFormat = (raw: string): OutputFormat => {
+	const normalized = raw.trim().toLocaleLowerCase();
+	switch (normalized) {
+		case 'json':
+			return 'json';
+		case 'text':
+		case 'texto':
+			return 'text';
+		default:
+			throw new Error(`Valor inválido "${raw}" para "--format". Usa "json" o "text".`);
+	}
+};
+
+export interface ParsedSearchCommand {
+	options: SearchOptions;
+	help: boolean;
+}
+
+export const parseSearchCommandArgs = (args: string[]): ParsedSearchCommand => {
+	const options: SearchOptions = { query: '' };
+	const positionals: string[] = [];
+	let help = false;
+
+	for (let index = 0; index < args.length; index += 1) {
+		const arg = args[index];
+
+		if (arg === '--help' || arg === '-h') {
+			help = true;
+			continue;
+		}
+
+		if (arg === '--') {
+			positionals.push(...args.slice(index + 1));
+			break;
+		}
+
+		if (!arg.startsWith('--')) {
+			positionals.push(arg);
+			continue;
+		}
+
+		switch (arg) {
+			case '--query': {
+				const value = expectValue(args, index, arg);
+				options.query = value;
+				index += 1;
+				break;
+			}
+			case '--kind': {
+				options.kind = parseSearchKind(expectValue(args, index, arg));
+				index += 1;
+				break;
+			}
+			case '--source': {
+				options.source = expectValue(args, index, arg);
+				index += 1;
+				break;
+			}
+			case '--level': {
+				const value = parseInteger(arg, expectValue(args, index, arg));
+				if (typeof options.level === 'number') {
+					options.level = [options.level, value];
+				} else if (Array.isArray(options.level)) {
+					options.level.push(value);
+				} else {
+					options.level = value;
+				}
+				index += 1;
+				break;
+			}
+			case '--min-level': {
+				options.minLevel = parseInteger(arg, expectValue(args, index, arg));
+				index += 1;
+				break;
+			}
+			case '--max-level': {
+				options.maxLevel = parseInteger(arg, expectValue(args, index, arg));
+				index += 1;
+				break;
+			}
+			case '--tier': {
+				options.tier = parseInteger(arg, expectValue(args, index, arg));
+				index += 1;
+				break;
+			}
+			case '--tag': {
+				const value = expectValue(args, index, arg);
+				if (!options.tagsAll) options.tagsAll = [];
+				options.tagsAll.push(value);
+				index += 1;
+				break;
+			}
+			case '--type': {
+				const value = expectValue(args, index, arg);
+				if (!options.types) options.types = [];
+				options.types.push(value);
+				index += 1;
+				break;
+			}
+			case '--lineage': {
+				options.lineage = expectValue(args, index, arg);
+				index += 1;
+				break;
+			}
+			case '--limit': {
+				options.limit = parseInteger(arg, expectValue(args, index, arg));
+				index += 1;
+				break;
+			}
+			case '--format': {
+				options.format = parseOutputFormat(expectValue(args, index, arg));
+				index += 1;
+				break;
+			}
+			case '--explain': {
+				options.explain = true;
+				break;
+			}
+			default:
+				throw new Error(`Opción desconocida "${arg}" para el comando "search".`);
+		}
+	}
+
+	if (!help && !options.query) {
+		options.query = positionals.join(' ').trim();
+	}
+
+	return { options, help };
 };
 
 const ensureListDisplay = (options: ListCommandOptions) => {
@@ -318,6 +479,23 @@ export const printCliUsage = (): void => {
 Comandos soportados:
   list [opciones]            Lista cartas de habilidades u objetos mágicos.
   detail <id|slug|nombre>    Muestra el detalle de una carta específica.
+  search [opciones]          Busca de forma global en el índice de contenido.
+
+Opciones para "search":
+  --query <texto>            Término o frase a buscar (también se acepta posicional).
+  --kind <tipo>              Filtra por familia: chapter|card|item|creature|section|any.
+  --source <etiqueta>        Filtra por fuente: player.md|gm.md|cards.yml|magical-items.yml|bestiary.yml.
+  --level <n>                Filtra por nivel(es) exacto(s); repetible (p. ej. --level 2 --level 3).
+  --min-level <n>            Nivel mínimo.
+  --max-level <n>            Nivel máximo.
+  --tier <n>                 Filtra criaturas por rango (tier).
+  --tag <etiqueta>           Requiere etiquetas (repetible).
+  --type <valor>             Filtro best-effort sobre etiquetas; el índice v3 expone structured.type (repetible).
+  --lineage <valor>          Filtro best-effort sobre etiquetas; el índice v3 expone structured.lineage.
+  --limit <n>                Máximo de resultados.
+  --format <json|text>       Formato de salida (por defecto json).
+  --explain                  Incluye score/campos/match para tests y mantenimiento.
+  --help                     Muestra esta ayuda de "search".
 
 Opciones para "list":
   --kind <ability|item|any>        Limita el tipo de carta.
@@ -351,6 +529,36 @@ Opciones para "detail":
 	console.log(usage);
 };
 
+export const printSearchUsage = (): void => {
+	const usage = `
+Comando "search":
+  Busca de forma global en el content-index.json y devuelve referencias ordenadas
+  y accionables para que un agente abra la primera fuente y, si no sirve, continúe
+  con la siguiente sin repetir la consulta.
+
+Uso:
+  search --query <texto> [opciones]
+
+Opciones:
+  --query <texto>            Término o frase a buscar (también se acepta posicional).
+  --kind <tipo>              chapter|card|item|creature|section|any.
+  --source <etiqueta>        player.md|gm.md|cards.yml|magical-items.yml|bestiary.yml.
+  --level <n>                Nivel(es) exacto(s); repetible (--level 2 --level 3).
+  --min-level <n> / --max-level <n>   Rango de niveles.
+  --tier <n>                 Rango de criatura (tier).
+  --tag <etiqueta>           Requiere etiquetas (repetible).
+  --type <valor>             Filtro best-effort sobre etiquetas; el índice v3 expone structured.type.
+  --lineage <valor>          Filtro best-effort sobre etiquetas; el índice v3 expone structured.lineage.
+  --limit <n>                Máximo de resultados.
+  --format <json|text>       Formato de salida (por defecto json).
+  --explain                  Incluye score/campos/match para tests y mantenimiento.
+
+Estados: found, ambiguous, not_found, invalid_query.
+`.trim();
+
+	console.log(usage);
+};
+
 export const isCardsCliCommand = (command: string | undefined): boolean => {
 	if (!command) return false;
 	return SUPPORTED_COMMANDS.has(command);
@@ -370,6 +578,16 @@ export const runCardsCliCommand = async (command: string, args: string[]): Promi
 				const options = parseDetailCommandOptions(args);
 				const dataset = loadCardsDataset();
 				const output = showCardDetail(dataset, options);
+				console.log(output);
+				break;
+			}
+			case 'search': {
+				const { options, help } = parseSearchCommandArgs(args);
+				if (help) {
+					printSearchUsage();
+					break;
+				}
+				const output = runSearch(options);
 				console.log(output);
 				break;
 			}

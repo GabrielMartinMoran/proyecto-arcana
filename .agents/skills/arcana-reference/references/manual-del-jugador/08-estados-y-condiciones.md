@@ -1,5 +1,3 @@
-> Esta sección define los estados y condiciones que modifican las capacidades, acciones y tiradas de un personaje. Cada condición describe sus efectos concretos, incluyendo ventajas o desventajas, restricciones de movimiento y acciones, y circunstancias para recuperarse o despertar.
-
 # 8. Estados y Condiciones
 
 - **Asustado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y pruebas de habilidad mientras la fuente del miedo esta en tu rango de visión.

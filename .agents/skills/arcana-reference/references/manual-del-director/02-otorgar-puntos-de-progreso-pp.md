@@ -1,5 +1,3 @@
-> Esta sección explica cómo y cuándo otorgar Puntos de Progreso (PP), la principal herramienta para reflejar la evolución de los personajes y mantener la motivación de la mesa. Presenta criterios de recompensa que abarcan objetivos, desafíos, interpretación, creatividad y fracasos interesantes, no solo el combate. También ofrece ritmos de progresión —lento, moderado o rápido— vinculados a los hitos oficiales de Rango 2 y Rango 3.
-
 # Otorgar Puntos de Progreso (PP)
 
 Los Puntos de Progreso son el motor de la evolución de los personajes. Otorgarlos de manera consistente y justa es clave para mantener a los jugadores motivados. Aquí tienes una guía sobre cuándo, cómo y cuántos PP repartir.

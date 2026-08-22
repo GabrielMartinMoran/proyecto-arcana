@@ -1,5 +1,3 @@
-> Esta sección explica cómo diseñar criaturas únicas desde cero para el Manual del Director, integrándolas de forma equilibrada mediante Rangos y Presupuestos de Encuentro. El sistema de **Puntos de Perfil (PPF)** permite distribuir un presupuesto según el Rango de la criatura para definir sus estadísticas, habilidades y función táctica, desde secuaces hasta jefes épicos. También se establece el **Linaje**, una etiqueta mecánica que determina la naturaleza de la criatura y sus interacciones con reglas, habilidades y efectos.
-
 # Parte 2: Diseño Avanzado de Criaturas
 
 Si bien el bestiario proporcionado ofrece una amplia variedad de enemigos, puede que desees crear tus propias criaturas únicas para poblar tu mundo o representar amenazas específicas de tu campaña. Esta sección te guiará a través de un sistema flexible para diseñar monstruos desde cero, asegurando que se integren de manera balanceada con el sistema de Rangos y Presupuestos de Encuentro.
