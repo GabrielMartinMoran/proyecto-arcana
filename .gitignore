@@ -30,4 +30,6 @@ coverage/
 
 __pycache__/
 
-*/dist/
+# Build artifacts
+**/dist/
+**/out/
