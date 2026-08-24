@@ -101,12 +101,12 @@
 		"id": "senda-del-bribon",
 		"category": "arquetipos",
 		"name": "Senda del Bribón",
-		"description": "+5 PS por cada 10 PP gastados",
+		"description": "+3 HP base, +5 PS por cada 10 PP gastados",
 		"subModifiers": [
 			{
 				"attribute": "maxHP",
 				"type": "add",
-				"formula": "floor(ppGastados/10)*5",
+				"formula": "3 + floor(ppGastados/10)*5",
 				"reason": "Senda del Bribón"
 			}
 		]
