@@ -1215,7 +1215,7 @@
 				"type": "add",
 				"reason": "Senda del Bribón",
 				"attribute": "maxHP",
-				"formula": "floor(ppGastados/10)*4",
+				"formula": "3+floor(ppGastados/10)*5",
 				"id": "ad471b59-ff00-41cd-82bf-6e09ed751549"
 			}
 		],

@@ -410,20 +410,20 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 919,
-      "sha1": "66f952ca4e8a8cc74df6741151f96e6f1d0022c2"
+      "size": 952,
+      "sha1": "e43cbeb83ece17448e778bf6a5bd72d978feffc6"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-1.yml",
       "kind": "file",
-      "size": 4570,
-      "sha1": "9c8b77427bc1e3f216ed80ac3107aee0a4fd6131"
+      "size": 4552,
+      "sha1": "fcd20435b91951a1a27aabfef826b35e95daf75e"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-2.yml",
       "kind": "file",
-      "size": 4126,
-      "sha1": "ee7ca7e63fbeca9926b653b1d39bc4c1e50a21ff"
+      "size": 4310,
+      "sha1": "b448b9eaed5266702ee42a91f6780df1d73495b5"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-3.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 241109,
-      "sha1": "ef42b6115a6319d10fe0d8ba4640721992219b8e"
+      "size": 241302,
+      "sha1": "500a631a287622f7f5eda7e833706898fcf0d3c5"
     },
     {
       "path": "references/datasets/magical-items.yml",

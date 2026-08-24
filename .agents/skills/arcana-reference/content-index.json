@@ -41,11 +41,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Senda del Bribón & Reflejos 3"
       },
-      "search": "_Tus reflejos están tan entrenados que correr o esconderte se han vuelto actos tan naturales como respirar._<br><br> Puedes usar tu Interacción de cada turno para realizar las acciones de Correr o Esconderse.",
-      "hash": "3b1a922d60679fd55450f97e8a603025192a76db"
+      "search": "_Tus reflejos están tan entrenados que correr o esconderte se han vuelto actos tan naturales como respirar._<br><br> Una vez por turno, puedes usar tu Interacción para Correr o Esconderte.",
+      "hash": "6bb532e11899680d454f8f3e2a772ce3996106da"
     },
     {
       "kind": "card",
@@ -183,8 +183,8 @@
         "requirements": "Senda del Bribón & Mente 2",
         "uses": "RELOAD:5"
       },
-      "search": "_Has aprendido a destilar la muerte en viales, aplicando toxinas que queman las venas de tus enemigos antes de que se den cuenta del corte._<br><br> Obtienes Ventaja (+1d4) en pruebas para preparar venenos.<br> Puedes aplicar veneno a un arma como una Interacción.<br> Cuando impactas a una criatura con un arma que no esta envenenada, puedes inyectar una toxina creada al instante. El objetivo debe superar una TS de Cuerpo (ND 5 + Mente). Si falla, eliges el efecto:<br> - **Toxina Virulenta:** El objetivo sufre el estado Envenenado hasta el final de tu próximo turno.<br> - **Toxina Agónica:** El objetivo sufre 1d6 de daño de Veneno adicional.<br>",
-      "hash": "6b3cd906e9c45520e16bd5284e64ad505ee94c13"
+      "search": "_Has aprendido a destilar la muerte en viales, aplicando toxinas que queman las venas de tus enemigos antes de que se den cuenta del corte._<br><br> <br> Puedes aplicar veneno a un arma como una Interacción.<br> Cuando impactas a una criatura con un arma que no esta envenenada, puedes inyectar una toxina creada al instante. El objetivo debe superar una TS de Cuerpo (ND 5 + Mente). Si falla, eliges el efecto:<br> - **Toxina Virulenta:** El objetivo sufre el estado Envenenado hasta el final de tu próximo turno.<br> - **Toxina Agónica:** El objetivo sufre 1d6 de daño de Veneno adicional.<br>",
+      "hash": "f8e2d44b1f3594d163d309e5ec52c9bccf25633b"
     },
     {
       "kind": "card",
@@ -386,8 +386,8 @@
         "type": "efecto",
         "requirements": "Senda del Bribón & Reflejos 3"
       },
-      "search": "_Observas, esperas y golpeas; cuando tu víctima se da cuenta de que estás ahí, ya es demasiado tarde.._<br><br> Usas tu Interacción para preparar un ataque letal contra una criatura que no este consciente de tu presencia hasta el final de tu turno. Tu primer impacto con un arma contra esa criatura se considera automáticamente un golpe crítico.",
-      "hash": "b69c4a88218e054f561c062b961982804aef6dc9"
+      "search": "_Observas, esperas y golpeas; cuando tu víctima se da cuenta de que estás ahí, ya es demasiado tarde.._<br><br> Usas tu Interacción para preparar un ataque letal contra una criatura que no este consciente de tu presencia hasta el final de tu turno. Tu primer impacto con un arma contra esa criatura se considera automáticamente un golpe crítico.<br><br> Una criatura es válida para Asesinar solamente si desconoce tu presencia. Estar Escondido no es suficiente si la criatura sabe que estás presente, aunque haya perdido conocimiento preciso de tu posición.",
+      "hash": "9dbc22c517642c30d7578b69ca9e5a74c0d713e7"
     },
     {
       "kind": "card",
@@ -2074,8 +2074,8 @@
         "type": "efecto",
         "requirements": "Estilo Audaz & Reflejos 3"
       },
-      "search": "_Tu confianza es un escudo y tu mirada un arma; en un duelo singular, nadie puede igualar tu ingenio y vigor._<br><br> Ganas los siguientes beneficios:<br> - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a una criatura aunque no tengas Ventaja, siempre que no tengas Desventaja o haya ningun otro enemigo a 1 metro de ti o del objetivo.<br> - **Vigor del Duelista:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo que cumple las condiciones de \"Duelo de Ingenio\", ganas una cantidad de Puntos de Salud temporales igual a tu puntuación de Presencia. Estos Puntos de Salud temporales duran 1 minuto.",
-      "hash": "2d154cf0ca3fe7d82b959aad152ba7104721f9ca"
+      "search": "_Tu confianza es un escudo y tu mirada un arma; en un duelo singular, nadie puede igualar tu ingenio y vigor._<br><br> Ganas los siguientes beneficios:<br> - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a un ataque cuerpo a cuerpo con un arma Precisa, siempre que no tengas Desventaja y no haya ningún otro enemigo a 1 metro de ti ni de tu objetivo.<br> - **Vigor del Duelista:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo que cumple las condiciones de \"Duelo de Ingenio\", ganas una cantidad de Puntos de Salud temporales igual a tu puntuación de Presencia. Estos Puntos de Salud temporales duran 1 minuto.",
+      "hash": "cf8db7dbcd7d1d1f38fcec498e67ce381992e4e7"
     },
     {
       "kind": "card",
@@ -2423,8 +2423,8 @@
         "type": "efecto",
         "requirements": "Senda del Bribón & Presencia 2"
       },
-      "search": "_El combate es un escenario y tú eres el protagonista; tu insolencia y piruetas confunden al enemigo mientras buscas su garganta._<br><br> Adquieres los siguientes beneficios:<br> - **Acróbata:** Obtienes Ventaja (+1d4) en pruebas de Acrobacias.<br> - **Apertura Temeraria:** Puedes usar tu Interacción para bajar la guardia y fintar. Obtienes Ventaja (+1d4) en tu próximo ataque cuerpo a cuerpo que hagas con un arma Precisa en este turno. A cambio, sufres un -2 a tu Esquiva hasta el inicio de tu próximo turno.",
-      "hash": "07de7b793c31194084f17d1952f300fd2f9be589"
+      "search": "_El combate es un escenario y tú eres el protagonista; tu insolencia y piruetas confunden al enemigo mientras buscas su garganta._<br><br> Adquieres los siguientes beneficios:<br> - **Acróbata:** Obtienes Ventaja (+1d4) en pruebas de Acrobacias.<br> - **Apertura Temeraria:** Una vez por turno, antes de realizar un ataque cuerpo a cuerpo con un arma Precisa, puedes obtener Ventaja en ese ataque. Al hacerlo, sufres −2 a tu Esquiva hasta el comienzo de tu próximo turno.",
+      "hash": "a364185763592aa000417ce24467ede290f9fd15"
     },
     {
       "kind": "card",
@@ -3494,8 +3494,8 @@
         "type": "efecto",
         "requirements": "Senda del Bribón & Mente 2"
       },
-      "search": "_Ninguna cerradura es lo suficientemente compleja ni ninguna trampa lo bastante ingeniosa para detener tu paso o tus dedos rápidos._<br><br> Adquieres los siguientes beneficios:<br> - **Ojo Clínico:** Obtienes Ventaja (+1d4) en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Si fallas una prueba de Juego de Manos o una prueba para desactivar una trampa, el fallo no tiene consecuencias negativas (no eres descubierto, no rompes la herramienta ni activas la trampa).<br> - **Rapidez:** Puedes usar tu Interacción para realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.",
-      "hash": "d4a098ca42d97a993e0184bd136bc9e623b541f8"
+      "search": "_Ninguna cerradura es lo suficientemente compleja ni ninguna trampa lo bastante ingeniosa para detener tu paso o tus dedos rápidos._<br><br> Adquieres los siguientes beneficios:<br> - **Ojo Clínico:** Obtienes Ventaja (+1d4) en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Cuando obtienes una pifia al usar Juegos de Manos para abrir una cerradura, desactivar una trampa o manipular un mecanismo, la pifia se resuelve como un fallo normal, sin consecuencias especiales por la pifia.<br> - **Rapidez:** Puedes usar tu Interacción para realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.",
+      "hash": "e1a38ad2d4911faba3bd441cb1d4c0e02583f236"
     },
     {
       "kind": "card",
@@ -4379,8 +4379,8 @@
         "type": "efecto",
         "requirements": "Senda del Bribón & Reflejos 3"
       },
-      "search": "_Tus dedos operan con una velocidad que desafía la física, permitiéndote usar objetos y herramientas en mitad del caos sin perder el ritmo._<br><br> Puedes usar tu Interacción para realizar la acción de Usar un Objeto, incluso aquellos que normalmente requerirían una Acción para activarse.",
-      "hash": "3b22e8994767ab43fd0704a04c29e72cd3f964dc"
+      "search": "_Tus dedos operan con una velocidad que desafía la física, permitiéndote usar objetos y herramientas en mitad del caos sin perder el ritmo._<br><br> Una vez por turno, puedes usar una Interacción para realizar una acción Usar un Objeto que normalmente requiera una Acción, incluyendo la activación de objetos mágicos.",
+      "hash": "4cec928f56c1ca6255bbb6941fdbf89f01c4e231"
     },
     {
       "kind": "card",
@@ -6321,8 +6321,8 @@
         "type": "efecto",
         "requirements": "Reflejos 2"
       },
-      "search": "_Te mueves por las sombras como si fueras parte de ellas, encontrando siempre el punto débil tanto en la armadura del destino como en el bolsillo del desprevenido._<br><br> Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br><br> **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar. Además, aprendes la lengua Jerga de Ladrones. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>",
-      "hash": "8348e5b021f4e5da1e54d4bb68c2350a5aa6bd7f"
+      "search": "_Te mueves por las sombras como si fueras parte de ellas, encontrando siempre el punto débil tanto en la armadura del destino como en el bolsillo del desprevenido._<br><br> Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br><br> **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar. Además, aprendes la lengua Jerga de Ladrones. Adicionalmente, tu Salud máxima aumenta en +3 y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>",
+      "hash": "0baef3b7c57741ed2a2d31b886831ac90cf78b2f"
     },
     {
       "kind": "card",

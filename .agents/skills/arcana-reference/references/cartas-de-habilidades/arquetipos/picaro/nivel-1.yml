@@ -46,9 +46,9 @@ cards:
     description: >-
       _El combate es un escenario y tú eres el protagonista; tu insolencia y piruetas confunden al enemigo mientras
       buscas su garganta._<br><br> Adquieres los siguientes beneficios:<br> - **Acróbata:** Obtienes Ventaja (+1d4) en
-      pruebas de Acrobacias.<br> - **Apertura Temeraria:** Puedes usar tu Interacción para bajar la guardia y fintar.
-      Obtienes Ventaja (+1d4) en tu próximo ataque cuerpo a cuerpo que hagas con un arma Precisa en este turno. A
-      cambio, sufres un -2 a tu Esquiva hasta el inicio de tu próximo turno.
+      pruebas de Acrobacias.<br> - **Apertura Temeraria:** Una vez por turno, antes de realizar un ataque cuerpo a
+      cuerpo con un arma Precisa, puedes obtener Ventaja en ese ataque. Al hacerlo, sufres −2 a tu Esquiva hasta el
+      comienzo de tu próximo turno.
     slug: estilo-audaz
   - id: d1f4f674f2309be11bfb679bf9cb9f18c53b35b8
     name: Infiltrador Experto
@@ -63,10 +63,11 @@ cards:
     description: >-
       _Ninguna cerradura es lo suficientemente compleja ni ninguna trampa lo bastante ingeniosa para detener tu paso o
       tus dedos rápidos._<br><br> Adquieres los siguientes beneficios:<br> - **Ojo Clínico:** Obtienes Ventaja (+1d4) en
-      pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Si fallas una prueba de
-      Juego de Manos o una prueba para desactivar una trampa, el fallo no tiene consecuencias negativas (no eres
-      descubierto, no rompes la herramienta ni activas la trampa).<br> - **Rapidez:** Puedes usar tu Interacción para
-      realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.
+      pruebas de Percepción para localizar trampas o mecanismos ocultos.<br> - **Seguridad:** Cuando obtienes una pifia
+      al usar Juegos de Manos para abrir una cerradura, desactivar una trampa o manipular un mecanismo, la pifia se
+      resuelve como un fallo normal, sin consecuencias especiales por la pifia.<br> - **Rapidez:** Puedes usar tu
+      Interacción para realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un
+      objeto asegurado.
     slug: infiltrador-experto
   - id: 7d09604fb67da909702e2d24e518ec1189467dc2
     name: Señor de los Bajos Fondos
