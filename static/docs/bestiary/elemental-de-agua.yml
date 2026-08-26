@@ -1,0 +1,46 @@
+creatures:
+  - name: Elemental de Agua
+    lineage: Elemental
+    tier: 3
+    attributes:
+      body: 4
+      reflexes: 4
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 1
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 10
+        note: Camina sobre el agua
+    languages:
+      - Aquan
+    attacks:
+      - name: Golpe Acuático
+        bonus: 7
+        damage: 2d8 Contundente
+        note: Si impacta, el elemental puede intentar engullir al objetivo (si es de su tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12) o quedará Inmovilizado y sin poder respirar dentro de él. Por cada turno que una criatura sea engullida, recibirá 1d6 de daño por asfixia. Al final de su turno, una criatura engullida puede intentar liberarse repitiendo la TS. El elemental no puede engullir a más de una criatura a la vez.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Acrobacias, Percepción
+    actions:
+      - name: Marea Arrasadora
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: El elemental proyecta una línea de agua de 5 metros de largo y 1 de ancho. Toda criatura en la línea debe superar una Tirada de Salvación de Cuerpo (ND 12) o recibir 2d6 de daño Contundente y ser empujada hasta el final de la línea.
+    reactions: []
+    interactions: []
+    behavior: |
+      Adaptable y asfixiante. Fluye por el campo de batalla, usando su forma líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar Marea Arrasadora para empujar a un objetivo lejos de sus aliados y luego usar Engullir para ahogarlo.
+    img: null
+    size: Grande

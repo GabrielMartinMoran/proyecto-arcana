@@ -1,165 +1,60 @@
 /**
- * creatures-service unit tests
+ * creatures-service tests
  *
- * Tests cover:
- * - Creature loading from YAML compendium
- * - Tier/name filtering logic
- * - Creature-to-statblock mapping (creature-mapper)
- * - Store management (dedup loads, sorting)
+ * Integration tests exercising the real loader + mapper + service contract:
+ * - manifest and per-file loading through the shared bestiary-source-loader
+ * - singleton store caching (no refetch once populated)
+ * - tier/name sorting, consumer filtering, and mapper behavior
  *
- * The YAML fetch is mocked at the boundary to isolate business logic.
- * Uses js-yaml for proper YAML parsing.
+ * The YAML/manifest fetches are mocked at the boundary to isolate the service.
  */
 
-import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
-import { load as yamlLoad } from 'js-yaml';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { get } from 'svelte/store';
+import { mapCreature } from '$lib/mappers/creature-mapper';
+import { generateId } from '$lib/utils/id-generator';
+import { useCreaturesService } from './creatures-service';
 
-// ---- Mock $app/paths ----
-vi.mock('$app/paths', () => ({ resolve: (p: string) => p }));
+vi.mock('$app/paths', () => ({
+	asset: (path: string) => path,
+}));
 
-// ---- Mock global fetch ----
 const mockFetch = vi.fn();
+const mockConsoleError = vi.fn();
 
-beforeEach(() => {
-	vi.clearAllMocks();
-	mockFetch.mockReset();
-	global.fetch = mockFetch;
-});
+const MANIFEST_URL = '/docs/bestiary/index.json';
+const GOBLIN_URL = '/docs/bestiary/goblin.yml';
+const ORCO_URL = '/docs/bestiary/orco.yml';
+const DRAGON_URL = '/docs/bestiary/dragon.yml';
 
-afterEach(() => {
-	vi.useRealTimers();
-});
-
-// ---- Creature type for test fixtures ----
-interface TestCreature {
-	id: string;
-	name: string;
-	lineage: string;
-	tier: number;
-	size: string;
-	attributes: {
-		body: number;
-		reflexes: number;
-		mind: number;
-		instinct: number;
-		presence: number;
-	};
-	stats: {
-		maxHealth: number;
-		evasion: { value: number; note: string | null };
-		physicalMitigation: { value: number; note: string | null };
-		magicalMitigation: { value: number; note: string | null };
-		speed: { value: number; note: string | null };
-	};
-	languages: string[];
-	attacks: Array<{ name: string; bonus: number; damage: string; note: string | null }>;
-	traits: Array<{ name: string; detail: string }>;
-	actions: Array<{ name: string; detail: string; uses: { total: number; key: string } | null }>;
-	reactions: Array<{ name: string; detail: string; uses: { total: number; key: string } | null }>;
-	interactions: Array<{
-		name: string;
-		detail: string;
-		uses: { total: number; key: string } | null;
-	}>;
-	behavior: string;
-	img: string | null;
-}
-
-// ---- Mock creature data (proper YAML structure) ----
-const MOCK_YAML_RAW = `
-creatures:
+const GOBLIN_YAML = `creatures:
   - name: Goblin
     lineage: Goblinoide
     tier: 1
-    size: Mediano
+    size: Pequeño
     attributes:
-      body: 2
-      reflexes: 3
+      body: 1
+      reflexes: 2
       mind: 1
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 8
-      evasion:
-        value: 1
-        note: null
-      physicalMitigation:
-        value: 0
-        note: null
-      magicalMitigation:
-        value: 0
-        note: null
-      speed:
-        value: 6
-        note: null
+      maxHealth: 7
+      evasion: { value: 8, note: null }
+      physicalMitigation: { value: 0, note: null }
+      magicalMitigation: { value: 0, note: null }
+      speed: { value: 8, note: null }
     languages: []
-    attacks:
-      - name: Mordisco
-        bonus: 1
-        damage: 1d6
-        note: null
-    traits:
-      - name: Astuto
-        detail: Sumar +1 a iniciativas en grupo
-    actions:
-      - name: Ataque múltiple
-        detail: Ataca dos veces
-        uses: null
+    attacks: []
+    traits: []
+    actions: []
     reactions: []
     interactions: []
-    behavior: Actúa en pequeños grupos para emboscar.
+    behavior: Test
     img: null
+`;
 
-  - name: Dragon
-    lineage: Dragón
-    tier: 4
-    size: Grande
-    attributes:
-      body: 6
-      reflexes: 4
-      mind: 5
-      instinct: 4
-      presence: 6
-    stats:
-      maxHealth: 80
-      evasion:
-        value: 3
-        note: null
-      physicalMitigation:
-        value: 5
-        note: null
-      magicalMitigation:
-        value: 5
-        note: null
-      speed:
-        value: 9
-        note: null
-    languages:
-      - Comun
-      - Dracónico
-    attacks:
-      - name: Garras
-        bonus: 8
-        damage: 2d6+6
-        note: null
-      - name: Fuego
-        bonus: 7
-        damage: 4d6
-        note: null
-    traits:
-      - name: Vuelo
-        detail: Puede volar
-    actions:
-      - name: Ataque de cola
-        detail: Ataque que alcanza 15 pies
-        uses: null
-    reactions:
-      - name: Detectar
-        detail: Puede detectar enemigos cercanos
-    interactions: []
-    behavior: Territorial y dominante.
-    img: null
-
+const ORCO_YAML = `creatures:
   - name: Orco
     lineage: Orco
     tier: 2
@@ -172,266 +67,186 @@ creatures:
       presence: 3
     stats:
       maxHealth: 20
-      evasion:
-        value: 1
-        note: null
-      physicalMitigation:
-        value: 2
-        note: null
-      magicalMitigation:
-        value: 0
-        note: null
-      speed:
-        value: 6
-        note: null
-    languages:
-      - Orco
-    attacks:
-      - name: Jabalina
-        bonus: 3
-        damage: 1d6+2
-        note: null
-    traits:
-      - name: Fuerte
-        detail: "+2 a ataques cuerpo a cuerpo"
-    actions:
-      - name: Ataque berserker
-        detail: Ataque adicional enrage
-        uses: null
+      evasion: { value: 1, note: null }
+      physicalMitigation: { value: 2, note: null }
+      magicalMitigation: { value: 0, note: null }
+      speed: { value: 6, note: null }
+    languages: []
+    attacks: []
+    traits: []
+    actions: []
     reactions: []
     interactions: []
-    behavior: Agresivo y brutal.
+    behavior: Test
     img: null
 `;
 
-// ---- ID generation for tests ----
-const generateId = (name: string) => {
-	return name.toLowerCase().replace(/\s+/g, '-');
+const DRAGON_YAML = `creatures:
+  - name: Dragon
+    lineage: Dragón
+    tier: 4
+    size: Grande
+    attributes:
+      body: 6
+      reflexes: 4
+      mind: 5
+      instinct: 4
+      presence: 6
+    stats:
+      maxHealth: 80
+      evasion: { value: 3, note: null }
+      physicalMitigation: { value: 5, note: null }
+      magicalMitigation: { value: 5, note: null }
+      speed: { value: 9, note: null }
+    languages:
+      - Comun
+      - Dracónico
+    attacks: []
+    traits: []
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: Test
+    img: null
+`;
+
+const yamlBodies: Record<string, string> = {
+	'goblin.yml': GOBLIN_YAML,
+	'orco.yml': ORCO_YAML,
+	'dragon.yml': DRAGON_YAML,
 };
 
-// ---- mapCreature helper (mirrors the real mapper) ----
-const mapCreature = (data: any): TestCreature => {
-	if (!data.name) throw new Error('Creature name is required');
-	return {
-		id: generateId(data.name),
-		...data,
-		attributes: {
-			body: data.attributes.body ?? data.attributes.cuerpo ?? 0,
-			reflexes: data.attributes.reflexes ?? data.attributes.reflejos ?? 0,
-			mind: data.attributes.mind ?? data.attributes.mente ?? 0,
-			instinct: data.attributes.instinct ?? data.attributes.instinto ?? 0,
-			presence: data.attributes.presence ?? data.attributes.presencia ?? 0,
-		},
-		stats: {
-			maxHealth: data.stats.maxHealth ?? data.stats.salud ?? 0,
-			evasion: data.stats.evasion ?? data.stats.esquiva ?? { value: 0, note: null },
-			physicalMitigation: data.stats.physicalMitigation ??
-				data.stats.mitigacion ??
-				data.stats.mitigacionFisica ?? { value: 0, note: null },
-			magicalMitigation: data.stats.magicalMitigation ??
-				data.stats.mitigacionMagica ?? { value: 0, note: null },
-			speed: data.stats.speed ?? data.stats.velocidad ?? { value: 0, note: null },
-		},
-		interactions: data.interactions ?? [],
-		traits: data.traits ?? [],
-		actions: data.actions ?? [],
-		reactions: data.reactions ?? [],
-	};
+const setManifest = (files: string[]) => {
+	mockFetch.mockImplementation((url: string) => {
+		if (url === MANIFEST_URL) {
+			return Promise.resolve({ ok: true, status: 200, json: async () => ({ files }) } as Response);
+		}
+		const filename = url.split('/').pop();
+		if (filename && filename in yamlBodies) {
+			return Promise.resolve({
+				ok: true,
+				status: 200,
+				text: async () => yamlBodies[filename],
+			} as Response);
+		}
+		return Promise.resolve({ ok: false, status: 404, text: async () => '' } as Response);
+	});
 };
 
-// ---- Mock YAML data for tests ----
-const MOCK_RAW_CREATURES = [
-	{
-		name: 'Goblin',
-		lineage: 'Goblinoide',
-		tier: 1,
-		size: 'Mediano',
-		attributes: { body: 2, reflexes: 3, mind: 1, instinct: 2, presence: 1 },
-		stats: {
-			maxHealth: 8,
-			evasion: { value: 1, note: null },
-			physicalMitigation: { value: 0, note: null },
-			magicalMitigation: { value: 0, note: null },
-			speed: { value: 6, note: null },
-		},
-		languages: [],
-		attacks: [{ name: 'Mordisco', bonus: 1, damage: '1d6', note: null }],
-		traits: [{ name: 'Astuto', detail: 'Sumar +1 a iniciativas en grupo' }],
-		actions: [{ name: 'Ataque múltiple', detail: 'Ataca dos veces', uses: null }],
-		reactions: [],
-		interactions: [],
-		behavior: 'Actúa en pequeños grupos para emboscar.',
-		img: null,
-	},
-	{
-		name: 'Dragon',
-		lineage: 'Dragón',
-		tier: 4,
-		size: 'Grande',
-		attributes: { body: 6, reflexes: 4, mind: 5, instinct: 4, presence: 6 },
-		stats: {
-			maxHealth: 80,
-			evasion: { value: 3, note: null },
-			physicalMitigation: { value: 5, note: null },
-			magicalMitigation: { value: 5, note: null },
-			speed: { value: 9, note: null },
-		},
-		languages: ['Comun', 'Dracónico'],
-		attacks: [
-			{ name: 'Garras', bonus: 8, damage: '2d6+6', note: null },
-			{ name: 'Fuego', bonus: 7, damage: '4d6', note: null },
-		],
-		traits: [{ name: 'Vuelo', detail: 'Puede volar' }],
-		actions: [{ name: 'Ataque de cola', detail: 'Ataque que alcanza 15 pies', uses: null }],
-		reactions: [{ name: 'Detectar', detail: 'Puede detectar enemigos cercanos' }],
-		interactions: [],
-		behavior: 'Territorial y dominante.',
-		img: null,
-	},
-	{
-		name: 'Orco',
-		lineage: 'Orco',
-		tier: 2,
-		size: 'Mediano',
-		attributes: { body: 4, reflexes: 2, mind: 1, instinct: 2, presence: 3 },
-		stats: {
-			maxHealth: 20,
-			evasion: { value: 1, note: null },
-			physicalMitigation: { value: 2, note: null },
-			magicalMitigation: { value: 0, note: null },
-			speed: { value: 6, note: null },
-		},
-		languages: ['Orco'],
-		attacks: [{ name: 'Jabalina', bonus: 3, damage: '1d6+2', note: null }],
-		traits: [{ name: 'Fuerte', detail: '+2 a ataques cuerpo a cuerpo' }],
-		actions: [{ name: 'Ataque berserker', detail: 'Ataque adicional enrage', uses: null }],
-		reactions: [],
-		interactions: [],
-		behavior: 'Agresivo y brutal.',
-		img: null,
-	},
-];
+const { loadCreatures, creatures } = useCreaturesService();
 
-// ---- Helper to simulate loading creatures from YAML ----
-const loadCreaturesFromYaml = async (): Promise<TestCreature[]> => {
-	const response = await fetch('/docs/bestiary.yml');
-	const rawData = await response.text();
+beforeEach(() => {
+	vi.clearAllMocks();
+	mockFetch.mockReset();
+	vi.spyOn(console, 'error').mockImplementation(mockConsoleError);
+	global.fetch = mockFetch;
+	creatures.set([]);
+	yamlBodies['goblin.yml'] = GOBLIN_YAML;
+	yamlBodies['orco.yml'] = ORCO_YAML;
+	yamlBodies['dragon.yml'] = DRAGON_YAML;
+});
 
-	let rawCreatures: any[] = [];
-
-	try {
-		rawCreatures = (yamlLoad(rawData) as any).creatures ?? [];
-	} catch (e) {
-		console.error('Error parsing YAML:', e);
-	}
-
-	return rawCreatures
-		.map(mapCreature)
-		.toSorted((a, b) => a.tier - b.tier || a.name.localeCompare(b.name));
-};
+afterEach(() => {
+	vi.restoreAllMocks();
+});
 
 describe('creatures-service', () => {
 	describe('loadCreatures', () => {
-		it('should load creatures from YAML when store is empty', async () => {
+		it('should load creatures from the manifest and individual YAML files', async () => {
 			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
+			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
 
 			// Act
-			const creatures = await loadCreaturesFromYaml();
+			await loadCreatures();
 
 			// Assert
-			expect(mockFetch).toHaveBeenCalledWith('/docs/bestiary.yml');
-			expect(creatures).toHaveLength(3);
-			expect(creatures[0].name).toBe('Goblin');
+			expect(mockFetch.mock.calls.map(([url]) => url)).toEqual([
+				MANIFEST_URL,
+				GOBLIN_URL,
+				ORCO_URL,
+				DRAGON_URL,
+			]);
+			expect(get(creatures)).toHaveLength(3);
+			expect(get(creatures).map((creature) => creature.name)).toEqual(['Goblin', 'Orco', 'Dragon']);
 		});
 
-		it('should not reload creatures when store already has data', async () => {
+		it('should not refetch when the singleton store already has data', async () => {
 			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
+			setManifest(['goblin.yml']);
+			await loadCreatures();
+			expect(get(creatures)).toHaveLength(1);
 
-			// First load
-			const creatures1 = await loadCreaturesFromYaml();
-			expect(creatures1).toHaveLength(3);
-
-			// Reset mock to track second call
+			// Make any further fetch attempt fail loudly
 			mockFetch.mockClear();
+			mockFetch.mockImplementation(() => {
+				throw new Error('fetch should not be called after cache is populated');
+			});
 
-			// Simulate store already has data (should not call fetch)
-			const storeHasData = creatures1.length > 0;
-			if (!storeHasData) {
-				await loadCreaturesFromYaml();
-			}
+			// Act
+			await loadCreatures();
 
-			// Assert - fetch should not be called because store has data
+			// Assert
 			expect(mockFetch).not.toHaveBeenCalled();
+			expect(get(creatures)).toHaveLength(1);
 		});
 
-		it('should handle YAML parse errors gracefully', async () => {
+		it('should sort creatures by tier then by name regardless of manifest order', async () => {
+			// Arrange — manifest order differs from the sorted contract order
+			setManifest(['dragon.yml', 'goblin.yml', 'orco.yml']);
+
+			// Act
+			await loadCreatures();
+
+			// Assert
+			expect(get(creatures).map((creature) => creature.name)).toEqual(['Goblin', 'Orco', 'Dragon']);
+			expect(get(creatures)[0].tier).toBeLessThanOrEqual(get(creatures)[1].tier);
+			expect(get(creatures)[1].tier).toBeLessThanOrEqual(get(creatures)[2].tier);
+		});
+
+		it('should omit an invalid file and keep the remaining creatures', async () => {
+			// Arrange
+			setManifest(['goblin.yml', 'orco.yml']);
+			yamlBodies['goblin.yml'] = 'creatures: []';
+
+			// Act
+			await loadCreatures();
+
+			// Assert
+			expect(get(creatures).map((creature) => creature.name)).toEqual(['Orco']);
+			expect(mockConsoleError).toHaveBeenCalledWith(
+				expect.stringContaining('goblin.yml'),
+				expect.anything(),
+			);
+		});
+
+		it('should fall back to an empty store when the manifest cannot be loaded', async () => {
 			// Arrange
 			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve('invalid: yaml: content: [}'),
-			});
+				ok: false,
+				status: 500,
+				json: async () => ({}),
+			} as Response);
 
 			// Act
-			const response = await fetch('/docs/bestiary.yml');
-			const rawData = await response.text();
-
-			let rawCreatures: any[] = [];
-			try {
-				rawCreatures = (yamlLoad(rawData) as any).creatures ?? [];
-			} catch (e) {
-				console.error('Error parsing YAML:', e);
-			}
+			await loadCreatures();
 
 			// Assert
-			expect(rawCreatures).toEqual([]);
-		});
-
-		it('should parse YAML correctly with js-yaml', () => {
-			// Act
-			const parsed = yamlLoad(MOCK_YAML_RAW) as any;
-
-			// Assert
-			expect(parsed).toBeDefined();
-			expect(parsed.creatures).toBeDefined();
-			expect(parsed.creatures).toHaveLength(3);
-			expect(parsed.creatures[0].name).toBe('Goblin');
+			expect(get(creatures)).toEqual([]);
+			expect(mockConsoleError).toHaveBeenCalledWith(
+				expect.stringContaining('index.json'),
+				expect.anything(),
+			);
 		});
 	});
 
-	describe('creature sorting', () => {
-		it('should sort creatures by tier then by name', async () => {
-			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
-
-			// Act
-			const creatures = await loadCreaturesFromYaml();
-
-			// Assert
-			expect(creatures[0].name).toBe('Goblin'); // tier 1
-			expect(creatures[1].name).toBe('Orco'); // tier 2
-			expect(creatures[2].name).toBe('Dragon'); // tier 4
-		});
-	});
-
-	describe('creature filtering', () => {
+	describe('creature filtering (consumer contract)', () => {
 		it('should filter creatures by tier', async () => {
 			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
-
-			const creatures = await loadCreaturesFromYaml();
+			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			await loadCreatures();
 
 			// Act
-			const tierFilter = 2;
-			const filtered = creatures.filter((c) => c.tier === tierFilter);
+			const filtered = get(creatures).filter((creature) => creature.tier === 2);
 
 			// Assert
 			expect(filtered).toHaveLength(1);
@@ -440,16 +255,12 @@ describe('creatures-service', () => {
 
 		it('should filter creatures by name (case-insensitive)', async () => {
 			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
-
-			const creatures = await loadCreaturesFromYaml();
+			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			await loadCreatures();
 
 			// Act
-			const nameFilter = 'dragon';
-			const filtered = creatures.filter((c) =>
-				c.name.toLowerCase().includes(nameFilter.toLowerCase()),
+			const filtered = get(creatures).filter((creature) =>
+				creature.name.toLowerCase().includes('dragon'),
 			);
 
 			// Assert
@@ -457,19 +268,18 @@ describe('creatures-service', () => {
 			expect(filtered[0].name).toBe('Dragon');
 		});
 
-		it('should return empty array when no creatures match filter', async () => {
+		it('should return an empty array when no creatures match the filter', async () => {
 			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
-
-			const creatures = await loadCreaturesFromYaml();
+			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			await loadCreatures();
 
 			// Act
-			const filtered = creatures.filter((c) => c.name.toLowerCase().includes('unicorn'));
+			const filtered = get(creatures).filter((creature) =>
+				creature.name.toLowerCase().includes('unicorn'),
+			);
 
 			// Assert
-			expect(filtered).toHaveLength(0);
+			expect(filtered).toEqual([]);
 		});
 	});
 
@@ -484,13 +294,34 @@ describe('creatures-service', () => {
 
 		it('should map raw YAML to Creature interface correctly', () => {
 			// Arrange
-			const rawCreature = MOCK_RAW_CREATURES[0]; // Goblin
+			const rawCreature = {
+				name: 'Goblin',
+				lineage: 'Goblinoide',
+				tier: 1,
+				size: 'Pequeño',
+				attributes: { body: 2, reflexes: 3, mind: 1, instinct: 2, presence: 1 },
+				stats: {
+					maxHealth: 8,
+					evasion: { value: 1, note: null },
+					physicalMitigation: { value: 0, note: null },
+					magicalMitigation: { value: 0, note: null },
+					speed: { value: 6, note: null },
+				},
+				languages: [],
+				attacks: [],
+				traits: [],
+				actions: [],
+				reactions: [],
+				interactions: [],
+				behavior: '',
+				img: null,
+			};
 
 			// Act
 			const mapped = mapCreature(rawCreature);
 
 			// Assert
-			expect(mapped.id).toBe('goblin');
+			expect(mapped.id).toBe(generateId('Goblin'));
 			expect(mapped.name).toBe('Goblin');
 			expect(mapped.lineage).toBe('Goblinoide');
 			expect(mapped.tier).toBe(1);
@@ -598,7 +429,7 @@ describe('creatures-service', () => {
 			expect(mapped.interactions).toEqual([]);
 		});
 
-		it('should generate consistent ID from name', () => {
+		it('should generate a consistent id from the creature name', () => {
 			// Arrange
 			const rawCreature1 = {
 				name: 'Dragon Rojo',
@@ -616,22 +447,7 @@ describe('creatures-service', () => {
 				behavior: '',
 				img: null,
 			};
-			const rawCreature2 = {
-				name: 'Dragon Rojo',
-				lineage: 'Dragón',
-				tier: 1,
-				size: 'Grande',
-				attributes: {},
-				stats: {},
-				languages: [],
-				attacks: [],
-				traits: [],
-				actions: [],
-				reactions: [],
-				interactions: [],
-				behavior: '',
-				img: null,
-			};
+			const rawCreature2 = { ...rawCreature1 };
 
 			// Act
 			const mapped1 = mapCreature(rawCreature1);
@@ -639,57 +455,7 @@ describe('creatures-service', () => {
 
 			// Assert
 			expect(mapped1.id).toBe(mapped2.id);
-			expect(mapped1.id).toBe('dragon-rojo');
-		});
-	});
-
-	describe('creature store management', () => {
-		it('should store creatures in a writable store', async () => {
-			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
-
-			// Act - simulate store behavior
-			const creatures = await loadCreaturesFromYaml();
-			const sorted = creatures.toSorted((a, b) => a.tier - b.tier || a.name.localeCompare(b.name));
-
-			// Assert
-			expect(sorted).toHaveLength(3);
-			expect(sorted[0].tier).toBeLessThanOrEqual(sorted[1].tier);
-			expect(sorted[1].tier).toBeLessThanOrEqual(sorted[2].tier);
-		});
-
-		it('should cache creatures in store after first load', async () => {
-			// This simulates the singleton behavior of creaturesStore
-			// First load populates the store, subsequent loads use cached data
-
-			// Arrange
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve(MOCK_YAML_RAW),
-			});
-
-			// First load
-			const creatures1 = await loadCreaturesFromYaml();
-			expect(creatures1).toHaveLength(3);
-
-			// Reset mock - second load should NOT hit network (simulated)
-			mockFetch.mockClear();
-			mockFetch.mockResolvedValue({
-				text: () => Promise.resolve('SHOULD NOT BE CALLED'),
-			});
-
-			// Simulate checking store before loading
-			const storeHasData = creatures1.length > 0;
-
-			if (storeHasData) {
-				// Skip loading - return cached
-			} else {
-				await loadCreaturesFromYaml();
-			}
-
-			// Assert - fetch should not be called because store had data
-			expect(mockFetch).not.toHaveBeenCalled();
+			expect(mapped1.id).toBe(generateId('Dragon Rojo'));
 		});
 	});
 });

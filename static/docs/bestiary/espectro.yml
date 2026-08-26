@@ -1,0 +1,55 @@
+creatures:
+  - name: Espectro
+    lineage: No-muerto
+    tier: 3
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 2
+      instinct: 3
+      presence: 5
+    stats:
+      maxHealth: 30
+      evasion:
+        value: 10
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: Flota
+    languages:
+      - Umbral
+      - Común (comprende)
+    attacks:
+      - name: Toque Gélido
+        bonus: 6
+        damage: 3d6 Necrótico
+        note: Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Intimidación, Percepción
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+      - name: Inmunidades a Estados
+        detail: Envenenado
+      - name: Visión Verdadera
+        detail: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
+      - name: Movimiento Incorpóreo
+        detail: El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Mirada Aterradora
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque).
+    behavior: |
+      Una entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Toque Gélido para prolongar su macabra existencia.
+    img: https://i.imgur.com/3LAtxZ4.png
+    size: Mediano

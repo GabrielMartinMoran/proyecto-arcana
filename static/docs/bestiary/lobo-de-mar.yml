@@ -1,0 +1,47 @@
+creatures:
+  - name: Lobo de Mar
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 3
+      reflexes: 2
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Estoque
+        bonus: 3
+        damage: 1d8 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Pilotaje, Atletismo
+      - name: Piernas de Barco
+        detail: Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra Derribo y desplazamiento forzado.
+    actions: []
+    reactions:
+      - name: Parada del Marinero
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque.
+    interactions: []
+    behavior: Directo y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.
+    img: https://i.imgur.com/JDG1te1.jpeg
+    size: Mediano

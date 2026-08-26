@@ -1,0 +1,48 @@
+creatures:
+  - name: Mimeto
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 4
+      reflexes: 2
+      mind: 2
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 62
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 2
+        note: forma amorfa
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Pseudópodo
+        bonus: 6
+        damage: 2d6 Contundente
+        note: Si impacta, aplica el rasgo Adhesivo.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Engaño, Percepción
+      - name: Forma Adhesiva
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+      - name: Forma de Objeto
+        detail: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 11 para notar su verdadera naturaleza antes de tocarlo.
+      - name: Asalto Múltiple
+        detail: El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
+      - name: Adhesivo
+        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir la TS y así tratar de liberarse a uno mismo o a un objeto pegado.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Un depredador de paciencia infinita que funciona más como una trampa viviente que como una criatura. Permanece inmóvil, a veces durante días, esperando el toque de una criatura curiosa. Una vez que el combate comienza, su único objetivo es usar su Adhesivo para apresar a una víctima y aplastarla hasta la muerte con sus seudópodos, ignorando a otros atacantes a menos que le impidan "comer". Lucha con una alarmante y silenciosa concentración.
+    img: https://i.imgur.com/gvIIjJk.jpeg
+    size: Grande

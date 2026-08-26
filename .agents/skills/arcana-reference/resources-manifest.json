@@ -560,8 +560,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 73543,
-      "sha1": "f960800c2e6568487673e09f7c62542f4a556414"
+      "size": 75447,
+      "sha1": "94b8e1d2d26de5386e8ffa084c6b207894b0922b"
     },
     {
       "path": "references/datasets/cards.yml",

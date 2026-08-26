@@ -1,0 +1,47 @@
+creatures:
+  - name: Guardia
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 4
+      reflexes: 3
+      mind: 2
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 9
+        note: Escudo
+      physicalMitigation:
+        value: 2
+        note: Cota de mallas
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Espada Larga
+        bonus: 5
+        damage: 1d6 Cortante
+        note: null
+      - name: Golpe de Escudo
+        bonus: 4
+        damage: 1d4 Contundente
+        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 10) o ser empujado 1 metro hacia atrás.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Perspicacia
+      - name: Posición Firme
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Un profesional entrenado. Su objetivo es mantener el orden y proteger a los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de escudos" con sus compañeros. Intentará subyugar y arrestar a las amenazas, recurriendo a la fuerza letal solo como último recurso.
+    img: null
+    size: Mediano

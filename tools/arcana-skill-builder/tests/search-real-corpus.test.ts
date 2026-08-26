@@ -5,8 +5,8 @@ import path from 'node:path';
 import { load as yamlLoad } from 'js-yaml';
 
 import { buildContentIndex } from '../src/builders/content-index-builder.js';
+import { loadBestiaryCreatures } from '../src/loaders/bestiary-loader.js';
 import { mapAbilityCard, mapItemCard } from '../src/mappers/card-mapper.js';
-import { mapCreature } from '../src/mappers/creature-mapper.js';
 import { splitGMManual, splitPlayerManual } from '../src/processors/manual-processor.js';
 import { groupCreaturesByTier } from '../src/processors/bestiary-processor.js';
 import {
@@ -24,7 +24,7 @@ const smokeAvailable = (): boolean =>
 	fs.existsSync(path.join(DOCS_DIR, 'gm.md')) &&
 	fs.existsSync(path.join(DOCS_DIR, 'cards.yml')) &&
 	fs.existsSync(path.join(DOCS_DIR, 'magical-items.yml')) &&
-	fs.existsSync(path.join(DOCS_DIR, 'bestiary.yml'));
+	fs.existsSync(path.join(DOCS_DIR, 'bestiary', 'index.json'));
 
 const loadRealIndex = () => {
 	const read = (name: string): string => fs.readFileSync(path.join(DOCS_DIR, name), 'utf-8');
@@ -36,9 +36,7 @@ const loadRealIndex = () => {
 	const magicalItems = (
 		(yamlLoad(read('magical-items.yml')) as { items?: unknown[] }).items ?? []
 	).map(mapItemCard);
-	const creatures = (
-		(yamlLoad(read('bestiary.yml')) as { creatures?: unknown[] }).creatures ?? []
-	).map(mapCreature);
+	const creatures = loadBestiaryCreatures();
 	const flatCardGroups = flattenCardGroups(groupCardsByTagAndLevel(abilityCards));
 	const itemGroups = groupItemsByLevel(magicalItems);
 	const creatureGroups = groupCreaturesByTier(creatures);

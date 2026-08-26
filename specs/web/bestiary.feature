@@ -46,3 +46,20 @@ Feature: Bestiary
     Then an embeddable URL is generated for that creature
     And the URL follows the format "/embedded/bestiary/[creatureId]"
     And opening the URL shows the creature statblock in read-only mode
+
+  @bestiary @creatures @modular-source
+  Scenario: Load creatures from individual YAML files
+    Given the bestiary manifest lists one YAML file per creature
+    When the creatures service loads the bestiary
+    Then all valid creature files are loaded
+    And creature names and IDs remain unchanged
+    And creatures are sorted by tier then name
+    And the legacy `bestiary.yml` file is not required
+
+  @bestiary @creatures @fault-isolation
+  Scenario: Skip an invalid individual YAML file
+    Given the bestiary manifest contains valid and invalid creature files
+    When the creatures service loads the bestiary
+    Then valid creatures are still available
+    And the invalid creature file is omitted
+    And the error identifies the invalid file

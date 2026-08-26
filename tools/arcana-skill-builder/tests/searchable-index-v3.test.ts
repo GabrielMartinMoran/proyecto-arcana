@@ -13,7 +13,7 @@ import {
 	validateContentIndex,
 } from '../src/builders/content-index-builder.js';
 import { mapAbilityCard, mapItemCard } from '../src/mappers/card-mapper.js';
-import { mapCreature } from '../src/mappers/creature-mapper.js';
+import { loadBestiaryCreatures } from '../src/loaders/bestiary-loader.js';
 import {
 	deriveCreatureAnchors,
 	groupCreaturesByTier,
@@ -346,9 +346,13 @@ describe('T5 searchable evidence index (schema v3)', () => {
 // --- T5 real corpus reachability (static/docs, read-only) --------------------
 
 describe('T5 real corpus reachability (static/docs)', () => {
-	const skip = ['player.md', 'gm.md', 'cards.yml', 'magical-items.yml', 'bestiary.yml'].every(
-		(file) => fs.existsSync(path.join(DOCS_DIR, file)),
-	)
+	const skip = [
+		'player.md',
+		'gm.md',
+		'cards.yml',
+		'magical-items.yml',
+		'bestiary/index.json',
+	].every((file) => fs.existsSync(path.join(DOCS_DIR, file)))
 		? false
 		: 'real static/docs corpus not present';
 
@@ -362,9 +366,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		const magicalItems = (
 			(yamlLoad(read('magical-items.yml')) as { items?: unknown[] }).items ?? []
 		).map(mapItemCard);
-		const creatures = (
-			(yamlLoad(read('bestiary.yml')) as { creatures?: unknown[] }).creatures ?? []
-		).map(mapCreature);
+		const creatures = loadBestiaryCreatures();
 		return buildContentIndex({
 			playerChapters,
 			gmChapters,

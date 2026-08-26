@@ -1,0 +1,49 @@
+creatures:
+  - name: Jefe Goblin
+    lineage: Goblinoide
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Retazos de metal
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Goblin
+      - Común (jerga)
+    attacks:
+      - name: Cimitarra Mellada
+        bonus: 3
+        damage: 1d6 Cortante
+        note: null
+      - name: Ballesta Ligera Robada
+        bonus: 3
+        damage: 1d6 Perforante
+        note: Alcance Media. Requiere Interacción para recargar.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Perspicacia
+      - name: Visión en la Oscuridad
+        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
+    actions: []
+    reactions:
+      - name: Escudo Goblin
+        detail: Como Reacción cuando el Jefe Goblin es objetivo de un ataque y tiene un aliado goblin a distancia Inmediata, puede intercambiar lugares con el aliado. El aliado se convierte en el nuevo objetivo del ataque.
+    interactions: []
+    behavior: Más grande y cruel que el resto. Lidera desde atrás, disparando con una ballesta robada a un guardia y empujando a sus subordinados hacia el peligro. Su principal táctica de supervivencia es usar a otros goblins como escudos vivientes. Solo desenvaina la cimitarra si se ve acorralado.
+    img: https://i.imgur.com/KoSYgNz.jpeg
+    size: Pequeño

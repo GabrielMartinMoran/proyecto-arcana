@@ -20,7 +20,12 @@ export const CONFIG = {
 	GM_MANUAL_FILE: 'gm.md',
 	CARDS_FILE: 'cards.yml',
 	MAGICAL_ITEMS_FILE: 'magical-items.yml',
+	// Logical label and derived dataset name; the canonical source is the
+	// modular BESTIARY_SOURCE_DIR directory, not this file.
 	BESTIARY_FILE: 'bestiary.yml',
+	// Modular bestiary source: one YAML per creature plus the ordered manifest.
+	BESTIARY_SOURCE_DIR: 'bestiary',
+	BESTIARY_MANIFEST_FILE: 'index.json',
 
 	AI_ENABLED: isAiExplicitlyEnabled(process.env),
 

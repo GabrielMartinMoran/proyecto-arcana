@@ -1,0 +1,49 @@
+creatures:
+  - name: Elemental de Fuego
+    lineage: Elemental
+    tier: 3
+    attributes:
+      body: 2
+      reflexes: 5
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 46
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 11
+        note: null
+    languages:
+      - Ignan
+    attacks:
+      - name: Toque Ardiente
+        bonus: 7
+        damage: 3d6 Fuego
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Acrobacias, Intimidación, Percepción
+      - name: Reflejos Ígneos
+        detail: Ventaja (+1d4) en Tiradas de Salvación de Reflejos.
+      - name: Inmunidades al Daño
+        detail: Fuego
+      - name: Aura de Fuego
+        detail: Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.
+      - name: Forma Ígnea
+        detail: El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      El caos y la destrucción encarnados. Se mueve de forma errática y constante, buscando consumir todo lo que pueda arder. Su objetivo no es matar a un enemigo, sino prender fuego a tantos como sea posible, convirtiendo el campo de batalla en una pira.
+    img: null
+    size: Grande

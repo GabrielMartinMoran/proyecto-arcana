@@ -1,0 +1,47 @@
+creatures:
+  - name: Basilisco
+    lineage: Monstruosidad
+    tier: 4
+    attributes:
+      body: 4
+      reflexes: 2
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 80
+      evasion:
+        value: 10
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Piel pétrea
+      magicalMitigation:
+        value: 1
+        note: Piel pétrea
+      speed:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Mordisco
+        bonus: 8
+        damage: 3d12 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Sigilo, Supervivencia
+      - name: Aura Petrificante
+        detail: Cualquier criatura que comience su turno a distancia Inmediata del basilisco siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce a la mitad hasta el inicio de su próximo turno.
+    actions:
+      - name: Mirada Petrificadora
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: El basilisco fija su mirada en una criatura a distancia Cercana que pueda verlo. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 13). Si falla por 4 puntos o menos, queda Inmovilizado (comienza a convertirse en piedra). Si falla por 5 puntos o más, queda Petrificado instantáneamente. Una criatura Inmovilizada por este efecto debe repetir la Tirada de Salvación al final de cada uno de sus turnos; si vuelve a fallar, queda Petrificada.
+    reactions: []
+    interactions: []
+    behavior: |
+      Una criatura lenta y territorial cuya principal arma es la pereza y el terror. No caza activamente; simplemente existe, y su Mirada Petrificadora es una defensa tan perfecta que rara vez necesita moverse. Fijará su mirada en el grupo, forzándolos a desviar la vista o arriesgarse a convertirse en piedra. Solo recurrirá a su mordisco si un enemigo es lo suficientemente valiente o estúpido como para entrar en su espacio personal.
+    img: https://i.imgur.com/7Kh8ZkK.jpeg
+    size: Grande

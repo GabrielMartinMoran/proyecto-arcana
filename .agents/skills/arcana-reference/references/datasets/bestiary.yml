@@ -38,21 +38,22 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Sigilo, Juego de Manos
       - name: Visión en la Oscuridad
-        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
+        detail: >-
+          El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
     actions: []
     reactions:
       - name: Retirada Cobarde
-        detail: Cuando un enemigo falla un ataque cuerpo a cuerpo contra el goblin, este
-          puede usar su Reacción para moverse hasta la mitad de su velocidad sin provocar
-          ataques de oportunidad.
+        detail: >-
+          Cuando un enemigo falla un ataque cuerpo a cuerpo contra el goblin,
+          este puede usar su Reacción para moverse hasta la mitad de su
+          velocidad sin provocar ataques de oportunidad.
     interactions: []
-    behavior: 'Una plaga cobarde y oportunista. Nunca lucha solo si puede evitarlo.
-      Prioriza objetivos aislados, heridos o que parezcan fáciles de abrumar. Utiliza
-      su agilidad para escaramuzas rápidas, atacando y reposicionándose. Su objetivo
-      no es morir con honor, sino sobrevivir para saquear.
-
-      '
+    behavior: >
+      Una plaga cobarde y oportunista. Nunca lucha solo si puede evitarlo.
+      Prioriza objetivos aislados, heridos o que parezcan fáciles de abrumar.
+      Utiliza su agilidad para escaramuzas rápidas, atacando y reposicionándose.
+      Su objetivo no es morir con honor, sino sobrevivir para saquear.
     img: https://i.imgur.com/I3zy9zB.png
     size: Pequeño
   - name: Jefe Goblin
@@ -94,19 +95,22 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Intimidación, Perspicacia
       - name: Visión en la Oscuridad
-        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
+        detail: >-
+          El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
     actions: []
     reactions:
       - name: Escudo Goblin
-        detail: Como Reacción cuando el Jefe Goblin es objetivo de un ataque y tiene un
-          aliado goblin a distancia Inmediata, puede intercambiar lugares con el aliado.
-          El aliado se convierte en el nuevo objetivo del ataque.
+        detail: >-
+          Como Reacción cuando el Jefe Goblin es objetivo de un ataque y tiene
+          un aliado goblin a distancia Inmediata, puede intercambiar lugares con
+          el aliado. El aliado se convierte en el nuevo objetivo del ataque.
     interactions: []
-    behavior: 'Más grande y cruel que el resto. Lidera desde atrás, disparando con una
-      ballesta robada a un guardia y empujando a sus subordinados hacia el peligro.
-      Su principal táctica de supervivencia es usar a otros goblins como escudos vivientes.
-      Solo desenvaina la cimitarra si se ve acorralado.'
+    behavior: >-
+      Más grande y cruel que el resto. Lidera desde atrás, disparando con una
+      ballesta robada a un guardia y empujando a sus subordinados hacia el
+      peligro. Su principal táctica de supervivencia es usar a otros goblins
+      como escudos vivientes. Solo desenvaina la cimitarra si se ve acorralado.
     img: https://i.imgur.com/KoSYgNz.jpeg
     size: Pequeño
   - name: Chamán Goblin
@@ -148,26 +152,28 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Naturaleza, Religión
       - name: Visión en la Oscuridad
-        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
+        detail: >-
+          El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra (sombras grises) hasta distancia Cercana.
     actions:
       - name: Curación de Hongos
         uses:
           type: RELOAD
           qty: 5
-        detail: Como Acción, el chamán obliga a un aliado a distancia Inmediata a comer
-          un hongo extraño. El aliado recupera 1d6 Puntos de Salud.
+        detail: >-
+          Como Acción, el chamán obliga a un aliado a distancia Inmediata a
+          comer un hongo extraño. El aliado recupera 1d6 Puntos de Salud.
     reactions: []
     interactions:
       - name: Bendición de la Tribu
-        detail: Como Interacción, el chamán chilla un cántico. Un aliado a distancia Cercana
-          obtiene Ventaja (+1d4) en su próxima tirada de ataque.
-    behavior: 'El consejero espiritual de la tribu, cubierto de fetiches y huesos. Evita
-      el combate directo, prefiriendo potenciar a los guerreros más fuertes con gritos
-      frenéticos y curar sus heridas con brebajes dudosos. Si se queda solo, lanzará
-      fuego desesperadamente.
-
-      '
+        detail: >-
+          Como Interacción, el chamán chilla un cántico. Un aliado a distancia
+          Cercana obtiene Ventaja (+1d4) en su próxima tirada de ataque.
+    behavior: >
+      El consejero espiritual de la tribu, cubierto de fetiches y huesos. Evita
+      el combate directo, prefiriendo potenciar a los guerreros más fuertes con
+      gritos frenéticos y curar sus heridas con brebajes dudosos. Si se queda
+      solo, lanzará fuego desesperadamente.
     img: https://i.imgur.com/zKzwD2N.jpeg
     size: Pequeño
   - name: Bandido
@@ -211,15 +217,15 @@ creatures:
     reactions: []
     interactions:
       - name: ¡Cuerpo a Tierra!
-        detail: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado).
-          Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él
-          se realiza con Desventaja.
-    behavior: 'Un matón pragmático que lucha por dinero, no por gloria. Analiza el campo
-      de batalla en busca del objetivo más rentable (el que lleva mejor equipo) o el
-      menos defendido. No dudará en usar a un compañero como escudo humano o en pedir
-      clemencia si el combate se vuelve en su contra.
-
-      '
+        detail: >-
+          Como una Interacción, el bandido puede tirarse al suelo (estado
+          Derribado). Hasta el inicio de su próximo turno, cualquier ataque a
+          distancia contra él se realiza con Desventaja.
+    behavior: >
+      Un matón pragmático que lucha por dinero, no por gloria. Analiza el campo
+      de batalla en busca del objetivo más rentable (el que lleva mejor equipo)
+      o el menos defendido. No dudará en usar a un compañero como escudo humano
+      o en pedir clemencia si el combate se vuelve en su contra.
     img: https://i.imgur.com/ParBKHT.png
     size: Mediano
   - name: Cultista
@@ -262,16 +268,17 @@ creatures:
     actions: []
     reactions:
       - name: Sacrificio Devoto
-        detail: Cuando un líder o un aliado importante adyacente al cultista es objetivo
-          de un ataque, el cultista puede usar su Reacción para interponerse. El cultista
-          se convierte en el objetivo de ese ataque en su lugar.
+        detail: >-
+          Cuando un líder o un aliado importante adyacente al cultista es
+          objetivo de un ataque, el cultista puede usar su Reacción para
+          interponerse. El cultista se convierte en el objetivo de ese ataque en
+          su lugar.
     interactions: []
-    behavior: 'Un fanático cuya devoción anula su instinto de supervivencia. Lucha con
-      un fervor imprudente, buscando proteger a su líder o completar un ritual a toda
-      costa. No huirá y luchará hasta la muerte, creyendo que su sacrificio le ganará
-      el favor de su oscura deidad.
-
-      '
+    behavior: >
+      Un fanático cuya devoción anula su instinto de supervivencia. Lucha con un
+      fervor imprudente, buscando proteger a su líder o completar un ritual a
+      toda costa. No huirá y luchará hasta la muerte, creyendo que su sacrificio
+      le ganará el favor de su oscura deidad.
     img: https://i.imgur.com/VBT0h7Z.png
     size: Mediano
   - name: Esqueleto
@@ -316,20 +323,23 @@ creatures:
       - name: Vulnerabilidades
         detail: Contundente
       - name: Visión en la Oscuridad
-        detail: El esqueleto puede ver en penumbra como si fuera luz tenue y en oscuridad
-          como si fuera penumbra (sombras grises) hasta distancia Cercana.
+        detail: >-
+          El esqueleto puede ver en penumbra como si fuera luz tenue y en
+          oscuridad como si fuera penumbra (sombras grises) hasta distancia
+          Cercana.
       - name: Formación de Huesos
-        detail: El esqueleto obtiene un +1 a su Esquiva por cada otro esqueleto aliado
+        detail: >-
+          El esqueleto obtiene un +1 a su Esquiva por cada otro esqueleto aliado
           que esté adyacente a él (hasta un máximo de +2).
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un autómata sin mente que obedece ciegamente su última orden. Alterna
-      entre su arco y su espada según la distancia del enemigo, sin ninguna táctica
-      o instinto de preservación. Es peligroso por su tenacidad implacable, no por su
-      ingenio. Avanzará a través del fuego o sobre un precipicio si sus órdenes lo dictan.
-
-      '
+    behavior: >
+      Un autómata sin mente que obedece ciegamente su última orden. Alterna
+      entre su arco y su espada según la distancia del enemigo, sin ninguna
+      táctica o instinto de preservación. Es peligroso por su tenacidad
+      implacable, no por su ingenio. Avanzará a través del fuego o sobre un
+      precipicio si sus órdenes lo dictan.
     img: https://i.imgur.com/QElMAiy.png
     size: Mediano
   - name: Zombi
@@ -368,29 +378,33 @@ creatures:
       - name: Inmunidades a Estados
         detail: Envenenado
       - name: Visión en la Oscuridad
-        detail: El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad
+        detail: >-
+          El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra hasta distancia Cercana.
       - name: Fortaleza de No-Muerto
-        detail: Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada
-          de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1
-          Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida
-          hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla.
-          Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
+        detail: >-
+          Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una
+          Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene
+          éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño
+          Radiante, esta habilidad queda suprimida hasta el inicio de su próximo
+          turno. Mientras está suprimida, no puede activarla. Tampoco puede
+          activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
     actions:
       - name: Agarrón Necrótico
-        detail: Como una Acción (en lugar de morder), el zombi puede intentar apresar
-          a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada
-          de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El
-          zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere
-          acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
+        detail: >-
+          Como una Acción (en lugar de morder), el zombi puede intentar apresar
+          a un enemigo a distancia Inmediata. El objetivo debe superar una
+          Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o
+          quedará Inmovilizado. El zombi puede mantener la presa automáticamente
+          en turnos subsiguientes (no requiere acción), y sus ataques de
+          Mordisco contra el objetivo apresado tienen Ventaja.
     reactions: []
     interactions: []
-    behavior: 'Un cadáver andante impulsado por un hambre necrótica. Se mueve lenta
-      pero inexorablemente hacia el ser vivo más cercano, ignorando el terreno, las
-      amenazas o el dolor. Su peligro no reside en un solo zombi, sino en la horda implacable
-      que no deja de avanzar.
-
-      '
+    behavior: >
+      Un cadáver andante impulsado por un hambre necrótica. Se mueve lenta pero
+      inexorablemente hacia el ser vivo más cercano, ignorando el terreno, las
+      amenazas o el dolor. Su peligro no reside en un solo zombi, sino en la
+      horda implacable que no deja de avanzar.
     img: https://i.imgur.com/ZVpBSZ6.png
     size: Mediano
   - name: Jabalí
@@ -426,18 +440,20 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Percepción, Supervivencia
       - name: Carga Imprudente
-        detail: Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo
-          y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño
-          adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
+        detail: >-
+          Si el jabalí se mueve al menos 5 metros en línea recta hacia un
+          objetivo y lo impacta con una Cornada en el mismo turno, el objetivo
+          sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de
+          Cuerpo (ND 8) o ser Derribado.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Una bola de furia con colmillos. No tiene tácticas, solo un instinto:
-      cargar en línea recta contra el primer enemigo que ve. Su Carga Imprudente es
-      su única maniobra, y la usará sin dudar. Si sobrevive al impacto, luchará hasta
-      la muerte, corneando y embistiendo sin pensar en su propia seguridad.
-
-      '
+    behavior: >
+      Una bola de furia con colmillos. No tiene tácticas, solo un instinto:
+      cargar en línea recta contra el primer enemigo que ve. Su Carga Imprudente
+      es su única maniobra, y la usará sin dudar. Si sobrevive al impacto,
+      luchará hasta la muerte, corneando y embistiendo sin pensar en su propia
+      seguridad.
     img: https://i.imgur.com/BJNhoKo.jpeg
     size: Mediano
   - name: Orco
@@ -475,21 +491,22 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Atletismo, Intimidación
       - name: Furia
-        detail: Mientras el orco tenga la mitad de su Salud o menos, obtiene +2 al daño
-          de sus ataques.
+        detail: >-
+          Mientras el orco tenga la mitad de su Salud o menos, obtiene +2 al
+          daño de sus ataques.
     actions:
       - name: Ataque Temerario
-        detail: Como una Acción, el orco puede realizar un único ataque cuerpo a cuerpo
-          con Ventaja. Si lo hace, todos los ataques contra él hasta el inicio de su próximo
-          turno también tienen Ventaja.
+        detail: >-
+          Como una Acción, el orco puede realizar un único ataque cuerpo a
+          cuerpo con Ventaja. Si lo hace, todos los ataques contra él hasta el
+          inicio de su próximo turno también tienen Ventaja.
     reactions: []
     interactions: []
-    behavior: 'Brutal, directo y sediento de sangre. Carga sin dudar contra el enemigo
-      que representa la mayor amenaza física o el que lo hirió más recientemente. Su
-      rasgo Furia lo vuelve más temerario a medida que es herido, ignorando su propia
-      seguridad para infligir más dolor.
-
-      '
+    behavior: >
+      Brutal, directo y sediento de sangre. Carga sin dudar contra el enemigo
+      que representa la mayor amenaza física o el que lo hirió más
+      recientemente. Su rasgo Furia lo vuelve más temerario a medida que es
+      herido, ignorando su propia seguridad para infligir más dolor.
     img: https://i.imgur.com/vwS87Yq.png
     size: Mediano
   - name: Capitán de los Bandidos
@@ -530,21 +547,25 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Perspicacia, Intimidación
       - name: Asalto Múltiple
-        detail: El capitán puede realizar dos ataques con su Acción, usando Cimitarra
-          o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
+        detail: >-
+          El capitán puede realizar dos ataques con su Acción, usando Cimitarra
+          o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier
+          combinación.
     actions:
       - name: ¡Mátalo!
-        detail: Como una Acción, el capitán puede dar una orden a uno de sus aliados a
-          distancia Cercana que pueda oírlo. Ese aliado puede usar inmediatamente su Reacción
-          para realizar un único ataque (con arma o conjuro) contra un enemigo que el
-          capitán designe, y el aliado pueda ver.
+        detail: >-
+          Como una Acción, el capitán puede dar una orden a uno de sus aliados a
+          distancia Cercana que pueda oírlo. Ese aliado puede usar
+          inmediatamente su Reacción para realizar un único ataque (con arma o
+          conjuro) contra un enemigo que el capitán designe, y el aliado pueda
+          ver.
     reactions: []
     interactions: []
-    behavior: 'Un líder astuto y egoísta. Piensa tácticamente, manteniéndose a distancia
-      y usando a sus aliados como barrera mientras dispara su ballesta o grita órdenes
-      para que sus hombres ataquen. Siempre tiene una ruta de escape planeada.
-
-      '
+    behavior: >
+      Un líder astuto y egoísta. Piensa tácticamente, manteniéndose a distancia
+      y usando a sus aliados como barrera mientras dispara su ballesta o grita
+      órdenes para que sus hombres ataquen. Siempre tiene una ruta de escape
+      planeada.
     img: https://i.imgur.com/k3QVNis.png
     size: Mediano
   - name: Lobo
@@ -580,22 +601,26 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Percepción, Supervivencia
       - name: Tácticas de Manada
-        detail: El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si
-          al menos uno de sus aliados (que no esté incapacitado) está adyacente a la criatura.
+        detail: >-
+          El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si
+          al menos uno de sus aliados (que no esté incapacitado) está adyacente
+          a la criatura.
     actions: []
     reactions:
       - name: Acoso Coordinado
-        detail: Cuando un lobo aliado impacta a un enemigo con un ataque cuerpo a cuerpo,
-          este lobo puede usar su Reacción para moverse hasta la mitad de su velocidad
-          sin provocar ataques de oportunidad, reposicionándose tácticamente.
+        detail: >-
+          Cuando un lobo aliado impacta a un enemigo con un ataque cuerpo a
+          cuerpo, este lobo puede usar su Reacción para moverse hasta la mitad
+          de su velocidad sin provocar ataques de oportunidad, reposicionándose
+          tácticamente.
     interactions: []
-    behavior: 'Un depredador inteligente que encarna la eficiencia de la manada. Los
-      lobos no intercambian golpes; hostigan y desangran. Usan su velocidad superior
-      para rodear a la presa, probando las defensas y enfocándose en el miembro más
-      débil o aislado del grupo. Su rasgo Tácticas de Manada es el núcleo de su ser;
-      lucharán coordinadamente para asegurarse de que siempre esté activo.
-
-      '
+    behavior: >
+      Un depredador inteligente que encarna la eficiencia de la manada. Los
+      lobos no intercambian golpes; hostigan y desangran. Usan su velocidad
+      superior para rodear a la presa, probando las defensas y enfocándose en el
+      miembro más débil o aislado del grupo. Su rasgo Tácticas de Manada es el
+      núcleo de su ser; lucharán coordinadamente para asegurarse de que siempre
+      esté activo.
     img: https://i.imgur.com/yGvrTO5.jpeg
     size: Mediano
   - name: Araña Gigante
@@ -635,19 +660,21 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo
-          debe superar una Tirada de Salvación de Reflejos (ND 10) o quedar Inmovilizado.
-          Una criatura inmovilizada puede usar su Acción para realizar una Prueba de Cuerpo
-          (ND 10) e intentar liberarse en caso de éxito.
+        detail: >-
+          La araña lanza una red a un objetivo a distancia Cercana. El objetivo
+          debe superar una Tirada de Salvación de Reflejos (ND 10) o quedar
+          Inmovilizado. Una criatura inmovilizada puede usar su Acción para
+          realizar una Prueba de Cuerpo (ND 10) e intentar liberarse en caso de
+          éxito.
     reactions: []
     interactions: []
-    behavior: 'Una cazadora de emboscadas paciente y alienígena. Utiliza su telaraña
-      no solo como un arma, sino como una extensión de sus sentidos. Intentará usar
-      su Telaraña para separar a un miembro del grupo, arrastrándolo hacia la oscuridad
-      para inyectarle su veneno. En su guarida, es una amenaza omnipresente, moviéndose
-      por techos y paredes con una velocidad aterradora.
-
-      '
+    behavior: >
+      Una cazadora de emboscadas paciente y alienígena. Utiliza su telaraña no
+      solo como un arma, sino como una extensión de sus sentidos. Intentará usar
+      su Telaraña para separar a un miembro del grupo, arrastrándolo hacia la
+      oscuridad para inyectarle su veneno. En su guarida, es una amenaza
+      omnipresente, moviéndose por techos y paredes con una velocidad
+      aterradora.
     img: null
     size: Mediano
   - name: Oso
@@ -687,13 +714,12 @@ creatures:
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Una encarnación de la furia territorial. No es malvado, es una fuerza
-      de la naturaleza defendiendo su hogar. Su táctica es una explosión de violencia:
-      un rugido ensordecedor para intimidar, seguido de una carga imparable contra la
-      amenaza más cercana o más grande. Una vez en combate, desata un torbellino de
-      garras hasta que la amenaza es neutralizada.
-
-      '
+    behavior: >
+      Una encarnación de la furia territorial. No es malvado, es una fuerza de
+      la naturaleza defendiendo su hogar. Su táctica es una explosión de
+      violencia: un rugido ensordecedor para intimidar, seguido de una carga
+      imparable contra la amenaza más cercana o más grande. Una vez en combate,
+      desata un torbellino de garras hasta que la amenaza es neutralizada.
     img: https://i.imgur.com/4hVydOL.jpeg
     size: Mediano
   - name: Guardia
@@ -729,23 +755,24 @@ creatures:
       - name: Golpe de Escudo
         bonus: 4
         damage: 1d4 Contundente
-        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND
-          10) o ser empujado 1 metro hacia atrás.
+        note: >-
+          Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo
+          (ND 10) o ser empujado 1 metro hacia atrás.
     traits:
       - name: Habilidades con Ventaja
         detail: Percepción, Perspicacia
       - name: Posición Firme
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
           forzado.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un profesional entrenado. Su objetivo es mantener el orden y proteger
-      a los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de escudos"
-      con sus compañeros. Intentará subyugar y arrestar a las amenazas, recurriendo
-      a la fuerza letal solo como último recurso.
-
-      '
+    behavior: >
+      Un profesional entrenado. Su objetivo es mantener el orden y proteger a
+      los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de
+      escudos" con sus compañeros. Intentará subyugar y arrestar a las amenazas,
+      recurriendo a la fuerza letal solo como último recurso.
     img: null
     size: Mediano
   - name: Guerrero Tribal
@@ -786,19 +813,23 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Supervivencia, Percepción
       - name: Asalto Múltiple
-        detail: El guerrero puede realizar dos ataques con su Acción (usando Lanza o Jabalina).
+        detail: >-
+          El guerrero puede realizar dos ataques con su Acción (usando Lanza o
+          Jabalina).
     actions: []
     reactions: []
     interactions:
       - name: Grito de Guerra Tribal
-        detail: Como una Interacción, el guerrero puede dar un grito de ánimo. Él y un
-          aliado tribal adyacente ganan 3 Puntos de Salud temporales. (Recarga 5+).
-    behavior: 'Un cazador y guerrero disciplinado que lucha por su gente, no por oro.
-      A diferencia de los bandidos, trabaja en equipo. Usa el terreno para cubrirse,
-      lanza jabalinas para ablandar al enemigo y luego se acerca para flanquear con
-      su lanza. Protegerá a sus compañeros y seguirá las órdenes de su líder.
-
-      '
+        detail: >-
+          Como una Interacción, el guerrero puede dar un grito de ánimo. Él y un
+          aliado tribal adyacente ganan 3 Puntos de Salud temporales. (Recarga
+          5+).
+    behavior: >
+      Un cazador y guerrero disciplinado que lucha por su gente, no por oro. A
+      diferencia de los bandidos, trabaja en equipo. Usa el terreno para
+      cubrirse, lanza jabalinas para ablandar al enemigo y luego se acerca para
+      flanquear con su lanza. Protegerá a sus compañeros y seguirá las órdenes
+      de su líder.
     img: https://i.imgur.com/alrayYz.jpeg
     size: Mediano
   - name: Ghoul
@@ -830,25 +861,27 @@ creatures:
       - name: Garras Paralizantes
         bonus: 5
         damage: 1d6+2 Cortante
-        note: Si impacta, el objetivo debe superar una TS de Cuerpo (ND 10) o quedar Inmovilizado
-          hasta el final del próximo turno del ghoul.
+        note: >-
+          Si impacta, el objetivo debe superar una TS de Cuerpo (ND 10) o quedar
+          Inmovilizado hasta el final del próximo turno del ghoul.
     traits:
       - name: Habilidades con Ventaja
         detail: Sigilo, Percepción
       - name: Inmunidades a Estados
         detail: Envenenado
       - name: Frenesí Necrófago
-        detail: El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier criatura
-          que esté Inmovilizada o Moribunda.
+        detail: >-
+          El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier
+          criatura que esté Inmovilizada o Moribunda.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un depredador de cementerios movido por un hambre insaciable de carne
-      viva. Caza en manadas, usando su agilidad para emboscar. Su objetivo no es matar
-      de inmediato, sino paralizar a su presa con sus garras para poder devorarla sin
-      que oponga resistencia. Se enfoca en el enemigo más lento o menos acorazado.
-
-      '
+    behavior: >
+      Un depredador de cementerios movido por un hambre insaciable de carne
+      viva. Caza en manadas, usando su agilidad para emboscar. Su objetivo no es
+      matar de inmediato, sino paralizar a su presa con sus garras para poder
+      devorarla sin que oponga resistencia. Se enfoca en el enemigo más lento o
+      menos acorazado.
     img: null
     size: Mediano
   - name: Matón
@@ -891,18 +924,19 @@ creatures:
       - name: Asalto Múltiple
         detail: El matón puede realizar dos ataques con su Acción (Maza o Ballesta).
       - name: Ataque en Grupo
-        detail: El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si al
-          menos uno de sus aliados (que no esté incapacitado) está adyacente a dicho enemigo.
+        detail: >-
+          El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si
+          al menos uno de sus aliados (que no esté incapacitado) está adyacente
+          a dicho enemigo.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un abusón que solo lucha cuando tiene la ventaja. Su rasgo Ataque en
-      Grupo define su existencia: siempre buscará flanquear a un enemigo junto a un
-      aliado. Se enfoca en objetivos derribados, aturdidos o que parezcan débiles. Si
-      se queda solo o en desventaja numérica, su bravuconería se desvanece y probablemente
-      intentará huir.
-
-      '
+    behavior: >
+      Un abusón que solo lucha cuando tiene la ventaja. Su rasgo Ataque en Grupo
+      define su existencia: siempre buscará flanquear a un enemigo junto a un
+      aliado. Se enfoca en objetivos derribados, aturdidos o que parezcan
+      débiles. Si se queda solo o en desventaja numérica, su bravuconería se
+      desvanece y probablemente intentará huir.
     img: https://i.imgur.com/yw8RtuI.png
     size: Mediano
   - name: Espectro
@@ -935,7 +969,9 @@ creatures:
       - name: Toque Gélido
         bonus: 6
         damage: 3d6 Necrótico
-        note: Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.
+        note: >-
+          Si inflige daño, el espectro recupera Salud igual a la mitad del daño
+          infligido.
     traits:
       - name: Habilidades con Ventaja
         detail: Sigilo, Intimidación, Percepción
@@ -944,12 +980,14 @@ creatures:
       - name: Inmunidades a Estados
         detail: Envenenado
       - name: Visión Verdadera
-        detail: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y
+        detail: >-
+          El espectro puede ver perfectamente en la oscuridad, incluso mágica, y
           detectar criaturas invisibles.
       - name: Movimiento Incorpóreo
-        detail: El espectro puede moverse a través de otras criaturas y objetos sólidos
-          como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno
-          dentro de un objeto.
+        detail: >-
+          El espectro puede moverse a través de otras criaturas y objetos
+          sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza
+          si termina su turno dentro de un objeto.
     actions: []
     reactions: []
     interactions:
@@ -957,15 +995,17 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo
-          debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta
-          el final del próximo turno del espectro. (ND vinculado al Ataque).
-    behavior: 'Una entidad de tormento y frío, consumida por el odio. Flota a través
-      de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor
-      Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba
-      en él, usando Toque Gélido para prolongar su macabra existencia.
-
-      '
+        detail: >-
+          El espectro fija su mirada en un personaje a distancia Cercana. El
+          objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o
+          quedar Asustado hasta el final del próximo turno del espectro. (ND
+          vinculado al Ataque).
+    behavior: >
+      Una entidad de tormento y frío, consumida por el odio. Flota a través de
+      obstáculos para aislar a la presa más vulnerable (a menudo la que tiene
+      menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y
+      luego se ceba en él, usando Toque Gélido para prolongar su macabra
+      existencia.
     img: https://i.imgur.com/3LAtxZ4.png
     size: Mediano
   - name: Ogro
@@ -1006,24 +1046,25 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Fuerza Bruta, Atletismo, Intimidación
       - name: Mole Inamovible
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
           forzado.
     actions:
       - name: Barrido
         uses:
           type: RELOAD
           qty: 6
-        detail: El ogro blande su garrote en un arco amplio. Todos los personajes a distancia
-          Inmediata deben superar una Tirada de Salvación de Reflejos (ND 11) o recibir
-          2d6 de daño Contundente y ser Derribados.
+        detail: >-
+          El ogro blande su garrote en un arco amplio. Todos los personajes a
+          distancia Inmediata deben superar una Tirada de Salvación de Reflejos
+          (ND 11) o recibir 2d6 de daño Contundente y ser Derribados.
     reactions: []
     interactions: []
-    behavior: 'De inteligencia limitada y apetito voraz. Su táctica es simple: usar
-      Barrido para derribar a tantos enemigos "pequeños y molestos" como pueda, y luego
-      aplastar al más cercano con su garrote. Puede ser distraído por la promesa de
-      comida o intimidado por una muestra de poder abrumadora.
-
-      '
+    behavior: >
+      De inteligencia limitada y apetito voraz. Su táctica es simple: usar
+      Barrido para derribar a tantos enemigos "pequeños y molestos" como pueda,
+      y luego aplastar al más cercano con su garrote. Puede ser distraído por la
+      promesa de comida o intimidado por una muestra de poder abrumadora.
     img: https://i.imgur.com/bZ1hNkv.png
     size: Grande
   - name: Sacerdote
@@ -1065,20 +1106,23 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Religión, Perspicacia, Persuasión
       - name: Fe Inquebrantable
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra efectos que provoquen el
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra efectos que provoquen el
           estado Asustado.
       - name: Asalto Múltiple
-        detail: El sacerdote puede realizar dos ataques con su Acción, usando Maza Consagrada
-          o Llama Radiante en cualquier combinación.
+        detail: >-
+          El sacerdote puede realizar dos ataques con su Acción, usando Maza
+          Consagrada o Llama Radiante en cualquier combinación.
     actions:
       - name: Espíritus Guardianes
         uses:
           type: RELOAD
           qty: 6
-        detail: Como Acción, invoca espíritus que revolotean a su alrededor (radio 3 metros)
-          durante 1 minuto. Requiere Concentración. Un enemigo que entre o empiece su
-          turno en el aura debe superar una TS de Instinto (ND 11) o sufrir 2d6 de daño
-          Radiante (la mitad si tiene éxito).
+        detail: >-
+          Como Acción, invoca espíritus que revolotean a su alrededor (radio 3
+          metros) durante 1 minuto. Requiere Concentración. Un enemigo que entre
+          o empiece su turno en el aura debe superar una TS de Instinto (ND 11)
+          o sufrir 2d6 de daño Radiante (la mitad si tiene éxito).
       - name: Toque Sanador
         uses:
           type: RELOAD
@@ -1086,12 +1130,12 @@ creatures:
         detail: Toca a una criatura y esta recupera 2d6 Puntos de Salud.
     reactions: []
     interactions: []
-    behavior: 'El pilar estratégico y espiritual de su grupo. Alterna entre activar
-      sus Espíritus Guardianes para crear una zona de peligro, castigar a los impíos
-      desde la distancia con ráfagas de llamas sagradas, o mantener en pie a los aliados
-      más valiosos con su Toque Sanador. Es un objetivo prioritario y lo sabe.
-
-      '
+    behavior: >
+      El pilar estratégico y espiritual de su grupo. Alterna entre activar sus
+      Espíritus Guardianes para crear una zona de peligro, castigar a los impíos
+      desde la distancia con ráfagas de llamas sagradas, o mantener en pie a los
+      aliados más valiosos con su Toque Sanador. Es un objetivo prioritario y lo
+      sabe.
     img: https://i.imgur.com/w5QQCP6.png
     size: Mediano
   - name: Elemental de Tierra
@@ -1128,28 +1172,31 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Fuerza Bruta, Atletismo, Percepción
       - name: Estabilidad Pétrea
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
           forzado.
       - name: Inmunidades a Estados
         detail: Envenenado
       - name: Deslizarse por la Tierra
-        detail: El elemental puede moverse a través de piedra y tierra no trabajada como
-          si fuera terreno normal.
+        detail: >-
+          El elemental puede moverse a través de piedra y tierra no trabajada
+          como si fuera terreno normal.
     actions:
       - name: Pisotón Sísmico
         uses:
           type: RELOAD
           qty: 5
-        detail: El elemental golpea el suelo. Toda criatura a distancia Inmediata debe
-          superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y recibir
-          2d6 daño Contundente.
+        detail: >-
+          El elemental golpea el suelo. Toda criatura a distancia Inmediata debe
+          superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y
+          recibir 2d6 daño Contundente.
     reactions: []
     interactions: []
-    behavior: 'La personificación de la fuerza implacable. Lento, directo e indestructible.
-      Avanza en línea recta, aplastando todo a su paso. No se reposiciona ni esquiva;
-      simplemente soporta los golpes y devuelve un castigo sísmico.
-
-      '
+    behavior: >
+      La personificación de la fuerza implacable. Lento, directo e
+      indestructible. Avanza en línea recta, aplastando todo a su paso. No se
+      reposiciona ni esquiva; simplemente soporta los golpes y devuelve un
+      castigo sísmico.
     img: null
     size: Grande
   - name: Elemental de Fuego
@@ -1190,20 +1237,21 @@ creatures:
       - name: Inmunidades al Daño
         detail: Fuego
       - name: Aura de Fuego
-        detail: Al final del turno del elemental, toda criatura a distancia Inmediata
+        detail: >-
+          Al final del turno del elemental, toda criatura a distancia Inmediata
           recibe 1d8 de daño de Fuego.
       - name: Forma Ígnea
-        detail: El elemental puede moverse a través de espacios de hasta 5 cm de ancho
+        detail: >-
+          El elemental puede moverse a través de espacios de hasta 5 cm de ancho
           sin problemas.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'El caos y la destrucción encarnados. Se mueve de forma errática y constante,
-      buscando consumir todo lo que pueda arder. Su objetivo no es matar a un enemigo,
-      sino prender fuego a tantos como sea posible, convirtiendo el campo de batalla
-      en una pira.
-
-      '
+    behavior: >
+      El caos y la destrucción encarnados. Se mueve de forma errática y
+      constante, buscando consumir todo lo que pueda arder. Su objetivo no es
+      matar a un enemigo, sino prender fuego a tantos como sea posible,
+      convirtiendo el campo de batalla en una pira.
     img: null
     size: Grande
   - name: Elemental de Agua
@@ -1235,12 +1283,14 @@ creatures:
       - name: Golpe Acuático
         bonus: 7
         damage: 2d8 Contundente
-        note: Si impacta, el elemental puede intentar engullir al objetivo (si es de su
-          tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12)
-          o quedará Inmovilizado y sin poder respirar dentro de él. Por cada turno que
-          una criatura sea engullida, recibirá 1d6 de daño por asfixia. Al final de su
-          turno, una criatura engullida puede intentar liberarse repitiendo la TS. El
-          elemental no puede engullir a más de una criatura a la vez.
+        note: >-
+          Si impacta, el elemental puede intentar engullir al objetivo (si es de
+          su tamaño o menor). El objetivo debe superar una TS de Cuerpo o
+          Reflejos (ND 12) o quedará Inmovilizado y sin poder respirar dentro de
+          él. Por cada turno que una criatura sea engullida, recibirá 1d6 de
+          daño por asfixia. Al final de su turno, una criatura engullida puede
+          intentar liberarse repitiendo la TS. El elemental no puede engullir a
+          más de una criatura a la vez.
     traits:
       - name: Habilidades con Ventaja
         detail: Atletismo, Acrobacias, Percepción
@@ -1249,17 +1299,18 @@ creatures:
         uses:
           type: RELOAD
           qty: 4
-        detail: El elemental proyecta una línea de agua de 5 metros de largo y 1 de ancho.
-          Toda criatura en la línea debe superar una Tirada de Salvación de Cuerpo (ND
-          12) o recibir 2d6 de daño Contundente y ser empujada hasta el final de la línea.
+        detail: >-
+          El elemental proyecta una línea de agua de 5 metros de largo y 1 de
+          ancho. Toda criatura en la línea debe superar una Tirada de Salvación
+          de Cuerpo (ND 12) o recibir 2d6 de daño Contundente y ser empujada
+          hasta el final de la línea.
     reactions: []
     interactions: []
-    behavior: 'Adaptable y asfixiante. Fluye por el campo de batalla, usando su forma
-      líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar Marea
-      Arrasadora para empujar a un objetivo lejos de sus aliados y luego usar Engullir
-      para ahogarlo.
-
-      '
+    behavior: >
+      Adaptable y asfixiante. Fluye por el campo de batalla, usando su forma
+      líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar
+      Marea Arrasadora para empujar a un objetivo lejos de sus aliados y luego
+      usar Engullir para ahogarlo.
     img: null
     size: Grande
   - name: Elemental de Aire
@@ -1291,29 +1342,31 @@ creatures:
       - name: Ráfaga de Viento
         bonus: 6
         damage: 2d6 Contundente
-        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND
-          11) o ser empujado 3 metros hacia atrás en línea recta.
+        note: >-
+          Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo
+          (ND 11) o ser empujado 3 metros hacia atrás en línea recta.
     traits:
       - name: Habilidades con Ventaja
         detail: Acrobacias, Sigilo, Percepción
       - name: Forma Gaseosa
-        detail: El elemental puede moverse a través de cualquier abertura por la que pueda
-          pasar el aire.
+        detail: >-
+          El elemental puede moverse a través de cualquier abertura por la que
+          pueda pasar el aire.
       - name: Vuelo
         detail: El elemental tiene una velocidad de Vuelo de 12 metros.
     actions: []
     reactions:
       - name: Vórtice de Viento
-        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental
-          puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11)
-          o ser empujado 2 metros hacia atrás.
+        detail: >-
+          Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el
+          elemental puede forzar al atacante a superar una Tirada de Salvación
+          de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.
     interactions: []
-    behavior: 'Una tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance
-      de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta
-      de su superioridad, empujando y derribando a sus enemigos desde una distancia
-      segura. No aterrizará a menos que se vea forzado.
-
-      '
+    behavior: >
+      Una tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance
+      de los combatientes terrestres, hostigándolos con ráfagas de viento.
+      Disfruta de su superioridad, empujando y derribando a sus enemigos desde
+      una distancia segura. No aterrizará a menos que se vea forzado.
     img: null
     size: Grande
   - name: Mago
@@ -1359,31 +1412,34 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: El mago elige un punto a distancia Media. Todas las criaturas en un radio
-          de 3 metros deben superar una TS de Reflejos (ND 12). Si fallan, reciben 3d6
-          de daño de Fuego. Si tienen éxito, reciben la mitad.
+        detail: >-
+          El mago elige un punto a distancia Media. Todas las criaturas en un
+          radio de 3 metros deben superar una TS de Reflejos (ND 12). Si fallan,
+          reciben 3d6 de daño de Fuego. Si tienen éxito, reciben la mitad.
     reactions:
       - name: Contraconjuro
         uses:
           type: RELOAD
           qty: 6
-        detail: Como Reacción cuando ve a una criatura lanzar un conjuro a distancia Media,
-          el mago realiza una Tirada Enfrentada de su Mente (+5) contra el atributo de
-          lanzamiento del rival. Si gana, el conjuro falla y se disipa sin efecto.
+        detail: >-
+          Como Reacción cuando ve a una criatura lanzar un conjuro a distancia
+          Media, el mago realiza una Tirada Enfrentada de su Mente (+5) contra
+          el atributo de lanzamiento del rival. Si gana, el conjuro falla y se
+          disipa sin efecto.
     interactions:
       - name: Paso Brumoso
         uses:
           type: RELOAD
           qty: 4
-        detail: El mago usa su Interacción para teletransportarse instantáneamente a un
-          espacio desocupado que pueda ver a distancia Cercana.
-    behavior: 'Un intelectual táctico que controla el campo de batalla desde la retaguardia.
-      Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos
-      prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para
-      mantener la distancia y reserva su Reacción para Contraconjuro, intentando
-      neutralizar la magia enemiga más peligrosa.
-
-      '
+        detail: >-
+          El mago usa su Interacción para teletransportarse instantáneamente a
+          un espacio desocupado que pueda ver a distancia Cercana.
+    behavior: >
+      Un intelectual táctico que controla el campo de batalla desde la
+      retaguardia. Abre el combate con una Bola de Fuego para ablandar grupos, y
+      luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda
+      quieto: usa Paso Brumoso para mantener la distancia y reserva su Reacción
+      para Contraconjuro, intentando neutralizar la magia enemiga más peligrosa.
     img: null
     size: Mediano
   - name: Ozo-lechuza
@@ -1423,27 +1479,29 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Percepción, Supervivencia, Atletismo
       - name: Mole Bestial
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
           forzado.
       - name: Asalto Múltiple (2 Garras, 1 Pico)
-        detail: El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico
-          con su Acción.
+        detail: >-
+          El ozo-lechuza puede realizar dos ataques de Garras y un ataque de
+          Pico con su Acción.
     actions: []
     reactions: []
     interactions:
       - name: Despedazar y Apresar
-        detail: Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras
-          en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada
-          de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado
-          y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos
-          mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para
-          mantenerla).
-    behavior: 'Una monstruosidad territorial de furia explosiva. Considera cualquier
-      criatura en su territorio como una amenaza o una comida. No tiene tácticas complejas;
-      carga contra el enemigo más grande o ruidoso y lo desgarra con una violencia abrumadora
-      hasta que deja de moverse.
-
-      '
+        detail: >-
+          Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras
+          en el mismo turno, puede usar su Interacción para iniciar una Tirada
+          Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el
+          objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5
+          prom) al inicio de cada uno de sus turnos mientras la presa se
+          mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).
+    behavior: >
+      Una monstruosidad territorial de furia explosiva. Considera cualquier
+      criatura en su territorio como una amenaza o una comida. No tiene tácticas
+      complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con
+      una violencia abrumadora hasta que deja de moverse.
     img: null
     size: Grande
   - name: Mimeto
@@ -1479,30 +1537,35 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Sigilo, Engaño, Percepción
       - name: Forma Adhesiva
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
           forzado.
       - name: Forma de Objeto
-        detail: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado
-          (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto
-          (Percepción) con ND 11 para notar su verdadera naturaleza antes de tocarlo.
+        detail: >-
+          Mientras permanece inmóvil, el mimeto es indistinguible de un objeto
+          inanimado (como un cofre, una puerta, etc.). Se requiere superar una
+          Prueba de Instinto (Percepción) con ND 11 para notar su verdadera
+          naturaleza antes de tocarlo.
       - name: Asalto Múltiple
         detail: El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
       - name: Adhesivo
-        detail: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que
-          lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el
-          afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir
-          la TS y así tratar de liberarse a uno mismo o a un objeto pegado.
+        detail: >-
+          El mimeto puede adherirse a cualquier cosa que toque. Una criatura que
+          lo toque o sea impactada por su ataque de Pseudópodo queda
+          Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se
+          requiere una Acción para repetir la TS y así tratar de liberarse a uno
+          mismo o a un objeto pegado.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un depredador de paciencia infinita que funciona más como una trampa
-      viviente que como una criatura. Permanece inmóvil, a veces durante días, esperando
-      el toque de una criatura curiosa. Una vez que el combate comienza, su único objetivo
-      es usar su Adhesivo para apresar a una víctima y aplastarla hasta la muerte con
-      sus seudópodos, ignorando a otros atacantes a menos que le impidan "comer". Lucha
-      con una alarmante y silenciosa concentración.
-
-      '
+    behavior: >
+      Un depredador de paciencia infinita que funciona más como una trampa
+      viviente que como una criatura. Permanece inmóvil, a veces durante días,
+      esperando el toque de una criatura curiosa. Una vez que el combate
+      comienza, su único objetivo es usar su Adhesivo para apresar a una víctima
+      y aplastarla hasta la muerte con sus seudópodos, ignorando a otros
+      atacantes a menos que le impidan "comer". Lucha con una alarmante y
+      silenciosa concentración.
     img: https://i.imgur.com/gvIIjJk.jpeg
     size: Grande
   - name: Troll
@@ -1539,25 +1602,27 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Atletismo, Aguante, Percepción
       - name: Visión en la Oscuridad
-        detail: El troll puede ver en penumbra como si fuera luz tenue y en oscuridad
+        detail: >-
+          El troll puede ver en penumbra como si fuera luz tenue y en oscuridad
           como si fuera penumbra hasta distancia Cercana.
       - name: Regeneración (10 PS)
-        detail: Al inicio de su turno, el troll recupera 10 Puntos de Salud. Si recibe
-          daño por Fuego o Ácido en la ronda anterior, esta habilidad no funciona en el
-          turno siguiente. El troll solo muere permanentemente si empieza su turno con
-          0 Puntos de Salud y no puede regenerar.
+        detail: >-
+          Al inicio de su turno, el troll recupera 10 Puntos de Salud. Si recibe
+          daño por Fuego o Ácido en la ronda anterior, esta habilidad no
+          funciona en el turno siguiente. El troll solo muere permanentemente si
+          empieza su turno con 0 Puntos de Salud y no puede regenerar.
       - name: Asalto Múltiple
         detail: El troll puede realizar dos ataques de Desgarrar con su Acción.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Una fuerza de la naturaleza, violenta e insaciable. Su única táctica
-      es la violencia abrumadora, confiando ciegamente en su Regeneración para superar
-      cualquier herida. No distingue entre un mago frágil y un guerrero acorazado; simplemente
-      ataca al ser vivo más cercano. Sin embargo, el dolor del fuego o el ácido anula
-      todo lo demás, convirtiendo a la fuente de ese daño en su único objetivo.
-
-      '
+    behavior: >
+      Una fuerza de la naturaleza, violenta e insaciable. Su única táctica es la
+      violencia abrumadora, confiando ciegamente en su Regeneración para superar
+      cualquier herida. No distingue entre un mago frágil y un guerrero
+      acorazado; simplemente ataca al ser vivo más cercano. Sin embargo, el
+      dolor del fuego o el ácido anula todo lo demás, convirtiendo a la fuente
+      de ese daño en su único objetivo.
     img: https://i.imgur.com/5MAnITP.png
     size: Grande
   - name: Cíclope
@@ -1598,24 +1663,27 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Fuerza Bruta, Atletismo, Intimidación
       - name: Mole Inamovible
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
           forzado.
       - name: Asalto Múltiple (Solo Garrote)
-        detail: El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o
+        detail: >-
+          El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o
           uno de Arrojar Roca y uno de Gran Garrote.
       - name: Visión Deficiente
-        detail: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción)
-          que dependan de la vista. Además, no puede realizar ataques como Reacción.
+        detail: >-
+          El cíclope tiene Desventaja en todas las pruebas de Instinto
+          (Percepción) que dependan de la vista. Además, no puede realizar
+          ataques como Reacción.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un gigante solitario de mal genio y escasa percepción. Su único ojo lo
-      hace fijarse en un solo objetivo, al que intentará pulverizar con su garrote o
-      aplastar con una roca. Su pobre percepción de la profundidad y su visión periférica
-      lo hacen vulnerable a enemigos rápidos y a ataques coordinados desde múltiples
-      flancos.
-
-      '
+    behavior: >
+      Un gigante solitario de mal genio y escasa percepción. Su único ojo lo
+      hace fijarse en un solo objetivo, al que intentará pulverizar con su
+      garrote o aplastar con una roca. Su pobre percepción de la profundidad y
+      su visión periférica lo hacen vulnerable a enemigos rápidos y a ataques
+      coordinados desde múltiples flancos.
     img: https://i.imgur.com/aZduoXw.jpeg
     size: Grande
   - name: Mantícora
@@ -1656,8 +1724,9 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Percepción, Supervivencia, Intimidación
       - name: Asalto Múltiple (2 Garras, 1 Mordisco)
-        detail: La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco
-          con su Acción.
+        detail: >-
+          La mantícora puede realizar dos ataques de Garras y un ataque de
+          Mordisco con su Acción.
       - name: Vuelo
         detail: La mantícora tiene una velocidad de Vuelo de 10 metros.
     actions:
@@ -1665,21 +1734,25 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: La mantícora dispara una andanada de púas de su cola. Realiza tres ataques
-          a distancia (+8 para golpear) contra uno o varios objetivos a distancia Cercana.
-          Cada púa que impacta inflige 3d6 de daño Perforante.
+        detail: >-
+          La mantícora dispara una andanada de púas de su cola. Realiza tres
+          ataques a distancia (+8 para golpear) contra uno o varios objetivos a
+          distancia Cercana. Cada púa que impacta inflige 3d6 de daño
+          Perforante.
     reactions:
       - name: Ataque de Oportunidad
-        detail: Como Reacción, cuando una criatura sale de estar a distancia Inmediata
-          de la mantícora, esta puede realizar un único ataque de Garras contra él.
+        detail: >-
+          Como Reacción, cuando una criatura sale de estar a distancia Inmediata
+          de la mantícora, esta puede realizar un único ataque de Garras contra
+          él.
     interactions: []
-    behavior: 'Un depredador cruel que disfruta aterrorizando a su presa. Comienza el
-      combate desde el aire, deleitándose en su invulnerabilidad mientras acribilla
-      al grupo con las púas de su cola, a menudo enfocándose en el mismo objetivo para
-      maximizar el dolor. Solo descenderá cuando un enemigo esté visiblemente herido
-      o aislado, para saborear la muerte con sus garras y fauces.
-
-      '
+    behavior: >
+      Un depredador cruel que disfruta aterrorizando a su presa. Comienza el
+      combate desde el aire, deleitándose en su invulnerabilidad mientras
+      acribilla al grupo con las púas de su cola, a menudo enfocándose en el
+      mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo
+      esté visiblemente herido o aislado, para saborear la muerte con sus garras
+      y fauces.
     img: null
     size: Grande
   - name: Gólem de Piedra
@@ -1715,7 +1788,9 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Fuerza Bruta, Atletismo, Percepción
       - name: Voluntad Antimagia
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos
+          mágicos.
       - name: Inmunidades a Estados
         detail: Envenenado, Asustado
       - name: Asalto Múltiple
@@ -1723,12 +1798,12 @@ creatures:
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Un guardián autómata sin emociones, programado para proteger un lugar
-      o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en
-      su camino. Su falta de emociones hace que siga sus órdenes sin considerar amenazas, súplicas o argumentos.
-      Su única directiva es destruir a los intrusos.
-
-      '
+    behavior: >
+      Un guardián autómata sin emociones, programado para proteger un lugar o un
+      objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en
+      su camino. Su falta de emociones hace que siga sus órdenes sin considerar
+      amenazas, súplicas o argumentos. Su única directiva es destruir a los
+      intrusos.
     img: null
     size: Grande
   - name: Basilisco
@@ -1764,30 +1839,33 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Percepción, Sigilo, Supervivencia
       - name: Aura Petrificante
-        detail: Cualquier criatura que comience su turno a distancia Inmediata del basilisco
-          siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce
-          a la mitad hasta el inicio de su próximo turno.
+        detail: >-
+          Cualquier criatura que comience su turno a distancia Inmediata del
+          basilisco siente cómo sus músculos se endurecen. Su velocidad de
+          movimiento se reduce a la mitad hasta el inicio de su próximo turno.
     actions:
       - name: Mirada Petrificadora
         uses:
           type: RELOAD
           qty: 6
-        detail: El basilisco fija su mirada en una criatura a distancia Cercana que pueda
-          verlo. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 13). Si
-          falla por 4 puntos o menos, queda Inmovilizado (comienza a convertirse en piedra).
-          Si falla por 5 puntos o más, queda Petrificado instantáneamente. Una criatura
-          Inmovilizada por este efecto debe repetir la Tirada de Salvación al final de
-          cada uno de sus turnos; si vuelve a fallar, queda Petrificada.
+        detail: >-
+          El basilisco fija su mirada en una criatura a distancia Cercana que
+          pueda verlo. El objetivo debe superar una Tirada de Salvación de
+          Cuerpo (ND 13). Si falla por 4 puntos o menos, queda Inmovilizado
+          (comienza a convertirse en piedra). Si falla por 5 puntos o más, queda
+          Petrificado instantáneamente. Una criatura Inmovilizada por este
+          efecto debe repetir la Tirada de Salvación al final de cada uno de sus
+          turnos; si vuelve a fallar, queda Petrificada.
     reactions: []
     interactions: []
-    behavior: 'Una criatura lenta y territorial cuya principal arma es la pereza y el
-      terror. No caza activamente; simplemente existe, y su Mirada Petrificadora es
-      una defensa tan perfecta que rara vez necesita moverse. Fijará su mirada en el
-      grupo, forzándolos a desviar la vista o arriesgarse a convertirse en piedra. Solo
-      recurrirá a su mordisco si un enemigo es lo suficientemente valiente o estúpido
-      como para entrar en su espacio personal.
-
-      '
+    behavior: >
+      Una criatura lenta y territorial cuya principal arma es la pereza y el
+      terror. No caza activamente; simplemente existe, y su Mirada Petrificadora
+      es una defensa tan perfecta que rara vez necesita moverse. Fijará su
+      mirada en el grupo, forzándolos a desviar la vista o arriesgarse a
+      convertirse en piedra. Solo recurrirá a su mordisco si un enemigo es lo
+      suficientemente valiente o estúpido como para entrar en su espacio
+      personal.
     img: https://i.imgur.com/7Kh8ZkK.jpeg
     size: Grande
   - name: Thulu
@@ -1820,17 +1898,19 @@ creatures:
       - name: Choque Psiónico
         bonus: 9
         damage: 3d10 Psíquico
-        note: Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el Thulu
-          puede iniciar una Tirada Enfrentada de Mente contra Mente. Si gana, el objetivo
-          queda Inmovilizado y el Thulu puede usar su acción "Devorar Cerebro" en el siguiente
-          turno.
+        note: >-
+          Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el
+          Thulu puede iniciar una Tirada Enfrentada de Mente contra Mente. Si
+          gana, el objetivo queda Inmovilizado y el Thulu puede usar su acción
+          "Devorar Cerebro" en el siguiente turno.
     traits:
       - name: Habilidades con Ventaja
         detail: Conocimiento Arcano, Perspicacia, Percepción, Intimidación
       - name: Baluarte Mental
         detail: Ventaja (+1d4) en Tiradas de Salvación de Mente e Instinto.
       - name: Vuelo (Levitar)
-        detail: El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a
+        detail: >-
+          El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a
           su velocidad terrestre.
       - name: Asalto Múltiple
         detail: El Thulu puede realizar dos ataques de Choque Psiónico con su Acción.
@@ -1839,20 +1919,23 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura
-          en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de daño Psíquico
-          y quedar Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito,
-          recibe la mitad del daño y no queda Aturdida.
+        detail: >-
+          El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura
+          en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de
+          daño Psíquico y quedar Aturdida hasta el final del próximo turno del
+          Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.
       - name: Devorar Cerebro
-        detail: Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo
-          debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico.
-          Si esto reduce sus PS a 0, muere instantáneamente.
+        detail: >-
+          Ataca a una criatura Inmovilizada por él. Impacto automático. El
+          objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10
+          de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente.
     reactions: []
     interactions: []
-    behavior: 'Un depredador psíquico que flota sobre el campo de batalla. Controla
-      el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar
-      a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente
-      y huirá levitando si su salud baja del 25%.'
+    behavior: >-
+      Un depredador psíquico que flota sobre el campo de batalla. Controla el
+      ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar
+      a una víctima, inmovilizarla con su mente y devorar su cerebro. Es
+      inteligente y huirá levitando si su salud baja del 25%.
     img: null
     size: Inmenso
   - name: Dragón Rojo Adulto
@@ -1898,7 +1981,8 @@ creatures:
       - name: Inmunidades al Daño
         detail: Fuego
       - name: Asalto Múltiple (1 Mordisco, 2 Garras)
-        detail: El dragón puede realizar un ataque de Mordisco y dos ataques de Garras
+        detail: >-
+          El dragón puede realizar un ataque de Mordisco y dos ataques de Garras
           con su Acción.
       - name: Vuelo
         detail: El dragón tiene una velocidad de Vuelo de 15 metros.
@@ -1907,27 +1991,34 @@ creatures:
         uses:
           type: RELOAD
           qty: 6
-        detail: El dragón exhala un cono de fuego de 15 metros. Toda criatura en el área
-          debe superar una Tirada de Salvación de Reflejos (ND 16). Si falla, recibe 10d6
-          de daño de Fuego (35 Dmg AoE); si tiene éxito, recibe la mitad.
+        detail: >-
+          El dragón exhala un cono de fuego de 15 metros. Toda criatura en el
+          área debe superar una Tirada de Salvación de Reflejos (ND 16). Si
+          falla, recibe 10d6 de daño de Fuego (35 Dmg AoE); si tiene éxito,
+          recibe la mitad.
       - name: Presencia Aterradora
         uses:
           type: USES
           qty: 1
-        detail: El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo
-          debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1 minuto (Desventaja
-          en todo). El objetivo puede repetir la Tirada de Salvación al final de cada uno
-          de sus turnos. El estado Asustado termina para ese objetivo cuando supera la
-          tirada.
+        detail: >-
+          El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo
+          debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1
+          minuto (Desventaja en todo). El objetivo puede repetir la Tirada de
+          Salvación al final de cada uno de sus turnos. El estado Asustado
+          termina para ese objetivo cuando supera la tirada.
     reactions:
       - name: Coletazo
-        detail: Como Reacción cuando un enemigo termina su movimiento adyacente, el dragón
-          golpea con la cola. TS Cuerpo (ND 16) o 2d8 Contundente y Derribado.
+        detail: >-
+          Como Reacción cuando un enemigo termina su movimiento adyacente, el
+          dragón golpea con la cola. TS Cuerpo (ND 16) o 2d8 Contundente y
+          Derribado.
     interactions: []
-    behavior: 'Un ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar
-      las amenazas, desatando su Aliento de Fuego sobre el grupo más concentrado. Aterrizará
-      solo para eliminar a supervivientes heridos, usando su Asalto Múltiple para abrumar.
-      Su Presencia Aterradora rompe la coordinación del grupo al inicio.'
+    behavior: >-
+      Un ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar
+      las amenazas, desatando su Aliento de Fuego sobre el grupo más
+      concentrado. Aterrizará solo para eliminar a supervivientes heridos,
+      usando su Asalto Múltiple para abrumar. Su Presencia Aterradora rompe la
+      coordinación del grupo al inicio.
     img: null
     size: Inmenso
   - name: Liche
@@ -1968,49 +2059,55 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Conocimiento Arcano, Historia, Investigación, Religión
       - name: Voluntad Antimagia
-        detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos
+          mágicos.
       - name: Inmunidades al Daño
         detail: Veneno, Frío
       - name: Inmunidades a Estados
         detail: Encantado, Envenenado, Dormido
       - name: Mente Dividida
-        detail: La mente fragmentada del Liche le permite procesar múltiples amenazas.
+        detail: >-
+          La mente fragmentada del Liche le permite procesar múltiples amenazas.
           Tiene 3 Reacciones por ronda de combate en lugar de una.
       - name: Vuelo Arcano
-        detail: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a
+        detail: >-
+          El Liche levita permanentemente y tiene una velocidad de Vuelo igual a
           su velocidad terrestre.
       - name: Rejuvenecimiento
         detail: Si muere, reaparece junto a su filacteria en 1d6 días.
     actions:
       - name: Maestro de la Magia Prohibida
-        detail: El Liche tiene acceso a la lista de conjuros de Arcanista. Puede lanzar
-          conjuros de hasta Nivel 5 como Acción. Debe respetar los tiempos de recarga
-          o usos limitados de cada conjuro individualmente.
+        detail: >-
+          El Liche tiene acceso a la lista de conjuros de Arcanista. Puede
+          lanzar conjuros de hasta Nivel 5 como Acción. Debe respetar los
+          tiempos de recarga o usos limitados de cada conjuro individualmente.
     reactions:
       - name: Conjuro de Oportunidad
-        detail: 'Como Reacción al final del turno de otra criatura, el Liche elige una
+        detail: >
+          Como Reacción al final del turno de otra criatura, el Liche elige una
           opción:
 
           - Realizar un ataque de Descarga Arcana.
 
-          - Lanzar un conjuro de Arcanista de Nivel 3 o inferior (debe respetar la recarga).
-
-          '
+          - Lanzar un conjuro de Arcanista de Nivel 3 o inferior (debe respetar
+          la recarga).
       - name: Recarga Mental
-        detail: Como Reacción al final del turno de cualquier criatura, el Liche realiza
-          una tirada de recarga (1d8) para intentar recuperar el uso de una habilidad
-          o conjuro agotado.
+        detail: >-
+          Como Reacción al final del turno de cualquier criatura, el Liche
+          realiza una tirada de recarga (1d8) para intentar recuperar el uso de
+          una habilidad o conjuro agotado.
     interactions: []
-    behavior: 'Un archimago no-muerto con un estilo muy táctico. Su estrategia se basa
-      en la economía de acción superior. Flota fuera de alcance, bombardeando con magia
-      de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones para mantener
-      la presión constante lanzando Descargas Arcanas, hechizos rápidos o intentando
-      recuperar sus poderes más letales con Recarga Mental. Su objetivo no es solo ganar,
-      es demostrar su abrumadora superioridad intelectual y mágica en cada instante
-      del combate.'
+    behavior: >-
+      Un archimago no-muerto con un estilo muy táctico. Su estrategia se basa en
+      la economía de acción superior. Flota fuera de alcance, bombardeando con
+      magia de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones
+      para mantener la presión constante lanzando Descargas Arcanas, hechizos
+      rápidos o intentando recuperar sus poderes más letales con Recarga Mental.
+      Su objetivo no es solo ganar, es demostrar su abrumadora superioridad
+      intelectual y mágica en cada instante del combate.
     img: null
     size: Mediano
-
   - name: No Combatiente
     lineage: Humanoide
     tier: 1
@@ -2049,8 +2146,19 @@ creatures:
     interactions:
       - name: Presa del Pánico
         uses: null
-        detail: Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
-    behavior: 'Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intención será ganar tiempo para huir, no abatir al agresor.'
+        detail: >-
+          Impulsado por la pura adrenalina, el No Combatiente puede usar su
+          Interacción para realizar la acción de Correr o Esconderse, pero única
+          y exclusivamente si lo hace para alejarse de una fuente de violencia o
+          peligro evidente.
+    behavior: >-
+      Su presencia en un encuentro es puramente circunstancial (daño colateral o
+      rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o
+      monstruos, su única directiva es la supervivencia. Gritará pidiendo
+      auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del
+      Pánico para salir de la línea de visión. Solo realizará un ataque de forma
+      desesperada si se encuentra completamente acorralado sin vías de escape, y
+      aun así, su intención será ganar tiempo para huir, no abatir al agresor.
     img: null
     size: Mediano
   - name: Iniciado Arcano
@@ -2093,9 +2201,14 @@ creatures:
         uses:
           type: RELOAD
           qty: 4
-        detail: Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque.
+        detail: >-
+          Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene
+          un +2 temporal a su Esquiva contra ese ataque.
     interactions: []
-    behavior: 'Se mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.'
+    behavior: >-
+      Se mantiene a distancia, disparando magia inestable desde la retaguardia.
+      Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca
+      demasiado.
     img: null
     size: Mediano
   - name: Ratero de los Bajos Fondos
@@ -2137,11 +2250,16 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Sigilo, Juego de Manos
       - name: Golpe Traicionero
-        detail: Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
+        detail: >-
+          Si el ratero ataca a un objetivo que ya está trabado en combate con
+          otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
     actions: []
     reactions: []
     interactions: []
-    behavior: 'Evita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.'
+    behavior: >-
+      Evita el combate justo. Su táctica consiste en esperar que sus aliados (o
+      compañeros rufianes) distraigan al aventurero más acorazado para clavar su
+      daga por la espalda.
     img: null
     size: Mediano
   - name: Juglar Errante
@@ -2187,15 +2305,24 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: Como Acción, elige a un enemigo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 8). Si falla, recibe 1d6 de daño Psíquico y sufre Desventaja (-1d4) en su próxima tirada de ataque antes del final del próximo turno del juglar.
+        detail: >-
+          Como Acción, elige a un enemigo a distancia Cercana. El objetivo debe
+          superar una Tirada de Salvación de Instinto (ND 8). Si falla, recibe
+          1d6 de daño Psíquico y sufre Desventaja (-1d4) en su próxima tirada de
+          ataque antes del final del próximo turno del juglar.
     reactions: []
     interactions:
       - name: Nota Inspiradora
         uses:
           type: RELOAD
           qty: 4
-        detail: Como Interacción, otorga 2 Puntos de Salud Temporales a un aliado a distancia Cercana.
-    behavior: 'El juglar evita ser el blanco principal. Se dedica a entorpecer la ofensiva enemiga con su música destructiva mientras da pequeños impulsos de vitalidad a sus defensores.'
+        detail: >-
+          Como Interacción, otorga 2 Puntos de Salud Temporales a un aliado a
+          distancia Cercana.
+    behavior: >-
+      El juglar evita ser el blanco principal. Se dedica a entorpecer la
+      ofensiva enemiga con su música destructiva mientras da pequeños impulsos
+      de vitalidad a sus defensores.
     img: null
     size: Mediano
   - name: Iniciado del Círculo
@@ -2228,7 +2355,9 @@ creatures:
       - name: Látigo de Espinas
         bonus: 3
         damage: 1d6+1 Cortante
-        note: Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.
+        note: >-
+          Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo
+          (ND 8) o ser movido 1 metro hacia el Iniciado.
     traits:
       - name: Habilidades con Ventaja
         detail: Naturaleza, Trato con Animales
@@ -2239,8 +2368,15 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado.
-    behavior: 'Protege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.'
+        detail: >-
+          Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo
+          o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos
+          de Salud y se cura del estado Envenenado.
+    behavior: >-
+      Protege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados
+      bestiales o tribales antes que luchar directamente. Gracias a su látigo,
+      intentará arrastrar a los enemigos lejos de sus aliados heridos mientras
+      aplica sus ungüentos de forma veloz.
     img: null
     size: Mediano
   - name: Lobo de Mar
@@ -2277,7 +2413,8 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Pilotaje, Atletismo
       - name: Piernas de Barco
-        detail: Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra
           Derribo y desplazamiento forzado.
     actions: []
     reactions:
@@ -2285,9 +2422,15 @@ creatures:
         uses:
           type: RELOAD
           qty: 4
-        detail: Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque.
+        detail: >-
+          Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un
+          enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente
+          contra ese ataque.
     interactions: []
-    behavior: 'Directo y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.'
+    behavior: >-
+      Directo y curtido. Acostumbrado a los abordajes inestables, aguanta
+      firmemente en su posición mientras utiliza su estoque de forma defensiva
+      para desviar estoques enemigos y contraatacar.
     img: https://i.imgur.com/JDG1te1.jpeg
     size: Mediano
   - name: Capitán Corsario
@@ -2324,15 +2467,26 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Pilotaje, Intimidación
       - name: Asalto Múltiple
-        detail: El Capitán Corsario puede realizar dos ataques de Estoque con su Acción.
+        detail: >-
+          El Capitán Corsario puede realizar dos ataques de Estoque con su
+          Acción.
     actions:
       - name: ¡Al Abordaje!
         uses:
           type: RELOAD
           qty: 5
-        detail: Como Acción, el Capitán ruge una directiva y designa a un objetivo. Hasta el inicio del próximo turno del Capitán, todos sus aliados ganan +2 metros de velocidad si se mueven en línea recta hacia la criatura marcada, y obtienen Ventaja (+1d4) en su primera tirada de ataque contra ella.
+        detail: >-
+          Como Acción, el Capitán ruge una directiva y designa a un objetivo.
+          Hasta el inicio del próximo turno del Capitán, todos sus aliados ganan
+          +2 metros de velocidad si se mueven en línea recta hacia la criatura
+          marcada, y obtienen Ventaja (+1d4) en su primera tirada de ataque
+          contra ella.
     reactions: []
     interactions: []
-    behavior: 'Es una figura de autoridad que orquesta el caos marino a su favor. Utilizará ¡Al Abordaje! para coordinar las cargas de sus lobos de mar y rateros, concentrando el fuego del grupo mientras él desgasta objetivos con la precisión quirúrgica de sus dos estocadas.'
+    behavior: >-
+      Es una figura de autoridad que orquesta el caos marino a su favor.
+      Utilizará ¡Al Abordaje! para coordinar las cargas de sus lobos de mar y
+      rateros, concentrando el fuego del grupo mientras él desgasta objetivos
+      con la precisión quirúrgica de sus dos estocadas.
     img: https://i.imgur.com/jCx0W79.jpeg
     size: Mediano

@@ -1,0 +1,61 @@
+creatures:
+  - name: Mago
+    lineage: Humanoide
+    tier: 3
+    attributes:
+      body: 2
+      reflexes: 3
+      mind: 5
+      instinct: 3
+      presence: 2
+    stats:
+      maxHealth: 38
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+      - Otras 3 lenguas
+    attacks:
+      - name: Virote Arcano
+        bonus: 7
+        damage: 3d10 Fuerza
+        note: Distancia Media
+      - name: Daga
+        bonus: 7
+        damage: 1d4 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Investigación, Historia
+    actions:
+      - name: Bola de Fuego
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El mago elige un punto a distancia Media. Todas las criaturas en un radio de 3 metros deben superar una TS de Reflejos (ND 12). Si fallan, reciben 3d6 de daño de Fuego. Si tienen éxito, reciben la mitad.
+    reactions:
+      - name: Contraconjuro
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Como Reacción cuando ve a una criatura lanzar un conjuro a distancia Media, el mago realiza una Tirada Enfrentada de su Mente (+5) contra el atributo de lanzamiento del rival. Si gana, el conjuro falla y se disipa sin efecto.
+    interactions:
+      - name: Paso Brumoso
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: El mago usa su Interacción para teletransportarse instantáneamente a un espacio desocupado que pueda ver a distancia Cercana.
+    behavior: |
+      Un intelectual táctico que controla el campo de batalla desde la retaguardia. Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para mantener la distancia y reserva su Reacción para Contraconjuro, intentando neutralizar la magia enemiga más peligrosa.
+    img: null
+    size: Mediano

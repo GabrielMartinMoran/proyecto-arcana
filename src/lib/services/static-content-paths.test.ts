@@ -37,6 +37,11 @@ describe('static content paths', () => {
 					'cards:\n  - name: Arc Flash\n    level: 1\n    tags: [Arcana]\n    uses: 1\n    range: Personal\n    duration: Instant\n    effects: []\n    upgrades: []\n    action: Main\n    skill: Mente\n    threshold: 10\n    test: 1d20\n    damage: 1d4\n    damageType: Arcano\n    note: null\n    requirements: []\n    source: Test\n    img: null\n',
 			} as Response)
 			.mockResolvedValueOnce({
+				ok: true,
+				json: async () => ({ files: ['goblin.yml'] }),
+			} as Response)
+			.mockResolvedValueOnce({
+				ok: true,
 				text: async () =>
 					'creatures:\n  - name: Goblin\n    lineage: Goblinoide\n    tier: 1\n    size: Mediano\n    attributes:\n      body: 2\n      reflexes: 3\n      mind: 1\n      instinct: 2\n      presence: 1\n    stats:\n      maxHealth: 8\n      evasion: { value: 1, note: null }\n      physicalMitigation: { value: 0, note: null }\n      magicalMitigation: { value: 0, note: null }\n      speed: { value: 6, note: null }\n    languages: []\n    attacks: []\n    traits: []\n    actions: []\n    reactions: []\n    interactions: []\n    behavior: Test\n    img: null\n',
 			} as Response);
@@ -53,7 +58,8 @@ describe('static content paths', () => {
 		await creaturesService.loadCreatures();
 
 		expect(fetch).toHaveBeenNthCalledWith(1, '/base/docs/cards.yml');
-		expect(fetch).toHaveBeenNthCalledWith(2, '/base/docs/bestiary.yml');
+		expect(fetch).toHaveBeenNthCalledWith(2, '/base/docs/bestiary/index.json');
+		expect(fetch).toHaveBeenNthCalledWith(3, '/base/docs/bestiary/goblin.yml');
 		expect(get(cardsService.abilityCards)).toHaveLength(1);
 		expect(get(creaturesService.creatures)).toHaveLength(1);
 	});

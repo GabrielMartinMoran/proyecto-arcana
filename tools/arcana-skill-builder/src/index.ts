@@ -14,9 +14,9 @@ import { buildManual } from './builders/manual-builder.js';
 
 import { CONFIG } from './config.js';
 import { generateSummary } from './llm/summarizer.js';
+import { loadBestiaryCreatures, loadBestiaryDatasetYaml } from './loaders/bestiary-loader.js';
 import { loadDocFile } from './loaders/file-loader.js';
 import { mapAbilityCard, mapItemCard } from './mappers/card-mapper.js';
-import { mapCreature } from './mappers/creature-mapper.js';
 import { groupCreaturesByTier } from './processors/bestiary-processor.js';
 import {
 	flattenCardGroups,
@@ -61,8 +61,9 @@ export const buildAll = async (): Promise<void> => {
 	const magicalItems = ((yamlLoad(loadDocFile(CONFIG.MAGICAL_ITEMS_FILE)) as any).items ?? []).map(
 		mapItemCard,
 	);
-	const creatures = ((yamlLoad(loadDocFile(CONFIG.BESTIARY_FILE)) as any).creatures ?? []).map(
-		mapCreature,
+	const creatures = loadBestiaryCreatures();
+	console.log(
+		`Loaded ${creatures.length} bestiary creatures from modular source (${CONFIG.BESTIARY_SOURCE_DIR}/)`,
 	);
 	const flatCardGroups = flattenCardGroups(groupCardsByTagAndLevel(abilityCards));
 	const itemGroups = groupItemsByLevel(magicalItems);
@@ -168,12 +169,18 @@ const copyDatasetFiles = async (): Promise<void> => {
 	const datasetDir = path.join(CONFIG.OUT_PATH, CONFIG.RESOURCES_DIR, 'datasets');
 	ensureDir(datasetDir);
 
-	const datasetFiles = [CONFIG.CARDS_FILE, CONFIG.MAGICAL_ITEMS_FILE, CONFIG.BESTIARY_FILE];
-
-	for (const fileName of datasetFiles) {
+	for (const fileName of [CONFIG.CARDS_FILE, CONFIG.MAGICAL_ITEMS_FILE]) {
 		const content = loadDocFile(fileName);
 		await fs.writeFile(path.join(datasetDir, fileName), content, 'utf-8');
 	}
+
+	// The bestiary dataset is derived deterministically from the modular source
+	// and keeps the logical `bestiary.yml` name; the monolith is not required.
+	await fs.writeFile(
+		path.join(datasetDir, CONFIG.BESTIARY_FILE),
+		loadBestiaryDatasetYaml(),
+		'utf-8',
+	);
 };
 
 const buildSkillDocumentation = async (sections: HubSection[]): Promise<void> => {

@@ -1,0 +1,44 @@
+creatures:
+  - name: Lobo
+    lineage: Bestia
+    tier: 2
+    attributes:
+      body: 2
+      reflexes: 4
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 10
+        note: null
+    languages: []
+    attacks:
+      - name: Mordisco
+        bonus: 5
+        damage: 1d6 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
+      - name: Tácticas de Manada
+        detail: El lobo tiene Ventaja en sus tiradas de ataque contra una criatura si al menos uno de sus aliados (que no esté incapacitado) está adyacente a la criatura.
+    actions: []
+    reactions:
+      - name: Acoso Coordinado
+        detail: Cuando un lobo aliado impacta a un enemigo con un ataque cuerpo a cuerpo, este lobo puede usar su Reacción para moverse hasta la mitad de su velocidad sin provocar ataques de oportunidad, reposicionándose tácticamente.
+    interactions: []
+    behavior: |
+      Un depredador inteligente que encarna la eficiencia de la manada. Los lobos no intercambian golpes; hostigan y desangran. Usan su velocidad superior para rodear a la presa, probando las defensas y enfocándose en el miembro más débil o aislado del grupo. Su rasgo Tácticas de Manada es el núcleo de su ser; lucharán coordinadamente para asegurarse de que siempre esté activo.
+    img: https://i.imgur.com/yGvrTO5.jpeg
+    size: Mediano

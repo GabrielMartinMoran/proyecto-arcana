@@ -1,0 +1,49 @@
+creatures:
+  - name: Zombi
+    lineage: No-muerto
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 1
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 13
+      evasion:
+        value: 6
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Umbral (comprende)
+    attacks:
+      - name: Mordisco
+        bonus: 2
+        damage: 1d6 Necrótico
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Aguante
+      - name: Inmunidades a Estados
+        detail: Envenenado
+      - name: Visión en la Oscuridad
+        detail: El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Fortaleza de No-Muerto
+        detail: Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
+    actions:
+      - name: Agarrón Necrótico
+        detail: Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
+    reactions: []
+    interactions: []
+    behavior: |
+      Un cadáver andante impulsado por un hambre necrótica. Se mueve lenta pero inexorablemente hacia el ser vivo más cercano, ignorando el terreno, las amenazas o el dolor. Su peligro no reside en un solo zombi, sino en la horda implacable que no deja de avanzar.
+    img: https://i.imgur.com/ZVpBSZ6.png
+    size: Mediano

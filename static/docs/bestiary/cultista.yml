@@ -1,0 +1,47 @@
+creatures:
+  - name: Cultista
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 2
+      mind: 1
+      instinct: 3
+      presence: 2
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 6
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Daga ritual
+        bonus: 3
+        damage: 1d4+1 Cortante + 1 Necrótico o Radiante
+        note: null
+      - name: Ballesta ligera
+        bonus: 3
+        damage: 1d6 Perforante
+        note: Alcance Largo, Recarga (Interacción)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Religión, Intimidación
+    actions: []
+    reactions:
+      - name: Sacrificio Devoto
+        detail: Cuando un líder o un aliado importante adyacente al cultista es objetivo de un ataque, el cultista puede usar su Reacción para interponerse. El cultista se convierte en el objetivo de ese ataque en su lugar.
+    interactions: []
+    behavior: |
+      Un fanático cuya devoción anula su instinto de supervivencia. Lucha con un fervor imprudente, buscando proteger a su líder o completar un ritual a toda costa. No huirá y luchará hasta la muerte, creyendo que su sacrificio le ganará el favor de su oscura deidad.
+    img: https://i.imgur.com/VBT0h7Z.png
+    size: Mediano

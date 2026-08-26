@@ -1,0 +1,60 @@
+creatures:
+  - name: Sacerdote
+    lineage: Humanoide
+    tier: 3
+    attributes:
+      body: 4
+      reflexes: 2
+      mind: 2
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 46
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Cota de mallas
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Celestial
+    attacks:
+      - name: Maza Consagrada
+        bonus: 6
+        damage: 1d6 Contundente + 1d6 Radiante
+        note: null
+      - name: Llama Radiante
+        bonus: 6
+        damage: 2d6 Radiante
+        note: Alcance Cercano
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Religión, Perspicacia, Persuasión
+      - name: Fe Inquebrantable
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra efectos que provoquen el estado Asustado.
+      - name: Asalto Múltiple
+        detail: El sacerdote puede realizar dos ataques con su Acción, usando Maza Consagrada o Llama Radiante en cualquier combinación.
+    actions:
+      - name: Espíritus Guardianes
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Como Acción, invoca espíritus que revolotean a su alrededor (radio 3 metros) durante 1 minuto. Requiere Concentración. Un enemigo que entre o empiece su turno en el aura debe superar una TS de Instinto (ND 11) o sufrir 2d6 de daño Radiante (la mitad si tiene éxito).
+      - name: Toque Sanador
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Toca a una criatura y esta recupera 2d6 Puntos de Salud.
+    reactions: []
+    interactions: []
+    behavior: |
+      El pilar estratégico y espiritual de su grupo. Alterna entre activar sus Espíritus Guardianes para crear una zona de peligro, castigar a los impíos desde la distancia con ráfagas de llamas sagradas, o mantener en pie a los aliados más valiosos con su Toque Sanador. Es un objetivo prioritario y lo sabe.
+    img: https://i.imgur.com/w5QQCP6.png
+    size: Mediano

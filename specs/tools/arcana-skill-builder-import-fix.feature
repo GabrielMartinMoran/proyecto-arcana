@@ -29,6 +29,16 @@ Feature: arcana-skill-builder-make-generate
     AND a `.skill` file is created in `out/`
     AND the `.skill` file contains the packaged skill contents
 
+  @smoke @tools @bestiary @modular-source
+  Scenario: make generate builds the skill from individual bestiary YAML files
+    GIVEN the bestiary source is stored in `static/docs/bestiary/`
+    AND the source manifest preserves the canonical creature order
+    WHEN I run `make generate`
+    THEN the command completes with exit code 0
+    AND the generated skill contains the valid bestiary creatures
+    AND the generated bestiary dataset remains available under the logical source `bestiary.yml`
+    AND an invalid individual YAML is logged and omitted without aborting the build
+
   @delta-modified
   Scenario: package_skill.py docstrings reference correct path
     GIVEN I open `.agents/skills/skill-creator/scripts/package_skill.py`

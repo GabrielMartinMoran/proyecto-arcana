@@ -1,0 +1,53 @@
+creatures:
+  - name: Esqueleto
+    lineage: No-muerto
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 3
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Umbral
+    attacks:
+      - name: Espada Corta
+        bonus: 4
+        damage: 1d6 Cortante
+        note: null
+      - name: Arco Corto
+        bonus: 4
+        damage: 1d4 Perforante
+        note: Alcance Largo
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Atletismo
+      - name: Inmunidades a Estados
+        detail: Envenenado, Dormido
+      - name: Vulnerabilidades
+        detail: Contundente
+      - name: Visión en la Oscuridad
+        detail: El esqueleto puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
+      - name: Formación de Huesos
+        detail: El esqueleto obtiene un +1 a su Esquiva por cada otro esqueleto aliado que esté adyacente a él (hasta un máximo de +2).
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Un autómata sin mente que obedece ciegamente su última orden. Alterna entre su arco y su espada según la distancia del enemigo, sin ninguna táctica o instinto de preservación. Es peligroso por su tenacidad implacable, no por su ingenio. Avanzará a través del fuego o sobre un precipicio si sus órdenes lo dictan.
+    img: https://i.imgur.com/QElMAiy.png
+    size: Mediano
