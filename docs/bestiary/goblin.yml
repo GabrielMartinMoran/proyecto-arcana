@@ -1,0 +1,50 @@
+creatures:
+  - name: Goblin
+    lineage: Goblinoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Goblin
+      - Común (jerga rudimentaria)
+    attacks:
+      - name: Cimitarra oxidada
+        bonus: 3
+        damage: 1d4 Cortante
+        note: null
+      - name: Arco Corto Improvisado
+        bonus: 3
+        damage: 1d4 Perforante
+        note: Alcance Largo
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Juego de Manos
+      - name: Visión en la Oscuridad
+        detail: El goblin puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra (sombras grises) hasta distancia Cercana.
+    actions: []
+    reactions:
+      - name: Retirada Cobarde
+        detail: Cuando un enemigo falla un ataque cuerpo a cuerpo contra el goblin, este puede usar su Reacción para moverse hasta la mitad de su velocidad sin provocar ataques de oportunidad.
+    interactions: []
+    behavior: |
+      Una plaga cobarde y oportunista. Nunca lucha solo si puede evitarlo. Prioriza objetivos aislados, heridos o que parezcan fáciles de abrumar. Utiliza su agilidad para escaramuzas rápidas, atacando y reposicionándose. Su objetivo no es morir con honor, sino sobrevivir para saquear.
+    img: https://i.imgur.com/I3zy9zB.png
+    size: Pequeño

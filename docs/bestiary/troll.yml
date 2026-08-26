@@ -1,0 +1,47 @@
+creatures:
+  - name: Troll
+    lineage: Gigante
+    tier: 4
+    attributes:
+      body: 7
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 120
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Piel dura
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Gigante
+    attacks:
+      - name: Desgarrar
+        bonus: 8
+        damage: 3d10 Cortante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Aguante, Percepción
+      - name: Visión en la Oscuridad
+        detail: El troll puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Regeneración (10 PS)
+        detail: Al inicio de su turno, el troll recupera 10 Puntos de Salud. Si recibe daño por Fuego o Ácido en la ronda anterior, esta habilidad no funciona en el turno siguiente. El troll solo muere permanentemente si empieza su turno con 0 Puntos de Salud y no puede regenerar.
+      - name: Asalto Múltiple
+        detail: El troll puede realizar dos ataques de Desgarrar con su Acción.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Una fuerza de la naturaleza, violenta e insaciable. Su única táctica es la violencia abrumadora, confiando ciegamente en su Regeneración para superar cualquier herida. No distingue entre un mago frágil y un guerrero acorazado; simplemente ataca al ser vivo más cercano. Sin embargo, el dolor del fuego o el ácido anula todo lo demás, convirtiendo a la fuente de ese daño en su único objetivo.
+    img: https://i.imgur.com/5MAnITP.png
+    size: Grande

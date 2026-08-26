@@ -1,0 +1,46 @@
+creatures:
+  - name: Iniciado Arcano
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 2
+      mind: 2
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Arcaico
+    attacks:
+      - name: Proyectil Volátil
+        bonus: 4
+        damage: 1d8 Fuerza
+        note: Alcance Media
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Investigación
+    actions: []
+    reactions:
+      - name: Escudo Reactivo Menor
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque.
+    interactions: []
+    behavior: Se mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.
+    img: null
+    size: Mediano

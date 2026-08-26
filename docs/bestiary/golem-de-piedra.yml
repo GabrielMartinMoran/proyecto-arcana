@@ -1,0 +1,46 @@
+creatures:
+  - name: Gólem de Piedra
+    lineage: Constructo
+    tier: 4
+    attributes:
+      body: 8
+      reflexes: 1
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 110
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 3
+        note: Cuerpo de piedra
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages: []
+    attacks:
+      - name: Puñetazo
+        bonus: 8
+        damage: 3d8 Contundente
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Fuerza Bruta, Atletismo, Percepción
+      - name: Voluntad Antimagia
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+      - name: Inmunidades a Estados
+        detail: Envenenado, Asustado
+      - name: Asalto Múltiple
+        detail: El gólem puede realizar dos ataques de Puñetazo con su Acción.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Un guardián autómata sin emociones, programado para proteger un lugar o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en su camino. Su falta de emociones hace que siga sus órdenes sin considerar amenazas, súplicas o argumentos. Su única directiva es destruir a los intrusos.
+    img: null
+    size: Grande

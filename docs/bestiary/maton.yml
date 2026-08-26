@@ -1,0 +1,49 @@
+creatures:
+  - name: Matón
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 30
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Maza
+        bonus: 4
+        damage: 1d6 Contundente
+        note: null
+      - name: Ballesta ligera
+        bonus: 4
+        damage: 1d6 Perforante
+        note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Atletismo
+      - name: Asalto Múltiple
+        detail: El matón puede realizar dos ataques con su Acción (Maza o Ballesta).
+      - name: Ataque en Grupo
+        detail: El matón tiene Ventaja en sus tiradas de ataque contra un enemigo si al menos uno de sus aliados (que no esté incapacitado) está adyacente a dicho enemigo.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Un abusón que solo lucha cuando tiene la ventaja. Su rasgo Ataque en Grupo define su existencia: siempre buscará flanquear a un enemigo junto a un aliado. Se enfoca en objetivos derribados, aturdidos o que parezcan débiles. Si se queda solo o en desventaja numérica, su bravuconería se desvanece y probablemente intentará huir.
+    img: https://i.imgur.com/yw8RtuI.png
+    size: Mediano

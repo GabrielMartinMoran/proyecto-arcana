@@ -1,0 +1,46 @@
+creatures:
+  - name: Orco
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 30
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Orco
+      - Común (rudimentario)
+    attacks:
+      - name: Hacha de mano
+        bonus: 5
+        damage: 1d6 Cortante
+        note: Arrojadiza (Cercana)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Intimidación
+      - name: Furia
+        detail: Mientras el orco tenga la mitad de su Salud o menos, obtiene +2 al daño de sus ataques.
+    actions:
+      - name: Ataque Temerario
+        detail: Como una Acción, el orco puede realizar un único ataque cuerpo a cuerpo con Ventaja. Si lo hace, todos los ataques contra él hasta el inicio de su próximo turno también tienen Ventaja.
+    reactions: []
+    interactions: []
+    behavior: |
+      Brutal, directo y sediento de sangre. Carga sin dudar contra el enemigo que representa la mayor amenaza física o el que lo hirió más recientemente. Su rasgo Furia lo vuelve más temerario a medida que es herido, ignorando su propia seguridad para infligir más dolor.
+    img: https://i.imgur.com/vwS87Yq.png
+    size: Mediano

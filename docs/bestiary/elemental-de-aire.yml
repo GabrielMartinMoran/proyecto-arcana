@@ -1,0 +1,47 @@
+creatures:
+  - name: Elemental de Aire
+    lineage: Elemental
+    tier: 3
+    attributes:
+      body: 1
+      reflexes: 6
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 30
+      evasion:
+        value: 10
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 12
+        note: Vuela
+    languages:
+      - Auran
+    attacks:
+      - name: Ráfaga de Viento
+        bonus: 6
+        damage: 2d6 Contundente
+        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Acrobacias, Sigilo, Percepción
+      - name: Forma Gaseosa
+        detail: El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.
+      - name: Vuelo
+        detail: El elemental tiene una velocidad de Vuelo de 12 metros.
+    actions: []
+    reactions:
+      - name: Vórtice de Viento
+        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.
+    interactions: []
+    behavior: |
+      Una tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta de su superioridad, empujando y derribando a sus enemigos desde una distancia segura. No aterrizará a menos que se vea forzado.
+    img: null
+    size: Grande

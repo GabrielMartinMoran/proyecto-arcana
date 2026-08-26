@@ -1,0 +1,42 @@
+creatures:
+  - name: Jabalí
+    lineage: Bestia
+    tier: 1
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 1
+        note: piel dura
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages: []
+    attacks:
+      - name: Cornada
+        bonus: 3
+        damage: 1d6 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
+      - name: Carga Imprudente
+        detail: Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Una bola de furia con colmillos. No tiene tácticas, solo un instinto: cargar en línea recta contra el primer enemigo que ve. Su Carga Imprudente es su única maniobra, y la usará sin dudar. Si sobrevive al impacto, luchará hasta la muerte, corneando y embistiendo sin pensar en su propia seguridad.
+    img: https://i.imgur.com/BJNhoKo.jpeg
+    size: Mediano

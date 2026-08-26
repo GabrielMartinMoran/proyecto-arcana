@@ -1,0 +1,42 @@
+creatures:
+  - name: Oso
+    lineage: Bestia
+    tier: 2
+    attributes:
+      body: 5
+      reflexes: 2
+      mind: 1
+      instinct: 3
+      presence: 1
+    stats:
+      maxHealth: 45
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 1
+        note: natural
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages: []
+    attacks:
+      - name: Garra
+        bonus: 5
+        damage: 1d6 Cortante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
+      - name: Asalto Múltiple
+        detail: El oso puede realizar dos ataques de Garra con su Acción.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: |
+      Una encarnación de la furia territorial. No es malvado, es una fuerza de la naturaleza defendiendo su hogar. Su táctica es una explosión de violencia: un rugido ensordecedor para intimidar, seguido de una carga imparable contra la amenaza más cercana o más grande. Una vez en combate, desata un torbellino de garras hasta que la amenaza es neutralizada.
+    img: https://i.imgur.com/4hVydOL.jpeg
+    size: Mediano

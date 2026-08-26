@@ -1,0 +1,52 @@
+creatures:
+  - name: Ogro
+    lineage: Gigante
+    tier: 3
+    attributes:
+      body: 6
+      reflexes: 1
+      mind: 1
+      instinct: 2
+      presence: 2
+    stats:
+      maxHealth: 78
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 2
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Gigante
+    attacks:
+      - name: Gran Garrote
+        bonus: 6
+        damage: 3d8 Contundente
+        note: null
+      - name: Lanzar Escombro
+        bonus: 6
+        damage: 2d8 Contundente
+        note: Alcance Cercano
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Fuerza Bruta, Atletismo, Intimidación
+      - name: Mole Inamovible
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+    actions:
+      - name: Barrido
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: El ogro blande su garrote en un arco amplio. Todos los personajes a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 11) o recibir 2d6 de daño Contundente y ser Derribados.
+    reactions: []
+    interactions: []
+    behavior: |
+      De inteligencia limitada y apetito voraz. Su táctica es simple: usar Barrido para derribar a tantos enemigos "pequeños y molestos" como pueda, y luego aplastar al más cercano con su garrote. Puede ser distraído por la promesa de comida o intimidado por una muestra de poder abrumadora.
+    img: https://i.imgur.com/bZ1hNkv.png
+    size: Grande

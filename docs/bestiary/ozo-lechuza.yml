@@ -1,0 +1,50 @@
+creatures:
+  - name: Ozo-lechuza
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 6
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Piel gruesa y plumas
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages: []
+    attacks:
+      - name: Garras
+        bonus: 6
+        damage: 2d6 Cortante
+        note: null
+      - name: Pico
+        bonus: 6
+        damage: 2d8 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo
+      - name: Mole Bestial
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+      - name: Asalto Múltiple (2 Garras, 1 Pico)
+        detail: El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico con su Acción.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Despedazar y Apresar
+        detail: Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).
+    behavior: |
+      Una monstruosidad territorial de furia explosiva. Considera cualquier criatura en su territorio como una amenaza o una comida. No tiene tácticas complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con una violencia abrumadora hasta que deja de moverse.
+    img: null
+    size: Grande

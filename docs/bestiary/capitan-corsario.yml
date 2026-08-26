@@ -1,0 +1,47 @@
+creatures:
+  - name: Capitán Corsario
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 2
+      presence: 3
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Armadura Ligera
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Estoque
+        bonus: 4
+        damage: 1d8 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Pilotaje, Intimidación
+      - name: Asalto Múltiple
+        detail: El Capitán Corsario puede realizar dos ataques de Estoque con su Acción.
+    actions:
+      - name: ¡Al Abordaje!
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Acción, el Capitán ruge una directiva y designa a un objetivo. Hasta el inicio del próximo turno del Capitán, todos sus aliados ganan +2 metros de velocidad si se mueven en línea recta hacia la criatura marcada, y obtienen Ventaja (+1d4) en su primera tirada de ataque contra ella.
+    reactions: []
+    interactions: []
+    behavior: Es una figura de autoridad que orquesta el caos marino a su favor. Utilizará ¡Al Abordaje! para coordinar las cargas de sus lobos de mar y rateros, concentrando el fuego del grupo mientras él desgasta objetivos con la precisión quirúrgica de sus dos estocadas.
+    img: https://i.imgur.com/jCx0W79.jpeg
+    size: Mediano

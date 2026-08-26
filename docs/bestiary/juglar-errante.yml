@@ -1,0 +1,55 @@
+creatures:
+  - name: Juglar Errante
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 2
+      mind: 1
+      instinct: 1
+      presence: 2
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Élfico
+    attacks:
+      - name: Espada Corta
+        bonus: 2
+        damage: 1d6 Cortante
+        note: null
+      - name: Dardo
+        bonus: 2
+        damage: 1d4 Perforante
+        note: Arrojadiza (Cercana)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Interpretación, Persuasión
+    actions:
+      - name: Acorde Disconcordante
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Acción, elige a un enemigo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 8). Si falla, recibe 1d6 de daño Psíquico y sufre Desventaja (-1d4) en su próxima tirada de ataque antes del final del próximo turno del juglar.
+    reactions: []
+    interactions:
+      - name: Nota Inspiradora
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: Como Interacción, otorga 2 Puntos de Salud Temporales a un aliado a distancia Cercana.
+    behavior: El juglar evita ser el blanco principal. Se dedica a entorpecer la ofensiva enemiga con su música destructiva mientras da pequeños impulsos de vitalidad a sus defensores.
+    img: null
+    size: Mediano

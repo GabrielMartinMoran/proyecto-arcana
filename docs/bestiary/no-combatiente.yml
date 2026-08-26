@@ -1,0 +1,43 @@
+creatures:
+  - name: No Combatiente
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 1
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 4
+      evasion:
+        value: 6
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Ataque Desesperado
+        bonus: 2
+        damage: 1d4 Contundente
+        note: Puñetazo, patada o arrojar objeto
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Perspicacia
+    actions: []
+    reactions: []
+    interactions:
+      - name: Presa del Pánico
+        uses: null
+        detail: Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
+    behavior: Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intención será ganar tiempo para huir, no abatir al agresor.
+    img: null
+    size: Mediano

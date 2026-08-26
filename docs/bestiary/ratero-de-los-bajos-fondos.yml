@@ -1,0 +1,47 @@
+creatures:
+  - name: Ratero de los Bajos Fondos
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+      - Jerga de Ladrones
+    attacks:
+      - name: Daga Oculta
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: null
+      - name: Ballesta Ligera
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: Alcance Media, Recarga (Interacción)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Juego de Manos
+      - name: Golpe Traicionero
+        detail: Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
+    actions: []
+    reactions: []
+    interactions: []
+    behavior: Evita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.
+    img: null
+    size: Mediano

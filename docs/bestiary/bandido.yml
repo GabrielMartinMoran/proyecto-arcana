@@ -1,0 +1,47 @@
+creatures:
+  - name: Bandido
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 2
+      mind: 1
+      instinct: 1
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común (jerga rudimentaria)
+    attacks:
+      - name: Espada corta
+        bonus: 3
+        damage: 1d6 Cortante
+        note: null
+      - name: Ballesta Ligera
+        bonus: 3
+        damage: 1d6 Perforante
+        note: Alcance Largo, Recarga (Interacción)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Intimidación, Sigilo
+    actions: []
+    reactions: []
+    interactions:
+      - name: ¡Cuerpo a Tierra!
+        detail: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.
+    behavior: |
+      Un matón pragmático que lucha por dinero, no por gloria. Analiza el campo de batalla en busca del objetivo más rentable (el que lleva mejor equipo) o el menos defendido. No dudará en usar a un compañero como escudo humano o en pedir clemencia si el combate se vuelve en su contra.
+    img: https://i.imgur.com/ParBKHT.png
+    size: Mediano

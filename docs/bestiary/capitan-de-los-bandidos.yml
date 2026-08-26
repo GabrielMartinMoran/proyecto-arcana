@@ -1,0 +1,49 @@
+creatures:
+  - name: Capitán de los Bandidos
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 2
+      presence: 3
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Cuero
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Cimitarra
+        bonus: 5
+        damage: 1d6 Cortante
+        note: null
+      - name: Ballesta ligera
+        bonus: 5
+        damage: 1d6 Perforante
+        note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Perspicacia, Intimidación
+      - name: Asalto Múltiple
+        detail: El capitán puede realizar dos ataques con su Acción, usando Cimitarra o Ballesta Ligera (ignorando la propiedad Recarga) en cualquier combinación.
+    actions:
+      - name: ¡Mátalo!
+        detail: Como una Acción, el capitán puede dar una orden a uno de sus aliados a distancia Cercana que pueda oírlo. Ese aliado puede usar inmediatamente su Reacción para realizar un único ataque (con arma o conjuro) contra un enemigo que el capitán designe, y el aliado pueda ver.
+    reactions: []
+    interactions: []
+    behavior: |
+      Un líder astuto y egoísta. Piensa tácticamente, manteniéndose a distancia y usando a sus aliados como barrera mientras dispara su ballesta o grita órdenes para que sus hombres ataquen. Siempre tiene una ruta de escape planeada.
+    img: https://i.imgur.com/k3QVNis.png
+    size: Mediano

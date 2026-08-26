@@ -1,0 +1,46 @@
+creatures:
+  - name: Iniciado del Círculo
+    lineage: Humanoide
+    tier: 1
+    attributes:
+      body: 2
+      reflexes: 2
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Común
+      - Silvano
+    attacks:
+      - name: Látigo de Espinas
+        bonus: 3
+        damage: 1d6+1 Cortante
+        note: Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Naturaleza, Trato con Animales
+    actions: []
+    reactions: []
+    interactions:
+      - name: Bálsamo de Hojas
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado.
+    behavior: Protege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.
+    img: null
+    size: Mediano

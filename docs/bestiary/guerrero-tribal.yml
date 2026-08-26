@@ -1,0 +1,49 @@
+creatures:
+  - name: Guerrero Tribal
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 3
+      presence: 2
+    stats:
+      maxHealth: 35
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Pieles y madera
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Lanza
+        bonus: 5
+        damage: 1d6 Perforante
+        note: null
+      - name: Jabalina
+        bonus: 5
+        damage: 1d4 Perforante
+        note: Arrojadiza (Cercana)
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Supervivencia, Percepción
+      - name: Asalto Múltiple
+        detail: El guerrero puede realizar dos ataques con su Acción (usando Lanza o Jabalina).
+    actions: []
+    reactions: []
+    interactions:
+      - name: Grito de Guerra Tribal
+        detail: Como una Interacción, el guerrero puede dar un grito de ánimo. Él y un aliado tribal adyacente ganan 3 Puntos de Salud temporales. (Recarga 5+).
+    behavior: |
+      Un cazador y guerrero disciplinado que lucha por su gente, no por oro. A diferencia de los bandidos, trabaja en equipo. Usa el terreno para cubrirse, lanza jabalinas para ablandar al enemigo y luego se acerca para flanquear con su lanza. Protegerá a sus compañeros y seguirá las órdenes de su líder.
+    img: https://i.imgur.com/alrayYz.jpeg
+    size: Mediano

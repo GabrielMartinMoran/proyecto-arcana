@@ -1,0 +1,45 @@
+creatures:
+  - name: Araña Gigante
+    lineage: Bestia
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 4
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 30
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: exoesqueleto
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 10
+        note: puede trepar
+    languages: []
+    attacks:
+      - name: Mordisco
+        bonus: 5
+        damage: 1d6 Perforante + 1d4 Veneno
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+    actions:
+      - name: Telaraña
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: La araña lanza una red a un objetivo a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Reflejos (ND 10) o quedar Inmovilizado. Una criatura inmovilizada puede usar su Acción para realizar una Prueba de Cuerpo (ND 10) e intentar liberarse en caso de éxito.
+    reactions: []
+    interactions: []
+    behavior: |
+      Una cazadora de emboscadas paciente y alienígena. Utiliza su telaraña no solo como un arma, sino como una extensión de sus sentidos. Intentará usar su Telaraña para separar a un miembro del grupo, arrastrándolo hacia la oscuridad para inyectarle su veneno. En su guarida, es una amenaza omnipresente, moviéndose por techos y paredes con una velocidad aterradora.
+    img: null
+    size: Mediano
