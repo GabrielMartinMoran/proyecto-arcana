@@ -11,7 +11,7 @@ creatures:
     stats:
       maxHealth: 46
       evasion:
-        value: 9
+        value: 8
         note: null
       physicalMitigation:
         value: 1
@@ -45,7 +45,7 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: Las criaturas enemigas a distancia Inmediata deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas durante 1 minuto. Pueden repetir la Tirada de Salvación al final de cada uno de sus turnos; si la superan, el efecto termina.
+        detail: Las criaturas enemigas en un radio de 5 metros deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas hasta el final del próximo turno del hombre lobo.
     reactions:
       - name: Salto de Presa
         detail: Cuando una criatura a distancia Inmediata se aleja, el hombre lobo puede moverse 2 metros hacia ella sin provocar Reacciones. Solo una vez por ronda.

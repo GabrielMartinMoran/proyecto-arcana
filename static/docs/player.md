@@ -636,7 +636,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Asustado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y pruebas de habilidad mientras la fuente del miedo esta en tu rango de visión.
 - **Aturdido:** No puedes realizar **Acciones** ni **Reacciones**. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 - **Cegado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y fallas las pruebas que dependan de la vista.
-- **Derribado:** Estás tumbado en el suelo. Tus ataques cuerpo a cuerpo tienen **Desventaja**. Los ataques cuerpo a cuerpo contra ti tienen **Ventaja**. Levantarse consume la mitad de tu movimiento.
+- **Derribado:** Estás tumbado en el suelo. Tus ataques tienen **Desventaja**. Los ataques cuerpo a cuerpo contra ti tienen **Ventaja** y los ataques a distancia contra ti tienen **Desventaja**. Levantarse consume la mitad de tu movimiento.
 - **Dormido:** Estás **Inconsciente**. Despiertas si recibes daño o si alguien usa una Acción para despertarte.
 - **Encantado:** Consideras a la fuente un amigo. Sufres **Desventaja (-1d4)** en tiradas que le perjudiquen.
 - **Ensordecido:** Sufres **Desventaja (-1d4)** a pruebas que dependan del oído.

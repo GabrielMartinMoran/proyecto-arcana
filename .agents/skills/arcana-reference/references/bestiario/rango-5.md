@@ -35,7 +35,7 @@
 
 ## Acciones
 - **Ráfaga Mental:** El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de daño Psíquico y quedar Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida. (Usos: 5 [Recarga 5+])
-- **Devorar Cerebro:** Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente.
+- **Devorar Cerebro:** Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente. Si sobrevive, su Mente se reduce a 0 y queda descerebrado hasta que un efecto excepcional restaure su cerebro.
 
 
 ---

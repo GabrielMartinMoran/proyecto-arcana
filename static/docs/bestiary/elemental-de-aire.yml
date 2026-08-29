@@ -1,4 +1,6 @@
 creatures:
+  # Presupuesto PPF: S0(S30) + E5(Esq 10) + A4(+7) + D2(4d6) + F2(1 PD) = 13
+  # + Vórtice de Viento T1 (2 PPF) + Superioridad Aérea R1 (2 PPF) = 17/17
   - name: Elemental de Aire
     lineage: Elemental
     tier: 3
@@ -26,20 +28,22 @@ creatures:
       - Auran
     attacks:
       - name: Ráfaga de Viento
-        bonus: 6
-        damage: 2d6 Contundente
-        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.
+        bonus: 7
+        damage: 4d6 Contundente
+        note: Alcance Cercana. Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 3 metros hacia atrás en línea recta.
     traits:
       - name: Habilidades con Ventaja
         detail: Acrobacias, Sigilo, Percepción
       - name: Forma Gaseosa
-        detail: El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.
+        detail: El elemental puede pasar por aberturas amplias sin dificultad.
       - name: Vuelo
         detail: El elemental tiene una velocidad de Vuelo de 12 metros.
+      - name: Viento Esquivo
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
     actions: []
     reactions:
       - name: Vórtice de Viento
-        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.
+        detail: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 2 metros hacia atrás.
     interactions: []
     behavior: |
       Una tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta de su superioridad, empujando y derribando a sus enemigos desde una distancia segura. No aterrizará a menos que se vea forzado.

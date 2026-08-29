@@ -9,7 +9,7 @@ creatures:
       instinct: 5
       presence: 4
     stats:
-      maxHealth: 35
+      maxHealth: 30
       evasion:
         value: 9
         note: null
@@ -25,23 +25,19 @@ creatures:
     languages:
       - Común
     attacks:
-      - name: Tajo Metamorfo
+      - name: Extremidad Cortante
         bonus: 5
         damage: 1d4+1 Cortante
         note: Una de sus extremidades toma la forma de una hoja afilada.
-      - name: Puntada Metamorfa
+      - name: Extremidad Perforante
         bonus: 5
-        damage: 1d4+1 Perforante
+        damage: 1d6 Perforante
         note: Una de sus extremidades toma la forma de una punta aguda.
-      - name: Golpe Metamorfo
-        bonus: 5
-        damage: 1d4+1 Contundente
-        note: Una de sus extremidades toma la forma de un mazo.
     traits:
       - name: Habilidades con Ventaja
         detail: Engaño, Perspicacia
       - name: Asalto Múltiple
-        detail: El cambiaformas puede realizar dos ataques con su Acción.
+        detail: El cambiaformas puede realizar un ataque de Extremidad Cortante y un ataque de Extremidad Perforante con su Acción.
       - name: Cuerpo Simulante
         detail: >-
           El cambiaformas puede adoptar la apariencia visual de una criatura de

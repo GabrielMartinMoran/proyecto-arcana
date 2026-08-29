@@ -11,7 +11,7 @@ creatures:
     stats:
       maxHealth: 20
       evasion:
-        value: 8
+        value: 7
         note: null
       physicalMitigation:
         value: 0
@@ -35,6 +35,8 @@ creatures:
         detail: Naturaleza, Persuasión
       - name: Naturaleza Antimága
         detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+      - name: Mente Feérica
+        detail: Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarla Encantada.
     actions:
       - name: Prisión de Raíces
         uses:

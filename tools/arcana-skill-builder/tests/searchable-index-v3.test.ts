@@ -384,8 +384,8 @@ describe('T5 real corpus reachability (static/docs)', () => {
 	test('schema v3 includes the documented 23-creature bestiary expansion', { skip }, () => {
 		const index = loadRealIndex();
 		assert.equal(index.schemaVersion, 3);
-		// T2 corpus: 317 cards + 68 items + 65 creatures + 140 sections + 22 chapters.
-		assert.equal(index.entries.length, 612);
+		// T2 corpus: 317 cards + 68 items + 65 creatures + 142 sections + 22 chapters.
+		assert.equal(index.entries.length, 614);
 		const cards = index.entries.filter((e) => e.kind === 'card').length;
 		const items = index.entries.filter((e) => e.kind === 'item').length;
 		const creatures = index.entries.filter((e) => e.kind === 'creature').length;
@@ -397,7 +397,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 				cards: 317,
 				items: 68,
 				creatures: 65,
-				sections: 140,
+				sections: 142,
 				chapters: 22,
 			},
 		);
@@ -456,7 +456,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		);
 		assert.equal(entry.anchor, 'regla-de-diseño-arsenal-versátil');
 		assert.equal(entry.chapter, 'Parte 2: Diseño Avanzado de Criaturas');
-		assert.ok(entry.search?.includes('conocer muchas opciones'));
+		assert.ok(entry.search?.includes('aporta versatilidad'));
 		assert.ok(entry.search?.includes('independiente'));
 	});
 

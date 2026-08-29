@@ -35,6 +35,8 @@ creatures:
         detail: Perspicacia, Sigilo
       - name: Visión en la Oscuridad
         detail: El fantasma puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Inmunidades a Estados
+        detail: Envenenado
     actions:
       - name: Lamento de los Ausentes
         uses:

@@ -35,6 +35,8 @@ creatures:
         detail: Historia, Religión, Perspicacia
       - name: Visión en la Oscuridad
         detail: La momia puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Inmunidades a Estados
+        detail: Envenenado
     actions:
       - name: Maldición de la Garganta Seca
         uses:

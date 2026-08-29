@@ -58,7 +58,7 @@
 
 ## Estadísticas
 - **Salud Máxima:** 25
-- **Esquiva:** 9
+- **Esquiva:** 8
 - **Mitigación Física:** 1 (Cuero)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9
@@ -400,7 +400,7 @@
 
 ## Estadísticas
 - **Salud Máxima:** 20
-- **Esquiva:** 8
+- **Esquiva:** 7
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9
@@ -412,6 +412,7 @@
 ## Rasgos
 - **Habilidades con Ventaja:** Naturaleza, Persuasión
 - **Naturaleza Antimága:** Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
+- **Mente Feérica:** Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarla Encantada.
 
 ## Acciones
 - **Prisión de Raíces:** Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 9). Si falla, queda Inmovilizada. Al final de cada uno de sus turnos puede repetir la Tirada de Salvación usando Reflejos o Cuerpo; si tiene éxito, se libera. Para mantener este efecto activo, la Driada debe mantener la Concentración (salva con Presencia). (Usos: 5 [Recarga 5+])
@@ -455,6 +456,7 @@
 - **Habilidades con Ventaja:** Sigilo, Percepción
 - **Visión en la Oscuridad:** El fuego fatuo puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
 - **Resistencias:** Contundente, Cortante y Perforante de fuentes no mágicas
+- **Inmunidades a Estados:** Envenenado
 - **Flotar entre los Juncos:** El fuego fatuo puede desplazarse por el aire sin volverse invisible ni teletransportarse.
 
 ## Interacciones
@@ -495,6 +497,7 @@
 ## Rasgos
 - **Habilidades con Ventaja:** Perspicacia, Sigilo
 - **Visión en la Oscuridad:** El fantasma puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+- **Inmunidades a Estados:** Envenenado
 
 ## Acciones
 - **Lamento de los Ausentes:** Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 10). Si falla, recibe 1d6 de daño Psíquico y tiene Desventaja en su próximo ataque antes del final de su siguiente turno. Si tiene éxito, recibe la mitad del daño y no sufre la Desventaja. (Usos: 5 [Recarga 5+])
@@ -524,7 +527,7 @@
 - **Presencia:** 4
 
 ## Estadísticas
-- **Salud Máxima:** 35
+- **Salud Máxima:** 30
 - **Esquiva:** 9
 - **Mitigación Física:** 1 (Cuerpo modelable)
 - **Mitigación Mágica:** 0
@@ -532,13 +535,12 @@
 - **Iniciativa:** 3
 
 ## Ataques
-- **Tajo Metamorfo:** +5 para golpear. Daño: 1d4+1 Cortante (Una de sus extremidades toma la forma de una hoja afilada.)
-- **Puntada Metamorfa:** +5 para golpear. Daño: 1d4+1 Perforante (Una de sus extremidades toma la forma de una punta aguda.)
-- **Golpe Metamorfo:** +5 para golpear. Daño: 1d4+1 Contundente (Una de sus extremidades toma la forma de un mazo.)
+- **Extremidad Cortante:** +5 para golpear. Daño: 1d4+1 Cortante (Una de sus extremidades toma la forma de una hoja afilada.)
+- **Extremidad Perforante:** +5 para golpear. Daño: 1d6 Perforante (Una de sus extremidades toma la forma de una punta aguda.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Engaño, Perspicacia
-- **Asalto Múltiple:** El cambiaformas puede realizar dos ataques con su Acción.
+- **Asalto Múltiple:** El cambiaformas puede realizar un ataque de Extremidad Cortante y un ataque de Extremidad Perforante con su Acción.
 - **Cuerpo Simulante:** El cambiaformas puede adoptar la apariencia visual de una criatura de su tamaño que haya observado, incluyendo ropa, armadura, armas, herramientas y texturas. La copia no concede estadísticas, propiedades, peso, recuerdos, voz, habilidades ni efectos mágicos. Cualquier objeto que suelte es un fragmento inerte de su cuerpo: no puede usarse como equipo y puede reabsorberlo como Interacción si está a distancia Inmediata.
 
 ## Interacciones
@@ -566,7 +568,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 40
+- **Salud Máxima:** 30
 - **Esquiva:** 8
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0

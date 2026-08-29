@@ -33,7 +33,7 @@ creatures:
       - name: Habilidades con Ventaja
         detail: Pilotaje, Atletismo
       - name: Piernas de Barco
-        detail: Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra Derribo y desplazamiento forzado.
+        detail: Ventaja (+1d4) en Pruebas de Habilidad para mantener el equilibrio, resistir desplazamientos físicos o permanecer en pie sobre superficies inestables.
     actions: []
     reactions:
       - name: Parada del Marinero

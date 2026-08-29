@@ -497,6 +497,8 @@ Si una criatura realiza varios ataques como parte de su Acción, el daño compra
 
 Los Rasgos, condiciones y capacidades especiales que modifiquen sustancialmente esta producción de daño deben considerarse al evaluar el perfil ofensivo completo de la criatura.
 
+Para determinar el Daño Promedio por Ronda de una criatura, evalúa una secuencia representativa de tres rondas y divide todo el daño producido entre tres. Incluye daño persistente, bonificaciones condicionales y Reacciones ofensivas con la frecuencia con la que razonablemente puedan producirse durante esa secuencia. Redondea hacia abajo el resultado final.
+
 ### Ataque y Nivel de Dificultad
 
 La columna **Ataque / ND** representa el nivel ofensivo máximo adquirido por la criatura mediante su inversión de PPF.
@@ -721,6 +723,20 @@ Habilidades que cambian las reglas del combate: Control, Movimiento Superior, De
 | **Rasgo Táctico de Rango 4** | 5 PPF        | Monstruos de Rango 4+       |
 | **Rasgo Táctico de Rango 5** | 6 PPF        | Monstruos de Rango 5+       |
 | **Rasgo Táctico de Rango 6** | 7 PPF        | Solo Monstruos de Rango 6   |
+
+**Vuelo, locomoción básica y Superioridad Aérea:** un modo básico de locomoción indicado en Velocidad —volar, nadar, trepar o excavar— no tiene coste por sí mismo. El vuelo en particular permite desplazarse en tres dimensiones, ignorar obstáculos del suelo y ocupar espacios elevados; estas ventajas forman parte del modo de locomoción y no constituyen automáticamente un Rasgo Táctico. Lo que sí debe valorarse es la sinergia entre el vuelo y el resto del bloque de estadísticas.
+
+**Superioridad Aérea:** una criatura adquiere Superioridad Aérea cuando puede aprovechar deliberadamente la altura para mantenerse más allá de la distancia Inmediata de enemigos terrestres mientras continúa cumpliendo normalmente su función durante el combate. Evalúa esta sinergia sobre una secuencia representativa de tres rondas.
+
+- **Sin Superioridad Aérea (0 PPF):** la criatura debe acercarse normalmente a distancia Inmediata para utilizar sus principales Acciones ofensivas o tácticas, o permanecer en el aire supone sacrificar una parte significativa de su contribución al combate.
+- **Superioridad Aérea (Rasgo R1, 2 PPF):** la criatura puede permanecer más allá de la distancia Inmediata durante buena parte del combate mientras continúa atacando, controlando o apoyando de forma significativa. La altura le proporciona principalmente seguridad y libertad de posicionamiento.
+- **Superioridad Aérea Avanzada (Rasgo R2, 3 PPF):** además de poder combatir eficazmente desde el aire, sus capacidades explotan activamente esa posición para dificultar de forma importante la respuesta enemiga. Esto puede incluir control que impida aproximarse, reposicionamiento excepcional, capacidad de ignorar Reacciones, alcance extraordinario u otra propiedad que convierta alcanzar a la criatura en un problema táctico relevante.
+
+Poseer simplemente un ataque o capacidad a distancia no concede automáticamente Superioridad Aérea: la criatura debe poder aprovecharla con la frecuencia suficiente como para que permanecer en altura sea parte normal de su funcionamiento.
+
+> **Ejemplos:** un depredador volador que solo puede dañar al descender hasta su alcance paga 0 PPF por su vuelo. Una criatura alada que lanza proyectiles a distancia Cercana mientras se mantiene elevada paga Superioridad Aérea (Rasgo R1). Un cazador volador que inmoviliza o impide acercarse a quienes intentan alcanzarlo paga Superioridad Aérea Avanzada (Rasgo R2).
+
+Las capacidades adicionales de movimiento —teletransportarse, atravesar objetos sólidos, volverse no seleccionable como objetivo, desplazarse sin provocar Reacciones o ignorar barreras relevantes en combate— se valoran como Rasgos Tácticos independientes y no forman parte del coste de la locomoción.
 
 ### Regla de Diseño: Arsenal Versátil
 

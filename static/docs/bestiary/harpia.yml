@@ -1,0 +1,52 @@
+name: Harpía
+lineage: Monstruosidad
+tier: 1
+size: Mediano
+attributes:
+  body: 2
+  reflexes: 4
+  mind: 1
+  instinct: 2
+  presence: 3
+stats:
+  maxHealth: 10
+  evasion:
+    value: 7
+    note: null
+  physicalMitigation:
+    value: 0
+    note: null
+  magicalMitigation:
+    value: 0
+    note: null
+  speed:
+    value: 8
+    note: vuelo 10
+languages:
+  - Harpía
+attacks:
+  - name: Garras
+    bonus: 3
+    damage: 1d6+1 Cortante
+    note: null
+traits:
+  - name: Vuelo
+    detail: La harpía puede desplazarse por el aire con velocidad de Vuelo 10.
+  - name: Habilidades con Ventaja
+    detail: Obtiene Ventaja (+1d4) en pruebas de Reflejos (Sigilo) e Instinto (Percepción).
+actions: []
+reactions: []
+interactions:
+  - name: Canto de Distracción
+    uses:
+      type: RELOAD
+      qty: 3
+    detail: >-
+      Una criatura a distancia Cercana que pueda oírla debe superar una TS de
+      Instinto (ND 8) o sufrir Desventaja en su próximo ataque.
+behavior: |
+  Depredadora territorial de acantilado. Usa la altura, el viento y la línea de
+  visión para hostigar al grupo, separar al rezagado y retirarse si recibe
+  demasiada presión. No pelea hasta la muerte por territorio: pelea para echar
+  intrusos y proteger su nido.
+img: https://i.imgur.com/hEgSagQ.jpeg

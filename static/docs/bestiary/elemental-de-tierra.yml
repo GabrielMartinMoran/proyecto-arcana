@@ -9,12 +9,12 @@ creatures:
       instinct: 6
       presence: 1
     stats:
-      maxHealth: 62
+      maxHealth: 54
       evasion:
         value: 7
         note: null
       physicalMitigation:
-        value: 3
+        value: 2
         note: Cuerpo de piedra
       magicalMitigation:
         value: 0
@@ -43,7 +43,7 @@ creatures:
         uses:
           type: RELOAD
           qty: 5
-        detail: El elemental golpea el suelo. Toda criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y recibir 2d6 daño Contundente.
+        detail: El elemental golpea el suelo. Toda criatura en un radio de 2 metros centrado en el elemental debe superar una Tirada de Salvación de Reflejos (ND 11) o quedar Derribada y recibir 2d6 de daño Contundente.
     reactions: []
     interactions: []
     behavior: |

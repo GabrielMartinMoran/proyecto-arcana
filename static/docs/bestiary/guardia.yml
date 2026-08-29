@@ -29,13 +29,9 @@ creatures:
         bonus: 3
         damage: 1d4 Cortante
         note: null
-      - name: Golpe de Escudo
+      - name: Ballesta Ligera
         bonus: 3
-        damage: 1d4 Contundente
-        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser empujado 1 metro hacia atrás.
-      - name: Ballesta de Mano
-        bonus: 3
-        damage: 1d4 Perforante
+        damage: 1d6 Perforante
         note: Alcance Media, Recarga (Interacción)
     traits:
       - name: Habilidades con Ventaja

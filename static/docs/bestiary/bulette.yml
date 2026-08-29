@@ -9,9 +9,9 @@ creatures:
       instinct: 4
       presence: 1
     stats:
-      maxHealth: 54
+      maxHealth: 62
       evasion:
-        value: 8
+        value: 9
         note: null
       physicalMitigation:
         value: 0
@@ -38,13 +38,19 @@ creatures:
     actions: []
     reactions: []
     interactions:
-      - name: Sumersión
+      - name: Emboscada Subterránea
         uses:
           type: RELOAD
           qty: 5
-        detail: La bulette entra bajo tierra desde un terreno razonablemente excavable. Mientras está bajo tierra no puede ser objetivo directo; una tirada de Percepción (ND 10) permite detectar las vibraciones del terreno para estimar su trayectoria.
-      - name: Salida Violenta
-        detail: Siempre que este bajo sumergida, la bulette puede salir despedida brutalmente como una Interacción. Las criaturas a distancia Inmediata del punto de salida deben superar una Tirada de Salvación de Reflejos (ND 10) o quedar Derribadas.
+        detail: >-
+          Como Interacción, la bulette entra bajo tierra desde un terreno
+          razonablemente excavable. Hasta el inicio de su próximo turno no puede
+          ser objetivo directo y puede desplazarse usando su velocidad de
+          excavar. Una Prueba de Percepción (ND 10) permite detectar sus
+          vibraciones y estimar su trayectoria. Al inicio de su siguiente turno,
+          la bulette emerge en un punto válido. Las criaturas a distancia
+          Inmediata del punto de salida deben superar una Tirada de Salvación de
+          Reflejos (ND 10) o quedar Derribadas.
     behavior: |
       Un depredador sísmico que convierte el suelo en una segunda línea de aproximación. Marca un territorio, embosca desde ángulos alternos y abandona el área si las vibraciones o el fuego la vuelven insegura.
     img: null

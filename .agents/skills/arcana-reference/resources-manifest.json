@@ -8,32 +8,32 @@
     {
       "path": "references/bestiario/rango-1.md",
       "kind": "file",
-      "size": 21226,
-      "sha1": "4f01eef9d60409585225b76bd38361170294145e"
+      "size": 21201,
+      "sha1": "069cc36f51af50da3d0fcafe76d941cd9374d939"
     },
     {
       "path": "references/bestiario/rango-2.md",
       "kind": "file",
-      "size": 21858,
-      "sha1": "060cce7cee534972e3947c12b2d349f2e085e4c2"
+      "size": 21995,
+      "sha1": "0862e5fc5d73901436ef36dfb7d59bb16e3ee522"
     },
     {
       "path": "references/bestiario/rango-3.md",
       "kind": "file",
-      "size": 21480,
-      "sha1": "ee9e07fe97404fdc69b57c858ce53262327664fa"
+      "size": 21805,
+      "sha1": "c10ea517dc62b246b277834ce57982a9e5f2bb75"
     },
     {
       "path": "references/bestiario/rango-4.md",
       "kind": "file",
-      "size": 12526,
-      "sha1": "aecd1f8de673826e71f55135a08d42c2e8a7d729"
+      "size": 12571,
+      "sha1": "cdb3b064e2ea9a146dd41cef9772f4079c39ada5"
     },
     {
       "path": "references/bestiario/rango-5.md",
       "kind": "file",
-      "size": 10800,
-      "sha1": "2ebf8d883aba689e43716e227890f7d5dae0a527"
+      "size": 10911,
+      "sha1": "aa86c7268790ae3644b5b82abf725ad71eef4f8b"
     },
     {
       "path": "references/bestiario/rango-6.md",
@@ -560,8 +560,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 130475,
-      "sha1": "fb64da6540fae8c210b01ad28bf3bf9c553e1d75"
+      "size": 131241,
+      "sha1": "3ff376530f723035e806d574b63d5dce8af218e3"
     },
     {
       "path": "references/datasets/cards.yml",
@@ -624,8 +624,8 @@
     {
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
       "kind": "file",
-      "size": 35520,
-      "sha1": "e4d750f472d9297645176bfad2ac506d80f040f6"
+      "size": 38650,
+      "sha1": "8809079c340c955ac14cefd6c7cbe9d33bc21d64"
     },
     {
       "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md",
@@ -682,8 +682,8 @@
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",
       "kind": "file",
-      "size": 1355,
-      "sha1": "6eda17c18768949562b22db13440adc91aec337e"
+      "size": 1397,
+      "sha1": "50dec7d2c6586ae8dd6b33462142c7f6a64a1627"
     },
     {
       "path": "references/manual-del-jugador/09-progresion-del-personaje.md",

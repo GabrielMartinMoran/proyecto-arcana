@@ -109,10 +109,10 @@ describe('current bestiary corpus', () => {
 
 		assert.equal(guardia.id, sha1('Guardia'));
 		assert.equal(guardia.tier, 1);
-		assert.deepEqual(findAttack('Ballesta de Mano', guardia.attacks), {
-			name: 'Ballesta de Mano',
+		assert.deepEqual(findAttack('Ballesta Ligera', guardia.attacks), {
+			name: 'Ballesta Ligera',
 			bonus: 3,
-			damage: '1d4 Perforante',
+			damage: '1d6 Perforante',
 			note: 'Alcance Media, Recarga (Interacción)',
 		});
 	});
@@ -184,7 +184,6 @@ describe('current bestiary corpus', () => {
 	test('uses one-minute fear with repeated saves for higher-rank creatures', () => {
 		const fearedActions = [
 			findAction('Mandato de la Jauría', findCreature('Sacerdote Gnoll').actions),
-			findAction('Aullido de la Luna', findCreature('Hombre Lobo').actions),
 			findAction('Maldición de la Garganta Seca', findCreature('Momia').actions),
 		];
 

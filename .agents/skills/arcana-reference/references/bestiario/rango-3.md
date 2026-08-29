@@ -19,24 +19,24 @@
 
 ## Estadísticas
 - **Salud Máxima:** 30
-- **Esquiva:** 10
+- **Esquiva:** 9
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9 (Flota)
 - **Iniciativa:** 3
 
 ## Ataques
-- **Toque Gélido:** +6 para golpear. Daño: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)
+- **Toque Gélido:** +5 para golpear. Daño: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Sigilo, Intimidación, Percepción
 - **Resistencias:** Contundente, Cortante y Perforante de fuentes no mágicas
 - **Inmunidades a Estados:** Envenenado
-- **Visión Verdadera:** El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
+- **Visión en la Oscuridad:** El espectro puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra. Esta capacidad no le permite detectar criaturas invisibles.
 - **Movimiento Incorpóreo:** El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
 
 ## Interacciones
-- **Mirada Aterradora:** El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque). (Usos: 5 [Recarga 5+])
+- **Mirada Aterradora:** El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 10) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque). (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -142,9 +142,9 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 62
+- **Salud Máxima:** 54
 - **Esquiva:** 7
-- **Mitigación Física:** 3 (Cuerpo de piedra)
+- **Mitigación Física:** 2 (Cuerpo de piedra)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 7
 - **Iniciativa:** 1
@@ -159,7 +159,7 @@
 - **Deslizarse por la Tierra:** El elemental puede moverse a través de piedra y tierra no trabajada como si fuera terreno normal.
 
 ## Acciones
-- **Pisotón Sísmico:** El elemental golpea el suelo. Toda criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y recibir 2d6 daño Contundente. (Usos: 5 [Recarga 5+])
+- **Pisotón Sísmico:** El elemental golpea el suelo. Toda criatura en un radio de 2 metros centrado en el elemental debe superar una Tirada de Salvación de Reflejos (ND 11) o quedar Derribada y recibir 2d6 de daño Contundente. (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -198,7 +198,6 @@
 - **Reflejos Ígneos:** Ventaja (+1d4) en Tiradas de Salvación de Reflejos.
 - **Inmunidades al Daño:** Fuego
 - **Aura de Fuego:** Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.
-- **Forma Ígnea:** El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
 
 
 ---
@@ -268,15 +267,16 @@
 - **Iniciativa:** 6
 
 ## Ataques
-- **Ráfaga de Viento:** +6 para golpear. Daño: 2d6 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.)
+- **Ráfaga de Viento:** +7 para golpear. Daño: 4d6 Contundente (Alcance Cercana. Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 3 metros hacia atrás en línea recta.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Acrobacias, Sigilo, Percepción
-- **Forma Gaseosa:** El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.
+- **Forma Gaseosa:** El elemental puede pasar por aberturas amplias sin dificultad.
 - **Vuelo:** El elemental tiene una velocidad de Vuelo de 12 metros.
+- **Viento Esquivo:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 
 ## Reacciones
-- **Vórtice de Viento:** Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.
+- **Vórtice de Viento:** Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 2 metros hacia atrás.
 
 
 ---
@@ -345,7 +345,7 @@
 - **Presencia:** 2
 
 ## Estadísticas
-- **Salud Máxima:** 54
+- **Salud Máxima:** 46
 - **Esquiva:** 7
 - **Mitigación Física:** 2 (Piel gruesa y plumas)
 - **Mitigación Mágica:** 0
@@ -362,7 +362,7 @@
 - **Asalto Múltiple (2 Garras, 1 Pico):** El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico con su Acción.
 
 ## Interacciones
-- **Despedazar y Apresar:** Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).
+- **Despedazar y Apresar:** Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla). Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de su Cuerpo contra el Cuerpo del ozo-lechuza. Si tiene éxito, se libera.
 
 
 ---
@@ -438,6 +438,7 @@
 ## Rasgos
 - **Habilidades con Ventaja:** Engaño, Persuasión, Perspicacia
 - **Visión en la Oscuridad:** La saga puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.
+- **Mente Feérica:** Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarla Encantada.
 
 ## Acciones
 - **Cosecha de Nombres:** Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Encantado hasta el inicio del próximo turno de la saga y puede repetir la Tirada de Salvación al final de su turno. La saga no puede obligarlo a suicidarse ni a gastar recursos de otro personaje. (Usos: 5 [Recarga 5+])
@@ -468,8 +469,8 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 54
-- **Esquiva:** 8
+- **Salud Máxima:** 62
+- **Esquiva:** 9
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 8 (Excava)
@@ -484,8 +485,7 @@
 - **Resistencias:** Contundente, Cortante y Perforante de fuentes no mágicas
 
 ## Interacciones
-- **Sumersión:** La bulette entra bajo tierra desde un terreno razonablemente excavable. Mientras está bajo tierra no puede ser objetivo directo; una tirada de Percepción (ND 10) permite detectar las vibraciones del terreno para estimar su trayectoria. (Usos: 5 [Recarga 5+])
-- **Salida Violenta:** Siempre que este bajo sumergida, la bulette puede salir despedida brutalmente como una Interacción. Las criaturas a distancia Inmediata del punto de salida deben superar una Tirada de Salvación de Reflejos (ND 10) o quedar Derribadas.
+- **Emboscada Subterránea:** Como Interacción, la bulette entra bajo tierra desde un terreno razonablemente excavable. Hasta el inicio de su próximo turno no puede ser objetivo directo y puede desplazarse usando su velocidad de excavar. Una Prueba de Percepción (ND 10) permite detectar sus vibraciones y estimar su trayectoria. Al inicio de su siguiente turno, la bulette emerge en un punto válido. Las criaturas a distancia Inmediata del punto de salida deben superar una Tirada de Salvación de Reflejos (ND 10) o quedar Derribadas. (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -551,7 +551,7 @@
 
 ## Estadísticas
 - **Salud Máxima:** 46
-- **Esquiva:** 9
+- **Esquiva:** 8
 - **Mitigación Física:** 1 (Cuerpo resistente)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9
@@ -567,7 +567,7 @@
 - **Forma de Cazador:** En cada turno puede elegir una forma. La forma bestial aumenta su velocidad en 2 metros y permite usar el Mordisco de Caza; la forma humana permite hablar y mezclarse socialmente. La forma no cambia sus Puntos de Salud ni concede resistencia adicional.
 
 ## Acciones
-- **Aullido de la Luna:** Las criaturas enemigas a distancia Inmediata deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas durante 1 minuto. Pueden repetir la Tirada de Salvación al final de cada uno de sus turnos; si la superan, el efecto termina. (Usos: 5 [Recarga 5+])
+- **Aullido de la Luna:** Las criaturas enemigas en un radio de 5 metros deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas hasta el final del próximo turno del hombre lobo. (Usos: 5 [Recarga 5+])
 
 ## Reacciones
 - **Salto de Presa:** Cuando una criatura a distancia Inmediata se aleja, el hombre lobo puede moverse 2 metros hacia ella sin provocar Reacciones. Solo una vez por ronda.

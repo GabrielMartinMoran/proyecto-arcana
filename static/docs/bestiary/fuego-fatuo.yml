@@ -35,6 +35,8 @@ creatures:
         detail: El fuego fatuo puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
       - name: Resistencias
         detail: Contundente, Cortante y Perforante de fuentes no mágicas
+      - name: Inmunidades a Estados
+        detail: Envenenado
       - name: Flotar entre los Juncos
         detail: El fuego fatuo puede desplazarse por el aire sin volverse invisible ni teletransportarse.
     actions: []

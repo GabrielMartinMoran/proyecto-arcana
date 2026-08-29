@@ -58,7 +58,7 @@
 
 ## Estadísticas
 - **Salud Máxima:** 10
-- **Esquiva:** 7
+- **Esquiva:** 6
 - **Mitigación Física:** 1 (Retazos de metal)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 8
@@ -155,7 +155,7 @@
 - **Habilidades con Ventaja:** Intimidación, Sigilo
 
 ## Interacciones
-- **¡Cuerpo a Tierra!:** Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.
+- **¡Cuerpo a Tierra!:** Como una Interacción, el bandido puede tirarse al suelo (estado Derribado).
 
 
 ---
@@ -275,7 +275,7 @@
 - **Fortaleza de No-Muerto:** Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
 
 ## Acciones
-- **Agarrón Necrótico:** Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
+- **Agarrón Necrótico:** Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja. Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de Cuerpo o Reflejos contra el Cuerpo del zombi. Si tiene éxito, se libera.
 
 
 ---
@@ -301,7 +301,7 @@
 ## Estadísticas
 - **Salud Máxima:** 10
 - **Esquiva:** 7
-- **Mitigación Física:** 1 (piel dura)
+- **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9
 - **Iniciativa:** 3
@@ -344,8 +344,7 @@
 
 ## Ataques
 - **Espada:** +3 para golpear. Daño: 1d4 Cortante
-- **Golpe de Escudo:** +3 para golpear. Daño: 1d4 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser empujado 1 metro hacia atrás.)
-- **Ballesta de Mano:** +3 para golpear. Daño: 1d4 Perforante (Alcance Media, Recarga (Interacción))
+- **Ballesta Ligera:** +3 para golpear. Daño: 1d6 Perforante (Alcance Media, Recarga (Interacción))
 
 ## Rasgos
 - **Habilidades con Ventaja:** Atletismo, Percepción
@@ -417,7 +416,7 @@
 - **Iniciativa:** 2
 
 ## Ataques
-- **Proyectil Volátil:** +4 para golpear. Daño: 1d8 Fuerza (Alcance Media)
+- **Proyectil Volátil:** +4 para golpear. Daño: 1d6 Fuerza (Alcance Media)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Conocimiento Arcano, Investigación
@@ -446,7 +445,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 10
+- **Salud Máxima:** 7
 - **Esquiva:** 8
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
@@ -459,7 +458,9 @@
 
 ## Rasgos
 - **Habilidades con Ventaja:** Sigilo, Juego de Manos
-- **Golpe Traicionero:** Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
+
+## Interacciones
+- **Escabullirse:** Como Interacción, el ratero puede intentar Esconderse si dispone de cobertura u ocultamiento, o moverse hasta la mitad de su Velocidad sin provocar Reacciones. (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -524,14 +525,14 @@
 
 ## Estadísticas
 - **Salud Máxima:** 10
-- **Esquiva:** 7
+- **Esquiva:** 6
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 8
 - **Iniciativa:** 2
 
 ## Ataques
-- **Látigo de Espinas:** +3 para golpear. Daño: 1d6+1 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)
+- **Látigo de Espinas:** +3 para golpear. Daño: 1d6 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Naturaleza, Trato con Animales
@@ -572,7 +573,7 @@
 
 ## Rasgos
 - **Habilidades con Ventaja:** Pilotaje, Atletismo
-- **Piernas de Barco:** Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra Derribo y desplazamiento forzado.
+- **Piernas de Barco:** Ventaja (+1d4) en Pruebas de Habilidad para mantener el equilibrio, resistir desplazamientos físicos o permanecer en pie sobre superficies inestables.
 
 ## Reacciones
 - **Parada del Marinero:** Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque. (Usos: 4 [Recarga 4+])
@@ -599,7 +600,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 13
+- **Salud Máxima:** 7
 - **Esquiva:** 8
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0

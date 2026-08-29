@@ -95,16 +95,16 @@
 - **Presencia:** 3
 
 ## Estadísticas
-- **Salud Máxima:** 80
-- **Esquiva:** 9
-- **Mitigación Física:** 0
+- **Salud Máxima:** 90
+- **Esquiva:** 10
+- **Mitigación Física:** 1
 - **Mitigación Mágica:** 0
 - **Velocidad:** 10 (Vuela)
 - **Iniciativa:** 6
 
 ## Ataques
-- **Garras:** +8 para golpear. Daño: 3d8 Cortante
-- **Mordisco:** +8 para golpear. Daño: 3d8 Perforante
+- **Garras:** +8 para golpear. Daño: 3d8+1 Cortante
+- **Mordisco:** +8 para golpear. Daño: 3d8+1 Perforante
 
 ## Rasgos
 - **Habilidades con Ventaja:** Percepción, Supervivencia, Intimidación
@@ -271,6 +271,7 @@
 ## Rasgos
 - **Habilidades con Ventaja:** Historia, Religión, Perspicacia
 - **Visión en la Oscuridad:** La momia puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+- **Inmunidades a Estados:** Envenenado
 
 ## Acciones
 - **Maldición de la Garganta Seca:** Un objetivo visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 12). Si falla, queda Asustado durante 1 minuto y no puede recibir Puntos de Salud Temporales. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina. (Usos: 6 [Recarga 6+])

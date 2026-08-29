@@ -40,7 +40,7 @@ creatures:
         detail: Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
     actions:
       - name: Agarrón Necrótico
-        detail: Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
+        detail: Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja. Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de Cuerpo o Reflejos contra el Cuerpo del zombi. Si tiene éxito, se libera.
     reactions: []
     interactions: []
     behavior: |
