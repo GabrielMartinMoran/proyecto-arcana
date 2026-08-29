@@ -422,6 +422,10 @@ Esta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o
 
 > **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.
 
+**Idiomas:** los idiomas de una criatura son parte de su identidad y no tienen coste en PPF. La lista puede incluir lenguas propias, dialectos específicos de una región, subespecie o comunidad, o variantes que la criatura solo comprende o solo habla. El DJ puede añadir, restringir o ajustar los idiomas según la ficción de su mundo sin alterar el balance del bloque.
+
+> **Ejemplo:** la Harpía habla el dialecto propio de los acantilados a los que es territorial; otras harpías de un litoral distinto podrían hablar una variante diferente, sin coste por ello.
+
 ### Paso 3: Definir atributos y estadísticas
 
 El Rango determina el presupuesto de PPF de la criatura. Usa la tabla del Rango

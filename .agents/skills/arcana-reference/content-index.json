@@ -8398,6 +8398,26 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Harpía",
+      "id": "2b93230aa91b82d68bdcc5f2c21cbdf579791364",
+      "slug": "harpia",
+      "aliases": [
+        "harpia"
+      ],
+      "tags": [],
+      "level": 1,
+      "path": "references/bestiario/rango-1.md",
+      "heading": "Harpía",
+      "anchor": "harpía",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Sigilo, Percepción\nVuelo: La harpía puede desplazarse por el aire con una velocidad de Vuelo de 10 metros.\nGarras: 1d6+1 Cortante\nCanto de Distracción: Una criatura a distancia Cercana que pueda oírla debe superar una TS de Instinto (ND 8) o sufrir Desventaja en su próximo ataque.\nDepredadora territorial de acantilado. Usa la altura, el viento y la línea de\nvisión para hostigar al grupo, separar al rezagado y retirarse si recibe\ndemasiada presión. No pelea hasta la muerte por territorio: pelea para echar\nintrusos y proteger su nido.\n",
+      "hash": "3c3ce4f22d7cfdad1ff86311c303331e6cc5c2a8"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Hombre Lobo",
       "id": "94f054425670e53a7434c19073f16c909a0a8f93",
       "slug": "hombre-lobo",
@@ -12106,8 +12126,8 @@
       "anchor": "paso-2-linaje-de-la-criatura",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.\n\nEl Linaje puede ser utilizado por habilidades, objetos, efectos y otras reglas para determinar cómo interactúan con la criatura.\n\nLos Linajes de criatura habituales son:\n\n- **Humanoide:** pueblos y seres de naturaleza principalmente humanoide.\n- **Goblinoide:** goblins y criaturas pertenecientes a sus estirpes o familias afines.\n- **Bestia:** animales y criaturas naturales guiadas principalmente por el instinto.\n- **Monstruosidad:** criaturas extraordinarias cuya naturaleza no encaja en otras categorías.\n- **No-muerto:** cadáveres animados, espíritus y otras criaturas sostenidas más allá de la muerte.\n- **Constructo:** seres artificiales animados mediante magia, ingeniería u otros medios.\n- **Elemental:** criaturas vinculadas fundamentalmente a una fuerza o elemento primordial.\n- **Feérico:** seres ligados a la magia feérica, sus dominios o su naturaleza sobrenatural.\n- **Dragón:** dragones verdaderos y otras criaturas de naturaleza dracónica.\n- **Gigante:** gigantes verdaderos y criaturas pertenecientes a sus estirpes.\n- **Celestial:** seres originados o imbuidos por fuerzas celestiales.\n- **Infernal:** seres originados o imbuidos por fuerzas infernales.\n- **Aberración:** criaturas de naturaleza antinatural, alienígena o ajena a las leyes normales del mundo.\n- **Planta:** criaturas vegetales animadas o conscientes.\n\nEsta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o ambientación lo requiera.\n\n> **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.",
-      "hash": "e03f03668a54138a9741bd58709c444a191103f8"
+      "search": "Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.\n\nEl Linaje puede ser utilizado por habilidades, objetos, efectos y otras reglas para determinar cómo interactúan con la criatura.\n\nLos Linajes de criatura habituales son:\n\n- **Humanoide:** pueblos y seres de naturaleza principalmente humanoide.\n- **Goblinoide:** goblins y criaturas pertenecientes a sus estirpes o familias afines.\n- **Bestia:** animales y criaturas naturales guiadas principalmente por el instinto.\n- **Monstruosidad:** criaturas extraordinarias cuya naturaleza no encaja en otras categorías.\n- **No-muerto:** cadáveres animados, espíritus y otras criaturas sostenidas más allá de la muerte.\n- **Constructo:** seres artificiales animados mediante magia, ingeniería u otros medios.\n- **Elemental:** criaturas vinculadas fundamentalmente a una fuerza o elemento primordial.\n- **Feérico:** seres ligados a la magia feérica, sus dominios o su naturaleza sobrenatural.\n- **Dragón:** dragones verdaderos y otras criaturas de naturaleza dracónica.\n- **Gigante:** gigantes verdaderos y criaturas pertenecientes a sus estirpes.\n- **Celestial:** seres originados o imbuidos por fuerzas celestiales.\n- **Infernal:** seres originados o imbuidos por fuerzas infernales.\n- **Aberración:** criaturas de naturaleza antinatural, alienígena o ajena a las leyes normales del mundo.\n- **Planta:** criaturas vegetales animadas o conscientes.\n\nEsta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o ambientación lo requiera.\n\n> **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.\n\n**Idiomas:** los idiomas de una criatura son parte de su identidad y no tienen coste en PPF. La lista puede incluir lenguas propias, dialectos específicos de una región, subespecie o comunidad, o variantes que la criatura solo comprende o solo habla. El DJ puede añadir, restringir o ajustar los idiomas según la ficción de su mundo sin alterar el balance del bloque.\n\n> **Ejemplo:** la Harpía habla el dialecto propio de los acantilados a los que es territorial; otras harpías de un litoral distinto podrían hablar una variante diferente, sin coste por ello.",
+      "hash": "bd534b160325bf29b212e135734abc8ed5357f79"
     },
     {
       "kind": "section",

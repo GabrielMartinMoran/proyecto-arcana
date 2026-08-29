@@ -31,6 +31,7 @@ const newCreatureNames = [
 	'Gusano Gigante',
 	'Roc',
 	'Contemplador',
+	'Harpía',
 ];
 
 const findCreature = (name: string) => {
@@ -67,9 +68,9 @@ describe('current bestiary corpus', () => {
 		const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as { files: string[] };
 		const creatures = loadBestiaryCreatures();
 
-		assert.equal(manifest.files.length, 65);
+		assert.equal(manifest.files.length, 66);
 		assert.equal(new Set(manifest.files).size, manifest.files.length);
-		assert.equal(creatures.length, 65);
+		assert.equal(creatures.length, 66);
 		assert.deepEqual(
 			creatures.slice(-newCreatureNames.length).map((creature) => creature.name),
 			newCreatureNames,

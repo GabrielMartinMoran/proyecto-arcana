@@ -8,8 +8,8 @@
     {
       "path": "references/bestiario/rango-1.md",
       "kind": "file",
-      "size": 21201,
-      "sha1": "069cc36f51af50da3d0fcafe76d941cd9374d939"
+      "size": 22254,
+      "sha1": "6db6d5d03ea32784da54b0b80ae288fb71db6261"
     },
     {
       "path": "references/bestiario/rango-2.md",
@@ -560,8 +560,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 131241,
-      "sha1": "3ff376530f723035e806d574b63d5dce8af218e3"
+      "size": 132701,
+      "sha1": "3faf366ffbcaf01005830a0c9bb04b86eb538f2f"
     },
     {
       "path": "references/datasets/cards.yml",
@@ -624,8 +624,8 @@
     {
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
       "kind": "file",
-      "size": 38650,
-      "sha1": "8809079c340c955ac14cefd6c7cbe9d33bc21d64"
+      "size": 39219,
+      "sha1": "48f52e65ff525b13db418edf7a5edc4bbb9c98a1"
     },
     {
       "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md",

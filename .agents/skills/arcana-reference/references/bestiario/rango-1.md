@@ -696,3 +696,45 @@
 ## Reacciones
 - **Parada de Placas:** Cuando la armadura animada es objetivo de un ataque visible, obtiene +2 a su Esquiva contra ese ataque.
 
+
+---
+
+# Harpía
+
+**Linaje:** Monstruosidad
+
+**Rango:** 1
+
+**Comportamiento:** Depredadora territorial de acantilado. Usa la altura, el viento y la línea de
+visión para hostigar al grupo, separar al rezagado y retirarse si recibe
+demasiada presión. No pelea hasta la muerte por territorio: pelea para echar
+intrusos y proteger su nido.
+
+
+**Lenguas:** Harpía
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 4
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 2
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8 (Vuela 10)
+- **Iniciativa:** 4
+
+## Ataques
+- **Garras:** +3 para golpear. Daño: 1d6+1 Cortante
+
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Percepción
+- **Vuelo:** La harpía puede desplazarse por el aire con una velocidad de Vuelo de 10 metros.
+
+## Interacciones
+- **Canto de Distracción:** Una criatura a distancia Cercana que pueda oírla debe superar una TS de Instinto (ND 8) o sufrir Desventaja en su próximo ataque. (Usos: 3 [Recarga 3+])
+
