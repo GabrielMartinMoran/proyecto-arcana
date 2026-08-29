@@ -1,0 +1,55 @@
+creatures:
+  - name: Roc
+    lineage: Bestia
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 220
+      evasion:
+        value: 11
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 14
+        note: Vuela
+    languages: []
+    attacks:
+      - name: Garras
+        bonus: 9
+        damage: 4d8+4 Cortante
+        note: null
+      - name: Pico
+        bonus: 9
+        damage: 3d10+4 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo, Aguante
+      - name: Asalto Múltiple
+        detail: El roc puede realizar un ataque de Garras y un ataque de Pico con su Acción.
+      - name: Vuelo
+        detail: El roc tiene una velocidad de Vuelo de 14 metros.
+    actions:
+      - name: Secuestro del Viento
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, queda Derribada y el roc puede moverla hasta 3 metros hacia un espacio visible y seguro. La criatura puede repetir la Tirada de Salvación al final de su propio turno para levantarse; no queda fuera de la escena ni recibe daño por caída.
+    reactions:
+      - name: Ala de Rechazo
+        detail: Cuando un enemigo entra a distancia Inmediata, el roc puede moverse hasta la mitad de su velocidad. El movimiento no provoca Reacciones. Solo una vez por ronda.
+    interactions: []
+    behavior: |
+      Un depredador aéreo territorial que defiende un nido o una frontera. Ataca al personaje que lleva comida u objetos brillantes y usa las corrientes para mantener rutas de escape previsibles.
+    img: null
+    size: Inmenso

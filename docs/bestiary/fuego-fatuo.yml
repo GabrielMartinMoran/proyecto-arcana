@@ -1,0 +1,53 @@
+creatures:
+  - name: Fuego Fatuo
+    lineage: No-muerto
+    tier: 2
+    attributes:
+      body: 0
+      reflexes: 5
+      mind: 1
+      instinct: 4
+      presence: 5
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 12
+        note: Vuela
+    languages: []
+    attacks:
+      - name: Drenaje Umbrío
+        bonus: 4
+        damage: 1d8+1 Necrótico
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Visión en la Oscuridad
+        detail: El fuego fatuo puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+      - name: Inmunidades a Estados
+        detail: Envenenado
+      - name: Flotar entre los Juncos
+        detail: El fuego fatuo puede desplazarse por el aire sin volverse invisible ni teletransportarse.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Farol Falso
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Una criatura a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 9) o tener Desventaja en su próximo ataque.
+    behavior: |
+      Un falso faro que atrae a los viajeros hacia rutas contradictorias. Se mantiene fuera del alcance inmediato, atrae a la persona más curiosa y huye cuando pierde la oscuridad o la cobertura.
+    img: null
+    size: Diminuto

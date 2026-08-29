@@ -1,0 +1,40 @@
+creatures:
+  - name: Cubo Gelatinoso
+    lineage: Limo
+    tier: 2
+    attributes:
+      body: 4
+      reflexes: 1
+      mind: 0
+      instinct: 2
+      presence: 0
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 6
+        note: null
+    languages: []
+    attacks: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+    actions:
+      - name: Engullir
+        detail: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 9). Si falla, queda dentro del Cubo y este se mueve hasta su espacio. El Cubo solo puede contener una criatura. Al inicio de cada uno de sus turnos, la criatura recibe 2d6 de daño Ácido sin salvación. Al final de cada uno de sus turnos, puede repetir la Tirada de Salvación usando Cuerpo (ND 9); si tiene éxito, sale del Cubo y aparece en un espacio adyacente.
+    reactions: []
+    interactions: []
+    behavior: |
+      Una masa translúcida que limpia corredores de ruinas sin distinguir entre basura y aventureros. Se coloca en rutas inevitables, espera a que alguien cruce su espacio y prioriza aislar a una persona sin bloquear todas las salidas.
+    img: null
+    size: Grande

@@ -11,7 +11,7 @@ creatures:
     stats:
       maxHealth: 10
       evasion:
-        value: 7
+        value: 6
         note: null
       physicalMitigation:
         value: 0
@@ -28,7 +28,7 @@ creatures:
     attacks:
       - name: Látigo de Espinas
         bonus: 3
-        damage: 1d6+1 Cortante
+        damage: 1d6 Cortante
         note: Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.
     traits:
       - name: Habilidades con Ventaja

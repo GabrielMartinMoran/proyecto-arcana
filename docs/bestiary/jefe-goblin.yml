@@ -11,7 +11,7 @@ creatures:
     stats:
       maxHealth: 10
       evasion:
-        value: 7
+        value: 6
         note: null
       physicalMitigation:
         value: 1

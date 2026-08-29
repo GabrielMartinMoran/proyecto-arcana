@@ -1,0 +1,53 @@
+creatures:
+  - name: Kobold
+    lineage: Dragón
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Dracónico
+      - Común (jerga rudimentaria)
+    attacks:
+      - name: Honda de Guijarros
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: Alcance Cercana
+      - name: Daga de Cantera
+        bonus: 3
+        damage: 1d4+1 Cortante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Juego de Manos
+      - name: Visión en la Oscuridad
+        detail: El kobold puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Polvo de Galería
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Interacción, el kobold libera polvo en su espacio y puede intentar Ocultarse inmediatamente. La nube no Ciega ni aplica otro estado.
+    behavior: |
+      Un explorador cobarde y oportunista que prepara el terreno antes de atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia una ruta preparada. Huirá si pierde la cobertura o queda solo.
+    img: null
+    size: Pequeño

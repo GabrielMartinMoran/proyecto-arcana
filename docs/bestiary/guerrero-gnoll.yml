@@ -1,0 +1,55 @@
+creatures:
+  - name: Guerrero Gnoll
+    lineage: Monstruosidad
+    tier: 2
+    attributes:
+      body: 4
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 1
+    stats:
+      maxHealth: 30
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Gnoll
+      - Común (rudimentario)
+    attacks:
+      - name: Hacha de Carroñero
+        bonus: 5
+        damage: 1d6+1 Cortante
+        note: null
+      - name: Mordisco de la Jauría
+        bonus: 5
+        damage: 1d4+1 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción
+      - name: Asalto Múltiple
+        detail: El guerrero puede realizar un ataque de Hacha de Carroñero y un ataque de Mordisco de la Jauría con su Acción.
+      - name: Ímpetu de la Jauría
+        detail: Si un aliado está a distancia Inmediata del objetivo cuando impacta, puede moverse 2 metros sin provocar Reacciones.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Aullido de Acoso
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Interacción, una criatura visible a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 10). Si falla, tiene Desventaja en su próximo ataque antes del final de su siguiente turno.
+    behavior: |
+      Un cazador de manada que rodea al objetivo aislado. Alterna hachazos y mordiscos, usa el aullido para romper el ritmo de la presa y abandona la persecución si la manada pierde la ventaja.
+    img: null
+    size: Mediano

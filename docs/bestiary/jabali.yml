@@ -14,8 +14,8 @@ creatures:
         value: 7
         note: null
       physicalMitigation:
-        value: 1
-        note: piel dura
+        value: 0
+        note: null
       magicalMitigation:
         value: 0
         note: null

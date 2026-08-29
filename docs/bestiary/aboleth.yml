@@ -1,0 +1,64 @@
+creatures:
+  - name: Aboleth
+    lineage: Aberración
+    tier: 6
+    attributes:
+      body: 4
+      reflexes: 4
+      mind: 12
+      instinct: 8
+      presence: 7
+    stats:
+      maxHealth: 255
+      evasion:
+        value: 11
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Defensa física
+      magicalMitigation:
+        value: 2
+        note: Defensa psíquica
+      speed:
+        value: 6
+        note: Nada 10 metros
+    languages:
+      - Habla Profunda
+      - Telepatía (Larga)
+    attacks:
+      - name: Lanzas de Memoria
+        bonus: 10
+        damage: 4d8+8 Psíquico
+        note: Alcance Media. El aboleth puede realizar dos ataques de Lanzas de Memoria con su Acción.
+      - name: Tentáculo del Abismo
+        bonus: 10
+        damage: 4d8+8 Contundente
+        note: Distancia Inmediata. Se usa como emergencia cuando no puede emplear Lanzas de Memoria.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Historia, Perspicacia, Percepción
+      - name: Visión en la Oscuridad
+        detail: El aboleth puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.
+      - name: Resistencias
+        detail: Psíquico
+      - name: Mente Insondable
+        detail: Ventaja (+1d4) en Tiradas de Salvación de Mente.
+    actions:
+      - name: Moldear la Mente
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Un objetivo visible a distancia Media debe superar una Tirada de Salvación de Mente (ND 15). Si falla, queda bajo un Mandato durante hasta tres rondas. El aboleth formula una orden simple y no suicida. Al inicio de cada turno del objetivo, este puede repetir la Tirada de Salvación; si tiene éxito, termina el Mandato. Si falla, puede obedecer y usar su Acción para ejecutar la orden o emplear su Acción para repetir la Tirada de Salvación inmediatamente. Cada vez que el aboleth recibe daño, sin importar la fuente, el objetivo puede repetir la Tirada de Salvación de inmediato. Solo una criatura puede estar bajo Mandato a la vez.
+      - name: Marea de Recuerdos
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El aboleth proyecta una oleada Psíquica en un área de distancia Cercana. Cada criatura dentro debe superar una Tirada de Salvación de Instinto (ND 15). Si falla, recibe 4d8 de daño Psíquico y tiene Desventaja en su próxima tirada; con éxito, recibe la mitad del daño y no sufre la Desventaja.
+    reactions:
+      - name: Contracorriente
+        detail: Cuando un enemigo termina su movimiento a distancia Inmediata del aboleth, este puede desplazarse a un espacio visible a distancia Cercana. El enemigo debe superar una Tirada de Salvación de Cuerpo (ND 15) o ser desplazado a otro espacio a distancia Inmediata elegido por el aboleth. No inflige daño y solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: |
+      El arquitecto de una ruina inundada y un depredador mental que prefiere dominar el combate desde lejos. Mantiene la distancia, usa Marea de Recuerdos para dividir la atención y reserva Moldear la Mente para el personaje cuya decisión pueda cambiar el combate. Se acerca solo cuando no tiene otra opción.
+    img: null
+    size: Inmenso

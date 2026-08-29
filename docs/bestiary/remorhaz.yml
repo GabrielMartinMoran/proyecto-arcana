@@ -1,0 +1,51 @@
+creatures:
+  - name: Remorhaz
+    lineage: Monstruosidad
+    tier: 4
+    attributes:
+      body: 8
+      reflexes: 2
+      mind: 1
+      instinct: 4
+      presence: 1
+    stats:
+      maxHealth: 110
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Caparazón
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: Excava en terreno razonablemente excavable
+    languages: []
+    attacks:
+      - name: Mordida de Brasas
+        bonus: 8
+        damage: 4d8+4 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo
+      - name: Resistencias
+        detail: Fuego.
+      - name: Resistencia Ígnea
+        detail: La resistencia a Fuego representa una compra de 2 PD; la Mitigación Física 1 representa el PD restante.
+    actions:
+      - name: Túnel de Brasa
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Entra bajo tierra desde terreno excavable y deja una línea visible de calor y vibraciones. No puede ser objetivo directo mientras está bajo tierra. Al inicio de su siguiente turno aparece en un espacio visible a distancia Cercana; las criaturas a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 13) o quedar Derribadas. La trayectoria anunciada ofrece una oportunidad razonable de apartarse.
+    reactions:
+      - name: Placas Incandescentes
+        detail: Cuando una criatura le inflige daño con un ataque cuerpo a cuerpo, recibe 1d4 de daño Fuego y debe superar una Tirada de Salvación de Reflejos (ND 13) o moverse 1 metro alejándose del remorhaz. Solo una vez por ronda.
+    interactions: []
+    behavior: |
+      Un depredador de túneles cuya temperatura convierte la emboscada en una decisión de posicionamiento. Se sumerge, deja señales legibles y emerge bajo el personaje que rompe la formación.
+    img: null
+    size: Grande

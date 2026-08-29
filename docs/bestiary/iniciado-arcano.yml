@@ -28,7 +28,7 @@ creatures:
     attacks:
       - name: Proyectil Volátil
         bonus: 4
-        damage: 1d8 Fuerza
+        damage: 1d6 Fuerza
         note: Alcance Media
     traits:
       - name: Habilidades con Ventaja

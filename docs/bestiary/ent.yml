@@ -1,0 +1,53 @@
+creatures:
+  - name: Ent
+    lineage: Planta
+    tier: 4
+    attributes:
+      body: 8
+      reflexes: 1
+      mind: 3
+      instinct: 4
+      presence: 6
+    stats:
+      maxHealth: 120
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Corteza resistente
+      magicalMitigation:
+        value: 1
+        note: Savia protectora
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Silvano
+      - Común (comprende)
+    attacks:
+      - name: Puño de Corteza
+        bonus: 7
+        damage: 4d10+3 Contundente
+        note: null
+      - name: Latigazo de Raíces
+        bonus: 7
+        damage: 3d8+3 Contundente
+        note: Como Acción alternativa, afecta un cono de distancia Inmediata. Cada objetivo debe superar una Tirada de Salvación de Reflejos (ND 12) o recibir el daño completo; con éxito, recibe la mitad. No puede usar Puño de Corteza en la misma Acción.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Naturaleza, Percepción, Supervivencia
+    actions:
+      - name: La Arboleda se Alza
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: El ent despierta raíces en un área de distancia Cercana centrada en un punto visible a distancia Media. Las criaturas dentro deben superar una Tirada de Salvación de Reflejos (ND 12). Si fallan, quedan Inmovilizadas hasta el final del siguiente turno del ent. Cada criatura que haya quedado Inmovilizada puede repetir la Tirada de Salvación al final de su propio turno. Las raíces son visibles y el área siempre deja al menos una ruta razonable de salida.
+    reactions:
+      - name: Corteza Reactiva
+        detail: Cuando una criatura inflige daño al ent con un ataque cuerpo a cuerpo, esa criatura debe superar una Tirada de Salvación de Cuerpo (ND 12) o quedar Derribada. Solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: |
+      Una frontera forestal móvil que reconfigura objetivos, rutas y cobertura. Expulsa, separa y bloquea accesos antes de buscar matar. Si el objetivo del grupo no amenaza al bosque, prefiere negociar.
+    img: null
+    size: Grande
