@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
 		plugins: [sveltekit(), svelteTesting()],
 		server: {
 			port: 5174,
+			allowedHosts: ['*'],
 		},
 		test: {
 			environment: 'jsdom',

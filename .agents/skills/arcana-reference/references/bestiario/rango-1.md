@@ -58,7 +58,7 @@
 
 ## Estadísticas
 - **Salud Máxima:** 10
-- **Esquiva:** 7
+- **Esquiva:** 6
 - **Mitigación Física:** 1 (Retazos de metal)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 8
@@ -155,7 +155,7 @@
 - **Habilidades con Ventaja:** Intimidación, Sigilo
 
 ## Interacciones
-- **¡Cuerpo a Tierra!:** Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.
+- **¡Cuerpo a Tierra!:** Como una Interacción, el bandido puede tirarse al suelo (estado Derribado).
 
 
 ---
@@ -275,7 +275,7 @@
 - **Fortaleza de No-Muerto:** Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.
 
 ## Acciones
-- **Agarrón Necrótico:** Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.
+- **Agarrón Necrótico:** Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja. Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de Cuerpo o Reflejos contra el Cuerpo del zombi. Si tiene éxito, se libera.
 
 
 ---
@@ -301,7 +301,7 @@
 ## Estadísticas
 - **Salud Máxima:** 10
 - **Esquiva:** 7
-- **Mitigación Física:** 1 (piel dura)
+- **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9
 - **Iniciativa:** 3
@@ -312,6 +312,43 @@
 ## Rasgos
 - **Habilidades con Ventaja:** Percepción, Supervivencia
 - **Carga Imprudente:** Si el jabalí se mueve al menos 5 metros en línea recta hacia un objetivo y lo impacta con una Cornada en el mismo turno, el objetivo sufre 1d6 de daño adicional y debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser Derribado.
+
+
+---
+
+# Guardia
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Un guardia de puesto entrenado para mantener una línea y proteger un paso. Usa la espada o la ballesta según la distancia y se repliega solo si el puesto deja de ser defendible.
+
+
+**Lenguas:** Común
+
+## Atributos
+- **Cuerpo:** 3
+- **Reflejos:** 2
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 1 (Arm. de cuero)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Espada:** +3 para golpear. Daño: 1d4 Cortante
+- **Ballesta Ligera:** +3 para golpear. Daño: 1d6 Perforante (Alcance Media, Recarga (Interacción))
+
+## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Percepción
+- **Posición Firme:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 
 
 ---
@@ -379,7 +416,7 @@
 - **Iniciativa:** 2
 
 ## Ataques
-- **Proyectil Volátil:** +4 para golpear. Daño: 1d8 Fuerza (Alcance Media)
+- **Proyectil Volátil:** +4 para golpear. Daño: 1d6 Fuerza (Alcance Media)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Conocimiento Arcano, Investigación
@@ -408,7 +445,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 10
+- **Salud Máxima:** 7
 - **Esquiva:** 8
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
@@ -421,7 +458,9 @@
 
 ## Rasgos
 - **Habilidades con Ventaja:** Sigilo, Juego de Manos
-- **Golpe Traicionero:** Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
+
+## Interacciones
+- **Escabullirse:** Como Interacción, el ratero puede intentar Esconderse si dispone de cobertura u ocultamiento, o moverse hasta la mitad de su Velocidad sin provocar Reacciones. (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -486,14 +525,14 @@
 
 ## Estadísticas
 - **Salud Máxima:** 10
-- **Esquiva:** 7
+- **Esquiva:** 6
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 8
 - **Iniciativa:** 2
 
 ## Ataques
-- **Látigo de Espinas:** +3 para golpear. Daño: 1d6+1 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)
+- **Látigo de Espinas:** +3 para golpear. Daño: 1d6 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Naturaleza, Trato con Animales
@@ -534,8 +573,168 @@
 
 ## Rasgos
 - **Habilidades con Ventaja:** Pilotaje, Atletismo
-- **Piernas de Barco:** Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra Derribo y desplazamiento forzado.
+- **Piernas de Barco:** Ventaja (+1d4) en Pruebas de Habilidad para mantener el equilibrio, resistir desplazamientos físicos o permanecer en pie sobre superficies inestables.
 
 ## Reacciones
 - **Parada del Marinero:** Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque. (Usos: 4 [Recarga 4+])
+
+
+---
+
+# Kobold
+
+**Linaje:** Dragón
+
+**Rango:** 1
+
+**Comportamiento:** Un explorador cobarde y oportunista que prepara el terreno antes de atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia una ruta preparada. Huirá si pierde la cobertura o queda solo.
+
+
+**Lenguas:** Dracónico, Común (jerga rudimentaria)
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 3
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 7
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 3
+
+## Ataques
+- **Honda de Guijarros:** +3 para golpear. Daño: 1d4+1 Perforante (Alcance Cercana)
+- **Daga de Cantera:** +3 para golpear. Daño: 1d4+1 Cortante
+
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Juego de Manos
+- **Visión en la Oscuridad:** El kobold puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+
+## Interacciones
+- **Polvo de Galería:** Como Interacción, el kobold libera polvo en su espacio y puede intentar Ocultarse inmediatamente. La nube no Ciega ni aplica otro estado. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Estirge
+
+**Linaje:** Monstruosidad
+
+**Rango:** 1
+
+**Comportamiento:** Un parásito de corrientes térmicas que hostiga desde arriba y abandona el combate cuando la presa deja de ser segura. Se abalanza sobre el personaje aislado, evita objetivos protegidos y cambia de presa si recibe daño significativo.
+
+
+**Lenguas:** Ninguna
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 4
+- **Mente:** 0
+- **Instinto:** 2
+- **Presencia:** 0
+
+## Estadísticas
+- **Salud Máxima:** 7
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 12 (Vuela)
+- **Iniciativa:** 4
+
+## Ataques
+- **Aguijón:** +3 para golpear. Daño: 1d4+1 Perforante
+
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Percepción
+- **Vuelo:** La estirge tiene una velocidad de Vuelo de 12 metros.
+
+## Interacciones
+- **Aleteo de Fuga:** Después de impactar con Aguijón, la estirge puede moverse hasta la mitad de su velocidad. Este movimiento no provoca Reacciones. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Armadura Animada
+
+**Linaje:** Constructo
+
+**Rango:** 1
+
+**Comportamiento:** Un guardián autómata sin emociones, programado para proteger una puerta, un sello o un objeto. Se interpone entre la amenaza y su objetivo, no persigue fuera de su umbral y vuelve a su posición si la amenaza se retira.
+
+
+**Lenguas:** Ninguna
+
+## Atributos
+- **Cuerpo:** 4
+- **Reflejos:** 1
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 0
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 6
+- **Mitigación Física:** 1 (Placas de metal)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 7
+- **Iniciativa:** 1
+
+## Ataques
+- **Espada:** +3 para golpear. Daño: 1d6 Cortante
+
+## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Percepción
+- **Inmunidades a Estados:** Envenenado
+
+## Reacciones
+- **Parada de Placas:** Cuando la armadura animada es objetivo de un ataque visible, obtiene +2 a su Esquiva contra ese ataque.
+
+
+---
+
+# Harpía
+
+**Linaje:** Monstruosidad
+
+**Rango:** 1
+
+**Comportamiento:** Depredadora territorial de acantilado. Usa la altura, el viento y la línea de
+visión para hostigar al grupo, separar al rezagado y retirarse si recibe
+demasiada presión. No pelea hasta la muerte por territorio: pelea para echar
+intrusos y proteger su nido.
+
+
+**Lenguas:** Harpía
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 4
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 2
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8 (Vuela 10)
+- **Iniciativa:** 4
+
+## Ataques
+- **Garras:** +3 para golpear. Daño: 1d6+1 Cortante
+
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Percepción
+- **Vuelo:** La harpía puede desplazarse por el aire con una velocidad de Vuelo de 10 metros.
+
+## Interacciones
+- **Canto de Distracción:** Una criatura a distancia Cercana que pueda oírla debe superar una TS de Instinto (ND 8) o sufrir Desventaja en su próximo ataque. (Usos: 3 [Recarga 3+])
 

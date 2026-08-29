@@ -3,11 +3,11 @@ creatures:
     lineage: No-muerto
     tier: 6
     attributes:
-      body: 4
+      body: 3
       reflexes: 5
-      mind: 9
-      instinct: 7
-      presence: 8
+      mind: 12
+      instinct: 8
+      presence: 7
     stats:
       maxHealth: 195
       evasion:
@@ -31,35 +31,44 @@ creatures:
     attacks:
       - name: Descarga Arcana
         bonus: 11
-        damage: 4d8 Fuerza
-        note: Alcance Media. Ataque de energía pura que no requiere recarga.
+        damage: 3d8 Fuerza
+        note: Alcance Media. Ataque de energía arcana pura que no posee Recarga ni usos limitados.
     traits:
       - name: Habilidades con Ventaja
-        detail: Conocimiento Arcano, Historia, Investigación, Religión
+        detail: Conocimiento Arcano, Historia, Investigación, Perspicacia
       - name: Voluntad Antimagia
         detail: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.
       - name: Inmunidades al Daño
-        detail: Veneno, Frío
+        detail: Veneno
+      - name: Resistencias al Daño
+        detail: Necrótico; Contundente, Cortante y Perforante de fuentes no mágicas
       - name: Inmunidades a Estados
         detail: Encantado, Envenenado, Dormido
-      - name: Mente Dividida
-        detail: La mente fragmentada del Liche le permite procesar múltiples amenazas. Tiene 3 Reacciones por ronda de combate en lugar de una.
       - name: Vuelo Arcano
-        detail: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.
+        detail: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su Velocidad terrestre.
       - name: Rejuvenecimiento
-        detail: Si muere, reaparece junto a su filacteria en 1d6 días.
+        detail: Si muere mientras su filacteria permanezca intacta, el Liche vuelve a formarse junto a ella en 1d6 días.
     actions:
       - name: Maestro de la Magia Prohibida
-        detail: El Liche tiene acceso a la lista de conjuros de Arcanista. Puede lanzar conjuros de hasta Nivel 5 como Acción. Debe respetar los tiempos de recarga o usos limitados de cada conjuro individualmente.
+        detail: |
+          El Liche tiene acceso a las listas de conjuros de Mago y Arcanista de Nivel 5 o inferior y puede utilizarlos respetando el recurso indicado por cada conjuro.
+
+          Cuando un conjuro requiera una Tirada de Ataque, utiliza +11. Cuando provoque una Tirada de Salvación, utiliza ND 16.
+
+          Cada conjuro conserva normalmente sus efectos, Recarga, usos limitados y demás requisitos.
     reactions:
       - name: Conjuro de Oportunidad
         detail: |
-          Como Reacción al final del turno de otra criatura, el Liche elige una opción:
-          - Realizar un ataque de Descarga Arcana.
-          - Lanzar un conjuro de Arcanista de Nivel 3 o inferior (debe respetar la recarga).
+          El Liche puede usar su Reacción para elegir una opción:
+          - Realizar un ataque de Descarga Arcana, infligiendo su daño completo.
+          - Utilizar un conjuro de Mago o Arcanista de Nivel 3 o inferior.
+
+          Si el conjuro normalmente requiere una Acción o Interacción, puede utilizarlo al final del turno de otra criatura. Si el conjuro ya posee su propio desencadenante de Reacción, puede utilizarlo cuando ese desencadenante ocurra.
+
+          El conjuro debe estar disponible y conserva normalmente sus efectos, Recarga, usos limitados y demás requisitos.
       - name: Recarga Mental
-        detail: Como Reacción al final del turno de cualquier criatura, el Liche realiza una tirada de recarga (1d8) para intentar recuperar el uso de una habilidad o conjuro agotado.
+        detail: Como Reacción al final del turno de otra criatura, el Liche realiza una tirada de Recarga (1d8) para intentar recuperar el uso de uno de sus conjuros agotados.
     interactions: []
-    behavior: Un archimago no-muerto con un estilo muy táctico. Su estrategia se basa en la economía de acción superior. Flota fuera de alcance, bombardeando con magia de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones para mantener la presión constante lanzando Descargas Arcanas, hechizos rápidos o intentando recuperar sus poderes más letales con Recarga Mental. Su objetivo no es solo ganar, es demostrar su abrumadora superioridad intelectual y mágica en cada instante del combate.
+    behavior: Un archimago no-muerto de siglos de experiencia que adapta constantemente su magia a las amenazas del campo de batalla. Se mantiene fuera del alcance mediante Vuelo Arcano y utiliza su enorme repertorio de conjuros para alternar entre daño, control, defensa y utilidad. Fuera de su turno emplea Conjuro de Oportunidad para mantener la presión, responder con magia defensiva o lanzar Descargas Arcanas, y utiliza Recarga Mental cuando necesita recuperar uno de sus poderes más importantes. Cuando se utiliza como jefe, las Reacciones adicionales adquiridas al construir el encuentro convierten su versatilidad mágica en una economía de acciones extremadamente peligrosa.
     img: null
     size: Mediano

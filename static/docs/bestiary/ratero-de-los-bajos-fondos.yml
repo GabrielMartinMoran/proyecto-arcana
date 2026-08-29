@@ -9,7 +9,7 @@ creatures:
       instinct: 1
       presence: 1
     stats:
-      maxHealth: 10
+      maxHealth: 7
       evasion:
         value: 8
         note: null
@@ -37,11 +37,14 @@ creatures:
     traits:
       - name: Habilidades con Ventaja
         detail: Sigilo, Juego de Manos
-      - name: Golpe Traicionero
-        detail: Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.
     actions: []
     reactions: []
-    interactions: []
+    interactions:
+      - name: Escabullirse
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Interacción, el ratero puede intentar Esconderse si dispone de cobertura u ocultamiento, o moverse hasta la mitad de su Velocidad sin provocar Reacciones.
     behavior: Evita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.
     img: null
     size: Mediano

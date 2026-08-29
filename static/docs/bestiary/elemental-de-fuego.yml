@@ -4,9 +4,9 @@ creatures:
     tier: 3
     attributes:
       body: 2
-      reflexes: 5
+      reflexes: 6
       mind: 1
-      instinct: 3
+      instinct: 5
       presence: 1
     stats:
       maxHealth: 46
@@ -38,8 +38,6 @@ creatures:
         detail: Fuego
       - name: Aura de Fuego
         detail: Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.
-      - name: Forma Ígnea
-        detail: El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
     actions: []
     reactions: []
     interactions: []

@@ -7718,6 +7718,26 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Aboleth",
+      "id": "59b8904a289fa8ddb621ae810fb96a7560f8fcdd",
+      "slug": "aboleth",
+      "aliases": [
+        "aboleth"
+      ],
+      "tags": [],
+      "level": 6,
+      "path": "references/bestiario/rango-6.md",
+      "heading": "Aboleth",
+      "anchor": "aboleth",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Aberración"
+      },
+      "search": "Aberración\nHabilidades con Ventaja: Conocimiento Arcano, Historia, Perspicacia, Percepción\nVisión en la Oscuridad: El aboleth puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.\nResistencias: Psíquico\nMente Insondable: Ventaja (+1d4) en Tiradas de Salvación de Mente.\nLanzas de Memoria: 4d8+8 Psíquico (Alcance Media. El aboleth puede realizar dos ataques de Lanzas de Memoria con su Acción.)\nTentáculo del Abismo: 4d8+8 Contundente (Distancia Inmediata. Se usa como emergencia cuando no puede emplear Lanzas de Memoria.)\nMoldear la Mente: Un objetivo visible a distancia Media debe superar una Tirada de Salvación de Mente (ND 15). Si falla, queda bajo un Mandato durante hasta tres rondas. El aboleth formula una orden simple y no suicida. Al inicio de cada turno del objetivo, este puede repetir la Tirada de Salvación; si tiene éxito, termina el Mandato. Si falla, puede obedecer y usar su Acción para ejecutar la orden o emplear su Acción para repetir la Tirada de Salvación inmediatamente. Cada vez que el aboleth recibe daño, sin importar la fuente, el objetivo puede repetir la Tirada de Salvación de inmediato. Solo una criatura puede estar bajo Mandato a la vez.\nMarea de Recuerdos: El aboleth proyecta una oleada Psíquica en un área de distancia Cercana. Cada criatura dentro debe superar una Tirada de Salvación de Instinto (ND 15). Si falla, recibe 4d8 de daño Psíquico y tiene Desventaja en su próxima tirada; con éxito, recibe la mitad del daño y no sufre la Desventaja.\nContracorriente: Cuando un enemigo termina su movimiento a distancia Inmediata del aboleth, este puede desplazarse a un espacio visible a distancia Cercana. El enemigo debe superar una Tirada de Salvación de Cuerpo (ND 15) o ser desplazado a otro espacio a distancia Inmediata elegido por el aboleth. No inflige daño y solo puede usar esta Reacción una vez por ronda.\nEl arquitecto de una ruina inundada y un depredador mental que prefiere dominar el combate desde lejos. Mantiene la distancia, usa Marea de Recuerdos para dividir la atención y reserva Moldear la Mente para el personaje cuya decisión pueda cambiar el combate. Se acerca solo cuando no tiene otra opción.\n",
+      "hash": "250bc652b350e5ca0bf5ff1eaa20cf55cdc5af83"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Araña Gigante",
       "id": "b9afcf722ef4a217555d11d7491cc068eab4df82",
       "slug": "arana-gigante",
@@ -7738,6 +7758,26 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Armadura Animada",
+      "id": "0d4298097739dcb0135d664a5ab845292f43afea",
+      "slug": "armadura-animada",
+      "aliases": [
+        "armadura animada"
+      ],
+      "tags": [],
+      "level": 1,
+      "path": "references/bestiario/rango-1.md",
+      "heading": "Armadura Animada",
+      "anchor": "armadura-animada",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Constructo"
+      },
+      "search": "Constructo\nHabilidades con Ventaja: Atletismo, Percepción\nInmunidades a Estados: Envenenado\nEspada: 1d6 Cortante\nParada de Placas: Cuando la armadura animada es objetivo de un ataque visible, obtiene +2 a su Esquiva contra ese ataque.\nUn guardián autómata sin emociones, programado para proteger una puerta, un sello o un objeto. Se interpone entre la amenaza y su objetivo, no persigue fuera de su umbral y vuelve a su posición si la amenaza se retira.\n",
+      "hash": "ec6aa24b4e3a3d4364aa5f48f033d898aa483e12"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Bandido",
       "id": "3b181cf1eb83cc1cc89cfd71644965c3036707a7",
       "slug": "bandido",
@@ -7753,8 +7793,8 @@
       "structured": {
         "lineage": "Humanoide"
       },
-      "search": "Humanoide\nHabilidades con Ventaja: Intimidación, Sigilo\nEspada corta: 1d6 Cortante\nBallesta Ligera: 1d6 Perforante (Alcance Largo, Recarga (Interacción))\n¡Cuerpo a Tierra!: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.\nUn matón pragmático que lucha por dinero, no por gloria. Analiza el campo de batalla en busca del objetivo más rentable (el que lleva mejor equipo) o el menos defendido. No dudará en usar a un compañero como escudo humano o en pedir clemencia si el combate se vuelve en su contra.\n",
-      "hash": "becd542badfd64f9a2d385ec4c93b257d8be0d7c"
+      "search": "Humanoide\nHabilidades con Ventaja: Intimidación, Sigilo\nEspada corta: 1d6 Cortante\nBallesta Ligera: 1d6 Perforante (Alcance Largo, Recarga (Interacción))\n¡Cuerpo a Tierra!: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado).\nUn matón pragmático que lucha por dinero, no por gloria. Analiza el campo de batalla en busca del objetivo más rentable (el que lleva mejor equipo) o el menos defendido. No dudará en usar a un compañero como escudo humano o en pedir clemencia si el combate se vuelve en su contra.\n",
+      "hash": "87405b9faa998761b9b4a9fda692779238898d36"
     },
     {
       "kind": "creature",
@@ -7775,6 +7815,46 @@
       },
       "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Sigilo, Supervivencia\nAura Petrificante: Cualquier criatura que comience su turno a distancia Inmediata del basilisco siente cómo sus músculos se endurecen. Su velocidad de movimiento se reduce a la mitad hasta el inicio de su próximo turno.\nMordisco: 3d12 Perforante\nMirada Petrificadora: El basilisco fija su mirada en una criatura a distancia Cercana que pueda verlo. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 13). Si falla por 4 puntos o menos, queda Inmovilizado (comienza a convertirse en piedra). Si falla por 5 puntos o más, queda Petrificado instantáneamente. Una criatura Inmovilizada por este efecto debe repetir la Tirada de Salvación al final de cada uno de sus turnos; si vuelve a fallar, queda Petrificada.\nUna criatura lenta y territorial cuya principal arma es la pereza y el terror. No caza activamente; simplemente existe, y su Mirada Petrificadora es una defensa tan perfecta que rara vez necesita moverse. Fijará su mirada en el grupo, forzándolos a desviar la vista o arriesgarse a convertirse en piedra. Solo recurrirá a su mordisco si un enemigo es lo suficientemente valiente o estúpido como para entrar en su espacio personal.\n",
       "hash": "26ec34eab9880a4837caadafb61d6fc0ccc5c24a"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Bulette",
+      "id": "38efbb38db88e7e20da332df7e7d8b1be8c86473",
+      "slug": "bulette",
+      "aliases": [
+        "bulette"
+      ],
+      "tags": [],
+      "level": 3,
+      "path": "references/bestiario/rango-3.md",
+      "heading": "Bulette",
+      "anchor": "bulette",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Atletismo\nPercepción Sísmica: Mientras está bajo tierra, la bulette percibe criaturas y movimiento a través del suelo a distancia Cercana. Esto no reemplaza la visión fuera del suelo.\nResistencias: Contundente, Cortante y Perforante de fuentes no mágicas\nMordida Destructora: 3d6+2 Perforante\nEmboscada Subterránea: Como Interacción, la bulette entra bajo tierra desde un terreno razonablemente excavable. Hasta el inicio de su próximo turno no puede ser objetivo directo y puede desplazarse usando su velocidad de excavar. Una Prueba de Percepción (ND 10) permite detectar sus vibraciones y estimar su trayectoria. Al inicio de su siguiente turno, la bulette emerge en un punto válido. Las criaturas a distancia Inmediata del punto de salida deben superar una Tirada de Salvación de Reflejos (ND 10) o quedar Derribadas.\nUn depredador sísmico que convierte el suelo en una segunda línea de aproximación. Marca un territorio, embosca desde ángulos alternos y abandona el área si las vibraciones o el fuego la vuelven insegura.\n",
+      "hash": "55c719c26792c9ab6230eee272bd8fa20c54530a"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Cambiaformas",
+      "id": "c6d31a0cc569667a2b30e78e4e034e52aa5ecf47",
+      "slug": "cambiaformas",
+      "aliases": [
+        "cambiaformas"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Cambiaformas",
+      "anchor": "cambiaformas",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Aberración"
+      },
+      "search": "Aberración\nHabilidades con Ventaja: Engaño, Perspicacia\nAsalto Múltiple: El cambiaformas puede realizar un ataque de Extremidad Cortante y un ataque de Extremidad Perforante con su Acción.\nCuerpo Simulante: El cambiaformas puede adoptar la apariencia visual de una criatura de su tamaño que haya observado, incluyendo ropa, armadura, armas, herramientas y texturas. La copia no concede estadísticas, propiedades, peso, recuerdos, voz, habilidades ni efectos mágicos. Cualquier objeto que suelte es un fragmento inerte de su cuerpo: no puede usarse como equipo y puede reabsorberlo como Interacción si está a distancia Inmediata.\nExtremidad Cortante: 1d4+1 Cortante (Una de sus extremidades toma la forma de una hoja afilada.)\nExtremidad Perforante: 1d6 Perforante (Una de sus extremidades toma la forma de una punta aguda.)\nReabsorber Fragmento: Como Interacción, el cambiaformas reabsorbe un fragmento de su cuerpo que esté a distancia Inmediata. El fragmento no puede actuar ni generar efectos propios.\nUn infiltrador aberrante que estudia a sus víctimas antes de adoptar su aspecto. Se mezcla con el grupo, deja que sus copias confundan la escena y ataca con extremidades convertidas en armas.\n",
+      "hash": "07b4ac0c7cfe969e92b00be56eb01b2de00259db"
     },
     {
       "kind": "creature",
@@ -7853,8 +7933,48 @@
       "structured": {
         "lineage": "Gigante"
       },
-      "search": "Gigante\nHabilidades con Ventaja: Fuerza Bruta, Atletismo, Intimidación\nMole Inamovible: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nAsalto Múltiple (Solo Garrote): El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o uno de Arrojar Roca y uno de Gran Garrote.\nVisión Deficiente: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista. Además, no puede realizar ataques como Reacción.\nGran Garrote: 4d10 Contundente\nArrojar Roca: 4d10 Contundente (Alcance Largo)\nUn gigante solitario de mal genio y escasa percepción. Su único ojo lo hace fijarse en un solo objetivo, al que intentará pulverizar con su garrote o aplastar con una roca. Su pobre percepción de la profundidad y su visión periférica lo hacen vulnerable a enemigos rápidos y a ataques coordinados desde múltiples flancos.\n",
-      "hash": "eff2edc1958dcfe3005a94c65fbb50494f97bcb9"
+      "search": "Gigante\nHabilidades con Ventaja: Fuerza Bruta, Atletismo, Intimidación\nMole Inamovible: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nAsalto Múltiple (Solo Garrote): El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o uno de Arrojar Roca y uno de Gran Garrote.\nVisión Deficiente: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista.\nGran Garrote: 4d10 Contundente\nArrojar Roca: 4d10 Contundente (Alcance Largo)\nUn gigante solitario de mal genio y escasa percepción. Su único ojo lo hace fijarse en un solo objetivo, al que intentará pulverizar con su garrote o aplastar con una roca. Su pobre percepción de la profundidad y su visión periférica lo hacen vulnerable a enemigos rápidos y a ataques coordinados desde múltiples flancos.\n",
+      "hash": "ec9d04edd2fc8dd62094a2ce0caca60023588747"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Contemplador",
+      "id": "0bd3fdd7cbdd14c3bd771456623fe0eb993e689a",
+      "slug": "contemplador",
+      "aliases": [
+        "contemplador"
+      ],
+      "tags": [],
+      "level": 6,
+      "path": "references/bestiario/rango-6.md",
+      "heading": "Contemplador",
+      "anchor": "contemplador",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Aberración"
+      },
+      "search": "Aberración\nHabilidades con Ventaja: Conocimiento Arcano, Historia, Investigación, Percepción\nVisión en la Oscuridad: El contemplador puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.\nLevitación: El contemplador vuela mediante levitación a una velocidad igual a su Velocidad y puede permanecer suspendido en el aire sin necesidad de apoyarse sobre una superficie.\nMordida: 4d8 Perforante (El contemplador utiliza su Mordida cuando un enemigo se encuentra a distancia Inmediata.)\nRayo de Fascinación: El primer ojo menor se abre con un brillo hipnótico. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Mente (ND 14). Si falla, queda Encantada respecto al contemplador hasta el inicio del siguiente turno del contemplador.\nRayo Vectorial: El segundo ojo menor distorsiona violentamente el espacio. Una criatura u objeto visible de tamaño Grande o menor a distancia Media debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, el contemplador mueve el objetivo hasta 6 metros a un espacio visible. Si termina contra una superficie sólida o criatura, recibe 2d6 de daño Contundente.\nRayo de Lentitud: El tercer ojo menor proyecta una luz viscosa que parece frenar el tiempo. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, su Movimiento se reduce a la mitad y no puede realizar Reacciones hasta el inicio del siguiente turno del contemplador.\nRayo de Pavor: El cuarto ojo menor refleja los peores temores de su presa. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Instinto (ND 14). Si falla, queda Asustada hasta el inicio del siguiente turno del contemplador.\nRayo de Drenaje: El quinto ojo menor absorbe el vigor vital en una corriente oscura. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, recibe 3d8 de daño Necrótico; con éxito, recibe la mitad.\nRayo de Anclaje: El sexto ojo menor fija a la víctima en el espacio como si estuviera clavada al mundo. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, queda Inmovilizada hasta el inicio del siguiente turno del contemplador.\nRayo de Letargo: El séptimo ojo menor emite un pulso opaco que apaga la consciencia. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Mente (ND 14). Si falla, queda Dormida hasta el inicio del siguiente turno del contemplador o hasta recibir daño.\nRayo de Calcificación: El octavo ojo menor cubre a la presa con vetas pétreas que avanzan sobre su cuerpo. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, queda Inmovilizada y comienza a convertirse en piedra. Al final de su siguiente turno debe repetir la Tirada de Salvación. Si vuelve a fallar, queda Petrificada; si tiene éxito, termina el efecto.\nRayo de Disolución: El noveno ojo menor dispara un haz blanco que deshace materia y magia por igual. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, recibe 6d8 de daño de Fuerza; con éxito, recibe la mitad.\nRayo de Extinción: El décimo ojo menor se contrae hasta volverse un punto negro antes de liberar un rayo mortal. Una criatura visible a distancia Media debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, recibe 8d10 de daño Necrótico; con éxito, recibe la mitad. Si sus Puntos de Salud llegan a 0, queda Moribunda de forma normal.\nRespuesta Ocular: Al final del turno de otra criatura, el contemplador puede usar su Reacción para utilizar Rayo de Fascinación, Rayo Vectorial, Rayo de Lentitud, Rayo de Pavor o Rayo de Drenaje, siempre que el rayo elegido esté disponible. Utilizarlo agota normalmente ese rayo.\nCampo Antimágico: Como Interacción, el ojo central proyecta un cono de 10 metros hasta el inicio del siguiente turno del contemplador. Elige la orientación del cono al activarlo. Toda magia dentro del área queda suprimida, incluidos los propios rayos del contemplador si atraviesan o afectan un punto dentro del cono. El campo no disipa los efectos mágicos; simplemente dejan de funcionar mientras permanezcan dentro del área. El propio Campo Antimágico no se suprime a sí mismo.\nCorte de Distancia: Como Interacción, el ojo central parpadea y pliega momentáneamente el espacio alrededor del contemplador. El contemplador se teletransporta a un espacio desocupado que pueda ver a distancia Media.\nUna aberración calculadora que contempla el campo de batalla desde el aire\ny utiliza cada uno de sus ojos para resolver un problema diferente.\n\nMantiene el Campo Antimágico orientado hacia los principales lanzadores de\nconjuros, procurando dejar libres otros ángulos desde los que utilizar sus\nrayos. En su turno elige el rayo que mejor explote la situación: separa\nenemigos con Vector, neutraliza amenazas mediante control o utiliza sus\nrayos destructivos cuando necesita concentrar daño.\n\nFuera de su turno utiliza Respuesta Ocular para mantener presión sobre el\ngrupo. Cuando se utiliza como jefe con Reacciones adicionales, puede\nsacrificar alguna de esas oportunidades para reposicionarse mediante las\nReacciones de Jefe generales.\n",
+      "hash": "555af3846d5ff6685c51f9ecdbcb3940a60873d1"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Cubo Gelatinoso",
+      "id": "a529ccdf3da03b9689c4dfd3a6edabb90d445246",
+      "slug": "cubo-gelatinoso",
+      "aliases": [
+        "cubo gelatinoso"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Cubo Gelatinoso",
+      "anchor": "cubo-gelatinoso",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Limo"
+      },
+      "search": "Limo\nHabilidades con Ventaja: Sigilo, Percepción\nResistencias: Contundente, Cortante y Perforante de fuentes no mágicas\nEngullir: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 9). Si falla, queda dentro del Cubo y este se mueve hasta su espacio. El Cubo solo puede contener una criatura. Al inicio de cada uno de sus turnos, la criatura recibe 2d6 de daño Ácido sin salvación. Al final de cada uno de sus turnos, puede repetir la Tirada de Salvación usando Cuerpo (ND 9); si tiene éxito, sale del Cubo y aparece en un espacio adyacente.\nUna masa translúcida que limpia corredores de ruinas sin distinguir entre basura y aventureros. Se coloca en rutas inevitables, espera a que alguien cruce su espacio y prioriza aislar a una persona sin bloquear todas las salidas.\n",
+      "hash": "8d675f7881ad7b874c57c9ed4c73e111c0d9438e"
     },
     {
       "kind": "creature",
@@ -7878,23 +7998,43 @@
     },
     {
       "kind": "creature",
-      "canonicalName": "Dragón Rojo Adulto",
-      "id": "cf74989f8f50e535a7b789218f80770b4743db49",
-      "slug": "dragon-rojo-adulto",
+      "canonicalName": "Dragón Adulto",
+      "id": "e42ee851f550d79e57551020b6d6a8ad396c921e",
+      "slug": "dragon-adulto",
       "aliases": [
-        "dragon rojo adulto"
+        "dragon adulto"
       ],
       "tags": [],
-      "level": 6,
-      "path": "references/bestiario/rango-6.md",
-      "heading": "Dragón Rojo Adulto",
-      "anchor": "dragón-rojo-adulto",
+      "level": 5,
+      "path": "references/bestiario/rango-5.md",
+      "heading": "Dragón Adulto",
+      "anchor": "dragón-adulto",
       "source": "bestiary.yml",
       "structured": {
         "lineage": "Dragón"
       },
-      "search": "Dragón\nHabilidades con Ventaja: Intimidación, Percepción, Perspicacia, Historia\nFortaleza Dracónica: Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.\nInmunidades al Daño: Fuego\nAsalto Múltiple (1 Mordisco, 2 Garras): El dragón puede realizar un ataque de Mordisco y dos ataques de Garras con su Acción.\nVuelo: El dragón tiene una velocidad de Vuelo de 15 metros.\nMordisco: 4d10 Perforante\nGarras: 3d8 Cortante\nAliento de Fuego: El dragón exhala un cono de fuego de 15 metros. Toda criatura en el área debe superar una Tirada de Salvación de Reflejos (ND 16). Si falla, recibe 10d6 de daño de Fuego (35 Dmg AoE); si tiene éxito, recibe la mitad.\nPresencia Aterradora: El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1 minuto (Desventaja en todo). El objetivo puede repetir la Tirada de Salvación al final de cada uno de sus turnos. El estado Asustado termina para ese objetivo cuando supera la tirada.\nColetazo: Como Reacción cuando un enemigo termina su movimiento adyacente, el dragón golpea con la cola. TS Cuerpo (ND 16) o 2d8 Contundente y Derribado.\nUn ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar las amenazas, desatando su Aliento de Fuego sobre el grupo más concentrado. Aterrizará solo para eliminar a supervivientes heridos, usando su Asalto Múltiple para abrumar. Su Presencia Aterradora rompe la coordinación del grupo al inicio.",
-      "hash": "c954bfa2c0dc339de990acb5e787a383ced1cc6e"
+      "search": "Dragón\nHabilidades con Ventaja: Atletismo, Intimidación, Percepción, Perspicacia\nAfinidad Dracónica: El Dragón posee una afinidad determinada por su color, que define el tipo de daño de su Aliento y el daño al que es inmune:\n- Rojo: Fuego. Aliento en cono.\n- Azul: Eléctrico. Aliento en línea.\n- Verde: Veneno. Aliento en cono.\n- Negro: Ácido. Aliento en línea.\n- Blanco: Frío. Aliento en cono.\n\nInmunidad al Daño: El Dragón es inmune al tipo de daño indicado por su Afinidad Dracónica.\nVoluntad Dracónica: El Dragón obtiene Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarlo Encantado.\nVuelo Dracónico: El Dragón posee una velocidad de Vuelo de 16 metros y puede mantenerse en el aire mientras tenga espacio suficiente para maniobrar.\nMordida: 3d10 Perforante (Alcance Inmediata.)\nGarra: 3d10 Cortante (Alcance Inmediata.)\nAsalto Dracónico: El Dragón realiza un ataque de Mordida y dos ataques de Garra.\nAliento Dracónico: El Dragón exhala energía correspondiente a su Afinidad Dracónica.\n\nLas criaturas afectadas deben superar una Tirada de Salvación de Reflejos (ND 14). Si fallan, reciben 10d6 de daño del tipo correspondiente; con éxito, reciben la mitad.\n\nSi su Afinidad utiliza un cono, afecta un cono de 8 metros. Si utiliza una línea, afecta una línea de 12 metros de largo y 2 metros de ancho.\n\nPresencia Aterradora: El Dragón despliega toda la magnitud de su presencia. Cada enemigo a distancia Cercana que pueda verlo u oírlo debe superar una Tirada de Salvación de Instinto (ND 14).\n\nSi falla, queda Asustado durante 1 minuto. Al final de cada uno de sus turnos puede repetir la Tirada de Salvación, terminando el efecto sobre sí mismo si tiene éxito.\n\nUna criatura que supere cualquiera de estas Tiradas de Salvación no puede volver a ser afectada por la Presencia Aterradora de ese Dragón durante 24 horas.\n\nBatir Alas: Cuando una criatura termine su turno a distancia Inmediata del Dragón, este puede usar su Reacción para batir violentamente sus alas.\n\nLa criatura debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, queda Derribada y es empujada 3 metros.\n\nDespués, el Dragón puede moverse hasta 3 metros volando sin provocar Reacciones por este movimiento.\n\nUn depredador ancestral, inteligente y brutalmente poderoso. Combina ataques físicos devastadores con superioridad aérea y utiliza su Aliento cuando puede alcanzar a varios enemigos a la vez.\n\nEn su turno alterna entre Asalto Dracónico, Aliento Dracónico y Presencia Aterradora según la situación. Prefiere utilizar el miedo al inicio del combate o cuando necesita recuperar el control del campo, mientras reserva el Aliento para grupos bien posicionados.\n\nUtiliza Batir Alas para apartar enemigos que logren rodearlo y recuperar una posición favorable.\n\nCuando se utiliza como jefe con Reacciones adicionales, aprovecha Reposicionarse para dominar el espacio aéreo y Ataque Rápido para realizar Mordidas o Garras individuales entre los turnos enemigos.\n",
+      "hash": "874b89899a5e486d660cbf4915428221d734e7bd"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Dríada",
+      "id": "29dc4e4b718d34eb17011f7b967d83c483924d80",
+      "slug": "driada",
+      "aliases": [
+        "driada"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Dríada",
+      "anchor": "dríada",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Feérico"
+      },
+      "search": "Feérico\nHabilidades con Ventaja: Naturaleza, Persuasión\nNaturaleza Antimága: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.\nMente Feérica: Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarla Encantada.\nLanza de Espinas: 1d8+1 Perforante\nPrisión de Raíces: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 9). Si falla, queda Inmovilizada. Al final de cada uno de sus turnos puede repetir la Tirada de Salvación usando Reflejos o Cuerpo; si tiene éxito, se libera. Para mantener este efecto activo, la Driada debe mantener la Concentración (salva con Presencia).\nPaso Arbóreo: Cuando un enemigo entra a distancia Inmediata, la Dríada puede moverse hasta la mitad de su velocidad por terreno natural sin provocar Reacciones.\nLa custodia feérica de un pacto territorial. Protege el árbol, santuario o frontera que se le confió, separa al intruso del lugar y abandona la violencia si el pacto vuelve a respetarse.\n",
+      "hash": "708b6aa459fdb03fe7a5a8af729b46c3076c8a5c"
     },
     {
       "kind": "creature",
@@ -7933,8 +8073,8 @@
       "structured": {
         "lineage": "Elemental"
       },
-      "search": "Elemental\nHabilidades con Ventaja: Acrobacias, Sigilo, Percepción\nForma Gaseosa: El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.\nVuelo: El elemental tiene una velocidad de Vuelo de 12 metros.\nRáfaga de Viento: 2d6 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.)\nVórtice de Viento: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.\nUna tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta de su superioridad, empujando y derribando a sus enemigos desde una distancia segura. No aterrizará a menos que se vea forzado.\n",
-      "hash": "22c9a2a5a627b3a8acf455008301df63ce0e7da3"
+      "search": "Elemental\nHabilidades con Ventaja: Acrobacias, Sigilo, Percepción\nForma Gaseosa: El elemental puede pasar por aberturas amplias sin dificultad.\nVuelo: El elemental tiene una velocidad de Vuelo de 12 metros.\nViento Esquivo: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nRáfaga de Viento: 4d6 Contundente (Alcance Cercana. Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 3 metros hacia atrás en línea recta.)\nVórtice de Viento: Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 2 metros hacia atrás.\nUna tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta de su superioridad, empujando y derribando a sus enemigos desde una distancia segura. No aterrizará a menos que se vea forzado.\n",
+      "hash": "a8f83de2bc35a9217af7b18fa43144433b3d04f5"
     },
     {
       "kind": "creature",
@@ -7953,8 +8093,8 @@
       "structured": {
         "lineage": "Elemental"
       },
-      "search": "Elemental\nHabilidades con Ventaja: Acrobacias, Intimidación, Percepción\nReflejos Ígneos: Ventaja (+1d4) en Tiradas de Salvación de Reflejos.\nInmunidades al Daño: Fuego\nAura de Fuego: Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.\nForma Ígnea: El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.\nToque Ardiente: 3d6 Fuego\nEl caos y la destrucción encarnados. Se mueve de forma errática y constante, buscando consumir todo lo que pueda arder. Su objetivo no es matar a un enemigo, sino prender fuego a tantos como sea posible, convirtiendo el campo de batalla en una pira.\n",
-      "hash": "56ed876ad28bb91c1d9b8a932fea4df0ef84a0f6"
+      "search": "Elemental\nHabilidades con Ventaja: Acrobacias, Intimidación, Percepción\nReflejos Ígneos: Ventaja (+1d4) en Tiradas de Salvación de Reflejos.\nInmunidades al Daño: Fuego\nAura de Fuego: Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.\nToque Ardiente: 3d6 Fuego\nEl caos y la destrucción encarnados. Se mueve de forma errática y constante, buscando consumir todo lo que pueda arder. Su objetivo no es matar a un enemigo, sino prender fuego a tantos como sea posible, convirtiendo el campo de batalla en una pira.\n",
+      "hash": "7b724e0edb841b5793d0b36d1c8d51cca5f03890"
     },
     {
       "kind": "creature",
@@ -7973,8 +8113,28 @@
       "structured": {
         "lineage": "Elemental"
       },
-      "search": "Elemental\nHabilidades con Ventaja: Fuerza Bruta, Atletismo, Percepción\nEstabilidad Pétrea: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nInmunidades a Estados: Envenenado\nDeslizarse por la Tierra: El elemental puede moverse a través de piedra y tierra no trabajada como si fuera terreno normal.\nGolpe Sísmico: 1d10+3 Contundente\nPisotón Sísmico: El elemental golpea el suelo. Toda criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y recibir 2d6 daño Contundente.\nLa personificación de la fuerza implacable. Lento, directo e indestructible. Avanza en línea recta, aplastando todo a su paso. No se reposiciona ni esquiva; simplemente soporta los golpes y devuelve un castigo sísmico.\n",
-      "hash": "0c1d6d2f491bb6dcc9e1b8ea468a0894a407d0c1"
+      "search": "Elemental\nHabilidades con Ventaja: Fuerza Bruta, Atletismo, Percepción\nEstabilidad Pétrea: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nInmunidades a Estados: Envenenado\nDeslizarse por la Tierra: El elemental puede moverse a través de piedra y tierra no trabajada como si fuera terreno normal.\nGolpe Sísmico: 1d10+3 Contundente\nPisotón Sísmico: El elemental golpea el suelo. Toda criatura en un radio de 2 metros centrado en el elemental debe superar una Tirada de Salvación de Reflejos (ND 11) o quedar Derribada y recibir 2d6 de daño Contundente.\nLa personificación de la fuerza implacable. Lento, directo e indestructible. Avanza en línea recta, aplastando todo a su paso. No se reposiciona ni esquiva; simplemente soporta los golpes y devuelve un castigo sísmico.\n",
+      "hash": "6a5bf96284cfb9a323ca21ec4ea5393fc9fec0b6"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Ent",
+      "id": "6496b10bea699969141c25a5a72fc4e4acf877e0",
+      "slug": "ent",
+      "aliases": [
+        "ent"
+      ],
+      "tags": [],
+      "level": 4,
+      "path": "references/bestiario/rango-4.md",
+      "heading": "Ent",
+      "anchor": "ent",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Planta"
+      },
+      "search": "Planta\nHabilidades con Ventaja: Naturaleza, Percepción, Supervivencia\nPuño de Corteza: 4d10+3 Contundente\nLatigazo de Raíces: 3d8+3 Contundente (Como Acción alternativa, afecta un cono de distancia Inmediata. Cada objetivo debe superar una Tirada de Salvación de Reflejos (ND 12) o recibir el daño completo; con éxito, recibe la mitad. No puede usar Puño de Corteza en la misma Acción.)\nLa Arboleda se Alza: El ent despierta raíces en un área de distancia Cercana centrada en un punto visible a distancia Media. Las criaturas dentro deben superar una Tirada de Salvación de Reflejos (ND 12). Si fallan, quedan Inmovilizadas hasta el final del siguiente turno del ent. Cada criatura que haya quedado Inmovilizada puede repetir la Tirada de Salvación al final de su propio turno. Las raíces son visibles y el área siempre deja al menos una ruta razonable de salida.\nCorteza Reactiva: Cuando una criatura inflige daño al ent con un ataque cuerpo a cuerpo, esa criatura debe superar una Tirada de Salvación de Cuerpo (ND 12) o quedar Derribada. Solo puede usar esta Reacción una vez por ronda.\nUna frontera forestal móvil que reconfigura objetivos, rutas y cobertura. Expulsa, separa y bloquea accesos antes de buscar matar. Si el objetivo del grupo no amenaza al bosque, prefiere negociar.\n",
+      "hash": "55bdba278b9a1a1c14d9a5d3921dbed8d6ef3f56"
     },
     {
       "kind": "creature",
@@ -7993,8 +8153,8 @@
       "structured": {
         "lineage": "No-muerto"
       },
-      "search": "No-muerto\nHabilidades con Ventaja: Sigilo, Intimidación, Percepción\nResistencias: Contundente, Cortante y Perforante de fuentes no mágicas\nInmunidades a Estados: Envenenado\nVisión Verdadera: El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.\nMovimiento Incorpóreo: El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.\nToque Gélido: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)\nMirada Aterradora: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque).\nUna entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Toque Gélido para prolongar su macabra existencia.\n",
-      "hash": "5d93abb841b68667f94402c302c5beafd598a9c6"
+      "search": "No-muerto\nHabilidades con Ventaja: Sigilo, Intimidación, Percepción\nResistencias: Contundente, Cortante y Perforante de fuentes no mágicas\nInmunidades a Estados: Envenenado\nVisión en la Oscuridad: El espectro puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra. Esta capacidad no le permite detectar criaturas invisibles.\nMovimiento Incorpóreo: El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.\nToque Gélido: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)\nMirada Aterradora: El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 10) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque).\nUna entidad de tormento y frío, consumida por el odio. Flota a través de obstáculos para aislar a la presa más vulnerable (a menudo la que tiene menor Instinto). Usa Mirada Aterradora para paralizar al más resuelto y luego se ceba en él, usando Toque Gélido para prolongar su macabra existencia.\n",
+      "hash": "4b7122ef89a589c5e54ca75dd8df99605d61a089"
     },
     {
       "kind": "creature",
@@ -8018,6 +8178,66 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Estirge",
+      "id": "23c5961ccdad886b5128f249982f3e980efcb8a0",
+      "slug": "estirge",
+      "aliases": [
+        "estirge"
+      ],
+      "tags": [],
+      "level": 1,
+      "path": "references/bestiario/rango-1.md",
+      "heading": "Estirge",
+      "anchor": "estirge",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Sigilo, Percepción\nVuelo: La estirge tiene una velocidad de Vuelo de 12 metros.\nAguijón: 1d4+1 Perforante\nAleteo de Fuga: Después de impactar con Aguijón, la estirge puede moverse hasta la mitad de su velocidad. Este movimiento no provoca Reacciones.\nUn parásito de corrientes térmicas que hostiga desde arriba y abandona el combate cuando la presa deja de ser segura. Se abalanza sobre el personaje aislado, evita objetivos protegidos y cambia de presa si recibe daño significativo.\n",
+      "hash": "7feb4c7debb6a1ff63eba83eb271a0569c49e52a"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Fantasma",
+      "id": "80e9a56c5bf5054093a3e24612454f3ca86b100a",
+      "slug": "fantasma",
+      "aliases": [
+        "fantasma"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Fantasma",
+      "anchor": "fantasma",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "No-muerto"
+      },
+      "search": "No-muerto\nHabilidades con Ventaja: Perspicacia, Sigilo\nVisión en la Oscuridad: El fantasma puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nInmunidades a Estados: Envenenado\nToque Mortífero: 1d8+1 Necrótico\nLamento de los Ausentes: Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 10). Si falla, recibe 1d6 de daño Psíquico y tiene Desventaja en su próximo ataque antes del final de su siguiente turno. Si tiene éxito, recibe la mitad del daño y no sufre la Desventaja.\nDesfase del Umbral: El fantasma atraviesa una barrera sólida y aparece en un espacio visible a distancia Cercana. No puede terminar dentro de un objeto.\nUna entidad de un recuerdo incompleto que interrumpe la sincronización del grupo. Repite una escena del pasado, aparece para separar a los personajes y desaparece antes de quedar rodeado.\n",
+      "hash": "61da71573b965f5651c8265930752f1b23f83861"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Fuego Fatuo",
+      "id": "187415dbc6fc7ead7c625f75f735d3f543ae3bbf",
+      "slug": "fuego-fatuo",
+      "aliases": [
+        "fuego fatuo"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Fuego Fatuo",
+      "anchor": "fuego-fatuo",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "No-muerto"
+      },
+      "search": "No-muerto\nHabilidades con Ventaja: Sigilo, Percepción\nVisión en la Oscuridad: El fuego fatuo puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nResistencias: Contundente, Cortante y Perforante de fuentes no mágicas\nInmunidades a Estados: Envenenado\nFlotar entre los Juncos: El fuego fatuo puede desplazarse por el aire sin volverse invisible ni teletransportarse.\nDrenaje Umbrío: 1d8+1 Necrótico\nFarol Falso: Una criatura a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 9) o tener Desventaja en su próximo ataque.\nUn falso faro que atrae a los viajeros hacia rutas contradictorias. Se mantiene fuera del alcance inmediato, atrae a la persona más curiosa y huye cuando pierde la oscuridad o la cobertura.\n",
+      "hash": "b05d0c2b409e92187c21feedb16d27eab8aeab15"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Ghoul",
       "id": "24caf6ba794c69c76fd283b31242cb594a1d194e",
       "slug": "ghoul",
@@ -8035,6 +8255,26 @@
       },
       "search": "No-muerto\nHabilidades con Ventaja: Sigilo, Percepción\nInmunidades a Estados: Envenenado\nFrenesí Necrófago: El ghoul tiene Ventaja en sus tiradas de ataque contra cualquier criatura que esté Inmovilizada o Moribunda.\nGarras Paralizantes: 1d6+2 Cortante (Si impacta, el objetivo debe superar una TS de Cuerpo (ND 10) o quedar Inmovilizado hasta el final del próximo turno del ghoul.)\nUn depredador de cementerios movido por un hambre insaciable de carne viva. Caza en manadas, usando su agilidad para emboscar. Su objetivo no es matar de inmediato, sino paralizar a su presa con sus garras para poder devorarla sin que oponga resistencia. Se enfoca en el enemigo más lento o menos acorazado.\n",
       "hash": "ec4f6fa66aca4dbfeb8d525bc759a72500a38a40"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Gigante de Fuego",
+      "id": "29afa27258cbed90e1be16a8a9d1c07a5807bf17",
+      "slug": "gigante-de-fuego",
+      "aliases": [
+        "gigante de fuego"
+      ],
+      "tags": [],
+      "level": 5,
+      "path": "references/bestiario/rango-5.md",
+      "heading": "Gigante de Fuego",
+      "anchor": "gigante-de-fuego",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Gigante"
+      },
+      "search": "Gigante\nHabilidades con Ventaja: Atletismo, Aguante, Intimidación, Percepción\nVisión en la Oscuridad: El gigante de fuego puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nInmunidades al Daño: Fuego\nMartillo de Escoria: 2d8+4 Contundente + 1d8 Fuego (El gigante puede realizar dos ataques de Martillo de Escoria con su Acción.)\nGolpe Magmático: El gigante golpea el suelo y abre una línea recta de distancia Cercana. Cada criatura en la línea debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, recibe 4d8+4 de daño Fuego; con éxito, recibe la mitad. La línea se anuncia antes de resolver el efecto.\nCastigo Flamígero: Cuando un enemigo termina su movimiento a distancia Inmediata del gigante, este puede realizar un ataque reducido de Martillo de Escoria contra él: +9 para golpear, 1d8+4 de daño Contundente + 1d4 de daño Fuego. Solo puede usar esta Reacción una vez por ronda.\nUn maestro de asedio que trata el escenario como una forja. Prioriza objetivos, cobertura y puertas, usa el terreno para dividir al grupo y solo persigue cuando la ruta de retirada está asegurada.\n",
+      "hash": "0b3e41900dc3059e1f749e4c4540a87874aaccfb"
     },
     {
       "kind": "creature",
@@ -8085,16 +8325,36 @@
         "guardia"
       ],
       "tags": [],
-      "level": 2,
-      "path": "references/bestiario/rango-2.md",
+      "level": 1,
+      "path": "references/bestiario/rango-1.md",
       "heading": "Guardia",
       "anchor": "guardia",
       "source": "bestiary.yml",
       "structured": {
         "lineage": "Humanoide"
       },
-      "search": "Humanoide\nHabilidades con Ventaja: Percepción, Perspicacia\nPosición Firme: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nEspada Larga: 1d6 Cortante\nGolpe de Escudo: 1d4 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 10) o ser empujado 1 metro hacia atrás.)\nUn profesional entrenado. Su objetivo es mantener el orden y proteger a los inocentes. Lucha de forma defensiva, utilizando tácticas de \"muro de escudos\" con sus compañeros. Intentará subyugar y arrestar a las amenazas, recurriendo a la fuerza letal solo como último recurso.\n",
-      "hash": "7b2b5122de21570b107c9c885557ffe5d90a8736"
+      "search": "Humanoide\nHabilidades con Ventaja: Atletismo, Percepción\nPosición Firme: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nEspada: 1d4 Cortante\nBallesta Ligera: 1d6 Perforante (Alcance Media, Recarga (Interacción))\nUn guardia de puesto entrenado para mantener una línea y proteger un paso. Usa la espada o la ballesta según la distancia y se repliega solo si el puesto deja de ser defendible.\n",
+      "hash": "1dcaa9144d8e974692e9c6b74dd9dced352aaac6"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Guerrero Gnoll",
+      "id": "3f1c703a71848f8482eff37399c3be759d16d284",
+      "slug": "guerrero-gnoll",
+      "aliases": [
+        "guerrero gnoll"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Guerrero Gnoll",
+      "anchor": "guerrero-gnoll",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Atletismo, Percepción\nAsalto Múltiple: El guerrero puede realizar un ataque de Hacha de Carroñero y un ataque de Mordisco de la Jauría con su Acción.\nÍmpetu de la Jauría: Si un aliado está a distancia Inmediata del objetivo cuando impacta, puede moverse 2 metros sin provocar Reacciones.\nHacha de Carroñero: 1d6+1 Cortante\nMordisco de la Jauría: 1d4+1 Perforante\nAullido de Acoso: Como Interacción, una criatura visible a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 10). Si falla, tiene Desventaja en su próximo ataque antes del final de su siguiente turno.\nUn cazador de manada que rodea al objetivo aislado. Alterna hachazos y mordiscos, usa el aullido para romper el ritmo de la presa y abandona la persecución si la manada pierde la ventaja.\n",
+      "hash": "764c5bb4becc0e237c734e4dde709f294e216275"
     },
     {
       "kind": "creature",
@@ -8118,6 +8378,66 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Gusano Gigante",
+      "id": "dd9539660374b0c832f4bc7b35bd1b8e5de768c3",
+      "slug": "gusano-gigante",
+      "aliases": [
+        "gusano gigante"
+      ],
+      "tags": [],
+      "level": 5,
+      "path": "references/bestiario/rango-5.md",
+      "heading": "Gusano Gigante",
+      "anchor": "gusano-gigante",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Atletismo, Aguante\nAsalto Múltiple: El gusano puede realizar un ataque de Mordida de Falla y un ataque de Aguijón de Cola con su Acción.\nVibración Profunda: Mientras está bajo tierra, detecta movimiento a distancia Cercana y sus vibraciones anuncian una trayectoria aproximada.\nResistencias: Daño Contundente, Cortante y Perforante de fuentes no mágicas.\nMordida de Falla: 4d10+5 Perforante\nAguijón de Cola: 3d8+3 Veneno\nDevorar al Intruso: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, queda dentro del gusano y este se mueve hasta su espacio. Solo puede contener una criatura. Al inicio de cada turno de la víctima, recibe 2d8 de daño Ácido sin salvación. Al final de cada turno, puede repetir una Tirada de Salvación de Cuerpo (ND 14); con éxito, sale a un espacio adyacente.\nSacudida de Cola: Cuando un enemigo termina su movimiento a distancia Inmediata, debe superar una Tirada de Salvación de Reflejos (ND 14) o recibir 2d6 de daño Contundente y quedar Derribado. Solo una vez por ronda.\nUn peligro de jefe que convierte el suelo en una amenaza. Desaparece bajo el terreno, divide al grupo con la amenaza de su mordida y emerge solo cuando puede aislar una presa.\n",
+      "hash": "87a22a4c9d42e8c90cdf0baeeee7e643f2f0d078"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Harpía",
+      "id": "2b93230aa91b82d68bdcc5f2c21cbdf579791364",
+      "slug": "harpia",
+      "aliases": [
+        "harpia"
+      ],
+      "tags": [],
+      "level": 1,
+      "path": "references/bestiario/rango-1.md",
+      "heading": "Harpía",
+      "anchor": "harpía",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Sigilo, Percepción\nVuelo: La harpía puede desplazarse por el aire con una velocidad de Vuelo de 10 metros.\nGarras: 1d6+1 Cortante\nCanto de Distracción: Una criatura a distancia Cercana que pueda oírla debe superar una TS de Instinto (ND 8) o sufrir Desventaja en su próximo ataque.\nDepredadora territorial de acantilado. Usa la altura, el viento y la línea de\nvisión para hostigar al grupo, separar al rezagado y retirarse si recibe\ndemasiada presión. No pelea hasta la muerte por territorio: pelea para echar\nintrusos y proteger su nido.\n",
+      "hash": "3c3ce4f22d7cfdad1ff86311c303331e6cc5c2a8"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Hombre Lobo",
+      "id": "94f054425670e53a7434c19073f16c909a0a8f93",
+      "slug": "hombre-lobo",
+      "aliases": [
+        "hombre lobo"
+      ],
+      "tags": [],
+      "level": 3,
+      "path": "references/bestiario/rango-3.md",
+      "heading": "Hombre Lobo",
+      "anchor": "hombre-lobo",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Atletismo, Percepción, Supervivencia\nAsalto Múltiple: El hombre lobo puede realizar un ataque de Garras de la Luna y un ataque de Mordisco de Caza con su Acción.\nForma de Cazador: En cada turno puede elegir una forma. La forma bestial aumenta su velocidad en 2 metros y permite usar el Mordisco de Caza; la forma humana permite hablar y mezclarse socialmente. La forma no cambia sus Puntos de Salud ni concede resistencia adicional.\nGarras de la Luna: 1d8+3 Cortante\nMordisco de Caza: 2d6+3 Perforante\nAullido de la Luna: Las criaturas enemigas en un radio de 5 metros deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas hasta el final del próximo turno del hombre lobo.\nSalto de Presa: Cuando una criatura a distancia Inmediata se aleja, el hombre lobo puede moverse 2 metros hacia ella sin provocar Reacciones. Solo una vez por ronda.\nUn cazador de dos naturalezas que aísla al objetivo herido. Cambia de forma según la ruta de aproximación, usa el aullido para quebrar la coordinación y abandona la cacería si el grupo vuelve a actuar unido.\n",
+      "hash": "36b6631c69e1156dcac456ad68d20daa30acbd58"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Iniciado Arcano",
       "id": "8d35c806a8207cd13b442cee1605563917f21357",
       "slug": "iniciado-arcano",
@@ -8133,8 +8453,8 @@
       "structured": {
         "lineage": "Humanoide"
       },
-      "search": "Humanoide\nHabilidades con Ventaja: Conocimiento Arcano, Investigación\nProyectil Volátil: 1d8 Fuerza (Alcance Media)\nEscudo Reactivo Menor: Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque.\nSe mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.",
-      "hash": "9d1c325a57964388f500476b58b032f5b48d9909"
+      "search": "Humanoide\nHabilidades con Ventaja: Conocimiento Arcano, Investigación\nProyectil Volátil: 1d6 Fuerza (Alcance Media)\nEscudo Reactivo Menor: Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque.\nSe mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.",
+      "hash": "0adb97ffc2876f416b1b36599cb276008caf765c"
     },
     {
       "kind": "creature",
@@ -8153,8 +8473,8 @@
       "structured": {
         "lineage": "Humanoide"
       },
-      "search": "Humanoide\nHabilidades con Ventaja: Naturaleza, Trato con Animales\nLátigo de Espinas: 1d6+1 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)\nBálsamo de Hojas: Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado.\nProtege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.",
-      "hash": "8f37d75931b67e86ca2390a574e8747a0536657b"
+      "search": "Humanoide\nHabilidades con Ventaja: Naturaleza, Trato con Animales\nLátigo de Espinas: 1d6 Cortante (Alcance Cercano. Si impacta, el objetivo debe superar una TS de Cuerpo (ND 8) o ser movido 1 metro hacia el Iniciado.)\nBálsamo de Hojas: Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado.\nProtege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.",
+      "hash": "82a00d7abb0eaf71cca63f391bf9c082d8741361"
     },
     {
       "kind": "creature",
@@ -8218,6 +8538,26 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Kobold",
+      "id": "30a85f331dd53b9478b68db875d34d8d6ae8e261",
+      "slug": "kobold",
+      "aliases": [
+        "kobold"
+      ],
+      "tags": [],
+      "level": 1,
+      "path": "references/bestiario/rango-1.md",
+      "heading": "Kobold",
+      "anchor": "kobold",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Dragón"
+      },
+      "search": "Dragón\nHabilidades con Ventaja: Sigilo, Juego de Manos\nVisión en la Oscuridad: El kobold puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nHonda de Guijarros: 1d4+1 Perforante (Alcance Cercana)\nDaga de Cantera: 1d4+1 Cortante\nPolvo de Galería: Como Interacción, el kobold libera polvo en su espacio y puede intentar Ocultarse inmediatamente. La nube no Ciega ni aplica otro estado.\nUn explorador cobarde y oportunista que prepara el terreno antes de atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia una ruta preparada. Huirá si pierde la cobertura o queda solo.\n",
+      "hash": "6df812666683a265fd2645d0c73e9cdeb8dfa4ef"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Liche",
       "id": "05157233ec7e8b9cc7c3e468255c9f2563d1afb6",
       "slug": "liche",
@@ -8233,8 +8573,8 @@
       "structured": {
         "lineage": "No-muerto"
       },
-      "search": "No-muerto\nHabilidades con Ventaja: Conocimiento Arcano, Historia, Investigación, Religión\nVoluntad Antimagia: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.\nInmunidades al Daño: Veneno, Frío\nInmunidades a Estados: Encantado, Envenenado, Dormido\nMente Dividida: La mente fragmentada del Liche le permite procesar múltiples amenazas. Tiene 3 Reacciones por ronda de combate en lugar de una.\nVuelo Arcano: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.\nRejuvenecimiento: Si muere, reaparece junto a su filacteria en 1d6 días.\nDescarga Arcana: 4d8 Fuerza (Alcance Media. Ataque de energía pura que no requiere recarga.)\nMaestro de la Magia Prohibida: El Liche tiene acceso a la lista de conjuros de Arcanista. Puede lanzar conjuros de hasta Nivel 5 como Acción. Debe respetar los tiempos de recarga o usos limitados de cada conjuro individualmente.\nConjuro de Oportunidad: Como Reacción al final del turno de otra criatura, el Liche elige una opción:\n- Realizar un ataque de Descarga Arcana.\n- Lanzar un conjuro de Arcanista de Nivel 3 o inferior (debe respetar la recarga).\n\nRecarga Mental: Como Reacción al final del turno de cualquier criatura, el Liche realiza una tirada de recarga (1d8) para intentar recuperar el uso de una habilidad o conjuro agotado.\nUn archimago no-muerto con un estilo muy táctico. Su estrategia se basa en la economía de acción superior. Flota fuera de alcance, bombardeando con magia de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones para mantener la presión constante lanzando Descargas Arcanas, hechizos rápidos o intentando recuperar sus poderes más letales con Recarga Mental. Su objetivo no es solo ganar, es demostrar su abrumadora superioridad intelectual y mágica en cada instante del combate.",
-      "hash": "340d85aa2aca7c127934bdf4e78a079e43334248"
+      "search": "No-muerto\nHabilidades con Ventaja: Conocimiento Arcano, Historia, Investigación, Perspicacia\nVoluntad Antimagia: Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos mágicos.\nInmunidades al Daño: Veneno\nResistencias al Daño: Necrótico; Contundente, Cortante y Perforante de fuentes no mágicas\nInmunidades a Estados: Encantado, Envenenado, Dormido\nVuelo Arcano: El Liche levita permanentemente y tiene una velocidad de Vuelo igual a su Velocidad terrestre.\nRejuvenecimiento: Si muere mientras su filacteria permanezca intacta, el Liche vuelve a formarse junto a ella en 1d6 días.\nDescarga Arcana: 3d8 Fuerza (Alcance Media. Ataque de energía arcana pura que no posee Recarga ni usos limitados.)\nMaestro de la Magia Prohibida: El Liche tiene acceso a las listas de conjuros de Mago y Arcanista de Nivel 5 o inferior y puede utilizarlos respetando el recurso indicado por cada conjuro.\n\nCuando un conjuro requiera una Tirada de Ataque, utiliza +11. Cuando provoque una Tirada de Salvación, utiliza ND 16.\n\nCada conjuro conserva normalmente sus efectos, Recarga, usos limitados y demás requisitos.\n\nConjuro de Oportunidad: El Liche puede usar su Reacción para elegir una opción:\n- Realizar un ataque de Descarga Arcana, infligiendo su daño completo.\n- Utilizar un conjuro de Mago o Arcanista de Nivel 3 o inferior.\n\nSi el conjuro normalmente requiere una Acción o Interacción, puede utilizarlo al final del turno de otra criatura. Si el conjuro ya posee su propio desencadenante de Reacción, puede utilizarlo cuando ese desencadenante ocurra.\n\nEl conjuro debe estar disponible y conserva normalmente sus efectos, Recarga, usos limitados y demás requisitos.\n\nRecarga Mental: Como Reacción al final del turno de otra criatura, el Liche realiza una tirada de Recarga (1d8) para intentar recuperar el uso de uno de sus conjuros agotados.\nUn archimago no-muerto de siglos de experiencia que adapta constantemente su magia a las amenazas del campo de batalla. Se mantiene fuera del alcance mediante Vuelo Arcano y utiliza su enorme repertorio de conjuros para alternar entre daño, control, defensa y utilidad. Fuera de su turno emplea Conjuro de Oportunidad para mantener la presión, responder con magia defensiva o lanzar Descargas Arcanas, y utiliza Recarga Mental cuando necesita recuperar uno de sus poderes más importantes. Cuando se utiliza como jefe, las Reacciones adicionales adquiridas al construir el encuentro convierten su versatilidad mágica en una economía de acciones extremadamente peligrosa.",
+      "hash": "6cc017ad09a9537e9be57e4380301ebb82a2edeb"
     },
     {
       "kind": "creature",
@@ -8273,8 +8613,8 @@
       "structured": {
         "lineage": "Humanoide"
       },
-      "search": "Humanoide\nHabilidades con Ventaja: Pilotaje, Atletismo\nPiernas de Barco: Ventaja (+1d4) en Tiradas de Salvación y Pruebas de Habilidad contra Derribo y desplazamiento forzado.\nEstoque: 1d8 Perforante\nParada del Marinero: Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque.\nDirecto y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.",
-      "hash": "50f7b593ebd07abb6f03848ab29c7af8bc3c2239"
+      "search": "Humanoide\nHabilidades con Ventaja: Pilotaje, Atletismo\nPiernas de Barco: Ventaja (+1d4) en Pruebas de Habilidad para mantener el equilibrio, resistir desplazamientos físicos o permanecer en pie sobre superficies inestables.\nEstoque: 1d8 Perforante\nParada del Marinero: Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque.\nDirecto y curtido. Acostumbrado a los abordajes inestables, aguanta firmemente en su posición mientras utiliza su estoque de forma defensiva para desviar estoques enemigos y contraatacar.",
+      "hash": "c08e338b7ac1c9fdeb93b21f42b7af2ef281ece6"
     },
     {
       "kind": "creature",
@@ -8313,8 +8653,8 @@
       "structured": {
         "lineage": "Monstruosidad"
       },
-      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Intimidación\nAsalto Múltiple (2 Garras, 1 Mordisco): La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco con su Acción.\nVuelo: La mantícora tiene una velocidad de Vuelo de 10 metros.\nGarras: 3d8 Cortante\nMordisco: 3d8 Perforante\nDisparar Púas: La mantícora dispara una andanada de púas de su cola. Realiza tres ataques a distancia (+8 para golpear) contra uno o varios objetivos a distancia Cercana. Cada púa que impacta inflige 3d6 de daño Perforante.\nAtaque de Oportunidad: Como Reacción, cuando una criatura sale de estar a distancia Inmediata de la mantícora, esta puede realizar un único ataque de Garras contra él.\nUn depredador cruel que disfruta aterrorizando a su presa. Comienza el combate desde el aire, deleitándose en su invulnerabilidad mientras acribilla al grupo con las púas de su cola, a menudo enfocándose en el mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo esté visiblemente herido o aislado, para saborear la muerte con sus garras y fauces.\n",
-      "hash": "5f82c09c7931cf70483aad657171489439fbbf50"
+      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Intimidación\nAsalto Múltiple (2 Garras, 1 Mordisco): La mantícora puede realizar dos ataques de Garras y un ataque de Mordisco con su Acción.\nVuelo: La mantícora tiene una velocidad de Vuelo de 10 metros.\nGarras: 3d8+1 Cortante\nMordisco: 3d8+1 Perforante\nDisparar Púas: La mantícora dispara una andanada de púas de su cola. Realiza tres ataques a distancia (+8 para golpear) contra uno o varios objetivos a distancia Cercana. Cada púa que impacta inflige 3d6 de daño Perforante.\nAtaque de Oportunidad: Como Reacción, cuando una criatura sale de estar a distancia Inmediata de la mantícora, esta puede realizar un único ataque de Garras contra él.\nUn depredador cruel que disfruta aterrorizando a su presa. Comienza el combate desde el aire, deleitándose en su invulnerabilidad mientras acribilla al grupo con las púas de su cola, a menudo enfocándose en el mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo esté visiblemente herido o aislado, para saborear la muerte con sus garras y fauces.\n",
+      "hash": "a1ceb3e395692bb655e02aa6c8042b713b3275b2"
     },
     {
       "kind": "creature",
@@ -8355,6 +8695,26 @@
       },
       "search": "Monstruosidad\nHabilidades con Ventaja: Sigilo, Engaño, Percepción\nForma Adhesiva: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nForma de Objeto: Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 11 para notar su verdadera naturaleza antes de tocarlo.\nAsalto Múltiple: El mimeto puede realizar dos ataques de Pseudópodo con su Acción.\nAdhesivo: El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir la TS y así tratar de liberarse a uno mismo o a un objeto pegado.\nPseudópodo: 2d6 Contundente (Si impacta, aplica el rasgo Adhesivo.)\nUn depredador de paciencia infinita que funciona más como una trampa viviente que como una criatura. Permanece inmóvil, a veces durante días, esperando el toque de una criatura curiosa. Una vez que el combate comienza, su único objetivo es usar su Adhesivo para apresar a una víctima y aplastarla hasta la muerte con sus seudópodos, ignorando a otros atacantes a menos que le impidan \"comer\". Lucha con una alarmante y silenciosa concentración.\n",
       "hash": "9c8cbe6dfaf2d40545d5dab948232c34ef8c88bb"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Momia",
+      "id": "0f5938c5245e4df118d0769a3128941b8ff57eae",
+      "slug": "momia",
+      "aliases": [
+        "momia"
+      ],
+      "tags": [],
+      "level": 4,
+      "path": "references/bestiario/rango-4.md",
+      "heading": "Momia",
+      "anchor": "momia",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "No-muerto"
+      },
+      "search": "No-muerto\nHabilidades con Ventaja: Historia, Religión, Perspicacia\nVisión en la Oscuridad: La momia puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nInmunidades a Estados: Envenenado\nPuño de Vendajes: 3d8+4 Contundente\nMaldición de la Garganta Seca: Un objetivo visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 12). Si falla, queda Asustado durante 1 minuto y no puede recibir Puntos de Salud Temporales. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina.\nVelo de Polvo: Crea una nube en un área de distancia Inmediata alrededor de un punto visible a distancia Cercana. Las criaturas dentro deben superar una Tirada de Salvación de Reflejos (ND 12); si fallan, tienen Desventaja en su próxima tirada antes del final de su turno. No inflige daño.\nMano del Guardián: Cuando un enemigo a distancia Inmediata ataca a un aliado que también está a distancia Inmediata de la momia, el ataque se realiza con Desventaja. Solo una vez por ronda.\nUn guardián funerario que preserva una orden antigua. Fuerza al grupo a avanzar por rutas estrechas, cubre a sus aliados no-muertos y vuelve a la cámara si alguien intenta saquearla.\n",
+      "hash": "e4782d949dcebde8e06e6d4feeb607aa8dd66268"
     },
     {
       "kind": "creature",
@@ -8453,8 +8813,8 @@
       "structured": {
         "lineage": "Monstruosidad"
       },
-      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Atletismo\nMole Bestial: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nAsalto Múltiple (2 Garras, 1 Pico): El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico con su Acción.\nGarras: 2d6 Cortante\nPico: 2d8 Perforante\nDespedazar y Apresar: Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).\nUna monstruosidad territorial de furia explosiva. Considera cualquier criatura en su territorio como una amenaza o una comida. No tiene tácticas complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con una violencia abrumadora hasta que deja de moverse.\n",
-      "hash": "9385a6c934c5edd8b0777477de636e4d4d0f814d"
+      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Atletismo\nMole Bestial: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.\nAsalto Múltiple (2 Garras, 1 Pico): El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico con su Acción.\nGarras: 2d6 Cortante\nPico: 2d8 Perforante\nDespedazar y Apresar: Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla). Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de su Cuerpo contra el Cuerpo del ozo-lechuza. Si tiene éxito, se libera.\nUna monstruosidad territorial de furia explosiva. Considera cualquier criatura en su territorio como una amenaza o una comida. No tiene tácticas complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con una violencia abrumadora hasta que deja de moverse.\n",
+      "hash": "56485eec4986679ae162fc4afb66920d3d76ef91"
     },
     {
       "kind": "creature",
@@ -8473,8 +8833,68 @@
       "structured": {
         "lineage": "Humanoide"
       },
-      "search": "Humanoide\nHabilidades con Ventaja: Sigilo, Juego de Manos\nGolpe Traicionero: Si el ratero ataca a un objetivo que ya está trabado en combate con otro aliado, inflige +1d4 de daño adicional si el impacto es exitoso.\nDaga Oculta: 1d4+1 Perforante\nBallesta Ligera: 1d4+1 Perforante (Alcance Media, Recarga (Interacción))\nEvita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.",
-      "hash": "95e33168903bbad1babb558f7fc4a192c2137c9c"
+      "search": "Humanoide\nHabilidades con Ventaja: Sigilo, Juego de Manos\nDaga Oculta: 1d4+1 Perforante\nBallesta Ligera: 1d4+1 Perforante (Alcance Media, Recarga (Interacción))\nEscabullirse: Como Interacción, el ratero puede intentar Esconderse si dispone de cobertura u ocultamiento, o moverse hasta la mitad de su Velocidad sin provocar Reacciones.\nEvita el combate justo. Su táctica consiste en esperar que sus aliados (o compañeros rufianes) distraigan al aventurero más acorazado para clavar su daga por la espalda.",
+      "hash": "94c352da4e76a212af7b189ddd4435f606234eff"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Remorhaz",
+      "id": "7205450d62634abcc319490973258f46be67c95f",
+      "slug": "remorhaz",
+      "aliases": [
+        "remorhaz"
+      ],
+      "tags": [],
+      "level": 4,
+      "path": "references/bestiario/rango-4.md",
+      "heading": "Remorhaz",
+      "anchor": "remorhaz",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Percepción, Supervivencia, Atletismo\nResistencias: Fuego.\nResistencia Ígnea: La resistencia a Fuego representa una compra de 2 PD; la Mitigación Física 1 representa el PD restante.\nMordida de Brasas: 4d8+4 Perforante\nTúnel de Brasa: Entra bajo tierra desde terreno excavable y deja una línea visible de calor y vibraciones. No puede ser objetivo directo mientras está bajo tierra. Al inicio de su siguiente turno aparece en un espacio visible a distancia Cercana; las criaturas a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 13) o quedar Derribadas. La trayectoria anunciada ofrece una oportunidad razonable de apartarse.\nPlacas Incandescentes: Cuando una criatura le inflige daño con un ataque cuerpo a cuerpo, recibe 1d4 de daño Fuego y debe superar una Tirada de Salvación de Reflejos (ND 13) o moverse 1 metro alejándose del remorhaz. Solo una vez por ronda.\nUn depredador de túneles cuya temperatura convierte la emboscada en una decisión de posicionamiento. Se sumerge, deja señales legibles y emerge bajo el personaje que rompe la formación.\n",
+      "hash": "dde4f7dca99d90475017b72e458d025bf232a07a"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Roc",
+      "id": "0db60afc565e9771dc93264075a95ebee201ab31",
+      "slug": "roc",
+      "aliases": [
+        "roc"
+      ],
+      "tags": [],
+      "level": 5,
+      "path": "references/bestiario/rango-5.md",
+      "heading": "Roc",
+      "anchor": "roc",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Bestia"
+      },
+      "search": "Bestia\nHabilidades con Ventaja: Percepción, Supervivencia, Atletismo, Aguante\nAsalto Múltiple: El roc puede realizar un ataque de Garras y un ataque de Pico con su Acción.\nVuelo: El roc tiene una velocidad de Vuelo de 14 metros.\nGarras: 4d8+4 Cortante\nPico: 3d10+4 Perforante\nSecuestro del Viento: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, queda Derribada y el roc puede moverla hasta 3 metros hacia un espacio visible y seguro. La criatura puede repetir la Tirada de Salvación al final de su propio turno para levantarse; no queda fuera de la escena ni recibe daño por caída.\nAla de Rechazo: Cuando un enemigo entra a distancia Inmediata, el roc puede moverse hasta la mitad de su velocidad. El movimiento no provoca Reacciones. Solo una vez por ronda.\nUn depredador aéreo territorial que defiende un nido o una frontera. Ataca al personaje que lleva comida u objetos brillantes y usa las corrientes para mantener rutas de escape previsibles.\n",
+      "hash": "7f43d77a5e6a4c88199f4ee2fedcd17edb2e6f83"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Sabueso Infernal",
+      "id": "4d2ea4d96957c86cb051671bfde8670ca3a13ba8",
+      "slug": "sabueso-infernal",
+      "aliases": [
+        "sabueso infernal"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Sabueso Infernal",
+      "anchor": "sabueso-infernal",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Infernal"
+      },
+      "search": "Infernal\nHabilidades con Ventaja: Percepción, Supervivencia\nAsalto Múltiple: Si al menos otro Sabueso Infernal está a distancia Inmediata del objetivo, puede realizar un ataque de Mordida Calcinante y un ataque de Mordida de Jauría con su Acción. Si está solo, solo puede usar Mordida Calcinante.\nResistencias: Fuego.\nMordida Calcinante: 1d4 Perforante + 1 Fuego\nMordida de Jauría: 1d4 Perforante\nSoplo de Brasas: El sabueso proyecta un cono de distancia Cercana. Cada criatura en el área debe superar una Tirada de Salvación de Reflejos (ND 10). Si falla, recibe 1d6 de daño Fuego; con éxito, recibe la mitad. El cono se anuncia antes de resolverlo.\nUn cazador infernal que solo busca su mejor rendimiento dentro de una jauría. Rodea a la presa junto a otros sabuesos, reserva el soplo para grupos concentrados y abandona el territorio si pierde la ventaja numérica.\n",
+      "hash": "32e4d3fffdbe99744dca3395818a1d22640a0441"
     },
     {
       "kind": "creature",
@@ -8498,6 +8918,66 @@
     },
     {
       "kind": "creature",
+      "canonicalName": "Sacerdote Gnoll",
+      "id": "4afcbed5642808bd24aa324cff6a290b21a5605e",
+      "slug": "sacerdote-gnoll",
+      "aliases": [
+        "sacerdote gnoll"
+      ],
+      "tags": [],
+      "level": 3,
+      "path": "references/bestiario/rango-3.md",
+      "heading": "Sacerdote Gnoll",
+      "anchor": "sacerdote-gnoll",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Monstruosidad"
+      },
+      "search": "Monstruosidad\nHabilidades con Ventaja: Religión, Persuasión, Supervivencia\nMaza de Colmillo: 2d8+4 Contundente\nLanza de Sangre: 2d6+3 Perforante (Alcance Media)\nMandato de la Jauría: Una criatura visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Asustada durante 1 minuto. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina.\nLiturgia del Cazador: Hasta 3 aliados Gnoll a distancia Cercana obtienen Ventaja (+1d4) en su próximo ataque antes del final del siguiente turno del sacerdote.\nOfrenda de Sangre: Un aliado Gnoll a distancia Cercana recupera 2d6 Puntos de Salud. El sacerdote no puede usar esta Acción sobre sí mismo.\nUn oficiante de la cacería que se mantiene detrás de la manada. Marca la presa, fortalece a varios guerreros con una liturgia y sostiene al aliado que está a punto de caer.\n",
+      "hash": "e33cf2f497c5d51520056d0c95eabeb36487c7b7"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Saga",
+      "id": "77ccf702dd08a25453901ad7b8c8dec0f1566dc2",
+      "slug": "saga",
+      "aliases": [
+        "saga"
+      ],
+      "tags": [],
+      "level": 3,
+      "path": "references/bestiario/rango-3.md",
+      "heading": "Saga",
+      "anchor": "saga",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Feérico"
+      },
+      "search": "Feérico\nHabilidades con Ventaja: Engaño, Persuasión, Perspicacia\nVisión en la Oscuridad: La saga puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.\nMente Feérica: Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarla Encantada.\nHilo de la Deuda: 2d8+4 Psíquico (Alcance Cercana)\nCosecha de Nombres: Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Encantado hasta el inicio del próximo turno de la saga y puede repetir la Tirada de Salvación al final de su turno. La saga no puede obligarlo a suicidarse ni a gastar recursos de otro personaje.\nManto de Mal Agüero: La saga elige un punto a distancia Cercana y crea un área de efecto de 2 metros de radio centrada en ese punto. Las criaturas que comiencen su turno dentro deben superar una Tirada de Salvación de Instinto (ND 11) o tener Desventaja en su próxima tirada antes del final de su turno. El área dura hasta el inicio del próximo turno de la saga y no inflige daño.\nEscape Feérico: Cuando la saga es objetivo de un ataque o efecto visible, puede teletransportarse a un espacio visible a distancia Cercana. No provoca Reacciones. Solo puede usar esta Reacción una vez por ronda.\nUna intermediaria feérica de nombres y deudas. Divide las prioridades del grupo, castiga las promesas rotas y abandona el combate si la deuda deja de ser ventajosa.\n",
+      "hash": "699dd249b092d40da6b1a3e7f842cd8fee0111a4"
+    },
+    {
+      "kind": "creature",
+      "canonicalName": "Soldado",
+      "id": "5d8e389fe37b9c61bd6a77810f463c98ee555b48",
+      "slug": "soldado",
+      "aliases": [
+        "soldado"
+      ],
+      "tags": [],
+      "level": 2,
+      "path": "references/bestiario/rango-2.md",
+      "heading": "Soldado",
+      "anchor": "soldado",
+      "source": "bestiary.yml",
+      "structured": {
+        "lineage": "Humanoide"
+      },
+      "search": "Humanoide\nHabilidades con Ventaja: Atletismo, Percepción\nEspada de Campaña: 1d8+3 Cortante\nJabalina: 1d4+1 Perforante (Alcance Cercana)\nDesafío de Línea: Como Acción, una criatura visible a distancia Inmediata que pueda oír al soldado debe superar una Tirada de Salvación de Mente (ND 10). Si falla, tiene Desventaja en sus ataques contra criaturas que no sean el soldado hasta el final de su siguiente turno. El desafío no obliga a atacar al soldado.\nCobertura de Escuadra: Cuando un aliado a distancia Inmediata es objetivo de un ataque visible, el soldado puede moverse 1 metro y conceder +2 a la Esquiva del aliado contra ese ataque. Solo una vez por ronda.\nUn soldado profesional que mantiene la línea y concentra los ataques contra quien rompe la formación. Desafía al enemigo más peligroso mientras cubre al compañero expuesto.\n",
+      "hash": "6360b851c8ee8ecc850075336fc1a2f129e5b7bd"
+    },
+    {
+      "kind": "creature",
       "canonicalName": "Thulu",
       "id": "191c898ddcdfb58db0f49cdeba60765920359eb5",
       "slug": "thulu",
@@ -8513,8 +8993,8 @@
       "structured": {
         "lineage": "Aberración"
       },
-      "search": "Aberración\nHabilidades con Ventaja: Conocimiento Arcano, Perspicacia, Percepción, Intimidación\nBaluarte Mental: Ventaja (+1d4) en Tiradas de Salvación de Mente e Instinto.\nVuelo (Levitar): El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.\nAsalto Múltiple: El Thulu puede realizar dos ataques de Choque Psiónico con su Acción.\nChoque Psiónico: 3d10 Psíquico (Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el Thulu puede iniciar una Tirada Enfrentada de Mente contra Mente. Si gana, el objetivo queda Inmovilizado y el Thulu puede usar su acción \"Devorar Cerebro\" en el siguiente turno.)\nRáfaga Mental: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de daño Psíquico y quedar Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.\nDevorar Cerebro: Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente.\nUn depredador psíquico que flota sobre el campo de batalla. Controla el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente y huirá levitando si su salud baja del 25%.",
-      "hash": "3050a7ef3887486f51a008ad1debad50f989276a"
+      "search": "Aberración\nHabilidades con Ventaja: Conocimiento Arcano, Perspicacia, Percepción, Intimidación\nBaluarte Mental: Ventaja (+1d4) en Tiradas de Salvación de Mente e Instinto.\nVuelo (Levitar): El Thulu flota permanentemente y tiene una velocidad de Vuelo igual a su velocidad terrestre.\nAsalto Múltiple: El Thulu puede realizar dos ataques de Choque Psiónico con su Acción.\nChoque Psiónico: 3d10 Psíquico (Alcance Cercano. Si impacta a un objetivo a distancia Inmediata, el Thulu puede iniciar una Tirada Enfrentada de Mente contra Mente. Si gana, el objetivo queda Inmovilizado y el Thulu puede usar su acción \"Devorar Cerebro\" en el siguiente turno.)\nRáfaga Mental: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de daño Psíquico y quedar Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.\nDevorar Cerebro: Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente. Si sobrevive, su Mente se reduce a 0 y queda descerebrado hasta que un efecto excepcional restaure su cerebro.\nUn depredador psíquico que flota sobre el campo de batalla. Controla el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente y huirá levitando si su salud baja del 25%.",
+      "hash": "2e2cd6510809fddc4d614487cf201bf8518c6aa0"
     },
     {
       "kind": "creature",
@@ -8553,8 +9033,8 @@
       "structured": {
         "lineage": "No-muerto"
       },
-      "search": "No-muerto\nHabilidades con Ventaja: Percepción, Aguante\nInmunidades a Estados: Envenenado\nVisión en la Oscuridad: El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nFortaleza de No-Muerto: Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.\nMordisco: 1d6 Necrótico\nAgarrón Necrótico: Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja.\nUn cadáver andante impulsado por un hambre necrótica. Se mueve lenta pero inexorablemente hacia el ser vivo más cercano, ignorando el terreno, las amenazas o el dolor. Su peligro no reside en un solo zombi, sino en la horda implacable que no deja de avanzar.\n",
-      "hash": "56f6555006dedd224a2db0cda87101ed89a3beda"
+      "search": "No-muerto\nHabilidades con Ventaja: Percepción, Aguante\nInmunidades a Estados: Envenenado\nVisión en la Oscuridad: El zombi puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.\nFortaleza de No-Muerto: Si un daño reduce al zombi a 0 Puntos de Salud, debe realizar una Tirada de Salvación de Cuerpo (ND 5 + el daño sufrido). Si tiene éxito, queda con 1 Punto de Salud en su lugar. Si recibe daño Radiante, esta habilidad queda suprimida hasta el inicio de su próximo turno. Mientras está suprimida, no puede activarla. Tampoco puede activarse si un golpe crítico reduce al zombi a 0 Puntos de Salud.\nMordisco: 1d6 Necrótico\nAgarrón Necrótico: Como una Acción (en lugar de morder), el zombi puede intentar apresar a un enemigo a distancia Inmediata. El objetivo debe superar una Tirada Enfrentada de su Cuerpo o Reflejos contra el Cuerpo del zombi o quedará Inmovilizado. El zombi puede mantener la presa automáticamente en turnos subsiguientes (no requiere acción), y sus ataques de Mordisco contra el objetivo apresado tienen Ventaja. Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de Cuerpo o Reflejos contra el Cuerpo del zombi. Si tiene éxito, se libera.\nUn cadáver andante impulsado por un hambre necrótica. Se mueve lenta pero inexorablemente hacia el ser vivo más cercano, ignorando el terreno, las amenazas o el dolor. Su peligro no reside en un solo zombi, sino en la horda implacable que no deja de avanzar.\n",
+      "hash": "971005b50d3167c4885d18f434a05b93db708590"
     },
     {
       "kind": "item",
@@ -10238,8 +10718,8 @@
       "anchor": "2-tiradas-de-salvación",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "- **Ventaja Condicional en TS (Coste: 1 PD):** la criatura obtiene Ventaja (+1d4) en Tiradas de Salvación contra una fuente, estado o categoría específica de efectos.\n  - Ejemplos: Miedo, Venenos, efectos de Derribo o efectos que provocarían Encantado.\n\n- **Ventaja Plana en Atributo Defensivo (Coste: 2 PD):** la criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación asociadas a un Atributo concreto: **Cuerpo, Reflejos, Mente, Instinto o Presencia**.\n\n  > _Restricción:_ Las criaturas de **Rango 1 y 2** solo pueden adquirir esta defensa para un máximo de **1 Atributo**.",
-      "hash": "1d3f0cdb6f9fa078d5f9fc2f258617bf453d0f04"
+      "search": "- **Ventaja Condicional en TS (Coste: 1 PD):** la criatura obtiene Ventaja (+1d4) en Tiradas de Salvación contra una fuente, estado o categoría específica de efectos.\n  - Ejemplos: Miedo, Venenos, efectos de Derribo o efectos que provocarían Encantado.\n\n- **Ventaja contra efectos mágicos (Coste: 2 PD):** la criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación contra conjuros y efectos mágicos, sin importar el atributo utilizado. Esto no otorga resistencia al daño mágico, no afecta ataques mágicos que no requieran salvación y no concede inmunidad.\n\n- **Ventaja Plana en Atributo Defensivo (Coste: 2 PD):** la criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación asociadas a un Atributo concreto: **Cuerpo, Reflejos, Mente, Instinto o Presencia**.\n\n  > _Restricción:_ Las criaturas de **Rango 1 y 2** solo pueden adquirir esta defensa para un máximo de **1 Atributo**.",
+      "hash": "4b0bb16d258bd7bfa033ea57cc280847a8802b31"
     },
     {
       "kind": "section",
@@ -10467,6 +10947,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Asignar atributos",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-asignar-atributos",
+      "aliases": [
+        "asignar atributos"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Asignar atributos",
+      "anchor": "asignar-atributos",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Los cinco atributos de una criatura son **Cuerpo, Reflejos, Mente, Instinto y\nPresencia**. Su distribución puede ser especializada o amplia, siempre que\nrespete los dos techos de diseño de su Rango:\n\n| Rango       | Máximo total de atributos | Máximo por atributo |\n| :---------- | :------------------------ | :------------------ |\n| **Rango 1** | **10**                    | **4**               |\n| **Rango 2** | **15**                    | **5**               |\n| **Rango 3** | **20**                    | **6**               |\n| **Rango 4** | **25**                    | **8**               |\n| **Rango 5** | **30**                    | **10**              |\n| **Rango 6** | **35**                    | **12**              |\n\nEstos valores son techos de diseño. No existe una suma mínima ni un valor\nmínimo por atributo: una distribución es válida mientras no supere ninguno de\nlos dos máximos.\n\nEl máximo total se obtiene sumando los cinco atributos. El máximo por atributo\nse aplica a cada uno de ellos de forma individual. La distribución puede quedar\npor debajo del máximo total y concentrar sus valores en los atributos que\ndefinen a la criatura.\n\nPara asignar los valores, sigue este orden:\n\n1. Define la naturaleza, el comportamiento y el papel de la criatura.\n2. Identifica qué atributos utiliza de forma explícita su bloque de\n   estadísticas en pruebas, tiradas enfrentadas o capacidades.\n3. Asigna los valores más altos a los atributos que sostengan capacidades con un\n   uso claro en la ficción y en el juego.\n4. Usa los valores restantes para representar las competencias relativas de la\n   criatura.\n5. Comprueba que la suma y ningún valor individual superen los techos de su\n   Rango.\n\nUna Tirada de Salvación que una criatura provoca sobre un objetivo utiliza el\natributo indicado para ese objetivo. Por ejemplo, que `Bola de Fuego` pida una\nTS de Reflejos no exige que el Mago tenga Reflejos alto. El ND de esa capacidad\npertenece al perfil ofensivo adquirido mediante PPF.\n\n> **Ejemplo: Mago R3.** El Mago tiene `Cuerpo 2, Reflejos 3, Mente 5,\nInstinto 3, Presencia 2`. Mente es su atributo más alto porque `Contraconjuro`\n> utiliza explícitamente Mente y porque su identidad se apoya en el conocimiento\n> arcano. Los demás valores representan sus competencias físicas, perceptivas y\n> sociales. La suma es 15 y respeta los máximos de Rango 3.\n\nLos atributos y los PPF cumplen funciones diferentes. Los PPF se gastan en\nSalud, Esquiva, Ataque/ND, Daño Promedio, Defensa y Rasgos Tácticos según las\ntablas de constructor. Las estadísticas de combate no se derivan\nautomáticamente de los atributos: usa las tablas de constructor para fijarlas,\ny usa los atributos solo cuando una regla de la criatura los requiera.",
+      "hash": "a030fa5849f4aefbb373acc9329667332e25bc82"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Ataque y Nivel de Dificultad",
       "slug": "08-parte-2-diseno-avanzado-de-criaturas-ataque-y-nivel-de-dificultad",
       "aliases": [
@@ -10526,8 +11022,8 @@
       "anchor": "b-rasgos-tácticos-coste-en-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "Habilidades que cambian las reglas del combate: Control, Movimiento Superior, Defensas Especiales, Reacciones, etc.\n\n**Reglas de Compra:**\n\n1.  **Límite de Rango:** Un monstruo **no puede** comprar un Rasgo Táctico de un Rango superior al suyo.\n2.  **Comprar \"Hacia Abajo\":** Sí puede comprar Rasgos de Rangos inferiores.\n3.  **Coste Fijo:** El coste depende del Rango del Rasgo.\n\n**Tabla de Costes de Rasgos Tácticos:**\n\n| Tipo de Habilidad            | Coste en PPF | Quién puede comprarlo       |\n| :--------------------------- | :----------- | :-------------------------- |\n| **Rasgo Táctico de Rango 1** | 2 PPF        | Monstruos de Rango 1, 2, 3+ |\n| **Rasgo Táctico de Rango 2** | 3 PPF        | Monstruos de Rango 2, 3+    |\n| **Rasgo Táctico de Rango 3** | 4 PPF        | Monstruos de Rango 3+       |\n| **Rasgo Táctico de Rango 4** | 5 PPF        | Monstruos de Rango 4+       |\n| **Rasgo Táctico de Rango 5** | 6 PPF        | Monstruos de Rango 5+       |\n| **Rasgo Táctico de Rango 6** | 7 PPF        | Solo Monstruos de Rango 6   |",
-      "hash": "d48e6ded64a5f1fd82e556e00809402d72284fe6"
+      "search": "Habilidades que cambian las reglas del combate: Control, Movimiento Superior, Defensas Especiales, Reacciones, etc.\n\n**Reglas de Compra:**\n\n1.  **Límite de Rango:** Un monstruo **no puede** comprar un Rasgo Táctico de un Rango superior al suyo.\n2.  **Comprar \"Hacia Abajo\":** Sí puede comprar Rasgos de Rangos inferiores.\n3.  **Coste Fijo:** El coste depende del Rango del Rasgo.\n\n**Tabla de Costes de Rasgos Tácticos:**\n\n| Tipo de Habilidad            | Coste en PPF | Quién puede comprarlo       |\n| :--------------------------- | :----------- | :-------------------------- |\n| **Rasgo Táctico de Rango 1** | 2 PPF        | Monstruos de Rango 1, 2, 3+ |\n| **Rasgo Táctico de Rango 2** | 3 PPF        | Monstruos de Rango 2, 3+    |\n| **Rasgo Táctico de Rango 3** | 4 PPF        | Monstruos de Rango 3+       |\n| **Rasgo Táctico de Rango 4** | 5 PPF        | Monstruos de Rango 4+       |\n| **Rasgo Táctico de Rango 5** | 6 PPF        | Monstruos de Rango 5+       |\n| **Rasgo Táctico de Rango 6** | 7 PPF        | Solo Monstruos de Rango 6   |\n\n**Vuelo, locomoción básica y Superioridad Aérea:** un modo básico de locomoción indicado en Velocidad —volar, nadar, trepar o excavar— no tiene coste por sí mismo. El vuelo en particular permite desplazarse en tres dimensiones, ignorar obstáculos del suelo y ocupar espacios elevados; estas ventajas forman parte del modo de locomoción y no constituyen automáticamente un Rasgo Táctico. Lo que sí debe valorarse es la sinergia entre el vuelo y el resto del bloque de estadísticas.\n\n**Superioridad Aérea:** una criatura adquiere Superioridad Aérea cuando puede aprovechar deliberadamente la altura para mantenerse más allá de la distancia Inmediata de enemigos terrestres mientras continúa cumpliendo normalmente su función durante el combate. Evalúa esta sinergia sobre una secuencia representativa de tres rondas.\n\n- **Sin Superioridad Aérea (0 PPF):** la criatura debe acercarse normalmente a distancia Inmediata para utilizar sus principales Acciones ofensivas o tácticas, o permanecer en el aire supone sacrificar una parte significativa de su contribución al combate.\n- **Superioridad Aérea (Rasgo R1, 2 PPF):** la criatura puede permanecer más allá de la distancia Inmediata durante buena parte del combate mientras continúa atacando, controlando o apoyando de forma significativa. La altura le proporciona principalmente seguridad y libertad de posicionamiento.\n- **Superioridad Aérea Avanzada (Rasgo R2, 3 PPF):** además de poder combatir eficazmente desde el aire, sus capacidades explotan activamente esa posición para dificultar de forma importante la respuesta enemiga. Esto puede incluir control que impida aproximarse, reposicionamiento excepcional, capacidad de ignorar Reacciones, alcance extraordinario u otra propiedad que convierta alcanzar a la criatura en un problema táctico relevante.\n\nPoseer simplemente un ataque o capacidad a distancia no concede automáticamente Superioridad Aérea: la criatura debe poder aprovecharla con la frecuencia suficiente como para que permanecer en altura sea parte normal de su funcionamiento.\n\n> **Ejemplos:** un depredador volador que solo puede dañar al descender hasta su alcance paga 0 PPF por su vuelo. Una criatura alada que lanza proyectiles a distancia Cercana mientras se mantiene elevada paga Superioridad Aérea (Rasgo R1). Un cazador volador que inmoviliza o impide acercarse a quienes intentan alcanzarlo paga Superioridad Aérea Avanzada (Rasgo R2).\n\nLas capacidades adicionales de movimiento —teletransportarse, atravesar objetos sólidos, volverse no seleccionable como objetivo, desplazarse sin provocar Reacciones o ignorar barreras relevantes en combate— se valoran como Rasgos Tácticos independientes y no forman parte del coste de la locomoción.",
+      "hash": "9dfdf332b12a75723a1cceeb9b4cb620faf5e5a3"
     },
     {
       "kind": "section",
@@ -10592,6 +11088,22 @@
       "source": "gm.md",
       "search": "Control duro o daño que se repite cada turno (Zonas). Requieren **Concentración**.\n\n- **Ajuste:** Usa el daño base del **Nivel Inferior** (ej: Un Nivel 3 hace daño de Nivel 2).\n- _Ejemplos:_ Inmovilizar, Aturdir, Muros de daño, Invisibilidad.",
       "hash": "6f6749247d8438e33401541e0ebe5fdf255c3f1c"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Capacidades de Utilidad",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-capacidades-de-utilidad",
+      "aliases": [
+        "capacidades de utilidad"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Capacidades de Utilidad",
+      "anchor": "capacidades-de-utilidad",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Las capacidades exclusivamente narrativas o de utilidad que no alteren significativamente el combate continúan considerándose **Habilidades de Sabor** y cuestan 0 PPF.\n\nUn amplio repertorio narrativo no aumenta por sí mismo la peligrosidad de una criatura.",
+      "hash": "956756aaf1445a9ae6bdd7ef7e3843552b7acf85"
     },
     {
       "kind": "section",
@@ -10707,6 +11219,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Coste del Arsenal",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-coste-del-arsenal",
+      "aliases": [
+        "coste del arsenal"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Coste del Arsenal",
+      "anchor": "coste-del-arsenal",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Determina normalmente el Rango y coste en PPF de cada capacidad.\n\nLa capacidad más cara se paga a su **coste completo**.\n\nTodas las demás opciones del mismo Arsenal cuestan **la mitad de sus PPF normales, redondeando hacia arriba**.\n\n> **Ejemplo:** una criatura posee tres Acciones tácticas de Rango 3, Rango 2 y Rango 2.\n>\n> Sus costes normales serían 4, 3 y 3 PPF.\n>\n> Mediante Arsenal Versátil paga:\n>\n> **4 + 2 + 2 = 8 PPF.**\n>\n> La criatura paga por disponer de alternativas, pero menos que si pudiera utilizar las tres capacidades conjuntamente.",
+      "hash": "ddd7a0f1dbd4a3be3907e1694892ba8d5bd52b77"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Creando Objetos Únicos como Cartas",
       "slug": "04-guia-de-recompensas-tesoro-y-equipo-creando-objetos-unicos-como-cartas",
       "aliases": [
@@ -10720,6 +11248,22 @@
       "source": "gm.md",
       "search": "Cuando diseñes un objeto especial, trátalo como si estuvieras creando una nueva carta exclusiva de ese objeto. La distinción entre un objeto \"menor\" y uno \"poderoso\" radica en si su carta necesita ocupar una de tus **Ranuras de Cartas Activas** para funcionar.\n\n- **Objetos de Efecto (Menores):** Otorgan beneficios constantes sin necesidad de ocupar una ranura activa. Son \"siempre activos\" mientras el personaje los porte o utilice.\n- **Objetos Activables (Mayores):** Requieren que el jugador dedique una de sus Ranuras de Cartas Activas a la carta del objeto. Esto representa el esfuerzo mental y la concentración necesarios para canalizar el poder del objeto, y crea una decisión estratégica interesante para el jugador.\n\nUtiliza la siguiente plantilla:\n\n- **[NOMBRE DEL OBJETO]**\n- **Tipo:** Objeto (Puede ser de **Efecto** o **Activable**).\n- **Descripción:** Explica el efecto mecánico y narrativo del objeto.\n- **Usos:** Si es **Activable**, detalla cuántas veces se puede usar (ej. `1 por día de descanso`, `Recarga 5+`, etc.).\n- **Requerimientos:** Listado de requerimientos para poder usar el objeto.",
       "hash": "3575e81066091b1454d23cfa1dbe608d1ace2e70"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Crear un Arsenal",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-crear-un-arsenal",
+      "aliases": [
+        "crear un arsenal"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Crear un Arsenal",
+      "anchor": "crear-un-arsenal",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Pueden agruparse en un mismo Arsenal varias capacidades que:\n\n- sean **Rasgos Tácticos**;\n- utilicen el mismo recurso, como una **Acción**, **Interacción** o **Reacción**;\n- sean alternativas entre sí, de modo que normalmente utilizar una impida utilizar las demás mediante ese mismo recurso.\n\nCada recurso forma su propio Arsenal. Una Acción y una Reacción, por ejemplo, no se descuentan entre sí porque pueden utilizarse durante la misma ronda.",
+      "hash": "65f1e44fc871d17a48379ffe3ea66c358207a274"
     },
     {
       "kind": "section",
@@ -10766,8 +11310,24 @@
       "anchor": "daño-promedio-por-ronda",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "La columna **Daño Prom. (ST)** representa el **daño promedio total que la criatura puede infligir durante una ronda mediante su ofensiva estándar contra un único objetivo**.\n\nEste valor representa el resultado combinado de todo lo que la criatura realiza normalmente con su Acción ofensiva.\n\nSi una criatura realiza varios ataques como parte de su Acción, el daño comprado se distribuye entre todos ellos.\n\n**Ejemplo:** si una criatura tiene un Daño Promedio de 12 y realiza dos ataques mediante Asalto Múltiple, ambos ataques combinados deberían infligir aproximadamente 12 puntos de daño promedio por ronda.\n\nLos Rasgos, condiciones y capacidades especiales que modifiquen sustancialmente esta producción de daño deben considerarse al evaluar el perfil ofensivo completo de la criatura.",
-      "hash": "bc970e477d21fddde089ad7927d65a54500cd776"
+      "search": "La columna **Daño Prom. (ST)** representa el **daño promedio total que la criatura puede infligir durante una ronda mediante su ofensiva estándar contra un único objetivo**.\n\nEste valor representa el resultado combinado de todo lo que la criatura realiza normalmente con su Acción ofensiva.\n\nSi una criatura realiza varios ataques como parte de su Acción, el daño comprado se distribuye entre todos ellos.\n\n**Ejemplo:** si una criatura tiene un Daño Promedio de 12 y realiza dos ataques mediante Asalto Múltiple, ambos ataques combinados deberían infligir aproximadamente 12 puntos de daño promedio por ronda.\n\nLos Rasgos, condiciones y capacidades especiales que modifiquen sustancialmente esta producción de daño deben considerarse al evaluar el perfil ofensivo completo de la criatura.\n\nPara determinar el Daño Promedio por Ronda de una criatura, evalúa una secuencia representativa de tres rondas y divide todo el daño producido entre tres. Incluye daño persistente, bonificaciones condicionales y Reacciones ofensivas con la frecuencia con la que razonablemente puedan producirse durante esa secuencia. Redondea hacia abajo el resultado final.",
+      "hash": "4876853013f443115466035cb27036c70726983e"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Daño y Arsenal Versátil",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-dano-y-arsenal-versatil",
+      "aliases": [
+        "dano y arsenal versatil"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Daño y Arsenal Versátil",
+      "anchor": "daño-y-arsenal-versátil",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Una capacidad no se convierte automáticamente en un Rasgo Táctico por infligir daño.\n\nEl **Daño Promedio por Ronda** comprado para la criatura ya determina cuánto daño puede producir normalmente su ofensiva. Diferentes ataques, conjuros o rayos pueden representar distintas formas de distribuir ese daño sin pagar PPF adicionales, siempre que no añadan una ventaja táctica relevante.\n\nUn ataque que además inmoviliza, desplaza, debilita, altera acciones o produce otro efecto significativo sí debe valorar ese efecto como Rasgo Táctico.\n\nAl calcular el Daño Promedio de una criatura, considera **todo el daño que puede producir normalmente durante una ronda**, incluyendo sus Reacciones ofensivas.",
+      "hash": "e21eca275dd4b84984cae893011a2d63cd6c91bf"
     },
     {
       "kind": "section",
@@ -11566,8 +12126,8 @@
       "anchor": "paso-2-linaje-de-la-criatura",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.\n\nEl Linaje puede ser utilizado por habilidades, objetos, efectos y otras reglas para determinar cómo interactúan con la criatura.\n\nLos Linajes de criatura habituales son:\n\n- **Humanoide:** pueblos y seres de naturaleza principalmente humanoide.\n- **Goblinoide:** goblins y criaturas pertenecientes a sus estirpes o familias afines.\n- **Bestia:** animales y criaturas naturales guiadas principalmente por el instinto.\n- **Monstruosidad:** criaturas extraordinarias cuya naturaleza no encaja en otras categorías.\n- **No-muerto:** cadáveres animados, espíritus y otras criaturas sostenidas más allá de la muerte.\n- **Constructo:** seres artificiales animados mediante magia, ingeniería u otros medios.\n- **Elemental:** criaturas vinculadas fundamentalmente a una fuerza o elemento primordial.\n- **Feérico:** seres ligados a la magia feérica, sus dominios o su naturaleza sobrenatural.\n- **Dragón:** dragones verdaderos y otras criaturas de naturaleza dracónica.\n- **Gigante:** gigantes verdaderos y criaturas pertenecientes a sus estirpes.\n- **Celestial:** seres originados o imbuidos por fuerzas celestiales.\n- **Infernal:** seres originados o imbuidos por fuerzas infernales.\n- **Aberración:** criaturas de naturaleza antinatural, alienígena o ajena a las leyes normales del mundo.\n- **Planta:** criaturas vegetales animadas o conscientes.\n\nEsta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o ambientación lo requiera.\n\n> **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.",
-      "hash": "e03f03668a54138a9741bd58709c444a191103f8"
+      "search": "Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.\n\nEl Linaje puede ser utilizado por habilidades, objetos, efectos y otras reglas para determinar cómo interactúan con la criatura.\n\nLos Linajes de criatura habituales son:\n\n- **Humanoide:** pueblos y seres de naturaleza principalmente humanoide.\n- **Goblinoide:** goblins y criaturas pertenecientes a sus estirpes o familias afines.\n- **Bestia:** animales y criaturas naturales guiadas principalmente por el instinto.\n- **Monstruosidad:** criaturas extraordinarias cuya naturaleza no encaja en otras categorías.\n- **No-muerto:** cadáveres animados, espíritus y otras criaturas sostenidas más allá de la muerte.\n- **Constructo:** seres artificiales animados mediante magia, ingeniería u otros medios.\n- **Elemental:** criaturas vinculadas fundamentalmente a una fuerza o elemento primordial.\n- **Feérico:** seres ligados a la magia feérica, sus dominios o su naturaleza sobrenatural.\n- **Dragón:** dragones verdaderos y otras criaturas de naturaleza dracónica.\n- **Gigante:** gigantes verdaderos y criaturas pertenecientes a sus estirpes.\n- **Celestial:** seres originados o imbuidos por fuerzas celestiales.\n- **Infernal:** seres originados o imbuidos por fuerzas infernales.\n- **Aberración:** criaturas de naturaleza antinatural, alienígena o ajena a las leyes normales del mundo.\n- **Planta:** criaturas vegetales animadas o conscientes.\n\nEsta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o ambientación lo requiera.\n\n> **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.\n\n**Idiomas:** los idiomas de una criatura son parte de su identidad y no tienen coste en PPF. La lista puede incluir lenguas propias, dialectos específicos de una región, subespecie o comunidad, o variantes que la criatura solo comprende o solo habla. El DJ puede añadir, restringir o ajustar los idiomas según la ficción de su mundo sin alterar el balance del bloque.\n\n> **Ejemplo:** la Harpía habla el dialecto propio de los acantilados a los que es territorial; otras harpías de un litoral distinto podrían hablar una variante diferente, sin coste por ello.",
+      "hash": "bd534b160325bf29b212e135734abc8ed5357f79"
     },
     {
       "kind": "section",
@@ -11619,19 +12179,19 @@
     },
     {
       "kind": "section",
-      "canonicalName": "Paso 3: Distribuir PPF en Estadísticas",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-paso-3-distribuir-ppf-en-estadisticas",
+      "canonicalName": "Paso 3: Definir atributos y estadísticas",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-paso-3-definir-atributos-y-estadisticas",
       "aliases": [
-        "paso 3: distribuir ppf en estadisticas"
+        "paso 3: definir atributos y estadisticas"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Paso 3: Distribuir PPF en Estadísticas",
-      "anchor": "paso-3-distribuir-ppf-en-estadísticas",
+      "heading": "Paso 3: Definir atributos y estadísticas",
+      "anchor": "paso-3-definir-atributos-y-estadísticas",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "Usa la tabla del Rango correspondiente. Recuerda los **Límites de Gasto (Cotas)** por atributo.",
-      "hash": "a5a575df9b76ae6efee2bef4ec5f4e6255679733"
+      "search": "El Rango determina el presupuesto de PPF de la criatura. Usa la tabla del Rango\ncorrespondiente para distribuir esos puntos y respeta las **cotas de inversión\npor categoría**.\n\nLos atributos se definen por separado. Describen las capacidades de la criatura\ny pueden influir en pruebas, tiradas enfrentadas y otras reglas que los utilicen\nde forma explícita.",
+      "hash": "4bc4f0d6df45cbefa121c8eb9b96719000f0635e"
     },
     {
       "kind": "section",
@@ -11822,8 +12382,8 @@
       "anchor": "paso-7-poniéndolo-en-práctica-ejemplos-finales",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
-      "search": "> **Ejemplo 1: Berserker R2 (12 PPF / Límite 6)**\n>\n> - **Rasgo Táctico (3 PPF):** `Ataque Temerario` (Rasgo R2) → 3 PPF.\n> - **Stats (9 PPF):**\n>   - **Daño: 5 PPF** → 13-14 de Daño Promedio por Ronda disponible.\n>   - **Ataque: 2 PPF** → +5 / ND 10.\n>   - **Salud: 2 PPF** → 25 PS.\n> - **Total:** 3 (Rasgo) + 5 (Daño) + 2 (Ataque) + 2 (Salud) = **12 PPF**.\n>\n> El Berserker utiliza **Asalto Múltiple** para realizar dos ataques como parte de su Acción. Su daño total entre ambos ataques representa el Daño Promedio por Ronda comprado, en lugar de aplicar ese valor completo a cada ataque individual.\n>\n> Su `Furia` aplica un bono de **+2 al daño una vez por turno a uno de sus ataques** mientras la criatura tenga la mitad de su Salud o menos.\n>\n> Su perfil puede representarse mediante dos ataques que infligen aproximadamente 11 puntos de daño promedio combinados en condiciones normales y aumentan hasta aproximadamente 13 mientras su `Furia` está activa.\n>\n> - **Final:** PS 25, Esq 7, Mit 0, Atq +5 / ND 10. Dos ataques por Acción. Daño ofensivo máximo aproximado: 13 por ronda mientras Furia está activa. Rasgo Táctico: `Ataque Temerario`.\n\n> **Ejemplo 2: Guardia Tanque R2 (12 PPF / Límite 6)**\n>\n> - **Habilidad (3 PPF):** `Protección` (Rasgo R2) -> 3 PPF.\n> - **Stats (9 PPF):**\n>   - Salud: 3 PPF -> 30 PS\n>   - Defensa: 4 PPF -> 3 PD / Tope 2, asignados como Mit. Física 2 y Mit. Mágica 1\n>   - Esquiva: 1 PPF -> 8 Esq\n>   - Ataque: 1 PPF -> +4 / ND 9\n> - **Total:** 3(Hab) + 3(PS) + 4(Defensa) + 1(Esq) + 1(Atq) = 12 PPF.\n> - **Final:** PS 30, Esq 8, Mit. Física 2, Mit. Mágica 1, Atq +4/ND 9, Daño 0 (base). Rasgo: `Protección`.",
-      "hash": "621d6925e5cddfc1d8d4845609e439674d325d28"
+      "search": "> **Ejemplo 1: Berserker R2 (12 PPF / Cota de inversión 6)**\n>\n> - **Rasgo Táctico (3 PPF):** `Ataque Temerario` (Rasgo R2) → 3 PPF.\n> - **Stats (9 PPF):**\n>   - **Daño: 5 PPF** → 13-14 de Daño Promedio por Ronda disponible.\n>   - **Ataque: 2 PPF** → +5 / ND 10.\n>   - **Salud: 2 PPF** → 25 PS.\n> - **Total:** 3 (Rasgo) + 5 (Daño) + 2 (Ataque) + 2 (Salud) = **12 PPF**.\n>\n> El Berserker utiliza **Asalto Múltiple** para realizar dos ataques como parte de su Acción. Su daño total entre ambos ataques representa el Daño Promedio por Ronda comprado, en lugar de aplicar ese valor completo a cada ataque individual.\n>\n> Su `Furia` aplica un bono de **+2 al daño una vez por turno a uno de sus ataques** mientras la criatura tenga la mitad de su Salud o menos.\n>\n> Su perfil puede representarse mediante dos ataques que infligen aproximadamente 11 puntos de daño promedio combinados en condiciones normales y aumentan hasta aproximadamente 13 mientras su `Furia` está activa.\n>\n> - **Final:** PS 25, Esq 7, Mit 0, Atq +5 / ND 10. Dos ataques por Acción. Daño ofensivo máximo aproximado: 13 por ronda mientras Furia está activa. Rasgo Táctico: `Ataque Temerario`.\n\n> **Ejemplo 2: Guardia Tanque R2 (12 PPF / Cota de inversión 6)**\n>\n> - **Habilidad (3 PPF):** `Protección` (Rasgo R2) -> 3 PPF.\n> - **Stats (9 PPF):**\n>   - Salud: 3 PPF -> 30 PS\n>   - Defensa: 4 PPF -> 3 PD / Tope 2, asignados como Mit. Física 2 y Mit. Mágica 1\n>   - Esquiva: 1 PPF -> 8 Esq\n>   - Ataque: 1 PPF -> +4 / ND 9\n> - **Total:** 3(Hab) + 3(PS) + 4(Defensa) + 1(Esq) + 1(Atq) = 12 PPF.\n> - **Final:** PS 30, Esq 8, Mit. Física 2, Mit. Mágica 1, Atq +4/ND 9, Daño 0 (base). Rasgo: `Protección`.",
+      "hash": "c700c8b6d3108bb80f2f83c69aee8d17a58ca625"
     },
     {
       "kind": "section",
@@ -11872,6 +12432,38 @@
       "source": "player.md",
       "search": "Cuando un personaje intenta realizar una acción cuyo resultado es incierto, debe realizar una **Prueba de Habilidad**. El objetivo es igualar o superar un **Nivel de Dificultad (ND)** establecido por el DJ. La fórmula básica es:\n\n**Tirada = 1d8 + Valor de Atributo**\n\n| Dificultad  | ND Sugerido | Ejemplo                                        |\n| :---------- | :---------- | :--------------------------------------------- |\n| Fácil       | 6           | Escalar un muro con buenos agarres.            |\n| Normal      | 8           | Persuadir a un guardia para que te deje pasar. |\n| Difícil     | 10          | Descifrar un texto antiguo en otro idioma.     |\n| Muy Difícil | 12          | Saltar de un carruaje a otro en movimiento.    |\n| Imposible   | 14+         | Desviar una flecha con una daga.               |\n\nEn caso de superar la tirada por 5 o más, se considera un éxito crítico.",
       "hash": "275d1bcfa8de24b70685c948509de5f694a90993"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Qué no puede formar parte de un Arsenal",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-que-no-puede-formar-parte-de-un-arsenal",
+      "aliases": [
+        "que no puede formar parte de un arsenal"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Qué no puede formar parte de un Arsenal",
+      "anchor": "qué-no-puede-formar-parte-de-un-arsenal",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Una capacidad no recibe el descuento de Arsenal Versátil si puede aportar su beneficio además de las demás sin competir por el mismo recurso.\n\nEsto incluye:\n\n- Rasgos pasivos.\n- Auras y efectos permanentes.\n- Defensas especiales.\n- Capacidades gratuitas.\n- Capacidades que mejoran otra habilidad utilizada simultáneamente.\n- Capacidades que forman conjuntamente una misma Acción.\n\nEstas capacidades se compran normalmente.",
+      "hash": "e31c02be02194d29bcf031accb36baf80a569a3b"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Reacciones de Jefe",
+      "slug": "07-parte-1-disenar-encuentros-reacciones-de-jefe",
+      "aliases": [
+        "reacciones de jefe"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/07-parte-1-disenar-encuentros.md",
+      "heading": "Reacciones de Jefe",
+      "anchor": "reacciones-de-jefe",
+      "chapter": "Parte 1: Diseñar Encuentros",
+      "source": "gm.md",
+      "search": "Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.\n\n**Reposicionarse:** Al final del turno de otra criatura, puede usar una Reacción para moverse hasta la mitad de su Velocidad.\n\n**Ataque Rápido:** Al final del turno de otra criatura, puede usar una Reacción para realizar uno de los ataques indicados en su sección de **Ataques**, siempre que ese ataque no posea Recarga.\n\n- Si normalmente puede realizar varios ataques como parte de su Acción, realiza solamente **uno**.\n- Si normalmente realiza un único ataque con su Acción, el ataque realizado mediante esta Reacción inflige **la mitad del daño, redondeando hacia abajo**.\n\nTodas las demás propiedades del ataque se resuelven normalmente.\n\nEstas opciones no reemplazan las Reacciones propias de la criatura. Simplemente garantizan que cualquier criatura utilizada como jefe disponga de formas básicas de aprovechar las Reacciones adicionales adquiridas.\n\nLas Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas lo indique expresamente.",
+      "hash": "cfe23daa548febe2bb10ac9f5a123354a692964f"
     },
     {
       "kind": "section",
@@ -11955,6 +12547,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Recargas y Repertorios Amplios",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-recargas-y-repertorios-amplios",
+      "aliases": [
+        "recargas y repertorios amplios"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Recargas y Repertorios Amplios",
+      "anchor": "recargas-y-repertorios-amplios",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "La Recarga continúa formando parte del balance de cada capacidad.\n\nSi un Arsenal contiene tantas capacidades limitadas que la criatura puede alternarlas y utilizar continuamente efectos de gran poder sin preocuparse por sus Recargas, evalúa el repertorio completo y aumenta el Rango de sus Rasgos cuando corresponda.\n\nArsenal Versátil reduce el coste de tener **alternativas**; no convierte las limitaciones de uso en irrelevantes.",
+      "hash": "4f92851e4ab0c783e8bebe3dc7c0570427aaa4e2"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Recompensas de Equipo y Objetos Especiales",
       "slug": "04-guia-de-recompensas-tesoro-y-equipo-recompensas-de-equipo-y-objetos-especiales",
       "aliases": [
@@ -11968,6 +12576,22 @@
       "source": "gm.md",
       "search": "El mejor tesoro a menudo no viene en una bolsa de monedas, sino en la forma de un objeto único que define a un personaje. En ARCANA, los objetos especiales y mágicos se integran en el juego utilizando el mismo lenguaje que las habilidades del personaje: el formato de carta.\n\nEsto evita las bonificaciones numéricas genéricas y, en su lugar, otorga capacidades nuevas y narrativamente interesantes.",
       "hash": "3a4b55dcd59712ebc790139fd2571d91d7ea292d"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Regla de Diseño: Arsenal Versátil",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-regla-de-diseno-arsenal-versatil",
+      "aliases": [
+        "regla de diseno: arsenal versatil"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "heading": "Regla de Diseño: Arsenal Versátil",
+      "anchor": "regla-de-diseño-arsenal-versátil",
+      "chapter": "Parte 2: Diseño Avanzado de Criaturas",
+      "source": "gm.md",
+      "search": "Algunas criaturas poseen numerosos ataques, conjuros o técnicas entre los que deben elegir cada vez que actúan. Tener más opciones aporta versatilidad, pero no equivale a poder utilizarlas todas al mismo tiempo.\n\n**Arsenal Versátil** permite representar estos repertorios sin pagar cada alternativa como si fuera una capacidad completamente independiente.",
+      "hash": "f1f2b5fc14e922199afec348d08b98959d38e75d"
     },
     {
       "kind": "section",
@@ -11987,6 +12611,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Regla de Encuentro: Reacciones Adicionales para Jefes",
+      "slug": "07-parte-1-disenar-encuentros-regla-de-encuentro-reacciones-adicionales-para-jefes",
+      "aliases": [
+        "regla de encuentro: reacciones adicionales para jefes"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/07-parte-1-disenar-encuentros.md",
+      "heading": "Regla de Encuentro: Reacciones Adicionales para Jefes",
+      "anchor": "regla-de-encuentro-reacciones-adicionales-para-jefes",
+      "chapter": "Parte 1: Diseñar Encuentros",
+      "source": "gm.md",
+      "search": "Todas las criaturas disponen normalmente de **1 Reacción por ronda**.\n\nAl construir un encuentro, el DJ puede otorgar Reacciones adicionales a una criatura para representar un enemigo especialmente dominante o un jefe capaz de mantenerse activo frente a varios adversarios.\n\nCada Reacción adicional aumenta el coste en PA de la criatura en un **25% de su coste base**, calculando todos los incrementos sobre el coste original y redondeando el resultado final hacia arriba.\n\n| Reacciones por Ronda |  Coste en PA |\n| -------------------- | -----------: |\n| **1**                | Coste normal |\n| **2**                |        ×1,25 |\n| **3**                |        ×1,50 |\n| **4**                |        ×1,75 |\n\nComo referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien para jefes solitarios. Las criaturas con 4 Reacciones deberían reservarse para encuentros particularmente importantes.\n\nUna criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.",
+      "hash": "ba85992be5fc7545f82475f2f7c18620bcd286c1"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Resultados Especiales de la Tirada",
       "slug": "03-mecanicas-de-juego-resultados-especiales-de-la-tirada",
       "aliases": [
@@ -12003,99 +12643,99 @@
     },
     {
       "kind": "section",
-      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Límite por Atributo: 4 PPF)",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-1-presupuesto-8-ppf-limite-por-atributo-4-ppf",
+      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-1-presupuesto-8-ppf-cota-de-inversion-por-categoria-4-ppf",
       "aliases": [
-        "tabla de constructor: monstruo de rango 1 (presupuesto: 8 ppf / limite por atributo: 4 ppf)"
+        "tabla de constructor: monstruo de rango 1 (presupuesto: 8 ppf / cota de inversion por categoria: 4 ppf)"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Límite por Atributo: 4 PPF)",
-      "anchor": "tabla-de-constructor-monstruo-de-rango-1-presupuesto-8-ppf--límite-por-atributo-4-ppf",
+      "heading": "Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)",
+      "anchor": "tabla-de-constructor-monstruo-de-rango-1-presupuesto-8-ppf--cota-de-inversión-por-categoría-4-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
       "search": "| Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |\n| :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |\n| **0 (Base)** |   4   |    6    |   +2 / 7    |                   1-2                    |             0 / 0             |               2                |\n|    **1**     |   7   |    7    |   +3 / 8    |                    3                     |             0 / 0             |               -                |\n|    **2**     |  10   |    -    |      -      |                    4                     |             1 / 1             |               3                |\n|    **3**     |  13   |    8    |   +4 / 9    |                    5                     |             2 / 1             |               -                |\n|    **4**     |  16   |    -    |      -      |                    6                     |             3 / 1             |               4                |",
-      "hash": "67e12c298bf80207d758a043078e544920c3bbfc"
+      "hash": "0bf8df24d88a6885e3ceb11dcd5145731004e60b"
     },
     {
       "kind": "section",
-      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Límite por Atributo: 6 PPF)",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-2-presupuesto-12-ppf-limite-por-atributo-6-ppf",
+      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-2-presupuesto-12-ppf-cota-de-inversion-por-categoria-6-ppf",
       "aliases": [
-        "tabla de constructor: monstruo de rango 2 (presupuesto: 12 ppf / limite por atributo: 6 ppf)"
+        "tabla de constructor: monstruo de rango 2 (presupuesto: 12 ppf / cota de inversion por categoria: 6 ppf)"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Límite por Atributo: 6 PPF)",
-      "anchor": "tabla-de-constructor-monstruo-de-rango-2-presupuesto-12-ppf--límite-por-atributo-6-ppf",
+      "heading": "Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)",
+      "anchor": "tabla-de-constructor-monstruo-de-rango-2-presupuesto-12-ppf--cota-de-inversión-por-categoría-6-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
       "search": "| Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |\n| :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |\n| **0 (Base)** |  15   |    7    |   +3 / 8    |                   0-4                    |             0 / 0             |               2                |\n|    **1**     |  20   |    8    |   +4 / 9    |                   5-6                    |             0 / 0             |               3                |\n|    **2**     |  25   |    -    |   +5 / 10   |                   7-8                    |             1 / 1             |               -                |\n|    **3**     |  30   |    9    |      -      |                   9-10                   |             2 / 1             |               4                |\n|    **4**     |  35   |    -    |   +6 / 11   |                  11-12                   |             3 / 2             |               -                |\n|    **5**     |  40   |   10    |      -      |                  13-14                   |             4 / 2             |               5                |\n|    **6**     |  45   |    -    |      -      |                  15-16                   |             5 / 2             |               -                |",
-      "hash": "dca79f770b9f649c40232c7e403218b7c725028f"
+      "hash": "257027f91bd622bacd09c9e016ea7ddbbcb1208f"
     },
     {
       "kind": "section",
-      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Límite por Atributo: 8 PPF)",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-3-presupuesto-17-ppf-limite-por-atributo-8-ppf",
+      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-3-presupuesto-17-ppf-cota-de-inversion-por-categoria-8-ppf",
       "aliases": [
-        "tabla de constructor: monstruo de rango 3 (presupuesto: 17 ppf / limite por atributo: 8 ppf)"
+        "tabla de constructor: monstruo de rango 3 (presupuesto: 17 ppf / cota de inversion por categoria: 8 ppf)"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Límite por Atributo: 8 PPF)",
-      "anchor": "tabla-de-constructor-monstruo-de-rango-3-presupuesto-17-ppf--límite-por-atributo-8-ppf",
+      "heading": "Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)",
+      "anchor": "tabla-de-constructor-monstruo-de-rango-3-presupuesto-17-ppf--cota-de-inversión-por-categoría-8-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
       "search": "| Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |\n| :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |\n| **0 (Base)** |  30   |    7    |   +4 / 9    |                   0-8                    |             0 / 0             |               3                |\n|    **1**     |  38   |    8    |   +5 / 10   |                   9-11                   |             0 / 0             |               -                |\n|    **2**     |  46   |    -    |   +6 / 11   |                  12-14                   |             1 / 1             |               4                |\n|    **3**     |  54   |    9    |      -      |                  15-17                   |             2 / 1             |               -                |\n|    **4**     |  62   |    -    |   +7 / 12   |                  18-20                   |             3 / 2             |               5                |\n|    **5**     |  70   |   10    |      -      |                  21-23                   |             4 / 2             |               -                |\n|    **6**     |  78   |    -    |      -      |                  24-26                   |             5 / 3             |               6                |\n|    **7**     |  86   |    -    |      -      |                  27-29                   |             6 / 3             |               -                |\n|    **8**     |  94   |    -    |      -      |                  30-32                   |             8 / 3             |               -                |",
-      "hash": "5357096528300ef36e08f8cf5202140d6f6a3c19"
+      "hash": "feeef8b0076944081c12c6f553472cca036f8a9d"
     },
     {
       "kind": "section",
-      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Límite por Atributo: 10 PPF)",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-4-presupuesto-23-ppf-limite-por-atributo-10-ppf",
+      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-4-presupuesto-23-ppf-cota-de-inversion-por-categoria-10-ppf",
       "aliases": [
-        "tabla de constructor: monstruo de rango 4 (presupuesto: 23 ppf / limite por atributo: 10 ppf)"
+        "tabla de constructor: monstruo de rango 4 (presupuesto: 23 ppf / cota de inversion por categoria: 10 ppf)"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Límite por Atributo: 10 PPF)",
-      "anchor": "tabla-de-constructor-monstruo-de-rango-4-presupuesto-23-ppf--límite-por-atributo-10-ppf",
+      "heading": "Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)",
+      "anchor": "tabla-de-constructor-monstruo-de-rango-4-presupuesto-23-ppf--cota-de-inversión-por-categoría-10-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
       "search": "| Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |\n| :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |\n| **0 (Base)** |  60   |    8    |   +5 / 10   |                   0-12                   |             0 / 0             |               3                |\n|    **1**     |  70   |    9    |   +6 / 11   |                  13-16                   |             1 / 1             |               4                |\n|    **2**     |  80   |    -    |   +7 / 12   |                  17-20                   |             2 / 1             |               -                |\n|    **3**     |  90   |   10    |      -      |                  21-24                   |             3 / 2             |               5                |\n|    **4**     |  100  |    -    |   +8 / 13   |                  25-28                   |             4 / 2             |               -                |\n|    **5**     |  110  |   11    |      -      |                  29-32                   |             5 / 2             |               6                |\n|    **6**     |  120  |    -    |      -      |                  33-36                   |             6 / 3             |               -                |\n|    **7**     |  130  |    -    |      -      |                  37-40                   |             7 / 3             |               7                |\n|    **8**     |  140  |    -    |      -      |                  41-44                   |             8 / 4             |               -                |\n|    **9**     |  150  |    -    |      -      |                  45-48                   |             9 / 4             |               -                |\n|    **10**    |  160  |    -    |      -      |                  49-52                   |            11 / 4             |               -                |",
-      "hash": "914d0cdc4e79a4c702ee6757cd542a3e7f506ab3"
+      "hash": "f18718ddfb01ec178da201200628a0d22685c3e2"
     },
     {
       "kind": "section",
-      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Límite por Atributo: 12 PPF)",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-5-presupuesto-30-ppf-limite-por-atributo-12-ppf",
+      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-5-presupuesto-30-ppf-cota-de-inversion-por-categoria-12-ppf",
       "aliases": [
-        "tabla de constructor: monstruo de rango 5 (presupuesto: 30 ppf / limite por atributo: 12 ppf)"
+        "tabla de constructor: monstruo de rango 5 (presupuesto: 30 ppf / cota de inversion por categoria: 12 ppf)"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Límite por Atributo: 12 PPF)",
-      "anchor": "tabla-de-constructor-monstruo-de-rango-5-presupuesto-30-ppf--límite-por-atributo-12-ppf",
+      "heading": "Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)",
+      "anchor": "tabla-de-constructor-monstruo-de-rango-5-presupuesto-30-ppf--cota-de-inversión-por-categoría-12-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
       "search": "| Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |\n| :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |\n| **0 (Base)** |  100  |    8    |   +6 / 11   |                   0-20                   |             1 / 1             |               4                |\n|    **1**     |  112  |    9    |   +7 / 12   |                  21-25                   |             2 / 1             |               -                |\n|    **2**     |  124  |   10    |   +8 / 13   |                  26-30                   |             3 / 2             |               5                |\n|    **3**     |  136  |    -    |      -      |                  31-35                   |             4 / 2             |               -                |\n|    **4**     |  148  |   11    |   +9 / 14   |                  36-40                   |             5 / 3             |               6                |\n|    **5**     |  160  |    -    |      -      |                  41-45                   |             6 / 3             |               -                |\n|    **6**     |  172  |   12    |      -      |                  46-50                   |             7 / 4             |               7                |\n|    **7**     |  184  |    -    |      -      |                  51-55                   |             8 / 4             |               -                |\n|    **8**     |  196  |    -    |      -      |                  56-60                   |             9 / 5             |               8                |\n|    **9**     |  208  |    -    |      -      |                  61-65                   |            10 / 5             |               -                |\n|    **10**    |  220  |    -    |      -      |                  66-70                   |            11 / 5             |               -                |\n|    **11**    |  232  |    -    |      -      |                  71-75                   |            12 / 5             |               -                |\n|    **12**    |  244  |    -    |      -      |                  76-80                   |            14 / 5             |               -                |",
-      "hash": "2e3e30875ab08f94043c8bf033fe0045b7c1c198"
+      "hash": "031b59cb39e12ce9ebb10c429bcbbf7db6f4e935"
     },
     {
       "kind": "section",
-      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Límite por Atributo: 14 PPF)",
-      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-6-presupuesto-38-ppf-limite-por-atributo-14-ppf",
+      "canonicalName": "Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)",
+      "slug": "08-parte-2-diseno-avanzado-de-criaturas-tabla-de-constructor-monstruo-de-rango-6-presupuesto-38-ppf-cota-de-inversion-por-categoria-14-ppf",
       "aliases": [
-        "tabla de constructor: monstruo de rango 6 (presupuesto: 38 ppf / limite por atributo: 14 ppf)"
+        "tabla de constructor: monstruo de rango 6 (presupuesto: 38 ppf / cota de inversion por categoria: 14 ppf)"
       ],
       "tags": [],
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
-      "heading": "Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Límite por Atributo: 14 PPF)",
-      "anchor": "tabla-de-constructor-monstruo-de-rango-6-presupuesto-38-ppf--límite-por-atributo-14-ppf",
+      "heading": "Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)",
+      "anchor": "tabla-de-constructor-monstruo-de-rango-6-presupuesto-38-ppf--cota-de-inversión-por-categoría-14-ppf",
       "chapter": "Parte 2: Diseño Avanzado de Criaturas",
       "source": "gm.md",
       "search": "_(Para Jefes Finales Épicos)_\n\n| Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |\n| :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |\n| **0 (Base)** |  150  |    9    |   +7 / 12   |                   0-30                   |             3 / 2             |               4                |\n|    **1**     |  165  |   10    |   +8 / 13   |                  31-35                   |             4 / 2             |               5                |\n|    **2**     |  180  |   11    |   +9 / 14   |                  36-40                   |             5 / 3             |               -                |\n|    **3**     |  195  |   12    |  +10 / 15   |                  41-45                   |             6 / 3             |               6                |\n|    **4**     |  210  |    -    |      -      |                  46-50                   |             7 / 4             |               -                |\n|    **5**     |  225  |   13    |      -      |                  51-55                   |             8 / 4             |               7                |\n|    **6**     |  240  |    -    |  +11 / 16   |                  56-60                   |             9 / 5             |               -                |\n|    **7**     |  255  |    -    |      -      |                  61-65                   |            10 / 5             |               8                |\n|    **8**     |  270  |    -    |      -      |                  66-70                   |            11 / 6             |               -                |\n|    **9**     |  285  |   14    |      -      |                  71-75                   |            12 / 6             |               9                |\n|    **10**    |  300  |    -    |      -      |                  76-80                   |            13 / 7             |               -                |\n|    **11**    |  315  |    -    |      -      |                  81-85                   |            14 / 7             |               -                |\n|    **12**    |  330  |    -    |      -      |                  86-90                   |            15 / 7             |               -                |\n|    **13**    |  345  |    -    |      -      |                  91-95                   |            16 / 7             |               -                |\n|    **14**    |  360  |    -    |      -      |                  96-100                  |            18 / 7             |               -                |",
-      "hash": "915cf812035a9a3b6020fbdef3b658d1ce3337fb"
+      "hash": "62913b78f653e4d6eba29582f1e044ce561866c8"
     },
     {
       "kind": "section",

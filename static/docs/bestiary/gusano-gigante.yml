@@ -1,0 +1,57 @@
+creatures:
+  - name: Gusano Gigante
+    lineage: Monstruosidad
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 2
+      mind: 1
+      instinct: 4
+      presence: 0
+    stats:
+      maxHealth: 184
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Caparazón segmentado
+      magicalMitigation:
+        value: 1
+        note: Núcleo profundo
+      speed:
+        value: 6
+        note: Excava en terreno razonablemente excavable
+    languages: []
+    attacks:
+      - name: Mordida de Falla
+        bonus: 9
+        damage: 4d10+5 Perforante
+        note: null
+      - name: Aguijón de Cola
+        bonus: 9
+        damage: 3d8+3 Veneno
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo, Aguante
+      - name: Asalto Múltiple
+        detail: El gusano puede realizar un ataque de Mordida de Falla y un ataque de Aguijón de Cola con su Acción.
+      - name: Vibración Profunda
+        detail: Mientras está bajo tierra, detecta movimiento a distancia Cercana y sus vibraciones anuncian una trayectoria aproximada.
+      - name: Resistencias
+        detail: Daño Contundente, Cortante y Perforante de fuentes no mágicas.
+    actions:
+      - name: Devorar al Intruso
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Una criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, queda dentro del gusano y este se mueve hasta su espacio. Solo puede contener una criatura. Al inicio de cada turno de la víctima, recibe 2d8 de daño Ácido sin salvación. Al final de cada turno, puede repetir una Tirada de Salvación de Cuerpo (ND 14); con éxito, sale a un espacio adyacente.
+    reactions:
+      - name: Sacudida de Cola
+        detail: Cuando un enemigo termina su movimiento a distancia Inmediata, debe superar una Tirada de Salvación de Reflejos (ND 14) o recibir 2d6 de daño Contundente y quedar Derribado. Solo una vez por ronda.
+    interactions: []
+    behavior: |
+      Un peligro de jefe que convierte el suelo en una amenaza. Desaparece bajo el terreno, divide al grupo con la amenaza de su mordida y emerge solo cuando puede aislar una presa.
+    img: null
+    size: Inmenso

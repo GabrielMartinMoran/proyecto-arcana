@@ -41,7 +41,7 @@ creatures:
       - name: Asalto Múltiple (Solo Garrote)
         detail: El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o uno de Arrojar Roca y uno de Gran Garrote.
       - name: Visión Deficiente
-        detail: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista. Además, no puede realizar ataques como Reacción.
+        detail: El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista.
     actions: []
     reactions: []
     interactions: []

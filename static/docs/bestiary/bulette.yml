@@ -1,0 +1,57 @@
+creatures:
+  - name: Bulette
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 6
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 1
+    stats:
+      maxHealth: 62
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: Excava
+    languages: []
+    attacks:
+      - name: Mordida Destructora
+        bonus: 5
+        damage: 3d6+2 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo
+      - name: Percepción Sísmica
+        detail: Mientras está bajo tierra, la bulette percibe criaturas y movimiento a través del suelo a distancia Cercana. Esto no reemplaza la visión fuera del suelo.
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+    actions: []
+    reactions: []
+    interactions:
+      - name: Emboscada Subterránea
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Como Interacción, la bulette entra bajo tierra desde un terreno
+          razonablemente excavable. Hasta el inicio de su próximo turno no puede
+          ser objetivo directo y puede desplazarse usando su velocidad de
+          excavar. Una Prueba de Percepción (ND 10) permite detectar sus
+          vibraciones y estimar su trayectoria. Al inicio de su siguiente turno,
+          la bulette emerge en un punto válido. Las criaturas a distancia
+          Inmediata del punto de salida deben superar una Tirada de Salvación de
+          Reflejos (ND 10) o quedar Derribadas.
+    behavior: |
+      Un depredador sísmico que convierte el suelo en una segunda línea de aproximación. Marca un territorio, embosca desde ángulos alternos y abandona el área si las vibraciones o el fuego la vuelven insegura.
+    img: null
+    size: Grande

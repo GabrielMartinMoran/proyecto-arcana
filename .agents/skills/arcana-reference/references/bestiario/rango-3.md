@@ -15,28 +15,28 @@
 - **Reflejos:** 3
 - **Mente:** 2
 - **Instinto:** 3
-- **Presencia:** 5
+- **Presencia:** 6
 
 ## Estadísticas
 - **Salud Máxima:** 30
-- **Esquiva:** 10
+- **Esquiva:** 9
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 9 (Flota)
 - **Iniciativa:** 3
 
 ## Ataques
-- **Toque Gélido:** +6 para golpear. Daño: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)
+- **Toque Gélido:** +5 para golpear. Daño: 3d6 Necrótico (Si inflige daño, el espectro recupera Salud igual a la mitad del daño infligido.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Sigilo, Intimidación, Percepción
 - **Resistencias:** Contundente, Cortante y Perforante de fuentes no mágicas
 - **Inmunidades a Estados:** Envenenado
-- **Visión Verdadera:** El espectro puede ver perfectamente en la oscuridad, incluso mágica, y detectar criaturas invisibles.
+- **Visión en la Oscuridad:** El espectro puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra. Esta capacidad no le permite detectar criaturas invisibles.
 - **Movimiento Incorpóreo:** El espectro puede moverse a través de otras criaturas y objetos sólidos como si fueran terreno difícil. Recibe 1d4 de daño de Fuerza si termina su turno dentro de un objeto.
 
 ## Interacciones
-- **Mirada Aterradora:** El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 11) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque). (Usos: 5 [Recarga 5+])
+- **Mirada Aterradora:** El espectro fija su mirada en un personaje a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Instinto (ND 10) o quedar Asustado hasta el final del próximo turno del espectro. (ND vinculado al Ataque). (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -97,7 +97,7 @@
 - **Reflejos:** 2
 - **Mente:** 2
 - **Instinto:** 4
-- **Presencia:** 2
+- **Presencia:** 3
 
 ## Estadísticas
 - **Salud Máxima:** 46
@@ -138,13 +138,13 @@
 - **Cuerpo:** 6
 - **Reflejos:** 1
 - **Mente:** 1
-- **Instinto:** 3
+- **Instinto:** 6
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 62
+- **Salud Máxima:** 54
 - **Esquiva:** 7
-- **Mitigación Física:** 3 (Cuerpo de piedra)
+- **Mitigación Física:** 2 (Cuerpo de piedra)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 7
 - **Iniciativa:** 1
@@ -159,7 +159,7 @@
 - **Deslizarse por la Tierra:** El elemental puede moverse a través de piedra y tierra no trabajada como si fuera terreno normal.
 
 ## Acciones
-- **Pisotón Sísmico:** El elemental golpea el suelo. Toda criatura a distancia Inmediata debe superar una Tirada de Salvación de Reflejos (ND 11) o caer Derribada y recibir 2d6 daño Contundente. (Usos: 5 [Recarga 5+])
+- **Pisotón Sísmico:** El elemental golpea el suelo. Toda criatura en un radio de 2 metros centrado en el elemental debe superar una Tirada de Salvación de Reflejos (ND 11) o quedar Derribada y recibir 2d6 de daño Contundente. (Usos: 5 [Recarga 5+])
 
 
 ---
@@ -177,9 +177,9 @@
 
 ## Atributos
 - **Cuerpo:** 2
-- **Reflejos:** 5
+- **Reflejos:** 6
 - **Mente:** 1
-- **Instinto:** 3
+- **Instinto:** 5
 - **Presencia:** 1
 
 ## Estadísticas
@@ -188,7 +188,7 @@
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
 - **Velocidad:** 11
-- **Iniciativa:** 5
+- **Iniciativa:** 6
 
 ## Ataques
 - **Toque Ardiente:** +7 para golpear. Daño: 3d6 Fuego
@@ -198,7 +198,6 @@
 - **Reflejos Ígneos:** Ventaja (+1d4) en Tiradas de Salvación de Reflejos.
 - **Inmunidades al Daño:** Fuego
 - **Aura de Fuego:** Al final del turno del elemental, toda criatura a distancia Inmediata recibe 1d8 de daño de Fuego.
-- **Forma Ígnea:** El elemental puede moverse a través de espacios de hasta 5 cm de ancho sin problemas.
 
 
 ---
@@ -215,8 +214,8 @@
 **Lenguas:** Aquan
 
 ## Atributos
-- **Cuerpo:** 4
-- **Reflejos:** 4
+- **Cuerpo:** 5
+- **Reflejos:** 5
 - **Mente:** 1
 - **Instinto:** 3
 - **Presencia:** 1
@@ -227,7 +226,7 @@
 - **Mitigación Física:** 1
 - **Mitigación Mágica:** 0
 - **Velocidad:** 10 (Camina sobre el agua)
-- **Iniciativa:** 4
+- **Iniciativa:** 5
 
 ## Ataques
 - **Golpe Acuático:** +7 para golpear. Daño: 2d8 Contundente (Si impacta, el elemental puede intentar engullir al objetivo (si es de su tamaño o menor). El objetivo debe superar una TS de Cuerpo o Reflejos (ND 12) o quedará Inmovilizado y sin poder respirar dentro de él. Por cada turno que una criatura sea engullida, recibirá 1d6 de daño por asfixia. Al final de su turno, una criatura engullida puede intentar liberarse repitiendo la TS. El elemental no puede engullir a más de una criatura a la vez.)
@@ -256,7 +255,7 @@
 - **Cuerpo:** 1
 - **Reflejos:** 6
 - **Mente:** 1
-- **Instinto:** 3
+- **Instinto:** 6
 - **Presencia:** 1
 
 ## Estadísticas
@@ -268,15 +267,16 @@
 - **Iniciativa:** 6
 
 ## Ataques
-- **Ráfaga de Viento:** +6 para golpear. Daño: 2d6 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 3 metros hacia atrás en línea recta.)
+- **Ráfaga de Viento:** +7 para golpear. Daño: 4d6 Contundente (Alcance Cercana. Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 3 metros hacia atrás en línea recta.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Acrobacias, Sigilo, Percepción
-- **Forma Gaseosa:** El elemental puede moverse a través de cualquier abertura por la que pueda pasar el aire.
+- **Forma Gaseosa:** El elemental puede pasar por aberturas amplias sin dificultad.
 - **Vuelo:** El elemental tiene una velocidad de Vuelo de 12 metros.
+- **Viento Esquivo:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 
 ## Reacciones
-- **Vórtice de Viento:** Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 11) o ser empujado 2 metros hacia atrás.
+- **Vórtice de Viento:** Como Reacción cuando es impactado por un ataque cuerpo a cuerpo, el elemental puede forzar al atacante a superar una Tirada de Salvación de Cuerpo (ND 12) o ser empujado 2 metros hacia atrás.
 
 
 ---
@@ -345,7 +345,7 @@
 - **Presencia:** 2
 
 ## Estadísticas
-- **Salud Máxima:** 54
+- **Salud Máxima:** 46
 - **Esquiva:** 7
 - **Mitigación Física:** 2 (Piel gruesa y plumas)
 - **Mitigación Mágica:** 0
@@ -362,7 +362,7 @@
 - **Asalto Múltiple (2 Garras, 1 Pico):** El ozo-lechuza puede realizar dos ataques de Garras y un ataque de Pico con su Acción.
 
 ## Interacciones
-- **Despedazar y Apresar:** Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla).
+- **Despedazar y Apresar:** Si el ozo-lechuza impacta a un objetivo con sus dos ataques de Garras en el mismo turno, puede usar su Interacción para iniciar una Tirada Enfrentada de su Cuerpo contra el Cuerpo del objetivo. Si gana, el objetivo queda Inmovilizado y recibe 1d6 de daño Contundente (3.5 prom) al inicio de cada uno de sus turnos mientras la presa se mantenga (el ozo-lechuza no necesita usar acciones para mantenerla). Una criatura Inmovilizada de esta forma puede usar su Acción para repetir la Tirada Enfrentada de su Cuerpo contra el Cuerpo del ozo-lechuza. Si tiene éxito, se libera.
 
 
 ---
@@ -382,7 +382,7 @@
 - **Cuerpo:** 4
 - **Reflejos:** 2
 - **Mente:** 2
-- **Instinto:** 3
+- **Instinto:** 6
 - **Presencia:** 1
 
 ## Estadísticas
@@ -402,4 +402,173 @@
 - **Forma de Objeto:** Mientras permanece inmóvil, el mimeto es indistinguible de un objeto inanimado (como un cofre, una puerta, etc.). Se requiere superar una Prueba de Instinto (Percepción) con ND 11 para notar su verdadera naturaleza antes de tocarlo.
 - **Asalto Múltiple:** El mimeto puede realizar dos ataques de Pseudópodo con su Acción.
 - **Adhesivo:** El mimeto puede adherirse a cualquier cosa que toque. Una criatura que lo toque o sea impactada por su ataque de Pseudópodo queda Inmovilizada si el afectado no supera una TS de Cuerpo (ND 11). Se requiere una Acción para repetir la TS y así tratar de liberarse a uno mismo o a un objeto pegado.
+
+
+---
+
+# Saga
+
+**Linaje:** Feérico
+
+**Rango:** 3
+
+**Comportamiento:** Una intermediaria feérica de nombres y deudas. Divide las prioridades del grupo, castiga las promesas rotas y abandona el combate si la deuda deja de ser ventajosa.
+
+
+**Lenguas:** Silvano, Común, Arcaico
+
+## Atributos
+- **Cuerpo:** 2
+- **Reflejos:** 3
+- **Mente:** 5
+- **Instinto:** 4
+- **Presencia:** 6
+
+## Estadísticas
+- **Salud Máxima:** 54
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 9
+- **Iniciativa:** 3
+
+## Ataques
+- **Hilo de la Deuda:** +6 para golpear. Daño: 2d8+4 Psíquico (Alcance Cercana)
+
+## Rasgos
+- **Habilidades con Ventaja:** Engaño, Persuasión, Perspicacia
+- **Visión en la Oscuridad:** La saga puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.
+- **Mente Feérica:** Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarla Encantada.
+
+## Acciones
+- **Cosecha de Nombres:** Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Encantado hasta el inicio del próximo turno de la saga y puede repetir la Tirada de Salvación al final de su turno. La saga no puede obligarlo a suicidarse ni a gastar recursos de otro personaje. (Usos: 5 [Recarga 5+])
+- **Manto de Mal Agüero:** La saga elige un punto a distancia Cercana y crea un área de efecto de 2 metros de radio centrada en ese punto. Las criaturas que comiencen su turno dentro deben superar una Tirada de Salvación de Instinto (ND 11) o tener Desventaja en su próxima tirada antes del final de su turno. El área dura hasta el inicio del próximo turno de la saga y no inflige daño. (Usos: 5 [Recarga 5+])
+
+## Reacciones
+- **Escape Feérico:** Cuando la saga es objetivo de un ataque o efecto visible, puede teletransportarse a un espacio visible a distancia Cercana. No provoca Reacciones. Solo puede usar esta Reacción una vez por ronda.
+
+
+---
+
+# Bulette
+
+**Linaje:** Monstruosidad
+
+**Rango:** 3
+
+**Comportamiento:** Un depredador sísmico que convierte el suelo en una segunda línea de aproximación. Marca un territorio, embosca desde ángulos alternos y abandona el área si las vibraciones o el fuego la vuelven insegura.
+
+
+**Lenguas:** Ninguna
+
+## Atributos
+- **Cuerpo:** 6
+- **Reflejos:** 3
+- **Mente:** 1
+- **Instinto:** 4
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 62
+- **Esquiva:** 9
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8 (Excava)
+- **Iniciativa:** 3
+
+## Ataques
+- **Mordida Destructora:** +5 para golpear. Daño: 3d6+2 Perforante
+
+## Rasgos
+- **Habilidades con Ventaja:** Percepción, Supervivencia, Atletismo
+- **Percepción Sísmica:** Mientras está bajo tierra, la bulette percibe criaturas y movimiento a través del suelo a distancia Cercana. Esto no reemplaza la visión fuera del suelo.
+- **Resistencias:** Contundente, Cortante y Perforante de fuentes no mágicas
+
+## Interacciones
+- **Emboscada Subterránea:** Como Interacción, la bulette entra bajo tierra desde un terreno razonablemente excavable. Hasta el inicio de su próximo turno no puede ser objetivo directo y puede desplazarse usando su velocidad de excavar. Una Prueba de Percepción (ND 10) permite detectar sus vibraciones y estimar su trayectoria. Al inicio de su siguiente turno, la bulette emerge en un punto válido. Las criaturas a distancia Inmediata del punto de salida deben superar una Tirada de Salvación de Reflejos (ND 10) o quedar Derribadas. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Sacerdote Gnoll
+
+**Linaje:** Monstruosidad
+
+**Rango:** 3
+
+**Comportamiento:** Un oficiante de la cacería que se mantiene detrás de la manada. Marca la presa, fortalece a varios guerreros con una liturgia y sostiene al aliado que está a punto de caer.
+
+
+**Lenguas:** Gnoll, Común (rudimentario)
+
+## Atributos
+- **Cuerpo:** 3
+- **Reflejos:** 2
+- **Mente:** 4
+- **Instinto:** 5
+- **Presencia:** 4
+
+## Estadísticas
+- **Salud Máxima:** 54
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Maza de Colmillo:** +6 para golpear. Daño: 2d8+4 Contundente
+- **Lanza de Sangre:** +6 para golpear. Daño: 2d6+3 Perforante (Alcance Media)
+
+## Rasgos
+- **Habilidades con Ventaja:** Religión, Persuasión, Supervivencia
+
+## Acciones
+- **Mandato de la Jauría:** Una criatura visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Asustada durante 1 minuto. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina. (Usos: 6 [Recarga 6+])
+- **Liturgia del Cazador:** Hasta 3 aliados Gnoll a distancia Cercana obtienen Ventaja (+1d4) en su próximo ataque antes del final del siguiente turno del sacerdote. (Usos: 5 [Recarga 5+])
+- **Ofrenda de Sangre:** Un aliado Gnoll a distancia Cercana recupera 2d6 Puntos de Salud. El sacerdote no puede usar esta Acción sobre sí mismo. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Hombre Lobo
+
+**Linaje:** Monstruosidad
+
+**Rango:** 3
+
+**Comportamiento:** Un cazador de dos naturalezas que aísla al objetivo herido. Cambia de forma según la ruta de aproximación, usa el aullido para quebrar la coordinación y abandona la cacería si el grupo vuelve a actuar unido.
+
+
+**Lenguas:** Común
+
+## Atributos
+- **Cuerpo:** 5
+- **Reflejos:** 4
+- **Mente:** 1
+- **Instinto:** 4
+- **Presencia:** 2
+
+## Estadísticas
+- **Salud Máxima:** 46
+- **Esquiva:** 8
+- **Mitigación Física:** 1 (Cuerpo resistente)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 9
+- **Iniciativa:** 4
+
+## Ataques
+- **Garras de la Luna:** +6 para golpear. Daño: 1d8+3 Cortante
+- **Mordisco de Caza:** +6 para golpear. Daño: 2d6+3 Perforante
+
+## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Percepción, Supervivencia
+- **Asalto Múltiple:** El hombre lobo puede realizar un ataque de Garras de la Luna y un ataque de Mordisco de Caza con su Acción.
+- **Forma de Cazador:** En cada turno puede elegir una forma. La forma bestial aumenta su velocidad en 2 metros y permite usar el Mordisco de Caza; la forma humana permite hablar y mezclarse socialmente. La forma no cambia sus Puntos de Salud ni concede resistencia adicional.
+
+## Acciones
+- **Aullido de la Luna:** Las criaturas enemigas en un radio de 5 metros deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas hasta el final del próximo turno del hombre lobo. (Usos: 5 [Recarga 5+])
+
+## Reacciones
+- **Salto de Presa:** Cuando una criatura a distancia Inmediata se aleja, el hombre lobo puede moverse 2 metros hacia ella sin provocar Reacciones. Solo una vez por ronda.
 

@@ -11,11 +11,11 @@
 **Lenguas:** Gigante
 
 ## Atributos
-- **Cuerpo:** 7
-- **Reflejos:** 2
+- **Cuerpo:** 8
+- **Reflejos:** 3
 - **Mente:** 1
-- **Instinto:** 2
-- **Presencia:** 1
+- **Instinto:** 5
+- **Presencia:** 3
 
 ## Estadísticas
 - **Salud Máxima:** 120
@@ -23,7 +23,7 @@
 - **Mitigación Física:** 1 (Piel dura)
 - **Mitigación Mágica:** 0
 - **Velocidad:** 8
-- **Iniciativa:** 2
+- **Iniciativa:** 3
 
 ## Ataques
 - **Desgarrar:** +8 para golpear. Daño: 3d10 Cortante
@@ -71,7 +71,7 @@
 - **Habilidades con Ventaja:** Fuerza Bruta, Atletismo, Intimidación
 - **Mole Inamovible:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
 - **Asalto Múltiple (Solo Garrote):** El cíclope puede realizar dos ataques de Gran Garrote con su Acción, o uno de Arrojar Roca y uno de Gran Garrote.
-- **Visión Deficiente:** El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista. Además, no puede realizar ataques como Reacción.
+- **Visión Deficiente:** El cíclope tiene Desventaja en todas las pruebas de Instinto (Percepción) que dependan de la vista.
 
 
 ---
@@ -88,23 +88,23 @@
 **Lenguas:** Común (comprende)
 
 ## Atributos
-- **Cuerpo:** 5
-- **Reflejos:** 4
+- **Cuerpo:** 6
+- **Reflejos:** 6
 - **Mente:** 1
-- **Instinto:** 3
-- **Presencia:** 2
+- **Instinto:** 4
+- **Presencia:** 3
 
 ## Estadísticas
-- **Salud Máxima:** 80
-- **Esquiva:** 9
-- **Mitigación Física:** 0
+- **Salud Máxima:** 90
+- **Esquiva:** 10
+- **Mitigación Física:** 1
 - **Mitigación Mágica:** 0
 - **Velocidad:** 10 (Vuela)
-- **Iniciativa:** 4
+- **Iniciativa:** 6
 
 ## Ataques
-- **Garras:** +8 para golpear. Daño: 3d8 Cortante
-- **Mordisco:** +8 para golpear. Daño: 3d8 Perforante
+- **Garras:** +8 para golpear. Daño: 3d8+1 Cortante
+- **Mordisco:** +8 para golpear. Daño: 3d8+1 Perforante
 
 ## Rasgos
 - **Habilidades con Ventaja:** Percepción, Supervivencia, Intimidación
@@ -193,4 +193,133 @@
 
 ## Acciones
 - **Mirada Petrificadora:** El basilisco fija su mirada en una criatura a distancia Cercana que pueda verlo. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 13). Si falla por 4 puntos o menos, queda Inmovilizado (comienza a convertirse en piedra). Si falla por 5 puntos o más, queda Petrificado instantáneamente. Una criatura Inmovilizada por este efecto debe repetir la Tirada de Salvación al final de cada uno de sus turnos; si vuelve a fallar, queda Petrificada. (Usos: 6 [Recarga 6+])
+
+
+---
+
+# Ent
+
+**Linaje:** Planta
+
+**Rango:** 4
+
+**Comportamiento:** Una frontera forestal móvil que reconfigura objetivos, rutas y cobertura. Expulsa, separa y bloquea accesos antes de buscar matar. Si el objetivo del grupo no amenaza al bosque, prefiere negociar.
+
+
+**Lenguas:** Silvano, Común (comprende)
+
+## Atributos
+- **Cuerpo:** 8
+- **Reflejos:** 1
+- **Mente:** 3
+- **Instinto:** 4
+- **Presencia:** 6
+
+## Estadísticas
+- **Salud Máxima:** 120
+- **Esquiva:** 9
+- **Mitigación Física:** 2 (Corteza resistente)
+- **Mitigación Mágica:** 1 (Savia protectora)
+- **Velocidad:** 7
+- **Iniciativa:** 1
+
+## Ataques
+- **Puño de Corteza:** +7 para golpear. Daño: 4d10+3 Contundente
+- **Latigazo de Raíces:** +7 para golpear. Daño: 3d8+3 Contundente (Como Acción alternativa, afecta un cono de distancia Inmediata. Cada objetivo debe superar una Tirada de Salvación de Reflejos (ND 12) o recibir el daño completo; con éxito, recibe la mitad. No puede usar Puño de Corteza en la misma Acción.)
+
+## Rasgos
+- **Habilidades con Ventaja:** Naturaleza, Percepción, Supervivencia
+
+## Acciones
+- **La Arboleda se Alza:** El ent despierta raíces en un área de distancia Cercana centrada en un punto visible a distancia Media. Las criaturas dentro deben superar una Tirada de Salvación de Reflejos (ND 12). Si fallan, quedan Inmovilizadas hasta el final del siguiente turno del ent. Cada criatura que haya quedado Inmovilizada puede repetir la Tirada de Salvación al final de su propio turno. Las raíces son visibles y el área siempre deja al menos una ruta razonable de salida. (Usos: 6 [Recarga 6+])
+
+## Reacciones
+- **Corteza Reactiva:** Cuando una criatura inflige daño al ent con un ataque cuerpo a cuerpo, esa criatura debe superar una Tirada de Salvación de Cuerpo (ND 12) o quedar Derribada. Solo puede usar esta Reacción una vez por ronda.
+
+
+---
+
+# Momia
+
+**Linaje:** No-muerto
+
+**Rango:** 4
+
+**Comportamiento:** Un guardián funerario que preserva una orden antigua. Fuerza al grupo a avanzar por rutas estrechas, cubre a sus aliados no-muertos y vuelve a la cámara si alguien intenta saquearla.
+
+
+**Lenguas:** Arcaico, Común (comprende)
+
+## Atributos
+- **Cuerpo:** 7
+- **Reflejos:** 2
+- **Mente:** 3
+- **Instinto:** 5
+- **Presencia:** 4
+
+## Estadísticas
+- **Salud Máxima:** 110
+- **Esquiva:** 10
+- **Mitigación Física:** 1 (Vendajes endurecidos)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 7
+- **Iniciativa:** 2
+
+## Ataques
+- **Puño de Vendajes:** +7 para golpear. Daño: 3d8+4 Contundente
+
+## Rasgos
+- **Habilidades con Ventaja:** Historia, Religión, Perspicacia
+- **Visión en la Oscuridad:** La momia puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+- **Inmunidades a Estados:** Envenenado
+
+## Acciones
+- **Maldición de la Garganta Seca:** Un objetivo visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 12). Si falla, queda Asustado durante 1 minuto y no puede recibir Puntos de Salud Temporales. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina. (Usos: 6 [Recarga 6+])
+- **Velo de Polvo:** Crea una nube en un área de distancia Inmediata alrededor de un punto visible a distancia Cercana. Las criaturas dentro deben superar una Tirada de Salvación de Reflejos (ND 12); si fallan, tienen Desventaja en su próxima tirada antes del final de su turno. No inflige daño. (Usos: 5 [Recarga 5+])
+
+## Reacciones
+- **Mano del Guardián:** Cuando un enemigo a distancia Inmediata ataca a un aliado que también está a distancia Inmediata de la momia, el ataque se realiza con Desventaja. Solo una vez por ronda.
+
+
+---
+
+# Remorhaz
+
+**Linaje:** Monstruosidad
+
+**Rango:** 4
+
+**Comportamiento:** Un depredador de túneles cuya temperatura convierte la emboscada en una decisión de posicionamiento. Se sumerge, deja señales legibles y emerge bajo el personaje que rompe la formación.
+
+
+**Lenguas:** Ninguna
+
+## Atributos
+- **Cuerpo:** 8
+- **Reflejos:** 2
+- **Mente:** 1
+- **Instinto:** 4
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 110
+- **Esquiva:** 9
+- **Mitigación Física:** 1 (Caparazón)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 7 (Excava en terreno razonablemente excavable)
+- **Iniciativa:** 2
+
+## Ataques
+- **Mordida de Brasas:** +8 para golpear. Daño: 4d8+4 Perforante
+
+## Rasgos
+- **Habilidades con Ventaja:** Percepción, Supervivencia, Atletismo
+- **Resistencias:** Fuego.
+- **Resistencia Ígnea:** La resistencia a Fuego representa una compra de 2 PD; la Mitigación Física 1 representa el PD restante.
+
+## Acciones
+- **Túnel de Brasa:** Entra bajo tierra desde terreno excavable y deja una línea visible de calor y vibraciones. No puede ser objetivo directo mientras está bajo tierra. Al inicio de su siguiente turno aparece en un espacio visible a distancia Cercana; las criaturas a distancia Inmediata deben superar una Tirada de Salvación de Reflejos (ND 13) o quedar Derribadas. La trayectoria anunciada ofrece una oportunidad razonable de apartarse. (Usos: 6 [Recarga 6+])
+
+## Reacciones
+- **Placas Incandescentes:** Cuando una criatura le inflige daño con un ataque cuerpo a cuerpo, recibe 1d4 de daño Fuego y debe superar una Tirada de Salvación de Reflejos (ND 13) o moverse 1 metro alejándose del remorhaz. Solo una vez por ronda.
 

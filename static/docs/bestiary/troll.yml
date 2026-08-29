@@ -3,11 +3,11 @@ creatures:
     lineage: Gigante
     tier: 4
     attributes:
-      body: 7
-      reflexes: 2
+      body: 8
+      reflexes: 3
       mind: 1
-      instinct: 2
-      presence: 1
+      instinct: 5
+      presence: 3
     stats:
       maxHealth: 120
       evasion:

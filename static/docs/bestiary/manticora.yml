@@ -1,20 +1,22 @@
 creatures:
+  # Presupuesto PPF: S3(S90) + E3(Esq 10) + A4(+8) + D8(3d8+1 x3) + F1(MF 1) = 19
+  # + Ataque de Oportunidad T1 (2 PPF) + Superioridad Aérea R1 (2 PPF) = 23/23
   - name: Mantícora
     lineage: Monstruosidad
     tier: 4
     attributes:
-      body: 5
-      reflexes: 4
+      body: 6
+      reflexes: 6
       mind: 1
-      instinct: 3
-      presence: 2
+      instinct: 4
+      presence: 3
     stats:
-      maxHealth: 80
+      maxHealth: 90
       evasion:
-        value: 9
+        value: 10
         note: null
       physicalMitigation:
-        value: 0
+        value: 1
         note: null
       magicalMitigation:
         value: 0
@@ -27,11 +29,11 @@ creatures:
     attacks:
       - name: Garras
         bonus: 8
-        damage: 3d8 Cortante
+        damage: 3d8+1 Cortante
         note: null
       - name: Mordisco
         bonus: 8
-        damage: 3d8 Perforante
+        damage: 3d8+1 Perforante
         note: null
     traits:
       - name: Habilidades con Ventaja

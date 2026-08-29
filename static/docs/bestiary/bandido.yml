@@ -40,7 +40,7 @@ creatures:
     reactions: []
     interactions:
       - name: ¡Cuerpo a Tierra!
-        detail: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado). Hasta el inicio de su próximo turno, cualquier ataque a distancia contra él se realiza con Desventaja.
+        detail: Como una Interacción, el bandido puede tirarse al suelo (estado Derribado).
     behavior: |
       Un matón pragmático que lucha por dinero, no por gloria. Analiza el campo de batalla en busca del objetivo más rentable (el que lleva mejor equipo) o el menos defendido. No dudará en usar a un compañero como escudo humano o en pedir clemencia si el combate se vuelve en su contra.
     img: https://i.imgur.com/ParBKHT.png

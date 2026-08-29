@@ -1,0 +1,61 @@
+creatures:
+  - name: Sacerdote Gnoll
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 3
+      reflexes: 2
+      mind: 4
+      instinct: 5
+      presence: 4
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Gnoll
+      - Común (rudimentario)
+    attacks:
+      - name: Maza de Colmillo
+        bonus: 6
+        damage: 2d8+4 Contundente
+        note: null
+      - name: Lanza de Sangre
+        bonus: 6
+        damage: 2d6+3 Perforante
+        note: Alcance Media
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Religión, Persuasión, Supervivencia
+    actions:
+      - name: Mandato de la Jauría
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Una criatura visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Asustada durante 1 minuto. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina.
+      - name: Liturgia del Cazador
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Hasta 3 aliados Gnoll a distancia Cercana obtienen Ventaja (+1d4) en su próximo ataque antes del final del siguiente turno del sacerdote.
+      - name: Ofrenda de Sangre
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Un aliado Gnoll a distancia Cercana recupera 2d6 Puntos de Salud. El sacerdote no puede usar esta Acción sobre sí mismo.
+    reactions: []
+    interactions: []
+    behavior: |
+      Un oficiante de la cacería que se mantiene detrás de la manada. Marca la presa, fortalece a varios guerreros con una liturgia y sostiene al aliado que está a punto de caer.
+    img: null
+    size: Mediano

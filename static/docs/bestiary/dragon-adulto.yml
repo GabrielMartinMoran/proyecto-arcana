@@ -1,0 +1,95 @@
+creatures:
+  - name: Dragón Adulto
+    lineage: Dragón
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 5
+      mind: 4
+      instinct: 6
+      presence: 5
+    stats:
+      maxHealth: 172
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Escamas dracónicas
+      magicalMitigation:
+        value: 1
+        note: Resistencia sobrenatural
+      speed:
+        value: 10
+        note: Vuelo 16
+    languages:
+      - Común
+      - Dracónico
+    attacks:
+      - name: Mordida
+        bonus: 9
+        damage: 3d10 Perforante
+        note: Alcance Inmediata.
+      - name: Garra
+        bonus: 9
+        damage: 3d10 Cortante
+        note: Alcance Inmediata.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Intimidación, Percepción, Perspicacia
+      - name: Afinidad Dracónica
+        detail: |
+          El Dragón posee una afinidad determinada por su color, que define el tipo de daño de su Aliento y el daño al que es inmune:
+          - Rojo: Fuego. Aliento en cono.
+          - Azul: Eléctrico. Aliento en línea.
+          - Verde: Veneno. Aliento en cono.
+          - Negro: Ácido. Aliento en línea.
+          - Blanco: Frío. Aliento en cono.
+      - name: Inmunidad al Daño
+        detail: El Dragón es inmune al tipo de daño indicado por su Afinidad Dracónica.
+      - name: Voluntad Dracónica
+        detail: El Dragón obtiene Ventaja (+1d4) en Tiradas de Salvación contra efectos que podrían dejarlo Encantado.
+      - name: Vuelo Dracónico
+        detail: El Dragón posee una velocidad de Vuelo de 16 metros y puede mantenerse en el aire mientras tenga espacio suficiente para maniobrar.
+    actions:
+      - name: Asalto Dracónico
+        detail: El Dragón realiza un ataque de Mordida y dos ataques de Garra.
+      - name: Aliento Dracónico
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: |
+          El Dragón exhala energía correspondiente a su Afinidad Dracónica.
+
+          Las criaturas afectadas deben superar una Tirada de Salvación de Reflejos (ND 14). Si fallan, reciben 10d6 de daño del tipo correspondiente; con éxito, reciben la mitad.
+
+          Si su Afinidad utiliza un cono, afecta un cono de 8 metros. Si utiliza una línea, afecta una línea de 12 metros de largo y 2 metros de ancho.
+      - name: Presencia Aterradora
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: |
+          El Dragón despliega toda la magnitud de su presencia. Cada enemigo a distancia Cercana que pueda verlo u oírlo debe superar una Tirada de Salvación de Instinto (ND 14).
+
+          Si falla, queda Asustado durante 1 minuto. Al final de cada uno de sus turnos puede repetir la Tirada de Salvación, terminando el efecto sobre sí mismo si tiene éxito.
+
+          Una criatura que supere cualquiera de estas Tiradas de Salvación no puede volver a ser afectada por la Presencia Aterradora de ese Dragón durante 24 horas.
+    reactions:
+      - name: Batir Alas
+        detail: |
+          Cuando una criatura termine su turno a distancia Inmediata del Dragón, este puede usar su Reacción para batir violentamente sus alas.
+
+          La criatura debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, queda Derribada y es empujada 3 metros.
+
+          Después, el Dragón puede moverse hasta 3 metros volando sin provocar Reacciones por este movimiento.
+    interactions: []
+    behavior: |
+      Un depredador ancestral, inteligente y brutalmente poderoso. Combina ataques físicos devastadores con superioridad aérea y utiliza su Aliento cuando puede alcanzar a varios enemigos a la vez.
+
+      En su turno alterna entre Asalto Dracónico, Aliento Dracónico y Presencia Aterradora según la situación. Prefiere utilizar el miedo al inicio del combate o cuando necesita recuperar el control del campo, mientras reserva el Aliento para grupos bien posicionados.
+
+      Utiliza Batir Alas para apartar enemigos que logren rodearlo y recuperar una posición favorable.
+
+      Cuando se utiliza como jefe con Reacciones adicionales, aprovecha Reposicionarse para dominar el espacio aéreo y Ataque Rápido para realizar Mordidas o Garras individuales entre los turnos enemigos.
+    img: null
+    size: Enorme

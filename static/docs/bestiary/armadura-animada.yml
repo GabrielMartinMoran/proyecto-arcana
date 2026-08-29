@@ -1,0 +1,44 @@
+creatures:
+  - name: Armadura Animada
+    lineage: Constructo
+    tier: 1
+    attributes:
+      body: 4
+      reflexes: 1
+      mind: 1
+      instinct: 2
+      presence: 0
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 6
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Placas de metal
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages: []
+    attacks:
+      - name: Espada
+        bonus: 3
+        damage: 1d6 Cortante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción
+      - name: Inmunidades a Estados
+        detail: Envenenado
+    actions: []
+    reactions:
+      - name: Parada de Placas
+        detail: Cuando la armadura animada es objetivo de un ataque visible, obtiene +2 a su Esquiva contra ese ataque.
+    interactions: []
+    behavior: |
+      Un guardián autómata sin emociones, programado para proteger una puerta, un sello o un objeto. Se interpone entre la amenaza y su objetivo, no persigue fuera de su umbral y vuelve a su posición si la amenaza se retira.
+    img: null
+    size: Mediano

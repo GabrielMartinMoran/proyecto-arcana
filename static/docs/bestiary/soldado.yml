@@ -1,0 +1,52 @@
+creatures:
+  - name: Soldado
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 3
+      presence: 2
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Espada de Campaña
+        bonus: 5
+        damage: 1d8+3 Cortante
+        note: null
+      - name: Jabalina
+        bonus: 5
+        damage: 1d4+1 Perforante
+        note: Alcance Cercana
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción
+    actions:
+      - name: Desafío de Línea
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Como Acción, una criatura visible a distancia Inmediata que pueda oír al soldado debe superar una Tirada de Salvación de Mente (ND 10). Si falla, tiene Desventaja en sus ataques contra criaturas que no sean el soldado hasta el final de su siguiente turno. El desafío no obliga a atacar al soldado.
+    reactions:
+      - name: Cobertura de Escuadra
+        detail: Cuando un aliado a distancia Inmediata es objetivo de un ataque visible, el soldado puede moverse 1 metro y conceder +2 a la Esquiva del aliado contra ese ataque. Solo una vez por ronda.
+    interactions: []
+    behavior: |
+      Un soldado profesional que mantiene la línea y concentra los ataques contra quien rompe la formación. Desafía al enemigo más peligroso mientras cubre al compañero expuesto.
+    img: null
+    size: Mediano

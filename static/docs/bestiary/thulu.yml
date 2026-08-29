@@ -46,7 +46,7 @@ creatures:
           qty: 5
         detail: El Thulu emite una onda psíquica en un cono de 5 metros. Toda criatura en el rango debe superar una TS de Instinto (ND 14) o sufrir 4d8 de daño Psíquico y quedar Aturdida hasta el final del próximo turno del Thulu. Si tiene éxito, recibe la mitad del daño y no queda Aturdida.
       - name: Devorar Cerebro
-        detail: Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente.
+        detail: Ataca a una criatura Inmovilizada por él. Impacto automático. El objetivo debe superar una TS de Mente (ND 14). Si falla, sufre 10d10 de daño Psíquico. Si esto reduce sus PS a 0, muere instantáneamente. Si sobrevive, su Mente se reduce a 0 y queda descerebrado hasta que un efecto excepcional restaure su cerebro.
     reactions: []
     interactions: []
     behavior: Un depredador psíquico que flota sobre el campo de batalla. Controla el ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar a una víctima, inmovilizarla con su mente y devorar su cerebro. Es inteligente y huirá levitando si su salud baja del 25%.
