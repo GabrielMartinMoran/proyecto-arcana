@@ -316,6 +316,44 @@
 
 ---
 
+# Guardia
+
+**Linaje:** Humanoide
+
+**Rango:** 1
+
+**Comportamiento:** Un guardia de puesto entrenado para mantener una línea y proteger un paso. Usa la espada o la ballesta según la distancia y se repliega solo si el puesto deja de ser defendible.
+
+
+**Lenguas:** Común
+
+## Atributos
+- **Cuerpo:** 3
+- **Reflejos:** 2
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 7
+- **Mitigación Física:** 1 (Arm. de cuero)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 2
+
+## Ataques
+- **Espada:** +3 para golpear. Daño: 1d4 Cortante
+- **Golpe de Escudo:** +3 para golpear. Daño: 1d4 Contundente (Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser empujado 1 metro hacia atrás.)
+- **Ballesta de Mano:** +3 para golpear. Daño: 1d4 Perforante (Alcance Media, Recarga (Interacción))
+
+## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Percepción
+- **Posición Firme:** Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
+
+
+---
+
 # No Combatiente
 
 **Linaje:** Humanoide
@@ -538,4 +576,122 @@
 
 ## Reacciones
 - **Parada del Marinero:** Como Reacción cuando es objeto de un ataque cuerpo a cuerpo de un enemigo al que pueda ver, obtiene un +2 a su Esquiva exclusivamente contra ese ataque. (Usos: 4 [Recarga 4+])
+
+
+---
+
+# Kobold
+
+**Linaje:** Dragón
+
+**Rango:** 1
+
+**Comportamiento:** Un explorador cobarde y oportunista que prepara el terreno antes de atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia una ruta preparada. Huirá si pierde la cobertura o queda solo.
+
+
+**Lenguas:** Dracónico, Común (jerga rudimentaria)
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 3
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 1
+
+## Estadísticas
+- **Salud Máxima:** 13
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 8
+- **Iniciativa:** 3
+
+## Ataques
+- **Honda de Guijarros:** +3 para golpear. Daño: 1d4+1 Perforante (Alcance Cercana)
+- **Daga de Cantera:** +3 para golpear. Daño: 1d4+1 Cortante
+
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Juego de Manos
+- **Visión en la Oscuridad:** El kobold puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+
+## Interacciones
+- **Polvo de Galería:** Como Interacción, el kobold libera polvo en su espacio y puede intentar Ocultarse inmediatamente. La nube no Ciega ni aplica otro estado. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Estirge
+
+**Linaje:** Monstruosidad
+
+**Rango:** 1
+
+**Comportamiento:** Un parásito de corrientes térmicas que hostiga desde arriba y abandona el combate cuando la presa deja de ser segura. Se abalanza sobre el personaje aislado, evita objetivos protegidos y cambia de presa si recibe daño significativo.
+
+
+**Lenguas:** Ninguna
+
+## Atributos
+- **Cuerpo:** 1
+- **Reflejos:** 4
+- **Mente:** 0
+- **Instinto:** 2
+- **Presencia:** 0
+
+## Estadísticas
+- **Salud Máxima:** 7
+- **Esquiva:** 8
+- **Mitigación Física:** 0
+- **Mitigación Mágica:** 0
+- **Velocidad:** 12 (Vuela)
+- **Iniciativa:** 4
+
+## Ataques
+- **Aguijón:** +3 para golpear. Daño: 1d4+1 Perforante
+
+## Rasgos
+- **Habilidades con Ventaja:** Sigilo, Percepción
+- **Vuelo:** La estirge tiene una velocidad de Vuelo de 12 metros.
+
+## Interacciones
+- **Aleteo de Fuga:** Después de impactar con Aguijón, la estirge puede moverse hasta la mitad de su velocidad. Este movimiento no provoca Reacciones. (Usos: 5 [Recarga 5+])
+
+
+---
+
+# Armadura Animada
+
+**Linaje:** Constructo
+
+**Rango:** 1
+
+**Comportamiento:** Un guardián autómata sin emociones, programado para proteger una puerta, un sello o un objeto. Se interpone entre la amenaza y su objetivo, no persigue fuera de su umbral y vuelve a su posición si la amenaza se retira.
+
+
+**Lenguas:** Ninguna
+
+## Atributos
+- **Cuerpo:** 4
+- **Reflejos:** 1
+- **Mente:** 1
+- **Instinto:** 2
+- **Presencia:** 0
+
+## Estadísticas
+- **Salud Máxima:** 10
+- **Esquiva:** 6
+- **Mitigación Física:** 1 (Placas de metal)
+- **Mitigación Mágica:** 0
+- **Velocidad:** 7
+- **Iniciativa:** 1
+
+## Ataques
+- **Espada:** +3 para golpear. Daño: 1d6 Cortante
+
+## Rasgos
+- **Habilidades con Ventaja:** Atletismo, Percepción
+- **Inmunidades a Estados:** Envenenado
+
+## Reacciones
+- **Parada de Placas:** Cuando la armadura animada es objetivo de un ataque visible, obtiene +2 a su Esquiva contra ese ataque.
 

@@ -1,0 +1,57 @@
+creatures:
+  - name: Saga
+    lineage: Feérico
+    tier: 3
+    attributes:
+      body: 2
+      reflexes: 3
+      mind: 5
+      instinct: 4
+      presence: 6
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Silvano
+      - Común
+      - Arcaico
+    attacks:
+      - name: Hilo de la Deuda
+        bonus: 6
+        damage: 2d8+4 Psíquico
+        note: Alcance Cercana
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Engaño, Persuasión, Perspicacia
+      - name: Visión en la Oscuridad
+        detail: La saga puede ver en penumbra como si fuera luz tenue y en oscuridad, incluso mágica, como si fuera penumbra hasta distancia Cercana.
+    actions:
+      - name: Cosecha de Nombres
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 11). Si falla, queda Encantado hasta el inicio del próximo turno de la saga y puede repetir la Tirada de Salvación al final de su turno. La saga no puede obligarlo a suicidarse ni a gastar recursos de otro personaje.
+      - name: Manto de Mal Agüero
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: La saga elige un punto a distancia Cercana y crea un área de efecto de 2 metros de radio centrada en ese punto. Las criaturas que comiencen su turno dentro deben superar una Tirada de Salvación de Instinto (ND 11) o tener Desventaja en su próxima tirada antes del final de su turno. El área dura hasta el inicio del próximo turno de la saga y no inflige daño.
+    reactions:
+      - name: Escape Feérico
+        detail: Cuando la saga es objetivo de un ataque o efecto visible, puede teletransportarse a un espacio visible a distancia Cercana. No provoca Reacciones. Solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: |
+      Una intermediaria feérica de nombres y deudas. Divide las prioridades del grupo, castiga las promesas rotas y abandona el combate si la deuda deja de ser ventajosa.
+    img: null
+    size: Mediano

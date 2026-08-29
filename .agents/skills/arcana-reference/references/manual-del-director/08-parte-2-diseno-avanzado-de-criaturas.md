@@ -44,9 +44,68 @@ Esta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o
 
 > **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.
 
-### Paso 3: Distribuir PPF en Estadísticas
+### Paso 3: Definir atributos y estadísticas
 
-Usa la tabla del Rango correspondiente. Recuerda los **Límites de Gasto (Cotas)** por atributo.
+El Rango determina el presupuesto de PPF de la criatura. Usa la tabla del Rango
+correspondiente para distribuir esos puntos y respeta las **cotas de inversión
+por categoría**.
+
+Los atributos se definen por separado. Describen las capacidades de la criatura
+y pueden influir en pruebas, tiradas enfrentadas y otras reglas que los utilicen
+de forma explícita.
+
+#### Asignar atributos
+
+Los cinco atributos de una criatura son **Cuerpo, Reflejos, Mente, Instinto y
+Presencia**. Su distribución puede ser especializada o amplia, siempre que
+respete los dos techos de diseño de su Rango:
+
+| Rango       | Máximo total de atributos | Máximo por atributo |
+| :---------- | :------------------------ | :------------------ |
+| **Rango 1** | **10**                    | **4**               |
+| **Rango 2** | **15**                    | **5**               |
+| **Rango 3** | **20**                    | **6**               |
+| **Rango 4** | **25**                    | **8**               |
+| **Rango 5** | **30**                    | **10**              |
+| **Rango 6** | **35**                    | **12**              |
+
+Estos valores son techos de diseño. No existe una suma mínima ni un valor
+mínimo por atributo: una distribución es válida mientras no supere ninguno de
+los dos máximos.
+
+El máximo total se obtiene sumando los cinco atributos. El máximo por atributo
+se aplica a cada uno de ellos de forma individual. La distribución puede quedar
+por debajo del máximo total y concentrar sus valores en los atributos que
+definen a la criatura.
+
+Para asignar los valores, sigue este orden:
+
+1. Define la naturaleza, el comportamiento y el papel de la criatura.
+2. Identifica qué atributos utiliza de forma explícita su bloque de
+   estadísticas en pruebas, tiradas enfrentadas o capacidades.
+3. Asigna los valores más altos a los atributos que sostengan capacidades con un
+   uso claro en la ficción y en el juego.
+4. Usa los valores restantes para representar las competencias relativas de la
+   criatura.
+5. Comprueba que la suma y ningún valor individual superen los techos de su
+   Rango.
+
+Una Tirada de Salvación que una criatura provoca sobre un objetivo utiliza el
+atributo indicado para ese objetivo. Por ejemplo, que `Bola de Fuego` pida una
+TS de Reflejos no exige que el Mago tenga Reflejos alto. El ND de esa capacidad
+pertenece al perfil ofensivo adquirido mediante PPF.
+
+> **Ejemplo: Mago R3.** El Mago tiene `Cuerpo 2, Reflejos 3, Mente 5,
+Instinto 3, Presencia 2`. Mente es su atributo más alto porque `Contraconjuro`
+> utiliza explícitamente Mente y porque su identidad se apoya en el conocimiento
+> arcano. Los demás valores representan sus competencias físicas, perceptivas y
+> sociales. La suma es 15 y respeta los máximos de Rango 3.
+
+Los atributos y los PPF cumplen funciones diferentes. Los PPF se gastan en
+Salud, Esquiva, Ataque/ND, Daño Promedio, Defensa y Rasgos Tácticos según las
+tablas de constructor. Las estadísticas de combate no se derivan
+automáticamente de los atributos: usa las tablas de constructor para fijarlas,
+y usa los atributos solo cuando una regla de la criatura los requiera.
 
 ### Daño Promedio por Ronda
 
@@ -74,7 +133,7 @@ De la misma manera, una criatura que haya adquirido **+5 / ND 10** puede poseer 
 
 Los valores adquiridos mediante la tabla representan el techo ofensivo estándar disponible para la criatura.
 
-#### Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Límite por Atributo: 4 PPF)
+#### Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -84,7 +143,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **3**     |  13   |    8    |   +4 / 9    |                    5                     |             2 / 1             |               -                |
 |    **4**     |  16   |    -    |      -      |                    6                     |             3 / 1             |               4                |
 
-#### Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Límite por Atributo: 6 PPF)
+#### Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -96,7 +155,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **5**     |  40   |   10    |      -      |                  13-14                   |             4 / 2             |               5                |
 |    **6**     |  45   |    -    |      -      |                  15-16                   |             5 / 2             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Límite por Atributo: 8 PPF)
+#### Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -110,7 +169,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **7**     |  86   |    -    |      -      |                  27-29                   |             6 / 3             |               -                |
 |    **8**     |  94   |    -    |      -      |                  30-32                   |             8 / 3             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Límite por Atributo: 10 PPF)
+#### Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -126,7 +185,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **9**     |  150  |    -    |      -      |                  45-48                   |             9 / 4             |               -                |
 |    **10**    |  160  |    -    |      -      |                  49-52                   |            11 / 4             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Límite por Atributo: 12 PPF)
+#### Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -144,7 +203,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **11**    |  232  |    -    |      -      |                  71-75                   |            12 / 5             |               -                |
 |    **12**    |  244  |    -    |      -      |                  76-80                   |            14 / 5             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Límite por Atributo: 14 PPF)
+#### Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)
 
 _(Para Jefes Finales Épicos)_
 
@@ -206,6 +265,8 @@ Una condición trivial, prácticamente permanente o que los personajes no puedan
 
 - **Ventaja Condicional en TS (Coste: 1 PD):** la criatura obtiene Ventaja (+1d4) en Tiradas de Salvación contra una fuente, estado o categoría específica de efectos.
   - Ejemplos: Miedo, Venenos, efectos de Derribo o efectos que provocarían Encantado.
+
+- **Ventaja contra efectos mágicos (Coste: 2 PD):** la criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación contra conjuros y efectos mágicos, sin importar el atributo utilizado. Esto no otorga resistencia al daño mágico, no afecta ataques mágicos que no requieran salvación y no concede inmunidad.
 
 - **Ventaja Plana en Atributo Defensivo (Coste: 2 PD):** la criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación asociadas a un Atributo concreto: **Cuerpo, Reflejos, Mente, Instinto o Presencia**.
 
@@ -283,6 +344,79 @@ Habilidades que cambian las reglas del combate: Control, Movimiento Superior, De
 | **Rasgo Táctico de Rango 5** | 6 PPF        | Monstruos de Rango 5+       |
 | **Rasgo Táctico de Rango 6** | 7 PPF        | Solo Monstruos de Rango 6   |
 
+### Regla de Diseño: Arsenal Versátil
+
+Algunas criaturas poseen numerosos ataques, conjuros o técnicas entre los que deben elegir cada vez que actúan. Tener más opciones aporta versatilidad, pero no equivale a poder utilizarlas todas al mismo tiempo.
+
+**Arsenal Versátil** permite representar estos repertorios sin pagar cada alternativa como si fuera una capacidad completamente independiente.
+
+#### Crear un Arsenal
+
+Pueden agruparse en un mismo Arsenal varias capacidades que:
+
+- sean **Rasgos Tácticos**;
+- utilicen el mismo recurso, como una **Acción**, **Interacción** o **Reacción**;
+- sean alternativas entre sí, de modo que normalmente utilizar una impida utilizar las demás mediante ese mismo recurso.
+
+Cada recurso forma su propio Arsenal. Una Acción y una Reacción, por ejemplo, no se descuentan entre sí porque pueden utilizarse durante la misma ronda.
+
+#### Coste del Arsenal
+
+Determina normalmente el Rango y coste en PPF de cada capacidad.
+
+La capacidad más cara se paga a su **coste completo**.
+
+Todas las demás opciones del mismo Arsenal cuestan **la mitad de sus PPF normales, redondeando hacia arriba**.
+
+> **Ejemplo:** una criatura posee tres Acciones tácticas de Rango 3, Rango 2 y Rango 2.
+>
+> Sus costes normales serían 4, 3 y 3 PPF.
+>
+> Mediante Arsenal Versátil paga:
+>
+> **4 + 2 + 2 = 8 PPF.**
+>
+> La criatura paga por disponer de alternativas, pero menos que si pudiera utilizar las tres capacidades conjuntamente.
+
+#### Daño y Arsenal Versátil
+
+Una capacidad no se convierte automáticamente en un Rasgo Táctico por infligir daño.
+
+El **Daño Promedio por Ronda** comprado para la criatura ya determina cuánto daño puede producir normalmente su ofensiva. Diferentes ataques, conjuros o rayos pueden representar distintas formas de distribuir ese daño sin pagar PPF adicionales, siempre que no añadan una ventaja táctica relevante.
+
+Un ataque que además inmoviliza, desplaza, debilita, altera acciones o produce otro efecto significativo sí debe valorar ese efecto como Rasgo Táctico.
+
+Al calcular el Daño Promedio de una criatura, considera **todo el daño que puede producir normalmente durante una ronda**, incluyendo sus Reacciones ofensivas.
+
+#### Qué no puede formar parte de un Arsenal
+
+Una capacidad no recibe el descuento de Arsenal Versátil si puede aportar su beneficio además de las demás sin competir por el mismo recurso.
+
+Esto incluye:
+
+- Rasgos pasivos.
+- Auras y efectos permanentes.
+- Defensas especiales.
+- Capacidades gratuitas.
+- Capacidades que mejoran otra habilidad utilizada simultáneamente.
+- Capacidades que forman conjuntamente una misma Acción.
+
+Estas capacidades se compran normalmente.
+
+#### Capacidades de Utilidad
+
+Las capacidades exclusivamente narrativas o de utilidad que no alteren significativamente el combate continúan considerándose **Habilidades de Sabor** y cuestan 0 PPF.
+
+Un amplio repertorio narrativo no aumenta por sí mismo la peligrosidad de una criatura.
+
+#### Recargas y Repertorios Amplios
+
+La Recarga continúa formando parte del balance de cada capacidad.
+
+Si un Arsenal contiene tantas capacidades limitadas que la criatura puede alternarlas y utilizar continuamente efectos de gran poder sin preocuparse por sus Recargas, evalúa el repertorio completo y aumenta el Rango de sus Rasgos cuando corresponda.
+
+Arsenal Versátil reduce el coste de tener **alternativas**; no convierte las limitaciones de uso en irrelevantes.
+
 ### Paso 5: La Filosofía de Rasgos Tácticos por Rango
 
 - **Rasgos R1:** Efectos simples (Control blando menor, debuff simple, reacción defensiva, resistencia).
@@ -316,7 +450,7 @@ La referencia de 60-70% funciona como punto de partida para AoE a distancia efic
 
 ### Paso 7: Poniéndolo en Práctica (Ejemplos Finales)
 
-> **Ejemplo 1: Berserker R2 (12 PPF / Límite 6)**
+> **Ejemplo 1: Berserker R2 (12 PPF / Cota de inversión 6)**
 >
 > - **Rasgo Táctico (3 PPF):** `Ataque Temerario` (Rasgo R2) → 3 PPF.
 > - **Stats (9 PPF):**
@@ -333,7 +467,7 @@ La referencia de 60-70% funciona como punto de partida para AoE a distancia efic
 >
 > - **Final:** PS 25, Esq 7, Mit 0, Atq +5 / ND 10. Dos ataques por Acción. Daño ofensivo máximo aproximado: 13 por ronda mientras Furia está activa. Rasgo Táctico: `Ataque Temerario`.
 
-> **Ejemplo 2: Guardia Tanque R2 (12 PPF / Límite 6)**
+> **Ejemplo 2: Guardia Tanque R2 (12 PPF / Cota de inversión 6)**
 >
 > - **Habilidad (3 PPF):** `Protección` (Rasgo R2) -> 3 PPF.
 > - **Stats (9 PPF):**

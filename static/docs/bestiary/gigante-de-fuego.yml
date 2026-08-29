@@ -1,0 +1,54 @@
+creatures:
+  - name: Gigante de Fuego
+    lineage: Gigante
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 2
+      mind: 3
+      instinct: 4
+      presence: 7
+    stats:
+      maxHealth: 208
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Armadura de escoria
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Gigante
+      - Común
+    attacks:
+      - name: Martillo de Escoria
+        bonus: 9
+        damage: 2d8+4 Contundente + 1d8 Fuego
+        note: El gigante puede realizar dos ataques de Martillo de Escoria con su Acción.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Aguante, Intimidación, Percepción
+      - name: Visión en la Oscuridad
+        detail: El gigante de fuego puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Inmunidades al Daño
+        detail: Fuego
+    actions:
+      - name: Golpe Magmático
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: El gigante golpea el suelo y abre una línea recta de distancia Cercana. Cada criatura en la línea debe superar una Tirada de Salvación de Reflejos (ND 14). Si falla, recibe 4d8+4 de daño Fuego; con éxito, recibe la mitad. La línea se anuncia antes de resolver el efecto.
+    reactions:
+      - name: Castigo Flamígero
+        detail: >-
+          Cuando un enemigo termina su movimiento a distancia Inmediata del gigante, este puede realizar un ataque reducido de Martillo de Escoria contra él: +9 para golpear, 1d8+4 de daño Contundente + 1d4 de daño Fuego. Solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: |
+      Un maestro de asedio que trata el escenario como una forja. Prioriza objetivos, cobertura y puertas, usa el terreno para dividir al grupo y solo persigue cuando la ruta de retirada está asegurada.
+    img: null
+    size: Grande

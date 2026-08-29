@@ -1,0 +1,56 @@
+creatures:
+  - name: Hombre Lobo
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 5
+      reflexes: 4
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 46
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Cuerpo resistente
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Garras de la Luna
+        bonus: 6
+        damage: 1d8+3 Cortante
+        note: null
+      - name: Mordisco de Caza
+        bonus: 6
+        damage: 2d6+3 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción, Supervivencia
+      - name: Asalto Múltiple
+        detail: El hombre lobo puede realizar un ataque de Garras de la Luna y un ataque de Mordisco de Caza con su Acción.
+      - name: Forma de Cazador
+        detail: En cada turno puede elegir una forma. La forma bestial aumenta su velocidad en 2 metros y permite usar el Mordisco de Caza; la forma humana permite hablar y mezclarse socialmente. La forma no cambia sus Puntos de Salud ni concede resistencia adicional.
+    actions:
+      - name: Aullido de la Luna
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Las criaturas enemigas a distancia Inmediata deben superar una Tirada de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas durante 1 minuto. Pueden repetir la Tirada de Salvación al final de cada uno de sus turnos; si la superan, el efecto termina.
+    reactions:
+      - name: Salto de Presa
+        detail: Cuando una criatura a distancia Inmediata se aleja, el hombre lobo puede moverse 2 metros hacia ella sin provocar Reacciones. Solo una vez por ronda.
+    interactions: []
+    behavior: |
+      Un cazador de dos naturalezas que aísla al objetivo herido. Cambia de forma según la ruta de aproximación, usa el aullido para quebrar la coordinación y abandona la cacería si el grupo vuelve a actuar unido.
+    img: null
+    size: Mediano

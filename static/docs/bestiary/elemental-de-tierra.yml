@@ -6,7 +6,7 @@ creatures:
       body: 6
       reflexes: 1
       mind: 1
-      instinct: 3
+      instinct: 6
       presence: 1
     stats:
       maxHealth: 62

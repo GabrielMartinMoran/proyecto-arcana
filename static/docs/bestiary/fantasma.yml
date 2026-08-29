@@ -1,0 +1,54 @@
+creatures:
+  - name: Fantasma
+    lineage: No-muerto
+    tier: 2
+    attributes:
+      body: 0
+      reflexes: 4
+      mind: 3
+      instinct: 4
+      presence: 4
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: Flota
+    languages:
+      - Umbral
+      - Común (comprende)
+    attacks:
+      - name: Toque Mortífero
+        bonus: 5
+        damage: 1d8+1 Necrótico
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Perspicacia, Sigilo
+      - name: Visión en la Oscuridad
+        detail: El fantasma puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+    actions:
+      - name: Lamento de los Ausentes
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Un objetivo a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 10). Si falla, recibe 1d6 de daño Psíquico y tiene Desventaja en su próximo ataque antes del final de su siguiente turno. Si tiene éxito, recibe la mitad del daño y no sufre la Desventaja.
+    reactions: []
+    interactions:
+      - name: Desfase del Umbral
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: El fantasma atraviesa una barrera sólida y aparece en un espacio visible a distancia Cercana. No puede terminar dentro de un objeto.
+    behavior: |
+      Una entidad de un recuerdo incompleto que interrumpe la sincronización del grupo. Repite una escena del pasado, aparece para separar a los personajes y desaparece antes de quedar rodeado.
+    img: null
+    size: Mediano

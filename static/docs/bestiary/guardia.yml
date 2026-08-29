@@ -1,47 +1,51 @@
 creatures:
   - name: Guardia
     lineage: Humanoide
-    tier: 2
+    tier: 1
     attributes:
-      body: 4
-      reflexes: 3
-      mind: 2
+      body: 3
+      reflexes: 2
+      mind: 1
       instinct: 2
-      presence: 2
+      presence: 1
     stats:
-      maxHealth: 20
+      maxHealth: 10
       evasion:
-        value: 9
-        note: Escudo
+        value: 7
+        note: null
       physicalMitigation:
-        value: 2
-        note: Cota de mallas
+        value: 1
+        note: Arm. de cuero
       magicalMitigation:
         value: 0
         note: null
       speed:
-        value: 9
+        value: 8
         note: null
     languages:
       - Común
     attacks:
-      - name: Espada Larga
-        bonus: 5
-        damage: 1d6 Cortante
+      - name: Espada
+        bonus: 3
+        damage: 1d4 Cortante
         note: null
       - name: Golpe de Escudo
-        bonus: 4
+        bonus: 3
         damage: 1d4 Contundente
-        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 10) o ser empujado 1 metro hacia atrás.
+        note: Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo (ND 8) o ser empujado 1 metro hacia atrás.
+      - name: Ballesta de Mano
+        bonus: 3
+        damage: 1d4 Perforante
+        note: Alcance Media, Recarga (Interacción)
     traits:
       - name: Habilidades con Ventaja
-        detail: Percepción, Perspicacia
+        detail: Atletismo, Percepción
       - name: Posición Firme
         detail: Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento forzado.
     actions: []
     reactions: []
     interactions: []
     behavior: |
-      Un profesional entrenado. Su objetivo es mantener el orden y proteger a los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de escudos" con sus compañeros. Intentará subyugar y arrestar a las amenazas, recurriendo a la fuerza letal solo como último recurso.
+      Un guardia de puesto entrenado para mantener una línea y proteger un paso. Usa la espada o la ballesta según la distancia y se repliega solo si el puesto deja de ser defendible.
     img: null
     size: Mediano

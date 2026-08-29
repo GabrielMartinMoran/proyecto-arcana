@@ -1,8 +1,8 @@
-import { describe, test } from 'node:test';
+import { load as yamlLoad } from 'js-yaml';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { load as yamlLoad } from 'js-yaml';
+import { describe, test } from 'node:test';
 
 import {
 	buildCardEntry,
@@ -12,26 +12,29 @@ import {
 	buildSectionEntry,
 	validateContentIndex,
 } from '../src/builders/content-index-builder.js';
-import { mapAbilityCard, mapItemCard } from '../src/mappers/card-mapper.js';
 import { loadBestiaryCreatures } from '../src/loaders/bestiary-loader.js';
+import { mapAbilityCard, mapItemCard } from '../src/mappers/card-mapper.js';
 import {
 	deriveCreatureAnchors,
 	groupCreaturesByTier,
 } from '../src/processors/bestiary-processor.js';
-import { deriveChapterHeadings } from '../src/processors/manual-processor.js';
 import {
 	flattenCardGroups,
 	groupCardsByTagAndLevel,
 	groupItemsByLevel,
 } from '../src/processors/cards-processor.js';
-import { splitGMManual, splitPlayerManual } from '../src/processors/manual-processor.js';
+import type { Chapter } from '../src/processors/manual-processor.js';
+import {
+	deriveChapterHeadings,
+	splitGMManual,
+	splitPlayerManual,
+} from '../src/processors/manual-processor.js';
+import type { Card } from '../src/types/card.js';
 import {
 	canonicalSerialize,
 	CONTENT_INDEX_SCHEMA_VERSION,
 	serializeContentIndex,
 } from '../src/types/content-index.js';
-import type { Card } from '../src/types/card.js';
-import type { Chapter } from '../src/processors/manual-processor.js';
 import type { Creature } from '../src/types/creature.js';
 
 const REPO_ROOT = path.resolve(import.meta.dirname, '..', '..', '..');
@@ -378,12 +381,11 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		});
 	};
 
-	test('schema v3 keeps the documented 581 base records (no new entries)', { skip }, () => {
+	test('schema v3 includes the documented 23-creature bestiary expansion', { skip }, () => {
 		const index = loadRealIndex();
 		assert.equal(index.schemaVersion, 3);
-		// T2 documented base: 317 cards + 68 items + 42 creatures + 132 sections
-		// + 22 chapters. v3 only enriches entries; it must not add subrecords.
-		assert.equal(index.entries.length, 581);
+		// T2 corpus: 317 cards + 68 items + 65 creatures + 140 sections + 22 chapters.
+		assert.equal(index.entries.length, 612);
 		const cards = index.entries.filter((e) => e.kind === 'card').length;
 		const items = index.entries.filter((e) => e.kind === 'item').length;
 		const creatures = index.entries.filter((e) => e.kind === 'creature').length;
@@ -394,8 +396,8 @@ describe('T5 real corpus reachability (static/docs)', () => {
 			{
 				cards: 317,
 				items: 68,
-				creatures: 42,
-				sections: 132,
+				creatures: 65,
+				sections: 140,
 				chapters: 22,
 			},
 		);
@@ -440,6 +442,22 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		assert.ok(entry.search!.includes('Nivel de la Carta'));
 		assert.ok(entry.search!.includes('3 PP'));
 		assert.ok(entry.search!.includes('depende del poder de la carta'));
+	});
+
+	test('Arsenal Versátil (real) is reachable in creature design rules', { skip }, () => {
+		const index = loadRealIndex();
+		const entry = index.entries.find(
+			(e) => e.kind === 'section' && e.canonicalName === 'Regla de Diseño: Arsenal Versátil',
+		);
+		assert.ok(entry, 'Arsenal Versátil must be an indexed GM section');
+		assert.equal(
+			entry.path,
+			'references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md',
+		);
+		assert.equal(entry.anchor, 'regla-de-diseño-arsenal-versátil');
+		assert.equal(entry.chapter, 'Parte 2: Diseño Avanzado de Criaturas');
+		assert.ok(entry.search?.includes('conocer muchas opciones'));
+		assert.ok(entry.search?.includes('independiente'));
 	});
 
 	test('real corpus stays deterministic and validates cleanly as v3', { skip }, async () => {

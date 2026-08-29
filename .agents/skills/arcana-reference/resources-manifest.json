@@ -8,38 +8,38 @@
     {
       "path": "references/bestiario/rango-1.md",
       "kind": "file",
-      "size": 17085,
-      "sha1": "aeca2bd4711c8a5c1d34d72e70a9d4631cbfc965"
+      "size": 21226,
+      "sha1": "4f01eef9d60409585225b76bd38361170294145e"
     },
     {
       "path": "references/bestiario/rango-2.md",
       "kind": "file",
-      "size": 11821,
-      "sha1": "98bbaab8ccded9fb616244116d431b806efd4c7d"
+      "size": 21858,
+      "sha1": "060cce7cee534972e3947c12b2d349f2e085e4c2"
     },
     {
       "path": "references/bestiario/rango-3.md",
       "kind": "file",
-      "size": 14830,
-      "sha1": "ea7944674c2a1ba01ad81bc5b34c2d52ac3807a0"
+      "size": 21480,
+      "sha1": "ee9e07fe97404fdc69b57c858ce53262327664fa"
     },
     {
       "path": "references/bestiario/rango-4.md",
       "kind": "file",
-      "size": 7259,
-      "sha1": "caf3d2e8da053aa6fd11d6d852a6d276984bc190"
+      "size": 12526,
+      "sha1": "aecd1f8de673826e71f55135a08d42c2e8a7d729"
     },
     {
       "path": "references/bestiario/rango-5.md",
       "kind": "file",
-      "size": 2000,
-      "sha1": "fcf44ed6dbc7cc0e07cf3209ea38760811561020"
+      "size": 10800,
+      "sha1": "2ebf8d883aba689e43716e227890f7d5dae0a527"
     },
     {
       "path": "references/bestiario/rango-6.md",
       "kind": "file",
-      "size": 4459,
-      "sha1": "952426440c4239704e2439539a14cbc68cad3cbc"
+      "size": 12223,
+      "sha1": "59e2cefa9c720c09ae1d8bd1543317e472343490"
     },
     {
       "path": "references/cartas-de-habilidades",
@@ -560,8 +560,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 75447,
-      "sha1": "94b8e1d2d26de5386e8ffa084c6b207894b0922b"
+      "size": 130475,
+      "sha1": "fb64da6540fae8c210b01ad28bf3bf9c553e1d75"
     },
     {
       "path": "references/datasets/cards.yml",
@@ -618,14 +618,14 @@
     {
       "path": "references/manual-del-director/07-parte-1-disenar-encuentros.md",
       "kind": "file",
-      "size": 15426,
-      "sha1": "809f49bc64b4d5b5baa8d0b63e3ea3d495e34e73"
+      "size": 17783,
+      "sha1": "84b1b8960b691910d6592f19ecec6bc95c49846f"
     },
     {
       "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
       "kind": "file",
-      "size": 28595,
-      "sha1": "5d718ef8e94ecef457070212d95f728a36c766c9"
+      "size": 35520,
+      "sha1": "e4d750f472d9297645176bfad2ac506d80f040f6"
     },
     {
       "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md",

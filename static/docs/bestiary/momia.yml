@@ -1,0 +1,56 @@
+creatures:
+  - name: Momia
+    lineage: No-muerto
+    tier: 4
+    attributes:
+      body: 7
+      reflexes: 2
+      mind: 3
+      instinct: 5
+      presence: 4
+    stats:
+      maxHealth: 110
+      evasion:
+        value: 10
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Vendajes endurecidos
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Arcaico
+      - Común (comprende)
+    attacks:
+      - name: Puño de Vendajes
+        bonus: 7
+        damage: 3d8+4 Contundente
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Historia, Religión, Perspicacia
+      - name: Visión en la Oscuridad
+        detail: La momia puede ver en penumbra como si fuera luz tenue y en oscuridad como si fuera penumbra hasta distancia Cercana.
+    actions:
+      - name: Maldición de la Garganta Seca
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: Un objetivo visible a distancia Cercana debe superar una Tirada de Salvación de Mente (ND 12). Si falla, queda Asustado durante 1 minuto y no puede recibir Puntos de Salud Temporales. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos; si la supera, el efecto termina.
+      - name: Velo de Polvo
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Crea una nube en un área de distancia Inmediata alrededor de un punto visible a distancia Cercana. Las criaturas dentro deben superar una Tirada de Salvación de Reflejos (ND 12); si fallan, tienen Desventaja en su próxima tirada antes del final de su turno. No inflige daño.
+    reactions:
+      - name: Mano del Guardián
+        detail: Cuando un enemigo a distancia Inmediata ataca a un aliado que también está a distancia Inmediata de la momia, el ataque se realiza con Desventaja. Solo una vez por ronda.
+    interactions: []
+    behavior: |
+      Un guardián funerario que preserva una orden antigua. Fuerza al grupo a avanzar por rutas estrechas, cubre a sus aliados no-muertos y vuelve a la cámara si alguien intenta saquearla.
+    img: null
+    size: Mediano

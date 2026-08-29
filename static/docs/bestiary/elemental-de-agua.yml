@@ -3,8 +3,8 @@ creatures:
     lineage: Elemental
     tier: 3
     attributes:
-      body: 4
-      reflexes: 4
+      body: 5
+      reflexes: 5
       mind: 1
       instinct: 3
       presence: 1

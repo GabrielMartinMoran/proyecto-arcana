@@ -724,43 +724,47 @@ creatures:
     size: Mediano
   - name: Guardia
     lineage: Humanoide
-    tier: 2
+    tier: 1
     attributes:
-      body: 4
-      reflexes: 3
-      mind: 2
+      body: 3
+      reflexes: 2
+      mind: 1
       instinct: 2
-      presence: 2
+      presence: 1
     stats:
-      maxHealth: 20
+      maxHealth: 10
       evasion:
-        value: 9
-        note: Escudo
+        value: 7
+        note: null
       physicalMitigation:
-        value: 2
-        note: Cota de mallas
+        value: 1
+        note: Arm. de cuero
       magicalMitigation:
         value: 0
         note: null
       speed:
-        value: 9
+        value: 8
         note: null
     languages:
       - Común
     attacks:
-      - name: Espada Larga
-        bonus: 5
-        damage: 1d6 Cortante
+      - name: Espada
+        bonus: 3
+        damage: 1d4 Cortante
         note: null
       - name: Golpe de Escudo
-        bonus: 4
+        bonus: 3
         damage: 1d4 Contundente
         note: >-
           Si impacta, el objetivo debe superar una Tirada de Salvación de Cuerpo
-          (ND 10) o ser empujado 1 metro hacia atrás.
+          (ND 8) o ser empujado 1 metro hacia atrás.
+      - name: Ballesta de Mano
+        bonus: 3
+        damage: 1d4 Perforante
+        note: Alcance Media, Recarga (Interacción)
     traits:
       - name: Habilidades con Ventaja
-        detail: Percepción, Perspicacia
+        detail: Atletismo, Percepción
       - name: Posición Firme
         detail: >-
           Ventaja (+1d4) en Tiradas de Salvación contra Derribo y desplazamiento
@@ -769,10 +773,9 @@ creatures:
     reactions: []
     interactions: []
     behavior: >
-      Un profesional entrenado. Su objetivo es mantener el orden y proteger a
-      los inocentes. Lucha de forma defensiva, utilizando tácticas de "muro de
-      escudos" con sus compañeros. Intentará subyugar y arrestar a las amenazas,
-      recurriendo a la fuerza letal solo como último recurso.
+      Un guardia de puesto entrenado para mantener una línea y proteger un paso.
+      Usa la espada o la ballesta según la distancia y se repliega solo si el
+      puesto deja de ser defendible.
     img: null
     size: Mediano
   - name: Guerrero Tribal
@@ -947,7 +950,7 @@ creatures:
       reflexes: 3
       mind: 2
       instinct: 3
-      presence: 5
+      presence: 6
     stats:
       maxHealth: 30
       evasion:
@@ -1075,7 +1078,7 @@ creatures:
       reflexes: 2
       mind: 2
       instinct: 4
-      presence: 2
+      presence: 3
     stats:
       maxHealth: 46
       evasion:
@@ -1145,7 +1148,7 @@ creatures:
       body: 6
       reflexes: 1
       mind: 1
-      instinct: 3
+      instinct: 6
       presence: 1
     stats:
       maxHealth: 62
@@ -1204,9 +1207,9 @@ creatures:
     tier: 3
     attributes:
       body: 2
-      reflexes: 5
+      reflexes: 6
       mind: 1
-      instinct: 3
+      instinct: 5
       presence: 1
     stats:
       maxHealth: 46
@@ -1258,8 +1261,8 @@ creatures:
     lineage: Elemental
     tier: 3
     attributes:
-      body: 4
-      reflexes: 4
+      body: 5
+      reflexes: 5
       mind: 1
       instinct: 3
       presence: 1
@@ -1320,7 +1323,7 @@ creatures:
       body: 1
       reflexes: 6
       mind: 1
-      instinct: 3
+      instinct: 6
       presence: 1
     stats:
       maxHealth: 30
@@ -1511,7 +1514,7 @@ creatures:
       body: 4
       reflexes: 2
       mind: 2
-      instinct: 3
+      instinct: 6
       presence: 1
     stats:
       maxHealth: 62
@@ -1572,11 +1575,11 @@ creatures:
     lineage: Gigante
     tier: 4
     attributes:
-      body: 7
-      reflexes: 2
+      body: 8
+      reflexes: 3
       mind: 1
-      instinct: 2
-      presence: 1
+      instinct: 5
+      presence: 3
     stats:
       maxHealth: 120
       evasion:
@@ -1673,8 +1676,7 @@ creatures:
       - name: Visión Deficiente
         detail: >-
           El cíclope tiene Desventaja en todas las pruebas de Instinto
-          (Percepción) que dependan de la vista. Además, no puede realizar
-          ataques como Reacción.
+          (Percepción) que dependan de la vista.
     actions: []
     reactions: []
     interactions: []
@@ -1690,11 +1692,11 @@ creatures:
     lineage: Monstruosidad
     tier: 4
     attributes:
-      body: 5
-      reflexes: 4
+      body: 6
+      reflexes: 6
       mind: 1
-      instinct: 3
-      presence: 2
+      instinct: 4
+      presence: 3
     stats:
       maxHealth: 80
       evasion:
@@ -1938,98 +1940,150 @@ creatures:
       inteligente y huirá levitando si su salud baja del 25%.
     img: null
     size: Inmenso
-  - name: Dragón Rojo Adulto
+  - name: Dragón Adulto
     lineage: Dragón
-    tier: 6
+    tier: 5
     attributes:
-      body: 8
+      body: 10
       reflexes: 5
       mind: 4
       instinct: 6
-      presence: 9
+      presence: 5
     stats:
-      maxHealth: 240
+      maxHealth: 172
       evasion:
-        value: 10
+        value: 9
         note: null
       physicalMitigation:
-        value: 3
-        note: Escamas
+        value: 2
+        note: Escamas dracónicas
       magicalMitigation:
         value: 1
-        note: null
+        note: Resistencia sobrenatural
       speed:
-        value: 11
-        note: Vuela 15 metros
+        value: 10
+        note: Vuelo 16
     languages:
-      - Dracónico
       - Común
+      - Dracónico
     attacks:
-      - name: Mordisco
-        bonus: 11
-        damage: 4d10 Perforante
-        note: null
-      - name: Garras
-        bonus: 11
-        damage: 3d8 Cortante
-        note: null
+      - name: Mordida
+        bonus: 9
+        damage: 3d10 Perforante
+        note: Alcance Inmediata.
+      - name: Garra
+        bonus: 9
+        damage: 3d10 Cortante
+        note: Alcance Inmediata.
     traits:
       - name: Habilidades con Ventaja
-        detail: Intimidación, Percepción, Perspicacia, Historia
-      - name: Fortaleza Dracónica
-        detail: Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
-      - name: Inmunidades al Daño
-        detail: Fuego
-      - name: Asalto Múltiple (1 Mordisco, 2 Garras)
+        detail: Atletismo, Intimidación, Percepción, Perspicacia
+      - name: Afinidad Dracónica
+        detail: >
+          El Dragón posee una afinidad determinada por su color, que define el
+          tipo de daño de su Aliento y el daño al que es inmune:
+
+          - Rojo: Fuego. Aliento en cono.
+
+          - Azul: Eléctrico. Aliento en línea.
+
+          - Verde: Veneno. Aliento en cono.
+
+          - Negro: Ácido. Aliento en línea.
+
+          - Blanco: Frío. Aliento en cono.
+      - name: Inmunidad al Daño
         detail: >-
-          El dragón puede realizar un ataque de Mordisco y dos ataques de Garras
-          con su Acción.
-      - name: Vuelo
-        detail: El dragón tiene una velocidad de Vuelo de 15 metros.
+          El Dragón es inmune al tipo de daño indicado por su Afinidad
+          Dracónica.
+      - name: Voluntad Dracónica
+        detail: >-
+          El Dragón obtiene Ventaja (+1d4) en Tiradas de Salvación contra
+          efectos que podrían dejarlo Encantado.
+      - name: Vuelo Dracónico
+        detail: >-
+          El Dragón posee una velocidad de Vuelo de 16 metros y puede mantenerse
+          en el aire mientras tenga espacio suficiente para maniobrar.
     actions:
-      - name: Aliento de Fuego
+      - name: Asalto Dracónico
+        detail: El Dragón realiza un ataque de Mordida y dos ataques de Garra.
+      - name: Aliento Dracónico
         uses:
           type: RELOAD
           qty: 6
-        detail: >-
-          El dragón exhala un cono de fuego de 15 metros. Toda criatura en el
-          área debe superar una Tirada de Salvación de Reflejos (ND 16). Si
-          falla, recibe 10d6 de daño de Fuego (35 Dmg AoE); si tiene éxito,
-          recibe la mitad.
+        detail: >
+          El Dragón exhala energía correspondiente a su Afinidad Dracónica.
+
+
+          Las criaturas afectadas deben superar una Tirada de Salvación de
+          Reflejos (ND 14). Si fallan, reciben 10d6 de daño del tipo
+          correspondiente; con éxito, reciben la mitad.
+
+
+          Si su Afinidad utiliza un cono, afecta un cono de 8 metros. Si utiliza
+          una línea, afecta una línea de 12 metros de largo y 2 metros de ancho.
       - name: Presencia Aterradora
         uses:
-          type: USES
-          qty: 1
-        detail: >-
-          El dragón ruge. Todo enemigo a distancia Larga que pueda verlo u oírlo
-          debe superar una TS de Instinto (ND 16) o quedar Asustado durante 1
-          minuto (Desventaja en todo). El objetivo puede repetir la Tirada de
-          Salvación al final de cada uno de sus turnos. El estado Asustado
-          termina para ese objetivo cuando supera la tirada.
+          type: RELOAD
+          qty: 5
+        detail: >
+          El Dragón despliega toda la magnitud de su presencia. Cada enemigo a
+          distancia Cercana que pueda verlo u oírlo debe superar una Tirada de
+          Salvación de Instinto (ND 14).
+
+
+          Si falla, queda Asustado durante 1 minuto. Al final de cada uno de sus
+          turnos puede repetir la Tirada de Salvación, terminando el efecto
+          sobre sí mismo si tiene éxito.
+
+
+          Una criatura que supere cualquiera de estas Tiradas de Salvación no
+          puede volver a ser afectada por la Presencia Aterradora de ese Dragón
+          durante 24 horas.
     reactions:
-      - name: Coletazo
-        detail: >-
-          Como Reacción cuando un enemigo termina su movimiento adyacente, el
-          dragón golpea con la cola. TS Cuerpo (ND 16) o 2d8 Contundente y
-          Derribado.
+      - name: Batir Alas
+        detail: >
+          Cuando una criatura termine su turno a distancia Inmediata del Dragón,
+          este puede usar su Reacción para batir violentamente sus alas.
+
+
+          La criatura debe superar una Tirada de Salvación de Reflejos (ND 14).
+          Si falla, queda Derribada y es empujada 3 metros.
+
+
+          Después, el Dragón puede moverse hasta 3 metros volando sin provocar
+          Reacciones por este movimiento.
     interactions: []
-    behavior: >-
-      Un ser de arrogancia y poder elemental. Utilizará su vuelo para evaluar
-      las amenazas, desatando su Aliento de Fuego sobre el grupo más
-      concentrado. Aterrizará solo para eliminar a supervivientes heridos,
-      usando su Asalto Múltiple para abrumar. Su Presencia Aterradora rompe la
-      coordinación del grupo al inicio.
+    behavior: >
+      Un depredador ancestral, inteligente y brutalmente poderoso. Combina
+      ataques físicos devastadores con superioridad aérea y utiliza su Aliento
+      cuando puede alcanzar a varios enemigos a la vez.
+
+
+      En su turno alterna entre Asalto Dracónico, Aliento Dracónico y Presencia
+      Aterradora según la situación. Prefiere utilizar el miedo al inicio del
+      combate o cuando necesita recuperar el control del campo, mientras reserva
+      el Aliento para grupos bien posicionados.
+
+
+      Utiliza Batir Alas para apartar enemigos que logren rodearlo y recuperar
+      una posición favorable.
+
+
+      Cuando se utiliza como jefe con Reacciones adicionales, aprovecha
+      Reposicionarse para dominar el espacio aéreo y Ataque Rápido para realizar
+      Mordidas o Garras individuales entre los turnos enemigos.
     img: null
-    size: Inmenso
+    size: Enorme
   - name: Liche
     lineage: No-muerto
     tier: 6
     attributes:
-      body: 4
+      body: 3
       reflexes: 5
-      mind: 9
-      instinct: 7
-      presence: 8
+      mind: 12
+      instinct: 8
+      presence: 7
     stats:
       maxHealth: 195
       evasion:
@@ -2053,59 +2107,80 @@ creatures:
     attacks:
       - name: Descarga Arcana
         bonus: 11
-        damage: 4d8 Fuerza
-        note: Alcance Media. Ataque de energía pura que no requiere recarga.
+        damage: 3d8 Fuerza
+        note: >-
+          Alcance Media. Ataque de energía arcana pura que no posee Recarga ni
+          usos limitados.
     traits:
       - name: Habilidades con Ventaja
-        detail: Conocimiento Arcano, Historia, Investigación, Religión
+        detail: Conocimiento Arcano, Historia, Investigación, Perspicacia
       - name: Voluntad Antimagia
         detail: >-
           Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos
           mágicos.
       - name: Inmunidades al Daño
-        detail: Veneno, Frío
+        detail: Veneno
+      - name: Resistencias al Daño
+        detail: Necrótico; Contundente, Cortante y Perforante de fuentes no mágicas
       - name: Inmunidades a Estados
         detail: Encantado, Envenenado, Dormido
-      - name: Mente Dividida
-        detail: >-
-          La mente fragmentada del Liche le permite procesar múltiples amenazas.
-          Tiene 3 Reacciones por ronda de combate en lugar de una.
       - name: Vuelo Arcano
         detail: >-
           El Liche levita permanentemente y tiene una velocidad de Vuelo igual a
-          su velocidad terrestre.
+          su Velocidad terrestre.
       - name: Rejuvenecimiento
-        detail: Si muere, reaparece junto a su filacteria en 1d6 días.
+        detail: >-
+          Si muere mientras su filacteria permanezca intacta, el Liche vuelve a
+          formarse junto a ella en 1d6 días.
     actions:
       - name: Maestro de la Magia Prohibida
-        detail: >-
-          El Liche tiene acceso a la lista de conjuros de Arcanista. Puede
-          lanzar conjuros de hasta Nivel 5 como Acción. Debe respetar los
-          tiempos de recarga o usos limitados de cada conjuro individualmente.
+        detail: >
+          El Liche tiene acceso a las listas de conjuros de Mago y Arcanista de
+          Nivel 5 o inferior y puede utilizarlos respetando el recurso indicado
+          por cada conjuro.
+
+
+          Cuando un conjuro requiera una Tirada de Ataque, utiliza +11. Cuando
+          provoque una Tirada de Salvación, utiliza ND 16.
+
+
+          Cada conjuro conserva normalmente sus efectos, Recarga, usos limitados
+          y demás requisitos.
     reactions:
       - name: Conjuro de Oportunidad
         detail: >
-          Como Reacción al final del turno de otra criatura, el Liche elige una
-          opción:
+          El Liche puede usar su Reacción para elegir una opción:
 
-          - Realizar un ataque de Descarga Arcana.
+          - Realizar un ataque de Descarga Arcana, infligiendo su daño completo.
 
-          - Lanzar un conjuro de Arcanista de Nivel 3 o inferior (debe respetar
-          la recarga).
+          - Utilizar un conjuro de Mago o Arcanista de Nivel 3 o inferior.
+
+
+          Si el conjuro normalmente requiere una Acción o Interacción, puede
+          utilizarlo al final del turno de otra criatura. Si el conjuro ya posee
+          su propio desencadenante de Reacción, puede utilizarlo cuando ese
+          desencadenante ocurra.
+
+
+          El conjuro debe estar disponible y conserva normalmente sus efectos,
+          Recarga, usos limitados y demás requisitos.
       - name: Recarga Mental
         detail: >-
-          Como Reacción al final del turno de cualquier criatura, el Liche
-          realiza una tirada de recarga (1d8) para intentar recuperar el uso de
-          una habilidad o conjuro agotado.
+          Como Reacción al final del turno de otra criatura, el Liche realiza
+          una tirada de Recarga (1d8) para intentar recuperar el uso de uno de
+          sus conjuros agotados.
     interactions: []
     behavior: >-
-      Un archimago no-muerto con un estilo muy táctico. Su estrategia se basa en
-      la economía de acción superior. Flota fuera de alcance, bombardeando con
-      magia de Nivel 5 en su turno. Entre turnos enemigos, usa sus reacciones
-      para mantener la presión constante lanzando Descargas Arcanas, hechizos
-      rápidos o intentando recuperar sus poderes más letales con Recarga Mental.
-      Su objetivo no es solo ganar, es demostrar su abrumadora superioridad
-      intelectual y mágica en cada instante del combate.
+      Un archimago no-muerto de siglos de experiencia que adapta constantemente
+      su magia a las amenazas del campo de batalla. Se mantiene fuera del
+      alcance mediante Vuelo Arcano y utiliza su enorme repertorio de conjuros
+      para alternar entre daño, control, defensa y utilidad. Fuera de su turno
+      emplea Conjuro de Oportunidad para mantener la presión, responder con
+      magia defensiva o lanzar Descargas Arcanas, y utiliza Recarga Mental
+      cuando necesita recuperar uno de sus poderes más importantes. Cuando se
+      utiliza como jefe, las Reacciones adicionales adquiridas al construir el
+      encuentro convierten su versatilidad mágica en una economía de acciones
+      extremadamente peligrosa.
     img: null
     size: Mediano
   - name: No Combatiente
@@ -2490,3 +2565,1616 @@ creatures:
       con la precisión quirúrgica de sus dos estocadas.
     img: https://i.imgur.com/jCx0W79.jpeg
     size: Mediano
+  - name: Kobold
+    lineage: Dragón
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 3
+      mind: 1
+      instinct: 2
+      presence: 1
+    stats:
+      maxHealth: 13
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Dracónico
+      - Común (jerga rudimentaria)
+    attacks:
+      - name: Honda de Guijarros
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: Alcance Cercana
+      - name: Daga de Cantera
+        bonus: 3
+        damage: 1d4+1 Cortante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Juego de Manos
+      - name: Visión en la Oscuridad
+        detail: >-
+          El kobold puede ver en penumbra como si fuera luz tenue y en oscuridad
+          como si fuera penumbra hasta distancia Cercana.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Polvo de Galería
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Como Interacción, el kobold libera polvo en su espacio y puede
+          intentar Ocultarse inmediatamente. La nube no Ciega ni aplica otro
+          estado.
+    behavior: >
+      Un explorador cobarde y oportunista que prepara el terreno antes de
+      atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia
+      una ruta preparada. Huirá si pierde la cobertura o queda solo.
+    img: null
+    size: Pequeño
+  - name: Estirge
+    lineage: Monstruosidad
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 4
+      mind: 0
+      instinct: 2
+      presence: 0
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 12
+        note: Vuela
+    languages: []
+    attacks:
+      - name: Aguijón
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Vuelo
+        detail: La estirge tiene una velocidad de Vuelo de 12 metros.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Aleteo de Fuga
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Después de impactar con Aguijón, la estirge puede moverse hasta la
+          mitad de su velocidad. Este movimiento no provoca Reacciones.
+    behavior: >
+      Un parásito de corrientes térmicas que hostiga desde arriba y abandona el
+      combate cuando la presa deja de ser segura. Se abalanza sobre el personaje
+      aislado, evita objetivos protegidos y cambia de presa si recibe daño
+      significativo.
+    img: null
+    size: Diminuto
+  - name: Armadura Animada
+    lineage: Constructo
+    tier: 1
+    attributes:
+      body: 4
+      reflexes: 1
+      mind: 1
+      instinct: 2
+      presence: 0
+    stats:
+      maxHealth: 10
+      evasion:
+        value: 6
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Placas de metal
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages: []
+    attacks:
+      - name: Espada
+        bonus: 3
+        damage: 1d6 Cortante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción
+      - name: Inmunidades a Estados
+        detail: Envenenado
+    actions: []
+    reactions:
+      - name: Parada de Placas
+        detail: >-
+          Cuando la armadura animada es objetivo de un ataque visible, obtiene
+          +2 a su Esquiva contra ese ataque.
+    interactions: []
+    behavior: >
+      Un guardián autómata sin emociones, programado para proteger una puerta,
+      un sello o un objeto. Se interpone entre la amenaza y su objetivo, no
+      persigue fuera de su umbral y vuelve a su posición si la amenaza se
+      retira.
+    img: null
+    size: Mediano
+  - name: Cubo Gelatinoso
+    lineage: Limo
+    tier: 2
+    attributes:
+      body: 4
+      reflexes: 1
+      mind: 0
+      instinct: 2
+      presence: 0
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 7
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 6
+        note: null
+    languages: []
+    attacks: []
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+    actions:
+      - name: Engullir
+        detail: >-
+          Una criatura a distancia Inmediata debe superar una Tirada de
+          Salvación de Reflejos (ND 9). Si falla, queda dentro del Cubo y este
+          se mueve hasta su espacio. El Cubo solo puede contener una criatura.
+          Al inicio de cada uno de sus turnos, la criatura recibe 2d6 de daño
+          Ácido sin salvación. Al final de cada uno de sus turnos, puede repetir
+          la Tirada de Salvación usando Cuerpo (ND 9); si tiene éxito, sale del
+          Cubo y aparece en un espacio adyacente.
+    reactions: []
+    interactions: []
+    behavior: >
+      Una masa translúcida que limpia corredores de ruinas sin distinguir entre
+      basura y aventureros. Se coloca en rutas inevitables, espera a que alguien
+      cruce su espacio y prioriza aislar a una persona sin bloquear todas las
+      salidas.
+    img: null
+    size: Grande
+  - name: Dríada
+    lineage: Feérico
+    tier: 2
+    attributes:
+      body: 2
+      reflexes: 3
+      mind: 3
+      instinct: 3
+      presence: 4
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Silvano
+      - Común
+    attacks:
+      - name: Lanza de Espinas
+        bonus: 4
+        damage: 1d8+1 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Naturaleza, Persuasión
+      - name: Naturaleza Antimága
+        detail: >-
+          Ventaja (+1d4) en Tiradas de Salvación contra conjuros y efectos
+          mágicos.
+    actions:
+      - name: Prisión de Raíces
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Una criatura a distancia Inmediata debe superar una Tirada de
+          Salvación de Reflejos (ND 9). Si falla, queda Inmovilizada. Al final
+          de cada uno de sus turnos puede repetir la Tirada de Salvación usando
+          Reflejos o Cuerpo; si tiene éxito, se libera. Para mantener este
+          efecto activo, la Driada debe mantener la Concentración (salva con
+          Presencia).
+    reactions:
+      - name: Paso Arbóreo
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Cuando un enemigo entra a distancia Inmediata, la Dríada puede moverse
+          hasta la mitad de su velocidad por terreno natural sin provocar
+          Reacciones.
+    interactions: []
+    behavior: >
+      La custodia feérica de un pacto territorial. Protege el árbol, santuario o
+      frontera que se le confió, separa al intruso del lugar y abandona la
+      violencia si el pacto vuelve a respetarse.
+    img: null
+    size: Mediano
+  - name: Fuego Fatuo
+    lineage: No-muerto
+    tier: 2
+    attributes:
+      body: 0
+      reflexes: 5
+      mind: 1
+      instinct: 4
+      presence: 5
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 12
+        note: Vuela
+    languages: []
+    attacks:
+      - name: Drenaje Umbrío
+        bonus: 4
+        damage: 1d8+1 Necrótico
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Visión en la Oscuridad
+        detail: >-
+          El fuego fatuo puede ver en penumbra como si fuera luz tenue y en
+          oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+      - name: Flotar entre los Juncos
+        detail: >-
+          El fuego fatuo puede desplazarse por el aire sin volverse invisible ni
+          teletransportarse.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Farol Falso
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Una criatura a distancia Cercana debe superar una Tirada de Salvación
+          de Instinto (ND 9) o tener Desventaja en su próximo ataque.
+    behavior: >
+      Un falso faro que atrae a los viajeros hacia rutas contradictorias. Se
+      mantiene fuera del alcance inmediato, atrae a la persona más curiosa y
+      huye cuando pierde la oscuridad o la cobertura.
+    img: null
+    size: Diminuto
+  - name: Fantasma
+    lineage: No-muerto
+    tier: 2
+    attributes:
+      body: 0
+      reflexes: 4
+      mind: 3
+      instinct: 4
+      presence: 4
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: Flota
+    languages:
+      - Umbral
+      - Común (comprende)
+    attacks:
+      - name: Toque Mortífero
+        bonus: 5
+        damage: 1d8+1 Necrótico
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Perspicacia, Sigilo
+      - name: Visión en la Oscuridad
+        detail: >-
+          El fantasma puede ver en penumbra como si fuera luz tenue y en
+          oscuridad como si fuera penumbra hasta distancia Cercana.
+    actions:
+      - name: Lamento de los Ausentes
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Un objetivo a distancia Cercana debe superar una Tirada de Salvación
+          de Instinto (ND 10). Si falla, recibe 1d6 de daño Psíquico y tiene
+          Desventaja en su próximo ataque antes del final de su siguiente turno.
+          Si tiene éxito, recibe la mitad del daño y no sufre la Desventaja.
+    reactions: []
+    interactions:
+      - name: Desfase del Umbral
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          El fantasma atraviesa una barrera sólida y aparece en un espacio
+          visible a distancia Cercana. No puede terminar dentro de un objeto.
+    behavior: >
+      Una entidad de un recuerdo incompleto que interrumpe la sincronización del
+      grupo. Repite una escena del pasado, aparece para separar a los personajes
+      y desaparece antes de quedar rodeado.
+    img: null
+    size: Mediano
+  - name: Saga
+    lineage: Feérico
+    tier: 3
+    attributes:
+      body: 2
+      reflexes: 3
+      mind: 5
+      instinct: 4
+      presence: 6
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Silvano
+      - Común
+      - Arcaico
+    attacks:
+      - name: Hilo de la Deuda
+        bonus: 6
+        damage: 2d8+4 Psíquico
+        note: Alcance Cercana
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Engaño, Persuasión, Perspicacia
+      - name: Visión en la Oscuridad
+        detail: >-
+          La saga puede ver en penumbra como si fuera luz tenue y en oscuridad,
+          incluso mágica, como si fuera penumbra hasta distancia Cercana.
+    actions:
+      - name: Cosecha de Nombres
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Un objetivo a distancia Cercana debe superar una Tirada de Salvación
+          de Mente (ND 11). Si falla, queda Encantado hasta el inicio del
+          próximo turno de la saga y puede repetir la Tirada de Salvación al
+          final de su turno. La saga no puede obligarlo a suicidarse ni a gastar
+          recursos de otro personaje.
+      - name: Manto de Mal Agüero
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          La saga elige un punto a distancia Cercana y crea un área de efecto de
+          2 metros de radio centrada en ese punto. Las criaturas que comiencen
+          su turno dentro deben superar una Tirada de Salvación de Instinto (ND
+          11) o tener Desventaja en su próxima tirada antes del final de su
+          turno. El área dura hasta el inicio del próximo turno de la saga y no
+          inflige daño.
+    reactions:
+      - name: Escape Feérico
+        detail: >-
+          Cuando la saga es objetivo de un ataque o efecto visible, puede
+          teletransportarse a un espacio visible a distancia Cercana. No provoca
+          Reacciones. Solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: >
+      Una intermediaria feérica de nombres y deudas. Divide las prioridades del
+      grupo, castiga las promesas rotas y abandona el combate si la deuda deja
+      de ser ventajosa.
+    img: null
+    size: Mediano
+  - name: Bulette
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 6
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 1
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: Excava
+    languages: []
+    attacks:
+      - name: Mordida Destructora
+        bonus: 5
+        damage: 3d6+2 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo
+      - name: Percepción Sísmica
+        detail: >-
+          Mientras está bajo tierra, la bulette percibe criaturas y movimiento a
+          través del suelo a distancia Cercana. Esto no reemplaza la visión
+          fuera del suelo.
+      - name: Resistencias
+        detail: Contundente, Cortante y Perforante de fuentes no mágicas
+    actions: []
+    reactions: []
+    interactions:
+      - name: Sumersión
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          La bulette entra bajo tierra desde un terreno razonablemente
+          excavable. Mientras está bajo tierra no puede ser objetivo directo;
+          una tirada de Percepción (ND 10) permite detectar las vibraciones del
+          terreno para estimar su trayectoria.
+      - name: Salida Violenta
+        detail: >-
+          Siempre que este bajo sumergida, la bulette puede salir despedida
+          brutalmente como una Interacción. Las criaturas a distancia Inmediata
+          del punto de salida deben superar una Tirada de Salvación de Reflejos
+          (ND 10) o quedar Derribadas.
+    behavior: >
+      Un depredador sísmico que convierte el suelo en una segunda línea de
+      aproximación. Marca un territorio, embosca desde ángulos alternos y
+      abandona el área si las vibraciones o el fuego la vuelven insegura.
+    img: null
+    size: Grande
+  - name: Ent
+    lineage: Planta
+    tier: 4
+    attributes:
+      body: 8
+      reflexes: 1
+      mind: 3
+      instinct: 4
+      presence: 6
+    stats:
+      maxHealth: 120
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Corteza resistente
+      magicalMitigation:
+        value: 1
+        note: Savia protectora
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Silvano
+      - Común (comprende)
+    attacks:
+      - name: Puño de Corteza
+        bonus: 7
+        damage: 4d10+3 Contundente
+        note: null
+      - name: Latigazo de Raíces
+        bonus: 7
+        damage: 3d8+3 Contundente
+        note: >-
+          Como Acción alternativa, afecta un cono de distancia Inmediata. Cada
+          objetivo debe superar una Tirada de Salvación de Reflejos (ND 12) o
+          recibir el daño completo; con éxito, recibe la mitad. No puede usar
+          Puño de Corteza en la misma Acción.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Naturaleza, Percepción, Supervivencia
+    actions:
+      - name: La Arboleda se Alza
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          El ent despierta raíces en un área de distancia Cercana centrada en un
+          punto visible a distancia Media. Las criaturas dentro deben superar
+          una Tirada de Salvación de Reflejos (ND 12). Si fallan, quedan
+          Inmovilizadas hasta el final del siguiente turno del ent. Cada
+          criatura que haya quedado Inmovilizada puede repetir la Tirada de
+          Salvación al final de su propio turno. Las raíces son visibles y el
+          área siempre deja al menos una ruta razonable de salida.
+    reactions:
+      - name: Corteza Reactiva
+        detail: >-
+          Cuando una criatura inflige daño al ent con un ataque cuerpo a cuerpo,
+          esa criatura debe superar una Tirada de Salvación de Cuerpo (ND 12) o
+          quedar Derribada. Solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: >
+      Una frontera forestal móvil que reconfigura objetivos, rutas y cobertura.
+      Expulsa, separa y bloquea accesos antes de buscar matar. Si el objetivo
+      del grupo no amenaza al bosque, prefiere negociar.
+    img: null
+    size: Grande
+  - name: Gigante de Fuego
+    lineage: Gigante
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 2
+      mind: 3
+      instinct: 4
+      presence: 7
+    stats:
+      maxHealth: 208
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Armadura de escoria
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Gigante
+      - Común
+    attacks:
+      - name: Martillo de Escoria
+        bonus: 9
+        damage: 2d8+4 Contundente + 1d8 Fuego
+        note: >-
+          El gigante puede realizar dos ataques de Martillo de Escoria con su
+          Acción.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Aguante, Intimidación, Percepción
+      - name: Visión en la Oscuridad
+        detail: >-
+          El gigante de fuego puede ver en penumbra como si fuera luz tenue y en
+          oscuridad como si fuera penumbra hasta distancia Cercana.
+      - name: Inmunidades al Daño
+        detail: Fuego
+    actions:
+      - name: Golpe Magmático
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          El gigante golpea el suelo y abre una línea recta de distancia
+          Cercana. Cada criatura en la línea debe superar una Tirada de
+          Salvación de Reflejos (ND 14). Si falla, recibe 4d8+4 de daño Fuego;
+          con éxito, recibe la mitad. La línea se anuncia antes de resolver el
+          efecto.
+    reactions:
+      - name: Castigo Flamígero
+        detail: >-
+          Cuando un enemigo termina su movimiento a distancia Inmediata del
+          gigante, este puede realizar un ataque reducido de Martillo de Escoria
+          contra él: +9 para golpear, 1d8+4 de daño Contundente + 1d4 de daño
+          Fuego. Solo puede usar esta Reacción una vez por ronda.
+    interactions: []
+    behavior: >
+      Un maestro de asedio que trata el escenario como una forja. Prioriza
+      objetivos, cobertura y puertas, usa el terreno para dividir al grupo y
+      solo persigue cuando la ruta de retirada está asegurada.
+    img: null
+    size: Grande
+  - name: Aboleth
+    lineage: Aberración
+    tier: 6
+    attributes:
+      body: 4
+      reflexes: 4
+      mind: 12
+      instinct: 8
+      presence: 7
+    stats:
+      maxHealth: 255
+      evasion:
+        value: 11
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Defensa física
+      magicalMitigation:
+        value: 2
+        note: Defensa psíquica
+      speed:
+        value: 6
+        note: Nada 10 metros
+    languages:
+      - Habla Profunda
+      - Telepatía (Larga)
+    attacks:
+      - name: Lanzas de Memoria
+        bonus: 10
+        damage: 4d8+8 Psíquico
+        note: >-
+          Alcance Media. El aboleth puede realizar dos ataques de Lanzas de
+          Memoria con su Acción.
+      - name: Tentáculo del Abismo
+        bonus: 10
+        damage: 4d8+8 Contundente
+        note: >-
+          Distancia Inmediata. Se usa como emergencia cuando no puede emplear
+          Lanzas de Memoria.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Historia, Perspicacia, Percepción
+      - name: Visión en la Oscuridad
+        detail: >-
+          El aboleth puede ver en penumbra como si fuera luz tenue y en
+          oscuridad, incluso mágica, como si fuera penumbra hasta distancia
+          Cercana.
+      - name: Resistencias
+        detail: Psíquico
+      - name: Mente Insondable
+        detail: Ventaja (+1d4) en Tiradas de Salvación de Mente.
+    actions:
+      - name: Moldear la Mente
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          Un objetivo visible a distancia Media debe superar una Tirada de
+          Salvación de Mente (ND 15). Si falla, queda bajo un Mandato durante
+          hasta tres rondas. El aboleth formula una orden simple y no suicida.
+          Al inicio de cada turno del objetivo, este puede repetir la Tirada de
+          Salvación; si tiene éxito, termina el Mandato. Si falla, puede
+          obedecer y usar su Acción para ejecutar la orden o emplear su Acción
+          para repetir la Tirada de Salvación inmediatamente. Cada vez que el
+          aboleth recibe daño, sin importar la fuente, el objetivo puede repetir
+          la Tirada de Salvación de inmediato. Solo una criatura puede estar
+          bajo Mandato a la vez.
+      - name: Marea de Recuerdos
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          El aboleth proyecta una oleada Psíquica en un área de distancia
+          Cercana. Cada criatura dentro debe superar una Tirada de Salvación de
+          Instinto (ND 15). Si falla, recibe 4d8 de daño Psíquico y tiene
+          Desventaja en su próxima tirada; con éxito, recibe la mitad del daño y
+          no sufre la Desventaja.
+    reactions:
+      - name: Contracorriente
+        detail: >-
+          Cuando un enemigo termina su movimiento a distancia Inmediata del
+          aboleth, este puede desplazarse a un espacio visible a distancia
+          Cercana. El enemigo debe superar una Tirada de Salvación de Cuerpo (ND
+          15) o ser desplazado a otro espacio a distancia Inmediata elegido por
+          el aboleth. No inflige daño y solo puede usar esta Reacción una vez
+          por ronda.
+    interactions: []
+    behavior: >
+      El arquitecto de una ruina inundada y un depredador mental que prefiere
+      dominar el combate desde lejos. Mantiene la distancia, usa Marea de
+      Recuerdos para dividir la atención y reserva Moldear la Mente para el
+      personaje cuya decisión pueda cambiar el combate. Se acerca solo cuando no
+      tiene otra opción.
+    img: null
+    size: Inmenso
+  - name: Cambiaformas
+    lineage: Aberración
+    tier: 2
+    attributes:
+      body: 2
+      reflexes: 3
+      mind: 1
+      instinct: 5
+      presence: 4
+    stats:
+      maxHealth: 35
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Cuerpo modelable
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Tajo Metamorfo
+        bonus: 5
+        damage: 1d4+1 Cortante
+        note: Una de sus extremidades toma la forma de una hoja afilada.
+      - name: Puntada Metamorfa
+        bonus: 5
+        damage: 1d4+1 Perforante
+        note: Una de sus extremidades toma la forma de una punta aguda.
+      - name: Golpe Metamorfo
+        bonus: 5
+        damage: 1d4+1 Contundente
+        note: Una de sus extremidades toma la forma de un mazo.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Engaño, Perspicacia
+      - name: Asalto Múltiple
+        detail: El cambiaformas puede realizar dos ataques con su Acción.
+      - name: Cuerpo Simulante
+        detail: >-
+          El cambiaformas puede adoptar la apariencia visual de una criatura de
+          su tamaño que haya observado, incluyendo ropa, armadura, armas,
+          herramientas y texturas. La copia no concede estadísticas,
+          propiedades, peso, recuerdos, voz, habilidades ni efectos mágicos.
+          Cualquier objeto que suelte es un fragmento inerte de su cuerpo: no
+          puede usarse como equipo y puede reabsorberlo como Interacción si está
+          a distancia Inmediata.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Reabsorber Fragmento
+        detail: >-
+          Como Interacción, el cambiaformas reabsorbe un fragmento de su cuerpo
+          que esté a distancia Inmediata. El fragmento no puede actuar ni
+          generar efectos propios.
+    behavior: >
+      Un infiltrador aberrante que estudia a sus víctimas antes de adoptar su
+      aspecto. Se mezcla con el grupo, deja que sus copias confundan la escena y
+      ataca con extremidades convertidas en armas.
+    img: null
+    size: Mediano
+  - name: Guerrero Gnoll
+    lineage: Monstruosidad
+    tier: 2
+    attributes:
+      body: 4
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 1
+    stats:
+      maxHealth: 40
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Gnoll
+      - Común (rudimentario)
+    attacks:
+      - name: Hacha de Carroñero
+        bonus: 5
+        damage: 1d6+1 Cortante
+        note: null
+      - name: Mordisco de la Jauría
+        bonus: 5
+        damage: 1d4+1 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción
+      - name: Asalto Múltiple
+        detail: >-
+          El guerrero puede realizar un ataque de Hacha de Carroñero y un ataque
+          de Mordisco de la Jauría con su Acción.
+      - name: Ímpetu de la Jauría
+        detail: >-
+          Si un aliado está a distancia Inmediata del objetivo cuando impacta,
+          puede moverse 2 metros sin provocar Reacciones.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Aullido de Acoso
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Como Interacción, una criatura visible a distancia Cercana debe
+          superar una Tirada de Salvación de Instinto (ND 10). Si falla, tiene
+          Desventaja en su próximo ataque antes del final de su siguiente turno.
+    behavior: >
+      Un cazador de manada que rodea al objetivo aislado. Alterna hachazos y
+      mordiscos, usa el aullido para romper el ritmo de la presa y abandona la
+      persecución si la manada pierde la ventaja.
+    img: null
+    size: Mediano
+  - name: Soldado
+    lineage: Humanoide
+    tier: 2
+    attributes:
+      body: 3
+      reflexes: 3
+      mind: 2
+      instinct: 3
+      presence: 2
+    stats:
+      maxHealth: 25
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Espada de Campaña
+        bonus: 5
+        damage: 1d8+3 Cortante
+        note: null
+      - name: Jabalina
+        bonus: 5
+        damage: 1d4+1 Perforante
+        note: Alcance Cercana
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción
+    actions:
+      - name: Desafío de Línea
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Como Acción, una criatura visible a distancia Inmediata que pueda oír
+          al soldado debe superar una Tirada de Salvación de Mente (ND 10). Si
+          falla, tiene Desventaja en sus ataques contra criaturas que no sean el
+          soldado hasta el final de su siguiente turno. El desafío no obliga a
+          atacar al soldado.
+    reactions:
+      - name: Cobertura de Escuadra
+        detail: >-
+          Cuando un aliado a distancia Inmediata es objetivo de un ataque
+          visible, el soldado puede moverse 1 metro y conceder +2 a la Esquiva
+          del aliado contra ese ataque. Solo una vez por ronda.
+    interactions: []
+    behavior: >
+      Un soldado profesional que mantiene la línea y concentra los ataques
+      contra quien rompe la formación. Desafía al enemigo más peligroso mientras
+      cubre al compañero expuesto.
+    img: null
+    size: Mediano
+  - name: Sacerdote Gnoll
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 3
+      reflexes: 2
+      mind: 4
+      instinct: 5
+      presence: 4
+    stats:
+      maxHealth: 54
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 8
+        note: null
+    languages:
+      - Gnoll
+      - Común (rudimentario)
+    attacks:
+      - name: Maza de Colmillo
+        bonus: 6
+        damage: 2d8+4 Contundente
+        note: null
+      - name: Lanza de Sangre
+        bonus: 6
+        damage: 2d6+3 Perforante
+        note: Alcance Media
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Religión, Persuasión, Supervivencia
+    actions:
+      - name: Mandato de la Jauría
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          Una criatura visible a distancia Cercana debe superar una Tirada de
+          Salvación de Mente (ND 11). Si falla, queda Asustada durante 1 minuto.
+          Puede repetir la Tirada de Salvación al final de cada uno de sus
+          turnos; si la supera, el efecto termina.
+      - name: Liturgia del Cazador
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Hasta 3 aliados Gnoll a distancia Cercana obtienen Ventaja (+1d4) en
+          su próximo ataque antes del final del siguiente turno del sacerdote.
+      - name: Ofrenda de Sangre
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Un aliado Gnoll a distancia Cercana recupera 2d6 Puntos de Salud. El
+          sacerdote no puede usar esta Acción sobre sí mismo.
+    reactions: []
+    interactions: []
+    behavior: >
+      Un oficiante de la cacería que se mantiene detrás de la manada. Marca la
+      presa, fortalece a varios guerreros con una liturgia y sostiene al aliado
+      que está a punto de caer.
+    img: null
+    size: Mediano
+  - name: Sabueso Infernal
+    lineage: Infernal
+    tier: 2
+    attributes:
+      body: 5
+      reflexes: 5
+      mind: 1
+      instinct: 4
+      presence: 0
+    stats:
+      maxHealth: 20
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Piel infernal
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 10
+        note: null
+    languages:
+      - Infernal
+    attacks:
+      - name: Mordida Calcinante
+        bonus: 5
+        damage: 1d4 Perforante + 1 Fuego
+        note: null
+      - name: Mordida de Jauría
+        bonus: 5
+        damage: 1d4 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia
+      - name: Asalto Múltiple
+        detail: >-
+          Si al menos otro Sabueso Infernal está a distancia Inmediata del
+          objetivo, puede realizar un ataque de Mordida Calcinante y un ataque
+          de Mordida de Jauría con su Acción. Si está solo, solo puede usar
+          Mordida Calcinante.
+      - name: Resistencias
+        detail: Fuego.
+    actions:
+      - name: Soplo de Brasas
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          El sabueso proyecta un cono de distancia Cercana. Cada criatura en el
+          área debe superar una Tirada de Salvación de Reflejos (ND 10). Si
+          falla, recibe 1d6 de daño Fuego; con éxito, recibe la mitad. El cono
+          se anuncia antes de resolverlo.
+    reactions: []
+    interactions: []
+    behavior: >
+      Un cazador infernal que solo busca su mejor rendimiento dentro de una
+      jauría. Rodea a la presa junto a otros sabuesos, reserva el soplo para
+      grupos concentrados y abandona el territorio si pierde la ventaja
+      numérica.
+    img: null
+    size: Mediano
+  - name: Hombre Lobo
+    lineage: Monstruosidad
+    tier: 3
+    attributes:
+      body: 5
+      reflexes: 4
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 46
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Cuerpo resistente
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 9
+        note: null
+    languages:
+      - Común
+    attacks:
+      - name: Garras de la Luna
+        bonus: 6
+        damage: 1d8+3 Cortante
+        note: null
+      - name: Mordisco de Caza
+        bonus: 6
+        damage: 2d6+3 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Atletismo, Percepción, Supervivencia
+      - name: Asalto Múltiple
+        detail: >-
+          El hombre lobo puede realizar un ataque de Garras de la Luna y un
+          ataque de Mordisco de Caza con su Acción.
+      - name: Forma de Cazador
+        detail: >-
+          En cada turno puede elegir una forma. La forma bestial aumenta su
+          velocidad en 2 metros y permite usar el Mordisco de Caza; la forma
+          humana permite hablar y mezclarse socialmente. La forma no cambia sus
+          Puntos de Salud ni concede resistencia adicional.
+    actions:
+      - name: Aullido de la Luna
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Las criaturas enemigas a distancia Inmediata deben superar una Tirada
+          de Salvación de Instinto (ND 11). Si fallan, quedan Asustadas durante
+          1 minuto. Pueden repetir la Tirada de Salvación al final de cada uno
+          de sus turnos; si la superan, el efecto termina.
+    reactions:
+      - name: Salto de Presa
+        detail: >-
+          Cuando una criatura a distancia Inmediata se aleja, el hombre lobo
+          puede moverse 2 metros hacia ella sin provocar Reacciones. Solo una
+          vez por ronda.
+    interactions: []
+    behavior: >
+      Un cazador de dos naturalezas que aísla al objetivo herido. Cambia de
+      forma según la ruta de aproximación, usa el aullido para quebrar la
+      coordinación y abandona la cacería si el grupo vuelve a actuar unido.
+    img: null
+    size: Mediano
+  - name: Momia
+    lineage: No-muerto
+    tier: 4
+    attributes:
+      body: 7
+      reflexes: 2
+      mind: 3
+      instinct: 5
+      presence: 4
+    stats:
+      maxHealth: 110
+      evasion:
+        value: 10
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Vendajes endurecidos
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: null
+    languages:
+      - Arcaico
+      - Común (comprende)
+    attacks:
+      - name: Puño de Vendajes
+        bonus: 7
+        damage: 3d8+4 Contundente
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Historia, Religión, Perspicacia
+      - name: Visión en la Oscuridad
+        detail: >-
+          La momia puede ver en penumbra como si fuera luz tenue y en oscuridad
+          como si fuera penumbra hasta distancia Cercana.
+    actions:
+      - name: Maldición de la Garganta Seca
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          Un objetivo visible a distancia Cercana debe superar una Tirada de
+          Salvación de Mente (ND 12). Si falla, queda Asustado durante 1 minuto
+          y no puede recibir Puntos de Salud Temporales. Puede repetir la Tirada
+          de Salvación al final de cada uno de sus turnos; si la supera, el
+          efecto termina.
+      - name: Velo de Polvo
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Crea una nube en un área de distancia Inmediata alrededor de un punto
+          visible a distancia Cercana. Las criaturas dentro deben superar una
+          Tirada de Salvación de Reflejos (ND 12); si fallan, tienen Desventaja
+          en su próxima tirada antes del final de su turno. No inflige daño.
+    reactions:
+      - name: Mano del Guardián
+        detail: >-
+          Cuando un enemigo a distancia Inmediata ataca a un aliado que también
+          está a distancia Inmediata de la momia, el ataque se realiza con
+          Desventaja. Solo una vez por ronda.
+    interactions: []
+    behavior: >
+      Un guardián funerario que preserva una orden antigua. Fuerza al grupo a
+      avanzar por rutas estrechas, cubre a sus aliados no-muertos y vuelve a la
+      cámara si alguien intenta saquearla.
+    img: null
+    size: Mediano
+  - name: Remorhaz
+    lineage: Monstruosidad
+    tier: 4
+    attributes:
+      body: 8
+      reflexes: 2
+      mind: 1
+      instinct: 4
+      presence: 1
+    stats:
+      maxHealth: 110
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 1
+        note: Caparazón
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 7
+        note: Excava en terreno razonablemente excavable
+    languages: []
+    attacks:
+      - name: Mordida de Brasas
+        bonus: 8
+        damage: 4d8+4 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo
+      - name: Resistencias
+        detail: Fuego.
+      - name: Resistencia Ígnea
+        detail: >-
+          La resistencia a Fuego representa una compra de 2 PD; la Mitigación
+          Física 1 representa el PD restante.
+    actions:
+      - name: Túnel de Brasa
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          Entra bajo tierra desde terreno excavable y deja una línea visible de
+          calor y vibraciones. No puede ser objetivo directo mientras está bajo
+          tierra. Al inicio de su siguiente turno aparece en un espacio visible
+          a distancia Cercana; las criaturas a distancia Inmediata deben superar
+          una Tirada de Salvación de Reflejos (ND 13) o quedar Derribadas. La
+          trayectoria anunciada ofrece una oportunidad razonable de apartarse.
+    reactions:
+      - name: Placas Incandescentes
+        detail: >-
+          Cuando una criatura le inflige daño con un ataque cuerpo a cuerpo,
+          recibe 1d4 de daño Fuego y debe superar una Tirada de Salvación de
+          Reflejos (ND 13) o moverse 1 metro alejándose del remorhaz. Solo una
+          vez por ronda.
+    interactions: []
+    behavior: >
+      Un depredador de túneles cuya temperatura convierte la emboscada en una
+      decisión de posicionamiento. Se sumerge, deja señales legibles y emerge
+      bajo el personaje que rompe la formación.
+    img: null
+    size: Grande
+  - name: Gusano Gigante
+    lineage: Monstruosidad
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 2
+      mind: 1
+      instinct: 4
+      presence: 0
+    stats:
+      maxHealth: 184
+      evasion:
+        value: 9
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Caparazón segmentado
+      magicalMitigation:
+        value: 1
+        note: Núcleo profundo
+      speed:
+        value: 6
+        note: Excava en terreno razonablemente excavable
+    languages: []
+    attacks:
+      - name: Mordida de Falla
+        bonus: 9
+        damage: 4d10+5 Perforante
+        note: null
+      - name: Aguijón de Cola
+        bonus: 9
+        damage: 3d8+3 Veneno
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo, Aguante
+      - name: Asalto Múltiple
+        detail: >-
+          El gusano puede realizar un ataque de Mordida de Falla y un ataque de
+          Aguijón de Cola con su Acción.
+      - name: Vibración Profunda
+        detail: >-
+          Mientras está bajo tierra, detecta movimiento a distancia Cercana y
+          sus vibraciones anuncian una trayectoria aproximada.
+      - name: Resistencias
+        detail: Daño Contundente, Cortante y Perforante de fuentes no mágicas.
+    actions:
+      - name: Devorar al Intruso
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          Una criatura a distancia Inmediata debe superar una Tirada de
+          Salvación de Reflejos (ND 14). Si falla, queda dentro del gusano y
+          este se mueve hasta su espacio. Solo puede contener una criatura. Al
+          inicio de cada turno de la víctima, recibe 2d8 de daño Ácido sin
+          salvación. Al final de cada turno, puede repetir una Tirada de
+          Salvación de Cuerpo (ND 14); con éxito, sale a un espacio adyacente.
+    reactions:
+      - name: Sacudida de Cola
+        detail: >-
+          Cuando un enemigo termina su movimiento a distancia Inmediata, debe
+          superar una Tirada de Salvación de Reflejos (ND 14) o recibir 2d6 de
+          daño Contundente y quedar Derribado. Solo una vez por ronda.
+    interactions: []
+    behavior: >
+      Un peligro de jefe que convierte el suelo en una amenaza. Desaparece bajo
+      el terreno, divide al grupo con la amenaza de su mordida y emerge solo
+      cuando puede aislar una presa.
+    img: null
+    size: Inmenso
+  - name: Roc
+    lineage: Bestia
+    tier: 5
+    attributes:
+      body: 10
+      reflexes: 3
+      mind: 1
+      instinct: 4
+      presence: 2
+    stats:
+      maxHealth: 220
+      evasion:
+        value: 11
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 14
+        note: Vuela
+    languages: []
+    attacks:
+      - name: Garras
+        bonus: 9
+        damage: 4d8+4 Cortante
+        note: null
+      - name: Pico
+        bonus: 9
+        damage: 3d10+4 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Percepción, Supervivencia, Atletismo, Aguante
+      - name: Asalto Múltiple
+        detail: >-
+          El roc puede realizar un ataque de Garras y un ataque de Pico con su
+          Acción.
+      - name: Vuelo
+        detail: El roc tiene una velocidad de Vuelo de 14 metros.
+    actions:
+      - name: Secuestro del Viento
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Una criatura a distancia Inmediata debe superar una Tirada de
+          Salvación de Cuerpo (ND 14). Si falla, queda Derribada y el roc puede
+          moverla hasta 3 metros hacia un espacio visible y seguro. La criatura
+          puede repetir la Tirada de Salvación al final de su propio turno para
+          levantarse; no queda fuera de la escena ni recibe daño por caída.
+    reactions:
+      - name: Ala de Rechazo
+        detail: >-
+          Cuando un enemigo entra a distancia Inmediata, el roc puede moverse
+          hasta la mitad de su velocidad. El movimiento no provoca Reacciones.
+          Solo una vez por ronda.
+    interactions: []
+    behavior: >
+      Un depredador aéreo territorial que defiende un nido o una frontera. Ataca
+      al personaje que lleva comida u objetos brillantes y usa las corrientes
+      para mantener rutas de escape previsibles.
+    img: null
+    size: Inmenso
+  - name: Contemplador
+    lineage: Aberración
+    tier: 6
+    attributes:
+      body: 4
+      reflexes: 5
+      mind: 12
+      instinct: 8
+      presence: 6
+    stats:
+      maxHealth: 180
+      evasion:
+        value: 10
+        note: null
+      physicalMitigation:
+        value: 2
+        note: Campo de fuerza
+      magicalMitigation:
+        value: 1
+        note: Campo psíquico
+      speed:
+        value: 6
+        note: Levita
+    languages:
+      - Habla Profunda
+      - Telepatía (Larga)
+    attacks:
+      - name: Mordida
+        attack: 8
+        damage: 4d8 Perforante
+        note: >-
+          El contemplador utiliza su Mordida cuando un enemigo se encuentra a
+          distancia Inmediata.
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Conocimiento Arcano, Historia, Investigación, Percepción
+      - name: Visión en la Oscuridad
+        detail: >-
+          El contemplador puede ver en penumbra como si fuera luz tenue y en
+          oscuridad, incluso mágica, como si fuera penumbra hasta distancia
+          Cercana.
+      - name: Levitación
+        detail: >-
+          El contemplador vuela mediante levitación a una velocidad igual a su
+          Velocidad y puede permanecer suspendido en el aire sin necesidad de
+          apoyarse sobre una superficie.
+    actions:
+      - name: Rayo de Fascinación
+        uses:
+          type: RELOAD
+          qty: 3
+        detail: >-
+          El primer ojo menor se abre con un brillo hipnótico. Una criatura
+          visible a distancia Media debe superar una Tirada de Salvación de
+          Mente (ND 14). Si falla, queda Encantada respecto al contemplador
+          hasta el inicio del siguiente turno del contemplador.
+      - name: Rayo Vectorial
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: >-
+          El segundo ojo menor distorsiona violentamente el espacio. Una
+          criatura u objeto visible de tamaño Grande o menor a distancia Media
+          debe superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, el
+          contemplador mueve el objetivo hasta 6 metros a un espacio visible. Si
+          termina contra una superficie sólida o criatura, recibe 2d6 de daño
+          Contundente.
+      - name: Rayo de Lentitud
+        uses:
+          type: RELOAD
+          qty: 4
+        detail: >-
+          El tercer ojo menor proyecta una luz viscosa que parece frenar el
+          tiempo. Una criatura visible a distancia Media debe superar una Tirada
+          de Salvación de Cuerpo (ND 14). Si falla, su Movimiento se reduce a la
+          mitad y no puede realizar Reacciones hasta el inicio del siguiente
+          turno del contemplador.
+      - name: Rayo de Pavor
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          El cuarto ojo menor refleja los peores temores de su presa. Una
+          criatura visible a distancia Media debe superar una Tirada de
+          Salvación de Instinto (ND 14). Si falla, queda Asustada hasta el
+          inicio del siguiente turno del contemplador.
+      - name: Rayo de Drenaje
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          El quinto ojo menor absorbe el vigor vital en una corriente oscura.
+          Una criatura visible a distancia Media debe superar una Tirada de
+          Salvación de Cuerpo (ND 14). Si falla, recibe 3d8 de daño Necrótico;
+          con éxito, recibe la mitad.
+      - name: Rayo de Anclaje
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          El sexto ojo menor fija a la víctima en el espacio como si estuviera
+          clavada al mundo. Una criatura visible a distancia Media debe superar
+          una Tirada de Salvación de Cuerpo (ND 14). Si falla, queda
+          Inmovilizada hasta el inicio del siguiente turno del contemplador.
+      - name: Rayo de Letargo
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          El séptimo ojo menor emite un pulso opaco que apaga la consciencia.
+          Una criatura visible a distancia Media debe superar una Tirada de
+          Salvación de Mente (ND 14). Si falla, queda Dormida hasta el inicio
+          del siguiente turno del contemplador o hasta recibir daño.
+      - name: Rayo de Calcificación
+        uses:
+          type: RELOAD
+          qty: 8
+        detail: >-
+          El octavo ojo menor cubre a la presa con vetas pétreas que avanzan
+          sobre su cuerpo. Una criatura visible a distancia Media debe superar
+          una Tirada de Salvación de Cuerpo (ND 14). Si falla, queda
+          Inmovilizada y comienza a convertirse en piedra. Al final de su
+          siguiente turno debe repetir la Tirada de Salvación. Si vuelve a
+          fallar, queda Petrificada; si tiene éxito, termina el efecto.
+      - name: Rayo de Disolución
+        uses:
+          type: RELOAD
+          qty: 6
+        detail: >-
+          El noveno ojo menor dispara un haz blanco que deshace materia y magia
+          por igual. Una criatura visible a distancia Media debe superar una
+          Tirada de Salvación de Reflejos (ND 14). Si falla, recibe 6d8 de daño
+          de Fuerza; con éxito, recibe la mitad.
+      - name: Rayo de Extinción
+        uses:
+          type: RELOAD
+          qty: 8
+        detail: >-
+          El décimo ojo menor se contrae hasta volverse un punto negro antes de
+          liberar un rayo mortal. Una criatura visible a distancia Media debe
+          superar una Tirada de Salvación de Cuerpo (ND 14). Si falla, recibe
+          8d10 de daño Necrótico; con éxito, recibe la mitad. Si sus Puntos de
+          Salud llegan a 0, queda Moribunda de forma normal.
+    reactions:
+      - name: Respuesta Ocular
+        uses: null
+        detail: >-
+          Al final del turno de otra criatura, el contemplador puede usar su
+          Reacción para utilizar Rayo de Fascinación, Rayo Vectorial, Rayo de
+          Lentitud, Rayo de Pavor o Rayo de Drenaje, siempre que el rayo elegido
+          esté disponible. Utilizarlo agota normalmente ese rayo.
+    interactions:
+      - name: Campo Antimágico
+        uses: null
+        detail: >-
+          Como Interacción, el ojo central proyecta un cono de 10 metros hasta
+          el inicio del siguiente turno del contemplador. Elige la orientación
+          del cono al activarlo. Toda magia dentro del área queda suprimida,
+          incluidos los propios rayos del contemplador si atraviesan o afectan
+          un punto dentro del cono. El campo no disipa los efectos mágicos;
+          simplemente dejan de funcionar mientras permanezcan dentro del área.
+          El propio Campo Antimágico no se suprime a sí mismo.
+      - name: Corte de Distancia
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: >-
+          Como Interacción, el ojo central parpadea y pliega momentáneamente el
+          espacio alrededor del contemplador. El contemplador se teletransporta
+          a un espacio desocupado que pueda ver a distancia Media.
+    behavior: |
+      Una aberración calculadora que contempla el campo de batalla desde el aire
+      y utiliza cada uno de sus ojos para resolver un problema diferente.
+
+      Mantiene el Campo Antimágico orientado hacia los principales lanzadores de
+      conjuros, procurando dejar libres otros ángulos desde los que utilizar sus
+      rayos. En su turno elige el rayo que mejor explote la situación: separa
+      enemigos con Vector, neutraliza amenazas mediante control o utiliza sus
+      rayos destructivos cuando necesita concentrar daño.
+
+      Fuera de su turno utiliza Respuesta Ocular para mantener presión sobre el
+      grupo. Cuando se utiliza como jefe con Reacciones adicionales, puede
+      sacrificar alguna de esas oportunidades para reposicionarse mediante las
+      Reacciones de Jefe generales.
+    img: null
+    size: Grande

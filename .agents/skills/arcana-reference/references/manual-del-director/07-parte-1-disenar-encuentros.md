@@ -54,6 +54,42 @@ _(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para 
 
 **No hay límites estrictos sobre qué Rangos puedes usar**, pero tu elección debe estar guiada por tu criterio y los principios detallados en la siguiente **Guía Estratégica**.
 
+### Regla de Encuentro: Reacciones Adicionales para Jefes
+
+Todas las criaturas disponen normalmente de **1 Reacción por ronda**.
+
+Al construir un encuentro, el DJ puede otorgar Reacciones adicionales a una criatura para representar un enemigo especialmente dominante o un jefe capaz de mantenerse activo frente a varios adversarios.
+
+Cada Reacción adicional aumenta el coste en PA de la criatura en un **25% de su coste base**, calculando todos los incrementos sobre el coste original y redondeando el resultado final hacia arriba.
+
+| Reacciones por Ronda |  Coste en PA |
+| -------------------- | -----------: |
+| **1**                | Coste normal |
+| **2**                |        ×1,25 |
+| **3**                |        ×1,50 |
+| **4**                |        ×1,75 |
+
+Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien para jefes solitarios. Las criaturas con 4 Reacciones deberían reservarse para encuentros particularmente importantes.
+
+Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
+
+#### Reacciones de Jefe
+
+Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
+
+**Reposicionarse:** Al final del turno de otra criatura, puede usar una Reacción para moverse hasta la mitad de su Velocidad.
+
+**Ataque Rápido:** Al final del turno de otra criatura, puede usar una Reacción para realizar uno de los ataques indicados en su sección de **Ataques**, siempre que ese ataque no posea Recarga.
+
+- Si normalmente puede realizar varios ataques como parte de su Acción, realiza solamente **uno**.
+- Si normalmente realiza un único ataque con su Acción, el ataque realizado mediante esta Reacción inflige **la mitad del daño, redondeando hacia abajo**.
+
+Todas las demás propiedades del ataque se resuelven normalmente.
+
+Estas opciones no reemplazan las Reacciones propias de la criatura. Simplemente garantizan que cualquier criatura utilizada como jefe disponga de formas básicas de aprovechar las Reacciones adicionales adquiridas.
+
+Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas lo indique expresamente.
+
 ### Guía Estratégica para el DJ: Balance y Composición
 
 El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave final**. Usa estos principios para interpretar el presupuesto y construir encuentros memorables y balanceados:

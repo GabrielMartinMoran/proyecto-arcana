@@ -7,7 +7,7 @@ creatures:
       reflexes: 2
       mind: 2
       instinct: 4
-      presence: 2
+      presence: 3
     stats:
       maxHealth: 46
       evasion:

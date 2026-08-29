@@ -1,0 +1,47 @@
+creatures:
+  - name: Estirge
+    lineage: Monstruosidad
+    tier: 1
+    attributes:
+      body: 1
+      reflexes: 4
+      mind: 0
+      instinct: 2
+      presence: 0
+    stats:
+      maxHealth: 7
+      evasion:
+        value: 8
+        note: null
+      physicalMitigation:
+        value: 0
+        note: null
+      magicalMitigation:
+        value: 0
+        note: null
+      speed:
+        value: 12
+        note: Vuela
+    languages: []
+    attacks:
+      - name: Aguijón
+        bonus: 3
+        damage: 1d4+1 Perforante
+        note: null
+    traits:
+      - name: Habilidades con Ventaja
+        detail: Sigilo, Percepción
+      - name: Vuelo
+        detail: La estirge tiene una velocidad de Vuelo de 12 metros.
+    actions: []
+    reactions: []
+    interactions:
+      - name: Aleteo de Fuga
+        uses:
+          type: RELOAD
+          qty: 5
+        detail: Después de impactar con Aguijón, la estirge puede moverse hasta la mitad de su velocidad. Este movimiento no provoca Reacciones.
+    behavior: |
+      Un parásito de corrientes térmicas que hostiga desde arriba y abandona el combate cuando la presa deja de ser segura. Se abalanza sobre el personaje aislado, evita objetivos protegidos y cambia de presa si recibe daño significativo.
+    img: null
+    size: Diminuto
