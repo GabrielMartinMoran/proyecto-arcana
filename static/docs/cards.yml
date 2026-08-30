@@ -2879,7 +2879,7 @@ cards:
     description: >-
       _Ejecutas la sentencia final sobre aquellos que han sido juzgados y encontrados en falta._<br><br>
       Como Acción, eliges a un enemigo que esté bajo el efecto de tu `Sentencia del Hereje`.
-      El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o sufrirá 3d6 de daño Radiante
+      El objetivo debe superar una TS de Instinto (ND 5 + Instinto) o sufrirá 3d6 de daño Radiante
       y quedará Aturdido hasta el final de tu próximo turno. Si tiene éxito, solo recibe la mitad del daño.
     uses:
       type: RELOAD

@@ -468,8 +468,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-3.yml",
       "kind": "file",
-      "size": 4189,
-      "sha1": "a61ad4a5332d93f41a40ae138bd833701573a986"
+      "size": 4188,
+      "sha1": "f2937a071803cfa1a3799109acefce8e85b04fb2"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 241302,
-      "sha1": "500a631a287622f7f5eda7e833706898fcf0d3c5"
+      "size": 241301,
+      "sha1": "5164c78ac444a02286ea5047323e07dadcdcc1d0"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -646,8 +646,8 @@
     {
       "path": "references/manual-del-jugador/02-creacion-de-personajes.md",
       "kind": "file",
-      "size": 14755,
-      "sha1": "808ba5938ef2c9aaaa939bd084d1b55e9f81fd2e"
+      "size": 20299,
+      "sha1": "5cad6b9515f65fb5f5ecc62abe5c7f6b61a48e34"
     },
     {
       "path": "references/manual-del-jugador/03-mecanicas-de-juego.md",
