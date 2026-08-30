@@ -1,11 +1,11 @@
 ---
-title: 'Arcana RPG - Playtest 8 (System Prompt)'
-version: Playtest 8
+title: 'Arcana RPG - Playtest 9 (System Prompt)'
+version: Playtest 9
 ---
 
 # Arcana RPG
 
-Este documento corresponde a la versión Playtest 8 del sistema de rol Arcana. A continuación se presentan los documentos de referencia del sistema.
+Este documento corresponde a la versión Playtest 9 del sistema de rol Arcana. A continuación se presentan los documentos de referencia del sistema.
 
 ### Manual del Jugador
 
