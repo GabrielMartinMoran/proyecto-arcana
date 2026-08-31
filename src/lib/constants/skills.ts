@@ -111,6 +111,13 @@ export const DEFAULT_SKILLS: Omit<Skill, 'id'>[] = [
 		hasAdvantage: false,
 	},
 	{
+		name: '🩺 Medicina',
+		attribute: 'instinct',
+		description:
+			'Mide tu capacidad para diagnosticar heridas y enfermedades, tratar venenos, y realizar curaciones de emergencia para estabilizar a una criatura moribunda.',
+		hasAdvantage: false,
+	},
+	{
 		name: '🐴 Trato con Animales',
 		attribute: 'instinct',
 		description: 'Tu aptitud para calmar, entender y hacerte amigo de los animales.',

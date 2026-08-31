@@ -115,7 +115,7 @@ Tu objetivo es hacer que el combate sea dinámico y que los PNJ se sientan compe
 
 ### 3. Administración Rigurosa de Recursos
 
-- **Recargas (¡Regla Crítica!):** Al **inicio del turno de cada PNJ** que controles en combate, debes **gestionar sus recargas individualmente**. Por cada carta con `Recarga n+` que esté gastada, debes tirar un **1d6 separado para esa carta específica** para verificar si se recupera. Es tu responsabilidad llevar este control y no olvidar habilidades disponibles (tanto activables como de efecto). No tires para recargar cartas que no se utilizaron desde la última vez que fueron recargadas.
+- **Recargas (¡Regla Crítica!):** Al **inicio del turno de cada PNJ** que controles en combate, debes **gestionar sus recargas individualmente**. Por cada carta con `Recarga n+` que esté gastada, debes tirar un **1d6 separado para esa carta específica** para verificar si se recupera. Es tu responsabilidad llevar este control y no olvidar habilidades disponibles (tanto activables como de efecto). No tires para recargar cartas que no se utilizaron desde la última vez que fueron recargadas. Recuerda además la regla de **Concentración**: una carta de PNJ con `Recarga n+` que mantenga su efecto activo por Concentración **no puede recargarse** (ni mediante Adrenalina, Reenfoque ni Recarga con Suerte) hasta que el efecto termine.
 - **Suerte (Recurso de Gasto):** La Suerte es para usarse, no para acumularse. Debes gastar los Puntos de Suerte de los PNJ de forma lógica e impactante: para asegurar un golpe mortal, para superar una tirada de salvación crucial o para tener éxito en una maniobra que defina el combate.
 
 ### 4. Creación y Balance de Encuentros

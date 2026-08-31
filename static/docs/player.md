@@ -73,6 +73,7 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 - **Percepción:** Tu capacidad para ver, oír u oler detalles sutiles en tu entorno, como detectar una emboscada, encontrar una puerta secreta o notar que alguien está mintiendo.
 - **Perspicacia:** Se usa para leer las intenciones de una criatura, discernir si está diciendo la verdad o sentir sus verdaderas emociones.
 - **Supervivencia:** Mide tu habilidad para seguir rastros, cazar, orientarte en la naturaleza, predecir el clima y evitar peligros naturales.
+- **Medicina:** Mide tu capacidad para diagnosticar heridas y enfermedades, tratar venenos, y realizar curaciones de emergencia para estabilizar a una criatura moribunda.
 - **Trato con Animales:** Tu aptitud para calmar, entender y hacerte amigo de los animales.
 
 **Presencia:**
@@ -91,7 +92,7 @@ A partir de tus atributos, se calculan otros valores esenciales para tu personaj
 - **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.
   - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
-- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
+- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **1 Punto de Suerte**.
 - **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.
 
 ## Paso 4: Definiendo tu Linaje
@@ -260,7 +261,7 @@ La Suerte es un recurso que permite a los jugadores influir en el resultado de s
 - **Ganar Suerte:** Cada vez que un dado explota (un 8 natural en el d8), el personaje gana **1 Punto de Suerte**.
 - **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.
 - **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir **+1d4 al resultado final por cada punto gastado**. Sin embargo, el jugador debe declarar la cantidad total de puntos que vas a gastar antes de lanzar los dados de bonificación. No puede lanzar los dados de suerte uno a uno y decidir sobre la marcha; debe hacer su apuesta de una sola vez.
-- **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 2.
+- **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 1.
 
 ### Comprar Suerte
 
@@ -327,6 +328,8 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 ## Recarga de Cartas
 
 Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:
+
+- **Concentración:** Si una carta agotada con **Recarga n+** está manteniendo un efecto activo mediante **Concentración**, no puedes intentar recargarla por ningún método (Adrenalina, Reenfoque ni Recarga con Suerte) mientras el efecto siga en curso. El efecto debe terminar —por duración agotada, decisión voluntaria o ruptura de concentración— antes de que la carta pueda recuperarse.
 
 ### Recarga en Combate (La Adrenalina)
 
@@ -608,6 +611,7 @@ Algunos conjuros y habilidades requieren **Concentración** para mantener su efe
 - Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
 - Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
 - En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
+- **Sin Recarga mientras dure:** Mientras una carta agotada con Recarga mantenga su efecto activo por Concentración, no puedes intentar recargarla. Solo cuando el efecto termine podrás recuperarla por Adrenalina, Reenfoque o Recarga con Suerte.
 
 ## Tiradas de Salvación
 
@@ -647,7 +651,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
   de Cuerpo (ND 8). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas
   1 punto de salud y ya no estas **Inconsciente**.
-  Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
+  Un aliado puede usar su Acción para intentar superar una Prueba de Instinto (Medicina) (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
   Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.
   Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
 - **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.
