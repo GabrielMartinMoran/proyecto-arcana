@@ -417,7 +417,7 @@ cards:
     requirements: Instinto 2
     description: >-
       _Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br>
-      Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 3 puntos de suerte.
+      Tu límite máximo de Suerte aumenta a 6. Además, inicias cada sesión con un punto más de suerte.
     uses:
       type: null
       qty: 0
@@ -493,7 +493,7 @@ cards:
     description: >-
       _Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br>
       Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br>
-      Además, cuando superas una prueba de Instinto para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br>
+      Además, cuando superas una prueba de Instinto (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br>
       No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.
     uses:
       type: null
