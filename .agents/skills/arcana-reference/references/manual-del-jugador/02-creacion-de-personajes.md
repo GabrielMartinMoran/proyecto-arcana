@@ -63,6 +63,7 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 - **Percepción:** Tu capacidad para ver, oír u oler detalles sutiles en tu entorno, como detectar una emboscada, encontrar una puerta secreta o notar que alguien está mintiendo.
 - **Perspicacia:** Se usa para leer las intenciones de una criatura, discernir si está diciendo la verdad o sentir sus verdaderas emociones.
 - **Supervivencia:** Mide tu habilidad para seguir rastros, cazar, orientarte en la naturaleza, predecir el clima y evitar peligros naturales.
+- **Medicina:** Mide tu capacidad para diagnosticar heridas y enfermedades, tratar venenos, y realizar curaciones de emergencia para estabilizar a una criatura moribunda.
 - **Trato con Animales:** Tu aptitud para calmar, entender y hacerte amigo de los animales.
 
 **Presencia:**
@@ -81,7 +82,7 @@ A partir de tus atributos, se calculan otros valores esenciales para tu personaj
 - **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.
   - **Velocidad = 6 + Reflejos**
 - **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.
-- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.
+- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **1 Punto de Suerte**.
 - **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.
 
 ## Paso 4: Definiendo tu Linaje

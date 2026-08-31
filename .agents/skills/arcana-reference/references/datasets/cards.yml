@@ -417,7 +417,7 @@ cards:
     requirements: Instinto 2
     description: >-
       _Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br>
-      Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 3 puntos de suerte.
+      Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 2 puntos de suerte.
     uses:
       type: null
       qty: 0

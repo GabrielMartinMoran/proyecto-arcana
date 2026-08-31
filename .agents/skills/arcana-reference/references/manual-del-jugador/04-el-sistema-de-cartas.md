@@ -58,6 +58,8 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
 
 Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:
 
+- **Concentración:** Si una carta agotada con **Recarga n+** está manteniendo un efecto activo mediante **Concentración**, no puedes intentar recargarla por ningún método (Adrenalina, Reenfoque ni Recarga con Suerte) mientras el efecto siga en curso. El efecto debe terminar —por duración agotada, decisión voluntaria o ruptura de concentración— antes de que la carta pueda recuperarse.
+
 ### Recarga en Combate (La Adrenalina)
 
 En el fragor de la batalla, la adrenalina puede permitirte recuperar tus capacidades rápidamente.

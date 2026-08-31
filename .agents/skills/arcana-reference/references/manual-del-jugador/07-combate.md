@@ -98,6 +98,7 @@ Algunos conjuros y habilidades requieren **Concentración** para mantener su efe
 - Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
 - Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
 - En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
+- **Sin Recarga mientras dure:** Mientras una carta agotada con Recarga mantenga su efecto activo por Concentración, no puedes intentar recargarla. Solo cuando el efecto termine podrás recuperarla por Adrenalina, Reenfoque o Recarga con Suerte.
 
 ## Tiradas de Salvación
 
@@ -137,7 +138,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
   de Cuerpo (ND 8). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas
   1 punto de salud y ya no estas **Inconsciente**.
-  Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
+  Un aliado puede usar su Acción para intentar superar una Prueba de Instinto (Medicina) (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
   Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.
   Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
 - **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.
