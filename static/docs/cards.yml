@@ -3281,6 +3281,34 @@ cards:
     uses:
       type: null
       qty: 0
+  - name: 'Esporas Nocivas'
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _Liberas una nube concentrada de esporas tóxicas que invade los pulmones y entumece los sentidos de tu presa._<br><br>
+      Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Veneno y queda Envenenado hasta el final de tu próximo turno. Si tiene éxito, recibe la mitad del daño y no queda Envenenado.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: 'Brote Violento'
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _La tierra revienta súbitamente mientras raíces, espinas y tallos irrumpen con fuerza suficiente para arrancar a tus enemigos de sus pies._<br><br>
+      Como Acción, eliges un punto sobre una superficie a distancia Media. La vegetación brota violentamente en un radio de 2 metros. Todas las criaturas en el área deben realizar una Tirada de Salvación de Reflejos (ND 5 + Instinto). Si fallan, reciben 2d4 de daño Perforante y quedan Derribadas. Si tienen éxito, reciben la mitad del daño y no quedan Derribadas.<br><br>
+      La vegetación se marchita inmediatamente después del estallido.
+    uses:
+      type: RELOAD
+      qty: 4
   - name: Llamar a la Tormenta
     level: 3
     type: activable
@@ -3526,7 +3554,7 @@ cards:
     description: >-
       _El suelo bajo los pies de tus enemigos se rebela, estallando en una tormenta violenta de rocas y tierra que los aplasta sin piedad._<br><br>
       Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br>
-      Si fallan, reciben 5d8 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno.
+      Si fallan, reciben 4d6 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno.
       Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br>
       El área afectada queda permanentemente convertida en terreno difícil.<br>
     uses:

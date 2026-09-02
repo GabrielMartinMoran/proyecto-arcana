@@ -933,6 +933,30 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Brote Violento",
+      "id": "a6d817c028ec327ea401648703a9a74fdfbb0402",
+      "slug": "brote-violento",
+      "aliases": [
+        "brote violento"
+      ],
+      "tags": [
+        "Conjuro",
+        "Druida"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Sintonía Primordial & Instinto 3",
+        "uses": "RELOAD:4"
+      },
+      "search": "_La tierra revienta súbitamente mientras raíces, espinas y tallos irrumpen con fuerza suficiente para arrancar a tus enemigos de sus pies._<br><br> Como Acción, eliges un punto sobre una superficie a distancia Media. La vegetación brota violentamente en un radio de 2 metros. Todas las criaturas en el área deben realizar una Tirada de Salvación de Reflejos (ND 5 + Instinto). Si fallan, reciben 2d4 de daño Perforante y quedan Derribadas. Si tienen éxito, reciben la mitad del daño y no quedan Derribadas.<br><br> La vegetación se marchita inmediatamente después del estallido.",
+      "hash": "e2b51d50f68f11c2d48cd1fc13041b9fff8e270b"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Cacofonía Discordante",
       "id": "6fc597eea0f4a69030a33bda235eaa50a1042e2e",
       "slug": "cacofonia-discordante",
@@ -2384,6 +2408,30 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Esporas Nocivas",
+      "id": "41b71c3f63ff052e3ace13cc04be870bcffc6423",
+      "slug": "esporas-nocivas",
+      "aliases": [
+        "esporas nocivas"
+      ],
+      "tags": [
+        "Conjuro",
+        "Druida"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Sintonía Primordial & Instinto 3",
+        "uses": "RELOAD:4"
+      },
+      "search": "_Liberas una nube concentrada de esporas tóxicas que invade los pulmones y entumece los sentidos de tu presa._<br><br> Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Veneno y queda Envenenado hasta el final de tu próximo turno. Si tiene éxito, recibe la mitad del daño y no queda Envenenado.",
+      "hash": "a90a1c69e67b1121d6ecab25c293f14bb57edb5c"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Esquiva Sobrenatural",
       "id": "2e1d27c454ae1f42d91b4ca9feb8f9ad6d79db36",
       "slug": "esquiva-sobrenatural",
@@ -2909,8 +2957,8 @@
         "requirements": "Sintonía Primordial & Instinto 5",
         "uses": "RELOAD:6"
       },
-      "search": "_El suelo bajo los pies de tus enemigos se rebela, estallando en una tormenta violenta de rocas y tierra que los aplasta sin piedad._<br><br> Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br> Si fallan, reciben 5d8 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br> El área afectada queda permanentemente convertida en terreno difícil.<br>",
-      "hash": "0dea25fd8a6c64d329983fe86e58fc8098b005d0"
+      "search": "_El suelo bajo los pies de tus enemigos se rebela, estallando en una tormenta violenta de rocas y tierra que los aplasta sin piedad._<br><br> Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br> Si fallan, reciben 4d6 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br> El área afectada queda permanentemente convertida en terreno difícil.<br>",
+      "hash": "ddc7346a8a3ae69bef209c7aa4a9fdb1ceda54bd"
     },
     {
       "kind": "card",

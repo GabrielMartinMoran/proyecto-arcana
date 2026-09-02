@@ -77,7 +77,7 @@ cards:
       _El suelo bajo los pies de tus enemigos se rebela, estallando en una tormenta violenta de rocas y tierra que los
       aplasta sin piedad._<br><br> Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del
       suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 +
-      Instinto).<br> Si fallan, reciben 5d8 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su
+      Instinto).<br> Si fallan, reciben 4d6 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su
       próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br> El área afectada
       queda permanentemente convertida en terreno difícil.<br>
     slug: furia-de-la-tierra

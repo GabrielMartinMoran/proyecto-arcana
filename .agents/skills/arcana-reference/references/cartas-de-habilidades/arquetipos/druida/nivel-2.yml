@@ -62,6 +62,42 @@ cards:
       través de terreno difícil natural sin penalización de movimiento y obtienes Ventaja (+1d4) en las pruebas de
       Sigilo. Puedes realizar este ritual de nuevo para cambiar tu sintonía.
     slug: sintonia-con-el-entorno
+  - id: 41b71c3f63ff052e3ace13cc04be870bcffc6423
+    name: Esporas Nocivas
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      _Liberas una nube concentrada de esporas tóxicas que invade los pulmones y entumece los sentidos de tu
+      presa._<br><br> Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de
+      Salvación de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Veneno y queda Envenenado hasta el final de
+      tu próximo turno. Si tiene éxito, recibe la mitad del daño y no queda Envenenado.
+    slug: esporas-nocivas
+  - id: a6d817c028ec327ea401648703a9a74fdfbb0402
+    name: Brote Violento
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 4
+    description: >-
+      _La tierra revienta súbitamente mientras raíces, espinas y tallos irrumpen con fuerza suficiente para arrancar a
+      tus enemigos de sus pies._<br><br> Como Acción, eliges un punto sobre una superficie a distancia Media. La
+      vegetación brota violentamente en un radio de 2 metros. Todas las criaturas en el área deben realizar una Tirada
+      de Salvación de Reflejos (ND 5 + Instinto). Si fallan, reciben 2d4 de daño Perforante y quedan Derribadas. Si
+      tienen éxito, reciben la mitad del daño y no quedan Derribadas.<br><br> La vegetación se marchita inmediatamente
+      después del estallido.
+    slug: brote-violento
   - id: a452404447b2895c46a130ebe0da266a431df803
     name: Piel de Roble
     level: 2

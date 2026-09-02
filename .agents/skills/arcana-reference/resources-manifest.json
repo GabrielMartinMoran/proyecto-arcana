@@ -262,8 +262,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
       "kind": "file",
-      "size": 5725,
-      "sha1": "0f38c19a98de7aa04c54d2e279d5443e910b9065"
+      "size": 7366,
+      "sha1": "bf20862597245b876bc0004853fa07ba3afc2e9b"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-3.yml",
@@ -275,7 +275,7 @@
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-4.yml",
       "kind": "file",
       "size": 4380,
-      "sha1": "3a05b23b3fee57fab917c412662fff0f58101d02"
+      "sha1": "a28d92b8fa6d4193f1ef3b4be1d7e6ff40fa38d5"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-5.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 241331,
-      "sha1": "367b6e438bf60fcfb57032e45cfb70191ed9cf29"
+      "size": 242802,
+      "sha1": "bbd6916e612cc9dd5fcb99158a10f0d8709e3671"
     },
     {
       "path": "references/datasets/magical-items.yml",
