@@ -14,6 +14,7 @@
 
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
 	import CustomCardEditorModal from '$lib/components/character-sheet/elements/CustomCardEditorModal.svelte';
+	import { getCardTotalUses } from '$lib/utils/card-utils';
 	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
 	import AvailableCardsView from './AvailableCardsView.svelte';
@@ -333,7 +334,7 @@
 
 		const newCard: CharacterCard = {
 			id: card.id,
-			uses: card.uses.qty,
+			uses: getCardTotalUses(card),
 			isActive: false,
 			level: card.level,
 			cardType: card.cardType,

@@ -3,6 +3,7 @@
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { CharacterCard } from '$lib/types/character';
+	import { getCardTotalUses } from '$lib/utils/card-utils';
 	import { CONFIG } from '../../../config';
 	import Card from './Card.svelte';
 	import ReloadControl from './ReloadControl.svelte';
@@ -99,19 +100,7 @@
 		return card ? card.uses : 0;
 	};
 
-	const getCardTotalUses = (card: CardType) => {
-		if (card.uses.type === null) return null;
-		switch (card.uses.type) {
-			case 'USES':
-			case 'LONG_REST':
-			case 'DAY':
-				return card.uses.qty ?? 0;
-			case 'RELOAD':
-				return CONFIG.RELOAD_CARD_USES;
-			default:
-				return null;
-		}
-	};
+
 
 	const isReloadableCard = (card: CardType) => {
 		return card.uses.type === 'RELOAD';
