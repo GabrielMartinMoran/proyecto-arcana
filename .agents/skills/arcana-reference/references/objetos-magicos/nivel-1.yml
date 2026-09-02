@@ -174,3 +174,74 @@ items:
       y reabrir el libro.
     slug: diario-del-recuerdo-fiel
     cost: 150
+  - id: 34ca8bd5c9f197f730c42125f2adfa7c7c4a72eb
+    name: Arma del Falso Aspecto
+    level: 1
+    type: efecto
+    tags:
+      - Arma
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br> Al crearla, se elige la apariencia de un objeto
+      mundano e inofensivo de tamaño apropiado. Como una Interacción, puedes hacer que el arma adopte esa apariencia o
+      recupere su forma verdadera. Mientras está transformada, parece y se comporta como el objeto elegido hasta que
+      vuelva a adoptar su forma de arma.
+    slug: arma-del-falso-aspecto
+    cost: 200
+  - id: 243cb90c41d67e1689ecdcd910d709822786fa97
+    name: Armadura de las Mil Vestiduras
+    level: 1
+    type: efecto
+    tags:
+      - Armadura
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura._<br><br> Como una Interacción, puedes hacer que la armadura
+      adopte visualmente la apariencia de cualquier conjunto de ropa que hayas visto. Puedes alterar su color, corte,
+      materiales aparentes y pequeños accesorios. Este efecto solo modifica su apariencia: la armadura conserva su peso,
+      volumen y propiedades normales. Puedes recuperar su aspecto verdadero como una Interacción.
+    slug: armadura-de-las-mil-vestiduras
+    cost: 200
+  - id: 7840162a4a1594992fa479f0da875c0ff366b805
+    name: Tinta del Fuego Secreto
+    level: 1
+    type: efecto
+    tags:
+      - Herramienta
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      La escritura realizada con esta tinta desaparece pocos segundos después de secarse, volviéndose completamente
+      invisible. Cuando el material sobre el que fue escrita se aproxima a una fuente de calor, el texto reaparece y
+      permanece visible mientras se mantenga caliente. Un frasco contiene tinta suficiente para una cantidad razonable
+      de escritos.
+    slug: tinta-del-fuego-secreto
+    cost: 100
+  - id: 707ecb6bec34b60393871c684ed1ef074c3dec69
+    name: Brújula de los Muros Huecos
+    level: 1
+    type: efecto
+    tags:
+      - Exploración
+      - Herramienta
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Mientras sostienes esta extraña brújula, su aguja comienza a girar lentamente si existe una puerta, pasadizo o
+      compartimento oculto a distancia Inmediata. La brújula no revela su ubicación exacta, su naturaleza ni la forma de
+      abrirlo.
+    slug: brujula-de-los-muros-huecos
+    cost: 200

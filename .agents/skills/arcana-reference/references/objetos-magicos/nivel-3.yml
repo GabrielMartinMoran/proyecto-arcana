@@ -260,3 +260,164 @@ items:
       ambos estén en el mismo plano de existencia.
     slug: gemas-del-eco-mental
     cost: 800
+  - id: 09976d151f19c8a8fc451e8bb84141a354733a71
+    name: Arma Elemental
+    level: 3
+    type: efecto
+    tags:
+      - Arma
+      - Daño
+    requirements: null
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma. Al crearla, se elige Fuego, Frío o Eléctrico._<br><br> El arma
+      está imbuida permanentemente con la energía elemental elegida. Cuando impactas con esta arma, puedes hacer que el
+      daño del ataque sea del elemento elegido en lugar de su tipo normal. Además, cuando impactas con esta arma, puedes
+      liberar una descarga de energía e infligir 1d6 de daño adicional del elemento elegido.
+    slug: arma-elemental
+    cost: 1200
+  - id: 649a9e10e345a3730c60a3c410e55c91598ca064
+    name: Arma de Cacería
+    level: 3
+    type: efecto
+    tags:
+      - Arma
+      - Daño
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma. Al crearla, se elige una categoría de criatura apropiada, como
+      Dragón, Gigante, No-Muerto, Infernal, Aberración o Feérico._<br><br> El arma fue creada específicamente para dar
+      caza a esas criaturas. Una vez por turno, cuando impactas con esta arma a una criatura de la categoría elegida,
+      infliges 1d6 de daño adicional del mismo tipo que el arma.
+    slug: arma-de-caceria
+    cost: 1000
+  - id: 4f0794a38d3d7292895d0e33d29a1e18e5549dcc
+    name: Arma del Estratega
+    level: 3
+    type: efecto
+    tags:
+      - Arma
+      - Versatilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como una Interacción durante tu turno,
+      puedes adoptar una de las siguientes posturas hasta el inicio de tu próximo turno. Solo puedes adoptar una postura
+      por turno:<br> - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno,
+        infliges 1d4 de daño adicional del mismo tipo que el arma.<br>
+      - **Defensiva:** Mientras empuñes esta arma, obtienes +1 a tu Esquiva.
+    slug: arma-del-estratega
+    cost: 1800
+  - id: 14e0881f3946132ffdd0f092d603f9e3a37cacbd
+    name: Arma de Represalia
+    level: 3
+    type: activable
+    tags:
+      - Arma
+      - Reacción
+    requirements: null
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como Reacción cuando una criatura a
+      distancia Inmediata falla un ataque cuerpo a cuerpo contra ti, puedes realizar inmediatamente un único ataque con
+      esta arma contra esa criatura.
+    slug: arma-de-represalia
+    cost: 1400
+  - id: e211831aa3dd3bd0ae6ea692b1db753ba3760cc5
+    name: Arma Umbral
+    level: 3
+    type: activable
+    tags:
+      - Arma
+      - Movimiento
+    requirements: null
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Cuando impactas a una criatura con
+      esta arma, puedes usar tu Interacción para desvanecerte brevemente entre las sombras y aparecer en un espacio
+      desocupado que puedas ver a hasta 3 metros de tu posición actual. Este desplazamiento no puede ser interceptado
+      por Reacciones enemigas.
+    slug: arma-umbral
+    cost: 1300
+  - id: 477eb4ffac649d88bc005e1316d84ee468b083b7
+    name: Armadura Inquebrantable
+    level: 3
+    type: efecto
+    tags:
+      - Armadura
+      - Defensa
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior._<br><br> La estructura
+      encantada de la armadura protege incluso sus puntos más vulnerables. Cuando un ataque contra ti fuera a
+      convertirse en un golpe crítico, se considera un impacto normal en su lugar.
+    slug: armadura-inquebrantable
+    cost: 1100
+  - id: e682a145317992061a4dd617daa92d17a5d59215
+    name: Farol del Revelador
+    level: 3
+    type: efecto
+    tags:
+      - Visión
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Como una Interacción, puedes encender o apagar este farol de cristal azulado. Mientras está encendido, emite luz
+      brillante en un radio de 5 metros. Las criaturas y objetos invisibles que se encuentren dentro de esta luz pueden
+      verse normalmente. El farol no permite detectar ilusiones, revelar la verdadera forma de criaturas transformadas
+      ni ver a través de oscuridad mágica.
+    slug: farol-del-revelador
+    cost: 1000
+  - id: 9feb4feff226b9cb0971a5b17ac65ef566b60843
+    name: Frasco de la Noche Cautiva
+    level: 3
+    type: activable
+    tags:
+      - Utilidad
+      - Oscuridad
+    requirements: null
+    uses:
+      type: DAY
+      qty: 2
+    description: >-
+      Como una Acción, puedes destapar este frasco de vidrio negro y liberar la oscuridad contenida en su interior.
+      Durante 1 minuto, una esfera de oscuridad mágica de 2 metros de radio rodea al frasco y se desplaza con él. La
+      oscuridad bloquea completamente la visión, incluida la Visión en la Oscuridad.<br><br> Puedes cerrar el frasco
+      como una Interacción. Cuando lo haces, deja de producir oscuridad y la que ya fue liberada desaparece al final de
+      tu próximo turno.
+    slug: frasco-de-la-noche-cautiva
+    cost: 900
+  - id: cd7d428c9d27cd51bc9b0f1b993a182b90ea94b5
+    name: Botas del Paso Imposible
+    level: 3
+    type: activable
+    tags:
+      - Movimiento
+      - Utilidad
+    requirements: null
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      Como una Interacción, puedes hacer que estas botas encuentren apoyo donde no existe. Hasta el final de tu turno,
+      puedes desplazarte hasta 3 metros a través del aire como si caminaras sobre terreno firme. Debes terminar este
+      desplazamiento sobre una superficie estable capaz de sostener tu peso; de lo contrario, caes.
+    slug: botas-del-paso-imposible
+    cost: 1000

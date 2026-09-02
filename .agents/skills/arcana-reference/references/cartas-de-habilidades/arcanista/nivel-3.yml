@@ -94,7 +94,7 @@ cards:
       qty: 5
     description: >-
       _Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad
-      aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8 + Atributo Arcano) contra un objetivo. Si
+      aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si
       impactas, el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque
       sufre un -1 acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional,
       hasta que falles una tirada de ataque o decidas detener la ráfaga.

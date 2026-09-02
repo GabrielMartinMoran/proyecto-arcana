@@ -31,7 +31,7 @@ cards:
       qty: 3
     description: >-
       _Tus golpes se imbuyen con la esencia de la tierra, el viento o el agua, golpeando con la fuerza de los
-      elementos._<br><br> Realizas un ataque de conjuro cuerpo a cuerpo (1d8 + Instinto). Si impactas, infliges 1d6 de
+      elementos._<br><br> Realizas un ataque de conjuro cuerpo a cuerpo (1d8e + Instinto). Si impactas, infliges 1d6 de
       daño y eliges uno de los siguientes efectos elementales que te afecta a ti:<br> - **Tierra (Contundente):** Te
       recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu
       próximo turno.<br> - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que
@@ -51,7 +51,7 @@ cards:
       qty: 3
     description: >-
       _Una liana espinosa brota de tu mano como una extensión de tu voluntad, lista para azotar y arrastrar a tus
-      presas._<br><br> Realizas un ataque de conjuro (1d8 + Instinto) contra un objetivo a distancia Cercana.<br> Si
+      presas._<br><br> Realizas un ataque de conjuro (1d8e + Instinto) contra un objetivo a distancia Cercana.<br> Si
       impactas, infliges 1d6 de daño Cortante y puedes forzar al objetivo a realizar una Tirada de Salvación de Cuerpo
       (ND 5 + Instinto). Si falla la Tirada de Salvación, mueves al objetivo 1 metro en cualquier dirección.
     slug: latigo-de-espinas

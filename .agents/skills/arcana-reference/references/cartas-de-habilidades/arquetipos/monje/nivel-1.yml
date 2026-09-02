@@ -60,9 +60,9 @@ cards:
     description: >-
       _Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus
       heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras
-      tu energía en una barrera protectora. Ganas 1d4 + tu puntuación de Instinto en Puntos de Salud temporales.<br> -
-      **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al
-      finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu puntuación de Instinto.
+      tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br> - **Meditación
+      Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar,
+      recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.
     slug: flujo-vital
   - id: 623fdfe56c4c426d10ed419de444ba1467e7ff48
     name: Presencia Serena

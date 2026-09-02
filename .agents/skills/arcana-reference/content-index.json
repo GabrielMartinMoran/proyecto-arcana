@@ -321,8 +321,8 @@
         "requirements": "Fe Inspiradora & Instinto 5",
         "uses": "RELOAD:6"
       },
-      "search": "_Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br> Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8 + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.",
-      "hash": "5d963ed0f66dab546178e8141a9da962869fb90a"
+      "search": "_Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br> Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.",
+      "hash": "55ce20d581279b8b2d2eabb51a9c71dc3a763263"
     },
     {
       "kind": "card",
@@ -524,8 +524,8 @@
         "type": "activable",
         "requirements": "Senda del Bribón"
       },
-      "search": "_Aprovechas la más mínima distracción de tu enemigo para asestar un golpe letal en sus puntos ciegos._<br><br> Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada o si un aliado está adyacente al objetivo, infliges +1d4 de daño adicional.",
-      "hash": "85ed0ee0e8808d258e0f70ec78d5a8364a32a6a4"
+      "search": "_Aprovechas la más mínima distracción de tu enemigo para asestar un golpe letal en sus puntos ciegos._<br><br> Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada o si un aliado está adyacente al objetivo, infliges 1d4 de daño adicional.",
+      "hash": "7a8dff18ff40519a343b34b02957122c8ba9c086"
     },
     {
       "kind": "card",
@@ -1118,8 +1118,8 @@
         "requirements": "Don del Elocuente",
         "uses": "RELOAD:3"
       },
-      "search": "_Entonas una melodía épica o recitas un verso vibrante que enciende el coraje y la destreza en los corazones de tus compañeros._<br><br> Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.<br> Durante 1 minuto, el objetivo obtiene un dado de inspiración (1d4) que puede añadir a una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que realice.",
-      "hash": "316f897d73531afa0bce60988e20a433b91d394d"
+      "search": "_Entonas una melodía épica o recitas un verso vibrante que enciende el coraje y la destreza en los corazones de tus compañeros._<br><br> Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.<br> Durante 1 minuto, el objetivo obtiene un dado de inspiración (1d4) que puede añadir a una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que realice.<br> La cantidad máxima de criaturas que pueden estar inspiradas por ti al mismo tiempo es igual a tu puntuación de Presencia.",
+      "hash": "1b4f3fff96d134505ab75097977f57cf6ca7abd6"
     },
     {
       "kind": "card",
@@ -1560,8 +1560,8 @@
         "requirements": "Afinidad Arcana",
         "uses": "RELOAD:4"
       },
-      "search": "_Envuelves tu cuerpo en una coraza espectral de energía defensiva que mitiga los golpes antes de que alcancen tu carne._<br><br> Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Atributo Arcano.",
-      "hash": "f3f0c8aeea88e985d30443c9824a8211c730b03d"
+      "search": "_Envuelves tu cuerpo en una coraza espectral de energía defensiva que mitiga los golpes antes de que alcancen tu carne._<br><br> Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu Atributo Arcano.",
+      "hash": "9f13679f446f52164e5c49337b47dd4e9ad2a929"
     },
     {
       "kind": "card",
@@ -1656,8 +1656,8 @@
         "requirements": "Toque Restaurador & Instinto 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> - **Restauración Vital:** La criatura recupera 2d6 + tu puntuación de Instinto en Puntos de Salud.<br> - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.",
-      "hash": "5cabff862c43913237d7ebfad580b9f1e9298998"
+      "search": "_Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> - **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.",
+      "hash": "59668e537d555db45ee70b509def1633c4a1003c"
     },
     {
       "kind": "card",
@@ -1793,8 +1793,8 @@
         "requirements": "Afinidad Arcana",
         "uses": "RELOAD:3"
       },
-      "search": "_Canalizas la energía pura de los elementos en un proyectil inestable que lanzas contra tus oponentes._<br><br> Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d8 de daño del tipo elegido.",
-      "hash": "48b2a83ace005468f84bf0faaaea1aab75315d39"
+      "search": "_Canalizas la energía pura de los elementos en un proyectil inestable que lanzas contra tus oponentes._<br><br> Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d8 de daño del tipo elegido.",
+      "hash": "60769d9bee67af3771ee6ac801b23b1556609bdd"
     },
     {
       "kind": "card",
@@ -1816,8 +1816,8 @@
         "type": "activable",
         "requirements": "Pacto Supremo"
       },
-      "search": "_Canalizas el poder puro de tu patrón en un proyectil ineludible y letal._<br><br> Al añadir esta carta a tu colección, elige un tipo de daño permanente que depende de tu patrón: Eléctrico, Frío, Fuego, Fuerza, Necrótico, Psíquico o Radiante.<br> Realizas un ataque de conjuro (1d8 + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo elegido.<br><br> _Esta carta solo puede ser adquirida a través de Pacto Supremo._",
-      "hash": "8738e6f198af0aa073a366915a9223d61cfc555c"
+      "search": "_Canalizas el poder puro de tu patrón en un proyectil ineludible y letal._<br><br> Al añadir esta carta a tu colección, elige un tipo de daño permanente que depende de tu patrón: Eléctrico, Frío, Fuego, Fuerza, Necrótico, Psíquico o Radiante.<br> Realizas un ataque de conjuro (1d8e + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo elegido.<br><br> _Esta carta solo puede ser adquirida a través de Pacto Supremo._",
+      "hash": "f53d70a58c7f9c98040f87c49ed061ceebac9e07"
     },
     {
       "kind": "card",
@@ -1884,8 +1884,8 @@
         "requirements": "Disciplina Monástica & Instinto 3",
         "uses": "RELOAD:4"
       },
-      "search": "_Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de muñeca._<br><br> Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br> En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.",
-      "hash": "27e42d7f8e86eb0e22c1483e1696b476465b282e"
+      "search": "_Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de muñeca._<br><br> Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu Reflejos.<br> En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.",
+      "hash": "82a0e7178ee8237b5398693dc8551c4c5fd176ba"
     },
     {
       "kind": "card",
@@ -2215,8 +2215,8 @@
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
         "uses": "RELOAD:4"
       },
-      "search": "_De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu enemigo._<br><br> Realizas un ataque de conjuro (1d8 + Atributo Arcano) contra una criatura a distancia Cercana.<br> Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br> La criatura sufre 1d6 de daño Perforante al inicio de cada uno de sus turnos.<br> Además, mientras el enjambre la cubra, la criatura sufre Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br> El objetivo u otra criatura a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.",
-      "hash": "64e451c506d941cca009ba18c353f46fb4ea01df"
+      "search": "_De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu enemigo._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) contra una criatura a distancia Cercana.<br> Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br> La criatura sufre 1d6 de daño Perforante al inicio de cada uno de sus turnos.<br> Además, mientras el enjambre la cubra, la criatura sufre Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br> El objetivo u otra criatura a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.",
+      "hash": "7d14f3116b22ece5acea894ddebc999e6d5cb9a2"
     },
     {
       "kind": "card",
@@ -2261,8 +2261,8 @@
         "requirements": "Fe Inspiradora",
         "uses": "RELOAD:5"
       },
-      "search": "_Invocas una barrera de luz sagrada para desviar un golpe mortal destinado a un compañero._<br><br> Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de energía divina. El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación de Instinto justo antes de recibir el daño. Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.",
-      "hash": "519fcd0c994777e271ac4cc580ce38a178b86992"
+      "search": "_Invocas una barrera de luz sagrada para desviar un golpe mortal destinado a un compañero._<br><br> Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de energía divina. El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu Instinto justo antes de recibir el daño. Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.",
+      "hash": "7faace301ce1aad850a51eaf123c4a977da27de1"
     },
     {
       "kind": "card",
@@ -2676,8 +2676,8 @@
         "requirements": "Disciplina Monástica",
         "uses": "RELOAD:6"
       },
-      "search": "_Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu puntuación de Instinto en Puntos de Salud temporales.<br> - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu puntuación de Instinto.",
-      "hash": "35a1fcd34a6951baaa6eb3a61d91547bf323d7b6"
+      "search": "_Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br> - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.",
+      "hash": "74456582a92801e47c3a3aab6acbbfd9e0ff33fe"
     },
     {
       "kind": "card",
@@ -3073,8 +3073,8 @@
         "requirements": "Sintonía Primordial",
         "uses": "RELOAD:3"
       },
-      "search": "_Tus golpes se imbuyen con la esencia de la tierra, el viento o el agua, golpeando con la fuerza de los elementos._<br><br> Realizas un ataque de conjuro cuerpo a cuerpo (1d8 + Instinto). Si impactas, infliges 1d6 de daño y eliges uno de los siguientes efectos elementales que te afecta a ti:<br> - **Tierra (Contundente):** Te recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br> - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br> - **Agua (Frío):** Una capa de escarcha te protege. Ganas +1 de Mitigación Mágica contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>",
-      "hash": "3e0a4ff03d69113be16ec3e7d80dc5a38cdfcaec"
+      "search": "_Tus golpes se imbuyen con la esencia de la tierra, el viento o el agua, golpeando con la fuerza de los elementos._<br><br> Realizas un ataque de conjuro cuerpo a cuerpo (1d8e + Instinto). Si impactas, infliges 1d6 de daño y eliges uno de los siguientes efectos elementales que te afecta a ti:<br> - **Tierra (Contundente):** Te recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br> - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br> - **Agua (Frío):** Una capa de escarcha te protege. Ganas +1 de Mitigación Mágica contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>",
+      "hash": "fafbc3ceb005203245b1ec576b40e180783ffd03"
     },
     {
       "kind": "card",
@@ -3278,8 +3278,8 @@
         "requirements": "Presencia Inspiradora",
         "uses": "RELOAD:5"
       },
-      "search": "_Alzas la voz en un rugido que resuena en los corazones de tus aliados, infundiéndoles una vitalidad renovada._<br><br> Como Interacción, elige un número de aliados a distancia Cercana igual a tu puntuación de Presencia. Estos ganan Puntos de Salud temporales iguales a 1d4 + tu puntuación de Presencia.",
-      "hash": "04086454e4ca0c295c12bc34f0713db8376e0b3d"
+      "search": "_Alzas la voz en un rugido que resuena en los corazones de tus aliados, infundiéndoles una vitalidad renovada._<br><br> Como Interacción, elige un número de aliados a distancia Cercana igual a tu puntuación de Presencia. Estos ganan Puntos de Salud temporales iguales a 1d4 + tu Presencia.",
+      "hash": "9e7f782dcaf675447eb32768014248ede83615b2"
     },
     {
       "kind": "card",
@@ -3562,8 +3562,8 @@
         "type": "efecto",
         "requirements": "Canto de Inspiración"
       },
-      "search": "_El ritmo de tu propia música guía tus pasos, volviendo tu danza en el campo de batalla tan ágil, letal e impredecible como tu arte._<br><br> Puedes usar tu Canto de Inspiración en ti mismo.<br> Además, mientras poseas un dado de Canto de Inspiración sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.",
-      "hash": "677b00fc3e0a1becc8629a6a87337ef95a564c0c"
+      "search": "_El ritmo de tu propia música guía tus pasos, volviendo tu danza en el campo de batalla tan ágil, letal e impredecible como tu arte._<br><br> Puedes usar tu _Canto de Inspiración_ en ti mismo.<br> Además, mientras poseas un dado de _Canto de Inspiración_ sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.",
+      "hash": "b474a530d4374c2a863b85a76ef09de84fc66fc5"
     },
     {
       "kind": "card",
@@ -3776,8 +3776,8 @@
         "requirements": "Sintonía Primordial",
         "uses": "RELOAD:3"
       },
-      "search": "_Una liana espinosa brota de tu mano como una extensión de tu voluntad, lista para azotar y arrastrar a tus presas._<br><br> Realizas un ataque de conjuro (1d8 + Instinto) contra un objetivo a distancia Cercana.<br> Si impactas, infliges 1d6 de daño Cortante y puedes forzar al objetivo a realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla la Tirada de Salvación, mueves al objetivo 1 metro en cualquier dirección.",
-      "hash": "77783b58849b454de5aa66e896f48809f765386f"
+      "search": "_Una liana espinosa brota de tu mano como una extensión de tu voluntad, lista para azotar y arrastrar a tus presas._<br><br> Realizas un ataque de conjuro (1d8e + Instinto) contra un objetivo a distancia Cercana.<br> Si impactas, infliges 1d6 de daño Cortante y puedes forzar al objetivo a realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla la Tirada de Salvación, mueves al objetivo 1 metro en cualquier dirección.",
+      "hash": "fc43ac505452960e1d980a39f55f960a060341a0"
     },
     {
       "kind": "card",
@@ -3939,8 +3939,8 @@
         "requirements": "Fe Inspiradora",
         "uses": "RELOAD:4"
       },
-      "search": "_Invocas la luz purificadora de tu deidad en forma de un proyectil de energía radiante, marcando e iluminando a tu enemigo para el próximo ataque._<br><br> Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br> Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.",
-      "hash": "0bb3c51a98a23d195a02351c56b1bd9631be74b3"
+      "search": "_Invocas la luz purificadora de tu deidad en forma de un proyectil de energía radiante, marcando e iluminando a tu enemigo para el próximo ataque._<br><br> Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque de conjuro (1d8e + Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br> Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.",
+      "hash": "7bc5e48d99c79547e31366e5117302aa8b1b9d20"
     },
     {
       "kind": "card",
@@ -5332,8 +5332,8 @@
         "requirements": "Toque Restaurador & Instinto 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br> Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.",
-      "hash": "8b4aa70e4cd881718387116abdfcfd9eb72beb89"
+      "search": "_Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br> Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.",
+      "hash": "8124d4c4a714126aba0613ba67ccc2a1301fec7b"
     },
     {
       "kind": "card",
@@ -5610,8 +5610,8 @@
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
         "uses": "RELOAD:5"
       },
-      "search": "_Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8 + Atributo Arcano) contra un objetivo. Si impactas, el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o decidas detener la ráfaga.",
-      "hash": "a80f0be2fa07725210ca693982fa33234c420b90"
+      "search": "_Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si impactas, el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o decidas detener la ráfaga.",
+      "hash": "f5c6676be13f7d0ac1afbe9a21a35b0dde738a2e"
     },
     {
       "kind": "card",
@@ -5681,8 +5681,8 @@
         "requirements": "Herencia Sobrenatural",
         "uses": "RELOAD:3"
       },
-      "search": "_Disparas un proyectil de energía pura que, al impactar, puede desbordarse en una cascada de destrucción impredecible._<br><br> Realizas un ataque de conjuro (1d8 + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d6 de daño de Fuerza.<br> - **Cascada Menor:** Si el dado de daño resulta en un 6 natural, la energía se desborda: tiras 1d6 adicional y lo sumas al daño total. Este dado también puede explotar si saca un 6.",
-      "hash": "9c95b2ea50214e9a51b3c1085ab7a707a0d0c7ab"
+      "search": "_Disparas un proyectil de energía pura que, al impactar, puede desbordarse en una cascada de destrucción impredecible._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d6 de daño de Fuerza.<br> - **Cascada Menor:** Si el dado de daño resulta en un 6 natural, la energía se desborda: tiras 1d6 adicional y lo sumas al daño total. Este dado también puede explotar si saca un 6.",
+      "hash": "3e885e7d8230d7d97c23b601637f5de4a3f20500"
     },
     {
       "kind": "card",
@@ -5729,8 +5729,8 @@
         "requirements": "Descarga Elemental & Atributo Arcano 3",
         "uses": "RELOAD:4"
       },
-      "search": "_Concentras el poder elemental en un haz concentrado de largo alcance capaz de atravesar el campo de batalla._<br><br> Realizas un ataque de conjuro (1d8 + Atributo Arcano) a distancia Media. Si impactas, el objetivo recibe 2d8 de daño de Fuego, Frío o Eléctrico.",
-      "hash": "079283883975cf6b8fa06baa87022849b895a703"
+      "search": "_Concentras el poder elemental en un haz concentrado de largo alcance capaz de atravesar el campo de batalla._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Media. Si impactas, el objetivo recibe 2d8 de daño de Fuego, Frío o Eléctrico.",
+      "hash": "82527d447234e9e55e7a6096507b67e81f9e4ba9"
     },
     {
       "kind": "card",
@@ -5753,8 +5753,8 @@
         "requirements": "Afinidad Arcana",
         "uses": "RELOAD:3"
       },
-      "search": "_Proyectas un haz de energía oscura y corrosiva que marchita la vitalidad de tu objetivo.._<br><br> Realizas un ataque de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo.<br> Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.",
-      "hash": "43adfdf7c1044130dacdec154e0344219ff3d96a"
+      "search": "_Proyectas un haz de energía oscura y corrosiva que marchita la vitalidad de tu objetivo.._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo.<br> Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.",
+      "hash": "1838f833dfdde235b8aca5c7670b76a7245b7b73"
     },
     {
       "kind": "card",
@@ -5844,8 +5844,8 @@
         "type": "efecto",
         "requirements": "Instinto 2"
       },
-      "search": "_Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br> Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 3 puntos de suerte.",
-      "hash": "181b6f385ada668e03bd7bcded9788b6d5d9a2ec"
+      "search": "_Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br> Tu límite máximo de Suerte aumenta a 6. Además, inicias cada sesión con un punto más de suerte.",
+      "hash": "bc2e81b94831c382cfbba29cd0847c3c7d00e56c"
     },
     {
       "kind": "card",
@@ -6084,8 +6084,8 @@
         "requirements": "Curar & Instinto 5",
         "uses": "LONG_REST:1"
       },
-      "search": "_El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu puntuación de Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.",
-      "hash": "c4e9693f163b54a20dfa664ebae26db7537a2cb0"
+      "search": "_El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.",
+      "hash": "0408b252a4df4205eb701ef107d82ebc074873d7"
     },
     {
       "kind": "card",
@@ -6106,8 +6106,8 @@
         "type": "efecto",
         "requirements": "Instinto 3"
       },
-      "search": "_Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br> Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br> Además, cuando superas una prueba de Instinto para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br> No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.",
-      "hash": "34b1c7f044759bc0e26802a51efb12fc453b9ad1"
+      "search": "_Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br> Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br> Además, cuando superas una prueba de Instinto (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br> No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.",
+      "hash": "5fc5a30bc8690c7d1af375b77a23c94c83cd032d"
     },
     {
       "kind": "card",
@@ -6274,8 +6274,8 @@
         "requirements": "Afinidad Arcana & Atributo Arcano 5",
         "uses": "RELOAD:6"
       },
-      "search": "_Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de sombra._<br><br> Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1 minuto.<br> El segador es invulnerable, pero no bloquea el paso.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8 + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.",
-      "hash": "fa889aa2cdb37c0fd6f72f773192c3c9a9df4f14"
+      "search": "_Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de sombra._<br><br> Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1 minuto.<br> El segador es invulnerable, pero no bloquea el paso.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8e + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.",
+      "hash": "cb72889e1bb2ec65dee504c44427ef95e019eda1"
     },
     {
       "kind": "card",
@@ -6298,8 +6298,8 @@
         "requirements": "Maestría Marcial",
         "uses": "LONG_REST:2"
       },
-      "search": "_Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco más._<br><br> Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo Marcial.",
-      "hash": "68804fc0dadb518d3f5680e8d814c43f6f0658cd"
+      "search": "_Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco más._<br><br> Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu Atributo Marcial.",
+      "hash": "2ac4056cc8d8f72c80d57c507b29d2c6bac0cb69"
     },
     {
       "kind": "card",
@@ -6812,8 +6812,8 @@
         "requirements": "Fe Inspiradora",
         "uses": "RELOAD:4"
       },
-      "search": "_Canalizas la energía de la vida misma a través de tus manos para cerrar heridas y purgar toxinas._<br><br> Tocas a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente, puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.",
-      "hash": "c2895c171aa5f3f70475c64fc6a8b39d12ed1c25"
+      "search": "_Canalizas la energía de la vida misma a través de tus manos para cerrar heridas y purgar toxinas._<br><br> Tocas a una criatura y esta recupera 1d6 + tu Instinto en Puntos de Salud. Alternativamente, puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.",
+      "hash": "8829d62685b32d3530bc9d130455a4f01f9c520c"
     },
     {
       "kind": "card",
@@ -9152,6 +9152,30 @@
     },
     {
       "kind": "item",
+      "canonicalName": "Anillo de Caída de Pluma",
+      "id": "25f3407eb0bf21564d2e8a0536cfb72b908bc2b9",
+      "slug": "anillo-de-caida-de-pluma",
+      "aliases": [
+        "anillo de caida de pluma"
+      ],
+      "tags": [
+        "Movimiento",
+        "Reacción"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "uses": "DAY:1",
+        "cost": "350"
+      },
+      "search": "Como Reacción cuando comienzas a caer desde una altura que pudiera causarte daño, puedes hacer que el anillo reduzca mágicamente la velocidad de tu caída. Desciendes suavemente hasta una superficie segura y no sufres daño por esa caída.",
+      "hash": "5ab9b5aeacad4e4ab514b242c6a1c69a4b6a06a4"
+    },
+    {
+      "kind": "item",
       "canonicalName": "Anillo de Enfoque Arcano",
       "id": "0d31aaebff81af1772eb2de01e4cd1d77935a9d9",
       "slug": "anillo-de-enfoque-arcano",
@@ -9218,6 +9242,145 @@
     },
     {
       "kind": "item",
+      "canonicalName": "Arma de Cacería",
+      "id": "649a9e10e345a3730c60a3c410e55c91598ca064",
+      "slug": "arma-de-caceria",
+      "aliases": [
+        "arma de caceria"
+      ],
+      "tags": [
+        "Arma",
+        "Daño"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "1000"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma. Al crearla, se elige una categoría de criatura apropiada, como Dragón, Gigante, No-Muerto, Infernal, Aberración o Feérico._<br><br> El arma fue creada específicamente para dar caza a esas criaturas. Una vez por turno, cuando impactas con esta arma a una criatura de la categoría elegida, infliges 1d6 de daño adicional del mismo tipo que el arma.",
+      "hash": "d3de21fd5a7efd13e3d7bae495c3bd1574384eef"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma de Represalia",
+      "id": "14e0881f3946132ffdd0f092d603f9e3a37cacbd",
+      "slug": "arma-de-represalia",
+      "aliases": [
+        "arma de represalia"
+      ],
+      "tags": [
+        "Arma",
+        "Reacción"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "uses": "RELOAD:6",
+        "cost": "1400"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como Reacción cuando una criatura a distancia Inmediata falla un ataque cuerpo a cuerpo contra ti, puedes realizar inmediatamente un único ataque con esta arma contra esa criatura.",
+      "hash": "74bd49e6dd62008175cebfa65c22c38cce459c65"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma de Trayectoria Imposible",
+      "id": "f69997b0095215159e6a6673a84e829d651f6a3e",
+      "slug": "arma-de-trayectoria-imposible",
+      "aliases": [
+        "arma de trayectoria imposible"
+      ],
+      "tags": [
+        "Arma",
+        "Distancia"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "450"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma con la propiedad Rango o Arrojadiza._<br><br> Los proyectiles disparados o arrojados con esta arma alteran sutilmente su trayectoria para encontrar huecos imposibles. Tus ataques realizados con esta arma ignoran el beneficio de la Cobertura Parcial.",
+      "hash": "bdecefb64a7634364cdd13130436c3f73fcaa160"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma del Estratega",
+      "id": "4f0794a38d3d7292895d0e33d29a1e18e5549dcc",
+      "slug": "arma-del-estratega",
+      "aliases": [
+        "arma del estratega"
+      ],
+      "tags": [
+        "Arma",
+        "Versatilidad"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "1800"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como una Interacción durante tu turno, puedes adoptar una de las siguientes posturas hasta el inicio de tu próximo turno. Solo puedes adoptar una postura por turno:<br> - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno,\n  infliges 1d4 de daño adicional del mismo tipo que el arma.<br>\n- **Defensiva:** Mientras empuñes esta arma, obtienes +1 a tu Esquiva.",
+      "hash": "803ccaa44c2a4d3606ceed7b3a13ed4b55542069"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma del Falso Aspecto",
+      "id": "34ca8bd5c9f197f730c42125f2adfa7c7c4a72eb",
+      "slug": "arma-del-falso-aspecto",
+      "aliases": [
+        "arma del falso aspecto"
+      ],
+      "tags": [
+        "Arma",
+        "Utilidad"
+      ],
+      "level": 1,
+      "path": "references/objetos-magicos/nivel-1.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "200"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> Al crearla, se elige la apariencia de un objeto mundano e inofensivo de tamaño apropiado. Como una Interacción, puedes hacer que el arma adopte esa apariencia o recupere su forma verdadera. Mientras está transformada, parece y se comporta como el objeto elegido hasta que vuelva a adoptar su forma de arma.",
+      "hash": "9ba8fedfdd290b8b8fc72bb1f435b2717b57c61d"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma del Hambre Profunda",
+      "id": "1bc7526ec6e0c5d74249bc079199e9213182ae4c",
+      "slug": "arma-del-hambre-profunda",
+      "aliases": [
+        "arma del hambre profunda"
+      ],
+      "tags": [
+        "Arma",
+        "Salud"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "550"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> Una presencia oscura e insondable habita en el arma y se alimenta de las criaturas que caen ante ella. Una vez por turno, cuando reduces a una criatura hostil a 0 Puntos de Salud con esta arma, obtienes 1d6 Puntos de Salud Temporal.",
+      "hash": "cf4ba983152dfe035b4334dcbad332fea87f7960"
+    },
+    {
+      "kind": "item",
       "canonicalName": "Arma del Retorno",
       "id": "3e14a3c5c17445887680813de71873ef19b319cd",
       "slug": "arma-del-retorno",
@@ -9235,8 +9398,32 @@
         "type": "efecto",
         "cost": "350"
       },
-      "search": "(Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza). Después de realizar un ataque Arrojadizo con esta arma, esta vuela de regreso a tu mano al final de tu turno, siempre que tengas una mano libre para recibirla.",
-      "hash": "593e126277aa9a6508e2e17f9f60f8567c531775"
+      "search": "_Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza._<br><br> Después de resolver un ataque Arrojadizo con esta arma, esta vuela inmediatamente de regreso a tu mano, siempre que tengas una mano libre para recibirla.",
+      "hash": "db49e5d30cfd76043c5388f8bb2bc4d8fb488663"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma Elemental",
+      "id": "09976d151f19c8a8fc451e8bb84141a354733a71",
+      "slug": "arma-elemental",
+      "aliases": [
+        "arma elemental"
+      ],
+      "tags": [
+        "Arma",
+        "Daño"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "uses": "RELOAD:5",
+        "cost": "1200"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma. Al crearla, se elige Fuego, Frío o Eléctrico._<br><br> El arma está imbuida permanentemente con la energía elemental elegida. Cuando impactas con esta arma, puedes hacer que el daño del ataque sea del elemento elegido en lugar de su tipo normal. Además, cuando impactas con esta arma, puedes liberar una descarga de energía e infligir 1d6 de daño adicional del elemento elegido.",
+      "hash": "b5a7f253e3e171b9016118d24802c5b6c1c27f15"
     },
     {
       "kind": "item",
@@ -9257,8 +9444,79 @@
         "type": "efecto",
         "cost": "600"
       },
-      "search": "Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida mágicamente para golpear con más certeza y hacer más daño. Obtienes un +1 a tus tiradas de ataque y +1 al daño infligido con esta arma.",
-      "hash": "5d992ec5a8c2c51092655587ff7e21e16455b692"
+      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> El arma ha sido reforzada mágicamente para responder con una precisión sobrenatural a los movimientos de su portador. Obtienes +1 a tus tiradas de ataque realizadas con esta arma.",
+      "hash": "52ad756696ff8d9fe86a0bdaad6a0b33c75c195f"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma Juramentada",
+      "id": "cebc3ecd3748c0593f7728a03dab8f927d87477f",
+      "slug": "arma-juramentada",
+      "aliases": [
+        "arma juramentada"
+      ],
+      "tags": [
+        "Arma",
+        "Cacería"
+      ],
+      "level": 4,
+      "path": "references/objetos-magicos/nivel-4.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "uses": "DAY:1",
+        "cost": "3000"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> Como una Interacción, eliges una criatura que puedas ver y la declaras presa juramentada del arma durante 1 minuto. Una vez por turno, el primer ataque que realices con esta arma contra esa criatura obtiene Ventaja (+1d4). Además, los ataques realizados con esta arma contra tu presa ignoran Cobertura Parcial.",
+      "hash": "0ca7286b5d07f8b7ef1ecb56809e12416de44332"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma Umbral",
+      "id": "e211831aa3dd3bd0ae6ea692b1db753ba3760cc5",
+      "slug": "arma-umbral",
+      "aliases": [
+        "arma umbral"
+      ],
+      "tags": [
+        "Arma",
+        "Movimiento"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "uses": "RELOAD:5",
+        "cost": "1300"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Cuando impactas a una criatura con esta arma, puedes usar tu Interacción para desvanecerte brevemente entre las sombras y aparecer en un espacio desocupado que puedas ver a hasta 3 metros de tu posición actual. Este desplazamiento no puede ser interceptado por Reacciones enemigas.",
+      "hash": "bffca338ab5fff5bbb941e97d1ae1d27fd824706"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Arma Vigilante",
+      "id": "655e090d5bdcde4c1f875e94568fffe2bf66ed6a",
+      "slug": "arma-vigilante",
+      "aliases": [
+        "arma vigilante"
+      ],
+      "tags": [
+        "Arma",
+        "Iniciativa"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "450"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> El arma percibe el peligro antes que su portador. Mientras la lleves contigo y puedas acceder a ella, obtienes Ventaja (+1d4) en tus tiradas de Iniciativa. Además, si estás dormido naturalmente cuando comienza un combate, el arma te despierta inmediatamente.",
+      "hash": "ed223cd228beb6e154fac7f34710695f7a0ebdaa"
     },
     {
       "kind": "item",
@@ -9283,6 +9541,101 @@
       },
       "search": "(Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior). Las placas o anillas de esta armadura están cubiertas de filos mágicos. Cada vez que una criatura a distancia Inmediata te impacta con un ataque cuerpo a cuerpo, recibe 1d4 de daño Cortante.",
       "hash": "d47c35fbd8caea08c1c814cc957c116a3c1fc985"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Armadura de las Mil Vestiduras",
+      "id": "243cb90c41d67e1689ecdcd910d709822786fa97",
+      "slug": "armadura-de-las-mil-vestiduras",
+      "aliases": [
+        "armadura de las mil vestiduras"
+      ],
+      "tags": [
+        "Armadura",
+        "Utilidad"
+      ],
+      "level": 1,
+      "path": "references/objetos-magicos/nivel-1.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "200"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier armadura._<br><br> Como una Interacción, puedes hacer que la armadura adopte visualmente la apariencia de cualquier conjunto de ropa que hayas visto. Puedes alterar su color, corte, materiales aparentes y pequeños accesorios. Este efecto solo modifica su apariencia: la armadura conserva su peso, volumen y propiedades normales. Puedes recuperar su aspecto verdadero como una Interacción.",
+      "hash": "61ee73d244e899d727935a0967208f99d25ccf86"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Armadura del Bastión",
+      "id": "8b91525dc4e76d543bace3390c5c90af85f5550e",
+      "slug": "armadura-del-bastion",
+      "aliases": [
+        "armadura del bastion"
+      ],
+      "tags": [
+        "Armadura",
+        "Defensa",
+        "Reacción"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "requirements": "Cuerpo 2",
+        "uses": "RELOAD:5",
+        "cost": "500"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier armadura._<br><br> Como Reacción cuando un efecto fuera a moverte contra tu voluntad o dejarte Derribado, puedes hacer que la armadura se ancle mágicamente al terreno. Ignoras ese movimiento forzado y no quedas Derribado por ese efecto.",
+      "hash": "a719c5e2a0a6a5bb1ac614e7d270337a78a43e30"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Armadura Inquebrantable",
+      "id": "477eb4ffac649d88bc005e1316d84ee468b083b7",
+      "slug": "armadura-inquebrantable",
+      "aliases": [
+        "armadura inquebrantable"
+      ],
+      "tags": [
+        "Armadura",
+        "Defensa"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "1100"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior._<br><br> La estructura encantada de la armadura protege incluso sus puntos más vulnerables. Cuando un ataque contra ti fuera a convertirse en un golpe crítico, se considera un impacto normal en su lugar.",
+      "hash": "1f70d2463869186fa81de675d3dfc901f1af4741"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Armadura Silente",
+      "id": "ff180b5a89e0a9d770c38f074b955eae1bdf23ce",
+      "slug": "armadura-silente",
+      "aliases": [
+        "armadura silente"
+      ],
+      "tags": [
+        "Armadura",
+        "Sigilo"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "400"
+      },
+      "search": "_Esta propiedad se puede aplicar a cualquier armadura que imponga una Penalización a Sigilo._<br><br> Los materiales de la armadura absorben mágicamente el sonido de sus placas, anillas y correas. La Penalización a Sigilo de la armadura se reduce en 1, hasta un mínimo de 0.",
+      "hash": "0d7759fe1c6c05a0257b7b592ae4e369d4067d51"
     },
     {
       "kind": "item",
@@ -9351,6 +9704,30 @@
       },
       "search": "Como una Interacción, puedes activar el poder de las botas. Durante 1 minuto, tu Velocidad se duplica y obtienes Ventaja (+1d4) en las Tiradas de Salvación de Reflejos.",
       "hash": "d767210db2ec2501d4e8da0784169200d08c7a97"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Botas del Paso Imposible",
+      "id": "cd7d428c9d27cd51bc9b0f1b993a182b90ea94b5",
+      "slug": "botas-del-paso-imposible",
+      "aliases": [
+        "botas del paso imposible"
+      ],
+      "tags": [
+        "Movimiento",
+        "Utilidad"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "uses": "RELOAD:5",
+        "cost": "1000"
+      },
+      "search": "Como una Interacción, puedes hacer que estas botas encuentren apoyo donde no existe. Hasta el final de tu turno, puedes desplazarte hasta 3 metros a través del aire como si caminaras sobre terreno firme. Debes terminar este desplazamiento sobre una superficie estable capaz de sostener tu peso; de lo contrario, caes.",
+      "hash": "bd81b37f3c43c833c552e6b72885c644a2706f15"
     },
     {
       "kind": "item",
@@ -9443,6 +9820,53 @@
       },
       "search": "Este broche de hierro te ayuda a mantener la calma bajo presión. Obtienes Ventaja (+1d4) en todas las pruebas de atributo que realices para mantener la Concentración en una carta.",
       "hash": "27e8af5f2ff10ac2a12135ab1d136d0ffec3e977"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Brújula de los Muros Huecos",
+      "id": "707ecb6bec34b60393871c684ed1ef074c3dec69",
+      "slug": "brujula-de-los-muros-huecos",
+      "aliases": [
+        "brujula de los muros huecos"
+      ],
+      "tags": [
+        "Exploración",
+        "Herramienta"
+      ],
+      "level": 1,
+      "path": "references/objetos-magicos/nivel-1.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "200"
+      },
+      "search": "Mientras sostienes esta extraña brújula, su aguja comienza a girar lentamente si existe una puerta, pasadizo o compartimento oculto a distancia Inmediata. La brújula no revela su ubicación exacta, su naturaleza ni la forma de abrirlo.",
+      "hash": "a511e0a021c5e51c9c8e7508340ae0a58ead6d4f"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Campanilla del Cerrajero",
+      "id": "057b48f1ce55c3188ed5a164cc92ad7e11fec018",
+      "slug": "campanilla-del-cerrajero",
+      "aliases": [
+        "campanilla del cerrajero"
+      ],
+      "tags": [
+        "Herramienta",
+        "Utilidad"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "uses": "DAY:3",
+        "cost": "450"
+      },
+      "search": "Esta pequeña campanilla de plata produce un sonido limpio que hace vibrar cerraduras y mecanismos. Como una Acción, puedes hacerla sonar apuntando hacia una cerradura mundana a distancia Inmediata. La cerradura se abre inmediatamente sin sufrir daño. No puede abrir cierres mágicos ni mecanismos que no puedan abrirse normalmente mediante una llave o combinación.",
+      "hash": "f180b130a198c943c498189327892d5d0d4ede27"
     },
     {
       "kind": "item",
@@ -9769,6 +10193,29 @@
     },
     {
       "kind": "item",
+      "canonicalName": "Farol del Revelador",
+      "id": "e682a145317992061a4dd617daa92d17a5d59215",
+      "slug": "farol-del-revelador",
+      "aliases": [
+        "farol del revelador"
+      ],
+      "tags": [
+        "Utilidad",
+        "Visión"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "1000"
+      },
+      "search": "Como una Interacción, puedes encender o apagar este farol de cristal azulado. Mientras está encendido, emite luz brillante en un radio de 5 metros. Las criaturas y objetos invisibles que se encuentren dentro de esta luz pueden verse normalmente. El farol no permite detectar ilusiones, revelar la verdadera forma de criaturas transformadas ni ver a través de oscuridad mágica.",
+      "hash": "f4ace23cff9bcb3965e7a98b91d4c6c560bb70d3"
+    },
+    {
+      "kind": "item",
       "canonicalName": "Filo Entorpecedor",
       "id": "730e0e957475f1a3adbc7dac84dedaf7bc94622f",
       "slug": "filo-entorpecedor",
@@ -9811,6 +10258,30 @@
       },
       "search": "Un líquido azulado con burbujas que nunca se detienen. Al beberlo, puedes respirar bajo el agua durante 1 hora.",
       "hash": "88622cc8f3246b16d699165188d5bb5c743e31e0"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Frasco de la Noche Cautiva",
+      "id": "9feb4feff226b9cb0971a5b17ac65ef566b60843",
+      "slug": "frasco-de-la-noche-cautiva",
+      "aliases": [
+        "frasco de la noche cautiva"
+      ],
+      "tags": [
+        "Oscuridad",
+        "Utilidad"
+      ],
+      "level": 3,
+      "path": "references/objetos-magicos/nivel-3.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "activable",
+        "uses": "DAY:2",
+        "cost": "900"
+      },
+      "search": "Como una Acción, puedes destapar este frasco de vidrio negro y liberar la oscuridad contenida en su interior. Durante 1 minuto, una esfera de oscuridad mágica de 2 metros de radio rodea al frasco y se desplaza con él. La oscuridad bloquea completamente la visión, incluida la Visión en la Oscuridad.<br><br> Puedes cerrar el frasco como una Interacción. Cuando lo haces, deja de producir oscuridad y la que ya fue liberada desaparece al final de tu próximo turno.",
+      "hash": "006415fb2860314b4ba124e7bb3c1d650344d2de"
     },
     {
       "kind": "item",
@@ -10385,6 +10856,29 @@
     },
     {
       "kind": "item",
+      "canonicalName": "Refugio del Caminante",
+      "id": "a6bd0600cf5bb30ff7cd6ff3eb9c55047462c780",
+      "slug": "refugio-del-caminante",
+      "aliases": [
+        "refugio del caminante"
+      ],
+      "tags": [
+        "Supervivencia",
+        "Utilidad"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "400"
+      },
+      "search": "Este pequeño paquete de tela encantada puede desplegarse sobre una superficie adecuada mediante 1 minuto de preparación. Al hacerlo, se transforma en un refugio resistente con espacio suficiente para alojar cómodamente hasta seis criaturas Medianas y su equipo habitual. Su interior permanece seco y a una temperatura confortable frente a condiciones climáticas normales.<br><br> El refugio no protege contra peligros sobrenaturales, temperaturas extremas extraordinarias ni ataques. Puedes dedicar 1 minuto a plegarlo nuevamente, momento en el que recupera su reducido tamaño original.",
+      "hash": "706fac12a916e4f0427282e83e6425d356b599eb"
+    },
+    {
+      "kind": "item",
       "canonicalName": "Rodela Repulsora",
       "id": "9ac884ca7b189ff639b182dc003757f5fa479f0a",
       "slug": "rodela-repulsora",
@@ -10452,6 +10946,29 @@
       },
       "search": "Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para tocar este talismán y reorganizar tus tácticas. Elige una de tus cartas Activables que tengas equipada en una ranura. Puedes cambiarla instantáneamente por otra carta de tu Colección del mismo nivel o inferior.",
       "hash": "41bb092289b5fc9e786bce7ddd7ee7c5eef736f7"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Tinta del Fuego Secreto",
+      "id": "7840162a4a1594992fa479f0da875c0ff366b805",
+      "slug": "tinta-del-fuego-secreto",
+      "aliases": [
+        "tinta del fuego secreto"
+      ],
+      "tags": [
+        "Herramienta",
+        "Utilidad"
+      ],
+      "level": 1,
+      "path": "references/objetos-magicos/nivel-1.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "100"
+      },
+      "search": "La escritura realizada con esta tinta desaparece pocos segundos después de secarse, volviéndose completamente invisible. Cuando el material sobre el que fue escrita se aproxima a una fuente de calor, el texto reaparece y permanece visible mientras se mantenga caliente. Un frasco contiene tinta suficiente para una cantidad razonable de escritos.",
+      "hash": "2b02af1190792346e8666be8e96bd9aade946c85"
     },
     {
       "kind": "item",
@@ -10547,6 +11064,29 @@
       },
       "search": "Esta vara de madera de abedul contiene 3 cargas. Como una Acción, puedes gastar una carga para tocar a una criatura y hacer que recupere 1d6+2 Puntos de Salud. La vara recupera 1d2+1 cargas gastadas cada día al amanecer.",
       "hash": "47f327cd9dbbe52fd47cdd3d0fb851df25820cb0"
+    },
+    {
+      "kind": "item",
+      "canonicalName": "Vara Inamovible",
+      "id": "d44c2636f73e1e6fda3f74eb50d983c288fc38b1",
+      "slug": "vara-inamovible",
+      "aliases": [
+        "vara inamovible"
+      ],
+      "tags": [
+        "Herramienta",
+        "Utilidad"
+      ],
+      "level": 2,
+      "path": "references/objetos-magicos/nivel-2.yml",
+      "source": "magical-items.yml",
+      "structured": {
+        "cardType": "item",
+        "type": "efecto",
+        "cost": "500"
+      },
+      "search": "Esta vara de hierro posee un pequeño botón en uno de sus extremos. Como una Interacción, puedes presionarlo para fijar mágicamente la vara en el punto exacto del espacio que ocupa, incluso si se encuentra suspendida en el aire. Mientras está fijada, no se mueve y puede soportar hasta 1000 kg de peso. Si se supera este límite, la vara se desactiva y vuelve a comportarse con normalidad. Presionar nuevamente el botón es una Interacción y libera la vara.",
+      "hash": "95e7a0d3044286dbaf68146cd6589f68bd32d68c"
     },
     {
       "kind": "item",
@@ -11214,8 +11754,8 @@
       "anchor": "concentración",
       "chapter": "7. Combate",
       "source": "player.md",
-      "search": "Algunos conjuros y habilidades requieren **Concentración** para mantener su efecto activo, lo cual se indica con una etiqueta en la carta.\n\n- Puedes mantener la concentración en un solo efecto a la vez. Si lanzas un nuevo conjuro que requiere concentración, el efecto del anterior termina inmediatamente.\n- Si recibes daño mientras te concentras, debes realizar una **Prueba de Atributo** usando el atributo con el que lanzaste el conjuro.\n- El Nivel de Dificultad de esta tirada es **ND = 5 + Nivel de la Carta**.\n- Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.\n- Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.\n- En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.",
-      "hash": "35b628ddfaa6afcc3dcb4231a688a63b9b291a20"
+      "search": "Algunos conjuros y habilidades requieren **Concentración** para mantener su efecto activo, lo cual se indica con una etiqueta en la carta.\n\n- Puedes mantener la concentración en un solo efecto a la vez. Si lanzas un nuevo conjuro que requiere concentración, el efecto del anterior termina inmediatamente.\n- Si recibes daño mientras te concentras, debes realizar una **Prueba de Atributo** usando el atributo con el que lanzaste el conjuro.\n- El Nivel de Dificultad de esta tirada es **ND = 5 + Nivel de la Carta**.\n- Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.\n- Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.\n- En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.\n- **Sin Recarga mientras dure:** Mientras una carta agotada con Recarga mantenga su efecto activo por Concentración, no puedes intentar recargarla. Solo cuando el efecto termine podrás recuperarla por Adrenalina, Reenfoque o Recarga con Suerte.",
+      "hash": "5631be31b86398699a88270843318f3ee4156405"
     },
     {
       "kind": "section",
@@ -11438,8 +11978,8 @@
       "anchor": "el-sistema-de-suerte",
       "chapter": "3. Mecánicas de Juego",
       "source": "player.md",
-      "search": "La Suerte es un recurso que permite a los jugadores influir en el resultado de sus acciones.\n\n- **Ganar Suerte:** Cada vez que un dado explota (un 8 natural en el d8), el personaje gana **1 Punto de Suerte**.\n- **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.\n- **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir **+1d4 al resultado final por cada punto gastado**. Sin embargo, el jugador debe declarar la cantidad total de puntos que vas a gastar antes de lanzar los dados de bonificación. No puede lanzar los dados de suerte uno a uno y decidir sobre la marcha; debe hacer su apuesta de una sola vez.\n- **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 2.",
-      "hash": "0bf04b952a6877bb29826e78b503a303aa64e998"
+      "search": "La Suerte es un recurso que permite a los jugadores influir en el resultado de sus acciones.\n\n- **Ganar Suerte:** Cada vez que un dado explota (un 8 natural en el d8), el personaje gana **1 Punto de Suerte**.\n- **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.\n- **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir **+1d4 al resultado final por cada punto gastado**. Sin embargo, el jugador debe declarar la cantidad total de puntos que vas a gastar antes de lanzar los dados de bonificación. No puede lanzar los dados de suerte uno a uno y decidir sobre la marcha; debe hacer su apuesta de una sola vez.\n- **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 1.",
+      "hash": "85eab509b999366637f5332be7d002d573f8446f"
     },
     {
       "kind": "section",
@@ -11598,8 +12138,8 @@
       "anchor": "heridas-y-recuperación",
       "chapter": "7. Combate",
       "source": "player.md",
-      "search": "- **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación\n  de Cuerpo (ND 8). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas\n  1 punto de salud y ya no estas **Inconsciente**.\n  Un aliado puede usar su Acción para intentar superar una Tirada de Instinto (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).\n  Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.\n  Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.\n- **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.",
-      "hash": "52187ff427662ee6dc930018b3f0d5d560fa697c"
+      "search": "- **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación\n  de Cuerpo (ND 8). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas\n  1 punto de salud y ya no estas **Inconsciente**.\n  Un aliado puede usar su Acción para intentar superar una Prueba de Instinto (Medicina) (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).\n  Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.\n  Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.\n- **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.",
+      "hash": "dc0a093ebd918b1e5db7879508e8c7378661b7db"
     },
     {
       "kind": "section",
@@ -12126,8 +12666,8 @@
       "anchor": "paso-2-habilidades",
       "chapter": "2. Creación de Personajes",
       "source": "player.md",
-      "search": "Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguientes representan las aptitudes más comunes que los aventureros utilizan. Esta lista sirve como una guía para que los jugadores y el Director de Juego tengan un lenguaje en común, especialmente al elegir cartas como `Talento de Familia` o `Polímata`. No dudes en proponer o crear habilidades que se ajusten mejor a la historia de tu personaje.\n\n**Cuerpo:**\n\n- **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias o nadar en aguas turbulentas.\n- **Fuerza Bruta:** Se usa para aplicar tu poderío físico sin refinamiento para superar un obstáculo. Incluye actos de fuerza explosiva como derribar una puerta, levantar un portón pesado o doblar barrotes.\n- **Aguante:** Mide tu capacidad para soportar el agotamiento, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para realizar marchas forzadas durante días, soportar climas extremos sin el equipo adecuado, aguantar la respiración bajo el agua, resistir los efectos del alcohol o el cansancio para no quedarte dormido, y para sobreponerse al dolor en un interrogatorio físico.\n\n**Reflejos:**\n\n- **Acrobacias:** Mide tu capacidad para mantener el equilibrio, realizar piruetas, caer de pie y escapar de ataduras.\n- **Juego de Manos:** Para acciones que requieren destreza manual fina y discreta, como robar bolsillos, plantar un objeto en alguien o realizar trucos de prestidigitación.\n- **Sigilo:** Determina tu éxito al moverte en silencio y evitar ser visto.\n- **Pilotaje:** Mide tu pericia para controlar monturas y vehículos, especialmente bajo presión. Se utiliza para guiar un carruaje en una persecución a alta velocidad por las calles de una ciudad, para maniobrar una embarcación en aguas turbulentas, o para realizar giros cerrados y maniobras complejas con una montura en el fragor de la batalla.\n\n**Mente:**\n\n- **Conocimiento Arcano:** Mide tu conocimiento sobre conjuros, objetos mágicos, tradiciones arcanas, planos de existencia y las criaturas que los habitan.\n- **Historia:** Refleja tu conocimiento sobre eventos pasados, reinos legendarios, dinastías antiguas y personajes históricos.\n- **Investigación:** Representa tu capacidad para deducir, encontrar pistas ocultas, descifrar códigos y conectar información a partir de la evidencia.\n- **Naturaleza:** Mide tu conocimiento sobre flora y fauna, ecosistemas, venenos naturales y remedios herbales.\n- **Religión:** Representa tu conocimiento acerca de los panteones, sus dogmas, sus rituales y sus conflictos.\n\n**Instinto:**\n\n- **Percepción:** Tu capacidad para ver, oír u oler detalles sutiles en tu entorno, como detectar una emboscada, encontrar una puerta secreta o notar que alguien está mintiendo.\n- **Perspicacia:** Se usa para leer las intenciones de una criatura, discernir si está diciendo la verdad o sentir sus verdaderas emociones.\n- **Supervivencia:** Mide tu habilidad para seguir rastros, cazar, orientarte en la naturaleza, predecir el clima y evitar peligros naturales.\n- **Trato con Animales:** Tu aptitud para calmar, entender y hacerte amigo de los animales.\n\n**Presencia:**\n\n- **Engaño:** Tu habilidad para mentir de forma convincente, ya sea ocultando la verdad, diciendo una mentira flagrante o adoptando un disfraz.\n- **Intimidación:** Se utiliza para influir en otros a través de amenazas, una conducta hostil o la fuerza de tu presencia.\n- **Interpretación:** Refleja tu capacidad para cautivar a una audiencia a través de la música, el baile, la actuación, la oratoria o el relato de historias.\n- **Persuasión:** Tu aptitud para convencer a otros a través del tacto, la elocuencia, la buena fe y los argumentos lógicos.",
-      "hash": "021d0a724c97b7851f22b2e06207da26bf232fcb"
+      "search": "Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguientes representan las aptitudes más comunes que los aventureros utilizan. Esta lista sirve como una guía para que los jugadores y el Director de Juego tengan un lenguaje en común, especialmente al elegir cartas como `Talento de Familia` o `Polímata`. No dudes en proponer o crear habilidades que se ajusten mejor a la historia de tu personaje.\n\n**Cuerpo:**\n\n- **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias o nadar en aguas turbulentas.\n- **Fuerza Bruta:** Se usa para aplicar tu poderío físico sin refinamiento para superar un obstáculo. Incluye actos de fuerza explosiva como derribar una puerta, levantar un portón pesado o doblar barrotes.\n- **Aguante:** Mide tu capacidad para soportar el agotamiento, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para realizar marchas forzadas durante días, soportar climas extremos sin el equipo adecuado, aguantar la respiración bajo el agua, resistir los efectos del alcohol o el cansancio para no quedarte dormido, y para sobreponerse al dolor en un interrogatorio físico.\n\n**Reflejos:**\n\n- **Acrobacias:** Mide tu capacidad para mantener el equilibrio, realizar piruetas, caer de pie y escapar de ataduras.\n- **Juego de Manos:** Para acciones que requieren destreza manual fina y discreta, como robar bolsillos, plantar un objeto en alguien o realizar trucos de prestidigitación.\n- **Sigilo:** Determina tu éxito al moverte en silencio y evitar ser visto.\n- **Pilotaje:** Mide tu pericia para controlar monturas y vehículos, especialmente bajo presión. Se utiliza para guiar un carruaje en una persecución a alta velocidad por las calles de una ciudad, para maniobrar una embarcación en aguas turbulentas, o para realizar giros cerrados y maniobras complejas con una montura en el fragor de la batalla.\n\n**Mente:**\n\n- **Conocimiento Arcano:** Mide tu conocimiento sobre conjuros, objetos mágicos, tradiciones arcanas, planos de existencia y las criaturas que los habitan.\n- **Historia:** Refleja tu conocimiento sobre eventos pasados, reinos legendarios, dinastías antiguas y personajes históricos.\n- **Investigación:** Representa tu capacidad para deducir, encontrar pistas ocultas, descifrar códigos y conectar información a partir de la evidencia.\n- **Naturaleza:** Mide tu conocimiento sobre flora y fauna, ecosistemas, venenos naturales y remedios herbales.\n- **Religión:** Representa tu conocimiento acerca de los panteones, sus dogmas, sus rituales y sus conflictos.\n\n**Instinto:**\n\n- **Percepción:** Tu capacidad para ver, oír u oler detalles sutiles en tu entorno, como detectar una emboscada, encontrar una puerta secreta o notar que alguien está mintiendo.\n- **Perspicacia:** Se usa para leer las intenciones de una criatura, discernir si está diciendo la verdad o sentir sus verdaderas emociones.\n- **Supervivencia:** Mide tu habilidad para seguir rastros, cazar, orientarte en la naturaleza, predecir el clima y evitar peligros naturales.\n- **Medicina:** Mide tu capacidad para diagnosticar heridas y enfermedades, tratar venenos, y realizar curaciones de emergencia para estabilizar a una criatura moribunda.\n- **Trato con Animales:** Tu aptitud para calmar, entender y hacerte amigo de los animales.\n\n**Presencia:**\n\n- **Engaño:** Tu habilidad para mentir de forma convincente, ya sea ocultando la verdad, diciendo una mentira flagrante o adoptando un disfraz.\n- **Intimidación:** Se utiliza para influir en otros a través de amenazas, una conducta hostil o la fuerza de tu presencia.\n- **Interpretación:** Refleja tu capacidad para cautivar a una audiencia a través de la música, el baile, la actuación, la oratoria o el relato de historias.\n- **Persuasión:** Tu aptitud para convencer a otros a través del tacto, la elocuencia, la buena fe y los argumentos lógicos.",
+      "hash": "bc3bb6f9199932b3616b3639e1cf357643d562e8"
     },
     {
       "kind": "section",
@@ -12222,8 +12762,8 @@
       "anchor": "paso-3-recursos-derivados",
       "chapter": "2. Creación de Personajes",
       "source": "player.md",
-      "search": "A partir de tus atributos, se calculan otros valores esenciales para tu personaje:\n\n- **Salud:** Es la cantidad de daño que puedes soportar antes de quedar inconsciente.\n  - **Salud = 5 + (Cuerpo × 3)**\n- **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.\n  - **Velocidad = 6 + Reflejos**\n- **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.\n- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **2 Puntos de Suerte**.\n- **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.",
-      "hash": "2e5b989353b47b6315be4d4883813440e363abe7"
+      "search": "A partir de tus atributos, se calculan otros valores esenciales para tu personaje:\n\n- **Salud:** Es la cantidad de daño que puedes soportar antes de quedar inconsciente.\n  - **Salud = 5 + (Cuerpo × 3)**\n- **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.\n  - **Velocidad = 6 + Reflejos**\n- **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.\n- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **1 Punto de Suerte**.\n- **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.",
+      "hash": "4796a3105ac65f62e579b30b8ab8665dc0851168"
     },
     {
       "kind": "section",
@@ -12526,8 +13066,8 @@
       "anchor": "recarga-de-cartas",
       "chapter": "4. El Sistema de Cartas",
       "source": "player.md",
-      "search": "Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:",
-      "hash": "903175da58f894abd8d3ff2a01b6e4b436c7e510"
+      "search": "Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:\n\n- **Concentración:** Si una carta agotada con **Recarga n+** está manteniendo un efecto activo mediante **Concentración**, no puedes intentar recargarla por ningún método (Adrenalina, Reenfoque ni Recarga con Suerte) mientras el efecto siga en curso. El efecto debe terminar —por duración agotada, decisión voluntaria o ruptura de concentración— antes de que la carta pueda recuperarse.",
+      "hash": "a9ea52194b11617d2b484cd9de13dc9f83bd1ca3"
     },
     {
       "kind": "section",

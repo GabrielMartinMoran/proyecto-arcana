@@ -105,7 +105,7 @@ cards:
       sombra._<br><br> Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1
       minuto.<br> El segador es invulnerable, pero no bloquea el paso.<br> Cuando lanzas el conjuro, y en cada uno de
       tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en
-      cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8 + Atributo Arcano) contra un enemigo a
+      cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8e + Atributo Arcano) contra un enemigo a
       distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de
       Salud hasta el inicio de tu próximo turno.
     slug: segador-incorporeo

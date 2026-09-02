@@ -13,7 +13,7 @@ cards:
     description: >-
       _Canalizas el poder puro de tu patrón en un proyectil ineludible y letal._<br><br> Al añadir esta carta a tu
       colección, elige un tipo de daño permanente que depende de tu patrón: Eléctrico, Frío, Fuego, Fuerza, Necrótico,
-      Psíquico o Radiante.<br> Realizas un ataque de conjuro (1d8 + Presencia) a distancia Media. Si impactas, infliges
+      Psíquico o Radiante.<br> Realizas un ataque de conjuro (1d8e + Presencia) a distancia Media. Si impactas, infliges
       1d8 de daño del tipo elegido.<br><br> _Esta carta solo puede ser adquirida a través de Pacto Supremo._
     slug: descarga-sobrenatural
   - id: 4cf21a50db10f2367f93d9252d51c315a3f84f91

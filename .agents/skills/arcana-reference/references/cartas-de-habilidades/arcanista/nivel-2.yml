@@ -118,7 +118,7 @@ cards:
       qty: 4
     description: >-
       _Concentras el poder elemental en un haz concentrado de largo alcance capaz de atravesar el campo de
-      batalla._<br><br> Realizas un ataque de conjuro (1d8 + Atributo Arcano) a distancia Media. Si impactas, el
+      batalla._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Media. Si impactas, el
       objetivo recibe 2d8 de daño de Fuego, Frío o Eléctrico.
     slug: rayo-energetico
   - id: fc5dc86cecef98a62eeff4d5c0920aa87359b7a7
@@ -275,7 +275,7 @@ cards:
       qty: 4
     description: >-
       _De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu
-      enemigo._<br><br> Realizas un ataque de conjuro (1d8 + Atributo Arcano) contra una criatura a distancia
+      enemigo._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) contra una criatura a distancia
       Cercana.<br> Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br> La criatura sufre 1d6 de daño
       Perforante al inicio de cada uno de sus turnos.<br> Además, mientras el enjambre la cubra, la criatura sufre
       Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br> El objetivo u otra criatura

@@ -47,8 +47,8 @@ cards:
       qty: 3
     description: >-
       _Canalizas la energía pura de los elementos en un proyectil inestable que lanzas contra tus oponentes._<br><br>
-      Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque de conjuro (1d8+Atributo Arcano) a distancia
-      Cercana contra un objetivo. Si impactas, infliges 1d8 de daño del tipo elegido.
+      Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque de conjuro (1d8e + Atributo Arcano) a
+      distancia Cercana contra un objetivo. Si impactas, infliges 1d8 de daño del tipo elegido.
     slug: descarga-elemental
   - id: 351aec8119cb212a3354ab9229ec09bc4e97130e
     name: Rayo Entrópico
@@ -63,8 +63,8 @@ cards:
       qty: 3
     description: >-
       _Proyectas un haz de energía oscura y corrosiva que marchita la vitalidad de tu objetivo.._<br><br> Realizas un
-      ataque de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo.<br> Si impactas, infliges 1d6 de
-      daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
+      ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo.<br> Si impactas, infliges 1d6
+      de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
     slug: rayo-entropico
   - id: 85aadf739b6f4645e5a6efb2ae99a3592129326a
     name: Comprender Lenguas
@@ -142,6 +142,6 @@ cards:
       qty: 4
     description: >-
       _Envuelves tu cuerpo en una coraza espectral de energía defensiva que mitiga los golpes antes de que alcancen tu
-      carne._<br><br> Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de
-      Atributo Arcano.
+      carne._<br><br> Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu Atributo
+      Arcano.
     slug: coraza-vital

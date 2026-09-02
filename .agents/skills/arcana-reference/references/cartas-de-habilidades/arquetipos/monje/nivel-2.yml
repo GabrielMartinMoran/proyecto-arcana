@@ -29,9 +29,9 @@ cards:
     description: >-
       _Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de
       muñeca._<br><br> Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que
-      puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br> En
-      caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza
-      una tirada de ataque de Reflejos, el daño del ataque es 1d4.
+      puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu Reflejos.<br> En caso de reducir
+      el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de
+      ataque de Reflejos, el daño del ataque es 1d4.
     slug: desviar-proyectiles
   - id: b64d487c1ddc2bc81b0e01939f4e12918a59bdc4
     name: Golpes Resonantes

@@ -24,8 +24,8 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br> Tu Límite
-      de Suerte máximo aumenta a 6. Además, inicias cada sesión con 2 puntos de suerte.
+      _Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br> Tu límite
+      máximo de Suerte aumenta a 6. Además, inicias cada sesión con un punto más de suerte.
     slug: reserva-de-suerte
   - id: 25d08c64f7b753e755d290e56fb527af1466eefa
     name: Polímata

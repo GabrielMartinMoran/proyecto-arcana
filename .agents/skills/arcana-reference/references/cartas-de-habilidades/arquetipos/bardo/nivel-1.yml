@@ -13,7 +13,8 @@ cards:
       _Entonas una melodía épica o recitas un verso vibrante que enciende el coraje y la destreza en los corazones de
       tus compañeros._<br><br> Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.<br>
       Durante 1 minuto, el objetivo obtiene un dado de inspiración (1d4) que puede añadir a una Prueba de Habilidad,
-      Tirada de Ataque o Tirada de Salvación que realice.
+      Tirada de Ataque o Tirada de Salvación que realice.<br> La cantidad máxima de criaturas que pueden estar
+      inspiradas por ti al mismo tiempo es igual a tu puntuación de Presencia.
     slug: canto-de-inspiracion
   - id: 33cc5cf3e4bc637bdef0e311aeb45ee634978e1e
     name: Palabras Hirientes
@@ -63,8 +64,8 @@ cards:
       qty: 0
     description: >-
       _El ritmo de tu propia música guía tus pasos, volviendo tu danza en el campo de batalla tan ágil, letal e
-      impredecible como tu arte._<br><br> Puedes usar tu Canto de Inspiración en ti mismo.<br> Además, mientras poseas
-      un dado de Canto de Inspiración sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
+      impredecible como tu arte._<br><br> Puedes usar tu _Canto de Inspiración_ en ti mismo.<br> Además, mientras poseas
+      un dado de _Canto de Inspiración_ sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
     slug: inspiracion-marcial
   - id: 213573b4de38bed6f054ae8acae8977e2fb9146e
     name: Floritura Artística

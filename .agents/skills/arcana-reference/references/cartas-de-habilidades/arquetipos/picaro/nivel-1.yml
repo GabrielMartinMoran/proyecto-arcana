@@ -12,7 +12,7 @@ cards:
     description: >-
       _Aprovechas la más mínima distracción de tu enemigo para asestar un golpe letal en sus puntos ciegos._<br><br>
       Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada
-      o si un aliado está adyacente al objetivo, infliges +1d4 de daño adicional.
+      o si un aliado está adyacente al objetivo, infliges 1d4 de daño adicional.
     slug: ataque-furtivo
   - id: 81ffe85b17bbc42175bd10e3c23ba5c2cf7b893e
     name: Sabotaje Táctico

@@ -191,3 +191,21 @@ items:
       la sintonía realizando el ritual de nuevo.
     slug: coraza-del-guardian-elemental
     cost: 4000
+  - id: cebc3ecd3748c0593f7728a03dab8f927d87477f
+    name: Arma Juramentada
+    level: 4
+    type: activable
+    tags:
+      - Arma
+      - Cacería
+    requirements: null
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br> Como una Interacción, eliges una criatura que puedas
+      ver y la declaras presa juramentada del arma durante 1 minuto. Una vez por turno, el primer ataque que realices
+      con esta arma contra esa criatura obtiene Ventaja (+1d4). Además, los ataques realizados con esta arma contra tu
+      presa ignoran Cobertura Parcial.
+    slug: arma-juramentada
+    cost: 3000

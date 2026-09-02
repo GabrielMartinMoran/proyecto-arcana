@@ -49,7 +49,7 @@ cards:
       qty: 4
     description: >-
       _Canalizas la energía de la vida misma a través de tus manos para cerrar heridas y purgar toxinas._<br><br> Tocas
-      a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente, puedes eliminar una de
+      a una criatura y esta recupera 1d6 + tu Instinto en Puntos de Salud. Alternativamente, puedes eliminar una de
       estas condiciones: Cegado, Ensordecido o Envenenado.
     slug: toque-restaurador
   - id: 1f49450e4b2de47bfc0aab65184d3ab8236ac03c
@@ -66,8 +66,8 @@ cards:
     description: >-
       _Invocas una barrera de luz sagrada para desviar un golpe mortal destinado a un compañero._<br><br> Como Reacción,
       cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de
-      energía divina. El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación de Instinto
-      justo antes de recibir el daño. Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
+      energía divina. El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu Instinto justo antes de
+      recibir el daño. Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
     slug: escudo-de-fe
   - id: 591c9b98fcb403fb1697731f113169934c0516b0
     name: Llama Sagrada
@@ -83,7 +83,7 @@ cards:
     description: >-
       _Invocas la luz purificadora de tu deidad en forma de un proyectil de energía radiante, marcando e iluminando a tu
       enemigo para el próximo ataque._<br><br> Lanzas un virote de energía radiante a una criatura que puedas ver a
-      distancia Cercana. Realiza una tirada de ataque de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño
+      distancia Cercana. Realiza una tirada de ataque de conjuro (1d8e + Instinto). Si impactas, infliges 1d6 de daño
       Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir
       daño.<br> Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
     slug: llama-sagrada

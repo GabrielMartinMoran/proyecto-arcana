@@ -417,7 +417,7 @@ cards:
     requirements: Instinto 2
     description: >-
       _Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br>
-      Tu Límite de Suerte máximo aumenta a 6. Además, inicias cada sesión con 2 puntos de suerte.
+      Tu límite máximo de Suerte aumenta a 6. Además, inicias cada sesión con un punto más de suerte.
     uses:
       type: null
       qty: 0
@@ -493,7 +493,7 @@ cards:
     description: >-
       _Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br>
       Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br>
-      Además, cuando superas una prueba de Instinto para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br>
+      Además, cuando superas una prueba de Instinto (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br>
       No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.
     uses:
       type: null
@@ -695,7 +695,7 @@ cards:
     requirements: Senda del Bribón
     description: >-
       _Aprovechas la más mínima distracción de tu enemigo para asestar un golpe letal en sus puntos ciegos._<br><br>
-      Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada o si un aliado está adyacente al objetivo, infliges +1d4 de daño adicional.
+      Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada o si un aliado está adyacente al objetivo, infliges 1d4 de daño adicional.
     uses:
       type: null
       qty: 0
@@ -1081,7 +1081,7 @@ cards:
     requirements: Maestría Marcial
     description: >-
       _Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco más._<br><br>
-      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo Marcial.
+      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu Atributo Marcial.
     uses:
       type: LONG_REST
       qty: 2
@@ -1412,7 +1412,7 @@ cards:
     description: >-
       _Alzas la voz en un rugido que resuena en los corazones de tus aliados, infundiéndoles una vitalidad renovada._<br><br>
       Como Interacción, elige un número de aliados a distancia Cercana igual a tu puntuación de Presencia. Estos ganan Puntos de Salud temporales
-      iguales a 1d4 + tu puntuación de Presencia.
+      iguales a 1d4 + tu Presencia.
     uses:
       type: RELOAD
       qty: 5
@@ -1602,7 +1602,7 @@ cards:
     description: >-
       _Canalizas el poder puro de tu patrón en un proyectil ineludible y letal._<br><br>
       Al añadir esta carta a tu colección, elige un tipo de daño permanente que depende de tu patrón: Eléctrico, Frío, Fuego, Fuerza, Necrótico, Psíquico o Radiante.<br>
-      Realizas un ataque de conjuro (1d8 + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo elegido.<br><br>
+      Realizas un ataque de conjuro (1d8e + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo elegido.<br><br>
       _Esta carta solo puede ser adquirida a través de Pacto Supremo._
     uses:
       type: null
@@ -1859,7 +1859,7 @@ cards:
     requirements: 'Herencia Sobrenatural'
     description: >-
       _Disparas un proyectil de energía pura que, al impactar, puede desbordarse en una cascada de destrucción impredecible._<br><br>
-      Realizas un ataque de conjuro (1d8 + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d6 de daño de Fuerza.<br>
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d6 de daño de Fuerza.<br>
       - **Cascada Menor:** Si el dado de daño resulta en un 6 natural, la energía se desborda: tiras 1d6 adicional y lo sumas al daño total. Este dado también puede explotar si saca un 6.
     uses:
       type: RELOAD
@@ -1982,7 +1982,7 @@ cards:
     description: >-
       _Canalizas la energía pura de los elementos en un proyectil inestable que lanzas contra tus oponentes._<br><br>
       Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
-      de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo. Si
+      de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si
       impactas, infliges 1d8 de daño del tipo elegido.
     uses:
       type: RELOAD
@@ -2011,7 +2011,7 @@ cards:
     requirements: Afinidad Arcana
     description: >-
       _Proyectas un haz de energía oscura y corrosiva que marchita la vitalidad de tu objetivo.._<br><br>
-      Realizas un ataque de conjuro (1d8+Atributo Arcano) a distancia Cercana contra un objetivo.<br>
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo.<br>
       Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
     uses:
       type: RELOAD
@@ -2091,7 +2091,7 @@ cards:
     requirements: Afinidad Arcana
     description: >-
       _Envuelves tu cuerpo en una coraza espectral de energía defensiva que mitiga los golpes antes de que alcancen tu carne._<br><br>
-      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu puntuación de Atributo Arcano.
+      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu Atributo Arcano.
     uses:
       type: RELOAD
       qty: 4
@@ -2183,7 +2183,7 @@ cards:
     requirements: 'Descarga Elemental & Atributo Arcano 3'
     description: >-
       _Concentras el poder elemental en un haz concentrado de largo alcance capaz de atravesar el campo de batalla._<br><br>
-      Realizas un ataque de conjuro (1d8 + Atributo Arcano) a distancia Media. Si impactas, el objetivo recibe 2d8
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Media. Si impactas, el objetivo recibe 2d8
       de daño de Fuego, Frío o Eléctrico.
     uses:
       type: RELOAD
@@ -2300,7 +2300,7 @@ cards:
     requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       _Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad aguante._<br><br>
-      Realizas un ataque de conjuro a distancia (1d8 + Atributo Arcano) contra un objetivo. Si impactas,
+      Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si impactas,
       el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente
       tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera,
       acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o
@@ -2589,7 +2589,7 @@ cards:
     requirements: 'Afinidad Arcana & Atributo Arcano 3'
     description: >-
       _De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu enemigo._<br><br>
-      Realizas un ataque de conjuro (1d8 + Atributo Arcano) contra una criatura a distancia Cercana.<br>
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) contra una criatura a distancia Cercana.<br>
       Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br>
       La criatura sufre 1d6 de daño Perforante al inicio de cada uno de sus turnos.<br>
       Además, mientras el enjambre la cubra, la criatura sufre Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br>
@@ -2644,7 +2644,7 @@ cards:
       _Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de sombra._<br><br>
       Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1 minuto.<br>
       El segador es invulnerable, pero no bloquea el paso.<br>
-      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8 + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8e + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.
     uses:
       type: RELOAD
       qty: 6
@@ -2722,7 +2722,7 @@ cards:
     requirements: Fe Inspiradora
     description: >-
       _Canalizas la energía de la vida misma a través de tus manos para cerrar heridas y purgar toxinas._<br><br>
-      Tocas a una criatura y esta recupera 1d6 más tu Instinto en Puntos de Salud. Alternativamente,
+      Tocas a una criatura y esta recupera 1d6 + tu Instinto en Puntos de Salud. Alternativamente,
       puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
     uses:
       type: RELOAD
@@ -2737,7 +2737,7 @@ cards:
     description: >-
       _Invocas una barrera de luz sagrada para desviar un golpe mortal destinado a un compañero._<br><br>
       Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de energía divina.
-      El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu puntuación de Instinto justo antes de recibir el daño.
+      El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu Instinto justo antes de recibir el daño.
       Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
     uses:
       type: RELOAD
@@ -2752,7 +2752,7 @@ cards:
     description: >-
       _Invocas la luz purificadora de tu deidad en forma de un proyectil de energía radiante, marcando e iluminando a tu enemigo para el próximo ataque._<br><br>
       Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque
-      de conjuro (1d8+Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
+      de conjuro (1d8e + Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
       Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
     uses:
       type: RELOAD
@@ -2894,7 +2894,7 @@ cards:
     requirements: 'Toque Restaurador & Instinto 4'
     description: >-
       _Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br>
-      Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.
+      Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.
     uses:
       type: RELOAD
       qty: 6
@@ -2982,7 +2982,7 @@ cards:
     description: >-
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br>
       Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br>
-      - **Restauración Vital:** La criatura recupera 2d6 + tu puntuación de Instinto en Puntos de Salud.<br>
+      - **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br>
       - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
     uses:
       type: RELOAD
@@ -3048,7 +3048,7 @@ cards:
     requirements: 'Curar & Instinto 5'
     description: >-
       _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br>
-      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu puntuación de Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
+      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
     uses:
       type: LONG_REST
       qty: 1
@@ -3093,7 +3093,7 @@ cards:
     description: >-
       _Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br>
       Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
-      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8 + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
       - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
     uses:
       type: RELOAD
@@ -3183,7 +3183,7 @@ cards:
     requirements: Sintonía Primordial
     description: >-
       _Tus golpes se imbuyen con la esencia de la tierra, el viento o el agua, golpeando con la fuerza de los elementos._<br><br>
-      Realizas un ataque de conjuro cuerpo a cuerpo (1d8 + Instinto). Si impactas, infliges 1d6 de daño y
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8e + Instinto). Si impactas, infliges 1d6 de daño y
       eliges uno de los siguientes efectos elementales que te afecta a ti:<br>
       - **Tierra (Contundente):** Te recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
       - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
@@ -3200,7 +3200,7 @@ cards:
     requirements: Sintonía Primordial
     description: >-
       _Una liana espinosa brota de tu mano como una extensión de tu voluntad, lista para azotar y arrastrar a tus presas._<br><br>
-      Realizas un ataque de conjuro (1d8 + Instinto) contra un objetivo a distancia Cercana.<br>
+      Realizas un ataque de conjuro (1d8e + Instinto) contra un objetivo a distancia Cercana.<br>
       Si impactas, infliges 1d6 de daño Cortante y puedes forzar al objetivo a realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla la Tirada de Salvación, mueves al objetivo 1 metro en cualquier dirección.
     uses:
       type: RELOAD
@@ -3591,7 +3591,8 @@ cards:
     description: >-
       _Entonas una melodía épica o recitas un verso vibrante que enciende el coraje y la destreza en los corazones de tus compañeros._<br><br>
       Usas tu Interacción para inspirar a un aliado a distancia Cercana que pueda oírte.<br>
-      Durante 1 minuto, el objetivo obtiene un dado de inspiración (1d4) que puede añadir a una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que realice.
+      Durante 1 minuto, el objetivo obtiene un dado de inspiración (1d4) que puede añadir a una Prueba de Habilidad, Tirada de Ataque o Tirada de Salvación que realice.<br>
+      La cantidad máxima de criaturas que pueden estar inspiradas por ti al mismo tiempo es igual a tu puntuación de Presencia.
     uses:
       type: RELOAD
       qty: 3
@@ -3738,8 +3739,8 @@ cards:
     requirements: Canto de Inspiración
     description: >-
       _El ritmo de tu propia música guía tus pasos, volviendo tu danza en el campo de batalla tan ágil, letal e impredecible como tu arte._<br><br>
-      Puedes usar tu Canto de Inspiración en ti mismo.<br>
-      Además, mientras poseas un dado de Canto de Inspiración sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
+      Puedes usar tu _Canto de Inspiración_ en ti mismo.<br>
+      Además, mientras poseas un dado de _Canto de Inspiración_ sin gastar (otorgado por ti mismo), obtienes un bonificador de +1 a tu Esquiva.
     uses:
       type: null
       qty: 0
@@ -4098,7 +4099,7 @@ cards:
     requirements: 'Disciplina Monástica & Instinto 3'
     description: >-
       _Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de muñeca._<br><br>
-      Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu puntuación de Reflejos.<br>
+      Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu Reflejos.<br>
       En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.
     uses:
       type: RELOAD
@@ -4164,8 +4165,8 @@ cards:
     description: >-
       _Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br>
       Adquieres los siguientes capacidades:<br>
-      - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu puntuación de Instinto en Puntos de Salud temporales.<br>
-      - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu puntuación de Instinto.
+      - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br>
+      - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.
     uses:
       type: RELOAD
       qty: 6

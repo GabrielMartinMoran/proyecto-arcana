@@ -28,8 +28,7 @@ cards:
       qty: 2
     description: >-
       _Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco
-      más._<br><br> Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu puntuación de Atributo
-      Marcial.
+      más._<br><br> Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu Atributo Marcial.
     slug: segundo-aliento
   - id: 95991f73fff4e6d124008b7b924fd4ab6b60f215
     name: Presencia Inspiradora

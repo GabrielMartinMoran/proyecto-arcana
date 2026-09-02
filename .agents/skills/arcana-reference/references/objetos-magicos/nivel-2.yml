@@ -40,8 +40,9 @@ items:
       type: null
       qty: 0
     description: >-
-      Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida mágicamente para golpear con
-      más certeza y hacer más daño. Obtienes un +1 a tus tiradas de ataque y +1 al daño infligido con esta arma.
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br> El arma ha sido reforzada mágicamente para responder
+      con una precisión sobrenatural a los movimientos de su portador. Obtienes +1 a tus tiradas de ataque realizadas
+      con esta arma.
     slug: arma-enriquecida
     cost: 600
   - id: 86736bf1eb6b04d4ba4d03c9921d0d2424f780fb
@@ -263,6 +264,40 @@ items:
       criatura y hacer que recupere 1d6+2 Puntos de Salud. La vara recupera 1d2+1 cargas gastadas cada día al amanecer.
     slug: vara-del-alivio
     cost: 600
+  - id: 655e090d5bdcde4c1f875e94568fffe2bf66ed6a
+    name: Arma Vigilante
+    level: 2
+    type: efecto
+    tags:
+      - Arma
+      - Iniciativa
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br> El arma percibe el peligro antes que su portador.
+      Mientras la lleves contigo y puedas acceder a ella, obtienes Ventaja (+1d4) en tus tiradas de Iniciativa. Además,
+      si estás dormido naturalmente cuando comienza un combate, el arma te despierta inmediatamente.
+    slug: arma-vigilante
+    cost: 450
+  - id: f69997b0095215159e6a6673a84e829d651f6a3e
+    name: Arma de Trayectoria Imposible
+    level: 2
+    type: efecto
+    tags:
+      - Arma
+      - Distancia
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma con la propiedad Rango o Arrojadiza._<br><br> Los proyectiles
+      disparados o arrojados con esta arma alteran sutilmente su trayectoria para encontrar huecos imposibles. Tus
+      ataques realizados con esta arma ignoran el beneficio de la Cobertura Parcial.
+    slug: arma-de-trayectoria-imposible
+    cost: 450
   - id: 3e14a3c5c17445887680813de71873ef19b319cd
     name: Arma del Retorno
     level: 2
@@ -274,8 +309,134 @@ items:
       type: null
       qty: 0
     description: >-
-      (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza). Después de realizar un ataque
-      Arrojadizo con esta arma, esta vuela de regreso a tu mano al final de tu turno, siempre que tengas una mano libre
+      _Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza._<br><br> Después de resolver un
+      ataque Arrojadizo con esta arma, esta vuela inmediatamente de regreso a tu mano, siempre que tengas una mano libre
       para recibirla.
     slug: arma-del-retorno
+    cost: 350
+  - id: 1bc7526ec6e0c5d74249bc079199e9213182ae4c
+    name: Arma del Hambre Profunda
+    level: 2
+    type: efecto
+    tags:
+      - Arma
+      - Salud
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br> Una presencia oscura e insondable habita en el arma y
+      se alimenta de las criaturas que caen ante ella. Una vez por turno, cuando reduces a una criatura hostil a 0
+      Puntos de Salud con esta arma, obtienes 1d6 Puntos de Salud Temporal.
+    slug: arma-del-hambre-profunda
+    cost: 550
+  - id: ff180b5a89e0a9d770c38f074b955eae1bdf23ce
+    name: Armadura Silente
+    level: 2
+    type: efecto
+    tags:
+      - Armadura
+      - Sigilo
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura que imponga una Penalización a Sigilo._<br><br> Los
+      materiales de la armadura absorben mágicamente el sonido de sus placas, anillas y correas. La Penalización a
+      Sigilo de la armadura se reduce en 1, hasta un mínimo de 0.
+    slug: armadura-silente
+    cost: 400
+  - id: 8b91525dc4e76d543bace3390c5c90af85f5550e
+    name: Armadura del Bastión
+    level: 2
+    type: activable
+    tags:
+      - Armadura
+      - Defensa
+      - Reacción
+    requirements: Cuerpo 2
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura._<br><br> Como Reacción cuando un efecto fuera a moverte
+      contra tu voluntad o dejarte Derribado, puedes hacer que la armadura se ancle mágicamente al terreno. Ignoras ese
+      movimiento forzado y no quedas Derribado por ese efecto.
+    slug: armadura-del-bastion
+    cost: 500
+  - id: d44c2636f73e1e6fda3f74eb50d983c288fc38b1
+    name: Vara Inamovible
+    level: 2
+    type: efecto
+    tags:
+      - Herramienta
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Esta vara de hierro posee un pequeño botón en uno de sus extremos. Como una Interacción, puedes presionarlo para
+      fijar mágicamente la vara en el punto exacto del espacio que ocupa, incluso si se encuentra suspendida en el aire.
+      Mientras está fijada, no se mueve y puede soportar hasta 1000 kg de peso. Si se supera este límite, la vara se
+      desactiva y vuelve a comportarse con normalidad. Presionar nuevamente el botón es una Interacción y libera la
+      vara.
+    slug: vara-inamovible
+    cost: 500
+  - id: 057b48f1ce55c3188ed5a164cc92ad7e11fec018
+    name: Campanilla del Cerrajero
+    level: 2
+    type: efecto
+    tags:
+      - Herramienta
+      - Utilidad
+    requirements: null
+    uses:
+      type: DAY
+      qty: 3
+    description: >-
+      Esta pequeña campanilla de plata produce un sonido limpio que hace vibrar cerraduras y mecanismos. Como una
+      Acción, puedes hacerla sonar apuntando hacia una cerradura mundana a distancia Inmediata. La cerradura se abre
+      inmediatamente sin sufrir daño. No puede abrir cierres mágicos ni mecanismos que no puedan abrirse normalmente
+      mediante una llave o combinación.
+    slug: campanilla-del-cerrajero
+    cost: 450
+  - id: a6bd0600cf5bb30ff7cd6ff3eb9c55047462c780
+    name: Refugio del Caminante
+    level: 2
+    type: efecto
+    tags:
+      - Supervivencia
+      - Utilidad
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      Este pequeño paquete de tela encantada puede desplegarse sobre una superficie adecuada mediante 1 minuto de
+      preparación. Al hacerlo, se transforma en un refugio resistente con espacio suficiente para alojar cómodamente
+      hasta seis criaturas Medianas y su equipo habitual. Su interior permanece seco y a una temperatura confortable
+      frente a condiciones climáticas normales.<br><br> El refugio no protege contra peligros sobrenaturales,
+      temperaturas extremas extraordinarias ni ataques. Puedes dedicar 1 minuto a plegarlo nuevamente, momento en el que
+      recupera su reducido tamaño original.
+    slug: refugio-del-caminante
+    cost: 400
+  - id: 25f3407eb0bf21564d2e8a0536cfb72b908bc2b9
+    name: Anillo de Caída de Pluma
+    level: 2
+    type: activable
+    tags:
+      - Movimiento
+      - Reacción
+    requirements: null
+    uses:
+      type: DAY
+      qty: 1
+    description: >-
+      Como Reacción cuando comienzas a caer desde una altura que pudiera causarte daño, puedes hacer que el anillo
+      reduzca mágicamente la velocidad de tu caída. Desciendes suavemente hasta una superficie segura y no sufres daño
+      por esa caída.
+    slug: anillo-de-caida-de-pluma
     cost: 350

@@ -29,7 +29,7 @@ cards:
       qty: 6
     description: >-
       _Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br> Tú y hasta
-      4 aliados a distancia Cercana recuperan 1d6 más tu Instinto en Puntos de Salud.
+      4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.
     slug: plegaria-de-curacion
   - id: 0ba5a38ed297664fa74615a09c3fcfcc4cbad21d
     name: Espíritus Guardianes
@@ -81,9 +81,9 @@ cards:
     description: >-
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más
       puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> -
-      **Restauración Vital:** La criatura recupera 2d6 + tu puntuación de Instinto en Puntos de Salud.<br> -
-      **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura:
-      Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
+      **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:**
+      Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado,
+      Inmovilizado, Dormido, Cegado o Envenenado.
     slug: curar
   - id: 7877eed9408f895cf28da66dba82a26de4e87a34
     name: Eco del Pasado

@@ -71,7 +71,7 @@ cards:
     description: >-
       _Alzas la voz en un rugido que resuena en los corazones de tus aliados, infundiéndoles una vitalidad
       renovada._<br><br> Como Interacción, elige un número de aliados a distancia Cercana igual a tu puntuación de
-      Presencia. Estos ganan Puntos de Salud temporales iguales a 1d4 + tu puntuación de Presencia.
+      Presencia. Estos ganan Puntos de Salud temporales iguales a 1d4 + tu Presencia.
     slug: grito-de-guerra
   - id: 3254a24cdf671197f84b3597764ae298c393920a
     name: Ojo Táctico
