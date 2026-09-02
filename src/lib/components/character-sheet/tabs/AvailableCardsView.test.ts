@@ -214,7 +214,9 @@ describe('AvailableCardsView', () => {
 
 	it('passes onCardReloadClick to reloadable activable cards', async () => {
 		const cards: Card[] = [buildActivableCard('card-1', 'Fire Bolt', 'RELOAD')];
-		const characterCards: CharacterCard[] = [buildCharacterCard('card-1', { isActive: true })];
+		const characterCards: CharacterCard[] = [
+			buildCharacterCard('card-1', { isActive: true, uses: 0 }),
+		];
 
 		render(AvailableCardsView, {
 			props: {
@@ -227,9 +229,75 @@ describe('AvailableCardsView', () => {
 			},
 		});
 
-		const reloadButton = await screen.findByRole('button', { name: '🎲' });
+		const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
+		expect(reloadButton).not.toBeDisabled();
 		await fireEvent.click(reloadButton);
 
 		expect(onCardReloadClick).toHaveBeenCalledWith('card-1');
+	});
+
+	describe('inline roll context', () => {
+		it('FEAT-card-inline-dice @character-sheet — forwards the roll context to the Cartas Activas CardsList', () => {
+			const cards: Card[] = [
+				{ ...buildActivableCard('card-1', 'Fire Bolt'), description: 'Inflige 1d6 + Cuerpo' },
+			];
+			const characterCards: CharacterCard[] = [buildCharacterCard('card-1', { isActive: true })];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+					rollContext: { variables: { Cuerpo: 3 }, title: 'Hoja de cartas' },
+				},
+			});
+
+			expect(screen.getByRole('button', { name: '1d6 + Cuerpo 🎲' })).toBeInTheDocument();
+		});
+
+		it('FEAT-card-inline-dice @character-sheet — forwards the roll context to the Efectos Activos CardsList', () => {
+			const cards: Card[] = [
+				{ ...buildEffectCard('effect-1', 'Heal'), description: 'Recupera 1d8 de salud' },
+			];
+			const characterCards: CharacterCard[] = [buildCharacterCard('effect-1', { isActive: true })];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+					rollContext: { variables: {}, title: 'Hoja de cartas' },
+				},
+			});
+
+			expect(screen.getByRole('button', { name: '1d8 🎲' })).toBeInTheDocument();
+		});
+
+		it('FEAT-card-inline-dice @library — keeps cards read-only prose when no roll context is provided', () => {
+			const cards: Card[] = [
+				{ ...buildActivableCard('card-1', 'Fire Bolt'), description: 'Inflige 1d6 + Cuerpo' },
+			];
+			const characterCards: CharacterCard[] = [buildCharacterCard('card-1', { isActive: true })];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			expect(document.body).toHaveTextContent('Inflige 1d6 + Cuerpo');
+			expect(screen.queryByRole('button', { name: /🎲/ })).toBeNull();
+		});
 	});
 });

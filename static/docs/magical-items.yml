@@ -251,9 +251,10 @@ items:
       - 'Arma'
     requirements: null
     description: >-
-      Esta propiedad se puede aplicar a cualquier arma. El arma está imbuida y enriquecida
-      mágicamente para golpear con más certeza y hacer más daño. Obtienes un +1 a tus tiradas
-      de ataque y +1 al daño infligido con esta arma.
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br>
+      El arma ha sido reforzada mágicamente para responder con una precisión
+      sobrenatural a los movimientos de su portador. Obtienes +1 a tus tiradas
+      de ataque realizadas con esta arma.
     uses:
       type: NULL
       qty: 0
@@ -1084,6 +1085,155 @@ items:
       type: NULL
       qty: 0
 
+  - name: 'Arma Vigilante'
+    level: 2
+    cost: 450
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Iniciativa'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br>
+      El arma percibe el peligro antes que su portador. Mientras la lleves contigo
+      y puedas acceder a ella, obtienes Ventaja (+1d4) en tus tiradas de Iniciativa.
+      Además, si estás dormido naturalmente cuando comienza un combate, el arma
+      te despierta inmediatamente.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma Elemental'
+    level: 3
+    cost: 1200
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Daño'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma. Al crearla, se elige Fuego,
+      Frío o Eléctrico._<br><br>
+      El arma está imbuida permanentemente con la energía elemental elegida.
+      Cuando impactas con esta arma, puedes hacer que el daño del ataque sea del
+      elemento elegido en lugar de su tipo normal. Además, cuando impactas con esta
+      arma, puedes liberar una descarga de energía e infligir 1d6 de daño adicional
+      del elemento elegido.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Arma de Cacería'
+    level: 3
+    cost: 1000
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Daño'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma. Al crearla, se elige una
+      categoría de criatura apropiada, como Dragón, Gigante, No-Muerto, Infernal,
+      Aberración o Feérico._<br><br>
+      El arma fue creada específicamente para dar caza a esas criaturas. Una vez
+      por turno, cuando impactas con esta arma a una criatura de la categoría
+      elegida, infliges 1d6 de daño adicional del mismo tipo que el arma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma de Trayectoria Imposible'
+    level: 2
+    cost: 450
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Distancia'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma con la propiedad Rango
+      o Arrojadiza._<br><br>
+      Los proyectiles disparados o arrojados con esta arma alteran sutilmente
+      su trayectoria para encontrar huecos imposibles. Tus ataques realizados
+      con esta arma ignoran el beneficio de la Cobertura Parcial.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma del Estratega'
+    level: 3
+    cost: 1800
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Versatilidad'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br>
+      Como una Interacción durante tu turno, puedes adoptar una de las siguientes
+      posturas hasta el inicio de tu próximo turno. Solo puedes adoptar una postura
+      por turno:<br>
+      - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno,
+        infliges 1d4 de daño adicional del mismo tipo que el arma.<br>
+      - **Defensiva:** Mientras empuñes esta arma, obtienes +1 a tu Esquiva.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma Juramentada'
+    level: 4
+    cost: 3000
+    type: 'activable'
+    tags:
+      - 'Arma'
+      - 'Cacería'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br>
+      Como una Interacción, eliges una criatura que puedas ver y la declaras
+      presa juramentada del arma durante 1 minuto. Una vez por turno, el primer
+      ataque que realices con esta arma contra esa criatura obtiene Ventaja (+1d4).
+      Además, los ataques realizados con esta arma contra tu presa ignoran
+      Cobertura Parcial.
+    uses:
+      type: DAY
+      qty: 1
+
+  - name: 'Arma de Represalia'
+    level: 3
+    cost: 1400
+    type: 'activable'
+    tags:
+      - 'Arma'
+      - 'Reacción'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br>
+      Como Reacción cuando una criatura a distancia Inmediata falla un ataque
+      cuerpo a cuerpo contra ti, puedes realizar inmediatamente un único ataque
+      con esta arma contra esa criatura.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: 'Arma Umbral'
+    level: 3
+    cost: 1300
+    type: 'activable'
+    tags:
+      - 'Arma'
+      - 'Movimiento'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br>
+      Cuando impactas a una criatura con esta arma, puedes usar tu Interacción
+      para desvanecerte brevemente entre las sombras y aparecer en un espacio
+      desocupado que puedas ver a hasta 3 metros de tu posición actual.
+      Este desplazamiento no puede ser interceptado por Reacciones enemigas.
+    uses:
+      type: RELOAD
+      qty: 5
+
   - name: 'Arma del Retorno'
     level: 2
     cost: 350
@@ -1092,9 +1242,285 @@ items:
       - 'Arma'
     requirements: null
     description: >-
-      (Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza).
-      Después de realizar un ataque Arrojadizo con esta arma, esta vuela de regreso
-      a tu mano al final de tu turno, siempre que tengas una mano libre para recibirla.
+      _Esta propiedad se puede aplicar a cualquier arma con la propiedad Arrojadiza._<br><br>
+      Después de resolver un ataque Arrojadizo con esta arma, esta vuela
+      inmediatamente de regreso a tu mano, siempre que tengas una mano libre
+      para recibirla.
     uses:
       type: NULL
       qty: 0
+
+  - name: 'Arma del Hambre Profunda'
+    level: 2
+    cost: 550
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Salud'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br>
+      Una presencia oscura e insondable habita en el arma y se alimenta de las
+      criaturas que caen ante ella. Una vez por turno, cuando reduces a una
+      criatura hostil a 0 Puntos de Salud con esta arma, obtienes 1d6 Puntos
+      de Salud Temporal.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Arma del Falso Aspecto'
+    level: 1
+    cost: 200
+    type: 'efecto'
+    tags:
+      - 'Arma'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier arma._<br><br>
+      Al crearla, se elige la apariencia de un objeto mundano e inofensivo de
+      tamaño apropiado. Como una Interacción, puedes hacer que el arma adopte
+      esa apariencia o recupere su forma verdadera. Mientras está transformada,
+      parece y se comporta como el objeto elegido hasta que vuelva a adoptar
+      su forma de arma.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Armadura Inquebrantable'
+    level: 3
+    cost: 1100
+    type: 'efecto'
+    tags:
+      - 'Armadura'
+      - 'Defensa'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior._<br><br>
+      La estructura encantada de la armadura protege incluso sus puntos más vulnerables.
+      Cuando un ataque contra ti fuera a convertirse en un golpe crítico, se considera
+      un impacto normal en su lugar.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Armadura Silente'
+    level: 2
+    cost: 400
+    type: 'efecto'
+    tags:
+      - 'Armadura'
+      - 'Sigilo'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura que imponga una
+      Penalización a Sigilo._<br><br>
+      Los materiales de la armadura absorben mágicamente el sonido de sus placas,
+      anillas y correas. La Penalización a Sigilo de la armadura se reduce en 1,
+      hasta un mínimo de 0.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Armadura de las Mil Vestiduras'
+    level: 1
+    cost: 200
+    type: 'efecto'
+    tags:
+      - 'Armadura'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura._<br><br>
+      Como una Interacción, puedes hacer que la armadura adopte visualmente la
+      apariencia de cualquier conjunto de ropa que hayas visto. Puedes alterar su
+      color, corte, materiales aparentes y pequeños accesorios. Este efecto solo
+      modifica su apariencia: la armadura conserva su peso, volumen y propiedades
+      normales. Puedes recuperar su aspecto verdadero como una Interacción.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Armadura del Bastión'
+    level: 2
+    cost: 500
+    type: 'activable'
+    tags:
+      - 'Armadura'
+      - 'Defensa'
+      - 'Reacción'
+    requirements: Cuerpo 2
+    description: >-
+      _Esta propiedad se puede aplicar a cualquier armadura._<br><br>
+      Como Reacción cuando un efecto fuera a moverte contra tu voluntad o dejarte
+      Derribado, puedes hacer que la armadura se ancle mágicamente al terreno.
+      Ignoras ese movimiento forzado y no quedas Derribado por ese efecto.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Vara Inamovible'
+    level: 2
+    cost: 500
+    type: 'efecto'
+    tags:
+      - 'Herramienta'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Esta vara de hierro posee un pequeño botón en uno de sus extremos. Como una
+      Interacción, puedes presionarlo para fijar mágicamente la vara en el punto
+      exacto del espacio que ocupa, incluso si se encuentra suspendida en el aire.
+      Mientras está fijada, no se mueve y puede soportar hasta 1000 kg de peso.
+      Si se supera este límite, la vara se desactiva y vuelve a comportarse con
+      normalidad. Presionar nuevamente el botón es una Interacción y libera la vara.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Campanilla del Cerrajero'
+    level: 2
+    cost: 450
+    type: 'efecto'
+    tags:
+      - 'Herramienta'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Esta pequeña campanilla de plata produce un sonido limpio que hace vibrar
+      cerraduras y mecanismos. Como una Acción, puedes hacerla sonar apuntando
+      hacia una cerradura mundana a distancia Inmediata. La cerradura se abre
+      inmediatamente sin sufrir daño. No puede abrir cierres mágicos ni mecanismos
+      que no puedan abrirse normalmente mediante una llave o combinación.
+    uses:
+      type: DAY
+      qty: 3
+
+  - name: 'Farol del Revelador'
+    level: 3
+    cost: 1000
+    type: 'efecto'
+    tags:
+      - 'Visión'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Como una Interacción, puedes encender o apagar este farol de cristal azulado.
+      Mientras está encendido, emite luz brillante en un radio de 5 metros.
+      Las criaturas y objetos invisibles que se encuentren dentro de esta luz
+      pueden verse normalmente. El farol no permite detectar ilusiones, revelar
+      la verdadera forma de criaturas transformadas ni ver a través de oscuridad
+      mágica.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Frasco de la Noche Cautiva'
+    level: 3
+    cost: 900
+    type: 'activable'
+    tags:
+      - 'Utilidad'
+      - 'Oscuridad'
+    requirements: null
+    description: >-
+      Como una Acción, puedes destapar este frasco de vidrio negro y liberar
+      la oscuridad contenida en su interior. Durante 1 minuto, una esfera de
+      oscuridad mágica de 2 metros de radio rodea al frasco y se desplaza con él.
+      La oscuridad bloquea completamente la visión, incluida la Visión en la
+      Oscuridad.<br><br>
+      Puedes cerrar el frasco como una Interacción. Cuando lo haces, deja de
+      producir oscuridad y la que ya fue liberada desaparece al final de tu
+      próximo turno.
+    uses:
+      type: DAY
+      qty: 2
+
+  - name: 'Refugio del Caminante'
+    level: 2
+    cost: 400
+    type: 'efecto'
+    tags:
+      - 'Supervivencia'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Este pequeño paquete de tela encantada puede desplegarse sobre una superficie
+      adecuada mediante 1 minuto de preparación. Al hacerlo, se transforma en un
+      refugio resistente con espacio suficiente para alojar cómodamente hasta seis
+      criaturas Medianas y su equipo habitual. Su interior permanece seco y a una
+      temperatura confortable frente a condiciones climáticas normales.<br><br>
+      El refugio no protege contra peligros sobrenaturales, temperaturas extremas
+      extraordinarias ni ataques. Puedes dedicar 1 minuto a plegarlo nuevamente,
+      momento en el que recupera su reducido tamaño original.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Botas del Paso Imposible'
+    level: 3
+    cost: 1000
+    type: 'activable'
+    tags:
+      - 'Movimiento'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      Como una Interacción, puedes hacer que estas botas encuentren apoyo donde
+      no existe. Hasta el final de tu turno, puedes desplazarte hasta 3 metros
+      a través del aire como si caminaras sobre terreno firme. Debes terminar
+      este desplazamiento sobre una superficie estable capaz de sostener tu peso;
+      de lo contrario, caes.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Tinta del Fuego Secreto'
+    level: 1
+    cost: 100
+    type: 'efecto'
+    tags:
+      - 'Herramienta'
+      - 'Utilidad'
+    requirements: null
+    description: >-
+      La escritura realizada con esta tinta desaparece pocos segundos después
+      de secarse, volviéndose completamente invisible. Cuando el material sobre
+      el que fue escrita se aproxima a una fuente de calor, el texto reaparece
+      y permanece visible mientras se mantenga caliente. Un frasco contiene tinta
+      suficiente para una cantidad razonable de escritos.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Brújula de los Muros Huecos'
+    level: 1
+    cost: 200
+    type: 'efecto'
+    tags:
+      - 'Exploración'
+      - 'Herramienta'
+    requirements: null
+    description: >-
+      Mientras sostienes esta extraña brújula, su aguja comienza a girar lentamente
+      si existe una puerta, pasadizo o compartimento oculto a distancia Inmediata.
+      La brújula no revela su ubicación exacta, su naturaleza ni la forma de abrirlo.
+    uses:
+      type: NULL
+      qty: 0
+
+  - name: 'Anillo de Caída de Pluma'
+    level: 2
+    cost: 350
+    type: 'activable'
+    tags:
+      - 'Movimiento'
+      - 'Reacción'
+    requirements: null
+    description: >-
+      Como Reacción cuando comienzas a caer desde una altura que pudiera causarte
+      daño, puedes hacer que el anillo reduzca mágicamente la velocidad de tu caída.
+      Desciendes suavemente hasta una superficie segura y no sufres daño por esa caída.
+    uses:
+      type: DAY
+      qty: 1

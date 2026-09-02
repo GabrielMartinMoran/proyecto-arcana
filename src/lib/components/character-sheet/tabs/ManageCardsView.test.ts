@@ -297,4 +297,58 @@ describe('ManageCardsView', () => {
 		const buyButton = screen.getByRole('button', { name: /Comprar.*PP/ });
 		expect(buyButton).toBeDisabled();
 	});
+
+	describe('inline roll context', () => {
+		it('FEAT-card-inline-dice @character-sheet — forwards the roll context to the Colección Completa CardsList', () => {
+			const character = buildCharacter();
+			const cards: Card[] = [
+				{ ...buildCard('card-1', 'Fire Bolt'), description: 'Inflige 1d6 + Cuerpo' },
+			];
+			const characterCards: CharacterCard[] = [buildCharacterCard('card-1')];
+
+			render(ManageCardsView, {
+				props: {
+					cards,
+					characterCards,
+					readonly: true,
+					character,
+					onChange,
+					onEditCard,
+					onCorruptedCardsChange,
+					onAddAbilityClick,
+					onAddItemClick,
+					onBuyActiveSlot,
+					rollContext: { variables: { Cuerpo: 3 }, title: 'Hoja de cartas' },
+				},
+			});
+
+			expect(screen.getByRole('button', { name: '1d6 + Cuerpo 🎲' })).toBeInTheDocument();
+		});
+
+		it('FEAT-card-inline-dice @library — keeps collection cards read-only prose when no roll context is provided', () => {
+			const character = buildCharacter();
+			const cards: Card[] = [
+				{ ...buildCard('card-1', 'Fire Bolt'), description: 'Inflige 1d6 + Cuerpo' },
+			];
+			const characterCards: CharacterCard[] = [buildCharacterCard('card-1')];
+
+			render(ManageCardsView, {
+				props: {
+					cards,
+					characterCards,
+					readonly: true,
+					character,
+					onChange,
+					onEditCard,
+					onCorruptedCardsChange,
+					onAddAbilityClick,
+					onAddItemClick,
+					onBuyActiveSlot,
+				},
+			});
+
+			expect(document.body).toHaveTextContent('Inflige 1d6 + Cuerpo');
+			expect(screen.queryByRole('button', { name: /🎲/ })).toBeNull();
+		});
+	});
 });

@@ -50,6 +50,7 @@
 		"@types/js-yaml": "^4.0.9",
 		"@types/sha1": "^1.1.5",
 		"codejar": "^4.3.0",
+		"dompurify": "^3.4.14",
 		"firebase": "^12.3.0",
 		"js-sha1": "^0.7.0",
 		"js-yaml": "^4.1.0",

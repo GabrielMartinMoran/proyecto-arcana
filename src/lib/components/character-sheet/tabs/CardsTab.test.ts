@@ -90,6 +90,34 @@ vi.mock('$app/navigation', () => ({
 
 vi.mock('$lib/services/cards-service', async () => {
 	const { writable } = await import('svelte/store');
+	const { generateId } = await import('$lib/utils/id-generator');
+	hoisted.abilityCardsValue = [
+		...hoisted.abilityCardsValue,
+		{
+			id: generateId('Estudios Mágicos'),
+			name: 'Estudios Mágicos',
+			level: 1,
+			tags: ['arcanista'],
+			requirements: null,
+			description: 'Recupera 2d6 + Atributo Arcano',
+			uses: { type: 'USES', qty: 1 },
+			type: 'activable',
+			cardType: 'ability',
+			img: '',
+		},
+		{
+			id: generateId('Pacto Supremo'),
+			name: 'Pacto Supremo',
+			level: 1,
+			tags: ['arcanista'],
+			requirements: null,
+			description: 'Sellado por un pacto',
+			uses: { type: 'USES', qty: 1 },
+			type: 'activable',
+			cardType: 'ability',
+			img: '',
+		},
+	];
 	const abilityCards = writable(hoisted.abilityCardsValue);
 	const itemCards = writable(hoisted.itemCardsValue);
 
@@ -118,6 +146,7 @@ vi.mock('$lib/services/dialog-service.svelte', () => ({
 }));
 
 import { dialogService } from '$lib/services/dialog-service.svelte';
+import { generateId } from '$lib/utils/id-generator';
 import CardsTab from './CardsTab.svelte';
 
 const buildCharacter = (): Character =>
@@ -260,9 +289,10 @@ describe('CardsTab', () => {
 	});
 
 	describe('reload mechanics', () => {
-		it('marks the card as overcharged and preserves uses on a natural 1 reload', async () => {
+		it('marks the card as overcharged and preserves depleted uses on a natural 1 reload', async () => {
 			hoisted.rollExpression.mockResolvedValueOnce(1);
 			const character = buildCharacter();
+			character.cards[0].uses = 0;
 			const onChange = vi.fn();
 
 			render(CardsTab, {
@@ -273,21 +303,22 @@ describe('CardsTab', () => {
 				},
 			});
 
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
 			await fireEvent.click(reloadButton);
 
 			await waitFor(() => expect(onChange).toHaveBeenCalled());
 
 			expect(character.cards[0]).toMatchObject({
 				id: 'card-1',
-				uses: 2,
+				uses: 0,
 				isOvercharged: true,
 			});
 		});
 
-		it('keeps the existing reload success behavior for non-natural-1 results', async () => {
+		it('restores exactly one use on a successful reload from zero', async () => {
 			hoisted.rollExpression.mockResolvedValueOnce(3);
 			const character = buildCharacter();
+			character.cards[0].uses = 0;
 			const onChange = vi.fn();
 
 			render(CardsTab, {
@@ -298,19 +329,101 @@ describe('CardsTab', () => {
 				},
 			});
 
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
 			await fireEvent.click(reloadButton);
 
 			await waitFor(() => expect(onChange).toHaveBeenCalled());
 
 			expect(character.cards[0]).toMatchObject({
 				id: 'card-1',
-				uses: 3,
+				uses: 1,
 				isOvercharged: false,
 			});
 		});
 
-		it('disables reload button when card is at max uses', async () => {
+		it('FEAT-card-overcharge @reload @overcharge @checkbox — checks the overcharge checkbox immediately and replaces the card object immutably on a natural 1 reload', async () => {
+			hoisted.rollExpression.mockResolvedValueOnce(1);
+			const character = buildCharacter();
+			character.cards[0].uses = 0;
+			const originalCard = character.cards[0];
+			const onChange = vi.fn();
+
+			const { rerender } = render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
+			expect(reloadButton).not.toBeDisabled();
+			await fireEvent.click(reloadButton);
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			// The page owner updates its reactive character state with the
+			// refreshed character; the render happens through that boundary.
+			const updatedCharacter = onChange.mock.calls[0][0];
+			await rerender({
+				character: { ...updatedCharacter, cards: updatedCharacter.cards },
+				readonly: false,
+				onChange,
+			});
+
+			// The rendered overcharge checkbox is checked immediately after the roll.
+			const overloadToggle = screen.getByRole('checkbox');
+			await waitFor(() => expect(overloadToggle).toBeChecked());
+
+			// The persistence boundary receives a new card object, not the mutated original.
+			const updatedCards = updatedCharacter.cards;
+			expect(updatedCards[0]).not.toBe(originalCard);
+			expect(updatedCards[0]).toMatchObject({
+				id: 'card-1',
+				uses: 0,
+				isOvercharged: true,
+			});
+
+			// The original card object is left untouched (immutable replacement).
+			expect(originalCard.isOvercharged).toBe(false);
+			expect(character.cards[0]).not.toBe(originalCard);
+		});
+
+		it('FEAT-card-overcharge @reload @immutability — replaces the card object and increments uses immutably on a successful reload', async () => {
+			hoisted.rollExpression.mockResolvedValueOnce(3);
+			const character = buildCharacter();
+			character.cards[0].uses = 0;
+			const originalCard = character.cards[0];
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: {
+					character,
+					readonly: false,
+					onChange,
+				},
+			});
+
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
+			await fireEvent.click(reloadButton);
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updatedCards = onChange.mock.calls[0][0].cards;
+			expect(updatedCards[0]).not.toBe(originalCard);
+			expect(updatedCards[0]).toMatchObject({
+				id: 'card-1',
+				uses: 1,
+				isOvercharged: false,
+			});
+
+			// The original card object and its uses remain untouched.
+			expect(originalCard.uses).toBe(0);
+			expect(originalCard.isOvercharged).toBe(false);
+			expect(character.cards[0].uses).toBe(1);
+		});
+
+		it('hides the reload action when the card is at max uses', async () => {
 			const character = buildCharacter();
 			character.cards[0].uses = 1;
 			const onChange = vi.fn();
@@ -319,12 +432,16 @@ describe('CardsTab', () => {
 				props: { character, readonly: false, onChange },
 			});
 
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
-			expect(reloadButton).toBeDisabled();
+			// At max uses the card exposes the enabled ✨ Usar action and no reload.
+			const useButton = await screen.findByRole('button', { name: '✨ Usar' });
+			expect(useButton).toBeInTheDocument();
+			expect(useButton).not.toBeDisabled();
+			expect(screen.queryByRole('button', { name: '🎲 Recargar' })).not.toBeInTheDocument();
 		});
 
 		it('disables reload button when card is overcharged', async () => {
 			const character = buildCharacter();
+			character.cards[0].uses = 0;
 			character.cards[0].isOvercharged = true;
 			const onChange = vi.fn();
 
@@ -332,7 +449,7 @@ describe('CardsTab', () => {
 				props: { character, readonly: false, onChange },
 			});
 
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
 			expect(reloadButton).toBeDisabled();
 		});
 
@@ -346,10 +463,12 @@ describe('CardsTab', () => {
 				props: { character, readonly: false, onChange },
 			});
 
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
 			await fireEvent.click(reloadButton);
 
-			await new Promise((r) => setTimeout(r, 100));
+			// Flush the resolved roll promise deterministically.
+			await Promise.resolve();
+			await Promise.resolve();
 			expect(onChange).not.toHaveBeenCalled();
 			expect(character.cards[0].uses).toBe(0);
 			expect(character.cards[0].isOvercharged).toBe(false);
@@ -364,13 +483,13 @@ describe('CardsTab', () => {
 				props: { character, readonly: false, onChange },
 			});
 
-			const reloadButton = await screen.findByRole('button', { name: '🎲' });
+			const reloadButton = await screen.findByRole('button', { name: '🎲 Recargar' });
 			expect(reloadButton).not.toBeDisabled();
 		});
 	});
 
 	describe('card activation and deactivation', () => {
-		it('deactivates an active card when Deactivate button is clicked', async () => {
+		it('intentionally omits the Deactivate control from active cards', async () => {
 			const character = buildCharacter();
 			const onChange = vi.fn();
 
@@ -378,15 +497,10 @@ describe('CardsTab', () => {
 				props: { character, readonly: false, onChange },
 			});
 
-			const deactivateButtons = await screen.findAllByRole('button', { name: 'Desactivar' });
-			expect(deactivateButtons.length).toBeGreaterThan(0);
-			await fireEvent.click(deactivateButtons[0]);
-
-			await waitFor(() => expect(onChange).toHaveBeenCalled());
-
-			const updatedCards = onChange.mock.calls[0][0].cards;
-			const card = updatedCards.find((c: { id: string }) => c.id === 'card-1');
-			expect(card.isActive).toBe(false);
+			// The active card list renders no Desactivar control; deactivation
+			// is available from the collection flow (covered in CardsList).
+			expect(await screen.findByRole('button', { name: '✨ Usar' })).toBeInTheDocument();
+			expect(screen.queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
 		});
 
 		it('does not show deactivate button in readonly mode', () => {
@@ -832,6 +946,158 @@ describe('CardsTab', () => {
 			const updatedCharacter = onChange.mock.calls[0][0];
 			expect(updatedCharacter.customCards).toHaveLength(0);
 			expect(updatedCharacter.cards.some((c: { id: string }) => c.id === 'custom-abc')).toBe(false);
+		});
+	});
+
+	describe('inline roll context', () => {
+		const estudiosMagicosId = generateId('Estudios Mágicos');
+		const pactoSupremoId = generateId('Pacto Supremo');
+
+		const withArcaneArchetypes = (character: Character): Character => {
+			character.attributes = { body: 2, reflexes: 2, mind: 3, instinct: 2, presence: 5 };
+			character.cards.push(
+				{
+					id: estudiosMagicosId,
+					uses: 1,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: pactoSupremoId,
+					uses: 1,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+			);
+			return character;
+		};
+
+		it('FEAT-card-inline-dice @character-sheet @title — resolves the arcane alias from possessed canonical cards and rolls with the character-prefixed card title', async () => {
+			hoisted.rollExpression.mockClear();
+			const character = withArcaneArchetypes(buildCharacter());
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const button = await screen.findByRole('button', { name: '2d6 + Atributo Arcano 🎲' });
+			await fireEvent.click(button);
+
+			expect(hoisted.rollExpression).toHaveBeenCalledWith({
+				expression: '2d6+AtributoArcano',
+				variables: expect.objectContaining({
+					Mente: 3,
+					Presencia: 5,
+					AtributoArcano: 5,
+				}),
+				title: 'Ayla: Estudios Mágicos',
+			});
+		});
+
+		it('FEAT-card-inline-dice @character-sheet — reuses the highest candidate when attribute values change', async () => {
+			hoisted.rollExpression.mockClear();
+			const character = withArcaneArchetypes(buildCharacter());
+			const onChange = vi.fn();
+
+			const { rerender } = render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const firstButton = await screen.findByRole('button', { name: '2d6 + Atributo Arcano 🎲' });
+			await fireEvent.click(firstButton);
+			expect(hoisted.rollExpression).toHaveBeenCalledWith(
+				expect.objectContaining({
+					variables: expect.objectContaining({ AtributoArcano: 5 }),
+				}),
+			);
+
+			await rerender({
+				character: {
+					...character,
+					attributes: { body: 2, reflexes: 2, mind: 6, instinct: 2, presence: 2 },
+				} as unknown as Character,
+				readonly: false,
+				onChange,
+			});
+
+			const secondButton = await screen.findByRole('button', { name: '2d6 + Atributo Arcano 🎲' });
+			await fireEvent.click(secondButton);
+			expect(hoisted.rollExpression).toHaveBeenLastCalledWith(
+				expect.objectContaining({
+					variables: expect.objectContaining({ AtributoArcano: 6, Mente: 6 }),
+				}),
+			);
+		});
+
+		it('FEAT-card-inline-dice @preview — keeps add-card modal previews read-only while the sheet uses the context', async () => {
+			setViewParam('manage');
+			const character = buildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const addAbilityButton = screen.getByRole('button', { name: 'Agregar Carta de Habilidad' });
+			await fireEvent.click(addAbilityButton);
+
+			await waitFor(() => {
+				expect(screen.getByText('Estudios Mágicos')).toBeInTheDocument();
+			});
+			expect(
+				screen.queryByRole('button', { name: '2d6 + Atributo Arcano 🎲' }),
+			).not.toBeInTheDocument();
+		});
+
+		it('FEAT-card-inline-dice @preview — keeps the custom-card editor preview read-only while the collection uses the context', async () => {
+			setViewParam('manage');
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Sacudida',
+					level: 1,
+					tags: ['arcanista'],
+					requirements: null,
+					description: 'Recupera 2d6 + Cuerpo',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards.push({
+				id: 'custom-abc',
+				uses: null,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			const editButtons = await screen.findAllByRole('button', { name: 'Editar' });
+			await fireEvent.click(editButtons[0]);
+
+			// Wait for the editor preview to parse the YAML and render the card preview.
+			await waitFor(
+				() => {
+					expect(screen.getAllByText('Sacudida').length).toBeGreaterThanOrEqual(2);
+				},
+				{ timeout: 2000 },
+			);
+
+			// The sheet collection renders with the context; the editor preview must not.
+			expect(screen.getAllByRole('button', { name: '2d6 + Cuerpo 🎲' })).toHaveLength(1);
 		});
 	});
 });

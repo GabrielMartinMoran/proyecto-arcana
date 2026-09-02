@@ -2,6 +2,7 @@
 	import CardsList from '$lib/components/cards/CardsList.svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import type { Card } from '$lib/types/cards/card';
+	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { CharacterCard } from '$lib/types/character';
 
 	type Props = {
@@ -11,10 +12,18 @@
 		readonly: boolean;
 		onChange: (characterCards: CharacterCard[]) => void;
 		onCardReloadClick: (cardId: string) => void;
+		rollContext?: CardRollContext;
 	};
 
-	let { cards, characterCards, maxActiveCards, readonly, onChange, onCardReloadClick }: Props =
-		$props();
+	let {
+		cards,
+		characterCards,
+		maxActiveCards,
+		readonly,
+		onChange,
+		onCardReloadClick,
+		rollContext = undefined,
+	}: Props = $props();
 
 	// Filter active + activable cards for the Cartas Activas section
 	let activeActivableCards = $derived(
@@ -38,6 +47,7 @@
 			listMode="active"
 			{onChange}
 			{onCardReloadClick}
+			{rollContext}
 		/>
 	{:else}
 		<p class="empty-message">
@@ -55,6 +65,7 @@
 			listMode="active"
 			onChange={() => {}}
 			onCardReloadClick={() => {}}
+			{rollContext}
 		/>
 	{:else}
 		<p class="empty-message">No tienes cartas de efecto en tu colección.</p>

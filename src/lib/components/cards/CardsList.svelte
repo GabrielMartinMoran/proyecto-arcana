@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Card as CardType } from '$lib/types/cards/card';
+	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { CharacterCard } from '$lib/types/character';
 	import { CONFIG } from '../../../config';
@@ -18,6 +19,8 @@
 		currentPP?: number;
 		currentGold?: number;
 		onPurchaseCard?: (card: CardType) => void;
+		// Sheet-only optional roll context; absent keeps cards read-only prose
+		rollContext?: CardRollContext;
 	};
 
 	let {
@@ -31,6 +34,7 @@
 		currentPP = 0,
 		currentGold = 0,
 		onPurchaseCard = () => {},
+		rollContext = undefined,
 	}: Props = $props();
 
 	let characterCards = $derived(initialCharacterCards);
@@ -124,27 +128,82 @@
 		const found = characterCards.find((x) => x.id === card.id);
 		return found ? found.isActive : false;
 	};
+
+	// Composes the roll source title for a sheet-rendered card. The context
+	// carries the character name; blank sources fall back to the card name.
+	const composeCardRollTitle = (sourceName: string, cardName: string): string => {
+		const characterName = sourceName.trim();
+		if (!characterName) return cardName;
+		return `${characterName}: ${cardName}`;
+	};
+
+	// Composes the attack title for explosive card formulas following the
+	// weapon convention `<Character>: Ataque con <Card>`. Blank sources fall
+	// back to `Ataque con <Card>`.
+	const composeCardAttackTitle = (sourceName: string, cardName: string): string => {
+		const characterName = sourceName.trim();
+		if (!characterName) return `Ataque con ${cardName}`;
+		return `${characterName}: Ataque con ${cardName}`;
+	};
+
+	const hasRemainingCardUses = (card: CardType) => {
+		const currentUses = getCurrentUses(card.id);
+		const totalUses = getCardTotalUses(card);
+		if (totalUses === null) return true; // Unlimited uses
+		return (currentUses ?? 0) > 0;
+	};
+
+	const canReloadCard = (card: CardType) => {
+		const characterCard = characterCards.find((cc) => cc.id === card.id);
+		if (!characterCard || characterCard?.isOvercharged) return false; // Cannot reload if overcharged
+		const currentUses = getCurrentUses(card.id);
+		const totalUses = getCardTotalUses(card);
+		if (totalUses === null) return false; // Unlimited uses, cannot reload
+		return (currentUses ?? 0) < totalUses;
+	};
+
+	const useCard = (cardId: string) => {
+		const card = cards.find((c) => c.id === cardId);
+		if (!card) return;
+
+		const currentUses = getCurrentUses(cardId);
+		const totalUses = getCardTotalUses(card);
+
+		if (currentUses === null) {
+			// Unlimited uses, no need to decrease
+			return;
+		}
+
+		if (totalUses !== null && currentUses <= 0) {
+			// No remaining uses
+			return;
+		}
+
+		// Decrease the current uses by 1
+		updateCardCurrentUses(cardId, currentUses - 1);
+	};
 </script>
 
 <div class="cards">
 	{#each cards as card (card.id)}
 		{@const characterCard = characterCards.find((cc) => cc.id === card.id)}
 		{@const isCustom = card.id.startsWith('custom-')}
-		<Card {card} isOvercharged={characterCard?.isOvercharged ?? false} {isCustom}>
+		<Card
+			{card}
+			isOvercharged={listMode==='active' && (characterCard?.isOvercharged ?? false)}
+			isExhausted={listMode==='active' && !hasRemainingCardUses(card)}
+			{isCustom}
+			rollContext={rollContext
+				? {
+						...rollContext,
+						title: composeCardRollTitle(rollContext.title, card.name),
+						attackTitle: composeCardAttackTitle(rollContext.title, card.name),
+					}
+				: undefined}
+		>
 			{#if !readonly}
 				{#if listMode === 'active'}
 					<div class="active-controls">
-						{#if getCardTotalUses(card) !== null}
-							<ReloadControl
-								value={getCurrentUses(card.id)!}
-								max={getCardTotalUses(card)!}
-								onValueChange={(value) => updateCardCurrentUses(card.id, value)}
-								onReload={() => onCardReloadClick(card.id)}
-								reloadDisabled={getCurrentUses(card.id) === getCardTotalUses(card) ||
-									(characterCard?.isOvercharged ?? false)}
-								reloadButtonHiden={!isReloadableCard(card)}
-							/>
-						{/if}
 						{#if card.type === 'activable' && card.uses.type === 'RELOAD'}
 							<label
 								class="overload-checkbox boxed-control button-height-rhythm"
@@ -159,10 +218,34 @@
 								<span class="label-text">Sob</span>
 							</label>
 						{/if}
+						{#if getCardTotalUses(card) !== null}
+							<ReloadControl
+								value={getCurrentUses(card.id)!}
+								max={getCardTotalUses(card)!}
+								onValueChange={(value) => updateCardCurrentUses(card.id, value)}
+								onReload={() => onCardReloadClick(card.id)}
+								reloadDisabled={!canReloadCard(card)}
+								reloadButtonHiden={true}
+							/>
+							{#if isReloadableCard(card) && !hasRemainingCardUses(card)}
+								<button
+									class="btn-reload-card"
+									onclick={() => onCardReloadClick(card.id)}
+									disabled={characterCard?.isOvercharged}>🎲 Recargar</button
+								>
+							{:else}
+								<button
+									class="btn-use-card"
+									onclick={() => useCard(card.id)}
+									disabled={characterCard?.isOvercharged || !hasRemainingCardUses(card)}
+									>✨ Usar</button
+								>
+							{/if}
+						{/if}
 					</div>
-					<div class="card-actions one active-one">
+					<!-- <div class="card-actions one active-one">
 						<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
-					</div>
+					</div> -->
 				{:else if listMode === 'collection'}
 					{@const showEdit = isCustom}
 					{@const showActivate = card.type === 'activable'}
@@ -272,10 +355,27 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: space-between;
 			flex-grow: 1;
 			padding-top: var(--spacing-sm);
 			gap: var(--spacing-sm);
+		}
+
+		.btn-use-card,
+		.btn-reload-card {
+			width: 5.5rem;
+
+			&:disabled {
+				opacity: 0.6;
+				cursor: not-allowed;
+			}
+		}
+
+		.btn-reload-card {
+			padding-left: 0.01rem;
+			padding-right: 0.05rem;
+			font-size: 0.9rem;
+			height: 2.375rem;
 		}
 
 		.btn-add {

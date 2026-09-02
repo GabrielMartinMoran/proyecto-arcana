@@ -1,6 +1,17 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/svelte';
 import { tick } from 'svelte';
+
+const rollContextMocks = vi.hoisted(() => ({
+	rollExpression: vi.fn(),
+}));
+
+vi.mock('$lib/services/dice-roller-service', () => ({
+	useDiceRollerService: () => ({
+		rollExpression: rollContextMocks.rollExpression,
+	}),
+}));
+
 import CardsList from './CardsList.svelte';
 import type { AbilityCard } from '$lib/types/cards/ability-card';
 import type { ItemCard } from '$lib/types/cards/item-card';
@@ -160,7 +171,7 @@ const mockEfectoUsesCard: AbilityCard = {
 
 describe('CardsList', () => {
 	describe('render', () => {
-		it('keeps reload control as the first active sibling with local button-rhythm styling', () => {
+		it('keeps reload control and the action button after the overload toggle in the active controls row', () => {
 			const { container } = render(CardsList, {
 				props: {
 					cards: [mockCards[0]],
@@ -173,14 +184,17 @@ describe('CardsList', () => {
 			const reloadControl = container.querySelector('.reload-control');
 			const activeControls = container.querySelector('.active-controls');
 			const overloadToggle = activeControls?.querySelector('.overload-checkbox');
+			const actionButton = container.querySelector('.btn-use-card, .btn-reload-card');
 			expect(reloadControl).toBeInTheDocument();
 			expect(reloadControl).toHaveClass('button-height-rhythm');
-			expect(activeControls?.firstElementChild).toBe(reloadControl);
-			expect(reloadControl?.nextElementSibling).toBe(overloadToggle);
+			// Current order inside .active-controls: overload toggle, reload control, action button.
+			expect(activeControls?.firstElementChild).toBe(overloadToggle);
+			expect(overloadToggle?.nextElementSibling).toBe(reloadControl);
+			expect(reloadControl?.nextElementSibling).toBe(actionButton);
 		});
 
-		it('renders ReloadControl for active reloadable cards', () => {
-			render(CardsList, {
+		it('renders ReloadControl and the current use action for active reloadable cards', () => {
+			const { container } = render(CardsList, {
 				props: {
 					cards: mockCards,
 					characterCards: mockCharacterCards,
@@ -188,12 +202,13 @@ describe('CardsList', () => {
 					readonly: false,
 				},
 			});
-			// card-1 is reloadable and active, should show ReloadControl
-			const diceButtons = screen.getAllByRole('button', { name: '🎲' });
-			expect(diceButtons.length).toBeGreaterThan(0);
+			// Both cards are active with uses remaining: each renders a
+			// ReloadControl plus the ✨ Usar action.
+			expect(container.querySelectorAll('.reload-control')).toHaveLength(2);
+			expect(screen.getAllByRole('button', { name: '✨ Usar' })).toHaveLength(2);
 		});
 
-		it('renders overload toggle on same row as reload for activable cards', () => {
+		it('renders overload toggle on same row as the use action for activable cards', () => {
 			const { container } = render(CardsList, {
 				props: {
 					cards: [mockCards[0]],
@@ -202,11 +217,11 @@ describe('CardsList', () => {
 					readonly: false,
 				},
 			});
-			// Should have both dice button and overload toggle
-			const diceButton = screen.getByRole('button', { name: '🎲' });
+			// Should have both ✨ Usar action and overload toggle
+			const actionButton = screen.getByRole('button', { name: '✨ Usar' });
 			const overloadToggle = screen.getByRole('checkbox');
 			const boxedToggle = overloadToggle.closest('label');
-			expect(diceButton).toBeInTheDocument();
+			expect(actionButton).toBeInTheDocument();
 			expect(overloadToggle).toBeInTheDocument();
 			expect(boxedToggle).toHaveClass('overload-checkbox');
 			expect(boxedToggle).toHaveClass('boxed-control');
@@ -217,12 +232,11 @@ describe('CardsList', () => {
 			// Reload and overload live in .active-controls; action buttons live in .controls
 			expect(boxedToggle?.closest('.active-controls')).not.toBeNull();
 			expect(container.querySelector('.active-controls > .spacer')).toBeNull();
-			const deactivateButton = screen.getByRole('button', { name: 'Desactivar' });
-			expect(deactivateButton).toBeInTheDocument();
-			expect(deactivateButton.closest('.card-actions')).not.toBeNull();
+			// Deactivation is intentionally absent from the active card list.
+			expect(screen.queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
 		});
 
-		it('does not render ReloadControl for non-reloadable cards', () => {
+		it('does not offer the reload action for non-reloadable cards', () => {
 			render(CardsList, {
 				props: {
 					cards: [mockCards[1]],
@@ -231,8 +245,9 @@ describe('CardsList', () => {
 					readonly: false,
 				},
 			});
-			const diceButton = screen.queryByRole('button', { name: /tirar para recargar/i });
-			expect(diceButton).toBeNull();
+			// Non-reloadable cards show ✨ Usar and never the 🎲 Recargar action.
+			expect(screen.queryByRole('button', { name: '🎲 Recargar' })).toBeNull();
+			expect(screen.getByRole('button', { name: '✨ Usar' })).toBeInTheDocument();
 		});
 
 		it('renders overcharge toggle for activable + RELOAD card', () => {
@@ -350,6 +365,29 @@ describe('CardsList', () => {
 		});
 	});
 
+	describe('card activation and deactivation', () => {
+		it('offers Desactivar in collection mode for an active activable card and deactivates it', async () => {
+			const onChange = vi.fn();
+			render(CardsList, {
+				props: {
+					cards: [mockCards[0]],
+					characterCards: [{ ...mockCharacterCards[0], isActive: true }],
+					listMode: 'collection',
+					readonly: false,
+					onChange,
+				},
+			});
+
+			const deactivateButton = screen.getByRole('button', { name: 'Desactivar' });
+			expect(deactivateButton).toBeInTheDocument();
+			await fireEvent.click(deactivateButton);
+
+			expect(onChange).toHaveBeenCalledWith([
+				expect.objectContaining({ id: 'card-1', isActive: false }),
+			]);
+		});
+	});
+
 	describe('overcharge state', () => {
 		it('keeps native checkbox behavior and reports the updated overcharge state', async () => {
 			const onChange = vi.fn();
@@ -377,21 +415,24 @@ describe('CardsList', () => {
 			render(CardsList, {
 				props: {
 					cards: [mockCards[0]],
-					characterCards: [mockCharacterCards[0]],
+					characterCards: [{ ...mockCharacterCards[0], uses: 0 }],
 					listMode: 'active',
 					readonly: false,
 					onCardReloadClick,
 				},
 			});
 
-			await fireEvent.click(screen.getByRole('button', { name: '🎲' }));
+			const reloadButton = screen.getByRole('button', { name: '🎲 Recargar' });
+			expect(reloadButton).not.toBeDisabled();
+			await fireEvent.click(reloadButton);
 			expect(onCardReloadClick).toHaveBeenCalledWith('card-1');
 		});
 
-		it('disables reload button when card is overcharged', async () => {
+		it('disables reload button when card is overcharged', () => {
 			const overchargedCards: CharacterCard[] = [
 				{
 					...mockCharacterCards[0],
+					uses: 0,
 					isOvercharged: true,
 				},
 			];
@@ -403,8 +444,8 @@ describe('CardsList', () => {
 					readonly: false,
 				},
 			});
-			const diceButton = screen.getByRole('button', { name: '🎲' });
-			expect(diceButton).toBeDisabled();
+			const reloadButton = screen.getByRole('button', { name: '🎲 Recargar' });
+			expect(reloadButton).toBeDisabled();
 		});
 
 		it('reports edited uses through CardsList and keeps reload callback wiring intact after parent update', async () => {
@@ -421,7 +462,7 @@ describe('CardsList', () => {
 				},
 			});
 
-			const reloadBtn = screen.getByRole('button', { name: '🎲' });
+			const reloadBtn = screen.getByRole('button', { name: '🎲 Recargar' });
 			expect(reloadBtn).not.toBeDisabled();
 			await fireEvent.click(reloadBtn);
 			expect(onCardReloadClick).toHaveBeenCalledWith('card-1');
@@ -433,7 +474,7 @@ describe('CardsList', () => {
 			const { rerender } = render(CardsList, {
 				props: {
 					cards: [mockCards[0]],
-					characterCards: [mockCharacterCards[0]],
+					characterCards: [{ ...mockCharacterCards[0], uses: 0 }],
 					listMode: 'active',
 					readonly: false,
 					onChange,
@@ -442,7 +483,7 @@ describe('CardsList', () => {
 			});
 
 			// Initially reload should be enabled
-			expect(screen.getByRole('button', { name: '🎲' })).not.toBeDisabled();
+			expect(screen.getByRole('button', { name: '🎲 Recargar' })).not.toBeDisabled();
 
 			// Toggle overcharge ON
 			const overloadToggle = screen.getByRole('checkbox');
@@ -465,10 +506,13 @@ describe('CardsList', () => {
 			});
 
 			// Reload should now be disabled
-			expect(screen.getByRole('button', { name: '🎲' })).toBeDisabled();
+			const overchargedReloadButton = screen.getByRole('button', { name: '🎲 Recargar' });
+			expect(overchargedReloadButton).toBeDisabled();
 
-			// Click reload - callback should NOT fire (button is disabled)
-			await fireEvent.click(screen.getByRole('button', { name: '🎲' }));
+			// A real user click cannot reach a disabled button; use the native
+			// click() because fireEvent dispatches a synthetic event that
+			// bypasses the disabled semantics of the button.
+			overchargedReloadButton.click();
 			expect(onCardReloadClick).not.toHaveBeenCalled();
 
 			// Toggle overcharge OFF
@@ -491,10 +535,10 @@ describe('CardsList', () => {
 			});
 
 			// Reload should be re-enabled
-			expect(screen.getByRole('button', { name: '🎲' })).not.toBeDisabled();
+			expect(screen.getByRole('button', { name: '🎲 Recargar' })).not.toBeDisabled();
 
 			// Click reload - callback should fire again
-			await fireEvent.click(screen.getByRole('button', { name: '🎲' }));
+			await fireEvent.click(screen.getByRole('button', { name: '🎲 Recargar' }));
 			expect(onCardReloadClick).toHaveBeenCalledWith('card-1');
 		});
 	});
@@ -790,7 +834,7 @@ describe('CardsList', () => {
 				expect(controls).not.toHaveClass('two');
 			});
 
-			it('applies flex-end for 1 action button in active mode', () => {
+			it('renders the active card controls in the dedicated .active-controls container', () => {
 				const { container } = render(CardsList, {
 					props: {
 						cards: [mockCards[0]],
@@ -800,11 +844,12 @@ describe('CardsList', () => {
 					},
 				});
 
-				const controls = container.querySelector('.card-actions');
-				expect(controls).toHaveClass('one');
-				expect(controls).toHaveClass('active-one');
-				expect(controls).not.toHaveClass('two');
-				expect(controls).not.toHaveClass('three');
+				// Active mode renders one controls row (.active-controls); the
+				// collection .card-actions fallback is not present in active mode.
+				const controls = container.querySelector('.active-controls');
+				expect(controls).toBeInTheDocument();
+				expect(container.querySelector('.card-actions')).toBeNull();
+				expect(controls?.querySelector('.btn-use-card')).toBeInTheDocument();
 			});
 		});
 	});
@@ -881,6 +926,140 @@ describe('CardsList', () => {
 			const purchaseButton = screen.getByRole('button', { name: /Comprar.*5.*PP/ });
 			expect(purchaseButton).toBeInTheDocument();
 			expect(purchaseButton).toBeDisabled();
+		});
+	});
+
+	describe('inline roll context', () => {
+		const formulaCards: AbilityCard[] = [
+			{
+				...mockCards[0],
+				name: 'Fire Bolt',
+				description: 'Inflige 2d6 de daño',
+			},
+			{
+				...mockCards[1],
+				name: 'Shield',
+				description: 'Recupera 1d4 + Cuerpo',
+			},
+		];
+
+		const explosiveFormulaCard: AbilityCard = {
+			...mockCards[0],
+			name: 'Descarga Sobrenatural',
+			description:
+				'Realizas un ataque de conjuro (1d8e + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño.',
+		};
+
+		beforeEach(() => {
+			rollContextMocks.rollExpression.mockClear();
+		});
+
+		it('FEAT-card-inline-dice @character-sheet — renders formula buttons when a roll context is provided', () => {
+			render(CardsList, {
+				props: {
+					cards: [formulaCards[0]],
+					readonly: true,
+					rollContext: { variables: { Cuerpo: 3 }, title: 'Ayla' },
+				},
+			});
+
+			expect(screen.getByRole('button', { name: '2d6 🎲' })).toBeInTheDocument();
+			expect(document.body).toHaveTextContent('Inflige');
+		});
+
+		it('FEAT-card-inline-dice @character-sheet @title — prefixes each card name with the character source title when a context is provided', async () => {
+			render(CardsList, {
+				props: {
+					cards: formulaCards,
+					readonly: true,
+					rollContext: { variables: { Cuerpo: 3 }, title: 'Ayla' },
+				},
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: '2d6 🎲' }));
+			expect(rollContextMocks.rollExpression).toHaveBeenCalledWith({
+				expression: '2d6',
+				variables: { Cuerpo: 3 },
+				title: 'Ayla: Fire Bolt',
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: '1d4 + Cuerpo 🎲' }));
+			expect(rollContextMocks.rollExpression).toHaveBeenCalledWith({
+				expression: '1d4+Cuerpo',
+				variables: { Cuerpo: 3 },
+				title: 'Ayla: Shield',
+			});
+		});
+
+		it('FEAT-card-inline-dice @title @fallback — falls back to the card name when the source title is blank', async () => {
+			render(CardsList, {
+				props: {
+					cards: [formulaCards[0]],
+					readonly: true,
+					rollContext: { variables: { Cuerpo: 3 }, title: '   ' },
+				},
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: '2d6 🎲' }));
+			expect(rollContextMocks.rollExpression).toHaveBeenCalledWith({
+				expression: '2d6',
+				variables: { Cuerpo: 3 },
+				title: 'Fire Bolt',
+			});
+		});
+
+		it('FEAT-card-inline-dice @explosive @title — rolls the explosive attack with the Ataque con title and keeps the plain damage title', async () => {
+			render(CardsList, {
+				props: {
+					cards: [explosiveFormulaCard],
+					readonly: true,
+					rollContext: { variables: { Presencia: 5 }, title: 'Ayla' },
+				},
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: '1d8💥 + Presencia 🎲' }));
+			expect(rollContextMocks.rollExpression).toHaveBeenCalledWith({
+				expression: '1d8e+Presencia',
+				variables: { Presencia: 5 },
+				title: 'Ayla: Ataque con Descarga Sobrenatural',
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: '1d8 🎲' }));
+			expect(rollContextMocks.rollExpression).toHaveBeenCalledWith({
+				expression: '1d8',
+				variables: { Presencia: 5 },
+				title: 'Ayla: Descarga Sobrenatural',
+			});
+		});
+
+		it('FEAT-card-inline-dice @title @fallback — falls back to Ataque con plus the card name for explosive formulas with a blank source', async () => {
+			render(CardsList, {
+				props: {
+					cards: [explosiveFormulaCard],
+					readonly: true,
+					rollContext: { variables: { Presencia: 5 }, title: '   ' },
+				},
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: '1d8💥 + Presencia 🎲' }));
+			expect(rollContextMocks.rollExpression).toHaveBeenCalledWith({
+				expression: '1d8e+Presencia',
+				variables: { Presencia: 5 },
+				title: 'Ataque con Descarga Sobrenatural',
+			});
+		});
+
+		it('FEAT-card-inline-dice @library — keeps every card read-only when no roll context is provided', () => {
+			render(CardsList, {
+				props: {
+					cards: formulaCards,
+					readonly: true,
+				},
+			});
+
+			expect(document.body).toHaveTextContent('Inflige 2d6 de daño');
+			expect(document.body).toHaveTextContent('Recupera 1d4 + Cuerpo');
+			expect(screen.queryByRole('button', { name: /🎲/ })).toBeNull();
 		});
 	});
 });

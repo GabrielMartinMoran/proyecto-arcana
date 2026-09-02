@@ -23,29 +23,29 @@ Feature: Card Activation and Reload
     And the reload button shows the current uses state
 
   @cards @activation @reload
-  Scenario: Reload card resets uses to max
-    Given the user has an active card "Fire Bolt" with 2 uses remaining
-    And the maximum uses for "Fire Bolt" is 3
-    When the user clicks the reload button (🎲)
-    And the dice roll result is greater than or equal to the card's max uses
-    Then the card "Fire Bolt" uses are reset to 3
+  Scenario: Reload a depleted card restores one use
+    Given the user has an active card "Fire Bolt" with 0 uses remaining
+    And the reload threshold for "Fire Bolt" is 3
+    When the user clicks "🎲 Recargar"
+    And the dice roll result is greater than or equal to the card's reload threshold
+    Then the card "Fire Bolt" has 1 use remaining
     And the card is no longer in overcharge state
 
   @cards @activation @overcharge
   Scenario: Card enters overcharge state when uses exceed max
-    Given the user has an active card "Fire Bolt" with 3 uses
-    When the user clicks the reload button (🎲)
+    Given the user has an active card "Fire Bolt" with 0 uses
+    When the user clicks "🎲 Recargar"
     And the dice roll result is a natural 1 (critical failure)
     Then the card "Fire Bolt" enters overcharge state
-    And the card's uses are preserved at 3
-    And the reload button is disabled
+    And the card's uses are preserved at 0
+    And the "🎲 Recargar" button is disabled
     And the overcharge indicator (⚡) is shown on the card
+    And the overcharge checkbox is checked
 
   @cards @activation @auto-reload-disabled
-  Scenario: Reload button disabled when at max uses
-    Given the user has an active card "Fire Bolt" with 3 uses
-    And the maximum uses for "Fire Bolt" is 3
-    When the card reaches maximum uses
-    Then the reload button is disabled
-    And clicking the reload button has no effect
+  Scenario: Recargar is shown only when the card has no uses
+    Given the user has an active card "Fire Bolt" with 1 use remaining
+    When the card is displayed
+    Then the "✨ Usar" button is shown
+    And the "🎲 Recargar" button is not shown
     And the user cannot trigger a reload roll

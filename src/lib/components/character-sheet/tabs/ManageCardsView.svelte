@@ -3,6 +3,7 @@
 	import Container from '$lib/components/ui/Container.svelte';
 	import InputField from '$lib/components/ui/InputField.svelte';
 	import type { Card } from '$lib/types/cards/card';
+	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { Character, CharacterCard } from '$lib/types/character';
 	import { CONFIG } from '../../../../config';
 
@@ -18,6 +19,7 @@
 		onAddItemClick: () => void;
 		onBuyActiveSlot: () => void;
 		corruptedCards?: CharacterCard[];
+		rollContext?: CardRollContext;
 	};
 
 	let {
@@ -32,6 +34,7 @@
 		onAddItemClick,
 		onBuyActiveSlot,
 		corruptedCards = [],
+		rollContext = undefined,
 	}: Props = $props();
 </script>
 
@@ -73,6 +76,7 @@
 		listMode="collection"
 		{onChange}
 		{onEditCard}
+		{rollContext}
 	/>
 </Container>
 

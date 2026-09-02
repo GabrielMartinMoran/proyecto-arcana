@@ -6,8 +6,10 @@
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { modifiersService } from '$lib/services/modifiers-service';
 	import type { Card } from '$lib/types/cards/card';
+	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
+	import { buildCardRollContext } from '$lib/utils/card-inline-dice-formulas';
 	import { CONFIG } from '../../../../config';
 
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
@@ -37,6 +39,13 @@
 	let staticCards: Card[] = $state([]);
 
 	let allCards = $derived([...staticCards, ...(character.customCards ?? [])]);
+
+	// Sheet-only roll context built once from the current character and the
+	// canonical cards loaded in this tab. CardsList substitutes the per-card
+	// source title at the boundary; library/preview callers never receive it.
+	let rollContext: CardRollContext | undefined = $derived(
+		buildCardRollContext({ character, canonicalCards: allCards, cardName: character.name }),
+	);
 
 	let corruptedCharacterCards = $derived(
 		character.cards.filter(
@@ -205,23 +214,26 @@
 	const onCardReloadClick = async (cardId: string) => {
 		const characterCard = character.cards.find((card) => card.id === cardId);
 		const card = allCards.find((card) => card.id === cardId);
-		if (characterCard && card && characterCard.uses !== null && card) {
-			const rollResult = await rollExpression({
-				expression: '1d8',
-				variables: {},
-				title: `${character.name}: Recarga de carta ${card.name}`,
-				resultFormatter: (result) =>
-					`<span class="total ${result >= (card.uses?.qty ?? 0) ? 'success' : 'failure'}">${result}</span>`,
-			});
-			if (rollResult === 1) {
-				characterCard.isOvercharged = true;
-				onCharacterCardsChange([...character.cards]);
-				return;
-			}
-			if (rollResult >= (card.uses?.qty ?? 0)) {
-				characterCard.uses += 1;
-				onCharacterCardsChange([...character.cards]);
-			}
+		if (!characterCard || !card || characterCard.uses === null) {
+			return;
+		}
+		const rollResult = await rollExpression({
+			expression: '1d8',
+			variables: {},
+			title: `${character.name}: Recarga de carta ${card.name}`,
+			resultFormatter: (result) =>
+				`<span class="total ${result >= (card.uses?.qty ?? 0) ? 'success' : 'failure'}">${result}</span>`,
+		});
+		if (rollResult === 1) {
+			onCharacterCardsChange(
+				character.cards.map((c) => (c.id === cardId ? { ...c, isOvercharged: true } : c)),
+			);
+			return;
+		}
+		if (rollResult >= (card.uses?.qty ?? 0)) {
+			onCharacterCardsChange(
+				character.cards.map((c) => (c.id === cardId ? { ...c, uses: (c.uses ?? 0) + 1 } : c)),
+			);
 		}
 	};
 
@@ -321,7 +333,7 @@
 
 		const newCard: CharacterCard = {
 			id: card.id,
-			uses: null,
+			uses: card.uses.qty,
 			isActive: false,
 			level: card.level,
 			cardType: card.cardType,
@@ -380,6 +392,7 @@
 			{readonly}
 			onChange={onCharacterCardsChange}
 			{onCardReloadClick}
+			{rollContext}
 		/>
 	{:else}
 		<ManageCardsView
@@ -394,6 +407,7 @@
 			onAddItemClick={() => openAddCardModal('item')}
 			onBuyActiveSlot={handleBuyActiveSlot}
 			corruptedCards={corruptedCharacterCards}
+			{rollContext}
 		/>
 	{/if}
 </div>

@@ -1,19 +1,29 @@
 <script lang="ts">
 	import type { Card } from '$lib/types/cards/card';
 	import type { ItemCard } from '$lib/types/cards/item-card';
+	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import { removeDiacritics } from '$lib/utils/formatting';
 	import { formatRequirements } from '$lib/utils/requirement-expression';
-	import { marked } from 'marked';
 	import type { Snippet } from 'svelte';
+	import CardDescription from './CardDescription.svelte';
 
 	type Props = {
 		card: Card;
 		isOvercharged?: boolean;
+		isExhausted?: boolean;
 		isCustom?: boolean;
+		rollContext?: CardRollContext;
 		children?: Snippet;
 	};
 
-	let { card, isOvercharged = false, isCustom = false, children = undefined }: Props = $props();
+	let {
+		card,
+		isOvercharged = false,
+		isExhausted=false,
+		isCustom = false,
+		rollContext = undefined,
+		children = undefined,
+	}: Props = $props();
 
 	const getBorderColor = (tags: string[]) => {
 		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
@@ -41,7 +51,7 @@
 	};
 </script>
 
-<div class="card" class:overcharged={isOvercharged} style:border-color={getBorderColor(card.tags)}>
+<div class="card" class:overcharged={isOvercharged} class:exhausted={isExhausted && !isOvercharged} style:border-color={getBorderColor(card.tags)}>
 	<div class="bg" style:background-image={`url(${card.img})`}></div>
 	<div class="inner">
 		<div class="header">
@@ -54,7 +64,9 @@
 			<h3>{card.name}</h3>
 		</div>
 		<div class="body">
-			<span class="description">{@html marked.parse(card.description)}</span>
+			<span class="description">
+				<CardDescription description={card.description} {rollContext} />
+			</span>
 			<div class="tags">
 				{#each card.tags as tag (tag)}
 					<span class="chip">{tag}</span>
@@ -106,7 +118,8 @@
 		transition:
 			transform 0.2s ease,
 			box-shadow 0.2s ease,
-			border-color 0.2s ease;
+			border-color 0.2s ease,
+			background-color 0.5s ease;
 		overflow: hidden;
 
 		.bg {
@@ -258,7 +271,7 @@
 		border-radius: 999px;
 		border: 1px solid black;
 		background-color: #ded1b5;
-		padding: 0.25rem 0.5rem;
+		padding: 0.2rem 0.4rem;
 		font-size: 0.8rem;
 	}
 
@@ -270,6 +283,27 @@
 
 	.spacer {
 		flex: 1;
+	}
+
+	/*.card.overcharged::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--overcharge-overlay);
+		z-index: 3;
+		pointer-events: none;
+	}
+
+	.card.overcharged .description {
+		color: var(--overcharge-text);
+	}*/
+
+	.card::before {
+	transition:
+		background-color 0.5s ease;
 	}
 
 	.card.overcharged::before {
@@ -287,4 +321,8 @@
 	.card.overcharged .description {
 		color: var(--overcharge-text);
 	}
+
+	.card.exhausted {
+        background-color: var(--exhausted-overlay);
+    }
 </style>

@@ -55,6 +55,7 @@
 
 	/* Overcharge styling */
 	--overcharge-overlay: rgba(180, 0, 0, 0.3);
+	--exhausted-overlay: #0068c5aa;
 	--overcharge-text: #cc3333;
 
 	/* Input small variant */
