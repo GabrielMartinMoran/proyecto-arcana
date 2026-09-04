@@ -34,8 +34,30 @@
 			"notes": "Daño 1d4, Perforante, Precisa, Arrojadiza (Cercana)"
 		},
 		{
+			"id": "weapon-latigo",
+			"name": "Látigo",
+			"category": "weapons",
+			"price": 15,
+			"damage": "1d4",
+			"type": "Cortante",
+			"properties": "Precisa, Alcance",
+			"requirement": "Reflejos 2",
+			"notes": "Daño 1d4, Cortante, Precisa, Alcance, Requiere Reflejos 2"
+		},
+		{
 			"id": "weapon-arco-corto",
 			"name": "Arco corto",
+			"category": "weapons",
+			"price": 20,
+			"damage": "1d4",
+			"type": "Perforante",
+			"properties": "A dos manos, Rango (Media)",
+			"requirement": "Reflejos 2",
+			"notes": "Daño 1d4, Perforante, A dos manos, Rango (Media), Requiere Reflejos 2"
+		},
+		{
+			"id": "weapon-honda",
+			"name": "Honda",
 			"category": "weapons",
 			"price": 20,
 			"damage": "1d4",
@@ -58,6 +80,17 @@
 		{
 			"id": "weapon-maza",
 			"name": "Maza",
+			"category": "weapons",
+			"price": 10,
+			"damage": "1d6",
+			"type": "Contundente",
+			"properties": "",
+			"requirement": "Cuerpo 2",
+			"notes": "Daño 1d6, Contundente, Requiere Cuerpo 2"
+		},
+		{
+			"id": "weapon-lucero",
+			"name": "Lucero del alba",
 			"category": "weapons",
 			"price": 10,
 			"damage": "1d6",
@@ -91,6 +124,17 @@
 		{
 			"id": "weapon-espada-corta",
 			"name": "Espada corta",
+			"category": "weapons",
+			"price": 25,
+			"damage": "1d6",
+			"type": "Cortante",
+			"properties": "Precisa",
+			"requirement": "Cuerpo 2 o Reflejos 2",
+			"notes": "Daño 1d6, Cortante, Precisa, Requiere Cuerpo 2 o Reflejos 2"
+		},
+		{
+			"id": "weapon-cimitarra",
+			"name": "Cimitarra",
 			"category": "weapons",
 			"price": 25,
 			"damage": "1d6",
@@ -177,6 +221,28 @@
 			"notes": "Daño 1d10, Perforante, A dos manos, Rango (Larga), Recarga, Requiere Reflejos 3"
 		},
 		{
+			"id": "weapon-alabarda",
+			"name": "Alabarda",
+			"category": "weapons",
+			"price": 75,
+			"damage": "1d10",
+			"type": "Contundente",
+			"properties": "A dos manos, Alcance",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d10, Contundente, A dos manos, Alcance, Requiere Cuerpo 3"
+		},
+		{
+			"id": "weapon-guja",
+			"name": "Guja",
+			"category": "weapons",
+			"price": 75,
+			"damage": "1d10",
+			"type": "Contundente",
+			"properties": "A dos manos, Alcance",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d10, Contundente, A dos manos, Alcance, Requiere Cuerpo 3"
+		},
+		{
 			"id": "weapon-mandoble",
 			"name": "Mandoble",
 			"category": "weapons",
@@ -186,6 +252,28 @@
 			"properties": "A dos manos",
 			"requirement": "Cuerpo 3",
 			"notes": "Daño 1d12, Cortante, A dos manos, Requiere Cuerpo 3"
+		},
+		{
+			"id": "weapon-gran-hacha",
+			"name": "Gran hacha",
+			"category": "weapons",
+			"price": 100,
+			"damage": "1d12",
+			"type": "Cortante",
+			"properties": "A dos manos",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d12, Cortante, A dos manos, Requiere Cuerpo 3"
+		},
+		{
+			"id": "weapon-mazo-pesado",
+			"name": "Mazo pesado",
+			"category": "weapons",
+			"price": 100,
+			"damage": "1d12",
+			"type": "Contundente",
+			"properties": "A dos manos",
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d12, Contundente, A dos manos, Requiere Cuerpo 3"
 		}
 	],
 	"armors": [
@@ -227,33 +315,33 @@
 			"name": "Brigantina",
 			"category": "armors",
 			"price": 150,
-			"physicalMitigation": 2,
-			"evasionPenalty": 0,
+			"physicalMitigation": 3,
+			"evasionPenalty": -1,
 			"stealthPenalty": -1,
 			"requirement": "Cuerpo 3",
-			"notes": "Mitigación Física 2, Esquiva 0, Penalización Sigilo -1 (Ruidosa), Requiere Cuerpo 3"
+			"notes": "Mitigación Física 3, Esquiva -1, Penalización Sigilo -1 (Ruidosa), Requiere Cuerpo 3"
 		},
 		{
 			"id": "armor-placas-parcial",
 			"name": "Placas parcial",
 			"category": "armors",
 			"price": 300,
-			"physicalMitigation": 3,
-			"evasionPenalty": -1,
+			"physicalMitigation": 4,
+			"evasionPenalty": -2,
 			"stealthPenalty": -2,
 			"requirement": "Cuerpo 4",
-			"notes": "Mitigación Física 3, Esquiva -1, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 4"
+			"notes": "Mitigación Física 4, Esquiva -2, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 4"
 		},
 		{
 			"id": "armor-placas-completa",
 			"name": "Placas completa",
 			"category": "armors",
 			"price": 750,
-			"physicalMitigation": 4,
-			"evasionPenalty": -2,
+			"physicalMitigation": 5,
+			"evasionPenalty": -3,
 			"stealthPenalty": -2,
 			"requirement": "Cuerpo 5",
-			"notes": "Mitigación Física 4, Esquiva -2, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 5"
+			"notes": "Mitigación Física 5, Esquiva -3, Penalización Sigilo -2 (Muy ruidosa), Requiere Cuerpo 5"
 		},
 		{
 			"id": "armor-escudo",
@@ -277,7 +365,7 @@
 		},
 		{
 			"id": "gear-soga",
-			"name": "Soga de cáñamo (15m)",
+			"name": "Soga de cáñamo (15 m)",
 			"category": "adventure-gear",
 			"price": 2,
 			"notes": "Soga de cáñamo de 15 metros"
@@ -325,18 +413,60 @@
 			"notes": "Herramientas para abrir cerraduras"
 		},
 		{
+			"id": "gear-palanca",
+			"name": "Palanca",
+			"category": "adventure-gear",
+			"price": 5,
+			"notes": "Herramienta apropiada para forzar puertas y mecanismos"
+		},
+		{
+			"id": "gear-kit-curandero",
+			"name": "Kit de curandero",
+			"category": "adventure-gear",
+			"price": 10,
+			"notes": "Vendas, agujas y ungüentos para tratar heridas"
+		},
+		{
+			"id": "gear-aceite",
+			"name": "Aceite (frasco)",
+			"category": "adventure-gear",
+			"price": 2,
+			"notes": "Combustible, acelerante o lubricante"
+		},
+		{
+			"id": "gear-abrojos",
+			"name": "Abrojos (bolsa)",
+			"category": "adventure-gear",
+			"price": 5,
+			"notes": "Bolsa de abrojos para esparcir en el terreno"
+		},
+		{
 			"id": "gear-flechas",
-			"name": "Flechas (x10)",
+			"name": "Flechas (paquete de 10)",
 			"category": "adventure-gear",
 			"price": 2,
 			"notes": "Paquete de flechas"
 		},
 		{
 			"id": "gear-virotes",
-			"name": "Virotes de ballesta (x10)",
+			"name": "Virotes de ballesta (paquete de 10)",
 			"category": "adventure-gear",
 			"price": 3,
 			"notes": "Paquete virotes de ballesta"
+		},
+		{
+			"id": "gear-antitoxina",
+			"name": "Antitoxina",
+			"category": "adventure-gear",
+			"price": 25,
+			"notes": "Otorga Ventaja contra venenos y toxinas durante 1 hora"
+		},
+		{
+			"id": "gear-agua-bendita",
+			"name": "Agua bendita (frasco)",
+			"category": "adventure-gear",
+			"price": 25,
+			"notes": "2d6 de daño Radiante contra criaturas No-muertas o Infernales"
 		},
 		{
 			"id": "gear-pocion-curacion",
