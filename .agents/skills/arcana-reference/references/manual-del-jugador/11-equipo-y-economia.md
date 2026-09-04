@@ -16,34 +16,40 @@ La moneda estándar es el **Oro (o)**. La siguiente tabla sirve como guía de pr
 
 Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 
-| Arma               | Daño     | Tipo        | Requisito             | Precio | Propiedades                         |
-| :----------------- | :------- | :---------- | :-------------------- | :----- | :---------------------------------- |
-| Porra              | 1d4      | Contundente | -                     | 2 o    | -                                   |
-| Jabalina           | 1d4      | Perforante  | Cuerpo 2              | 3 o    | Arrojadiza (Cercana)                |
-| Daga               | 1d4      | Perforante  | -                     | 5 o    | Precisa, Arrojadiza (Cercana)       |
-| Arco corto         | 1d4      | Perforante  | Reflejos 2            | 20 o   | A dos manos, Rango (Media)          |
-| Bastón             | 1d4/1d6  | Contundente | -                     | 2 o    | Versátil                            |
-| Maza               | 1d6      | Contundente | Cuerpo 2              | 10 o   | -                                   |
-| Lanza              | 1d6      | Perforante  | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
-| Hacha de mano      | 1d6      | Cortante    | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
-| Espada corta       | 1d6      | Cortante    | Cuerpo 2 o Reflejos 2 | 25 o   | Precisa                             |
-| Ballesta ligera    | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
-| Espada larga       | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
-| Estoque            | 1d8      | Perforante  | Reflejos 3            | 60 o   | Precisa                             |
-| Arco largo         | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
-| Martillo de guerra | 1d8/1d10 | Contundente | Cuerpo 3              | 60 o   | Versátil                            |
-| Hacha de guerra    | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
-| Ballesta pesada    | 1d10     | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga), Recarga |
-| Mandoble           | 1d12     | Cortante    | Cuerpo 3              | 100 o  | A dos manos                         |
+> **Nota sobre armas no listadas:** La tabla representa familias funcionales de armas, no un catálogo exhaustivo. Si un arma no aparece de forma explícita, puede utilizarse la entrada que mejor represente su forma de uso, daño y propiedades. Por ejemplo, un lucero del alba puede tratarse como una maza, mientras que una guja puede utilizar las mismas reglas que una alabarda. El DJ tiene la última palabra sobre qué entrada resulta más apropiada.
+
+| Arma                     | Daño     | Tipo        | Requisito             | Precio | Propiedades                         |
+| :----------------------- | :------- | :---------- | :-------------------- | :----- | :---------------------------------- |
+| Porra                    | 1d4      | Contundente | -                     | 2 o    | -                                   |
+| Jabalina                 | 1d4      | Perforante  | Cuerpo 2              | 3 o    | Arrojadiza (Cercana)                |
+| Daga                     | 1d4      | Perforante  | -                     | 5 o    | Precisa, Arrojadiza (Cercana)       |
+| Látigo                   | 1d4      | Cortante    | Reflejos 2            | 15 o   | Precisa, Alcance                    |
+| Arco corto / Honda       | 1d4      | Perforante  | Reflejos 2            | 20 o   | A dos manos, Rango (Media)          |
+| Bastón                   | 1d4/1d6  | Contundente | -                     | 2 o    | Versátil                            |
+| Maza / Lucero del alba   | 1d6      | Contundente | Cuerpo 2              | 10 o   | -                                   |
+| Lanza                    | 1d6      | Perforante  | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
+| Hacha de mano            | 1d6      | Cortante    | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
+| Espada corta / Cimitarra | 1d6      | Cortante    | Cuerpo 2 o Reflejos 2 | 25 o   | Precisa                             |
+| Ballesta ligera          | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
+| Espada larga             | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
+| Estoque                  | 1d8      | Perforante  | Reflejos 3            | 60 o   | Precisa                             |
+| Arco largo               | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
+| Martillo de guerra       | 1d8/1d10 | Contundente | Cuerpo 3              | 60 o   | Versátil                            |
+| Hacha de guerra          | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
+| Ballesta pesada          | 1d10     | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga), Recarga |
+| Alabarda / Guja          | 1d10     | Contundente | Cuerpo 3              | 75 o   | A dos manos, Alcance                |
+| Mandoble / Gran hacha    | 1d12     | Cortante    | Cuerpo 3              | 100 o  | A dos manos                         |
+| Mazo pesado              | 1d12     | Contundente | Cuerpo 3              | 100 o  | A dos manos                         |
 
 ### Propiedades de Armas
 
 - **A dos manos:** Requiere ambas manos para usarse, por lo que no puedes beneficiarte de un escudo.
-- **Precisa:** Puedes usar tu modificador de **Reflejos** en lugar de Cuerpo para las tiradas de ataque cuerpo a cuerpo.
-- **Versátil:** Puede usarse con una mano (primer dado de daño) o con dos manos (segundo dado de daño).
+- **Alcance:** Puedes realizar ataques cuerpo a cuerpo con esta arma contra objetivos que se encuentren hasta a 2 metros de ti. Esto no modifica qué se considera distancia Inmediata para otros efectos.
 - **Arrojadiza:** Puede lanzarse a la distancia indicada.
+- **Precisa:** Puedes usar tu modificador de **Reflejos** en lugar de Cuerpo para las tiradas de ataque cuerpo a cuerpo.
 - **Rango:** Es un arma a distancia y siempre usa **Reflejos** para atacar.
 - **Recarga:** Requiere usar una **Interacción** para recargar después de cada disparo.
+- **Versátil:** Puede usarse con una mano (primer dado de daño) o con dos manos (segundo dado de daño).
 
 ## Armaduras y Escudos
 
