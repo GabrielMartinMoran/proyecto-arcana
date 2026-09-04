@@ -55,6 +55,9 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 
 La armadura proporciona **Mitigación Física**, que reduce el daño físico recibido. Sin embargo, también impone una **Penalización a la Esquiva** y al **Sigilo**. Si no cumples el **Requisito**, sufres **Desventaja (-1d4)** en todas las tiradas que requieran movilidad (ataques, pruebas de Reflejos y Cuerpo).
 
+> **Nota sobre armaduras no listadas:** La tabla representa familias funcionales de armaduras, no un catálogo exhaustivo. Si una armadura no aparece de forma explícita, puede utilizar las estadísticas de aquella que mejor represente su grado de protección, movilidad y ruido. Por ejemplo, una armadura de escamas puede tratarse como una Brigantina, mientras que una coraza puede utilizar las estadísticas de Placas parcial. El DJ tiene la última palabra sobre qué entrada resulta más apropiada.
+
+
 | Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
 | :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
 | Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
@@ -67,23 +70,32 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 
 ## Equipo de Aventura y Servicios
 
-Un aventurero bien preparado es un aventurero vivo. La siguiente lista ofrece precios para bienes, equipo y servicios que podés encontrar en la mayoría de los asentamientos.
+Un aventurero bien preparado es un aventurero vivo. La siguiente lista reúne equipo común que puede resultar especialmente útil durante una aventura. No pretende ser un catálogo exhaustivo: objetos cotidianos que no aparezcan aquí pueden adquirirse a precios razonables determinados por el DJ.
+
+Como se explica en las reglas de exploración, disponer de la herramienta apropiada puede otorgar **Ventaja (+1d4)** en una Prueba de Habilidad o incluso permitir realizar una tarea sin necesidad de una tirada cuando no existe presión o incertidumbre.
 
 | Objeto o Servicio                   | Costo      |
 | :---------------------------------- | :--------- |
 | **Equipo de Aventura**              |            |
 | Mochila                             | 5 de Oro   |
-| Soga de cáñamo (15m)                | 2 de Oro   |
+| Soga de cáñamo (15 m)               | 2 de Oro   |
 | Antorcha                            | 1 de Oro   |
 | Raciones de viaje (por día)         | 1 de Oro   |
 | Odre de agua                        | 1 de Oro   |
 | Saco de dormir                      | 2 de Oro   |
 | Yesquero y pedernal                 | 1 de Oro   |
+| Palanca                             | 5 de Oro   |
 | Ganzúas                             | 25 de Oro  |
+| Kit de curandero                    | 10 de Oro  |
+| **Equipo Táctico**                  |            |
+| Aceite (frasco)                     | 2 de Oro   |
+| Abrojos (bolsa)                     | 5 de Oro   |
 | **Munición**                        |            |
 | Flechas (paquete de 10)             | 2 de Oro   |
 | Virotes de ballesta (paquete de 10) | 3 de Oro   |
 | **Consumibles**                     |            |
+| Antitoxina                          | 25 de Oro  |
+| Agua bendita (frasco)               | 25 de Oro  |
 | Poción de Curación Menor (1d6+1)    | 50 de Oro  |
 | **Alojamiento (por noche)**         |            |
 | Posada (habitación compartida)      | 1 de Oro   |
@@ -91,6 +103,24 @@ Un aventurero bien preparado es un aventurero vivo. La siguiente lista ofrece pr
 | **Transporte**                      |            |
 | Caballo de monta                    | 100 de Oro |
 | Mula o burro                        | 20 de Oro  |
+
+### Equipo Especial
+
+Algunos objetos poseen usos suficientemente particulares como para requerir reglas propias.
+
+- **Palanca:** Se considera una herramienta apropiada para forzar puertas, tapas, barrotes, mecanismos u otros objetos mediante apalancamiento. Cuando pueda utilizarse de forma efectiva, normalmente otorga **Ventaja (+1d4)** a la Prueba de Habilidad correspondiente.
+
+- **Kit de Curandero:** Contiene vendas, agujas, ungüentos y otras herramientas para tratar heridas. Se considera una herramienta apropiada para las Pruebas de **Instinto (Medicina)** destinadas a estabilizar a una criatura Moribunda, tratar heridas o realizar otros procedimientos médicos. El kit no recupera Puntos de Salud por sí mismo.
+
+- **Aceite:** Como una **Acción**, puedes derramar un frasco sobre una superficie de hasta 2 metros de lado a distancia Inmediata. Si el aceite es encendido, el área arde hasta el final de tu próximo turno. Una criatura que entre en el fuego por primera vez durante un turno o empiece allí su turno recibe **1d4 de daño de Fuego**. El aceite también puede utilizarse narrativamente como combustible, acelerante o lubricante cuando resulte apropiado.
+
+- **Abrojos:** Como una **Acción**, puedes esparcir una bolsa de abrojos sobre una superficie de hasta 2 metros de lado a distancia Inmediata. Una criatura que atraviese el área a velocidad normal debe superar una **Tirada de Salvación de Reflejos (ND 8)**. Si falla, recibe **1 punto de daño Perforante** y su movimiento termina inmediatamente. Una criatura puede atravesar los abrojos sin realizar la tirada si se desplaza a **la mitad de su Velocidad** mientras se encuentre en el área.
+  - Las criaturas de tamaño **Grande** tienen **Ventaja (+1d4)** en esta Tirada de Salvación.
+  - Las criaturas de tamaño **Inmenso** no se ven afectadas por los abrojos.
+
+- **Antitoxina:** Beber una dosis requiere una **Interacción**. Durante **1 hora**, obtienes **Ventaja (+1d4)** en las Tiradas de Salvación de Cuerpo para resistir venenos y toxinas, incluyendo cualquier nueva salvación que un efecto ya activo te permita realizar.
+
+- **Agua Bendita:** Como una **Acción**, puedes arrojar un frasco contra una criatura a distancia Cercana, realizando una Tirada de Ataque con **Reflejos** contra su Esquiva. Si impactas a una criatura **No-muerta o Infernal**, esta recibe **2d6 de daño Radiante**. Contra otras criaturas, el agua bendita no inflige daño.
 
 ## Venenos y Toxinas
 
