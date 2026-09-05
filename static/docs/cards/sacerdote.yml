@@ -517,7 +517,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: 'Curar & Instinto 5'
+    requirements: 'Fe Inspiradora & Instinto 5'
     description: >-
       _Pronuncias los nombres sagrados que rompen cadenas invisibles, expulsando aquellas corrupciones que la medicina y la sanación ordinaria no pueden alcanzar._<br><br>
       Como Acción, tocas a una criatura o un objeto y eliges uno de los siguientes efectos:<br>

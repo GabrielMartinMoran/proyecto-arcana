@@ -74,17 +74,13 @@ El Nivel 5 representa el límite que un personaje puede alcanzar mediante la pro
 
 Las **Cartas de Nivel 6** representan poderes excepcionales que han sido olvidados, prohibidos, sellados o deliberadamente apartados del conocimiento común. No pueden adquirirse gastando Puntos de Progreso ni forman parte de la progresión normal de ningún arquetipo.
 
-Algunas contienen formas de magia capaces de alterar directamente la realidad o manipular fuerzas que fueron selladas en la propia Urdimbre. Otras representan técnicas marciales, disciplinas espirituales o conocimientos tan extremos que su dominio fue perdido, ocultado o prohibido por quienes comprendieron sus consecuencias.
+Algunas Cartas de Nivel 6 contienen formas de magia capaces de alterar directamente la realidad, manipular el flujo del tiempo o invocar fuerzas que fueron deliberadamente selladas en la propia Urdimbre. Entre los relatos más antiguos se mencionan poderes capaces de conceder un _Deseo_, detener el tiempo durante unos instantes o reescribir acontecimientos que ya han ocurrido.
 
-Solo pueden obtenerse mediante circunstancias extraordinarias, como pergaminos antiguos, artefactos, maestros desaparecidos, pactos, revelaciones, lugares olvidados o secretos descubiertos durante una aventura.
+Pero estos secretos no pertenecen únicamente a la magia. También existen leyendas sobre técnicas marciales imposibles, disciplinas espirituales y conocimientos perdidos capaces de superar los límites naturales de un mortal: guerreros que atravesaron fortalezas de un solo golpe, maestros que actuaron antes de que el tiempo pudiera alcanzarlos o individuos capaces de enfrentarse brevemente a criaturas propias de los mitos.
 
-Poseer una Carta de Nivel 6 no significa necesariamente poder utilizarla sin consecuencias. Algunos de estos poderes dejan una huella imposible de ocultar, desafían las leyes naturales o atraen la atención de entidades, órdenes o guardianes que preferirían que permanecieran olvidados.
+Las Cartas de Nivel 6 solo pueden obtenerse mediante circunstancias extraordinarias, como pergaminos antiguos, artefactos, maestros desaparecidos, pactos, revelaciones, lugares olvidados o secretos descubiertos durante una aventura.
 
-Entre las leyendas sobre poderes de Nivel 6 se mencionan conjuros capaces de _detener el tiempo_, matar mediante una única _Palabra de Poder_ o incluso conceder un _Deseo_ capaz de alterar la realidad.
-
-Pero estos secretos no pertenecen únicamente a la magia arcana. Antiguos relatos hablan de milagros capaces de devolver ejércitos enteros a la vida, canciones que borraron nombres de la memoria del mundo, técnicas marciales que partieron fortalezas de un solo golpe y disciplinas físicas que permitieron a mortales enfrentarse durante unos instantes a criaturas propias de los mitos.
-
-Si estas historias son ciertas, descubrir uno de esos poderes sería una hazaña extraordinaria. Aprender a utilizarlo podría ser algo todavía más peligroso.
+Poseer una Carta de Nivel 6 no significa necesariamente poder utilizarla sin consecuencias. Algunos de estos poderes desafían leyes fundamentales del mundo, dejan una huella imposible de ocultar o atraen la atención de entidades, órdenes y guardianes que se aseguraron de que semejantes conocimientos permanecieran olvidados.
 
 ## Recarga de Cartas
 

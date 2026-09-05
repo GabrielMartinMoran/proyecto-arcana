@@ -70,8 +70,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
       "kind": "file",
-      "size": 5033,
-      "sha1": "513c14b7386e67bba3272df5ef86f380c7be26c7"
+      "size": 6660,
+      "sha1": "9046932746784f049fbba7564b945eff6903ed82"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml",
@@ -354,8 +354,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-4.yml",
       "kind": "file",
-      "size": 2423,
-      "sha1": "cba9c7599932db1848f25849a75f38c217095cb3"
+      "size": 802,
+      "sha1": "1cc0c16d1b60442b2f3d5b4ed59d1fb114f02bef"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-5.yml",
@@ -474,8 +474,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml",
       "kind": "file",
-      "size": 6752,
-      "sha1": "8ca779ae04b21b490aec2ded573e254cbec216f2"
+      "size": 6761,
+      "sha1": "7905835f77a8637246dd46031ae86a086464debb"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-5.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 268373,
-      "sha1": "6e31048d9594278f50468dbe210bd5ac42200fc9"
+      "size": 268388,
+      "sha1": "915012300bf8031e990fb63018336cd9cb029803"
     },
     {
       "path": "references/datasets/magical-items.yml",

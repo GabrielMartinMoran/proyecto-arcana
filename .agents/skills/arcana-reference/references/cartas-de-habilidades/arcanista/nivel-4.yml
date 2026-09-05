@@ -109,3 +109,28 @@ cards:
       distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de
       Salud hasta el inicio de tu próximo turno.
     slug: segador-incorporeo
+  - id: 94a6c6aa38af719963b6eba03b16bc0a773e8faf
+    name: Escrutinio Arcano
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Tu sensor arcano deja de estar limitado por la distancia visible: buscas un hilo conocido en la Urdimbre y
+      observas aquello que se encuentra en el otro extremo._<br><br> Como Acción, comienzas un escrutinio que requiere
+      10 minutos de concentración ininterrumpida. Al finalizar, eliges una criatura que conozcas o un lugar concreto del
+      mismo plano cuya ubicación puedas identificar razonablemente.<br> Creas un sensor invisible e intangible a
+      distancia Inmediata del objetivo o en un punto apropiado del lugar elegido. Durante un máximo de 10 minutos, ves y
+      oyes a través de él como si estuvieras allí.<br> Si eliges una criatura, esta realiza una TS de Instinto (ND 5 +
+      Atributo Arcano):<br> - Si apenas la conoces o solo dispones de una descripción, obtiene Ventaja (+1d4) en la
+      tirada.<br> - Si la conoces personalmente, realiza la tirada normalmente.<br> - Si posees un objeto íntimamente
+      vinculado a ella —como una posesión personal importante, un mechón de cabello o una muestra similar— realiza la
+      tirada con Desventaja (-1d4).<br> Si supera la TS, el conjuro falla y no obtienes información sobre su
+      ubicación.<br> El sensor puede ser detectado mediante efectos capaces de percibir magia o criaturas invisibles.
+    slug: escrutinio-arcano

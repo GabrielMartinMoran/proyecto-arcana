@@ -2371,21 +2371,21 @@
         "escrutinio arcano"
       ],
       "tags": [
+        "Arcanista",
         "Concentración",
-        "Conjuro",
-        "Mago"
+        "Conjuro"
       ],
       "level": 4,
-      "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-4.yml",
+      "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Visión Remota & Estudios Mágicos & Mente 5",
+        "requirements": "Afinidad Arcana & Atributo Arcano 5",
         "uses": "LONG_REST:1"
       },
-      "search": "_Tu sensor arcano deja de estar limitado por la distancia visible: buscas un hilo conocido en la Urdimbre y observas aquello que se encuentra en el otro extremo._<br><br> Como Acción, comienzas un escrutinio que requiere 10 minutos de concentración ininterrumpida. Al finalizar, eliges una criatura que conozcas o un lugar concreto del mismo plano cuya ubicación puedas identificar razonablemente.<br> Creas un sensor invisible e intangible a distancia Inmediata del objetivo o en un punto apropiado del lugar elegido. Durante un máximo de 10 minutos, ves y oyes a través de él como si estuvieras allí.<br> Si eliges una criatura, esta realiza una TS de Instinto (ND 5 + Mente):<br> - Si apenas la conoces o solo dispones de una descripción, obtiene Ventaja (+1d4) en la tirada.<br> - Si la conoces personalmente, realiza la tirada normalmente.<br> - Si posees un objeto íntimamente vinculado a ella —como una posesión personal importante, un mechón de cabello o una muestra similar— realiza la tirada con Desventaja (-1d4).<br> Si supera la TS, el conjuro falla y no obtienes información sobre su ubicación.<br> El sensor puede ser detectado mediante efectos capaces de percibir magia o criaturas invisibles.",
-      "hash": "61d3bcdee710184a59081f1e0ed350655fb3072f"
+      "search": "_Tu sensor arcano deja de estar limitado por la distancia visible: buscas un hilo conocido en la Urdimbre y observas aquello que se encuentra en el otro extremo._<br><br> Como Acción, comienzas un escrutinio que requiere 10 minutos de concentración ininterrumpida. Al finalizar, eliges una criatura que conozcas o un lugar concreto del mismo plano cuya ubicación puedas identificar razonablemente.<br> Creas un sensor invisible e intangible a distancia Inmediata del objetivo o en un punto apropiado del lugar elegido. Durante un máximo de 10 minutos, ves y oyes a través de él como si estuvieras allí.<br> Si eliges una criatura, esta realiza una TS de Instinto (ND 5 + Atributo Arcano):<br> - Si apenas la conoces o solo dispones de una descripción, obtiene Ventaja (+1d4) en la tirada.<br> - Si la conoces personalmente, realiza la tirada normalmente.<br> - Si posees un objeto íntimamente vinculado a ella —como una posesión personal importante, un mechón de cabello o una muestra similar— realiza la tirada con Desventaja (-1d4).<br> Si supera la TS, el conjuro falla y no obtienes información sobre su ubicación.<br> El sensor puede ser detectado mediante efectos capaces de percibir magia o criaturas invisibles.",
+      "hash": "d01c5549431398718c62b59f17c4b8b33f55b70c"
     },
     {
       "kind": "card",
@@ -6207,11 +6207,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Curar & Instinto 5",
+        "requirements": "Fe Inspiradora & Instinto 5",
         "uses": "LONG_REST:1"
       },
       "search": "_Pronuncias los nombres sagrados que rompen cadenas invisibles, expulsando aquellas corrupciones que la medicina y la sanación ordinaria no pueden alcanzar._<br><br> Como Acción, tocas a una criatura o un objeto y eliges uno de los siguientes efectos:<br> - **Liberar:** Eliges una Maldición, Petrificación o Posesión sobrenatural que afecte al objetivo. Realizas una Prueba de Instinto contra el atributo de lanzamiento o ND del efecto original. Si el efecto no posee un valor adecuado, el DJ establece la ND según su poder y procedencia. Si tienes éxito, el efecto termina permanentemente sobre el objetivo.<br> - **Restaurar:** Eliges un atributo del objetivo que haya sido reducido por una enfermedad, veneno, maldición, conjuro u otro efecto externo. El atributo recupera su valor normal. Este efecto no puede aumentar un atributo por encima de su valor habitual ni recuperar reducciones permanentes realizadas voluntariamente como coste o sacrificio.<br> - **Restaurar Miembro:** Vuelves a unir al cuerpo una parte amputada que pertenezca al objetivo, siempre que la parte esté presente y suficientemente intacta. La extremidad u órgano recupera su funcionalidad normal al finalizar el conjuro. Este efecto no restaura Puntos de Salud ni puede recrear partes del cuerpo que hayan sido destruidas o se hayan perdido. Este conjuro no restaura Puntos de Salud ni elimina otras condiciones o efectos negativos; para ello siguen siendo necesarias cartas como _Curar_ o _Sanación Verdadera_.",
-      "hash": "d313efef316a2c7e265b1b63cec160ef3974f6f3"
+      "hash": "7210c62a828a27dcfd997c46798a13d9757788ad"
     },
     {
       "kind": "card",

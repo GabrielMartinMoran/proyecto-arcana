@@ -93,7 +93,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Curar & Instinto 5
+    requirements: Fe Inspiradora & Instinto 5
     uses:
       type: LONG_REST
       qty: 1
