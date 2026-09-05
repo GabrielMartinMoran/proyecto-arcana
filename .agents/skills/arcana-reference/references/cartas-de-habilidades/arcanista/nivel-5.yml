@@ -61,8 +61,43 @@ cards:
       qty: 8
     description: >-
       _Abres las puertas del inframundo por un segundo, liberando una marea de espectros aullantes que arrasan con todo
-      a su paso._<br><br> Liberas un cono de 10 metros de espíritus atormentados.<br> Las criaturas en el área deben
-      superar una TS de Instinto (ND 5 + Atributo Arcano). Si fallan, reciben 6d6 de daño Necrótico y quedan Asustadas y
-      Ensordecidas hasta el final de tu próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos
-      adicionales.
+      a su paso._<br><br> Liberas un cono de 10 metros de espíritus atormentados.<br>
+       Las criaturas en el área deben superar una TS de Instinto (ND 5 + Atributo Arcano). Si fallan, reciben 6d6 de daño Necrótico y quedan Asustadas y Ensordecidas hasta el final de tu próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.
     slug: legion-de-los-condenados
+  - id: 330daa743f1bf6974b430f37d97a737279479ff6
+    name: Lluvia de Meteoritos
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Arcano 6
+    uses:
+      type: RELOAD
+      qty: 8
+    description: >-
+      _Desgarras el cielo y haces caer fragmentos incandescentes que impactan la tierra con una violencia
+      catastrófica._<br><br> Como Acción, eliges hasta tres puntos que puedas ver a distancia Larga. Un meteorito
+      impacta en cada uno, provocando una explosión de 3 metros de radio.<br> Toda criatura alcanzada debe realizar una
+      TS de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño Contundente y 4d6 de daño de Fuego. Si tiene
+      éxito, recibe la mitad del daño total.<br> Las áreas de impacto pueden superponerse, pero una criatura solo puede
+      recibir el daño de esta carta una vez por lanzamiento.<br> Los impactos incendian materiales fácilmente
+      inflamables y pueden destruir objetos y estructuras vulnerables a discreción del DJ.
+    slug: lluvia-de-meteoritos
+  - id: 835e4a2725ba7ab33a46235ccfe5bbdd7a9ee6f5
+    name: "Palabra de Poder: Matar"
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana & Atributo Arcano 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Pronuncias una palabra primordial cuyo significado no describe la muerte: la ordena._<br><br> Como Acción, eliges
+      una criatura que puedas ver a distancia Cercana. Si posee 50 Puntos de Salud o menos, muere inmediatamente.<br> Si
+      posee más de 60 Puntos de Salud, la palabra no tiene efecto.<br> Este efecto no inflige daño y, por lo tanto, no
+      puede ser reducido mediante Mitigación, Resistencias u otros efectos que reduzcan daño.
+    slug: palabra-de-poder-matar

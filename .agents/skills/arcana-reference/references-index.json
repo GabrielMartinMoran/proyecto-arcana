@@ -164,6 +164,26 @@
           "path": "references/cartas-de-habilidades/arquetipos/coloso/arquetipo-nivel-1.yml"
         },
         {
+          "title": "Coloso — Nivel 1",
+          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-1.yml"
+        },
+        {
+          "title": "Coloso — Nivel 2",
+          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-2.yml"
+        },
+        {
+          "title": "Coloso — Nivel 3",
+          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-3.yml"
+        },
+        {
+          "title": "Coloso — Nivel 4",
+          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-4.yml"
+        },
+        {
+          "title": "Coloso — Nivel 5",
+          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-5.yml"
+        },
+        {
           "title": "Arquetipo — Céfiro — Nivel 1",
           "path": "references/cartas-de-habilidades/arquetipos/cefiro/arquetipo-nivel-1.yml"
         },
@@ -186,26 +206,6 @@
         {
           "title": "Céfiro — Nivel 5",
           "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-5.yml"
-        },
-        {
-          "title": "Coloso — Nivel 1",
-          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-1.yml"
-        },
-        {
-          "title": "Coloso — Nivel 2",
-          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-2.yml"
-        },
-        {
-          "title": "Coloso — Nivel 3",
-          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-3.yml"
-        },
-        {
-          "title": "Coloso — Nivel 4",
-          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-4.yml"
-        },
-        {
-          "title": "Coloso — Nivel 5",
-          "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-5.yml"
         },
         {
           "title": "Arcanista — Nivel 1",

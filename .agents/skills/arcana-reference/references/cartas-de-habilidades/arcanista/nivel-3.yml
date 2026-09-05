@@ -112,10 +112,23 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      _Alteras la estructura molecular de un objeto inanimado para cambiar su forma o sus propiedades físicas._<br><br>
-      Tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades (dureza,
-      peso, textura) o su forma. No puedes cambiar su masa total. Por ejemplo, puedes volver una cerradura blanda como
-      la cera, o esculpir una palanca a partir de un trozo de metal.
+      _Alteras la estructura de la materia inerte, deformándola como arcilla o reorganizándola para crear nuevas
+      herramientas y estructuras._<br><br> Al utilizar este conjuro, eliges uno de los siguientes modos:<br> -
+      **Transmutar:** Como Acción, tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una
+      de sus propiedades físicas —como dureza, peso o textura— o modificar su forma. No puedes cambiar su masa total ni
+      transformar una sustancia en otra distinta. Por ejemplo, puedes ablandar una cerradura metálica como si fuera
+      cera, volver quebradiza una sección de piedra o esculpir una palanca a partir de un trozo de metal.<br> -
+      **Fabricar:** Como Acción, reorganizas una cantidad de materia prima no mágica que puedas tocar y que ocupe como
+      máximo 1 metro cúbico, convirtiéndola en uno o varios objetos terminados compuestos principalmente por esos mismos
+      materiales. La masa total no cambia. Puedes fabricar objetos corrientes cuya construcción comprendas, pero los
+      mecanismos de precisión, obras artesanales especializadas o dispositivos complejos requieren que poseas el
+      conocimiento o la habilidad apropiada. No puedes crear sustancias alquímicas, seres vivos, objetos mágicos ni
+      transformar materiales de menor valor en otros de mayor valor.<br> Puedes utilizar _Fabricar_ de esta forma
+      únicamente si el objeto terminado pertenece a la categoría de precio Mundano. Los objetos de categorías superiores
+      solo pueden fabricarse lanzando el conjuro como Ritual. En ese caso, el tiempo de lanzamiento aumenta según la
+      categoría de precio final del objeto.:<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Mundano:_ 10 minutos<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Común:_ 1 hora<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Calidad:_ 24 horas<br> La categoría
+      máxima de precio que puedes fabricar con este conjuro es de Calidad.
     slug: transmutar-materia
   - id: cd63e5dfc4095d0e5360d1565ab15194dc52cb51
     name: Visión Remota
@@ -196,3 +209,24 @@ cards:
       conjuro) y sufre el estado Envenenado hasta el inicio de su próximo turno. Si tiene éxito, recibe la mitad del
       daño y no se envenena.
     slug: niebla-de-putrefaccion
+  - id: c8f718b21f3d84efe608abdef245cc2a4d841b71
+    name: Forma Gaseosa
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      _Tu cuerpo pierde su consistencia y se dispersa en una nube de gas tenue que fluye por lugares donde la carne
+      jamás podría pasar._<br><br> Como Acción, transformas tu cuerpo y todo el equipo que lleves en una forma gaseosa
+      durante un máximo de 10 minutos o hasta que pierdas la Concentración.<br> Mientras permanezcas en esta forma:<br>
+      - Puedes volar a una velocidad igual a la mitad de tu Velocidad normal.<br> - Puedes atravesar cualquier abertura
+      por la que pudiera pasar humo o aire, aunque no puedes atravesar superficies completamente selladas.<br> - No
+      puedes atacar, lanzar conjuros, activar habilidades, manipular objetos ni utilizar equipamiento.<br> - No puedes
+      ser Inmovilizado o Enredado mediante ataduras, presas u obstáculos puramente físicos.
+    slug: forma-gaseosa

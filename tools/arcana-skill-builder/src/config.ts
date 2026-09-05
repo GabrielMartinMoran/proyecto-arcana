@@ -18,7 +18,11 @@ export const CONFIG = {
 
 	PLAYER_MANUAL_FILE: 'player.md',
 	GM_MANUAL_FILE: 'gm.md',
+	// Logical label and derived dataset name; the canonical source is the
+	// modular CARDS_SOURCE_DIR directory, not this file.
 	CARDS_FILE: 'cards.yml',
+	CARDS_SOURCE_DIR: 'cards',
+	CARDS_MANIFEST_FILE: 'index.json',
 	MAGICAL_ITEMS_FILE: 'magical-items.yml',
 	// Logical label and derived dataset name; the canonical source is the
 	// modular BESTIARY_SOURCE_DIR directory, not this file.

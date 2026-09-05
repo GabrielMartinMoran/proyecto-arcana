@@ -51,3 +51,23 @@ const unwrapSingleParagraph = (html: string): string => {
  */
 export const sanitizeCardDescriptionMarkdownInline = (markdown: string): string =>
 	unwrapSingleParagraph(sanitizeCardDescriptionMarkdown(markdown));
+
+/**
+ * Converts the `<br>` runs of already sanitized card description HTML into
+ * presentation spacer spans.
+ *
+ * The first break of a run becomes a `line-break` (a full empty line) and
+ * every additional consecutive break becomes a `line-jump` (an extra
+ * half-step), so N consecutive breaks render as one full line plus N - 1
+ * additional jumps. Runs separated by prose are converted independently.
+ */
+export const convertCardDescriptionLineBreaks = (html: string): string =>
+	html.replace(/<br\s*\/?>(?:\s*<br\s*\/?>)*/g, (run) => {
+		const lineBreaks = run.match(/<br\s*\/?>/g) ?? [];
+
+		return lineBreaks
+			.map((_, index) =>
+				index === 0 ? '<span class="line-break"></span>' : '<span class="line-jump"></span>',
+			)
+			.join('');
+	});

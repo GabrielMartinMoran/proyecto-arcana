@@ -193,14 +193,19 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
-      _Despojas a un objeto o criatura del efecto de la gravedad, dejándolos suspendidos en el aire a tu
-      merced._<br><br> Eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a distancia Media.
-      El efecto dura hasta 10 minutos.<br> - **Criatura:** Si no es voluntaria, debe superar una TS de Cuerpo. La
-      criatura levita y puede ser movida verticalmente por ti (Interacción, hasta 3 metros). No puede moverse
-      horizontalmente por sí misma en el aire, debe impulsarse con superficies sólidas.<br> - **Objeto:** Puede pesar
-      hasta 50 kg por cada punto de tu Atributo de Atributo Arcano.
+      _Despojas a una criatura u objeto del efecto de la gravedad, suspendiéndolo en el aire o amortiguando una caída
+      que habría resultado fatal._<br><br> Al utilizar este conjuro, eliges uno de los siguientes modos:<br> -
+      **Levitar:** Como Acción, eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a
+      distancia Media. El efecto dura hasta 10 minutos o hasta que pierdas la Concentración.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Criatura:_ Si no es voluntaria, debe superar una TS de Cuerpo (ND 5 + Atributo Arcano).
+      Si falla, queda suspendida en el aire. Como Interacción, puedes moverla verticalmente hasta 3 metros. La criatura
+      no puede desplazarse horizontalmente por el aire por sus propios medios, aunque puede impulsarse utilizando
+      superficies sólidas.<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Objeto:_ Puedes hacer levitar un objeto no asegurado cuyo peso
+      no supere 50 kg por cada punto de tu Atributo Arcano.<br> - **Caída Suave:** Como Reacción, cuando tú o una
+      criatura que puedas ver a distancia Media comience a caer, ralentizas inmediatamente su descenso. La criatura cae
+      suavemente y no recibe daño por esa caída. Este modo no requiere Concentración.
     slug: levitar
   - id: decfc810ceb7b0e9e2dec0ff3d492e3139d65edd
     name: Tejer Ilusión
@@ -281,3 +286,26 @@ cards:
       Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br> El objetivo u otra criatura
       a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.
     slug: enjambre-parasitario
+  - id: a240436b8820b6ccba5ffec0f0f9c8702e8975ff
+    name: Anclaje Arcano
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Inscribes una coordenada invisible sobre la realidad y obligas a la materia a permanecer exactamente donde se
+      encuentra._<br><br> Como Acción, eliges un objeto no mágico que puedas tocar, o una parte móvil de una estructura
+      como una puerta, ventana, compuerta o mecanismo. El objetivo no puede pesar más de 50 kg por cada punto de tu
+      Atributo Arcano.<br> Durante 10 minutos o hasta que pierdas la Concentración, el objeto queda mágicamente fijado a
+      su posición y orientación actuales.<br> Una criatura que intente mover, abrir, cerrar o desplazar el objetivo debe
+      usar su Acción y superar una Prueba de Cuerpo (ND 5 + Atributo Arcano). Si tiene éxito, rompe el anclaje y el
+      conjuro termina.<br> El objeto todavía puede ser destruido normalmente, y destruirlo también termina el
+      efecto.<br> No puedes utilizar este conjuro sobre una criatura ni sobre un objeto que una criatura lleve puesto o
+      sostenga.
+    slug: anclaje-arcano

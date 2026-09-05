@@ -1,0 +1,546 @@
+cards:
+  # ------------------------------ SACERDOTE ------------------------------
+  - name: Fe Inspiradora
+    level: 1
+    type: efecto
+    tags:
+      - Sacerdote
+      - Arquetipo
+    requirements: Instinto 2
+    description: >-
+      _Tu devoción es tu escudo y tu fe la luz que guía a tus aliados. Los dioses responden a tu intercesión cuando el mundo se vuelve oscuro y el destino incierto._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Religión y Perspicacia.<br><br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3, aprendes el idioma Celestial, y obtienes Ventaja (+1d4) en pruebas de Presencia (Intimidación o Persuasión) cuando interactúas con criaturas impías (no-muertos, demonios) o con seguidores devotos de tu misma fe.
+      Además, como Interacción, puedes pedir a tu deidad que intervenga cuando tus fuerzas fallan. Eliges una carta agotada que requiera Recarga. La carta se recarga automáticamente. Sin embargo, ya no puedes vover a recargarla de ninguna manera hasta que finalices un día de descanso.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+    uses:
+      type: null
+      qty: 0
+  - name: Taumaturgia Divina
+    level: 1
+    type: efecto
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      _Manifiestas la voluntad de tu deidad en el mundo físico con pequeños pero innegables milagros cotidianos._<br><br>
+      Aprendes a manifestar tu don divino mediante los siguientes trucos:<br>
+      - **Signos (Interacción):** Creas efectos sensoriales inofensivos: tu voz retumba, las llamas cambian de color, el suelo tiembla o tus ojos brillan.<br>
+      - **Luz Sagrada (Acción):** Tocas un objeto y haces que emita luz brillante en un radio de 5 metros durante 1 hora.<br>
+      - **Restauración Menor (Acción):** Tocas un objeto para limpiarlo, reparar una rotura pequeña o purificar comida y bebida.<br>
+      - **Voluntad a Distancia (Interacción):** Puedes abrir o cerrar de golpe una puerta o ventana sin seguro a distancia Cercana.
+    uses:
+      type: null
+      qty: 0
+  - name: Guía Divina
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: Fe Inspiradora
+    description: >-
+      _Una oración susurrada en el momento justo guía la mano de tu aliado hacia el éxito._<br><br>
+      Como Reacción, cuando un aliado a distancia Cercana falla una Prueba de Habilidad, puedes interceder por él.
+      El aliado suma **1d4** al resultado de su tirada, lo que podría convertir el fallo en un éxito.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Toque Restaurador
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      _Canalizas la energía de la vida misma a través de tus manos para cerrar heridas y purgar toxinas._<br><br>
+      Tocas a una criatura y esta recupera 1d6 + tu Instinto en Puntos de Salud. Alternativamente,
+      puedes eliminar una de estas condiciones: Cegado, Ensordecido o Envenenado.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Escudo de Fe
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      _Invocas una barrera de luz sagrada para desviar un golpe mortal destinado a un compañero._<br><br>
+      Como Reacción, cuando un aliado que puedas ver a distancia Cercana es impactado por un ataque, puedes interponer un escudo de energía divina.
+      El aliado gana una cantidad de Puntos de Salud temporales igual a 1d6 + tu Instinto justo antes de recibir el daño.
+      Estos Puntos de Salud temporales duran hasta el inicio de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Llama Sagrada
+    level: 1
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Fe Inspiradora
+    description: >-
+      _Invocas la luz purificadora de tu deidad en forma de un proyectil de energía radiante, marcando e iluminando a tu enemigo para el próximo ataque._<br><br>
+      Lanzas un virote de energía radiante a una criatura que puedas ver a distancia Cercana. Realiza una tirada de ataque
+      de conjuro (1d8e + Instinto). Si impactas, infliges 1d6 de daño Radiante y el objetivo comienza a brillar hasta el final de tu próximo turno o hasta que vuelva a recibir daño.<br>
+      Mientras brille, el siguiente ataque contra el objetivo obtiene Ventaja (+1d4) en el ataque.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Amparo Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Tu deidad intercede directamente, cegando temporalmente al agresor con un destello de gloria inmaculada._<br><br>
+      Como Reacción, cuando un enemigo ataca a un aliado que puedas ver a distancia Cercana, puedes interponer una barrera de luz.
+      El atacante sufre Desventaja (-1d4) en esa tirada de ataque y en cualquier otro ataque que realice contra ese mismo aliado hasta el final del turno actual.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Aura Protectora
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: 'Toque Restaurador & Instinto 3'
+    description: >-
+      _Tu sola presencia es un faro de esperanza que sostiene a los caídos en el mismísimo umbral de la muerte._<br><br>
+      Como Reacción cuando un aliado a distancia Cercana es reducido a 0 Puntos de Salud,
+      puedes hacer que quede con 1 Punto de Salud en su lugar.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Golpe Divino
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Imbuyes tu arma con la furia de los cielos, desatando un resplandor que ciega a las fuerzas del mal._<br><br>
+      Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de energía sagrada.
+      El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el daño aumenta a 2d6.<br>
+      Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Santuario Silencioso
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Consagras el terreno a tu alrededor, creando un remanso de paz absoluta donde la oscuridad no puede prosperar._<br><br>
+      Creas una esfera de 5 metros de radio a distancia Media. Dentro de la esfera, el sonido se apaga por completo.
+      Además, el área se considera terreno consagrado, y las criaturas impías (no-muertos, demonios, etc.)
+      que entren o empiecen su turno allí sufren Desventaja (-1d4) en todas sus tiradas de ataque y salvación.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Ritos Sagrados
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Entonas los cánticos antiguos que revelan lo oculto y expulsan a las abominaciones de vuelta al abismo._<br><br>
+      Al lanzar el conjuro, eliges un modo de funcionamiento:<br>
+      - **Sentir Presencia (Ritual/Acción):** Durante 10 minutos, eres consciente de la presencia y ubicación general de cualquier criatura Celestial, Infernal o No-muerta a distancia Cercana, así como de objetos o áreas consagradas o profanadas dentro del mismo rango.<br>
+      - **Expulsión (Acción):** Liberas energía divina. Todo No-muerto o Infernal a distancia Cercana debe superar una TS Instinto (ND 5 + Instinto). Si falla, debe usar su turno para alejarse de ti y sufre Desventaja -1d4) en ataques durante 1 minuto (o hasta recibir daño).<br>
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Bendecir Objeto
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _El don que se te ha otorgado te brinda la capacidad de sacralizar hasta los objetos mas mundanos, convirtiendolos temporalmente en una reliquia digna de una cruzada celestial._<br><br>
+      Tocas un arma, escudo, armadura o herramienta. Durante 10 minutos, el objeto obtiene una bendición. Elige uno:<br>
+      - **Arma:** Adquiere un +1 en las tiradas de ataque.<br>
+      - **Escudo o Armadura:** Otorga a su portador +1 a la Mitigación Física y Mágica.<br>
+      - **Herramienta:** Otorga un +1 a las Pruebas de Habilidad que se realicen con esta.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Aura Divina
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Te conviertes en un avatar de tu dios, irradiando un poder que protege a los justos y castiga a los impíos._<br><br>
+      Como Acción, emites un aura divina de 5 metros de radio que dura 1 minuto. Al activar el aura,
+      eliges uno de los siguientes efectos que dura mientras este activo el conjuro:<br>
+      - **Aura de Protección:** Cuando un enemigo dentro del aura ataca a un aliado, puedes usar tu Reacción para imponer Desventaja (-1d4) en esa tirada de ataque.<br>
+      - **Aura de Reprensión:** Cuando un enemigo dentro del aura golpea a un aliado con un ataque cuerpo a cuerpo, debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 1d6 de daño Radiante (la mitad si tiene éxito).<br>
+      - **Aura de Fortaleza:** Tú y tus aliados dentro del aura obtenéis un +1 a todas las Tiradas de Salvación.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Castigo Inapelable
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+    requirements: Sentencia del Hereje
+    description: >-
+      _Ejecutas la sentencia final sobre aquellos que han sido juzgados y encontrados en falta._<br><br>
+      Como Acción, eliges a un enemigo que esté bajo el efecto de tu `Sentencia del Hereje`.
+      El objetivo debe superar una TS de Instinto (ND 5 + Instinto) o sufrirá 3d6 de daño Radiante
+      y quedará Aturdido hasta el final de tu próximo turno. Si tiene éxito, solo recibe la mitad del daño.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Plegaria de Curación
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Curación
+    requirements: 'Toque Restaurador & Instinto 4'
+    description: >-
+      _Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br>
+      Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Espíritus Guardianes
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+      - Curación
+    requirements: 'Fe Inspiradora & Instinto 4'
+    description: >-
+      _Invocas espíritus ancestrales que forman una barrera protectora a tu alrededor, castigando a los impíos que se atrevan a acercarse._<br><br>
+      Como Acción (Concentración), espíritus revolotean a tu alrededor en un radio de 3 metros durante 1 minuto.<br>
+      - Cualquier enemigo que entre o empiece su turno en el área debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto).<br>
+      - Si falla, sufre 2d6 de daño Radiante. Si tiene éxito, la mitad.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Revivir
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Toque Restaurador & Instinto 4'
+    description: >-
+      _Te niegas a que el alma de un caído abandone este mundo, canalizando un torrente de luz divina para traerlo de vuelta del abismo._<br><br>
+      Tocas a una criatura que haya muerto en el último minuto. Vuelve a
+      la vida con 1 Punto de Salud.
+    uses:
+      type: LONG_REST
+      qty: 1
+  # --- Sacerdote: Inquisidor ---
+  - name: Mirada Penetrante
+    level: 1
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: 'Fe Inspiradora & Presencia 2'
+    description: >-
+      _Tus ojos, imbuidos de verdad divina, ven a través de las mentiras y desnudan el alma de los pecadores._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Investigación y en pruebas de Intimidación.
+    uses:
+      type: null
+      qty: 0
+  - name: Sentencia del Hereje
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Concentración
+    requirements: Mirada Penetrante
+    description: >-
+      _Marcas a tu enemigo con un estigma invisible que guía los golpes de los justos hacia sus puntos más vulnerables._<br><br>
+      Como Interacción, marcas a un enemigo a distancia Cercana hasta el final del combate (o hasta que muera).
+      Siempre puedas ver al enemigo, tus ataques y los de tus aliados contra ese enemigo ignoran su mitigación física y mágica en una cantidad igual a la mitad de tu atributo de Instinto (redondeado hacia abajo).
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Zona de la Verdad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Concentración
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Impones un manto de sinceridad absoluta; en este espacio sagrado, el engaño se marchita y muere._<br><br>
+      Creas una zona de 5 metros de radio a distancia Media por 10 minutos. Quien
+      esté dentro debe superar una TS de Instinto (ND 5 + Instinto) para poder
+      decir una mentira deliberada.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Curar
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Toque Restaurador & Instinto 4'
+    description: >-
+      _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br>
+      Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br>
+      - **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br>
+      - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Santuario
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Trazas una frontera sagrada que los seres de oscuridad no pueden cruzar sin enfrentarse a la ira divina._<br><br>
+      Trazas un círculo de 5 metros de radio en el suelo. Durante 8 horas, el área se considera terreno consagrado.<br>
+      Cualquier criatura Infernal o No-muerta que intente entrar al área debe superar primero una Tirada de Salvación de Instinto (ND 5 + Instinto).
+      Si falla, no puede entrar voluntariamente en este turno. Si cualquier otra criatura que no hayas designado como segura entra en el área,
+      recibes una alerta mental que te despierta si estás durmiendo. No te revela quien entro, pero sí que alguien no esperado lo ha hecho.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Palabra de Autoridad
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Tu voz resuena con un peso celestial, doblegando la voluntad de los mortales con un simple mandato._<br><br>
+      Como Acción, eliges a una criatura a distancia Media. Le das una orden de una o dos palabras (ej: "¡Suéltalo!", "¡Arrodíllate!").
+      El objetivo debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina.
+      Una criatura inmune al estado Encantado no se ve afectada por este conjuro.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: Eco del Pasado
+    level: 3
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 4'
+    description: >-
+      _Lees las cicatrices que el tiempo ha dejado en el mundo, atisbando los eventos que marcaron a los caídos._<br><br>
+      Trazas un símbolo sagrado sobre un objeto inanimado o una criatura fallecida.
+      Recibes una visión breve y sensorial (imágenes, sonidos, emociones fuertes) del último evento significativo en el que el objetivo estuvo involucrado.
+      La visión es críptica y está sujeta a la interpretación. No puedes usar esta habilidad sobre el mismo objetivo más de una vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Sanación Verdadera
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Curar & Instinto 5'
+    description: >-
+      _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br>
+      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Destruir Impíos
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: 'Ritos Sagrados & Instinto 5'
+    description: >-
+      _Tu luz se vuelve tan abrumadora que las criaturas de la noche se desintegran al entrar en contacto con ella._<br><br>
+      Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior falla su Tirada de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Cadenas de Luz
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 5'
+    description: >-
+      _Grilletes forjados con pura luz divina brotan del suelo, apresando y quemando a quienes se resisten a la justicia._<br><br>
+      Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Instinto). Si fallan, reciben 4d8 de daño Radiante y quedan Inmovilizadas por las cadenas durante 1 minuto.
+      Si tienen éxito en la salvación inicial, reciben la mitad del daño y no quedan atrapadas.<br>
+      Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5 + Instinto) para tratar de liberarse.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Arma Espiritual
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Fe Inspiradora & Instinto 5'
+    description: >-
+      _Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br>
+      Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
+      - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Poder Sagrado
+    level: 4
+    type: efecto
+    tags:
+      - Sacerdote
+    requirements: 'Fe Inspiradora & Instinto 5'
+    description: >-
+      _Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br>
+      Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Gracia Salvadora
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Reacción
+    requirements: '(Aura Protectora | Curar) & Instinto 6'
+    description: >-
+      _En el momento de mayor desesperación, los cielos intervienen directamente, negando la muerte misma._<br><br>
+      Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Juicio Celestial
+    level: 5
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: '(Espíritus Guardianes | Castigo Inapelable) & Instinto 6'
+    description: >-
+      _Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la voluntad y colapsa los sentidos de tus enemigos._<br><br>
+      Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno).
+    uses:
+      type: RELOAD
+      qty: 8
+
+  - name: 'Ritos Funerarios'
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Conoces las antiguas ceremonias que protegen a los muertos de la profanación y permiten que sus últimos recuerdos vuelvan a hablar._<br><br>
+      Al utilizar este conjuro, eliges uno de los siguientes ritos:<br>
+      - **Descanso del Difunto:** Como Acción, tocas un cadáver y lo consagras durante 7 días. Mientras permanezca consagrado, no se descompone de forma natural. Cualquier efecto que intente convertirlo en No-muerto, poseerlo o manipular mágicamente sus restos debe superar una Prueba de atributo de lanzamiento contra ND 5 + Instinto. Si falla, el efecto no puede afectar ese cadáver.<br>
+      - **Voz de los Muertos:** Como Acción, tocas la cabeza o el cráneo de un cadáver y formulas hasta tres preguntas. El muerto responde con una voz sobrenatural que emana de sus restos, utilizando los conocimientos, recuerdos, personalidad y opiniones que poseía en vida. No adquiere información nueva, no conoce lo ocurrido después de su muerte y no está obligado a cooperar ni a decir la verdad. Si la cabeza o el cráneo han sido destruidos o no están presentes, este rito no puede realizarse. Una vez que un cadáver haya sido interrogado mediante esta carta, no puede volver a ser objetivo de _Voz de los Muertos_.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Vínculo Protector'
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: 'Fe Inspiradora & Instinto 3'
+    description: >-
+      _Entrelazas tu espíritu con el de un aliado y aceptas voluntariamente cargar con parte de sus heridas._<br><br>
+      Como Acción, tocas a una criatura voluntaria y estableces un vínculo que dura 1 minuto o hasta que pierdas la Concentración.<br>
+      Mientras el objetivo se encuentre a distancia Media o inferior, cuando vaya a recibir daño, primero se aplican normalmente su Mitigación, Resistencias, Inmunidades y cualquier otro efecto que reduzca el daño. Después de determinar el daño final que recibiría, puedes usar tu Reacción para transferir hacia ti cualquier cantidad de ese daño, hasta el total.<br>
+      El objetivo reduce el daño recibido en la cantidad transferida y tú recibes esa misma cantidad como daño directo. El daño transferido no puede ser reducido, mitigado, resistido ni evitado de ninguna forma.<br>
+      Si debes realizar una Prueba de Instinto para mantener la Concentración como consecuencia del daño recibido mediante este vínculo, realizas la prueba con Ventaja (+1d4) sin necesidad de gastar una Reacción adicional.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Restitución Divina'
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Curar & Instinto 5'
+    description: >-
+      _Pronuncias los nombres sagrados que rompen cadenas invisibles, expulsando aquellas corrupciones que la medicina y la sanación ordinaria no pueden alcanzar._<br><br>
+      Como Acción, tocas a una criatura o un objeto y eliges uno de los siguientes efectos:<br>
+      - **Liberar:** Eliges una Maldición, Petrificación o Posesión sobrenatural que afecte al objetivo. Realizas una Prueba de Instinto contra el atributo de lanzamiento o ND del efecto original. Si el efecto no posee un valor adecuado, el DJ establece la ND según su poder y procedencia. Si tienes éxito, el efecto termina permanentemente sobre el objetivo.<br>
+      - **Restaurar:** Eliges un atributo del objetivo que haya sido reducido por una enfermedad, veneno, maldición, conjuro u otro efecto externo. El atributo recupera su valor normal. Este efecto no puede aumentar un atributo por encima de su valor habitual ni recuperar reducciones permanentes realizadas voluntariamente como coste o sacrificio.<br>
+      - **Restaurar Miembro:** Vuelves a unir al cuerpo una parte amputada que pertenezca al objetivo, siempre que la parte esté presente y suficientemente intacta. La extremidad u órgano recupera su funcionalidad normal al finalizar el conjuro. Este efecto no restaura Puntos de Salud ni puede recrear partes del cuerpo que hayan sido destruidas o se hayan perdido.
+      Este conjuro no restaura Puntos de Salud ni elimina otras condiciones o efectos negativos; para ello siguen siendo necesarias cartas como _Curar_ o _Sanación Verdadera_.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Retorno Consagrado'
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: 'Santuario & Instinto 5'
+    description: >-
+      _Tu fe convierte un lugar consagrado en un faro imposible de perder; sin importar cuán lejos viajes, siempre puedes encontrar el camino de regreso._<br><br>
+      Mientras esta carta se encuentre activa, cada vez que utilizas _Santuario_ puedes designar el círculo creado como tu Punto de Retorno. Solo puedes mantener un Punto de Retorno a la vez, y permanece vinculado a ti hasta que designes uno nuevo o esta carta deje de estar activa.<br>
+      Como Acción, puedes utilizar esta carta para transportarte instantáneamente junto con un número de criaturas voluntarias a distancia Inmediata igual a tu puntuación de Instinto hasta el centro de tu Punto de Retorno.<br>
+      Todas las criaturas transportadas deben encontrarse en el mismo plano de existencia que el Punto de Retorno.
+    uses:
+      type: LONG_REST
+      qty: 1

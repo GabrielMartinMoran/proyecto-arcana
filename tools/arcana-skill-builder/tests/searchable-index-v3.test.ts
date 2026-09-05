@@ -13,6 +13,7 @@ import {
 	validateContentIndex,
 } from '../src/builders/content-index-builder.js';
 import { loadBestiaryCreatures } from '../src/loaders/bestiary-loader.js';
+import { loadAbilityCards } from '../src/loaders/cards-loader.js';
 import { mapAbilityCard, mapItemCard } from '../src/mappers/card-mapper.js';
 import {
 	deriveCreatureAnchors,
@@ -352,7 +353,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 	const skip = [
 		'player.md',
 		'gm.md',
-		'cards.yml',
+		'cards/index.json',
 		'magical-items.yml',
 		'bestiary/index.json',
 	].every((file) => fs.existsSync(path.join(DOCS_DIR, file)))
@@ -363,9 +364,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		const read = (name: string): string => fs.readFileSync(path.join(DOCS_DIR, name), 'utf-8');
 		const playerChapters = splitPlayerManual(read('player.md'));
 		const gmChapters = splitGMManual(read('gm.md'));
-		const abilityCards = ((yamlLoad(read('cards.yml')) as { cards?: unknown[] }).cards ?? []).map(
-			mapAbilityCard,
-		);
+		const abilityCards = loadAbilityCards();
 		const magicalItems = (
 			(yamlLoad(read('magical-items.yml')) as { items?: unknown[] }).items ?? []
 		).map(mapItemCard);
@@ -384,8 +383,8 @@ describe('T5 real corpus reachability (static/docs)', () => {
 	test('schema v3 includes the documented 23-creature bestiary expansion', { skip }, () => {
 		const index = loadRealIndex();
 		assert.equal(index.schemaVersion, 3);
-		// T2 corpus: 317 cards + 68 items + 66 creatures + 143 sections + 22 chapters.
-		assert.equal(index.entries.length, 616);
+		// T2 corpus: 333 cards + 91 items + 66 creatures + 144 sections + 22 chapters.
+		assert.equal(index.entries.length, 656);
 		const cards = index.entries.filter((e) => e.kind === 'card').length;
 		const items = index.entries.filter((e) => e.kind === 'item').length;
 		const creatures = index.entries.filter((e) => e.kind === 'creature').length;
@@ -394,10 +393,10 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		assert.deepEqual(
 			{ cards, items, creatures, sections, chapters },
 			{
-				cards: 317,
-				items: 68,
+				cards: 333,
+				items: 91,
 				creatures: 66,
-				sections: 143,
+				sections: 144,
 				chapters: 22,
 			},
 		);
@@ -424,7 +423,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		);
 		assert.ok(entry, 'Arma Enriquecida must be an index entry');
 		assert.ok(entry.search, 'item must carry searchable body');
-		assert.ok(entry.search!.includes('imbuida'));
+		assert.ok(entry.search!.includes('reforzada'));
 		assert.ok(entry.search!.includes('mágicamente'));
 		assert.equal(entry.structured?.cost, '600');
 		assert.equal(entry.structured?.cardType, 'item');

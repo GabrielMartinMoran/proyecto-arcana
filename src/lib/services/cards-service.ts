@@ -1,5 +1,6 @@
 import { asset } from '$app/paths';
-import { mapAbilityCard, mapItemCard } from '$lib/mappers/card-mapper';
+import { mapItemCard } from '$lib/mappers/card-mapper';
+import { loadAbilityCards as loadAbilityCardsFromSource } from '$lib/utils/cards-source-loader';
 
 import type { AbilityCard } from '$lib/types/cards/ability-card';
 import type { Card } from '$lib/types/cards/card';
@@ -44,7 +45,17 @@ const loadCards = async <T extends Card>(
 
 export const useCardsService = () => {
 	const loadAbilityCards = async () => {
-		await loadCards('/docs/cards.yml', 'cards', abilityCardsStore, mapAbilityCard);
+		if (get(abilityCardsStore).length > 0) return;
+
+		const cards = await loadAbilityCardsFromSource();
+		abilityCardsStore.set(
+			cards.toSorted(
+				(a, b) =>
+					a.level - b.level ||
+					a.tags.join('|').localeCompare(b.tags.join('|')) ||
+					a.name.localeCompare(b.name),
+			),
+		);
 	};
 
 	const loadItemCards = async () => {

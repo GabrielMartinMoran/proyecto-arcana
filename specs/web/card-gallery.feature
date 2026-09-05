@@ -49,3 +49,20 @@ Feature: Card Gallery
     When the user changes a filter
     Then the URL is updated to reflect the new filter state
     And the page can be refreshed with the same filters applied
+
+  @gallery @cards @modular-source
+  Scenario: Load ability cards from first-tag YAML files
+    Given the ability-card manifest lists one YAML file per first tag
+    When the cards service loads the ability cards
+    Then all valid card files are loaded
+    And card names, IDs, and first-tag images remain unchanged
+    And cards are sorted by level, tags, then name
+    And the legacy `cards.yml` file is not required
+
+  @gallery @cards @fault-isolation
+  Scenario: Skip an invalid ability-card YAML file
+    Given the ability-card manifest contains valid and invalid card files
+    When the cards service loads the ability cards
+    Then valid cards are still available
+    And cards from the invalid file are omitted
+    And the error identifies the invalid card file

@@ -81,3 +81,27 @@ cards:
       próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br> El área afectada
       queda permanentemente convertida en terreno difícil.<br>
     slug: furia-de-la-tierra
+  - id: 73fd3d8b1029c47e4394b8805d61592d398a3ffa
+    name: Despertar
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial & Instinto 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Susurras durante horas al espíritu dormido de una criatura hasta que, por primera vez, esta comprende que
+      existe._<br><br> Como Acción, comienzas una comunión que requiere 1 hora ininterrumpida. Eliges una Bestia o
+      planta viva no hostil que permanezca a tu alcance durante todo el proceso.<br> Al finalizar, el objetivo despierta
+      permanentemente a una consciencia comparable a la de una persona: si su Mente era inferior a 2, aumenta a 2,
+      aprende una lengua que conozcas y adquiere la capacidad de razonar, recordar, conversar y formar objetivos
+      propios.<br> Este efecto no modifica automáticamente sus demás estadísticas de combate ni le concede ataques o
+      habilidades nuevas.<br> Una planta despertada adquiere sentidos suficientes para percibir su entorno y puede
+      realizar pequeños movimientos y manipulaciones apropiados para su anatomía, pero no obtiene automáticamente un
+      bloque de combate.<br> La criatura no queda Encantada, sometida ni obligada a obedecerte. Su actitud hacia ti
+      depende del trato previo que haya recibido y de sus nuevos intereses.<br> Una criatura solo puede ser despertada
+      una vez.
+    slug: despertar

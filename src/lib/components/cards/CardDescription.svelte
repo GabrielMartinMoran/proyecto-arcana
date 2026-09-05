@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
+	import {
+		convertCardDescriptionLineBreaks,
+		sanitizeCardDescriptionMarkdown,
+		sanitizeCardDescriptionMarkdownInline,
+	} from '$lib/utils/card-description-sanitizer';
 	import type { CardInlineDiceFormulaPart } from '$lib/utils/card-inline-dice-formulas';
 	import { parseCardInlineDiceFormulaParts } from '$lib/utils/card-inline-dice-formulas';
 	import type { CardInlineDifficultyPart } from '$lib/utils/card-inline-difficulties';
 	import { parseCardInlineDifficultyParts } from '$lib/utils/card-inline-difficulties';
-	import {
-		sanitizeCardDescriptionMarkdown,
-		sanitizeCardDescriptionMarkdownInline,
-	} from '$lib/utils/card-description-sanitizer';
 	import InlineDifficulty from './InlineDifficulty.svelte';
 
 	type Props = {
@@ -17,8 +18,7 @@
 	};
 
 	type CardDescriptionPart =
-		| CardInlineDiceFormulaPart
-		| Extract<CardInlineDifficultyPart, { type: 'difficulty' }>;
+		CardInlineDiceFormulaPart | Extract<CardInlineDifficultyPart, { type: 'difficulty' }>;
 
 	type CardFormulaPart = Extract<CardInlineDiceFormulaPart, { type: 'formula' }>;
 
@@ -85,32 +85,72 @@
 		return rollContext.attackTitle ?? rollContext.title;
 	};
 
-	const renderTextPart = (text: string): string =>
-		rollContext
+	/**
+	 * Text conversion strategies, in render order: sanitize the Markdown prose
+	 * to safe HTML, then map its line breaks to spacer spans. Additional
+	 * strategies for future rendering needs slot in here.
+	 */
+	const renderTextPart = (text: string): string => {
+		const sanitized = rollContext
 			? sanitizeCardDescriptionMarkdownInline(text)
 			: sanitizeCardDescriptionMarkdown(text);
+
+		return convertCardDescriptionLineBreaks(sanitized);
+	};
 </script>
 
-{#each parts as part, index (index)}
-	{#if part.type === 'text'}
-		{@html renderTextPart(part.text)}
-	{:else if part.type === 'formula'}
-		<button class="inline-roll" type="button" onclick={() => rollFormula(part)}>
-			{toExplosiveDisplay(part.display)} 🎲
-		</button>
-	{:else}
-		<InlineDifficulty difficulty={part} />
-	{/if}
-{/each}
+<div class="card-description">
+	{#each parts as part, index (index)}
+		{#if part.type === 'text'}
+			{@html renderTextPart(part.text)}
+		{:else if part.type === 'formula'}
+			<button class="inline-roll" type="button" onclick={() => rollFormula(part)}>
+				{toExplosiveDisplay(part.display)} 🎲
+			</button>
+		{:else}
+			<InlineDifficulty difficulty={part} />
+		{/if}
+	{/each}
+</div>
 
 <style>
-	.inline-roll {
-		display: inline;
-		margin: 0 0.125rem;
-		padding: 0.1rem var(--spacing-xs);
-		border: 1px solid var(--border-color);
-		background: var(--secondary-bg);
-		font: inherit;
-		cursor: pointer;
+	.card-description {
+		flex-grow: 1;
+		margin: 0;
+		text-shadow:
+			-2px 0 #ded1b599,
+			0 2px #ded1b599,
+			0 -2px #ded1b599,
+			1px 1px #ded1b599,
+			-1px -1px #ded1b599,
+			1px -1px #ded1b599,
+			-1px 1px #ded1b599;
+		height: 100px;
+		overflow-y: auto;
+		scrollbar-width: thin;
+		scrollbar-color: #888 transparent;
+		color: black;
+
+		& :global(p) {
+			margin: 0;
+		}
+
+		& :global(.line-break) {
+			display: block;
+			height: var(--spacing-xs);
+		}
+		& :global(.line-jump) {
+			display: block;
+			height: var(--spacing-sm);
+		}
+		.inline-roll {
+			display: inline;
+			margin: 0 0.125rem;
+			padding: 0.1rem var(--spacing-xs);
+			border: 1px solid var(--border-color);
+			background: var(--secondary-bg);
+			font: inherit;
+			cursor: pointer;
+		}
 	}
 </style>

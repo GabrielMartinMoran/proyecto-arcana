@@ -86,3 +86,50 @@ cards:
       abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de
       Nivel 1 o 2, duplicas el daño base de la carta.
     slug: poder-sagrado
+  - id: c3a179b2e2208c06c74178cc9a9d54519af9b212
+    name: Restitución Divina
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Curar & Instinto 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Pronuncias los nombres sagrados que rompen cadenas invisibles, expulsando aquellas corrupciones que la medicina y
+      la sanación ordinaria no pueden alcanzar._<br><br> Como Acción, tocas a una criatura o un objeto y eliges uno de
+      los siguientes efectos:<br> - **Liberar:** Eliges una Maldición, Petrificación o Posesión sobrenatural que afecte
+      al objetivo. Realizas una Prueba de Instinto contra el atributo de lanzamiento o ND del efecto original. Si el
+      efecto no posee un valor adecuado, el DJ establece la ND según su poder y procedencia. Si tienes éxito, el efecto
+      termina permanentemente sobre el objetivo.<br> - **Restaurar:** Eliges un atributo del objetivo que haya sido
+      reducido por una enfermedad, veneno, maldición, conjuro u otro efecto externo. El atributo recupera su valor
+      normal. Este efecto no puede aumentar un atributo por encima de su valor habitual ni recuperar reducciones
+      permanentes realizadas voluntariamente como coste o sacrificio.<br> - **Restaurar Miembro:** Vuelves a unir al
+      cuerpo una parte amputada que pertenezca al objetivo, siempre que la parte esté presente y suficientemente
+      intacta. La extremidad u órgano recupera su funcionalidad normal al finalizar el conjuro. Este efecto no restaura
+      Puntos de Salud ni puede recrear partes del cuerpo que hayan sido destruidas o se hayan perdido. Este conjuro no
+      restaura Puntos de Salud ni elimina otras condiciones o efectos negativos; para ello siguen siendo necesarias
+      cartas como _Curar_ o _Sanación Verdadera_.
+    slug: restitucion-divina
+  - id: cc5669bd69af68fd17edf3e6b366de945c52bbf4
+    name: Retorno Consagrado
+    level: 4
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+    requirements: Santuario & Instinto 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Tu fe convierte un lugar consagrado en un faro imposible de perder; sin importar cuán lejos viajes, siempre
+      puedes encontrar el camino de regreso._<br><br> Mientras esta carta se encuentre activa, cada vez que utilizas
+      _Santuario_ puedes designar el círculo creado como tu Punto de Retorno. Solo puedes mantener un Punto de Retorno a
+      la vez, y permanece vinculado a ti hasta que designes uno nuevo o esta carta deje de estar activa.<br> Como
+      Acción, puedes utilizar esta carta para transportarte instantáneamente junto con un número de criaturas
+      voluntarias a distancia Inmediata igual a tu puntuación de Instinto hasta el centro de tu Punto de Retorno.<br>
+      Todas las criaturas transportadas deben encontrarse en el mismo plano de existencia que el Punto de Retorno.
+    slug: retorno-consagrado

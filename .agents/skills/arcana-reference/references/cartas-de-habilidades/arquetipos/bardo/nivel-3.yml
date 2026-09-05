@@ -163,3 +163,26 @@ cards:
       fallan, quedan Encantadas por ti.<br> Mientras estén encantadas por este efecto, quedan Inmovilizadas en un estado
       de fascinación.<br> El efecto termina para una criatura si esta recibe daño.
     slug: patron-hipnotico
+  - id: da584659251e3a4bfbaae97e79286c5cd1b11177
+    name: Conocer la Leyenda
+    level: 3
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente & Presencia 4
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Toda gran persona, reliquia y lugar deja ecos en canciones, cuentos y rumores; tú sabes escuchar hasta que esas
+      versiones contradictorias revelan la verdad que esconden._<br><br> Como Acción, comienzas una interpretación o
+      recitación que requiere 10 minutos ininterrumpidos. Al finalizar, nombras o describes una persona, lugar, criatura
+      u objeto de importancia legendaria o histórica.<br> El DJ te revela información verdadera y relevante asociada al
+      objetivo: hechos históricos, hazañas, propietarios anteriores, rumores fundamentados, peligros conocidos,
+      propiedades famosas o acontecimientos que explican su importancia.<br> La información puede manifestarse mediante
+      versos, relatos fragmentarios, metáforas, testimonios contradictorios o imágenes simbólicas, pero debe contener
+      conocimiento potencialmente útil y verdadero.<br> Cuanto más conocimiento previo tengas sobre el objetivo, más
+      precisa y específica será la revelación.<br> Este conjuro no revela automáticamente estadísticas de juego,
+      secretos completamente desvinculados de la historia conocida del objetivo ni acontecimientos futuros.
+    slug: conocer-la-leyenda

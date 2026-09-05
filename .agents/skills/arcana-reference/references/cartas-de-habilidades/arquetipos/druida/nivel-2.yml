@@ -147,3 +147,55 @@ cards:
       olor. El rastreo por medios no mágicos se vuelve imposible. Además, todos los afectados obtienen Ventaja (+1d4) en
       todas las pruebas de Sigilo.
     slug: pasar-sin-rastro
+  - id: 371f5d5956d696eb6ba8378e82bb980ff63b60ad
+    name: Metal Incandescente
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Ordenas al fuego latente en el metal que despierte, convirtiendo armas y armaduras en trampas abrasadoras contra
+      sus propios portadores._<br><br> Como Acción, eliges un objeto metálico manufacturado que puedas ver a distancia
+      Media. Si una criatura lo está sosteniendo o llevando puesto, debe superar una TS de Cuerpo (ND 5 + Instinto). Si
+      tiene éxito, el conjuro falla y termina. Si falla, el objeto se sobrecalienta durante 1 minuto o hasta que pierdas
+      la Concentración, y la criatura recibe inmediatamente 1d6 de daño de Fuego.<br> - **Objeto que puede soltarse:**
+      La criatura lo deja caer inmediatamente, siempre que sea físicamente capaz de hacerlo.<br> - **Objeto que no puede
+      soltarse rápidamente:** La criatura sufre Desventaja (-1d4) en sus Tiradas de Ataque y Pruebas de Habilidad hasta
+      el inicio de tu próximo turno.<br> Mientras el objeto permanezca afectado, en cada uno de tus turnos puedes usar
+      tu Interacción, siempre que puedas verlo y se encuentre a distancia Media, para volver a sobrecalentarlo. Si una
+      criatura lo está sosteniendo o llevando puesto, recibe automáticamente 1d6 de daño de Fuego y vuelve a sufrir el
+      efecto correspondiente al tipo de objeto.<br> Una criatura con Resistencia al Fuego recibe el daño normalmente
+      modificado por su Resistencia, pero no sufre los efectos adicionales del conjuro. Una criatura con Inmunidad al
+      Fuego no recibe daño ni sufre ningún efecto de este conjuro.<br> Un objeto desatendido puede alcanzar temperatura
+      suficiente para prender materiales fácilmente inflamables que estén en contacto directo con él.
+    slug: metal-incandescente
+  - id: 59b2c3230e0ef3f96fb0e3e54ad27833061fd27e
+    name: Adaptación Natural
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _La vida no conquista los entornos hostiles mediante la fuerza, sino cambiando hasta que aquello que era imposible
+      se vuelve natural._<br><br> Como Acción, eliges hasta un número de criaturas voluntarias igual a tu puntuación de
+      Instinto y una de las siguientes adaptaciones. El efecto dura 1 hora:<br> - **Adaptación Acuática:** Las criaturas
+      pueden respirar tanto aire como agua y obtienen una velocidad de nado igual a su Velocidad normal.<br> -
+      **Adaptación Trepadora:** Las criaturas pueden desplazarse por superficies naturales verticales o muy inclinadas a
+      una velocidad igual a su Velocidad normal sin realizar pruebas para trepadas ordinarias. Superficies completamente
+      lisas o invertidas todavía pueden requerir una prueba o resultar imposibles.<br> - **Adaptación Climática:** Las
+      criaturas toleran de forma sobrenatural el calor, frío o altitud extremos de origen natural, y obtienen Ventaja
+      (+1d4) en Pruebas y Tiradas de Salvación de Cuerpo contra peligros ambientales.<br> - **Adaptación Nocturna:** Las
+      criaturas obtienen Visión en la Oscuridad hasta distancia Cercana.
+    slug: adaptacion-natural

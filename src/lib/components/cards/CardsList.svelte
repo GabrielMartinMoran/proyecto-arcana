@@ -100,8 +100,6 @@
 		return card ? card.uses : 0;
 	};
 
-
-
 	const isReloadableCard = (card: CardType) => {
 		return card.uses.type === 'RELOAD';
 	};
@@ -179,8 +177,8 @@
 		{@const isCustom = card.id.startsWith('custom-')}
 		<Card
 			{card}
-			isOvercharged={listMode==='active' && (characterCard?.isOvercharged ?? false)}
-			isExhausted={listMode==='active' && !hasRemainingCardUses(card)}
+			isOvercharged={listMode === 'active' && (characterCard?.isOvercharged ?? false)}
+			isExhausted={listMode === 'active' && !hasRemainingCardUses(card)}
 			{isCustom}
 			rollContext={rollContext
 				? {

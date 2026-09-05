@@ -39,3 +39,27 @@ cards:
       recibiendo 3d8 de daño (TS de Reflejos ND 5 + Instinto para mitad de daño) y debe superar una TS de Cuerpo
       adicional o quedará Derribada.
     slug: ira-de-la-naturaleza
+  - id: df93e86bf7424e597b25a536e1571d3985d997e2
+    name: Reencarnar
+    level: 5
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial & Instinto 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _La naturaleza no devuelve aquello que murió exactamente como era; toma el alma, la envuelve en carne nueva y
+      obliga al ciclo a comenzar otra vez._<br><br> Como Acción, comienzas un rito que requiere 1 hora ininterrumpida
+      junto al cadáver de una criatura que haya muerto durante los últimos 7 días.<br> Si el alma está libre y desea
+      regresar, la criatura vuelve a la vida con 1 Punto de Salud dentro de un nuevo cuerpo adulto y sano de un linaje
+      humanoide apropiado para el mundo de juego.<br> El nuevo cuerpo puede ser elegido de común acuerdo entre jugador y
+      DJ o determinarse al azar.<br> Al regresar a la vida, la criatura reemplaza sus cartas de Linaje por la misma
+      cantidad de cartas de Linaje que poseía antes de morir, elegidas nuevamente para representar su nuevo cuerpo. Para
+      esta elección puede ignorar el requerimiento *Solo Creación de Personaje*, pero sigue limitada a un máximo de 2
+      cartas de Linaje.<br> Sus atributos, Puntos de Progreso y todas sus demás cartas permanecen sin cambios.<br> Este
+      conjuro no puede devolver a la vida a una criatura cuya alma haya sido destruida, aprisionada o se niegue a
+      regresar.
+    slug: reencarnar

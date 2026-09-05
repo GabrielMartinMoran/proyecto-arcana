@@ -15,8 +15,9 @@ import { buildManual } from './builders/manual-builder.js';
 import { CONFIG } from './config.js';
 import { generateSummary } from './llm/summarizer.js';
 import { loadBestiaryCreatures, loadBestiaryDatasetYaml } from './loaders/bestiary-loader.js';
+import { loadAbilityCards, loadCardsDatasetYaml } from './loaders/cards-loader.js';
 import { loadDocFile } from './loaders/file-loader.js';
-import { mapAbilityCard, mapItemCard } from './mappers/card-mapper.js';
+import { mapItemCard } from './mappers/card-mapper.js';
 import { groupCreaturesByTier } from './processors/bestiary-processor.js';
 import {
 	flattenCardGroups,
@@ -55,9 +56,7 @@ export const buildAll = async (): Promise<void> => {
 	// Prepare all data synchronously before firing parallel requests
 	const playerChapters = splitPlayerManual(loadDocFile(CONFIG.PLAYER_MANUAL_FILE));
 	const gmChapters = splitGMManual(loadDocFile(CONFIG.GM_MANUAL_FILE));
-	const abilityCards = ((yamlLoad(loadDocFile(CONFIG.CARDS_FILE)) as any).cards ?? []).map(
-		mapAbilityCard,
-	);
+	const abilityCards = loadAbilityCards();
 	const magicalItems = ((yamlLoad(loadDocFile(CONFIG.MAGICAL_ITEMS_FILE)) as any).items ?? []).map(
 		mapItemCard,
 	);
@@ -169,10 +168,14 @@ const copyDatasetFiles = async (): Promise<void> => {
 	const datasetDir = path.join(CONFIG.OUT_PATH, CONFIG.RESOURCES_DIR, 'datasets');
 	ensureDir(datasetDir);
 
-	for (const fileName of [CONFIG.CARDS_FILE, CONFIG.MAGICAL_ITEMS_FILE]) {
-		const content = loadDocFile(fileName);
-		await fs.writeFile(path.join(datasetDir, fileName), content, 'utf-8');
-	}
+	// The cards dataset is derived deterministically from the modular source
+	// and keeps the logical `cards.yml` name; the monolith is not required.
+	await fs.writeFile(path.join(datasetDir, CONFIG.CARDS_FILE), loadCardsDatasetYaml(), 'utf-8');
+	await fs.writeFile(
+		path.join(datasetDir, CONFIG.MAGICAL_ITEMS_FILE),
+		loadDocFile(CONFIG.MAGICAL_ITEMS_FILE),
+		'utf-8',
+	);
 
 	// The bestiary dataset is derived deterministically from the modular source
 	// and keeps the logical `bestiary.yml` name; the monolith is not required.

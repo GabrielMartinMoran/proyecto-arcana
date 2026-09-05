@@ -16,6 +16,8 @@ import {
 	loadContentIndex,
 	type ContentIndexFile,
 } from '../src/scripts/cli/data-loader.js';
+import { loadCardsDatasetYaml } from '../src/loaders/cards-loader.js';
+import { loadDocFile } from '../src/loaders/file-loader.js';
 import { buildContentEntryHash, type ContentIndexEntry } from '../src/types/content-index.js';
 
 const makeEntry = (overrides: Partial<ContentIndexEntry>): ContentIndexEntry => {
@@ -352,13 +354,36 @@ describe('list/detail compatibility is preserved', () => {
 		return output;
 	};
 
-	test('list still runs, reads the real dataset and reports cards', async () => {
-		const output = await captureOutput('list', ['--kind', 'ability', '--name', 'pacto']);
+	const withCompiledDataset = async (run: () => Promise<string>): Promise<string> => {
+		const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'arcana-cli-dataset-'));
+		const previous = process.env.ARCANA_DATASET_DIR;
+		try {
+			fs.writeFileSync(path.join(tmpDir, 'cards.yml'), loadCardsDatasetYaml(), 'utf-8');
+			fs.writeFileSync(
+				path.join(tmpDir, 'magical-items.yml'),
+				loadDocFile('magical-items.yml'),
+				'utf-8',
+			);
+			process.env.ARCANA_DATASET_DIR = tmpDir;
+			return await run();
+		} finally {
+			if (previous === undefined) delete process.env.ARCANA_DATASET_DIR;
+			else process.env.ARCANA_DATASET_DIR = previous;
+			fs.rmSync(tmpDir, { recursive: true, force: true });
+		}
+	};
+
+	test('list reads the compiled dataset (no static/docs) and reports cards', async () => {
+		const output = await withCompiledDataset(() =>
+			captureOutput('list', ['--kind', 'ability', '--name', 'pacto']),
+		);
 		assert.match(output, /Pacto Supremo/);
 	});
 
-	test('detail still runs and renders the requested card', async () => {
-		const output = await captureOutput('detail', ['--no-tags', '--', 'Pacto Supremo']);
+	test('detail reads the compiled dataset (no static/docs) and renders the card', async () => {
+		const output = await withCompiledDataset(() =>
+			captureOutput('detail', ['--no-tags', '--', 'Pacto Supremo']),
+		);
 		assert.match(output, /Pacto Supremo/);
 	});
 

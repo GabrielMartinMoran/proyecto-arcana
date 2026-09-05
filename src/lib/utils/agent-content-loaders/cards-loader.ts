@@ -1,10 +1,10 @@
-import { mapAbilityCard, mapItemCard } from '$lib/mappers/card-mapper';
+import { mapItemCard } from '$lib/mappers/card-mapper';
 import type { Card } from '$lib/types/cards/card';
+import { loadAbilityCards } from '$lib/utils/cards-source-loader';
 import { serializeCardsAsMDTable } from '$lib/utils/serializers/card-serializer';
 import { load as yamlLoad } from 'js-yaml';
 import { loadAgentFile } from './agent-content-loader';
 
-const ABILITY_CARDS_FILE_PATH = '/docs/cards.yml';
 const MAGICAL_ITEM_CARDS_FILE_PATH = '/docs/magical-items.yml';
 
 const loadCards = async (
@@ -27,7 +27,8 @@ const loadCards = async (
 };
 
 export const loadAbilityCardsAsMD = async () => {
-	return await loadCards(ABILITY_CARDS_FILE_PATH, mapAbilityCard, 'cards');
+	const cards = await loadAbilityCards();
+	return serializeCardsAsMDTable(cards);
 };
 
 export const loadMagicalItemsCardsAsMD = async () => {

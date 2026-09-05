@@ -205,3 +205,52 @@ cards:
       obedece la orden en su próximo turno, siempre que no sea directamente dañina. Una criatura inmune al estado
       Encantado no se ve afectada por este conjuro.
     slug: palabra-de-autoridad
+  - id: 597a8df114bd95573c0e75b52111c833b0314bba
+    name: Ritos Funerarios
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Ritual
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Conoces las antiguas ceremonias que protegen a los muertos de la profanación y permiten que sus últimos recuerdos
+      vuelvan a hablar._<br><br> Al utilizar este conjuro, eliges uno de los siguientes ritos:<br> - **Descanso del
+      Difunto:** Como Acción, tocas un cadáver y lo consagras durante 7 días. Mientras permanezca consagrado, no se
+      descompone de forma natural. Cualquier efecto que intente convertirlo en No-muerto, poseerlo o manipular
+      mágicamente sus restos debe superar una Prueba de atributo de lanzamiento contra ND 5 + Instinto. Si falla, el
+      efecto no puede afectar ese cadáver.<br> - **Voz de los Muertos:** Como Acción, tocas la cabeza o el cráneo de un
+      cadáver y formulas hasta tres preguntas. El muerto responde con una voz sobrenatural que emana de sus restos,
+      utilizando los conocimientos, recuerdos, personalidad y opiniones que poseía en vida. No adquiere información
+      nueva, no conoce lo ocurrido después de su muerte y no está obligado a cooperar ni a decir la verdad. Si la cabeza
+      o el cráneo han sido destruidos o no están presentes, este rito no puede realizarse. Una vez que un cadáver haya
+      sido interrogado mediante esta carta, no puede volver a ser objetivo de _Voz de los Muertos_.
+    slug: ritos-funerarios
+  - id: 567201a959f2a1ba0d75ac803c5d6feb94c96ebe
+    name: Vínculo Protector
+    level: 2
+    type: activable
+    tags:
+      - Sacerdote
+      - Conjuro
+      - Concentración
+    requirements: Fe Inspiradora & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Entrelazas tu espíritu con el de un aliado y aceptas voluntariamente cargar con parte de sus heridas._<br><br>
+      Como Acción, tocas a una criatura voluntaria y estableces un vínculo que dura 1 minuto o hasta que pierdas la
+      Concentración.<br> Mientras el objetivo se encuentre a distancia Media o inferior, cuando vaya a recibir daño,
+      primero se aplican normalmente su Mitigación, Resistencias, Inmunidades y cualquier otro efecto que reduzca el
+      daño. Después de determinar el daño final que recibiría, puedes usar tu Reacción para transferir hacia ti
+      cualquier cantidad de ese daño, hasta el total.<br> El objetivo reduce el daño recibido en la cantidad transferida
+      y tú recibes esa misma cantidad como daño directo. El daño transferido no puede ser reducido, mitigado, resistido
+      ni evitado de ninguna forma.<br> Si debes realizar una Prueba de Instinto para mantener la Concentración como
+      consecuencia del daño recibido mediante este vínculo, realizas la prueba con Ventaja (+1d4) sin necesidad de
+      gastar una Reacción adicional.
+    slug: vinculo-protector

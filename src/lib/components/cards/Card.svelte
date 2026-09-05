@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Card } from '$lib/types/cards/card';
-	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
+	import type { ItemCard } from '$lib/types/cards/item-card';
 	import { removeDiacritics } from '$lib/utils/formatting';
 	import { formatRequirements } from '$lib/utils/requirement-expression';
 	import type { Snippet } from 'svelte';
@@ -19,7 +19,7 @@
 	let {
 		card,
 		isOvercharged = false,
-		isExhausted=false,
+		isExhausted = false,
 		isCustom = false,
 		rollContext = undefined,
 		children = undefined,
@@ -51,7 +51,12 @@
 	};
 </script>
 
-<div class="card" class:overcharged={isOvercharged} class:exhausted={isExhausted && !isOvercharged} style:border-color={getBorderColor(card.tags)}>
+<div
+	class="card"
+	class:overcharged={isOvercharged}
+	class:exhausted={isExhausted && !isOvercharged}
+	style:border-color={getBorderColor(card.tags)}
+>
 	<div class="bg" style:background-image={`url(${card.img})`}></div>
 	<div class="inner">
 		<div class="header">
@@ -64,9 +69,7 @@
 			<h3>{card.name}</h3>
 		</div>
 		<div class="body">
-			<span class="description">
-				<CardDescription description={card.description} {rollContext} />
-			</span>
+			<CardDescription description={card.description} {rollContext} />
 			<div class="tags">
 				{#each card.tags as tag (tag)}
 					<span class="chip">{tag}</span>
@@ -179,6 +182,7 @@
 				h3 {
 					padding: var(--spacing-sm);
 					padding-top: var(--spacing-md);
+					padding-bottom: var(--spacing-xs);
 					margin: 0;
 				}
 			}
@@ -189,30 +193,9 @@
 				flex-direction: column;
 				justify-content: start;
 				padding: var(--spacing-sm);
+				padding-top: var(--spacing-xs);
 				font-size: 0.8rem;
 				width: 100%;
-
-				.description {
-					flex-grow: 1;
-					margin: 0;
-					text-shadow:
-						-2px 0 #ded1b599,
-						0 2px #ded1b599,
-						0 -2px #ded1b599,
-						1px 1px #ded1b599,
-						-1px -1px #ded1b599,
-						1px -1px #ded1b599,
-						-1px 1px #ded1b599;
-					height: 100px;
-					overflow-y: auto;
-					scrollbar-width: thin;
-					scrollbar-color: #888 transparent;
-					color: black;
-
-					:global(p) {
-						margin: 0;
-					}
-				}
 
 				.tags {
 					display: flex;
@@ -302,8 +285,7 @@
 	}*/
 
 	.card::before {
-	transition:
-		background-color 0.5s ease;
+		transition: background-color 0.5s ease;
 	}
 
 	.card.overcharged::before {
@@ -323,6 +305,6 @@
 	}
 
 	.card.exhausted {
-        background-color: var(--exhausted-overlay);
-    }
+		background-color: var(--exhausted-overlay);
+	}
 </style>

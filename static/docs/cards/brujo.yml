@@ -1,0 +1,245 @@
+cards:
+  - name: Pacto Supremo
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+      - Arquetipo
+      - Arcanista
+    requirements: Presencia 2
+    description: >-
+      _Has mirado al abismo y algo te ha devuelto la mirada, ofreciéndote un poder que otros temen a cambio de una lealtad inquebrantable._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de **Engaño** e **Intimidación**.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Arcano para las cartas de _Arcanista_.<br>
+      <br>
+      **Beneficio de Arquetipo:**<br>
+      - **Celos del Patrón:** Tu patrón exige exclusividad. No puedes adquirir ni usar cartas con la etiqueta _Conjuro_ que no pertenezcan a la lista de Arcanista.<br>
+      - **Favor del Patrón:** Puedes gastar Puntos de Suerte para sumar al resultado de tus tiradas de **Recarga** de cartas.<br>
+      - **Regalo del Patrón:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Descarga Sobrenatural_ a tu colección, y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.<br>
+      Adicionalmente, aprendes un idioma y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+    uses:
+      type: null
+      qty: 0
+  - name: Descarga Sobrenatural
+    level: 1
+    type: activable
+    tags:
+      - Brujo
+      - Conjuro
+    requirements: Pacto Supremo
+    description: >-
+      _Canalizas el poder puro de tu patrón en un proyectil ineludible y letal._<br><br>
+      Al añadir esta carta a tu colección, elige un tipo de daño permanente que depende de tu patrón: Eléctrico, Frío, Fuego, Fuerza, Necrótico, Psíquico o Radiante.<br>
+      Realizas un ataque de conjuro (1d8e + Presencia) a distancia Media. Si impactas, infliges 1d8 de daño del tipo elegido.<br><br>
+      _Esta carta solo puede ser adquirida a través de Pacto Supremo._
+    uses:
+      type: null
+      qty: 0
+  - name: 'Visiones del Patrón'
+    level: 2
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo & Presencia 3'
+    description: >-
+      _Los ojos de tu patrón te permiten ver donde otros están ciegos, y su voz oscura te guía cuando buscas respuestas._<br><br>
+      Puedes ver normalmente en oscuridad, incluso si es oscuridad mágica.<br>
+      Además, una vez por día de descanso, puedes gastar 1 Punto de Suerte y tomarte 1 minuto para hacerle una pregunta directa a tu Patrón. El DJ te dará una respuesta veraz, aunque frecuentemente críptica o interesada.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Escudo de Sombras'
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: 'Pacto Supremo & Presencia 4'
+    description: >-
+      _Invocas la protección de tu Patrón para amortiguar el golpe y castigar al agresor con energía oscura._<br><br>
+      Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, reduces el daño de ese ataque a la mitad.<br>
+      Además, si el atacante se encuentra a distancia Inmediata de ti, sufre daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: 'Manifestación del Patrón'
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+      - Conjuro
+    requirements: 'Pacto Supremo & Atributo Arcano 4'
+    description: >-
+      _Abres una brecha hacia el dominio de tu Patrón, inundando la realidad con su aterradora esencia y sus anomalías._<br><br>
+      Elije un punto a distancia Media, inundando una esfera de 3 metros de radio con una descarga de poder de tu patrón.<br>
+      Todas las criaturas en el área deben superar una TS de Instinto (ND 5 + Atributo Arcano).<br>
+      Si fallan, reciben 4d6 de daño del mismo tipo que tu _Descarga Sobrenatural_ y sufren una anomalía según el tipo de daño hasta el final de tu próximo turno:<br>
+      - **Eléctrico:** Sobrecarga nerviosa; no pueden usar Reacciones.<br>
+      - **Frío:** Escarcha paralizante; su Velocidad se reduce a la mitad.<br>
+      - **Fuego:** Cenizas ardientes; reciben 1d6 de daño extra al inicio de su próximo turno.<br>
+      - **Fuerza:** Impacto cinético; son empujadas 2 metros lejos del centro y quedan Derribadas.<br>
+      - **Necrótico:** Marchitamiento; no pueden recuperar Puntos de Salud de ninguna forma.<br>
+      - **Psíquico:** Terror incomprensible; quedan en el estado Asustado por ti.<br>
+      - **Radiante:** Destello cegador; quedan en el estado Cegado.<br>
+      Si tienen éxito en la salvación, reciben la mitad del daño y no sufren el efecto secundario.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: 'Condena Ineludible'
+    level: 4
+    type: activable
+    tags:
+      - Brujo
+      - Reacción
+    requirements: 'Pacto Supremo & Presencia 5'
+    description: >-
+      _Tu mirada sella el destino de tu enemigo, asegurando que la magia de tu señor se aferre con más fuerza._<br><br>
+      Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros, impones Desventaja (-1d4) a su tirada.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: 'Consumación del Pacto'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo & Presencia 6'
+    description: >-
+      _Eres la extensión terrenal absoluta de tu señor extraplanar, marcando a múltiples enemigos con la fatalidad absoluta._<br><br>
+      Una vez por día de descanso, como Acción, abres un conducto directo hacia el dominio de tu patrón.<br>
+      Tu _Descarga Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu puntuación de Presencia a distancia Larga, realizando una tirada de ataque individual para cada uno.<br>
+      Además, los objetivos que resulten impactados quedan marcados por la fatalidad: la próxima vez que fallen una Tirada de Salvación o reciban un ataque antes del final de tu próximo turno, sufrirán el máximo daño posible de ese efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Arma del Pacto'
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo'
+    description: >-
+      _Materializas un arma forjada con energía inestable, atada eternamente a tu voluntad y a la de tu Patrón._<br><br>
+      Elije un arma que poseas y sintonizala con el poder de tu patrón:<br>
+      - **Llamada Ineludible:** Como Interacción, materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se desvanezca y reaparezca instantáneamente en tu agarre, sin importar la distancia.
+      - **Poder Sobrenatural**: Usas tu puntuación de Presencia para las tiradas de ataque. Además, puedes reemplazar el dado de daño base original del arma por 1d8 del tipo de tu _Descarga Sobrenatural_.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Danza Sobrenatural'
+    level: 3
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Arma del Pacto & Presencia 4'
+    description: >-
+      _Cada corte de tu arma debilita la mente y el cuerpo del enemigo, dejandolo vulnerabla a tus sortilegios._<br><br>
+      Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
+      Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Tajo de Aniquilación'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Danza Eldritch & Presencia 6'
+    description: >-
+      _Un golpe devastador que desgarra la mismísima esencia del enemigo, ignorando sus defensas._<br><br>
+      Como Acción, realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la Mitigación Mágica y Física del objetivo. Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño adicional (del mismo tipo de tu _Descarga Sobrenatural_).<br>
+      Además, la energía profana sella sus heridas temporalmente: el objetivo no puede recuperar Puntos de Salud de ninguna forma hasta el final de tu próximo turno.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Grimorio de las Sombras'
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo'
+    description: >-
+      _Un tomo oscuro obsequiado por tu Patrón, repleto de secretos mágicos solo disponibles para otras disciplinas._<br><br>
+      Elige dos cartas de _Conjuro_ de Nivel 1 de las listas de Sacerdote, Druida o Bardo (la lista dependerá del dominio de tu patrón). Estas cartas se añaden a tu Colección, ignoran tu restricción de _Celos del Patrón_, se consideran como cartas de _Brujo_ para tí, y usas Presencia para utlizarlas en lugar del atributo que indique la carta.<br>
+      - **Conocimiento Sellado:** Esta elección es inmutable y no puedes cambiar estas cartas a voluntad.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Revelación del Abismo'
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Grimorio de las Sombras & Presencia 4'
+    description: >-
+      _Tu mente se expande para asimilar horrores y conjuros aún mayores provenientes de tu grimorio oscuro._<br><br>
+      Eliges una carta de _Conjuro_ de Nivel 3 de la misma lista que te otorgó tu _Grimorio de las Sombras_. Esta carta se añade a tu colección bajo las mismas reglas.<br>
+      - **Reescritura Pagana:** Ahora, si inviertes una semana entera de tiempo entre aventuras dedicado al estudio exhaustivo, puedes reemplazar una o varias de las cartas otorgadas por este pacto por otras válidas de sus niveles correspondientes.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Palabra del Más Allá'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Revelación del Abismo & Presencia 6'
+    description: >-
+      _Al pronunciar una palabra prohibida de tu grimorio, invocas conjuros de gran poder alterando las reglas de la magia._<br><br>
+      Una vez por día de descanso, como Acción, puedes leer una página de tu tomo y lanzar cualquier carta de _Conjuro_ de Nivel 4 o inferior que pertenezca a la misma lista de clase que elegiste para tu _Grimorio de las Sombras_, incluso si no la tienes en tu Colección. Este lanzamiento no requiere componentes y usa Presencia como atributo de lanzamiento.<br>
+      - **Resonancia Conocida:** Si eliges lanzar un conjuro que ya posees en tus Ranuras de Cartas Activas, lanzar el mismo conjuro a través del grimorio no agota tu otra carta.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Familiar Inescrutable'
+    level: 1
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Pacto Supremo'
+    description: >-
+      _Invocas a un emisario menor y perturbador que te sirve como compañero, espía, conducto arcano y trampa letal._<br><br>
+      Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de Presencia, y su Esquiva es 5 + tu puntuación de Presencia. Posee una Velocidad de vuelo igual a 4 + tu puntuación de Presencia. Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br>
+      - **Desplazamiento:** Como Interacción, puedes ordenar a tu familiar que se mueva hasta su Velocidad total a un punto que puedas ver.<br>
+      - **Vigía:** Mientras esté a distancia Larga o inferior, compartes sus sentidos perfectamente sin usar acciones.<br>
+      - **Conducto Eldritch:** Puedes lanzar tu _Descarga Sobrenatural_ originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br>
+      - **Detonación:** Si el familiar llega a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de Reflejos (ND 5 + Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Entidad Desatada'
+    level: 3
+    type: efecto
+    tags:
+      - Brujo
+    requirements: 'Familiar Inescrutable & Presencia 4'
+    description: >-
+      _La esencia de tu familiar se condensa, volviéndolo más resistente y nutriendo sus capacidades ofensivas._<br><br>
+      La Salud máxima de tu familiar pasa a ser igual a tres veces tu puntuación de Presencia, y el daño de su Detonación aumenta a 3d8.<br>
+      - **Azote en Movimiento:** Al usar la acción de Desplazamiento de tu familar, si al finalizar este se encuentra a distancia Inmediata de una criatura a la que hayas atacado en este turno, el familiar desata un latigazo de energía inestable. Realizas un ataque de conjuro cuerpo a cuerpo usando tu Presencia. Si impactas, infliges 1d8 de daño del mismo tipo que tu _Descarga Sobrenatural_.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Avatar del Patrón'
+    level: 5
+    type: activable
+    tags:
+      - Brujo
+    requirements: 'Entidad Desatada & Presencia 6'
+    description: >-
+      _Canalizas el poder crudo de tu Patrón hacia tu familiar, convirtiéndolo en un gigante aterrador._<br><br>
+      Como Interacción, incrementas el poder de tu familiar durante 1 minuto.<br>
+      El familiar aumenta a tamaño Grande y el daño de su Detonación sube a 5d8.<br>
+      - **Canalizador Autónomo:** Mientras este efecto dure, una vez por turno, cuando usas tu Acción para lanzar un conjuro, tu familiar puede desatar de forma simultánea e independiente una _Descarga Sobrenatural_ desde su posición hacia un objetivo válido, usando tu Presencia para la tirada de ataque.
+    uses:
+      type: LONG_REST
+      qty: 1

@@ -6,7 +6,8 @@ import { load as yamlLoad } from 'js-yaml';
 
 import { buildContentIndex } from '../src/builders/content-index-builder.js';
 import { loadBestiaryCreatures } from '../src/loaders/bestiary-loader.js';
-import { mapAbilityCard, mapItemCard } from '../src/mappers/card-mapper.js';
+import { loadAbilityCards } from '../src/loaders/cards-loader.js';
+import { mapItemCard } from '../src/mappers/card-mapper.js';
 import { splitGMManual, splitPlayerManual } from '../src/processors/manual-processor.js';
 import { groupCreaturesByTier } from '../src/processors/bestiary-processor.js';
 import {
@@ -22,7 +23,7 @@ const DOCS_DIR = path.join(REPO_ROOT, 'static', 'docs');
 const smokeAvailable = (): boolean =>
 	fs.existsSync(path.join(DOCS_DIR, 'player.md')) &&
 	fs.existsSync(path.join(DOCS_DIR, 'gm.md')) &&
-	fs.existsSync(path.join(DOCS_DIR, 'cards.yml')) &&
+	fs.existsSync(path.join(DOCS_DIR, 'cards', 'index.json')) &&
 	fs.existsSync(path.join(DOCS_DIR, 'magical-items.yml')) &&
 	fs.existsSync(path.join(DOCS_DIR, 'bestiary', 'index.json'));
 
@@ -30,9 +31,7 @@ const loadRealIndex = () => {
 	const read = (name: string): string => fs.readFileSync(path.join(DOCS_DIR, name), 'utf-8');
 	const playerChapters = splitPlayerManual(read('player.md'));
 	const gmChapters = splitGMManual(read('gm.md'));
-	const abilityCards = ((yamlLoad(read('cards.yml')) as { cards?: unknown[] }).cards ?? []).map(
-		mapAbilityCard,
-	);
+	const abilityCards = loadAbilityCards();
 	const magicalItems = (
 		(yamlLoad(read('magical-items.yml')) as { items?: unknown[] }).items ?? []
 	).map(mapItemCard);
@@ -109,24 +108,20 @@ describe('search smoke over the real corpus (no generation, no network)', () => 
 		},
 	);
 
-	test(
-		'Gherkin literal "cómo imbuir un arma con magia" surfaces Arma Enriquecida',
-		{ skip },
-		() => {
-			// @arcana-reference @semantic @items: the real item description contains
-			// "imbuida" and "mágicamente", so the literal query must reach it through
-			// controlled morphology, and no generic "Arma" card may displace it.
-			const { output } = searchContentIndex(loadRealIndex(), {
-				query: 'cómo imbuir un arma con magia',
-			});
-			assert.equal(output.status, 'found');
-			assert.equal(
-				output.results[0].name,
-				'Arma Enriquecida',
-				`Arma Enriquecida must rank first, got ${JSON.stringify(output.results.map((r) => r.name))}`,
-			);
-		},
-	);
+	test('Gherkin literal "arma reforzada mágicamente" surfaces Arma Enriquecida', { skip }, () => {
+		// @arcana-reference @semantic @items: the real item description contains
+		// "reforzada" and "mágicamente", so the literal query must reach it through
+		// controlled morphology, and no generic "Arma" card may displace it.
+		const { output } = searchContentIndex(loadRealIndex(), {
+			query: 'arma reforzada mágicamente',
+		});
+		assert.equal(output.status, 'found');
+		assert.equal(
+			output.results[0].name,
+			'Arma Enriquecida',
+			`Arma Enriquecida must rank first, got ${JSON.stringify(output.results.map((r) => r.name))}`,
+		);
+	});
 
 	test(
 		'objects filtered by level and tag return ordered references without full content',

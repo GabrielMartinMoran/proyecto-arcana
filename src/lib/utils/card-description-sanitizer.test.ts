@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+	convertCardDescriptionLineBreaks,
 	sanitizeCardDescriptionMarkdown,
 	sanitizeCardDescriptionMarkdownInline,
 } from './card-description-sanitizer';
@@ -55,6 +56,46 @@ describe('sanitizeCardDescriptionMarkdown', () => {
 
 	it('returns an empty string for an empty description', () => {
 		expect(stripTrailingNewline(sanitizeCardDescriptionMarkdown(''))).toBe('');
+	});
+});
+
+describe('convertCardDescriptionLineBreaks', () => {
+	it('FEAT-card-line-breaks @rendering — replaces a single br with one line-break spacer', () => {
+		const html = convertCardDescriptionLineBreaks('A<br>B');
+
+		expect(html).toBe('A<span class="line-break"></span>B');
+	});
+
+	it('FEAT-card-line-breaks @rendering — replaces two consecutive br with a line-break followed by a line-jump', () => {
+		const html = convertCardDescriptionLineBreaks('A<br><br>B');
+
+		expect(html).toBe('A<span class="line-break"></span><span class="line-jump"></span>B');
+	});
+
+	it('FEAT-card-line-breaks @rendering — replaces three consecutive br keeping one line-break and adding a line-jump after it', () => {
+		const html = convertCardDescriptionLineBreaks('A<br><br><br>B');
+
+		expect(html).toBe(
+			'A<span class="line-break"></span><span class="line-jump"></span><span class="line-jump"></span>B',
+		);
+	});
+
+	it('FEAT-card-line-breaks @rendering — treats runs separated by prose as independent breaks', () => {
+		const html = convertCardDescriptionLineBreaks('A<br><br>B<br>C');
+
+		expect(html).toBe(
+			'A<span class="line-break"></span><span class="line-jump"></span>B<span class="line-break"></span>C',
+		);
+	});
+
+	it('FEAT-card-line-breaks @rendering — keeps surrounding markdown output untouched', () => {
+		const html = convertCardDescriptionLineBreaks('<p><strong>A</strong><br>B</p>');
+
+		expect(html).toBe('<p><strong>A</strong><span class="line-break"></span>B</p>');
+	});
+
+	it('returns the input unchanged when it has no br tags', () => {
+		expect(convertCardDescriptionLineBreaks('<p>A</p>')).toBe('<p>A</p>');
 	});
 });
 

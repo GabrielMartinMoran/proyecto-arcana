@@ -54,6 +54,38 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
   - **Recarga:** Un valor numérico (ej. "Recarga 5+") que indica la dificultad para recuperar la habilidad tras su uso.
     Las reglas detalladas para recuperar estos usos se encuentran en la sección **Recarga de Cartas**.
 
+## Niveles de las Cartas
+
+El **Nivel** de una carta representa el grado de poder, complejidad o dominio necesario para utilizar aquello que representa. No es el nivel del personaje: ARCANA no utiliza una progresión tradicional por niveles de personaje. En su lugar, cada personaje desarrolla libremente su Colección mediante Puntos de Progreso y los requerimientos de cada carta.
+
+La progresión normal comprende cinco niveles:
+
+- **Nivel 1 — Fundamentos:** Capacidades básicas que establecen el estilo, entrenamiento o naturaleza del personaje. Muchas de las cartas que definen un arquetipo comienzan aquí.
+- **Nivel 2 — Especialización:** Técnicas y poderes que amplían significativamente las posibilidades del personaje y comienzan a definir formas particulares de resolver problemas.
+- **Nivel 3 — Poder Avanzado:** Capacidades capaces de cambiar considerablemente el desarrollo de un combate, una exploración o una situación narrativa.
+- **Nivel 4 — Maestría:** Técnicas extraordinarias que representan un dominio excepcional de una disciplina. En este nivel también aparecen las Sinergias entre arquetipos.
+- **Nivel 5 — Poder Cumbre:** Las capacidades más poderosas que un personaje puede adquirir mediante la progresión normal. Representan hazañas, técnicas y conjuros al alcance únicamente de verdaderos maestros.
+
+El Nivel también determina el coste base en Puntos de Progreso necesario para añadir una carta a tu Colección. Además, las cartas más poderosas suelen poseer requerimientos más exigentes y usos más limitados.
+
+### Nivel 6: Poderes Prohibidos
+
+El Nivel 5 representa el límite que un personaje puede alcanzar mediante la progresión normal, pero existen capacidades que trascienden aquello que incluso los mayores maestros consideran posible.
+
+Las **Cartas de Nivel 6** representan poderes excepcionales que han sido olvidados, prohibidos, sellados o deliberadamente apartados del conocimiento común. No pueden adquirirse gastando Puntos de Progreso ni forman parte de la progresión normal de ningún arquetipo.
+
+Algunas contienen formas de magia capaces de alterar directamente la realidad o manipular fuerzas que fueron selladas en la propia Urdimbre. Otras representan técnicas marciales, disciplinas espirituales o conocimientos tan extremos que su dominio fue perdido, ocultado o prohibido por quienes comprendieron sus consecuencias.
+
+Solo pueden obtenerse mediante circunstancias extraordinarias, como pergaminos antiguos, artefactos, maestros desaparecidos, pactos, revelaciones, lugares olvidados o secretos descubiertos durante una aventura.
+
+Poseer una Carta de Nivel 6 no significa necesariamente poder utilizarla sin consecuencias. Algunos de estos poderes dejan una huella imposible de ocultar, desafían las leyes naturales o atraen la atención de entidades, órdenes o guardianes que preferirían que permanecieran olvidados.
+
+Entre las leyendas sobre poderes de Nivel 6 se mencionan conjuros capaces de _detener el tiempo_, matar mediante una única _Palabra de Poder_ o incluso conceder un _Deseo_ capaz de alterar la realidad.
+
+Pero estos secretos no pertenecen únicamente a la magia arcana. Antiguos relatos hablan de milagros capaces de devolver ejércitos enteros a la vida, canciones que borraron nombres de la memoria del mundo, técnicas marciales que partieron fortalezas de un solo golpe y disciplinas físicas que permitieron a mortales enfrentarse durante unos instantes a criaturas propias de los mitos.
+
+Si estas historias son ciertas, descubrir uno de esos poderes sería una hazaña extraordinaria. Aprender a utilizarlo podría ser algo todavía más peligroso.
+
 ## Recarga de Cartas
 
 Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:

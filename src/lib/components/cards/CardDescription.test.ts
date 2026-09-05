@@ -128,7 +128,7 @@ describe('CardDescription', () => {
 		});
 
 		expect(container.querySelector('strong')).toHaveTextContent('Potente:');
-		expect(container.querySelector('br')).not.toBeNull();
+		expect(container.querySelector('.line-break')).not.toBeNull();
 		expect(screen.getByRole('button', { name: '1d6 🎲' })).toBeInTheDocument();
 	});
 
@@ -164,7 +164,7 @@ describe('CardDescription', () => {
 		expect(container.querySelector('em')).toHaveTextContent(
 			'Una liana espinosa brota de tu mano como una extensión de tu voluntad.',
 		);
-		expect(container.querySelector('br')).not.toBeNull();
+		expect(container.querySelectorAll('.line-break')).toHaveLength(2);
 		expect(document.body).toHaveTextContent('Realizas un ataque de conjuro');
 		expect(document.body).toHaveTextContent('una Tirada de Salvación');
 	});
@@ -370,7 +370,7 @@ describe('CardDescription', () => {
 		});
 
 		expect(container.querySelector('strong')).toHaveTextContent('Potente:');
-		expect(container.querySelector('br')).not.toBeNull();
+		expect(container.querySelector('.line-break')).not.toBeNull();
 		expect(container.querySelector('.inline-difficulty > span:not([class])')).toHaveTextContent(
 			'ND 9',
 		);
@@ -404,16 +404,68 @@ describe('CardDescription', () => {
 		expect(screen.getByRole('button', { name: '1d4 + tu Atributo Arcano 🎲' })).toBeInTheDocument();
 	});
 
-	it('FEAT-card-inline-difficulties @aliases — keeps the Coraza Vital alias formula as prose when the alias is unresolved', () => {
+	it('FEAT-card-line-breaks @rendering — renders two consecutive br as one line-break plus one line-jump with roll context', () => {
 		const { container } = render(CardDescription, {
 			props: {
-				description: 'obtienes 1d4 + tu Atributo Arcano temporal',
-				rollContext: context({ Mente: 4 }),
+				description: 'Primero.<br><br>Segundo.',
+				rollContext: context({}),
 			},
 		});
 
-		expect(screen.queryByRole('button')).toBeNull();
-		expect(container.querySelector('.inline-difficulty')).toBeNull();
-		expect(document.body).toHaveTextContent('1d4 + tu Atributo Arcano temporal');
+		expect(container.querySelectorAll('.line-break')).toHaveLength(1);
+		expect(container.querySelectorAll('.line-jump')).toHaveLength(1);
+		expect(document.body).toHaveTextContent('Primero.');
+		expect(document.body).toHaveTextContent('Segundo.');
+	});
+
+	it('FEAT-card-line-breaks @rendering — renders three consecutive br as one line-break plus two line-jumps', () => {
+		const { container } = render(CardDescription, {
+			props: {
+				description: 'Primero.<br><br><br>Segundo.',
+				rollContext: context({}),
+			},
+		});
+
+		expect(container.querySelectorAll('.line-break')).toHaveLength(1);
+		expect(container.querySelectorAll('.line-jump')).toHaveLength(2);
+	});
+
+	it('FEAT-card-line-breaks @rendering — converts br runs even in read-only mode', () => {
+		const { container } = render(CardDescription, {
+			props: {
+				description: 'Primero.<br><br>Segundo.',
+			},
+		});
+
+		expect(container.querySelectorAll('.line-break')).toHaveLength(1);
+		expect(container.querySelectorAll('.line-jump')).toHaveLength(1);
+		expect(document.body).toHaveTextContent('Segundo.');
+	});
+
+	it('FEAT-card-line-breaks @rendering — treats br runs around a formula button as independent breaks', () => {
+		const { container } = render(CardDescription, {
+			props: {
+				description: 'Primero.<br><br>inflige 1d6 de daño<br>Fin.',
+				rollContext: context({}),
+			},
+		});
+
+		expect(container.querySelectorAll('.line-break')).toHaveLength(2);
+		expect(container.querySelectorAll('.line-jump')).toHaveLength(1);
+		expect(screen.getByRole('button', { name: '1d6 🎲' })).toBeInTheDocument();
+		expect(document.body).toHaveTextContent('Fin.');
+	});
+
+	it('FEAT-card-line-breaks @rendering — converts each br run per text part when a formula splits the run', () => {
+		const { container } = render(CardDescription, {
+			props: {
+				description: 'Primero.<br>inflige 1d6 de daño<br>Fin.',
+				rollContext: context({}),
+			},
+		});
+
+		expect(container.querySelectorAll('.line-break')).toHaveLength(2);
+		expect(container.querySelectorAll('.line-jump')).toHaveLength(0);
+		expect(screen.getByRole('button', { name: '1d6 🎲' })).toBeInTheDocument();
 	});
 });

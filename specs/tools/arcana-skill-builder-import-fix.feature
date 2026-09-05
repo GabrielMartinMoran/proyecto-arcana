@@ -1,6 +1,5 @@
 @delta-added
 Feature: arcana-skill-builder-make-generate
-
   The arcana-skill-builder Makefile invokes the skill-creator packaging script.
   Previously this failed with `ModuleNotFoundError: No module named 'scripts'`
   because the script was run directly and its absolute package imports could
@@ -38,6 +37,23 @@ Feature: arcana-skill-builder-make-generate
     AND the generated skill contains the valid bestiary creatures
     AND the generated bestiary dataset remains available under the logical source `bestiary.yml`
     AND an invalid individual YAML is logged and omitted without aborting the build
+
+  @smoke @tools @cards @modular-source
+  Scenario: make generate builds the skill from first-tag card YAML files
+    GIVEN the ability-card source is stored in `static/docs/cards/`
+    AND the card source manifest preserves the canonical first-tag order
+    WHEN I run `make generate-no-ai`
+    THEN the command completes with exit code 0
+    AND the generated skill contains the valid ability cards
+    AND the generated card dataset remains available under the logical source `cards.yml`
+    AND an invalid individual YAML is logged and omitted without aborting the build
+
+  @smoke @tools @cards @compiled-only
+  Scenario: bundled card CLI reads only compiled skill data
+    GIVEN a generated skill contains `references/datasets/cards.yml`
+    WHEN the bundled card CLI lists or details an ability card
+    THEN it resolves the card from the compiled skill dataset
+    AND it never reads from `static/docs`
 
   @delta-modified
   Scenario: package_skill.py docstrings reference correct path

@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { get } from 'svelte/store';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mockedAsset = vi.fn((path: string) => `/base${path}`);
 
@@ -33,8 +33,13 @@ describe('static content paths', () => {
 	it('loads card and creature compendiums through asset paths', async () => {
 		vi.mocked(fetch)
 			.mockResolvedValueOnce({
+				ok: true,
+				json: async () => ({ files: ['mago.yml'] }),
+			} as Response)
+			.mockResolvedValueOnce({
+				ok: true,
 				text: async () =>
-					'cards:\n  - name: Arc Flash\n    level: 1\n    tags: [Arcana]\n    uses: 1\n    range: Personal\n    duration: Instant\n    effects: []\n    upgrades: []\n    action: Main\n    skill: Mente\n    threshold: 10\n    test: 1d20\n    damage: 1d4\n    damageType: Arcano\n    note: null\n    requirements: []\n    source: Test\n    img: null\n',
+					'cards:\n  - name: Arc Flash\n    level: 1\n    tags: [Mago]\n    uses: { type: RELOAD, qty: 3 }\n    requirements: null\n    description: Prueba\n',
 			} as Response)
 			.mockResolvedValueOnce({
 				ok: true,
@@ -57,9 +62,10 @@ describe('static content paths', () => {
 		await cardsService.loadAbilityCards();
 		await creaturesService.loadCreatures();
 
-		expect(fetch).toHaveBeenNthCalledWith(1, '/base/docs/cards.yml');
-		expect(fetch).toHaveBeenNthCalledWith(2, '/base/docs/bestiary/index.json');
-		expect(fetch).toHaveBeenNthCalledWith(3, '/base/docs/bestiary/goblin.yml');
+		expect(fetch).toHaveBeenNthCalledWith(1, '/base/docs/cards/index.json');
+		expect(fetch).toHaveBeenNthCalledWith(2, '/base/docs/cards/mago.yml');
+		expect(fetch).toHaveBeenNthCalledWith(3, '/base/docs/bestiary/index.json');
+		expect(fetch).toHaveBeenNthCalledWith(4, '/base/docs/bestiary/goblin.yml');
 		expect(get(cardsService.abilityCards)).toHaveLength(1);
 		expect(get(creaturesService.creatures)).toHaveLength(1);
 	});

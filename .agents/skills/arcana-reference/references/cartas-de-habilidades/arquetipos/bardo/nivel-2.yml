@@ -101,3 +101,52 @@ cards:
       un aura de 3 metros de radio centrada en ti.<br> Tus aliados (incluido tú) que comiencen su turno dentro del aura
       ganan un +1 a sus tiradas de ataque hasta el inicio de su próximo turno.
     slug: himno-de-batalla
+  - id: 17530bbbbc4a6e56cf3ad7bae41cb25f6a5254ab
+    name: Voz sin Fronteras
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+    requirements: Don del Elocuente & Presencia 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Tus palabras atraviesan las barreras que separan a las personas: distancia, idioma e incluso el silencio dejan de
+      ser obstáculos para tu voz._<br><br> Mientras esta carta esté activa, puedes utilizar uno de los siguientes
+      modos:<br> - **Susurro Distante:** Como Interacción, y sin agotar esta carta, eliges a una criatura que puedas ver
+      a distancia Media y le envías un breve mensaje que solo ella puede oír. La criatura puede responder inmediatamente
+      con un mensaje igualmente breve que solo tú puedes oír. Deben compartir al menos un idioma para comprenderse.<br>
+      - **Lengua Universal:** Como Acción, tocas a una criatura voluntaria. Durante 1 hora, comprende cualquier idioma
+      hablado que escuche y cualquier criatura capaz de comprender al menos un idioma entiende aquello que diga. Este
+      efecto no permite leer ni escribir idiomas desconocidos.<br> - **Mensaje Lejano:** Como Acción, eliges a una
+      criatura que conozcas y que se encuentre en tu mismo plano de existencia. Le transmites mentalmente un mensaje de
+      hasta unas 25 palabras. La criatura reconoce que el mensaje proviene de ti y puede responder inmediatamente con un
+      mensaje de extensión similar. No necesitas conocer su ubicación para contactar con ella.
+    slug: voz-sin-fronteras
+  - id: b6959e7235adf210f1a80392f39888492dc135ec
+    name: Interludio Pacífico
+    level: 2
+    type: activable
+    tags:
+      - Bardo
+      - Conjuro
+      - Concentración
+    requirements: Don del Elocuente & Presencia 3
+    uses:
+      type: RELOAD
+      qty: 6
+    description: >-
+      _Cambias el tono de la escena con una melodía imposible de ignorar, haciendo que durante unos instantes el miedo,
+      la ira y la violencia pierdan su dominio._<br><br> Como Acción, interpretas una melodía que dura hasta 1 minuto o
+      hasta que pierdas la Concentración. Al comenzar, eliges uno de los siguientes efectos:<br> - **Apaciguar
+      Hostilidad:** Las criaturas hostiles que puedan oírte en un radio de 5 metros centrado en un punto a distancia
+      Media deben superar una TS de Instinto (ND 5 + Presencia). Si fallan, no pueden realizar ataques ni utilizar
+      habilidades deliberadamente dañinas mientras permanezcan afectadas. El efecto termina inmediatamente sobre una
+      criatura si esta recibe daño, es objetivo de un efecto hostil o presencia cómo uno de sus aliados es atacado por
+      una criatura enemiga.<br> - **Serenar Ánimo:** Eliges un número de criaturas voluntarias que puedan oírte igual a
+      tu Presencia. Mientras dure la interpretación, quedan suprimidos sobre ellas los efectos que las mantengan
+      Asustadas o Encantadas. El efecto original no termina: si todavía debería seguir activo cuando acaba el
+      Interludio, vuelve a aplicarse normalmente.
+    slug: interludio-pacifico

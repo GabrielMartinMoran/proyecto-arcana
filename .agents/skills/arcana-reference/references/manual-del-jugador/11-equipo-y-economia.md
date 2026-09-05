@@ -57,7 +57,6 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 
 > **Nota sobre armaduras no listadas:** La tabla representa familias funcionales de armaduras, no un catálogo exhaustivo. Si una armadura no aparece de forma explícita, puede utilizar las estadísticas de aquella que mejor represente su grado de protección, movilidad y ruido. Por ejemplo, una armadura de escamas puede tratarse como una Brigantina, mientras que una coraza puede utilizar las estadísticas de Placas parcial. El DJ tiene la última palabra sobre qué entrada resulta más apropiada.
 
-
 | Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
 | :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
 | Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |

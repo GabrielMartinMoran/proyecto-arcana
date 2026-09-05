@@ -13,21 +13,22 @@ const DATASET_FILES = {
 	items: 'magical-items.yml',
 } as const;
 
-const FALLBACK_DIRECTORIES = [
-	process.env.ARCANA_DATASET_DIR,
+const DATASET_FALLBACK_DIRECTORIES = [
 	path.resolve(process.cwd(), 'references', 'datasets'),
 	path.resolve(process.cwd(), 'references'),
 	path.resolve(__dirname, '../../..', 'references', 'datasets'),
 	path.resolve(__dirname, '../../..', 'references'),
 	path.resolve(__dirname, '../../../..', 'references', 'datasets'),
 	path.resolve(__dirname, '../../../..', 'references'),
-	path.resolve(process.cwd(), 'static', 'docs'),
-	path.resolve(process.cwd(), '../../static/docs'),
-	path.resolve(__dirname, '../../../../../static/docs'),
-].filter((value, index, array): value is string => {
-	if (typeof value !== 'string' || value.length === 0) return false;
-	return array.indexOf(value) === index;
-});
+];
+
+const datasetFallbackDirectories = (): string[] =>
+	[process.env.ARCANA_DATASET_DIR, ...DATASET_FALLBACK_DIRECTORIES].filter(
+		(value, index, array): value is string => {
+			if (typeof value !== 'string' || value.length === 0) return false;
+			return array.indexOf(value) === index;
+		},
+	);
 
 type RawYaml = Record<string, unknown>;
 
@@ -48,7 +49,7 @@ const ensureArray = (value: unknown, fileLabel: string): unknown[] => {
 };
 
 const resolveDatasetFile = (fileName: string): string => {
-	for (const baseDir of FALLBACK_DIRECTORIES) {
+	for (const baseDir of datasetFallbackDirectories()) {
 		const candidate = path.join(baseDir, fileName);
 		if (fs.existsSync(candidate)) {
 			return candidate;
