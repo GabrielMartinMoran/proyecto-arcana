@@ -226,10 +226,10 @@
 			"category": "weapons",
 			"price": 75,
 			"damage": "1d10",
-			"type": "Contundente",
+			"type": "Cortante",
 			"properties": "A dos manos, Alcance",
 			"requirement": "Cuerpo 3",
-			"notes": "Daño 1d10, Contundente, A dos manos, Alcance, Requiere Cuerpo 3"
+			"notes": "Daño 1d10, Cortante, A dos manos, Alcance, Requiere Cuerpo 3"
 		},
 		{
 			"id": "weapon-guja",
@@ -237,10 +237,10 @@
 			"category": "weapons",
 			"price": 75,
 			"damage": "1d10",
-			"type": "Contundente",
+			"type": "Cortante",
 			"properties": "A dos manos, Alcance",
 			"requirement": "Cuerpo 3",
-			"notes": "Daño 1d10, Contundente, A dos manos, Alcance, Requiere Cuerpo 3"
+			"notes": "Daño 1d10, Cortante, A dos manos, Alcance, Requiere Cuerpo 3"
 		},
 		{
 			"id": "weapon-mandoble",

@@ -37,7 +37,7 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 | Martillo de guerra       | 1d8/1d10 | Contundente | Cuerpo 3              | 60 o   | Versátil                            |
 | Hacha de guerra          | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
 | Ballesta pesada          | 1d10     | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga), Recarga |
-| Alabarda / Guja          | 1d10     | Contundente | Cuerpo 3              | 75 o   | A dos manos, Alcance                |
+| Alabarda / Guja          | 1d10     | Cortante    | Cuerpo 3              | 75 o   | A dos manos, Alcance                |
 | Mandoble / Gran hacha    | 1d12     | Cortante    | Cuerpo 3              | 100 o  | A dos manos                         |
 | Mazo pesado              | 1d12     | Contundente | Cuerpo 3              | 100 o  | A dos manos                         |
 

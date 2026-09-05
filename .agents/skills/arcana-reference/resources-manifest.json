@@ -77,7 +77,7 @@
       "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml",
       "kind": "file",
       "size": 4759,
-      "sha1": "0e04254de190dded530279b287feddc0fbe31443"
+      "sha1": "bf9d6caa9584f6df4c5d2553dfed07426fd48ae5"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos",
@@ -567,7 +567,7 @@
       "path": "references/datasets/cards.yml",
       "kind": "file",
       "size": 268388,
-      "sha1": "915012300bf8031e990fb63018336cd9cb029803"
+      "sha1": "84a85988773e7eb476ca9ec803ed9acae1b46e6b"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -652,8 +652,8 @@
     {
       "path": "references/manual-del-jugador/03-mecanicas-de-juego.md",
       "kind": "file",
-      "size": 4084,
-      "sha1": "9805efe0ef8e8b319bc13901af4340b7fcdf0662"
+      "size": 4391,
+      "sha1": "58f6cd33d965995be61bea1d18661f3c011423cf"
     },
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
@@ -701,7 +701,7 @@
       "path": "references/manual-del-jugador/11-equipo-y-economia.md",
       "kind": "file",
       "size": 14217,
-      "sha1": "24ebe3a6893e134e4e65862ff310e3ad6a0d55ba"
+      "sha1": "27e20c1a44e8bae288368c3c6b2580c408d40140"
     },
     {
       "path": "references/manual-del-jugador/12-reglas-narrativas-avanzadas.md",

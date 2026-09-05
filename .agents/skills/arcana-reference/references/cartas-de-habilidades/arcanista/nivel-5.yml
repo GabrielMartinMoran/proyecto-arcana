@@ -97,7 +97,7 @@ cards:
       qty: 1
     description: >-
       _Pronuncias una palabra primordial cuyo significado no describe la muerte: la ordena._<br><br> Como Acción, eliges
-      una criatura que puedas ver a distancia Cercana. Si posee 50 Puntos de Salud o menos, muere inmediatamente.<br> Si
+      una criatura que puedas ver a distancia Cercana. Si posee 60 Puntos de Salud o menos, muere inmediatamente.<br> Si
       posee más de 60 Puntos de Salud, la palabra no tiene efecto.<br> Este efecto no inflige daño y, por lo tanto, no
       puede ser reducido mediante Mitigación, Resistencias u otros efectos que reduzcan daño.
     slug: palabra-de-poder-matar
