@@ -1,0 +1,221 @@
+cards:
+  # ------------------------------ COMBATIENTE ------------------------------
+  - name: Maestría Marcial
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Sintonía con el Acero | Sintonía Fluida
+    description: >-
+      _El campo de batalla es tu lienzo y el acero tu pincel. Ya sea mediante fuerza bruta o la agilidad magistral, has convertido el arte de la guerra en una parte intrínseca de tu ser._<br><br>
+      Tienes acceso a la lista de cartas de _Combatiente_ y usas tu **Atributo Marcial** para cumplir los requerimientos y calcular los efectos de estas cartas.
+    uses:
+      type: null
+      qty: 0
+  - name: Segundo Aliento
+    level: 1
+    type: activable
+    tags:
+      - Combatiente
+      - Curación
+    requirements: Maestría Marcial
+    description: >-
+      _Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco más._<br><br>
+      Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu Atributo Marcial.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Ataque de Oportunidad
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Maestría Marcial & Atributo Marcial 2'
+    description: >-
+      _Nunca dejas que un enemigo se retire impunemente; cualquier descuido en su guardia es castigado con un golpe instantáneo._<br><br>
+      Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu Reacción para realizar un único ataque cuerpo a cuerpo contra él.
+    uses:
+      type: RELOAD
+      qty: 3
+
+  - name: Duelo de Honor
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Maestría Marcial & Presencia 2'
+    description: >-
+      _Tu presencia exige atención; con un grito de desafío o una mirada gélida, obligas a tu enemigo a centrarse solo en ti._<br><br>
+      Como Interacción, eliges a un enemigo a distancia Cercana que pueda verte y oírte y lo desafías.<br>
+      Realizas una Tirada Enfrentada de tu Presencia contra el Instinto del objetivo. Si ganas, el objetivo está
+      marcado por ti hasta el inicio de tu próximo turno.<br>
+      Mientras esté marcado, sufre Desventaja (-1d4) en cualquier tirada de ataque que realice contra un objetivo que no seas tú.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Maestría de Armas
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Maestría Marcial & Atributo Marcial 3'
+    description: >-
+      _Has entrenado con cada herramienta de muerte conocida, adoptando posturas que maximizan la eficacia de tu equipo actual._<br><br>
+      Al finalizar un día de descanso, adoptas una Postura de Combate que te otorga beneficios según el equipo que empuñes:<br>
+      - **Destructor (A dos manos):** Cuando atacas con un arma a dos manos o versátil (usando ambas manos), puedes volver a tirar cualquier dado de daño que resulte en un 1 o un 2 (debes usar el nuevo resultado).<br>
+      - **Torbellino (Dos armas):** Cuando atacas con un arma de una mano, puedes usar tu Interacción para realizar un ataque adicional con otra arma de una mano que empuñes.<br>
+      - **Duelista (Un arma):** Cuando empuñas un arma de una mano y ninguna otra arma (puedes llevar escudo), puedes usar tu Reacción al ser golpeado para añadir +1 a tu Esquiva contra ese ataque.<br>
+      - **Guardián (Escudo):** Cuando un enemigo ataca a un aliado a distancia Inmediata de ti y estás usando un escudo, puedes usar tu Reacción para imponer Desventaja (-1d4) en su tirada de ataque.<br>
+      - **Tirador (A distancia):** Tus ataques a distancia ignoran la cobertura parcial y su alcance aumenta un rango (Por ejemplo: Media a Larga).<br>
+      - **Hostigador (Arrojadizas):** Puedes desenvainar armas arrojadizas como parte de cada ataque (sin gastar interacción) y su alcance aumenta un rango (Por ejemplo: Cercana a Media).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Oleada de Acción
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Maestría Marcial & Atributo Marcial 4'
+    description: >-
+      _Apretando los dientes y forzando tus músculos al límite, desatas una ráfaga de determinación que desafía el cansancio._<br><br>
+      Inmediatamente luego de utilizar tu Acción, puedes agotar esta carta para ganar una Acción extra en este turno.
+    uses:
+      type: RELOAD
+      qty: 8
+  - name: Ataque Adicional
+    level: 3
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Maestría Marcial & Atributo Marcial 4'
+    description: >-
+      _Tu entrenamiento te permite encontrar huecos en la defensa enemiga que otros no ven, permitiéndote golpear dos veces por cada oportunidad._<br><br>
+      Cuando usas tu Acción para Atacar, puedes realizar dos ataques en lugar de solo uno.
+    uses:
+      type: null
+      qty: 0
+  - name: Indomable
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: 'Maestría Marcial & Atributo Marcial 4 & Instinto 2'
+    description: >-
+      _Te niegas a sucumbir a los efectos que intentarían doblegar tu voluntad o tu cuerpo, forzando un nuevo intento por pura tenacidad._<br><br>
+      Puedes repetir una Tirada de Salvación fallida.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Inquebrantable
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+      - Reacción
+    requirements: 'Maestría Marcial & Atributo Marcial 4'
+    description: >-
+      _Ni siquiera el golpe más letal puede detenerte; te mantienes en pie por puro orgullo y determinación cuando otros ya habrían muerto._<br><br>
+      Como Reacción, cuando un golpe te reduciría a 0 Puntos de Salud, puedes resitir con 1 Punto de Salud en su lugar.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Reflejos de Combate
+    level: 4
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Maestría Marcial & Atributo Marcial 5'
+    description: >-
+      _Tu conciencia del campo de batalla es total; reaccionas a múltiples amenazas con la velocidad de un depredador._<br><br>
+      No puedes ser sorprendido mientres estes consciente.<br>
+      Además, tienes una Reacción adicional en cada ronda de combate, que solo puedes usar para habilidades de cartas con la etiqueta _Combatiente_.
+    uses:
+      type: null
+      qty: 0
+  - name: Torrente de Acero
+    level: 5
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Ataque Adicional & Atributo Marcial 6'
+    description: >-
+      _Tu maestría alcanza la perfección, desatando una secuencia de ataques tan rápida y coordinada que abrumas cualquier defensa._<br><br>
+      Cuando usas tu Acción para Atacar, ahora puedes realizar tres ataques en lugar de dos.
+    uses:
+      type: null
+      qty: 0
+  # --- Combatiente: Caudillo ---
+  - name: Presencia Inspiradora
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Maestría Marcial & Presencia 2'
+    description: >-
+      _Tu sola estancia en el campo de batalla levanta el ánimo de tus compañeros, recordándoles por qué luchan._<br><br>
+      Obtienes Ventaja (+1d4) en Pruebas de Persuasión.<br>
+      Además, todos los aliados a distancia Cercana que puedan verte y oírte ganan un +1 a las Tiradas de Salvación contra miedo.
+    uses:
+      type: null
+      qty: 0
+  - name: Grito de Guerra
+    level: 2
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Presencia Inspiradora
+    description: >-
+      _Alzas la voz en un rugido que resuena en los corazones de tus aliados, infundiéndoles una vitalidad renovada._<br><br>
+      Como Interacción, elige un número de aliados a distancia Cercana igual a tu puntuación de Presencia. Estos ganan Puntos de Salud temporales
+      iguales a 1d4 + tu Presencia.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Comando de Batalla
+    level: 3
+    type: activable
+    tags:
+      - Combatiente
+    requirements: Grito de Guerra
+    description: >-
+      _Diriges a tus compañeros con la precisión de un general, permitiéndoles reposicionarse y golpear con una coordinación letal._<br><br>
+      Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu puntuación de Presencia.<br>
+      Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad.<br>
+      Este movimiento no puede ser interceptado por Reacciones enemigas.<br>
+      Además, el primer ataque que realice cada uno de esos aliados en su próximo turno obtiene Ventaja (+1d4).
+    uses:
+      type: RELOAD
+      qty: 5
+  # --- Combatiente: Explorador Veterano ---
+  - name: Marcha Incansable
+    level: 1
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: Maestría Marcial
+    description: >-
+      _Tu resistencia es legendaria; marcas un ritmo que permite a tu grupo cruzar leguas sin que el cansancio haga mella._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas marchas.<br>
+      Además, cuando lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25% gracias a tu capacidad para marcar el ritmo y elegir las mejores rutas.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Ojo Táctico
+    level: 2
+    type: efecto
+    tags:
+      - Combatiente
+    requirements: 'Marcha Incansable & Instinto 2'
+    description: >-
+      _Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br>
+      Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br>
+      - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br>
+      - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>
+    uses:
+      type: null
+      qty: 0

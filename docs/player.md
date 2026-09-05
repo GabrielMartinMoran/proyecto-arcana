@@ -325,6 +325,34 @@ Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de de
   - **Recarga:** Un valor numérico (ej. "Recarga 5+") que indica la dificultad para recuperar la habilidad tras su uso.
     Las reglas detalladas para recuperar estos usos se encuentran en la sección **Recarga de Cartas**.
 
+## Niveles de las Cartas
+
+El **Nivel** de una carta representa el grado de poder, complejidad o dominio necesario para utilizar aquello que representa. No es el nivel del personaje: ARCANA no utiliza una progresión tradicional por niveles de personaje. En su lugar, cada personaje desarrolla libremente su Colección mediante Puntos de Progreso y los requerimientos de cada carta.
+
+La progresión normal comprende cinco niveles:
+
+- **Nivel 1 — Fundamentos:** Capacidades básicas que establecen el estilo, entrenamiento o naturaleza del personaje. Muchas de las cartas que definen un arquetipo comienzan aquí.
+- **Nivel 2 — Especialización:** Técnicas y poderes que amplían significativamente las posibilidades del personaje y comienzan a definir formas particulares de resolver problemas.
+- **Nivel 3 — Poder Avanzado:** Capacidades capaces de cambiar considerablemente el desarrollo de un combate, una exploración o una situación narrativa.
+- **Nivel 4 — Maestría:** Técnicas extraordinarias que representan un dominio excepcional de una disciplina. En este nivel también aparecen las Sinergias entre arquetipos.
+- **Nivel 5 — Poder Cumbre:** Las capacidades más poderosas que un personaje puede adquirir mediante la progresión normal. Representan hazañas, técnicas y conjuros al alcance únicamente de verdaderos maestros.
+
+El Nivel también determina el coste base en Puntos de Progreso necesario para añadir una carta a tu Colección. Además, las cartas más poderosas suelen poseer requerimientos más exigentes y usos más limitados.
+
+### Nivel 6: Poderes Prohibidos
+
+El Nivel 5 representa el límite que un personaje puede alcanzar mediante la progresión normal, pero existen capacidades que trascienden aquello que incluso los mayores maestros consideran posible.
+
+Las **Cartas de Nivel 6** representan poderes excepcionales que han sido olvidados, prohibidos, sellados o deliberadamente apartados del conocimiento común. No pueden adquirirse gastando Puntos de Progreso ni forman parte de la progresión normal de ningún arquetipo.
+
+Algunas Cartas de Nivel 6 contienen formas de magia capaces de alterar directamente la realidad, manipular el flujo del tiempo o invocar fuerzas que fueron deliberadamente selladas en la propia Urdimbre. Entre los relatos más antiguos se mencionan poderes capaces de conceder un _Deseo_, detener el tiempo durante unos instantes o reescribir acontecimientos que ya han ocurrido.
+
+Pero estos secretos no pertenecen únicamente a la magia. También existen leyendas sobre técnicas marciales imposibles, disciplinas espirituales y conocimientos perdidos capaces de superar los límites naturales de un mortal: guerreros que atravesaron fortalezas de un solo golpe, maestros que actuaron antes de que el tiempo pudiera alcanzarlos o individuos capaces de enfrentarse brevemente a criaturas propias de los mitos.
+
+Las Cartas de Nivel 6 solo pueden obtenerse mediante circunstancias extraordinarias, como pergaminos antiguos, artefactos, maestros desaparecidos, pactos, revelaciones, lugares olvidados o secretos descubiertos durante una aventura.
+
+Poseer una Carta de Nivel 6 no significa necesariamente poder utilizarla sin consecuencias. Algunos de estos poderes desafían leyes fundamentales del mundo, dejan una huella imposible de ocultar o atraen la atención de entidades, órdenes y guardianes que se aseguraron de que semejantes conocimientos permanecieran olvidados.
+
 ## Recarga de Cartas
 
 Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:
@@ -820,7 +848,6 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 La armadura proporciona **Mitigación Física**, que reduce el daño físico recibido. Sin embargo, también impone una **Penalización a la Esquiva** y al **Sigilo**. Si no cumples el **Requisito**, sufres **Desventaja (-1d4)** en todas las tiradas que requieran movilidad (ataques, pruebas de Reflejos y Cuerpo).
 
 > **Nota sobre armaduras no listadas:** La tabla representa familias funcionales de armaduras, no un catálogo exhaustivo. Si una armadura no aparece de forma explícita, puede utilizar las estadísticas de aquella que mejor represente su grado de protección, movilidad y ruido. Por ejemplo, una armadura de escamas puede tratarse como una Brigantina, mientras que una coraza puede utilizar las estadísticas de Placas parcial. El DJ tiene la última palabra sobre qué entrada resulta más apropiada.
-
 
 | Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
 | :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |

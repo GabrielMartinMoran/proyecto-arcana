@@ -1,0 +1,769 @@
+cards:
+  # ------------------------------ ARCANISTA ------------------------------
+  - name: Afinidad Arcana
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: Estudios Mágicos | Pacto Supremo | Herencia Sobrenatural
+    description: >-
+      _La magia no es un misterio para ti, sino una herramienta, un pacto o un derecho de nacimiento. Al sintonizarte con las corrientes de poder que recorren el mundo, eres capaz de manifestar lo imposible._<br><br>
+      Tienes acceso a la lista de cartas de _Arcanista_ y usas tu Atributo Arcano para los requerimientos y efectos de estas.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Trucos Arcanos
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      _Dominas los rudimentos de la magia, permitiéndote realizar pequeñas proezas que, aunque simples, demuestran tu control sobre la Urdimbre._<br><br>
+      Puedes ejecutar los siguientes trucos arcanos:<br>
+      - **Efectos mágicos menores:** Como Acción, creas una fuente de luz, un sonido, un olor, limpias un objeto,
+      enciendes una vela, etc. El efecto no puede infligir daño ni imponer un estado.<br>
+      - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto.
+      Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una
+      palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.
+    uses:
+      type: null
+      qty: 0
+  - name: Descarga Elemental
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      _Canalizas la energía pura de los elementos en un proyectil inestable que lanzas contra tus oponentes._<br><br>
+      Eliges un tipo de daño: Fuego, Frío o Eléctrico. Realizas un ataque
+      de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si
+      impactas, infliges 1d8 de daño del tipo elegido.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Rayo Entrópico
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      _Proyectas un haz de energía oscura y corrosiva que marchita la vitalidad de tu objetivo.._<br><br>
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo.<br>
+      Si impactas, infliges 1d6 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Ruptura Mental
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Proyectas un pulso de energía psíquica diseñado para fracturar la concentración y la voluntad de tu enemigo._<br><br>
+      Elije una criatura que puedas ver a distancia Media. Esta criatura debe superar una Tirada de Salvación de Mente (ND 5 + Atributo Arcano) o sufrir 2d6 de daño Psíquico y tener desventaja
+      en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Comprender Lenguas
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    description: >-
+      _Sintonizas tu mente con las estructuras universales del pensamiento, permitiéndote descifrar cualquier comunicación._<br><br>
+      Durante 1 hora, obtienes la capacidad de comprender el significado literal de cualquier lenguaje hablado que escuches y cualquier texto escrito que leas.
+      Este efecto no te permite hablar ni escribir en idiomas que no conoces.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Alarma Mágica
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    description: >-
+      _Tejes una red de hilos invisibles de poder arcano que te alertan ante cualquier intrusión en tu territorio._<br><br>
+      Creas una alarma mágica e invisible que protege un área a tu elección dentro de una distancia Cercana. El área protegida no puede ser mayor a un cubo de 5 metros de lado y la alarma permanece activa durante 8 horas.<br>
+      Al lanzar el conjuro, designas cualquier número de criaturas que no activarán la alarma. También eliges si la alarma será audible o mental:<br>
+      - **Alarma Audible:** Una campana espectral suena con fuerza durante 6 segundos. El sonido puede oírse a una distancia de hasta 20 metros.<br>
+      - **Alarma Mental:** Recibes un pulso de alerta en tu mente si te encuentras a menos de 1 kilómetro de la alarma. La alerta te despierta si estás durmiendo.<br>
+      La alarma se activa si cualquier criatura que no hayas designado como segura entra en el área protegida.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Visión Arcana
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana
+    description: >-
+      _Tus ojos resplandecen con un brillo místico que revela las corrientes ocultas de la magia a tu alrededor._<br><br>
+      Durante 10 minutos, puedes percibir un aura tenue alrededor de cualquier criatura u objeto visible a distancia Cercana que porte magia.<br>
+      Además, como Acción, mientras dure el efecto, puedes concentrarte en un objeto, criatura o área visible a distancia Inmediata.
+      Tras 1 minuto de análisis ininterrumpido, realizas una Prueba de Atributo Arcano (Conocimiento Arcano) para desvelar la naturaleza de cualquier magia presente.<br>
+      El Nivel de Dificultad (ND) lo establece el DJ, basándose en el poder de la magia.<br>
+      - **Con un Éxito:** Aprendes la función general de la fuente de magia.<br>
+      - **Con un Éxito Excepcional:** Obtienes información detallada, como las propiedades exactas de un objeto mágico o el nombre del conjuro activo.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Coraza Vital
+    level: 1
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      _Envuelves tu cuerpo en una coraza espectral de energía defensiva que mitiga los golpes antes de que alcancen tu carne._<br><br>
+      Durante 1 hora, obtienes una cantidad de Puntos de Salud temporales igual 1d4 + tu Atributo Arcano.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Augurio
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Consultas los patrones de la urdimbre para obtener un atisbo de lo que el destino depara a tus acciones inmediatas._<br><br>
+      Tras 10 minutos de meditación, puedes formular una única pregunta al DJ sobre un curso de acción específico
+      que planeas tomar en la próxima hora. El DJ te ofrecerá una respuesta breve y críptica, a menudo una visión
+      o un presagio de un posible resultado (éxito, fracaso, peligro, oportunidad).
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Maledicción
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Tejes un nudo de mala fortuna alrededor del alma de tu enemigo, entorpeciendo sus capacidades._<br><br>
+      Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Arcano).
+      Si falla, le aplicas uno de los siguientes efectos durante 1 minuto:<br>
+      - Le das desventaja en sus tiradas de ataque usando un atributo en específico.<br>
+      - Le das desventaja en sus tiradas de salvación de un atributo en específico.<br>
+      - Le das desventaja en sus tiradas de habilidad un atributo en específico.<br>
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Paso Brumoso
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Te disuelves en una efímera nube de niebla plateada para reaparecer instantáneamente a unos pasos de distancia._<br><br>
+      Usas tu Interacción para teletransportarte a un espacio desocupado
+      que puedas ver a distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Invisibilidad
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Atributo Arcano 3
+    description: >-
+      _Doblas la luz a tu alrededor hasta volverte a ti o a otro una mancha imperceptible para los ojos de los demás._<br><br>
+      Tocas a una criatura voluntaria y se vuelve invisible durante 10 minutos
+      o hasta que ataque, lance un conjuro o pierdas la concentración.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Barrera Arcana
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+    requirements: Atributo Arcano 3
+    description: >-
+      _Manifiestas un escudo de energía latente que se activa automáticamente para protegerte del daño._<br><br>
+      Mientras tengas esta carta activa, una barrera de energía te protege. Siempre y cuando no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.<br>
+      Como Reacción, cuando recibes daño de un conjuro o efecto mágico, puedes agotar esta carta para sobrecargar la barrera.<br>
+      Ganas Mitigación Mágica igual a dos veces tu puntuación de Atributo Arcano contra ese daño específico.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Rayo Energético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Descarga Elemental & Atributo Arcano 3'
+    description: >-
+      _Concentras el poder elemental en un haz concentrado de largo alcance capaz de atravesar el campo de batalla._<br><br>
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Media. Si impactas, el objetivo recibe 2d8
+      de daño de Fuego, Frío o Eléctrico.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Nube de Dagas
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Invocas un torbellino de hojas encantadas que giran violentamente en un punto fijo del espacio._<br><br>
+      Eliges un cubo de 2 metros de lado a distancia Media. El área se llena de dagas
+      voladoras durante 1 minuto. La primera vez que una criatura entre en
+      el área en un turno o empiece su turno allí, debe realizar una Tirada de Salvación de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 2d4 de daño Cortante; si tiene éxito, la mitad.<br>
+      En turnos subsequentes, puedes usar tu Acción para mover el cubo a otra ubicación a distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Ráfaga Elemental
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Liberas una onda de choque elemental desde tus manos que barre a todos los enemigos frente a ti._<br><br>
+      Liberas un cono de energía (Sónico, Fuego, Frío o Eléctrico) de 3 metros. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si fallan, reciben 2d6 de daño del tipo elegido y sufren un efecto adicional:<br>
+      - **Sónico:** Es empujada 2 metros lejos de ti.<br>
+      - **Fuego:** Recibe 1d4 de daño extra al inicio de su próximo turno.<br>
+      - **Frío:** Su Velocidad se reduce a la mitad hasta el final de su próximo turno.<br>
+      - **Eléctrico:** No puede usar Reacciones hasta el final de su próximo turno.<br>
+      Si tienen éxito en la Tirada de Salvación, reciben la mitad del daño y ningún efecto adicional.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: 'Distorsión Singular'
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Estudios Mágicos & Atributo Arcano 4'
+    description: >-
+      _Manipulas las leyes fundamentales de la física para crear una perturbación que altera el tiempo o la gravedad en un punto._<br><br>
+      Al lanzar el conjuro, elije un punto a distancia Media. En un radio de 3 metros del punto elegido, aplicas uno de los siguientes efectos:<br>
+      - **Colapso Gravitatorio:** La gravedad del área se vuelve gigantesca y su fuerza tira en dirección al punto que elegiste. Toda criatura en el área debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, es arrastrada violentamente al centro de la esfera y queda Derribada.<br>
+      - **Éxtasis Temporal:** El tiempo se congela y se fractura. Toda criatura en el área debe superar una TS de Mente (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, su Velocidad se reduce a la mitad y pierde la capacidad de usar Reacciones hasta el final de tu próximo turno.<br>
+      En ambos casos, si la criatura tiene éxito en la salvación, recibe la mitad del daño y no sufre los efectos secundarios.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Explosión Elemental
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Descarga Elemental & Atributo Arcano 4'
+    description: >-
+      _Generas una detonación masiva de energía en la distancia, devastando una amplia zona del campo de batalla._<br><br>
+      Provocas una explosión mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br>
+      Al lanzar el conjuro, eliges la forma que adopta:<br>
+      - **Bola de Fuego (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br>
+      - **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br>
+      - **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Volar
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Anulas los efectos de la gravedad sobre una criatura, permitiéndole surcar los cielos con la gracia de un ave._<br><br>
+      Tocas a una criatura voluntaria. Obtiene una velocidad de vuelo igual
+      a su Velocidad normal durante 10 minutos o hasta que pierdas la concentración.<br>
+      Cuando el conjuro termina, la criatura cae suavemente al suelo.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Círculo de Protección
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: 'Barrera Arcana & Atributo Arcano 4'
+    description: >-
+      _Trazas un perímetro místico en el suelo que actúa como una barrera infranqueable para ciertos tipos de seres._<br><br>
+      Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos.
+      Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo,
+      una criatura del tipo elegido debe superar una tirada de Instinto (ND 5 + Atributo Arcano).
+      Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de
+      Salvación contra efectos de criaturas del tipo declarado.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Ráfaga Aniquiladora
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad aguante._<br><br>
+      Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si impactas,
+      el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente
+      tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera,
+      acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o
+      decidas detener la ráfaga.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Rayo Desintegrador
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
+    description: >-
+      _Un haz de energía verde esmeralda brota de tu dedo para reducir la materia de tu objetivo a cenizas._<br><br>
+      Elije un objetivo a distancia Media. Este debe superar una TS de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 10d8 de daño de Fuerza. Si tiene éxito, la mitad.<br>
+      Si el daño reduce al objetivo a 0 Puntos de Salud, se convierte en un fino polvo gris y es destruido.
+    uses:
+      type: RELOAD
+      qty: 8
+  - name: Pulso Cinético
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Proyectas una onda de fuerza telequinética invisible capaz de mover objetos masivos o derribar oponentes._<br><br>
+      Como Acción, elije un punto a distancia Media sobre el que liberar energía para empujar, atraer o expandir materia.
+      La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br>
+      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo Arcano)**.<br>
+      - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br>
+      - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Levitar
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Despojas a una criatura u objeto del efecto de la gravedad, suspendiéndolo en el aire o amortiguando una caída que habría resultado fatal._<br><br>
+      Al utilizar este conjuro, eliges uno de los siguientes modos:<br>
+      - **Levitar:** Como Acción, eliges como objetivo a una criatura o a un objeto no asegurado que puedas ver a distancia Media. El efecto dura hasta 10 minutos o hasta que pierdas la Concentración.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Criatura:_ Si no es voluntaria, debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, queda suspendida en el aire. Como Interacción, puedes moverla verticalmente hasta 3 metros. La criatura no puede desplazarse horizontalmente por el aire por sus propios medios, aunque puede impulsarse utilizando superficies sólidas.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Objeto:_ Puedes hacer levitar un objeto no asegurado cuyo peso no supere 50 kg por cada punto de tu Atributo Arcano.<br>
+      - **Caída Suave:** Como Reacción, cuando tú o una criatura que puedas ver a distancia Media comience a caer, ralentizas inmediatamente su descenso. La criatura cae suavemente y no recibe daño por esa caída. Este modo no requiere Concentración.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Tejer Ilusión
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Manipulas la luz y el sonido para crear engaños sensoriales que confunden a tus enemigos o te ocultan de su vista._<br><br>
+      Como acción, al lanzar el conjuro, elige uno de los siguientes modos:<br>
+      - **Señuelo:** Creas una ilusión visual (de hasta 2 metros cúbicos) o auditiva, en un punto fijo a distancia Cercana durante 10 minutos.<br>
+      - **Disfraz:** Te cubres con una ilusión que altera tu apariencia (ropa, rasgos faciales) y tu voz durante 1 hora. Puedes aparentar ser hasta medio metro más alto o más bajo.<br>
+      - **Velo:** Envuelves a un aliado a distancia Cercana en sombras, otorgándole Ventaja (+1d4) en sus pruebas de Sigilo durante 10 minutos.<br>
+      Una criatura puede usar su Acción para interactuar físicamente con la ilusión, realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Arcano para descubrir el engaño.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Transmutar Materia
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Alteras la estructura de la materia inerte, deformándola como arcilla o reorganizándola para crear nuevas herramientas y estructuras._<br><br>
+      Al utilizar este conjuro, eliges uno de los siguientes modos:<br>
+      - **Transmutar:** Como Acción, tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades físicas —como dureza, peso o textura— o modificar su forma. No puedes cambiar su masa total ni transformar una sustancia en otra distinta. Por ejemplo, puedes ablandar una cerradura metálica como si fuera cera, volver quebradiza una sección de piedra o esculpir una palanca a partir de un trozo de metal.<br>
+      - **Fabricar:** Como Acción, reorganizas una cantidad de materia prima no mágica que puedas tocar y que ocupe como máximo 1 metro cúbico, convirtiéndola en uno o varios objetos terminados compuestos principalmente por esos mismos materiales. La masa total no cambia. Puedes fabricar objetos corrientes cuya construcción comprendas, pero los mecanismos de precisión, obras artesanales especializadas o dispositivos complejos requieren que poseas el conocimiento o la habilidad apropiada. No puedes crear sustancias alquímicas, seres vivos, objetos mágicos ni transformar materiales de menor valor en otros de mayor valor.<br>
+      Puedes utilizar _Fabricar_ de esta forma únicamente si el objeto terminado pertenece a la categoría de precio Mundano. Los objetos de categorías superiores solo pueden fabricarse lanzando el conjuro como Ritual. En ese caso, el tiempo de lanzamiento aumenta según la categoría de precio final del objeto.:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Mundano:_ 10 minutos<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Común:_ 1 hora<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• _Calidad:_ 24 horas<br>
+      La categoría máxima de precio que puedes fabricar con este conjuro es de Calidad.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Visión Remota
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Creas un sensor místico invisible que actúa como una extensión de tus propios sentidos en la distancia._<br><br>
+      Al lanzar el conjuro, elije un punto que puedas ver a distancia Media, donde aparece el sensor. Este esta compuesto de energía y no puede atravesar objetos sólidos. En tus turnos, puedes usar tu Acción para mover el sensor hasta 10 metros. Ves y oyes a través del sensor.
+      El sensor es detectable con magia o visión especial. Dura 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Zona Nula
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Generas un vacío de energía en un área donde el sonido y la luz se extinguen casi por completo._<br><br>
+      Eliges un punto a distancia Media, creando una esfera de 5 metros de radio que dura hasta 10 minutos.
+      Dentro de la esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido)
+      y toda fuente de luz, mágica o no, se reduce a una penumbra tenue.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Santuario Arcano
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Eriges una cúpula de protección que actúa como un refugio seguro frente a los ataques del exterior._<br><br>
+      Trazas un círculo en el suelo, del que brota una cúpula de energía opaca desde fuera pero transparente desde dentro, de 3 metros de radio. Dura 8 horas.
+      Las criaturas que designes al lanzar el conjuro pueden usar una Acción para entrar o salir. Si tú, el lanzador, sales, el conjuro termina.
+      Cualquier ataque o conjuro dirigido a la cúpula debe superar una Esquiva de 9. Si impacta, la cúpula realiza una Tirada de Salvación de Mente
+      con tu bonificador (1d8 + Atributo Arcano) contra el daño del ataque. Si la salvación falla, el ataque atraviesa la barrera.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Barrera de Fuerza
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
+    description: >-
+      _Levantas un muro de energía pura e invisible que bloquea el paso de cualquier proyectil o criatura._<br><br>
+      Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15 metros de largo y 5 de alto,
+      o puede ser una cúpula de 4m de radio. La barrera es inmune a todo daño físico, pero es destruida automáticamente por efectos mágicos de desintegración
+      y puede ser terminada prematuramente por efectos de disipación mágica. Dura hasta 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Pliegue Espacial
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Paso Brumoso & Atributo Arcano 5'
+    description: >-
+      _Perforas el tejido de la realidad para conectar dos puntos distantes mediante portales gemelos._<br><br>
+      Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3 metros de diámetro.
+      Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías
+      que permanece abierta mientras te concentres, hasta por 1 minuto.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Dominio Elemental
+    level: 4
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: 'Atributo Arcano 5'
+    description: >-
+      _Has alcanzado una comprensión tan profunda de un elemento que tus conjuros del mismo tipo se vuelven más letales._<br><br>
+      Al adquirir esta carta, elige un tipo de daño: Fuego, Frío o Eléctrico. Ganas los siguientes beneficios para conjuros de Arcanista de ese tipo:<br>
+      - Puedes volver a tirar cualquier dado de daño que resulte en un 1 (debes usar el nuevo resultado).<br>
+      - El ND de tus conjuros que hagan daño de este tipo aumenta en 1.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Sugestión Mayor
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Maledicción & Atributo Arcano 5'
+    description: >-
+      _Implantas una idea en la mente de un humanoide, forzándolo a seguir tus órdenes como si fueran propias._<br><br>
+      Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: "protege este puente").<br>
+      La orden no puede ser obviamente dañina para si mismo. La criatura obedece lo mejor que puede mientras mantengas la concentración.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Sobrecarga Arcana
+    level: 4
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
+    description: >-
+      _Fuerzas los límites de tu poder para saturar tus conjuros más simples con una potencia devastadora._<br><br>
+      Tu dominio de la magia te permite saturar los conjuros simples con un poder devastador.<br>
+      Cuando lanzas una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes usar tu Interacción para sobrecargar el lanzamiento. Si lo haces, duplicas la cantidad de dados de daño del conjuro.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Maestría Arcana
+    level: 5
+    type: efecto
+    tags:
+      - Arcanista
+    requirements: 'Teoría Arcana Avanzada & Atributo Arcano 6'
+    description: >-
+      _Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto natural._<br><br>
+      Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un sistema de Recarga,
+      puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: 'Palabra de Poder: Aturdir'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Sugestión Mayor & Atributo Arcano 6'
+    description: >-
+      _Pronuncias una palabra de poder cargada de una vibración arcana tan intensa que colapsa los sentidos de tu víctima._<br><br>
+      Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 100 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7 + Atributo Arcano) para terminar el efecto.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Festín Macabro'
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Reacción
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Mientras la vida abandona el cuerpo de una criatura, inhalas violentamente su esencia deshilachada, fortaleciendo tu propia carne._<br><br>
+      Como Reacción, cuando una criatura a distancia Cercana es reducida a 0 Puntos de Salud, arrancas parte de su alma antes de que escape.<br>
+      Ganas Puntos de Salud temporales igual a 2d6 + tu Atributo Arcano.<br>
+      Mientras poseas estos Puntos de Salud temporales, tus ojos brillan con una luz cadavérica y emites un aura de frío antinatural.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Enjambre Parasitario'
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu enemigo._<br><br>
+      Realizas un ataque de conjuro (1d8e + Atributo Arcano) contra una criatura a distancia Cercana.<br>
+      Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br>
+      La criatura sufre 1d6 de daño Perforante al inicio de cada uno de sus turnos.<br>
+      Además, mientras el enjambre la cubra, la criatura sufre Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br>
+      El objetivo u otra criatura a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: 'Fosa de los Lamentos'
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _El suelo se pudre y se vuelve fangoso, vomitando cientos de manos esqueléticas que arrastran a los vivos hacia la tumba._<br><br>
+      Eliges un punto a distancia Media, creando un área de terreno difícil en un radio de 3 metros durante 1 minuto.<br>
+      Toda criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Atributo Arcano).
+      Si falla, recibe 2d6 de daño Necrótico y queda Inmovilizada hasta el inicio de su próximo turno mientras los huesos tiran de ella. Si tiene éxito, recibe la mitad del daño y no queda atrapada.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Niebla de Putrefacción'
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Exhalas una espesa nube de gas amarillo y verdoso que corroe la carne y nubla los sentidos._<br><br>
+      Creas una esfera de 5 metros de radio en un punto a distancia Media.<br>
+      El área queda fuertemente oscurecida (bloquea la visión) durante 1 minuto.<br>
+      Cualquier criatura que empiece su turno en el interior de la nube debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 3d6 de daño de Ácido o Veneno (a tu elección al lanzar el conjuro) y sufre el estado Envenenado hasta el inicio de su próximo turno. Si tiene éxito, recibe la mitad del daño y no se envenena.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Segador Incorpóreo'
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 5'
+    description: >-
+      _Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de sombra._<br><br>
+      Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1 minuto.<br>
+      El segador es invulnerable, pero no bloquea el paso.<br>
+      Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8e + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: 'Legión de los Condenados'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 6'
+    description: >-
+      _Abres las puertas del inframundo por un segundo, liberando una marea de espectros aullantes que arrasan con todo a su paso._<br><br>
+      Liberas un cono de 10 metros de espíritus atormentados.<br>
+       Las criaturas en el área deben superar una TS de Instinto (ND 5 + Atributo Arcano). Si fallan, reciben 6d6 de daño Necrótico y quedan Asustadas y Ensordecidas hasta el final de tu próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.
+    uses:
+      type: RELOAD
+      qty: 8
+
+  - name: 'Forma Gaseosa'
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 4'
+    description: >-
+      _Tu cuerpo pierde su consistencia y se dispersa en una nube de gas tenue que fluye por lugares donde la carne jamás podría pasar._<br><br>
+      Como Acción, transformas tu cuerpo y todo el equipo que lleves en una forma gaseosa durante un máximo de 10 minutos o hasta que pierdas la Concentración.<br>
+      Mientras permanezcas en esta forma:<br>
+      - Puedes volar a una velocidad igual a la mitad de tu Velocidad normal.<br>
+      - Puedes atravesar cualquier abertura por la que pudiera pasar humo o aire, aunque no puedes atravesar superficies completamente selladas.<br>
+      - No puedes atacar, lanzar conjuros, activar habilidades, manipular objetos ni utilizar equipamiento.<br>
+      - No puedes ser Inmovilizado o Enredado mediante ataduras, presas u obstáculos puramente físicos.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: 'Anclaje Arcano'
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: 'Afinidad Arcana & Atributo Arcano 3'
+    description: >-
+      _Inscribes una coordenada invisible sobre la realidad y obligas a la materia a permanecer exactamente donde se encuentra._<br><br>
+      Como Acción, eliges un objeto no mágico que puedas tocar, o una parte móvil de una estructura como una puerta, ventana, compuerta o mecanismo. El objetivo no puede pesar más de 50 kg por cada punto de tu Atributo Arcano.<br>
+      Durante 10 minutos o hasta que pierdas la Concentración, el objeto queda mágicamente fijado a su posición y orientación actuales.<br>
+      Una criatura que intente mover, abrir, cerrar o desplazar el objetivo debe usar su Acción y superar una Prueba de Cuerpo (ND 5 + Atributo Arcano). Si tiene éxito, rompe el anclaje y el conjuro termina.<br>
+      El objeto todavía puede ser destruido normalmente, y destruirlo también termina el efecto.<br>
+      No puedes utilizar este conjuro sobre una criatura ni sobre un objeto que una criatura lleve puesto o sostenga.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Lluvia de Meteoritos'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 6'
+    description: >-
+      _Desgarras el cielo y haces caer fragmentos incandescentes que impactan la tierra con una violencia catastrófica._<br><br>
+      Como Acción, eliges hasta tres puntos que puedas ver a distancia Larga. Un meteorito impacta en cada uno, provocando una explosión de 3 metros de radio.<br>
+      Toda criatura alcanzada debe realizar una TS de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño Contundente y 4d6 de daño de Fuego. Si tiene éxito, recibe la mitad del daño total.<br>
+      Las áreas de impacto pueden superponerse, pero una criatura solo puede recibir el daño de esta carta una vez por lanzamiento.<br>
+      Los impactos incendian materiales fácilmente inflamables y pueden destruir objetos y estructuras vulnerables a discreción del DJ.
+    uses:
+      type: RELOAD
+      qty: 8
+
+  - name: 'Palabra de Poder: Matar'
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: 'Afinidad Arcana & Atributo Arcano 6'
+    description: >-
+      _Pronuncias una palabra primordial cuyo significado no describe la muerte: la ordena._<br><br>
+      Como Acción, eliges una criatura que puedas ver a distancia Cercana. Si posee 50 Puntos de Salud o menos, muere inmediatamente.<br>
+      Si posee más de 60 Puntos de Salud, la palabra no tiene efecto.<br>
+      Este efecto no inflige daño y, por lo tanto, no puede ser reducido mediante Mitigación, Resistencias u otros efectos que reduzcan daño.
+    uses:
+      type: LONG_REST
+      qty: 1

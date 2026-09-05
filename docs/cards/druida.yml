@@ -1,0 +1,531 @@
+cards:
+  # ------------------------------ DRUIDA ------------------------------
+  - name: Sintonía Primordial
+    level: 1
+    type: efecto
+    tags:
+      - Druida
+      - Arquetipo
+    requirements: Instinto 2
+    description: >-
+      _Hablas con el viento y escuchas los secretos de las raíces. La naturaleza no es algo externo a ti, sino el corazón mismo de tu poder latente._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Supervivencia y Naturaleza.<br><br>
+      **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +3 y obtienes Ventaja (+1d4) en pruebas de Trato con Animales.
+      Aprendes el idioma Silvano o Primordial.
+      Además, posees la capacidad innata de comunicarte verbalmente con bestias y plantas. La información que obtengas está limitada por la inteligencia y los sentidos de la criatura.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+    uses:
+      type: null
+      qty: 0
+  - name: Comunión Natural
+    level: 1
+    type: efecto
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    description: >-
+      _Acada paso, el mundo natural responde a tu llamado con pequeños favores y manifestaciones de vida._<br><br>
+      Adquieres la capacidad de manifestar tu poder natural en forma de los siguientes trucos:<br>
+      - **Truco Druídico (Interacción):** A voluntad, creas efectos sensoriales menores: haces brotar una flor, creas una brisa suave, predices el clima de las próximas horas o enciendes/apagas una fogata.<br>
+      - **Lazo Natural (Acción):** Haces brotar una enredadera o rama animada a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para que manipule objetos, tire de palancas o entregue ítems a 5 metros de su origen.
+    uses:
+      type: null
+      qty: 0
+  - name: Golpe Primordial
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    description: >-
+      _Tus golpes se imbuyen con la esencia de la tierra, el viento o el agua, golpeando con la fuerza de los elementos._<br><br>
+      Realizas un ataque de conjuro cuerpo a cuerpo (1d8e + Instinto). Si impactas, infliges 1d6 de daño y
+      eliges uno de los siguientes efectos elementales que te afecta a ti:<br>
+      - **Tierra (Contundente):** Te recubres de piedra. Ganas +1 de Mitigación Física contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+      - **Viento (Cortante):** El aire te desvía. Ganas +1 a tu Esquiva contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+      - **Agua (Frío):** Una capa de escarcha te protege. Ganas +1 de Mitigación Mágica contra el próximo ataque que recibas antes del inicio de tu próximo turno.<br>
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Látigo de Espinas
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    description: >-
+      _Una liana espinosa brota de tu mano como una extensión de tu voluntad, lista para azotar y arrastrar a tus presas._<br><br>
+      Realizas un ataque de conjuro (1d8e + Instinto) contra un objetivo a distancia Cercana.<br>
+      Si impactas, infliges 1d6 de daño Cortante y puedes forzar al objetivo a realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla la Tirada de Salvación, mueves al objetivo 1 metro en cualquier dirección.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Forma Salvaje
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Concentración
+    requirements: Sintonía Primordial
+    description: >-
+      _Dejas atrás tu humanidad para abrazar a la bestia interior, adoptando la piel, las garras y los sentidos de los animales._<br><br>
+      Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo) durante 1 hora. Tu equipo se funde con tu nueva forma y no puedes usarlo.
+      En esta forma:<br>
+      - Ganas 3 Puntos de Salud temporales.<br>
+      - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**, pero tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - No puedes hablar, atacar ni utilizar habilidades Activables (a menos que una habilidad lo permita específicamente), pero conservas los beneficios de tus cartas de **Efecto** y de las cartas **Activables** que ya tuvieras activas antes de transformarte.<br>
+      - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un olfato agudo).<br>
+      La transformación termina antes si pierdes la Concentración o si decides revertirla (no requiere acción).<br>
+      Mientras tengas al menos 1 Punto de Salud Temporal, no necesitas realizar pruebas para mantener la Concentración de tu forma salvaje.<br>
+      Mientras estes transformado, no puedes ganar Puntos de Salud Temporales.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Aspecto Combativo
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: Forma Salvaje
+    description: >-
+      _Tu transformación se vuelve letal; ya no eres un simple animal de exploración, sino un depredador primordial listo para la caza._<br><br>
+      Tu dominio sobre la transformación te permite adoptar una forma de combate. Esta carta mejora tu _Forma Salvaje_ de las siguientes maneras:<br>
+      - Obtienes **un uso adicional** de _Forma Salvaje_ por día de descanso.<br>
+      - Puedes activar tu _Forma Salvaje_ para transformarte en una bestia de combate Mediana usando tu **Interacción** en lugar de tu Acción. La duración es de 1 minuto.<br>
+      - En esta forma de combate, tanto tu **Cuerpo** como tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br>
+      - Tus ataques sin arma (garras, fauces, etc.) infligen **1d6** de daño (puedes elegir Contundente, Cortante o Perforante al transformarte).<br>
+      Además, al transformarte en tu aspecto combativo, eliges **dos** de los siguientes beneficios:<br>
+      - **Vitalidad Primitiva:** Los Puntos de Salud temporales ganados por tu _Forma Salvaje_ se vuelven dos veces tu puntuación de **Instinto**.<br>
+      - **Ataque Brutal:** El daño de tus ataques sin arma aumenta a **1d8**.<br>
+      - **Pellejo Grueso:** Ganas +1 de Mitigación Física.<br>
+      - **Agilidad Depredadora:** Tu Velocidad aumenta en 2 metros y el terreno difícil no te cuesta movimiento extra.<br>
+      - **Embestida Feroz:** Si te mueves al menos 5 metros en línea recta hacia un objetivo, tu siguiente ataque contra él ese turno tiene Ventaja (+1d4).
+    uses:
+      type: null
+      qty: 0
+  - name: Toque Purificador
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+    requirements: 'Bálsamo Natural & Instinto 3'
+    description: >-
+      _Las hierbas y la savia responden a tu toque, limpiando el veneno de la sangre y fortificando el cuerpo frágil._<br><br>
+      Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br>
+      - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.<br>
+      - **Bendición Protectora:** La criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Venenos y Enfermedades durante los próximos 10 minutos.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Sintonía con el Entorno
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _Tus sentidos se expanden hasta fusionarse con el bioma que te rodea, volviéndote un fantasma letal entre la maleza._<br><br>
+      Tu conexión con la naturaleza agudiza tus sentidos de forma sobrenatural. Obtienes Ventaja (+1d4) en todas
+      las pruebas de Instinto (Percepción) para detectar peligros, criaturas ocultas o detalles sutiles en tu entorno.
+      Además, puedes realizar un ritual de meditación durante 10 minutos para sintonizarte con un tipo de terreno
+      natural específico en el que te encuentres. Mientras permanezcas en ese tipo de terreno, puedes moverte a través
+      de terreno difícil natural sin penalización de movimiento y obtienes Ventaja (+1d4) en las pruebas de Sigilo.
+      Puedes realizar este ritual de nuevo para cambiar tu sintonía.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Esporas Nocivas'
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _Liberas una nube concentrada de esporas tóxicas que invade los pulmones y entumece los sentidos de tu presa._<br><br>
+      Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Veneno y queda Envenenado hasta el final de tu próximo turno. Si tiene éxito, recibe la mitad del daño y no queda Envenenado.
+    uses:
+      type: RELOAD
+      qty: 4
+
+  - name: 'Brote Violento'
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _La tierra revienta súbitamente mientras raíces, espinas y tallos irrumpen con fuerza suficiente para arrancar a tus enemigos de sus pies._<br><br>
+      Como Acción, eliges un punto sobre una superficie a distancia Media. La vegetación brota violentamente en un radio de 2 metros. Todas las criaturas en el área deben realizar una Tirada de Salvación de Reflejos (ND 5 + Instinto). Si fallan, reciben 2d4 de daño Perforante y quedan Derribadas. Si tienen éxito, reciben la mitad del daño y no quedan Derribadas.<br><br>
+      La vegetación se marchita inmediatamente después del estallido.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Llamar a la Tormenta
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 4'
+    description: >-
+      _Alzas la mirada al cielo y las nubes oscuras responden a tu llamado, desatando la furia de los relámpagos sobre tus enemigos._<br><br>
+      Como Acción, invocas una nube de tormenta de 10 metros de radio sobre un punto a distancia Larga durante 1 minuto. El área bajo la nube queda en penumbra.<br>
+      En el turno en que la invocas, y en cada uno de tus turnos subsiguientes, puedes usar tu Interacción para hacer caer un rayo en un punto bajo la nube.
+      Toda criatura en un radio de 2 metros del punto de impacto debe superar una TS de Reflejos (ND 5 + Instinto) o recibir 2d6 de daño Eléctrico (la mitad en caso de éxito).<br>
+      Si estás al aire libre y ya hay una tormenta natural, el daño aumenta a 3d6.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Manifestar Naturaleza
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 4'
+    description: >-
+      _Fuerzas a la tierra a reclamar su territorio, haciendo brotar muros de fuego abrasador, hielo quebradizo o zarzas devoradoras._<br><br>
+      Como Acción, eliges un punto a distancia Media y decides la forma del efecto: una esfera de 5 metros de radio o un muro de hasta 15 metros de largo, 3 de alto y 1 de grosor.
+      El área se convierte en terreno difícil y dura 1 minuto o hasta que pierdas la Concentración.
+      Al lanzarlo, eliges su naturaleza:<br>
+      - **Muro de Fuego:** Creas una barrera de llamas y humo negro asfixiante. Una criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Fuego y queda Cegada hasta el final de su turno.<br>
+      - **Suelo Congelado:** Cubres la superficie de hielo quebradizo y resbaladizo. Una criatura que entre en el área o empiece su turno allí debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Frío y queda Inmovilizada (pegada al hielo).<br>
+      - **Zarzas:** Haces brotar una espesura de espinas y lianas. Una criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Instinto) o sufrir 2d6 de daño Perforante y queda Enredada hasta que salga del área o use su Acción para repetir la TS. Mientras una criatura esté Enredada, sufrirá 1d4 de daño Perforante por cada 2 metros que se mueva.<br>
+      En todos los casos, si tienen éxito en la TS, reciben la mitad del daño y evitan el efecto secundario.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Piel de Roble
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _Tu piel se endurece y se agrieta, adoptando la formidable resiliencia de un árbol milenario._<br><br>
+      Mientras no lleves armadura que imponga alguna penalización a tu Esquiva o Sigilo, obtienes Mitigación Física y Mágica +1.
+    uses:
+      type: null
+      qty: 0
+  - name: Aspecto de la Bestia
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 4'
+    description: >-
+      _Invocas a los grandes espíritus animales para que te envuelvan en un aura espectral, otorgándote su fuerza y sentidos._<br><br>
+      Como Acción, invocas el espíritu de una bestia primordial que te envuelve como un aura fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración. Al invocar el espíritu, eliges **dos** de los siguientes beneficios:<br>
+      - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en todas las pruebas de **Instinto (Percepción)**.<br>
+      - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y desarmados infligen **1d6 de daño Contundente adicional**.<br>
+      - **Celeridad del Halcón:** Tu **Velocidad** de movimiento aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br>
+      - **Piel del Jabalí:** Ganas Puntos de Salud temporales igual a tres veces tu puntuación de Instinto.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Bálsamo Natural
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+    requirements: Sintonía Primordial
+    description: >-
+      _Preparas ungüentos milagrosos a gran velocidad, imbuyéndolos de magia druídica para cerrar heridas progresivamente._<br><br>
+      Tocas a una criatura y le aplicas un ungüento de hierbas. Durante 2 rondas, la criatura recupera 1d4 Puntos de Salud al inicio de cada uno de sus turnos.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Maestría Salvaje
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements: Aspecto Combativo
+    description: >-
+      _Alcanzas la cima de la transformación marcial, convirtiéndote en una fuerza imparable y terrorífica de la naturaleza._<br><br>
+      Adquieres un uso adicional de tu _Forma Salvaje_. Además, cuando usas tu _Forma Salvaje_ para transformarte en una bestia de combate, ahora eliges un total de tres beneficios de la lista combinada de _Aspecto Combativo_ y de las siguientes opciones adicionales:<br>
+      - **Furia Primordial:** Puedes realizar dos ataques con tu Acción en lugar de uno.<br>
+      - **Tamaño Imponente:** Aumentas considerablemente de tamaño, ganas 5 Puntos de Salud temporales adicionales y tienes Ventaja en pruebas de Cuerpo para empujar o derribar, o resistirte a estas maniobras.<br>
+      - **Rugido Aterrador (Recarga 8):** Como Acción, emites un rugido: todo enemigo a distancia Cercana debe superar una TS de Instinto (ND 5 + tu Instinto) o quedar **Aturdido** hasta el final de tu próximo turno.<br>
+      - **Presa Incapacitante:** Cuando impactas a una criatura de un tamaño igual o inferior al tuyo, puedes intentar apresarla. El objetivo debe superar una TS de Reflejos (ND 5 + Instinto) o quedar **Inmovilizado**. Mientras mantengas la presa (no requiere acción), tú también estás Inmovilizado. La criatura apresada puede usar su Acción para intentar escapar repitiendo la Tirada de Salvación.
+    uses:
+      type: null
+      qty: 0
+  - name: Vínculo Animal
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Ritual
+    requirements: Sintonía Primordial
+    description: >-
+      _Forjas un pacto espiritual inquebrantable con un animal, compartiendo cacerías y batallas como verdaderos hermanos de manada._<br><br>
+      Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de Rango 1. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.<br>
+      - **Comandar:** Como Acción, puedes comandar a la bestia para que se mueva y realice una acción de forma inmediata. Si no usas tu Acción para comandarla, la bestia actuará de forma autónoma solo para moverse a tu lado y usar la acción de Ponerse en Guardia.<br>
+      - **Vitalidad:** El compañero usa su propio bloque de estadísticas, pero su Salud Máxima es igual a la Salud base de la bestia + tu puntuación de Instinto.<br>
+      Si tu compañero muere, puedes vincularte con una nueva bestia.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Compañero Veterano
+    level: 2
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Vínculo Animal & Instinto 3'
+    description: >-
+      _La sangre derramada juntos ha unido sus almas; ahora tu bestia pelea con una fiereza sobrenatural._<br><br>
+      Tu _Vinculo Animal_ se vuelve más poderoso:
+      - **Fluidez de Mando:** Ahora puedes comandar a tu compañero usando tu Interacción en lugar de tu Acción.<br>
+      - **Bestia Mágica:** Los ataques de tu compañero se consideran mágicos para el propósito de superar resistencias.<br>
+      - **Salud Máxima:** La salud de tu compañero aumenta; ahora es igual a la Salud base de la bestia + (tu puntuación de Instinto x 3).<br>
+    uses:
+      type: null
+      qty: 0
+
+  - name: Vínculo Primordial
+    level: 3
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Compañero Veterano & Instinto 4'
+    description: >-
+      _Tu compañero ya no es una simple bestia, sino un guardián legendario, un cazador implacable o un rastreador sin igual._<br><br>
+      Tu vínculo es ahora una extensión de tu alma. Eliges una especialización para tu compañero:<br>
+      - **Guardián:** La salud de tu compañero se vuelve la salud base de la bestia + (tu puntuación de Instinto x 5). Además, como Reacción, puede imponer Desventaja (-1d4) a un enemigo que ataque a un aliado a distancia inmediata de él.<br>
+      - **Vínculo de Caza:** Tú y tu compañero ganan Ventaja (+1d4) al atacar a un objetivo si el otro está a distancia inmediata a esa criatura.<br>
+      - **Rastreador:** El compañero obtiene Ventaja (+1d4) en Percepción y Sigilo. Además, mientras estés a distancia Larga o inferior de este, compartes sus sentidos.
+      Puedes cambiar la especialización cuando te vinculas con una nueva bestia o tras meditar durante 1 hora junto con tu compañero animal.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Crecimiento Regenerativo
+    level: 3
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Curación
+      - Concentración
+    requirements: 'Bálsamo Natural & Instinto 4'
+    description: >-
+      _Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br>
+      Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas,
+      recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Pasar sin Rastro
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _Las hojas se apartan y el barro se endurece a tu paso; la naturaleza misma borra cualquier evidencia de que tu grupo estuvo allí._<br><br>
+      Durante 1 hora, tú y hasta cinco criaturas aliadas que elijas no dejáis huellas ni olor. El rastreo por medios no mágicos se vuelve imposible.
+      Además, todos los afectados obtienen Ventaja (+1d4) en todas las pruebas de Sigilo.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Forma Salvaje Mayor
+    level: 4
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Maestría Salvaje & Instinto 5'
+    description: >-
+      _Tu dominio de la metamorfosis te permite adoptar formas gigantescas, aplastando a tus enemigos bajo tu abrumadora masa._<br><br>
+      Tu carta _Aspecto Combativo_ se potencia:<br>
+      - Ahora puedes elegir transformarte en una bestia de combate Grande.<br>
+      - Cuando estás en forma de bestia Grande, tus ataques sin arma infligen 1d8 de daño base (o 1d10 con Ataque Brutal), obtienes 10 Puntos de Salud temporales adicionales, y tus ataques cuerpo a cuerpo tienen Ventaja (+1d4) contra criaturas de tamaño Mediano o inferior.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Dominio del Clima
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      _Doblegas los cielos a tu voluntad, convocando nieblas asfixiantes o lluvias torrenciales para alterar el curso de la batalla._<br><br>
+      Eliges un punto a distancia Larga. Creas un efecto climático en un radio de 50 metros durante 1 hora. Mientras el conjuro esta activo, se aplica uno de los siguientes efectos al área:<br>
+      - **Niebla Densa:** El área queda fuertemente oscurecida, limitando la visibilidad general a distancia Inmediata.<br>
+      - **Lluvia Torrencial:** Las criaturas en el área sufren Desventaja (-1d4) en pruebas de Percepción y en todas sus tiradas de ataque a distancia.<br>
+      - **Vientos Fuertes:** El área se considera terreno difícil exclusivamente para criaturas voladoras. Además, toda tirada de ataque a distancia que atraviese el área sufre Desventaja (-1d4).<br>
+      - **Crecimiento Descontrolado**: La flora de la zona se dispara. Toda el área se convierte en terreno difícil y otorga cobertura parcial a cualquier criatura dentro de ella.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Haz de los Astros
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      _Invocas el poder puro del sol o la luna, desatando un rayo cósmico incandescente que purga y quema a quienes se interponen._<br><br>
+      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una TS de Cuerpo (ND 5 + Instinto).<br>
+      Al lanzar el conjuro, eliges el astro:<br>
+      - **Rayo Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan Cegadas hasta el final de tu próximo turno.<br>
+      - **Rayo Lunar:** Inflige 6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o inferior que afecte o tenga como fuente al objetivo se ve afectado:<br>
+        - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>
+        - _Conjuros activos_: Los efectos terminan automáticamente.<br>
+      Una criatura que supera la TS, recibe mitad de daño y no se ve afectada por el efecto secundario.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Furia de la Tierra
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      _El suelo bajo los pies de tus enemigos se rebela, estallando en una tormenta violenta de rocas y tierra que los aplasta sin piedad._<br><br>
+      Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br>
+      Si fallan, reciben 4d6 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno.
+      Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br>
+      El área afectada queda permanentemente convertida en terreno difícil.<br>
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Mil Formas
+    level: 5
+    type: efecto
+    tags:
+      - Druida
+    requirements: 'Forma Salvaje Mayor & Instinto 6'
+    description: >-
+      _Ya no eres un prisionero de tu propia carne; fluyes entre formas titánicas y conjuros elementales con una facilidad aterradora._<br><br>
+      Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br>
+      - **Mente Dual:** Puedes mantener la concentración en _Forma Salvaje_ y en otro conjuro de Druida simultáneamente (las TS para mantenerla se realizan por separado para cada habilidad).<br>
+      - **Sintonía Natural:** Puedes realizar un ritual de meditación de 10 minutos. Al finalizarlo, recuperas todos los usos gastados de tu _Forma Salvaje_.<br>
+      - **Avatar Titánico:** Cuando usas tu _Forma Salvaje_, puedes transformarte en bestias de tamaño Enorme.<br>
+      - **Ferocidad Imparable:** Tus ataques en _Forma Salvaje_ ignoran una cantidad de puntos de Mitigación Física igual a tu puntuación de Instinto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Ira de la Naturaleza
+    level: 5
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Manifestar Naturaleza & Dominio del Clima & Instinto 6'
+    description: >-
+      _Desatas el cataclismo final: tormentas, terremotos y zarzas se alzan en un torbellino indiscriminado de destrucción natural._<br><br>
+      Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto.<br>
+      El terreno se vuelve difícil, la visibilidad se reduce a penumbra.<br>
+      Al final de cada turno de una criatura hostil en el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos ND 5 + Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Metal Incandescente'
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _Ordenas al fuego latente en el metal que despierte, convirtiendo armas y armaduras en trampas abrasadoras contra sus propios portadores._<br><br>
+      Como Acción, eliges un objeto metálico manufacturado que puedas ver a distancia Media. Si una criatura lo está sosteniendo o llevando puesto, debe superar una TS de Cuerpo (ND 5 + Instinto). Si tiene éxito, el conjuro falla y termina. Si falla, el objeto se sobrecalienta durante 1 minuto o hasta que pierdas la Concentración, y la criatura recibe inmediatamente 1d6 de daño de Fuego.<br>
+      - **Objeto que puede soltarse:** La criatura lo deja caer inmediatamente, siempre que sea físicamente capaz de hacerlo.<br>
+      - **Objeto que no puede soltarse rápidamente:** La criatura sufre Desventaja (-1d4) en sus Tiradas de Ataque y Pruebas de Habilidad hasta el inicio de tu próximo turno.<br>
+      Mientras el objeto permanezca afectado, en cada uno de tus turnos puedes usar tu Interacción, siempre que puedas verlo y se encuentre a distancia Media, para volver a sobrecalentarlo. Si una criatura lo está sosteniendo o llevando puesto, recibe automáticamente 1d6 de daño de Fuego y vuelve a sufrir el efecto correspondiente al tipo de objeto.<br>
+      Una criatura con Resistencia al Fuego recibe el daño normalmente modificado por su Resistencia, pero no sufre los efectos adicionales del conjuro. Una criatura con Inmunidad al Fuego no recibe daño ni sufre ningún efecto de este conjuro.<br>
+      Un objeto desatendido puede alcanzar temperatura suficiente para prender materiales fácilmente inflamables que estén en contacto directo con él.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Adaptación Natural'
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements: 'Sintonía Primordial & Instinto 3'
+    description: >-
+      _La vida no conquista los entornos hostiles mediante la fuerza, sino cambiando hasta que aquello que era imposible se vuelve natural._<br><br>
+      Como Acción, eliges hasta un número de criaturas voluntarias igual a tu puntuación de Instinto y una de las siguientes adaptaciones. El efecto dura 1 hora:<br>
+      - **Adaptación Acuática:** Las criaturas pueden respirar tanto aire como agua y obtienen una velocidad de nado igual a su Velocidad normal.<br>
+      - **Adaptación Trepadora:** Las criaturas pueden desplazarse por superficies naturales verticales o muy inclinadas a una velocidad igual a su Velocidad normal sin realizar pruebas para trepadas ordinarias. Superficies completamente lisas o invertidas todavía pueden requerir una prueba o resultar imposibles.<br>
+      - **Adaptación Climática:** Las criaturas toleran de forma sobrenatural el calor, frío o altitud extremos de origen natural, y obtienen Ventaja (+1d4) en Pruebas y Tiradas de Salvación de Cuerpo contra peligros ambientales.<br>
+      - **Adaptación Nocturna:** Las criaturas obtienen Visión en la Oscuridad hasta distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: 'Despertar'
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 5'
+    description: >-
+      _Susurras durante horas al espíritu dormido de una criatura hasta que, por primera vez, esta comprende que existe._<br><br>
+      Como Acción, comienzas una comunión que requiere 1 hora ininterrumpida. Eliges una Bestia o planta viva no hostil que permanezca a tu alcance durante todo el proceso.<br>
+      Al finalizar, el objetivo despierta permanentemente a una consciencia comparable a la de una persona: si su Mente era inferior a 2, aumenta a 2, aprende una lengua que conozcas y adquiere la capacidad de razonar, recordar, conversar y formar objetivos propios.<br>
+      Este efecto no modifica automáticamente sus demás estadísticas de combate ni le concede ataques o habilidades nuevas.<br>
+      Una planta despertada adquiere sentidos suficientes para percibir su entorno y puede realizar pequeños movimientos y manipulaciones apropiados para su anatomía, pero no obtiene automáticamente un bloque de combate.<br>
+      La criatura no queda Encantada, sometida ni obligada a obedecerte. Su actitud hacia ti depende del trato previo que haya recibido y de sus nuevos intereses.<br>
+      Una criatura solo puede ser despertada una vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: 'Reencarnar'
+    level: 5
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: 'Sintonía Primordial & Instinto 6'
+    description: >-
+      _La naturaleza no devuelve aquello que murió exactamente como era; toma el alma, la envuelve en carne nueva y obliga al ciclo a comenzar otra vez._<br><br>
+      Como Acción, comienzas un rito que requiere 1 hora ininterrumpida junto al cadáver de una criatura que haya muerto durante los últimos 7 días.<br>
+      Si el alma está libre y desea regresar, la criatura vuelve a la vida con 1 Punto de Salud dentro de un nuevo cuerpo adulto y sano de un linaje humanoide apropiado para el mundo de juego.<br>
+      El nuevo cuerpo puede ser elegido de común acuerdo entre jugador y DJ o determinarse al azar.<br>
+      Al regresar a la vida, la criatura reemplaza sus cartas de Linaje por la misma cantidad de cartas de Linaje que poseía antes de morir, elegidas nuevamente para representar su nuevo cuerpo. Para esta elección puede ignorar el requerimiento *Solo Creación de Personaje*, pero sigue limitada a un máximo de 2 cartas de Linaje.<br>
+      Sus atributos, Puntos de Progreso y todas sus demás cartas permanecen sin cambios.<br>
+      Este conjuro no puede devolver a la vida a una criatura cuya alma haya sido destruida, aprisionada o se niegue a regresar.
+    uses:
+      type: LONG_REST
+      qty: 1

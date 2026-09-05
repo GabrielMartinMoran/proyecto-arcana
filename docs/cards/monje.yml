@@ -1,0 +1,449 @@
+cards:
+  # --- Monje ------------------------------
+  - name: Disciplina Monástica
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+      - Arquetipo
+    requirements: Instinto 2
+    description: >-
+      _Tu cuerpo es un templo de perfección y tu mente una calma imperturbable. Has aprendido que el poder verdadero fluye desde el equilibrio interior._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br>
+      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
+      Además, aprendes una lengua convencional.
+      Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>
+    uses:
+      type: null
+      qty: 0
+  - name: Artes Marciales
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Has convertido tus manos y pies en armas letales, y tu agilidad instintiva es tu mejor armadura contra el acero enemigo._<br><br>
+      Obtienes los siguientes beneficios:<br>
+      - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br>
+      - **Golpes de Ki:** Tus ataques desarmados infligen 1d6 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque.
+    uses:
+      type: null
+      qty: 0
+  - name: Ráfaga de Golpes
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _En un parpadeo, desatas una secuencia de impactos tan rápidos que el enemigo apenas puede ver el movimiento de tus manos._<br><br>
+      Cuando realizas la acción de Atacar con un ataque desarmado, puedes usar tu **Interacción** para realizar un ataque desarmado adicional contra el **mismo objetivo**.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Golpes Energéticos
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Canalizas el flujo de tu Ki hacia tus extremidades, permitiendo que tus golpes atraviesen las defensas físicas más duras._<br><br>
+      Tus ataques desarmados ignoran una cantidad de Mitigación Física igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba).
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Ligero
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Te mueves con la gracia de una pluma en el viento, recorriendo distancias y levantándote del suelo con una facilidad asombrosa._<br><br>
+      Tu Velocidad total de movimiento aumenta en una cantidad igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba).<br>
+      Además, levantarte del estado Derribado solo te cuesta 1 metro de tu movimiento.
+    uses:
+      type: null
+      qty: 0
+  - name: Desviar Proyectiles
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Reacción
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de muñeca._<br><br>
+      Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu Reflejos.<br>
+      En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Golpes Resonantes
+    level: 2
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Golpes Energéticos & Instinto 3'
+    description: >-
+      _Imbuyes tus ataques con vibraciones de Ki que retumban en el interior de tu enemigo, afectando sus sentidos o su equilibrio._<br><br>
+      Cuando impactas a una criatura con un ataque desarmado, puedes forzar al objetivo a superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto) o sufrir uno de los siguientes efectos:<br>
+      - **Golpe Radiante:** Si falla, el objetivo sufre 1d6 de daño de Radiante adicional. Si tiene éxito, recibe la mitad de ese daño.<br>
+      - **Golpe Realentizante:** Si falla, la Velocidad del objetivo se reduce a la mitad hasta el final de tu próximo turno. Si tiene éxito, su Velocidad solo se reduce en 2 metros hasta el final de tu próximo turno.<br>
+      - **Golpe Desestabilizante:** El objetivo es empujado 1 metro en línea recta lejos de ti. Si falla la tirada, además cae Derribado.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Defensa Impasible
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Mediante la respiración y la concentración, endureces tu espíritu, creando una barrera invisible contra cualquier tipo de daño._<br><br>
+      Mientras no lleves armadura ni uses escudo, obtienes una Mitigación Física y Mágica igual a la mitad de tu puntuación de Instinto (redondeanda hacia abajo).
+    uses:
+      type: null
+      qty: 0
+  - name: Golpes Energéticos Mejorados
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Golpes Energéticos & Instinto 4'
+    description: >-
+      _Tu control sobre la energía vital es total; tus ataques desarmados ignoran por completo la resistencia de las armaduras._<br><br>
+      Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del objetivo igual al total de tu puntuación de Instinto.
+    uses:
+      type: null
+      qty: 0
+  - name: Cuerpo Puro
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      _Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a los mortales._<br><br>
+      Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra venenos y enfermedades.<br>
+      Además, eres inmune al estado Envenenado.
+    uses:
+      type: null
+      qty: 0
+  - name: Flujo Vital
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br>
+      Adquieres los siguientes capacidades:<br>
+      - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br>
+      - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Contraataque Fluido
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Reacción
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Usas la inercia del fallo de tu enemigo para castigarlo con un golpe instantáneo y certero._<br><br>
+      Como Reacción, cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes realizar un único ataque desarmado contra él.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Proyección de Ki
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      _Extiendes tu energía vital más allá de tus puños, permitiéndote golpear a enemigos que se encuentran a varios metros de distancia._<br><br>
+      Usas tu Interacción para hacer que hasta el final de tu turno, tus ataques desarmados se proyecten para poder golpear a criaturas que se encuentren hasta distancia Cercana.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Tormenta de Golpes
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Ráfaga de Golpes & Instinto 4'
+    description: >-
+      _Tu fluidez en combate alcanza niveles sobrenaturales, abrumando a tu objetivo con una lluvia incesante de impactos._<br><br>
+      Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga.<br>
+      Además, cuando activas _Ráfaga de Golpes_, realizas dos ataques desarmados adicionales en lugar de uno.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Golpe Aturdidor
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      _Golpeas un punto de presión con la precisión de un maestro, colapsando el sistema nervioso de tu oponente en un instante._<br><br>
+      Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Aturdido hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Visión del Ki
+    level: 3
+    type: activable
+    tags:
+      - Monje
+      - Concentración
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      _Cierras tus ojos físicos para abrir los espirituales, percibiendo el latido vital de todo lo que te rodea, incluso a través de muros._<br><br>
+      Como Acción, renuncias a tu visión mundana para entrar en en un estado de consciencia pura durante 1 minuto o hasta que pierdas la concentración.<br>
+      Mientras dure el efecto, eres consciente de la ubicación y el movimiento de cualquier criatura a distancia Cercana, incluso si son invisibles o están detrás de cobertura total.<br>
+      Mientras este efecto está activo, fallas automáticamente cualquier prueba de habilidad que dependa de la vista.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Mente Adamantina
+    level: 3
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      _Tu voluntad es inquebrantable; ninguna magia puede nublar tu juicio o llenar tu corazón de un miedo que no controlas._<br><br>
+      Eres inmune a los efectos mágicos que causan miedo y al estado Encantado.<br>
+      Además, obtienes Ventaja (+1d4) en todas las Tiradas de Salvación de Instinto.
+    uses:
+      type: null
+      qty: 0
+  - name: Presencia Serena
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Tu calma es contagiosa; con un gesto o una palabra, eres capaz de apaciguar la furia más violenta o el pánico más profundo._<br><br>
+      Como Acción, intentas calmar a una criatura hostil o en pánico a distancia Cercana. Realiza una Tirada Enfrentada de tu Instinto contra el Instinto del objetivo.<br>
+      Si ganas, la criatura deja de ser activamente hostil durante 1 minuto o sale de su estado de pánico.<br>
+      El efecto termina si la criatura es atacada.<br>
+      Esta habilidad no puede usarse sobre una criatura que esté actualmente en combate contigo o con tus aliados.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Chispa de Vida
+    level: 1
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Tocas los centros vitales de un aliado caído, estabilizando su energía y devolviéndole la voluntad de seguir luchando._<br><br>
+      Como Acción, tocas a una criatura Moribunda y estabilizas su flujo de ki. La criatura se estabiliza automáticamente.<br>
+      Si tú o el objetivo gastan 1 Punto de Suerte, la criatura recupera 1 Punto de Salud en su lugar.
+    uses:
+      type: LONG_REST
+      qty: 2
+  - name: Paso del Viento
+    level: 2
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Controlas tu peso mediante el Ki, permitiéndote correr por paredes o el agua, y suavizando las caídas más peligrosas._<br><br>
+      Adquieres las siguientes capacidades:<br>
+      - **Paso Ligero (Interacción):** Hasta el final de tu turno, puedes moverte por superficies verticales y líquidas como si fueran terreno sólido. Debes terminar tu movimiento en una superficie estable capaz de soportar tu peso; de lo contrario, caes.<br>
+      - **Caída Ralentizada (Reacción):** Cuando caes, puedes reducir el daño por caída como si la distancia de la caída fuera 10 metros menor. Si esto reduce el daño a 0, aterrizas de pie sin sufrir daño.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Fortaleza Interior
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Tu disciplina te permite ignorar las necesidades mundanas y resistir climas extremos mediante la pura fuerza de tu espíritu._<br><br>
+      Ganas los siguientes beneficios:<br>
+      - **Resistente**: Obtienes Ventaja (+1d4) en todas las pruebas de Aguante.<br>
+      - **Duelo con la Muerte**: Si llegas a 0 de Salud y quedas Moribundo, obtienes Ventaja (+1d4) en tus Tiradas de Salvación de Cuerpo para mantenerte con vida. Además, si superas esa TS con un éxito crítico, despiertas del estado Inconsciente recuperando Puntos de Salud iguales a tu puntuación de Instinto (en lugar de solo 1).
+    uses:
+      type: null
+      qty: 0
+  - name: Percepción Empática
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Estás en sintonía con las emociones del mundo, leyendo los corazones de los demás como si fueran libros abiertos._<br><br>
+      Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia.<br>
+      Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
+    uses:
+      type: null
+      qty: 0
+  - name: Lenguaje del Espíritu
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Has descubierto que el Ki es la lengua común de la vida, permitiéndote comunicarte con cualquier ser vivo mediante la intención._<br><br>
+      Puedes comunicarte de forma rudimentaria (transmitiendo conceptos simples, emociones e intenciones) con cualquier criatura viva, sin importar el idioma.
+    uses:
+      type: null
+      qty: 0
+  - name: Canalización Sanadora
+    level: 2
+    type: activable
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre de venenos y enfermedades._<br><br>
+      Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un efecto de enfermedad o veneno que afecte al objetivo.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Centro Inquebrantable
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Tu concentración es como una raíz profunda que te ancla al mundo, impidiendo que nada te mueva contra tu voluntad_<br><br>
+      Obtienes Ventaja (+1d4) en todas las pruebas de habilidad o TS para resistir ser Derribado o movido contra tu voluntad.
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Etéreo
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Te deslizas por el campo de batalla sin que el terreno o los enemigos supongan un obstáculo para tu avance fluido._<br><br>
+      Tu movimiento no se ve afectado por terreno difícil.<br>
+      Además, puedes moverte a través del espacio de criaturas hostiles sin impedimento.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Gracia del Viento
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Paso Etéreo & Instinto 4'
+    description: >-
+      _Durante breves instantes, anulas tu propio peso y flotas en el aire, moviéndote con una libertad absoluta._<br><br>
+      Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto.<br>
+      Debes terminar cada uno de tus turnos en una superficie sólida o caerás.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Trance de Piedra
+    level: 2
+    type: activable
+    tags:
+      - Monje
+      - Ritual
+    requirements: 'Disciplina Monástica & Instinto 3'
+    description: >-
+      _Sintonizas con la memoria del entorno, escuchando los ecos del pasado que han quedado grabados en el espíritu del lugar._<br><br>
+      Tras 10 minutos de meditación ininterrumpida, puedes hacer una pregunta sobre el entorno inmediato (una habitación, un claro).<br>
+      Recibes una respuesta sensorial y críptica del "espíritu del lugar" (a discreción del DJ), como el eco de una emoción fuerte,
+      la sensación de una presencia oculta o la imagen de un evento significativo que ocurrió allí.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Limpiar Energías
+    level: 3
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Trance de Piedra & Instinto 4'
+    description: >-
+      _Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br>
+      Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br>
+      - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br>
+      - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.
+    uses:
+      type: RELOAD
+      qty: 6
+  - name: Toque Disruptor
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Golpe Aturdidor & Instinto 5'
+    description: >-
+      _Tus golpes bloquean los canales de energía del enemigo, impidiéndole usar sus habilidades más poderosas._<br><br>
+      Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus Acciones o Reacciones que especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: Paso del Vacío
+    level: 4
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Paso del Viento & Instinto 5'
+    description: >-
+      _Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un suspiro._<br><br>
+      Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Palma Vibratoria
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Golpe Aturdidor & Instinto 6'
+    description: >-
+      _Inicias una resonancia letal en el cuerpo de tu oponente que puedes detonar a tu voluntad, destruyendo su vida desde dentro._<br><br>
+      Como Acción, realizas un ataque desarmado imbuido de vibraciones letales.<br>
+      Si impactas, inicias una resonancia en el cuerpo del objetivo que dura una cantidad de días igual a tu Instinto.<br>
+      Mientras la resonancia esté activa, puedes usar tu Acción para finalizarla y detonar las vibraciones.<br>
+      Al detonar, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, recibe 10d10 de daño Necrótico. Si tiene éxito, la mitad.<br>
+      Si este daño reduce al objetivo a 0 Puntos de Salud, muere instantáneamente.
+    uses:
+      type: LONG_REST
+      qty: 1
+
+  - name: Aspecto del Dragón Energético
+    level: 5
+    type: activable
+    tags:
+      - Monje
+    requirements: 'Mente Adamantina & Instinto 6'
+    description: >-
+      _Desatas todo tu potencial oculto, envolviéndote en un aura de Ki crepitante que te otorga un poder legendario._<br><br>
+      Como Acción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante durante 1 minuto.<br>
+      Mientras dure el aspecto, ganas los siguientes beneficios:<br>
+      - Tus ataques desarmados infligen 1d8 de daño base y todo el daño se considera de Fuerza.<br>
+      - Ganas una Reacción adicional en cada turno, que solo puede usarse para tus cartas de Reacción de Monje.<br>
+      - Obtienes una velocidad de vuelo igual a tu velocidad normal.
+    uses:
+      type: LONG_REST
+      qty: 1

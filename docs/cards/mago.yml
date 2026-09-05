@@ -1,0 +1,153 @@
+cards:
+  - name: Estudios Mágicos
+    level: 1
+    type: efecto
+    tags:
+      - Mago
+      - Arquetipo
+      - Arcanista
+    requirements: Mente 2
+    description: >-
+      _Años de estudio de tomos polvorientos y experimentos peligrosos te han permitido desentrañar los hilos invisibles que tejen la urdimbre de la realidad._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Conocimiento Arcano e Investigación.<br>
+      Adquieres la carta _Afinidad Arcana_, y puedes usar Mente como tu Atributo Arcano para las cartas de _Arcanista_.<br>
+      <br>
+      **Beneficio de Arquetipo:**<br>
+      - **Memoria Prodigia:** Adquieres un número de Ranuras de Cartas Activas adicionales igual a la mitad de tu puntuación de Mente (redondeado hacia arriba).
+      Estas ranuras solo se pueden usar para activar cartas que posean las etiquetas _Arcanista_ y _Conjuro_ (ambas).<br>
+      - **Mente Ágil**: Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Grimorio de Preparación_ a tu colección.<br>
+      Adicionalmente, aprendes dos idiomas y ganas un bono a tus Puntos de Salud igual a 4 PS por cada 10 PP que hayas gastado.<br><br>
+    uses:
+      type: null
+      qty: 0
+  - name: 'Grimorio de Preparación'
+    level: 1
+    type: efecto
+    tags:
+      - Mago
+    requirements: 'Estudios Mágicos'
+    description: >-
+      _Tu libro de estudio te permite adaptarte a los obstáculos de forma metódica, reorganizando tu mente para cada desafío._<br><br>
+      Una vez por día de descanso, durante un momento de calma, puedes dedicar 10 minutos a estudiar. Al hacerlo, puedes intercambiar hasta dos de tus cartas con las etiquetas _Conjuro_ y _Arcanista_ (ambas) activas por otras de tu Colección.<br>
+      Además, el tiempo de lanzamiento de tus conjuros de _Ritual_ para conjuros de _Arcanista_ se reduce a la mitad (5 minutos).
+    uses:
+      type: null
+      qty: 0
+  - name: 'Familiar Arcano'
+    level: 2
+    type: activable
+    tags:
+      - Mago
+      - Ritual
+    requirements: 'Estudios Mágicos & Atributo Arcano 3'
+    description: >-
+      _Invocas a un pequeño espíritu mágico que actúa como tus ojos, oídos y conducto en el mundo físico._<br><br>
+      Tras 1 hora de ritual, invocas un espíritu mágico menor encarnado en el cuerpo de un animal pequeño (cuervo, gato, sapo, etc.).<br>
+      Su Salud es igual a tu puntuación de Mente, y su Esquiva es 10 + tu puntuación de Mente. El familiar no puede atacar.<br>
+      Mientras te encuentres a una distancia Larga o menor del familiar, obtienes los siguientes beneficios:<br>
+      - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br>
+      - **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br>
+      - **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de ataque de toque o tenga alcance Inmediata, el familiar puede realizar el contacto por ti (usando tu tirada de ataque).<br>
+      - **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).
+    uses:
+      type: null
+      qty: 0
+  - name: 'Teoría Arcana Avanzada'
+    level: 3
+    type: efecto
+    tags:
+      - Mago
+    requirements: 'Estudios Mágicos & Mente 4'
+    description: >-
+      _Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros al momento de lanzarlos._<br><br>
+      Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres recuperarlo:<br>
+      - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas su alcance un rango (ej. de Cercana a Media).<br>
+      - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas igual a tu Atributo Arcano dentro del área para que no sean afectadas por el conjuro.<br>
+      - **Conjuro Bifurcado (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del alcance.<br><br>
+      **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante fuera superior a 8.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Contingencia Arcana'
+    level: 4
+    type: activable
+    tags:
+      - Mago
+      - Ritual
+    requirements: 'Estudios Mágicos & Mente 5'
+    description: >-
+      _Preparas una trampa mágica ligada a tu propia seguridad, lista para saltar cuando más la necesites._<br><br>
+      Inviertes 10 minutos para anclar un conjuro de Arcanista de Nivel 1, 2 o 3 (que requiera Acción o Interacción) a una condición específica (ej: "Si recibo daño", "Si caigo al agua"). Debes gastar un uso del conjuro en este momento. Cuando la condición se cumple, el conjuro se lanza automáticamente.<br>
+      Solo puedes tener una contingencia activa a la vez.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: 'Fórmula del Archimago'
+    level: 5
+    type: activable
+    tags:
+      - Mago
+    requirements: 'Estudios Mágicos & Mente 6'
+    description: >-
+      _Has descifrado el código fuente de la realidad; con un solo gesto, alteras la urdimbre sin esfuerzo aparente._<br><br>
+      Una vez por día de descanso, puedes usar tu Acción para alterar la Urdimbre a tu conveniencia.<br>
+      Eliges cualquier carta de Conjuro de Arcanista que poseas en tu Colección (incluso si no está equipada en tus Ranuras de Cartas Activas) y la lanzas instantáneamente. Este lanzamiento magistral no requiere componentes verbales ni somáticos, no gasta su uso de Recarga, y maximiza una de las tiradas de dados de la carta.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Proyectiles Mágicos
+    level: 1
+    type: activable
+    tags:
+      - Mago
+      - Conjuro
+    requirements: Estudios Mágicos
+    description: >-
+      _Dardos de pura energía arcana brotan de tus manos, persiguiendo a tus enemigos de forma ineludible._<br><br>
+      Creas dos dardos de energía arcana que persiguen a sus objetivos a distancia Cercana.<br>
+      Los dardos no pueden fallar. Puedes dirigirlos al mismo objetivo o a objetivos distintos. Cada dardo inflige 1d4 de daño de Fuerza.<br>
+      - **Concentración de Poder:** Si diriges ambos proyectiles al mismo objetivo, suma sus resultados antes de que el enemigo aplique su Mitigación Mágica.
+    uses:
+      type: RELOAD
+      qty: 3
+  - name: Rompeconjuros
+    level: 3
+    type: activable
+    tags:
+      - Mago
+      - Conjuro
+      - Reacción
+      - Ritual
+    requirements: 'Estudios Mágicos & Atributo Arcano 4'
+    description: >-
+      _Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los existentes._<br><br>
+      Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br>
+      - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada
+      de tu Atributo Arcano contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br>
+      - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico.
+      Realizas una prueba de Atributo Arcano contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+    uses:
+      type: RELOAD
+      qty: 6
+
+  - name: 'Escrutinio Arcano'
+    level: 4
+    type: activable
+    tags:
+      - Mago
+      - Conjuro
+      - Concentración
+    requirements: 'Visión Remota & Estudios Mágicos & Mente 5'
+    description: >-
+      _Tu sensor arcano deja de estar limitado por la distancia visible: buscas un hilo conocido en la Urdimbre y observas aquello que se encuentra en el otro extremo._<br><br>
+      Como Acción, comienzas un escrutinio que requiere 10 minutos de concentración ininterrumpida. Al finalizar, eliges una criatura que conozcas o un lugar concreto del mismo plano cuya ubicación puedas identificar razonablemente.<br>
+      Creas un sensor invisible e intangible a distancia Inmediata del objetivo o en un punto apropiado del lugar elegido. Durante un máximo de 10 minutos, ves y oyes a través de él como si estuvieras allí.<br>
+      Si eliges una criatura, esta realiza una TS de Instinto (ND 5 + Mente):<br>
+      - Si apenas la conoces o solo dispones de una descripción, obtiene Ventaja (+1d4) en la tirada.<br>
+      - Si la conoces personalmente, realiza la tirada normalmente.<br>
+      - Si posees un objeto íntimamente vinculado a ella —como una posesión personal importante, un mechón de cabello o una muestra similar— realiza la tirada con Desventaja (-1d4).<br>
+      Si supera la TS, el conjuro falla y no obtienes información sobre su ubicación.<br>
+      El sensor puede ser detectado mediante efectos capaces de percibir magia o criaturas invisibles.
+    uses:
+      type: LONG_REST
+      qty: 1

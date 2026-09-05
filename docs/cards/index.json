@@ -1,0 +1,19 @@
+{
+	"files": [
+		"linaje.yml",
+		"dote.yml",
+		"picaro.yml",
+		"combatiente.yml",
+		"coloso.yml",
+		"cefiro.yml",
+		"arcanista.yml",
+		"mago.yml",
+		"brujo.yml",
+		"hechicero.yml",
+		"sacerdote.yml",
+		"druida.yml",
+		"bardo.yml",
+		"monje.yml",
+		"sinergia.yml"
+	]
+}

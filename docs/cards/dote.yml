@@ -1,0 +1,287 @@
+cards:
+  # ------------------------------ DOTES ------------------------------
+  - name: Vigor
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 3
+    description: >-
+      _Tu vitalidad es excepcional y tu cuerpo se fortalece con cada desafío superado._<br><br>
+      Tu Salud máxima aumenta permanentemente en 2 Puntos de Salud por cada 10 Puntos de Progreso (PP) que hayas gastado.
+    uses:
+      type: null
+      qty: 0
+  - name: Atleta
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 2
+    description: >-
+      _Tu entrenamiento físico te ha otorgado una agilidad superior._<br><br>
+      Tu Velocidad base aumenta permanentemente en 2 metros.
+    uses:
+      type: null
+      qty: 0
+  - name: Reserva de Suerte
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 2
+    description: >-
+      _Tu instinto te ha enseñado a confiar en la suerte incluso en las situaciones más desesperadas._<br><br>
+      Tu límite máximo de Suerte aumenta a 6. Además, inicias cada sesión con un punto más de suerte.
+    uses:
+      type: null
+      qty: 0
+  - name: Polímata
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    description: >-
+      _Tu curiosidad y versatilidad te han convertido en un experto en múltiples disciplinas._<br><br>
+      Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de 2 o más.
+      Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br>
+      Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.
+    uses:
+      type: null
+      qty: 0
+  - name: Intervención Oportuna
+    level: 1
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: 'Presencia 2 | Instinto 2'
+    description: >-
+      _Eres un experto en leer la situación y tomar las riendas para salvar a un aliado de un error._<br><br>
+      Cuando un aliado a distancia Cercana falla una prueba de habilidad de Presencia o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para intervenir. Realizas tú mismo la misma prueba de habilidad; tu aliado puede usar el resultado de tu tirada en lugar de la suya. Esta habilidad no puede usarse si el fallo de tu aliado fue un fallo crítico (pifia).
+    uses:
+      type: null
+      qty: 0
+  - name: Lingüista
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 2
+    description: >-
+      _Tienes una facilidad asombrosa para desentrañar la sintaxis y los acentos de culturas lejanas._<br><br>
+      Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, adquieres ventaja en pruebas para aprender otros idiomas.
+    uses:
+      type: null
+      qty: 0
+  - name: Peleador Callejero
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 2
+    description: >-
+      _Estás acostumbrado al combate cuerpo a cuerpo sin armas._<br><br>
+      Tus ataques desarmados infligen 1d4 de daño Contundente. Además, inmediatamente después de impactar con un ataque desarmado, puedes usar tu Interacción para intentar una maniobra de Agarrar contra ese objetivo mediante una Tirada Enfrentada de tu Cuerpo contra el Cuerpo o Reflejos del objetivo.
+    uses:
+      type: null
+      qty: 0
+  - name: Artesano Eficiente
+    level: 1
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    description: >-
+      _Eres hábil con las manos y no desperdicias material._<br><br>
+      Cuando realizas la actividad de Fabricar un Objeto durante el tiempo entre aventuras, el tiempo requerido se reduce a la mitad. Además, si fallas la prueba de habilidad para fabricar el objeto, solo pierdes la mitad de los materiales en lugar de todos.
+    uses:
+      type: null
+      qty: 0
+  - name: Sanador
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 3
+    description: >-
+      _Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br>
+      Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br>
+      Además, cuando superas una prueba de Instinto (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br>
+      No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.
+    uses:
+      type: null
+      qty: 0
+  - name: Mago de Guerra
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: 'Mente 3 | Instinto 3 | Presencia 3'
+    description: >-
+      _Tu adaptación a la magia te permite mantener el control incluso en medio del caos._<br><br>
+      Obtienes un +1 a tus tiradas para mantener la concentración de un conjuro.
+    uses:
+      type: null
+      qty: 0
+  - name: Resistente
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Cuerpo 3
+    description: >-
+      _Tu cuerpo es una reacciona y aprende con cada golpe recibido._<br><br>
+      Como Reacción cuando recibes daño físico o elemental, tensas tu cuerpo para absorber el impacto. Obtienes Mitigación adicional igual a tu puntuación de Cuerpo contra ese daño en particular.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Experto en Ballestas
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 3
+    description: >-
+      _Tu habilidad con las ballestas te permite disparar con rapidez y precisión excepcionales._<br><br>
+      Ignoras la propiedad Recarga de las ballestas. Además, tus ataques con ballestas ignoran el bono por cobertura parcial.
+    uses:
+      type: null
+      qty: 0
+  - name: Maestro de Maniobras
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    description: >-
+      _Te has especializado en el combate físico táctico._<br><br>
+      Elige dos tipos de Maniobras Marciales (por ejemplo: Empujón, Zancadilla, Desarmar o Presa). Obtienes Ventaja (+1d4) en las Tiradas Enfrentadas o Pruebas de Habilidad que realices para ejecutar esas maniobras elegidas.
+    uses:
+      type: null
+      qty: 0
+  - name: Reflejos Afortunados
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Reflejos 3
+    description: >-
+      _Tu suerte te permite esquivar golpes que parecían certeros._<br><br>
+      Como Reacción, cuando un enemigo te impacta con un ataque, puedes gastar cualquier cantidad de tus Puntos de Suerte. La tirada de ataque del enemigo sufre una penalización de -1 por cada Punto de Suerte que hayas gastado, lo que podría hacer que el ataque falle.
+    uses:
+      type: null
+      qty: 0
+  - name: 'Conjuración Elevada'
+    level: 2
+    type: activable
+    tags:
+      - Dote
+    requirements: 'Mente 3 | Instinto 3 | Presencia 3'
+    description: >-
+      _Fuerzas tu capacidad mágica al límite para superar las defensas enemigas._<br><br>
+      Cuando lanzas una carta de Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar el Nivel de Dificultad (ND) de esa tirada en +2.<br>
+      Al hacerlo, te sientes agotado hasta el final de tu próximo turno: sufres Desventaja en tus Tiradas de Ataque y Pruebas de Habilidad (incluyendo Concentración), y el ND de cualquier carta que uses se reduce en -2.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Maestría con Escudo
+    level: 2
+    type: activable
+    tags:
+      - Dote
+      - Reacción
+    requirements: Cuerpo 3
+    description: >-
+      _Eres un maestro en el uso del escudo como una barrera impenetrable._<br><br>
+      Si debes realizar una Tirada de Salvación de Reflejos para recibir la mitad de daño de un efecto que puedas ver, puedes usar tu Reacción para interponer tu escudo. Si tienes éxito en la tirada, no recibes daño alguno.
+    uses:
+      type: null
+      qty: 0
+  - name: Alquimista Experto
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: 'Mente 3 & Artesano Eficiente'
+    description: >-
+      _Tu maestría en la alquimia te permite crear consumibles más potentes._<br><br>
+      Cuando fabricas con éxito una poción o un veneno, su efecto se mejora:<br>
+      - Una poción fabricada por ti restaura 1d4 Puntos de Salud adicionales.<br>
+      - La dificultad (ND) para resistir un veneno fabricado por ti aumenta en +2.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Constitución de Hierro
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Cuerpo 3
+    description: >-
+      _Tu cuerpo es un templo de resistencia física._<br><br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.<br>
+      Además, puedes aguantar la respiración durante una cantidad de minutos igual al doble de tu puntuación de Cuerpo. Adicionalmente, puedes dormir con armaduras medias o pesadas sin sufrir penalizadores por fatiga o incomodidad al día siguiente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Destreza Suprema
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Reflejos 3
+    description: >-
+      _Posees un control instintivo sobre tu inercia y equilibrio._<br><br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Reflejos.<br>
+      Además, siempre caes de pie si estás consciente. Adicionalmente, reduces la distancia de cualquier caída en 5 metros a efectos de calcular el daño (lo que te permite ignorar el daño de caídas cortas).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Engranaje Cognitivo
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Mente 3
+    description: >-
+      _Tu mente opera con la precisión de un mecanismo de relojería, procesando y archivando información sistemáticamente._<br><br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Mente.<br>
+      Además, posees memoria eidética. Puedes recordar con precisión perfecta cualquier documento, mapa, imagen o conversación que hayas presenciado en el último mes. El DJ debe recordarte cualquier detalle olvidado por ti (el jugador) que tu personaje hubiera retenido.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Sexto Sentido
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Instinto 3
+    description: >-
+      _Tu instinto te alerta de peligros que tus ojos no ven._<br><br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Instinto.<br>
+      Además, cuando fallas una prueba de Instinto (Percepción) para detectar algo oculto (una trampa, una puerta secreta, un enemigo escondido), recibes una sensación de inquietud que te confirma que *hay* algo oculto en la zona, aunque no sepas qué es ni dónde está exactamente.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Compostura Inquebrantable
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: Presencia 3
+    description: >-
+      _Tu personalidad es sólida como una roca, proyectando una autoridad natural._<br><br>
+      Obtienes Ventaja (+1d4) en Tiradas de Salvación de Presencia.<br>
+      Además, tus fallos sociales nunca son catastróficos. Si fallas una prueba de Persuasión, Engaño o Intimidación, el objetivo nunca reacciona con violencia inmediata ni hostilidad abierta basándose solo en tus palabras; simplemente se mostrará escéptico, indiferente o se negará a colaborar.
+    uses:
+      type: null
+      qty: 0

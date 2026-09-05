@@ -1,0 +1,373 @@
+cards:
+  # ------------------------------ PÍCARO ------------------------------
+  - name: Senda del Bribón
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+      - Arquetipo
+    requirements: Reflejos 2
+    description: >-
+      _Te mueves por las sombras como si fueras parte de ellas, encontrando siempre el punto débil tanto en la armadura del destino como en el bolsillo del desprevenido._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Sigilo y Juegos de Manos.<br><br>
+      **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Ataque Furtivo_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar.
+      Además, aprendes la lengua Jerga de Ladrones.
+      Adicionalmente, tu Salud máxima aumenta en +3 y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>
+    uses:
+      type: null
+      qty: 0
+  - name: Ataque Furtivo
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón
+    description: >-
+      _Aprovechas la más mínima distracción de tu enemigo para asestar un golpe letal en sus puntos ciegos._<br><br>
+      Como Acción, realizas un único ataque con un arma Precisa o a distancia. Si impactas y tenías Ventaja en la tirada o si un aliado está adyacente al objetivo, infliges 1d4 de daño adicional.
+    uses:
+      type: null
+      qty: 0
+  - name: Sabotaje Táctico
+    level: 1
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Senda del Bribón
+    description: >-
+      _Un insulto bien dirigido o un puñado de arena en los ojos pueden cambiar el rumbo de un duelo más rápido que cualquier estocada._<br><br>
+      Como Interacción, eliges a un enemigo que pueda verte y eliges un modo de sabotearlo:<br>
+      - **Jugar Sucio (Distancia Inmediata):** Arrojas arena o fintas. El objetivo debe superar una TS de Reflejos (ND 5 + Reflejos) o
+      tener Desventaja (-1d4) en el siguiente ataque que realice antes del final de tu próximo turno.<br>
+      - **Desmoralizar (Distancia Cercana):** Insultas o provocas. El objetivo debe superar una TS de Instinto (ND 5 + Presencia) o tener Desventaja (-1d4)
+      en todos los ataques contra cualquier objetivo que no seas tú hasta el final de tu próximo turno.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Acción Astuta
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Reflejos 3'
+    description: >-
+      _Tus reflejos están tan entrenados que correr o esconderte se han vuelto actos tan naturales como respirar._<br><br>
+      Una vez por turno, puedes usar tu Interacción para Correr o Esconderte.
+    uses:
+      type: null
+      qty: 0
+  - name: Evasión
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Acción Astuta & Reflejos 4'
+    description: >-
+      _Tu agilidad sobrenatural te permite escapar ileso de explosiones y peligros de área que destrozarían a un combatiente normal._<br><br>
+      Cuando un efecto te obliga a realizar una TS de Reflejos para recibir
+      la mitad de daño, si tienes éxito no recibes daño alguno, y si fallas,
+      recibes solo la mitad.
+    uses:
+      type: null
+      qty: 0
+  - name: Ataque Furtivo Mejorado
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo & Reflejos 4'
+    description: >-
+      _Tu conocimiento de la anatomía se vuelve quirúrgico; ahora sabes exactamente dónde clavar la daga para que no haya un segundo asalto._<br><br>
+      El daño adicional de tu Ataque Furtivo aumenta a 2d4.
+    uses:
+      type: null
+      qty: 0
+  - name: Celeridad de la Hoja
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo & Reflejos 4'
+    description: >-
+      _Tus manos se mueven más rápido de lo que la vista de tus enemigos puede seguir, permitiéndote encadenar ataques en un pestañeo._<br><br>
+      Cuando usas tu Acción para Atacar o para realizar un _Ataque Furtivo_ con un arma Precisa, puedes usar tu Interacción para realizar un ataque adicional con un arma Precisa. Si utilizaste la acción de _Ataque Furtivo_ y fallaste el primer golpe, puedes aplicar su daño adicional en este impacto extra (siempre que cumplas las condiciones).
+    uses:
+      type: null
+      qty: 0
+  # --- Pícaro: Duelista ---
+  - name: Estilo Audaz
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Presencia 2'
+    description: >-
+      _El combate es un escenario y tú eres el protagonista; tu insolencia y piruetas confunden al enemigo mientras buscas su garganta._<br><br>
+      Adquieres los siguientes beneficios:<br>
+      - **Acróbata:** Obtienes Ventaja (+1d4) en pruebas de Acrobacias.<br>
+      - **Apertura Temeraria:** Una vez por turno, antes de realizar un ataque cuerpo a cuerpo con un arma Precisa, puedes obtener Ventaja en ese ataque. Al hacerlo, sufres −2 a tu Esquiva hasta el comienzo de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  - name: Riposta
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+      - Reacción
+    requirements: 'Estilo Audaz & Reflejos 3'
+    description: >-
+      _Cada fallo de tu oponente es una invitación a que sienta el frío de tu acero en sus costillas._<br><br>
+      Como Reacción, cuando un enemigo te falla un ataque cuerpo a cuerpo, puedes
+      realizar un ataque cuerpo a cuerpo contra él con un arma Precisa.
+    uses:
+      type: RELOAD
+      qty: 4
+  - name: Duelista Audaz
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Estilo Audaz & Reflejos 3'
+    description: >-
+      _Tu confianza es un escudo y tu mirada un arma; en un duelo singular, nadie puede igualar tu ingenio y vigor._<br><br>
+      Ganas los siguientes beneficios:<br>
+      - **Duelo de Ingenio:** Puedes aplicar tu Ataque Furtivo a un ataque cuerpo a cuerpo con un arma Precisa, siempre que no tengas Desventaja y no haya ningún otro enemigo a 1 metro de ti ni de tu objetivo.<br>
+      - **Vigor del Duelista:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo que cumple las condiciones de "Duelo de Ingenio", ganas una cantidad de Puntos de Salud temporales igual a tu puntuación de Presencia. Estos Puntos de Salud temporales duran 1 minuto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Maestría del Duelista
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Duelista Audaz & Reflejos 4'
+    description: >-
+      _Te deslizas por el campo de batalla como si estuvieras en un salón de baile, respondiendo a cada golpe con una elegancia letal._<br><br>
+      Ganas los siguientes beneficios:<br>
+      - **Paso Desconcertante:** Cuando impactas a una criatura con un ataque cuerpo a cuerpo, puedes moverte 2 metros. Durante este movimiento, no puede ser interceptado por una Reacción del objetivo de tu ataque.<br>
+      - **Réplica Maestra:** Puedes usar tu carta Riposta una vez por ronda sin gastar su uso de recarga.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Parada del Duelista
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+      - Reacción
+    requirements: 'Riposta & Reflejos 4'
+    description: >-
+      _Un giro de muñeca y una sonrisa arrogante son suficientes para desviar el ataque más feroz y preparar tu contraataque._<br><br>
+      Como Reacción, cuando un enemigo te impacta con un ataque cuerpo a cuerpo y estás empuñando un arma Precisa
+      (y ninguna otra arma), puedes un bono a tu Esquiva contra ese ataque igual a tu puntuación de Presencia, pudiendo hacer que falle. Si el ataque falla
+      de esta manera, tu próximo ataque contra ese enemigo antes del final de tu próximo turno tiene Ventaja (+1d4).
+    uses:
+      type: RELOAD
+      qty: 5
+  # --- Pícaro: Venenos ---
+  - name: Alquimia de Combate
+    level: 2
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Mente 2'
+    description: >-
+      _Has aprendido a destilar la muerte en viales, aplicando toxinas que queman las venas de tus enemigos antes de que se den cuenta del corte._<br><br>
+      <br>
+      Puedes aplicar veneno a un arma como una Interacción.<br>
+      Cuando impactas a una criatura con un arma que no esta envenenada, puedes inyectar una toxina creada al instante. El objetivo debe superar una TS de Cuerpo (ND 5 + Mente). Si falla, eliges el efecto:<br>
+      - **Toxina Virulenta:** El objetivo sufre el estado Envenenado hasta el final de tu próximo turno.<br>
+      - **Toxina Agónica:** El objetivo sufre 1d6 de daño de Veneno adicional.<br>
+    uses:
+      type: RELOAD
+      qty: 5
+
+  - name: Maestría Tóxica
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: Alquimia de Combate
+    description: >-
+      _Tus venenos no solo matan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a tu merced._<br><br>
+      Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br>
+      - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br>
+      - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo turno.
+    uses:
+      type: null
+      qty: 0
+  # --- Pícaro: Infiltrador ---
+  - name: Infiltrador Experto
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Mente 2'
+    description: >-
+      _Ninguna cerradura es lo suficientemente compleja ni ninguna trampa lo bastante ingeniosa para detener tu paso o tus dedos rápidos._<br><br>
+      Adquieres los siguientes beneficios:<br>
+      - **Ojo Clínico:** Obtienes Ventaja (+1d4) en pruebas de Percepción para localizar trampas o mecanismos ocultos.<br>
+      - **Seguridad:** Cuando obtienes una pifia al usar Juegos de Manos para abrir una cerradura, desactivar una trampa o manipular un mecanismo, la pifia se resuelve como un fallo normal, sin consecuencias especiales por la pifia.<br>
+      - **Rapidez:** Puedes usar tu Interacción para realizar acciones técnicas complejas: desactivar una trampa, abrir una cerradura, o robar un objeto asegurado.
+    uses:
+      type: null
+      qty: 0
+  - name: Señor de los Bajos Fondos
+    level: 1
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Presencia 2'
+    description: >-
+      _Conoces cada callejón, cada informante y cada código secreto; en la ciudad, las sombras te susurran sus verdades._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener información en entornos urbanos y en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una ciudad.<br>
+      Además, una vez por sesión, puedes declarar que "conoces a alguien" relevante en la localidad actual. Gasta 2 Puntos de Suerte
+      y define el perfil de tu contacto (siempre de reputación dudosa o del hampa: un informante, un falsificador, un contrabandista, etc.).
+      El DJ te revela cómo y dónde podrías encontrar a esa persona, creando una nueva pista o un mini-objetivo para el grupo.
+      El contacto estará, como mínimo, dispuesto a escucharte, aunque obtener su ayuda pueda requerir persuasión, un favor o el pago adecuado.
+    uses:
+      type: null
+      qty: 0
+  - name: Paso Veloz
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+    requirements: Acción Astuta
+    description: >-
+      _En un instante, te conviertes en una ráfaga de movimiento que cruza la estancia antes de que el enemigo pueda parpadear._<br><br>
+      Como Interacción, duplicas tu Velocidad de movimiento para este turno.
+      Además, obtienes Ventaja (+1d4) en la próxima tirada de ataque que realices este turno, y el primer ataque que te
+      realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).
+    uses:
+      type: RELOAD
+      qty: 5
+
+  # --- Pícaro: Asesino ---
+  - name: Asesinar
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Reflejos 3'
+    description: >-
+      _Observas, esperas y golpeas; cuando tu víctima se da cuenta de que estás ahí, ya es demasiado tarde.._<br><br>
+      Usas tu Interacción para preparar un ataque letal contra una criatura que no este consciente de tu presencia hasta el final de tu turno. Tu primer impacto con un arma contra esa criatura se considera automáticamente un golpe crítico.<br><br>
+      Una criatura es válida para Asesinar solamente si desconoce tu presencia. Estar Escondido no es suficiente si la criatura sabe que estás presente, aunque haya perdido conocimiento preciso de tu posición.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Punto Vital
+    level: 3
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Asesinar & Instinto 3'
+    description: >-
+      _Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con un solo toque._<br><br>
+      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.
+      La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+    uses:
+      type: RELOAD
+      qty: 6
+
+  # --- Pícaro: Ladrón ---
+  - name: Manos Rápidas
+    level: 2
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Senda del Bribón & Reflejos 3'
+    description: >-
+      _Tus dedos operan con una velocidad que desafía la física, permitiéndote usar objetos y herramientas en mitad del caos sin perder el ritmo._<br><br>
+      Una vez por turno, puedes usar una Interacción para realizar una acción Usar un Objeto que normalmente requiera una Acción, incluyendo la activación de objetos mágicos.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Especialista Táctico
+    level: 3
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Manos Rápidas & Reflejos 4'
+    description: >-
+      _Tu eficiencia en combate es tal que eres capaz de realizar malabares con tus herramientas mientras te desvaneces en las sombras._<br><br>
+      Ganas una segunda Interacción en cada uno de tus turnos. Esta interacción adicional solo puede usarse para tu Acción Astuta (Correr o Esconderse) o para tu Mano Rápida (Usar un Objeto).
+    uses:
+      type: null
+      qty: 0
+
+  - name: Golpe Letal
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo Mejorado & Reflejos 5'
+    description: >-
+      _Has alcanzado la maestría final en el arte de la muerte; tus ataques ya no buscan herir, sino terminar existencias de forma definitiva._<br><br>
+      El daño adicional de tu Ataque Furtivo aumenta a 4d4.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Esquiva Sobrenatural
+    level: 4
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Evasión & Reflejos 5'
+    description: >-
+      _Te mueves como un fantasma a través de la tormenta, dejando que los ataques te atraviesen mientras tú sigues avanzando incólume._<br><br>
+      Ganas los siguientes beneficios:<br>
+      - Tu carta Evasión ahora también se aplica a Tiradas de Salvación de Cuerpo e Instinto.<br>
+      - Cuando tienes éxito en cualquier Tirada de Salvación para recibir la mitad de daño (y por ende no recibes daño gracias a Evasión), puedes usar tu Reacción para moverte hasta la mitad de tu velocidad.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Paso Sombrío Letal
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Asesinar & Reflejos 6'
+    description: >-
+      _Te fundes con la oscuridad y reapareces en el punto más débil de tu enemigo para asestar el golpe de gracia._<br><br>
+      Como Interacción, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4).
+      Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.
+    uses:
+      type: RELOAD
+      qty: 8
+
+  - name: Golpe Fantasma
+    level: 5
+    type: activable
+    tags:
+      - Pícaro
+    requirements: 'Ataque Furtivo Mejorado & Reflejos 6'
+    description: >-
+      _Tu ataque trasciende las defensas materiales; ni la armadura más gruesa ni los escudos mágicos pueden proteger a tu objetivo de tu precisión._<br><br>
+      Como Acción, realizas un único ataque con un arma Precisa o a distancia.
+      Este ataque ignora toda Mitigación Física, Mitigación Mágica y Puntos de Salud temporales del objetivo. Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.
+    uses:
+      type: RELOAD
+      qty: 8
+
+  - name: Ataque Furtivo Maestro
+    level: 5
+    type: efecto
+    tags:
+      - Pícaro
+    requirements: 'Golpe Letal & Reflejos 6'
+    description: >-
+      _Tu letalidad es una leyenda; un solo roce de tu hoja es una sentencia de muerte que nadie puede evitar._<br><br>
+      El daño adicional de tu Ataque Furtivo aumenta a 6d4.
+    uses:
+      type: null
+      qty: 0
