@@ -251,6 +251,7 @@ Ciertas situaciones pueden modificar una tirada, añadiendo o restando un dado d
 ## Resultados Especiales de la Tirada
 
 - **Dado Explosivo:** Si el resultado de tu **d8** es un **8 natural**, el dado "explota". **Vuelve a tirar el d8 y suma el nuevo resultado a tu total**. Un dado puede explotar múltiples veces. Cada vez que esto ocurre, el personaje gana **1 Punto de Suerte**.
+- **Notación de Dados Explosivos (`e`):** Cuando una fórmula de dados incluya el sufijo `e` (por ejemplo, `1d8e`), el dado indicado es **explosivo** y sigue la regla de Dado Explosivo: al sacar su valor máximo, se vuelve a tirar y el nuevo resultado se suma al total, pudiendo explotar múltiples veces.
 - **Éxito Excepcional:** Si el resultado **total** de tu tirada supera el ND por 5 o más, no solo logras tu objetivo, sino que obtienes un beneficio adicional significativo, descrito por el DJ.
 - **Fallo Crítico (Pifia):** Si el resultado de tu **d8** es un **1 natural** en una **Prueba de Habilidad** o en un **Ataque**, la acción falla de la peor manera posible. El DJ introduce una complicación narrativa. Las **Tiradas de Salvación** no sufren fallos críticos.
 
@@ -829,7 +830,7 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 | Martillo de guerra       | 1d8/1d10 | Contundente | Cuerpo 3              | 60 o   | Versátil                            |
 | Hacha de guerra          | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
 | Ballesta pesada          | 1d10     | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga), Recarga |
-| Alabarda / Guja          | 1d10     | Contundente | Cuerpo 3              | 75 o   | A dos manos, Alcance                |
+| Alabarda / Guja          | 1d10     | Cortante    | Cuerpo 3              | 75 o   | A dos manos, Alcance                |
 | Mandoble / Gran hacha    | 1d12     | Cortante    | Cuerpo 3              | 100 o  | A dos manos                         |
 | Mazo pesado              | 1d12     | Contundente | Cuerpo 3              | 100 o  | A dos manos                         |
 
