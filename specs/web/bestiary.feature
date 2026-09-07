@@ -63,3 +63,28 @@ Feature: Bestiary
     Then valid creatures are still available
     And the invalid creature file is omitted
     And the error identifies the invalid file
+
+  @bestiary @generated-file-list @registry-integrity
+  Scenario: Keep every bestiary YAML registered
+    Given the bestiary source directory contains YAML files
+    When the generated bestiary source registry is validated
+    Then every bestiary YAML file is registered exactly once
+    And every registered bestiary YAML path exists
+    And the generated registry preserves the canonical manifest order
+
+  @bestiary @parallel-load @request-budget
+  Scenario: Start bestiary YAML loads in parallel without the runtime manifest
+    Given the generated bestiary source registry lists all creature YAML files
+    When the bestiary source loader loads the creatures
+    Then one request is started for each registered creature YAML file
+    And no request is made for the bestiary manifest at runtime
+    And all creature file requests start before the first creature file response resolves
+
+  @bestiary @load-deduplication @spa-cache
+  Scenario: Reuse bestiary during SPA navigation until reload
+    Given the bestiary source loader has not loaded creatures in the current SPA session
+    When two bestiary consumers request creatures concurrently
+    Then both consumers receive the same creature load result
+    And only one request is made for each registered creature YAML file
+    When the page is reloaded
+    Then the bestiary source loader starts a new load

@@ -66,3 +66,28 @@ Feature: Card Gallery
     Then valid cards are still available
     And cards from the invalid file are omitted
     And the error identifies the invalid card file
+
+  @gallery @cards @generated-file-list @registry-integrity
+  Scenario: Keep every card YAML registered
+    Given the card source directory contains YAML files
+    When the generated card source registry is validated
+    Then every card YAML file is registered exactly once
+    And every registered card YAML path exists
+    And the generated registry preserves the canonical manifest order
+
+  @gallery @cards @parallel-load @request-budget
+  Scenario: Start card YAML loads in parallel without the runtime manifest
+    Given the generated card source registry lists all card YAML files
+    When the cards source loader loads the ability cards
+    Then one request is started for each registered card YAML file
+    And no request is made for the ability-card manifest at runtime
+    And all card file requests start before the first card file response resolves
+
+  @gallery @cards @load-deduplication @spa-cache
+  Scenario: Reuse cards during SPA navigation until reload
+    Given the cards source loader has not loaded cards in the current SPA session
+    When two card consumers request cards concurrently
+    Then both consumers receive the same card load result
+    And only one request is made for each registered card YAML file
+    When the page is reloaded
+    Then the cards source loader starts a new load

@@ -2,27 +2,41 @@
  * creatures-service tests
  *
  * Integration tests exercising the real loader + mapper + service contract:
- * - manifest and per-file loading through the shared bestiary-source-loader
+ * - registry-driven loading through the shared bestiary-source-loader (no
+ *   runtime manifest)
  * - singleton store caching (no refetch once populated)
  * - tier/name sorting, consumer filtering, and mapper behavior
  *
- * The YAML/manifest fetches are mocked at the boundary to isolate the service.
+ * The YAML fetches are mocked at the boundary to isolate the service. Modules
+ * are reset per test so the loader cache starts fresh, mirroring a new SPA
+ * session.
  */
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { get } from 'svelte/store';
 import { mapCreature } from '$lib/mappers/creature-mapper';
 import { generateId } from '$lib/utils/id-generator';
-import { useCreaturesService } from './creatures-service';
+
+const { testBestiarySourceFiles } = vi.hoisted(() => {
+	const testBestiarySourceFiles = [
+		'/docs/bestiary/dragon.yml',
+		'/docs/bestiary/goblin.yml',
+		'/docs/bestiary/orco.yml',
+	];
+	return { testBestiarySourceFiles };
+});
 
 vi.mock('$app/paths', () => ({
 	asset: (path: string) => path,
 }));
 
+vi.mock('$lib/generated/bestiary-source-files', () => ({
+	BESTIARY_SOURCE_FILES: testBestiarySourceFiles,
+}));
+
 const mockFetch = vi.fn();
 const mockConsoleError = vi.fn();
 
-const MANIFEST_URL = '/docs/bestiary/index.json';
 const GOBLIN_URL = '/docs/bestiary/goblin.yml';
 const ORCO_URL = '/docs/bestiary/orco.yml';
 const DRAGON_URL = '/docs/bestiary/dragon.yml';
@@ -116,11 +130,8 @@ const yamlBodies: Record<string, string> = {
 	'dragon.yml': DRAGON_YAML,
 };
 
-const setManifest = (files: string[]) => {
+const setRegistryResponses = () => {
 	mockFetch.mockImplementation((url: string) => {
-		if (url === MANIFEST_URL) {
-			return Promise.resolve({ ok: true, status: 200, json: async () => ({ files }) } as Response);
-		}
 		const filename = url.split('/').pop();
 		if (filename && filename in yamlBodies) {
 			return Promise.resolve({
@@ -133,48 +144,51 @@ const setManifest = (files: string[]) => {
 	});
 };
 
-const { loadCreatures, creatures } = useCreaturesService();
-
 beforeEach(() => {
+	vi.resetModules();
 	vi.clearAllMocks();
 	mockFetch.mockReset();
+	mockConsoleError.mockReset();
 	vi.spyOn(console, 'error').mockImplementation(mockConsoleError);
-	global.fetch = mockFetch;
-	creatures.set([]);
+	vi.stubGlobal('fetch', mockFetch);
 	yamlBodies['goblin.yml'] = GOBLIN_YAML;
 	yamlBodies['orco.yml'] = ORCO_YAML;
 	yamlBodies['dragon.yml'] = DRAGON_YAML;
 });
 
 afterEach(() => {
+	vi.unstubAllGlobals();
 	vi.restoreAllMocks();
 });
 
+const useFreshCreaturesService = async () => {
+	const { useCreaturesService } = await import('./creatures-service');
+	return useCreaturesService();
+};
+
 describe('creatures-service', () => {
 	describe('loadCreatures', () => {
-		it('should load creatures from the manifest and individual YAML files', async () => {
+		it('should load creatures from the registry files without a runtime manifest', async () => {
 			// Arrange
-			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			setRegistryResponses();
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 
 			// Act
 			await loadCreatures();
 
 			// Assert
-			expect(mockFetch.mock.calls.map(([url]) => url)).toEqual([
-				MANIFEST_URL,
-				GOBLIN_URL,
-				ORCO_URL,
-				DRAGON_URL,
-			]);
+			expect(mockFetch.mock.calls.map(([url]) => url)).toEqual([DRAGON_URL, GOBLIN_URL, ORCO_URL]);
+			expect(mockFetch).not.toHaveBeenCalledWith(expect.stringContaining('index.json'));
 			expect(get(creatures)).toHaveLength(3);
 			expect(get(creatures).map((creature) => creature.name)).toEqual(['Goblin', 'Orco', 'Dragon']);
 		});
 
 		it('should not refetch when the singleton store already has data', async () => {
 			// Arrange
-			setManifest(['goblin.yml']);
+			setRegistryResponses();
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 			await loadCreatures();
-			expect(get(creatures)).toHaveLength(1);
+			expect(get(creatures)).toHaveLength(3);
 
 			// Make any further fetch attempt fail loudly
 			mockFetch.mockClear();
@@ -187,12 +201,13 @@ describe('creatures-service', () => {
 
 			// Assert
 			expect(mockFetch).not.toHaveBeenCalled();
-			expect(get(creatures)).toHaveLength(1);
+			expect(get(creatures)).toHaveLength(3);
 		});
 
-		it('should sort creatures by tier then by name regardless of manifest order', async () => {
-			// Arrange — manifest order differs from the sorted contract order
-			setManifest(['dragon.yml', 'goblin.yml', 'orco.yml']);
+		it('should sort creatures by tier then by name regardless of registry order', async () => {
+			// Arrange — registry order differs from the sorted contract order
+			setRegistryResponses();
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 
 			// Act
 			await loadCreatures();
@@ -205,44 +220,44 @@ describe('creatures-service', () => {
 
 		it('should omit an invalid file and keep the remaining creatures', async () => {
 			// Arrange
-			setManifest(['goblin.yml', 'orco.yml']);
+			setRegistryResponses();
 			yamlBodies['goblin.yml'] = 'creatures: []';
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 
 			// Act
 			await loadCreatures();
 
 			// Assert
-			expect(get(creatures).map((creature) => creature.name)).toEqual(['Orco']);
+			expect(get(creatures).map((creature) => creature.name)).toEqual(['Orco', 'Dragon']);
 			expect(mockConsoleError).toHaveBeenCalledWith(
 				expect.stringContaining('goblin.yml'),
 				expect.anything(),
 			);
 		});
 
-		it('should fall back to an empty store when the manifest cannot be loaded', async () => {
+		it('should leave the store empty when no creature file can be fetched', async () => {
 			// Arrange
 			mockFetch.mockResolvedValue({
 				ok: false,
 				status: 500,
-				json: async () => ({}),
+				text: async () => '',
 			} as Response);
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 
 			// Act
 			await loadCreatures();
 
 			// Assert
 			expect(get(creatures)).toEqual([]);
-			expect(mockConsoleError).toHaveBeenCalledWith(
-				expect.stringContaining('index.json'),
-				expect.anything(),
-			);
+			expect(mockConsoleError).toHaveBeenCalled();
 		});
 	});
 
 	describe('creature filtering (consumer contract)', () => {
 		it('should filter creatures by tier', async () => {
 			// Arrange
-			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			setRegistryResponses();
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 			await loadCreatures();
 
 			// Act
@@ -255,7 +270,8 @@ describe('creatures-service', () => {
 
 		it('should filter creatures by name (case-insensitive)', async () => {
 			// Arrange
-			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			setRegistryResponses();
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 			await loadCreatures();
 
 			// Act
@@ -270,7 +286,8 @@ describe('creatures-service', () => {
 
 		it('should return an empty array when no creatures match the filter', async () => {
 			// Arrange
-			setManifest(['goblin.yml', 'orco.yml', 'dragon.yml']);
+			setRegistryResponses();
+			const { loadCreatures, creatures } = await useFreshCreaturesService();
 			await loadCreatures();
 
 			// Act

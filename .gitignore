@@ -33,3 +33,6 @@ __pycache__/
 # Build artifacts
 **/dist/
 **/out/
+
+# Generated source file registries (see scripts/generate-source-file-lists.mjs)
+/src/lib/generated/

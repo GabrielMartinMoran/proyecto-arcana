@@ -1,6 +1,9 @@
 import { get } from 'svelte/store';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { BESTIARY_SOURCE_FILES } from '$lib/generated/bestiary-source-files';
+import { CARD_SOURCE_FILES } from '$lib/generated/card-source-files';
+
 const mockedAsset = vi.fn((path: string) => `/base${path}`);
 
 vi.mock('$app/paths', () => ({
@@ -24,32 +27,37 @@ vi.mock('$lib/services/firebase-service', () => ({
 
 describe('static content paths', () => {
 	beforeEach(() => {
+		vi.resetModules();
 		vi.clearAllMocks();
 		mockedAsset.mockImplementation((path: string) => `/base${path}`);
 		global.fetch = vi.fn();
 		localStorage.clear();
 	});
 
-	it('loads card and creature compendiums through asset paths', async () => {
-		vi.mocked(fetch)
-			.mockResolvedValueOnce({
-				ok: true,
-				json: async () => ({ files: ['mago.yml'] }),
-			} as Response)
-			.mockResolvedValueOnce({
-				ok: true,
-				text: async () =>
-					'cards:\n  - name: Arc Flash\n    level: 1\n    tags: [Mago]\n    uses: { type: RELOAD, qty: 3 }\n    requirements: null\n    description: Prueba\n',
-			} as Response)
-			.mockResolvedValueOnce({
-				ok: true,
-				json: async () => ({ files: ['goblin.yml'] }),
-			} as Response)
-			.mockResolvedValueOnce({
-				ok: true,
-				text: async () =>
-					'creatures:\n  - name: Goblin\n    lineage: Goblinoide\n    tier: 1\n    size: Mediano\n    attributes:\n      body: 2\n      reflexes: 3\n      mind: 1\n      instinct: 2\n      presence: 1\n    stats:\n      maxHealth: 8\n      evasion: { value: 1, note: null }\n      physicalMitigation: { value: 0, note: null }\n      magicalMitigation: { value: 0, note: null }\n      speed: { value: 6, note: null }\n    languages: []\n    attacks: []\n    traits: []\n    actions: []\n    reactions: []\n    interactions: []\n    behavior: Test\n    img: null\n',
-			} as Response);
+	it('loads card and creature compendiums through asset paths without runtime manifests', async () => {
+		const cardResponse = {
+			ok: true,
+			text: async () =>
+				'cards:\n  - name: Card\n    level: 1\n    type: activable\n    tags: [Mago]\n    requirements: null\n    description: Prueba\n    uses: { type: RELOAD, qty: 3 }\n',
+		} as Response;
+
+		const creatureResponse = {
+			ok: true,
+			text: async () =>
+				'creatures:\n  - name: Goblin\n    lineage: Goblinoide\n    tier: 1\n    size: Mediano\n    attributes:\n      body: 2\n      reflexes: 3\n      mind: 1\n      instinct: 2\n      presence: 1\n    stats:\n      maxHealth: 8\n      evasion: { value: 1, note: null }\n      physicalMitigation: { value: 0, note: null }\n      magicalMitigation: { value: 0, note: null }\n      speed: { value: 6, note: null }\n    languages: []\n    attacks: []\n    traits: []\n    actions: []\n    reactions: []\n    interactions: []\n    behavior: Test\n    img: null\n',
+		} as Response;
+
+		const fetchMock = vi.mocked(fetch);
+		fetchMock.mockImplementation(async (input: RequestInfo | URL) => {
+			const url = String(input);
+			if (url.startsWith('/base/docs/cards/') && url.endsWith('.yml')) {
+				return cardResponse;
+			}
+			if (url.startsWith('/base/docs/bestiary/') && url.endsWith('.yml')) {
+				return creatureResponse;
+			}
+			throw new Error(`unexpected fetch: ${url}`);
+		});
 
 		const [{ useCardsService }, { useCreaturesService }] = await Promise.all([
 			import('./cards-service'),
@@ -62,12 +70,19 @@ describe('static content paths', () => {
 		await cardsService.loadAbilityCards();
 		await creaturesService.loadCreatures();
 
-		expect(fetch).toHaveBeenNthCalledWith(1, '/base/docs/cards/index.json');
-		expect(fetch).toHaveBeenNthCalledWith(2, '/base/docs/cards/mago.yml');
-		expect(fetch).toHaveBeenNthCalledWith(3, '/base/docs/bestiary/index.json');
-		expect(fetch).toHaveBeenNthCalledWith(4, '/base/docs/bestiary/goblin.yml');
-		expect(get(cardsService.abilityCards)).toHaveLength(1);
-		expect(get(creaturesService.creatures)).toHaveLength(1);
+		expect(fetchMock).not.toHaveBeenCalledWith('/base/docs/cards/index.json');
+		expect(fetchMock).not.toHaveBeenCalledWith('/base/docs/bestiary/index.json');
+		for (const sourcePath of CARD_SOURCE_FILES) {
+			expect(fetchMock).toHaveBeenCalledWith(mockedAsset(sourcePath));
+		}
+		for (const sourcePath of BESTIARY_SOURCE_FILES) {
+			expect(fetchMock).toHaveBeenCalledWith(mockedAsset(sourcePath));
+		}
+		expect(fetchMock).toHaveBeenCalledTimes(
+			CARD_SOURCE_FILES.length + BESTIARY_SOURCE_FILES.length,
+		);
+		expect(get(cardsService.abilityCards)).toHaveLength(CARD_SOURCE_FILES.length);
+		expect(get(creaturesService.creatures)).toHaveLength(BESTIARY_SOURCE_FILES.length);
 	});
 
 	it('loads markdown, agent files, items, modifiers, and example characters through asset paths', async () => {

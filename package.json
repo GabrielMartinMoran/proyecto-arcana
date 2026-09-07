@@ -12,7 +12,12 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"test": "vitest"
+		"test": "vitest",
+		"generate:source-files": "node scripts/generate-source-file-lists.mjs",
+		"predev": "npm run generate:source-files",
+		"prebuild": "npm run generate:source-files",
+		"precheck": "npm run generate:source-files",
+		"pretest": "npm run generate:source-files"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",

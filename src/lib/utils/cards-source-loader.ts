@@ -1,125 +1,81 @@
 import { asset } from '$app/paths';
 import { load as parseYaml } from 'js-yaml';
+import { CARD_SOURCE_FILES } from '$lib/generated/card-source-files';
 import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import type { AbilityCard } from '$lib/types/cards/ability-card';
 
-const CARDS_DIRECTORY = '/docs/cards';
-const MANIFEST_FILENAME = 'index.json';
-const MANIFEST_URL = asset(`${CARDS_DIRECTORY}/${MANIFEST_FILENAME}`);
-
-interface CardsManifest {
-	files: string[];
-}
-
-const isCardsManifest = (value: unknown): value is CardsManifest => {
-	if (typeof value !== 'object' || value === null) return false;
-	const files = (value as { files?: unknown }).files;
-	return Array.isArray(files) && files.every((file) => typeof file === 'string');
-};
-
-const isSafeFilename = (filename: string): boolean =>
-	filename.length > 0 &&
-	filename !== '.' &&
-	filename !== '..' &&
-	!filename.includes('/') &&
-	!filename.includes('\\');
+let abilityCardsLoad: Promise<AbilityCard[]> | null = null;
 
 /**
- * Loads every ability card listed in the modular cards manifest, in manifest
- * order.
+ * Loads every ability card YAML registered at build time, in registry order.
  *
- * A failing manifest falls back to an empty list. A failing file is logged
- * with its filename and URL and only that file is omitted while valid files
- * keep loading. No sorting or caching happens here: consumers own those
- * concerns.
+ * All registered files are fetched in parallel. A file that fails to fetch,
+ * parse or map is logged and omitted while valid files keep loading (fault
+ * isolation). The load is cached at module level so the cards service and the
+ * Markdown loaders share a single acquisition for the lifetime of the SPA; a
+ * rejected load frees the cache so the next call retries. There is no runtime
+ * manifest fetch: the registry itself is the source of truth.
  */
-export const loadAbilityCards = async (): Promise<AbilityCard[]> => {
-	const manifest = await fetchManifest();
-	if (manifest === null) return [];
-
-	const cards: AbilityCard[] = [];
-	for (const filename of manifest.files) {
-		if (!isSafeFilename(filename)) {
-			logFileError(filename, `${CARDS_DIRECTORY}/${filename}`, 'invalid filename in manifest');
-			continue;
-		}
-		const fileCards = await loadCardsFile(filename);
-		if (fileCards !== null) cards.push(...fileCards);
+export const loadAbilityCards = (): Promise<AbilityCard[]> => {
+	if (abilityCardsLoad === null) {
+		abilityCardsLoad = loadAbilityCardsFromRegistry().catch((error) => {
+			abilityCardsLoad = null;
+			throw error;
+		});
 	}
-	return cards;
+	return abilityCardsLoad;
 };
 
-const fetchManifest = async (): Promise<CardsManifest | null> => {
-	let response: Response;
-	try {
-		response = await fetch(MANIFEST_URL);
-	} catch (error) {
-		logManifestError(error);
-		return null;
-	}
-
-	if (!response.ok) {
-		logManifestError(`fetch failed with status ${response.status}`);
-		return null;
-	}
-
-	let parsed: unknown;
-	try {
-		parsed = await response.json();
-	} catch (error) {
-		logManifestError(error);
-		return null;
-	}
-
-	if (!isCardsManifest(parsed)) {
-		logManifestError('manifest must contain a "files" string array');
-		return null;
-	}
-
-	return parsed;
+const loadAbilityCardsFromRegistry = async (): Promise<AbilityCard[]> => {
+	const files = CARD_SOURCE_FILES.map((sourcePath) => ({
+		url: asset(sourcePath),
+		sourcePath,
+	}));
+	const cardsPerFile = await Promise.all(
+		files.map(({ sourcePath, url }) => loadCardsFile(sourcePath, url)),
+	);
+	return cardsPerFile.flat();
 };
 
-const loadCardsFile = async (filename: string): Promise<AbilityCard[] | null> => {
-	const url = asset(`${CARDS_DIRECTORY}/${filename}`);
-
+const loadCardsFile = async (sourcePath: string, url: string): Promise<AbilityCard[]> => {
 	let response: Response;
 	try {
 		response = await fetch(url);
 	} catch (error) {
-		logFileError(filename, url, error);
-		return null;
+		logFileError(sourcePath, url, error);
+		return [];
 	}
 
 	if (!response.ok) {
-		logFileError(filename, url, `fetch failed with status ${response.status}`);
-		return null;
+		logFileError(sourcePath, url, `fetch failed with status ${response.status}`);
+		return [];
 	}
 
 	const content = await response.text();
 	if (content.trim() === '') {
-		logFileError(filename, url, 'file is empty');
-		return null;
+		logFileError(sourcePath, url, 'file is empty');
+		return [];
 	}
 
 	let parsed: unknown;
 	try {
 		parsed = parseYaml(content);
 	} catch (error) {
-		logFileError(filename, url, error);
-		return null;
+		logFileError(sourcePath, url, error);
+		return [];
 	}
 
 	const rawCards = extractCards(parsed);
 	if (rawCards === null) {
-		logFileError(filename, url, 'expected a non-empty "cards" array');
-		return null;
+		logFileError(sourcePath, url, 'expected a non-empty "cards" array');
+		return [];
 	}
 
 	try {
 		return rawCards.map((rawCard) => mapAbilityCard(rawCard));
 	} catch (error) {
-		logFileError(filename, url, error);
-		return null;
+		logFileError(sourcePath, url, error);
+		return [];
 	}
 };
 
@@ -130,10 +86,6 @@ const extractCards = (parsed: unknown): unknown[] | null => {
 	return cards;
 };
 
-const logManifestError = (cause: unknown) => {
-	console.error(`Error loading cards manifest ${MANIFEST_URL}:`, cause);
-};
-
-const logFileError = (filename: string, url: string, cause: unknown) => {
-	console.error(`Error loading cards file ${filename} (${url}):`, cause);
+const logFileError = (sourcePath: string, url: string, cause: unknown) => {
+	console.error(`Error loading cards file ${sourcePath} (${url}):`, cause);
 };
