@@ -334,7 +334,7 @@ describe('AvailableCardsView', () => {
 			expect(screen.getByText('Cartas Activas (2/3)')).toBeInTheDocument();
 			expect(screen.getByText('Artes Marciales')).toBeInTheDocument();
 			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
-			expect(screen.getByText('Siempre activa')).toBeInTheDocument();
+			expect(screen.getByText('Activación gratuita')).toBeInTheDocument();
 			// No separate linked section is created.
 			expect(screen.queryByText(/Cartas vinculadas/)).not.toBeInTheDocument();
 		});
@@ -368,14 +368,14 @@ describe('AvailableCardsView', () => {
 
 			// The flagged card still consumes the slot while its activable
 			// parent is inactive: the exemption is not effective yet, so the
-			// Siempre activa badge must not appear.
+			// Activación gratuita badge must not appear.
 			expect(screen.getByText('Cartas Activas (2/3)')).toBeInTheDocument();
 			expect(screen.getByText('Origen inactivo')).toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 			expect(screen.queryByText(/vinculada sin ranura/)).not.toBeInTheDocument();
 		});
 
-		it('FEAT-card-associated-free @effects — keeps linked effect cards in Efectos Activos with the link tag and without the Siempre activa badge or Origen inactivo', () => {
+		it('FEAT-card-associated-free @effects — keeps linked effect cards in Efectos Activos with the link tag and without the Activación gratuita badge or Origen inactivo', () => {
 			const cards: Card[] = [
 				buildEffectCard('sangre', 'Sangre Mágica'),
 				buildEffectCard('herencia', 'Herencia Sobrenatural'),
@@ -401,7 +401,7 @@ describe('AvailableCardsView', () => {
 			expect(screen.getByText('Efectos Activos (2)')).toBeInTheDocument();
 			expect(screen.getByText('Sangre Mágica')).toBeInTheDocument();
 			expect(screen.getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
 		});
 

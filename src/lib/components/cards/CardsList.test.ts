@@ -1280,7 +1280,7 @@ describe('CardsList', () => {
 			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
 		});
 
-		it('shows the Siempre activa badge when the flagged linked activable card has an active parent', () => {
+		it('shows the Activación gratuita badge when the flagged linked activable card has an active parent', () => {
 			render(CardsList, {
 				props: {
 					cards: [artesMarcialesCard],
@@ -1292,10 +1292,10 @@ describe('CardsList', () => {
 			});
 
 			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
-			expect(screen.getByText('Siempre activa')).toBeInTheDocument();
+			expect(screen.getByText('Activación gratuita')).toBeInTheDocument();
 		});
 
-		it('does not show the Siempre activa badge nor invent use controls for a flagged linked activable card with an inactive activable parent', () => {
+		it('does not show the Activación gratuita badge nor invent use controls for a flagged linked activable card with an inactive activable parent', () => {
 			render(CardsList, {
 				props: {
 					cards: [artesMarcialesCard],
@@ -1311,10 +1311,10 @@ describe('CardsList', () => {
 
 			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
 			expect(screen.getByText('Origen inactivo')).toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 		});
 
-		it('shows the link tag for linked effect cards without inventing the Siempre activa badge or Origen inactivo', () => {
+		it('shows the link tag for linked effect cards without inventing the Activación gratuita badge or Origen inactivo', () => {
 			render(CardsList, {
 				props: {
 					cards: [sangreMagicaEffectCard],
@@ -1333,7 +1333,7 @@ describe('CardsList', () => {
 			});
 
 			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
 		});
 
@@ -1358,10 +1358,10 @@ describe('CardsList', () => {
 
 			expect(screen.getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
 			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 		});
 
-		it('shows the Siempre activa badge for a flagged activable child granted by an effect parent even when the parent is inactive', () => {
+		it('shows the Activación gratuita badge for a flagged activable child granted by an effect parent even when the parent is inactive', () => {
 			render(CardsList, {
 				props: {
 					cards: [artesMarcialesCard],
@@ -1380,11 +1380,11 @@ describe('CardsList', () => {
 			});
 
 			expect(screen.getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
-			expect(screen.getByText('Siempre activa')).toBeInTheDocument();
+			expect(screen.getByText('Activación gratuita')).toBeInTheDocument();
 			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
 		});
 
-		it('shows the link tag for linked consumable cards without inventing the Siempre activa badge', () => {
+		it('shows the link tag for linked consumable cards without inventing the Activación gratuita badge', () => {
 			render(CardsList, {
 				props: {
 					cards: [pocionConsumibleCard],
@@ -1407,7 +1407,7 @@ describe('CardsList', () => {
 			});
 
 			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 		});
 
 		it('marks an orphan link as pending instead of pretending the exemption is in force', () => {
@@ -1422,7 +1422,7 @@ describe('CardsList', () => {
 			});
 
 			expect(screen.getByText(/Vinculación pendiente/)).toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 		});
 
 		it('does not render link chips for cards without an association', () => {
@@ -1437,7 +1437,7 @@ describe('CardsList', () => {
 			});
 
 			expect(screen.queryByText(/🔗/)).not.toBeInTheDocument();
-			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Activación gratuita')).not.toBeInTheDocument();
 		});
 
 		it('exposes an accessible name with the slot exemption for effective links', () => {

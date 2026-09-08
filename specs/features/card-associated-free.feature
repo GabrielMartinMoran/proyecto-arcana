@@ -21,7 +21,7 @@ Feature: Linked free cards in the character sheet
     And the user checks "No consume una Ranura de Carta Activa"
     And the user saves the link
     Then "Artes Marciales" shows the tag "🔗 Disciplina Monástica"
-    And "Artes Marciales" shows "Siempre activa"
+    And "Artes Marciales" shows "Activación gratuita"
 
   @delta-added @cards @association @suggestion
   Scenario: Suggest the only parent that fulfills the card requirement
@@ -139,5 +139,5 @@ Feature: Linked free cards in the character sheet
     And the user selects "Sin vinculación" in "Vinculada a"
     And the user saves the association
     Then "Artes Marciales" is no longer marked as linked
-    And "Artes Marciales" no longer shows "Siempre activa"
+    And "Artes Marciales" no longer shows "Activación gratuita"
     And "Artes Marciales" has no active-card slot exemption

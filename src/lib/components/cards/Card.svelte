@@ -141,7 +141,7 @@
 						<span class="chip link-status-badge">Origen inactivo</span>
 					{/if}
 					{#if showSlotExemption}
-						<span class="chip link-always-active-badge">Siempre activa</span>
+						<span class="chip link-always-active-badge">Activación gratuita</span>
 					{/if}
 				{/if}
 			</div>
