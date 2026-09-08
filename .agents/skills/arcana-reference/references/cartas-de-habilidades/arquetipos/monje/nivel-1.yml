@@ -47,6 +47,23 @@ cards:
       más duras._<br><br> Tus ataques desarmados ignoran una cantidad de Mitigación Física igual a la mitad de tu
       puntuación de Instinto (redondeando hacia arriba).
     slug: golpes-energeticos
+  - id: e1800d8214c4933beef4c2b2b002270ec05de0f8
+    name: Estilo Kensei
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Has aprendido a canalizar tu Ki a través de armas ligeras y precisas, convirtiéndolas en una extensión de tu
+      propio cuerpo._<br><br> Consideras **Armas de Monje** las siguientes armas: Bastón, Daga, Látigo, Espada Corta,
+      Cimitarra, Dardo, Arco Corto y Honda.<br><br> Puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque
+      realizadas con Armas de Monje.<br><br> A efectos de tus cartas de Monje, los ataques cuerpo a cuerpo que realices
+      con Armas de Monje se consideran ataques desarmados.
+    slug: estilo-kensei
   - id: e2cb851fa7728ecf5545f96c9db5327cf44cbb22
     name: Flujo Vital
     level: 1

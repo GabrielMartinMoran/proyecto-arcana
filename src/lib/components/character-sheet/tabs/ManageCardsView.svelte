@@ -6,6 +6,7 @@
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { Character, CharacterCard } from '$lib/types/character';
 	import { CONFIG } from '../../../../config';
+	import CardAssociationModal from '../elements/CardAssociationModal.svelte';
 
 	type Props = {
 		cards: Card[];
@@ -36,6 +37,37 @@
 		corruptedCards = [],
 		rollContext = undefined,
 	}: Props = $props();
+
+	let associationChild: CharacterCard | null = $state(null);
+
+	const openCardAssociation = (cardId: string) => {
+		associationChild = characterCards.find((card) => card.id === cardId) ?? null;
+	};
+
+	const handleAssociationSave = (
+		childId: string,
+		parentId: string | null,
+		doesNotConsumeActiveSlot: boolean,
+	) => {
+		associationChild = null;
+		onChange(
+			characterCards.map((card) => {
+				if (card.id !== childId) return card;
+				if (parentId === null) {
+					// Removing the link also clears the explicit no-slot choice:
+					// the exemption no longer has an origin to point at.
+					const cleared = { ...card, grantedBy: null };
+					delete cleared.doesNotConsumeActiveSlot;
+					return cleared;
+				}
+				return { ...card, grantedBy: parentId, doesNotConsumeActiveSlot };
+			}),
+		);
+	};
+
+	const closeCardAssociation = () => {
+		associationChild = null;
+	};
 </script>
 
 {#if !readonly}
@@ -77,6 +109,7 @@
 		{onChange}
 		{onEditCard}
 		{rollContext}
+		onManageAssociation={(card) => openCardAssociation(card.id)}
 	/>
 </Container>
 
@@ -108,6 +141,15 @@
 		/>
 	</Container>
 {/if}
+
+<CardAssociationModal
+	opened={associationChild !== null}
+	child={associationChild}
+	{characterCards}
+	allCards={cards}
+	onClose={closeCardAssociation}
+	onSave={handleAssociationSave}
+/>
 
 <style>
 	.slot-input-row {

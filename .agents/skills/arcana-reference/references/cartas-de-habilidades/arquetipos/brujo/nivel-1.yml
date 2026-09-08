@@ -28,11 +28,11 @@ cards:
       qty: 0
     description: >-
       _Materializas un arma forjada con energía inestable, atada eternamente a tu voluntad y a la de tu Patrón._<br><br>
-      Elije un arma que poseas y sintonizala con el poder de tu patrón:<br> - **Llamada Ineludible:** Como Interacción,
-      materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se desvanezca y
-      reaparezca instantáneamente en tu agarre, sin importar la distancia. - **Poder Sobrenatural**: Usas tu puntuación
-      de Presencia para las tiradas de ataque. Además, puedes reemplazar el dado de daño base original del arma por 1d8
-      del tipo de tu _Descarga Sobrenatural_.
+      Elije un arma que poseas y sintonizala con el poder de tu patrón:<br><br> - **Llamada Ineludible:** Como
+      Interacción, materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se
+      desvanezca y reaparezca instantáneamente en tu agarre, sin importar la distancia.<br> - **Poder Sobrenatural**:
+      Usas tu puntuación de Presencia para las tiradas de ataque. Además, puedes reemplazar el dado de daño base
+      original del arma por 1d8 del tipo de tu _Descarga Sobrenatural_.
     slug: arma-del-pacto
   - id: 3174348aa65716d65e0f8cfc0de8d5d9638a4d0a
     name: Grimorio de las Sombras
@@ -69,7 +69,7 @@ cards:
       tu puntuación de Presencia. Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br> -
       **Desplazamiento:** Como Interacción, puedes ordenar a tu familiar que se mueva hasta su Velocidad total a un
       punto que puedas ver.<br> - **Vigía:** Mientras esté a distancia Larga o inferior, compartes sus sentidos
-      perfectamente sin usar acciones.<br> - **Conducto Eldritch:** Puedes lanzar tu _Descarga Sobrenatural_
+      perfectamente sin usar acciones.<br> - **Conducto Sobrenatural:** Puedes lanzar tu _Descarga Sobrenatural_
       originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br> - **Detonación:** Si el familiar llega
       a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de Reflejos (ND 5 +
       Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).

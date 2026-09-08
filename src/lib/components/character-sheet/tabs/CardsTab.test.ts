@@ -1,5 +1,5 @@
 import type { Character } from '$lib/types/character';
-import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/svelte';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const hoisted = vi.hoisted(() => ({
@@ -1098,6 +1098,286 @@ describe('CardsTab', () => {
 
 			// The sheet collection renders with the context; the editor preview must not.
 			expect(screen.getAllByRole('button', { name: '2d6 + Cuerpo 🎲' })).toHaveLength(1);
+		});
+	});
+
+	describe('linked-card cascade on parent deactivation/removal', () => {
+		const estudiosMagicosId = generateId('Estudios Mágicos');
+
+		beforeEach(() => {
+			setViewParam('manage');
+			vi.mocked(dialogService.confirm).mockReset();
+			vi.mocked(dialogService.confirm).mockResolvedValue(true);
+		});
+
+		const buildParentChildCharacter = (): Character => {
+			const character = buildCharacter();
+			character.cards = [
+				{
+					id: 'card-1',
+					uses: 0,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: 'item-1',
+					uses: 2,
+					isActive: true,
+					level: 1,
+					cardType: 'item',
+					isOvercharged: false,
+					grantedBy: 'card-1',
+				},
+			];
+			return character;
+		};
+
+		const getCardButton = async (cardName: string, buttonName: string): Promise<HTMLElement> => {
+			const cardHeading = await screen.findByRole('heading', { name: cardName });
+			const cardElement = cardHeading.closest('.card');
+			if (!cardElement) {
+				throw new Error(`No .card container found for ${cardName}`);
+			}
+			return within(cardElement as HTMLElement).getByRole('button', { name: buttonName });
+		};
+
+		it('@cards @association @cascade — asks for confirmation listing the affected linked cards when deactivating a parent', async () => {
+			const character = buildParentChildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(dialogService.confirm).toHaveBeenCalled());
+			const [message] = vi.mocked(dialogService.confirm).mock.calls[0];
+			expect(message).toContain('Magic Sword');
+		});
+
+		it('@cards @association @cascade — deactivates only activable linked cards, restoring uses and keeping the link on confirmed deactivation', async () => {
+			const character = buildParentChildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updatedCharacter = onChange.mock.calls[0][0];
+			const parent = updatedCharacter.cards.find((c: { id: string }) => c.id === 'card-1');
+			const child = updatedCharacter.cards.find((c: { id: string }) => c.id === 'item-1');
+			expect(parent).toMatchObject({ isActive: false, uses: 1 });
+			expect(child).toMatchObject({ isActive: false, uses: 5, grantedBy: 'card-1' });
+		});
+
+		it('@cards @association @cascade — canceling the deactivation confirmation leaves every card unchanged', async () => {
+			vi.mocked(dialogService.confirm).mockResolvedValueOnce(false);
+			const character = buildParentChildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(dialogService.confirm).toHaveBeenCalled());
+			await Promise.resolve();
+			await Promise.resolve();
+
+			expect(onChange).not.toHaveBeenCalled();
+			const parent = character.cards.find((c) => c.id === 'card-1');
+			const child = character.cards.find((c) => c.id === 'item-1');
+			expect(parent).toMatchObject({ isActive: true, uses: 0 });
+			expect(child).toMatchObject({ isActive: true, uses: 2, grantedBy: 'card-1' });
+		});
+
+		it('@cards @association @cascade — deactivation leaves linked effect cards untouched', async () => {
+			const character = buildCharacter();
+			character.cards = [
+				{
+					id: 'card-1',
+					uses: 1,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: 'ability-2',
+					uses: 2,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+					grantedBy: 'card-1',
+				},
+			];
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const effect = onChange.mock.calls[0][0].cards.find(
+				(c: { id: string }) => c.id === 'ability-2',
+			);
+			expect(effect).toMatchObject({ isActive: true, uses: 2, grantedBy: 'card-1' });
+			const [message] = vi.mocked(dialogService.confirm).mock.calls[0];
+			expect(message).toContain('Strong Bolt');
+		});
+
+		it('@cards @association @cascade — removing a parent clears the link and deactivates activable children after confirmation', async () => {
+			const character = buildParentChildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Quitar'));
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updatedCharacter = onChange.mock.calls[0][0];
+			expect(updatedCharacter.cards.some((c: { id: string }) => c.id === 'card-1')).toBe(false);
+			const child = updatedCharacter.cards.find((c: { id: string }) => c.id === 'item-1');
+			expect(child).toMatchObject({ isActive: false, uses: 5, grantedBy: null });
+			const [message] = vi.mocked(dialogService.confirm).mock.calls[0];
+			expect(message).toContain('Magic Sword');
+		});
+
+		it('@cards @association @cascade — canceling the removal confirmation keeps the collection intact', async () => {
+			vi.mocked(dialogService.confirm).mockResolvedValueOnce(false);
+			const character = buildParentChildCharacter();
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Quitar'));
+
+			await waitFor(() => expect(dialogService.confirm).toHaveBeenCalled());
+			await Promise.resolve();
+			await Promise.resolve();
+
+			expect(onChange).not.toHaveBeenCalled();
+			expect(character.cards.some((c) => c.id === 'card-1')).toBe(true);
+			const child = character.cards.find((c) => c.id === 'item-1');
+			expect(child).toMatchObject({ isActive: true, uses: 2, grantedBy: 'card-1' });
+		});
+
+		it('@cards @association @cascade — confirms transitive descendants once each and cascades through the chain', async () => {
+			const character = buildCharacter();
+			character.cards = [
+				{
+					id: 'card-1',
+					uses: 0,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: 'item-1',
+					uses: 2,
+					isActive: true,
+					level: 1,
+					cardType: 'item',
+					isOvercharged: false,
+					grantedBy: 'card-1',
+				},
+				{
+					id: estudiosMagicosId,
+					uses: 0,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+					grantedBy: 'item-1',
+				},
+			];
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const [message] = vi.mocked(dialogService.confirm).mock.calls[0];
+			expect(message.match(/Magic Sword/g)).toHaveLength(1);
+			expect(message.match(/Estudios Mágicos/g)).toHaveLength(1);
+
+			const updated = onChange.mock.calls[0][0].cards;
+			const child = updated.find((c: { id: string }) => c.id === 'item-1');
+			const grandchild = updated.find((c: { id: string }) => c.id === estudiosMagicosId);
+			expect(child).toMatchObject({ isActive: false, uses: 5, grantedBy: 'card-1' });
+			expect(grandchild).toMatchObject({ isActive: false, uses: 1, grantedBy: 'item-1' });
+		});
+
+		it('@cards @association @cascade — restores uses of custom linked children resolved from the combined catalog', async () => {
+			const character = buildCharacter();
+			character.customCards = [
+				{
+					id: 'custom-abc',
+					name: 'Custom Strike',
+					level: 1,
+					tags: ['custom'],
+					requirements: null,
+					description: 'A custom strike',
+					uses: { type: 'USES', qty: 2 },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards = [
+				{
+					id: 'card-1',
+					uses: 0,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: 'custom-abc',
+					uses: 0,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+					grantedBy: 'card-1',
+				},
+			];
+			const onChange = vi.fn();
+
+			render(CardsTab, {
+				props: { character, readonly: false, onChange },
+			});
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updated = onChange.mock.calls[0][0].cards;
+			const customChild = updated.find((c: { id: string }) => c.id === 'custom-abc');
+			expect(customChild).toMatchObject({ isActive: false, uses: 2, grantedBy: 'card-1' });
 		});
 	});
 });

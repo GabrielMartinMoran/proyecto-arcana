@@ -3,6 +3,11 @@
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { CharacterCard } from '$lib/types/character';
+	import {
+		hasValidCardLink,
+		isEffectiveSlotExemption,
+		isInactiveActivableOrigin,
+	} from '$lib/utils/card-association-utils';
 	import { getCardTotalUses } from '$lib/utils/card-utils';
 	import { CONFIG } from '../../../config';
 	import Card from './Card.svelte';
@@ -16,12 +21,16 @@
 		onChange?: (characterCards: CharacterCard[]) => void;
 		onCardReloadClick?: (cardId: string) => void;
 		onEditCard?: (card: CardType) => void;
+		onManageAssociation?: (card: CardType) => void;
 		// For purchase button in 'all' listMode
 		currentPP?: number;
 		currentGold?: number;
 		onPurchaseCard?: (card: CardType) => void;
 		// Sheet-only optional roll context; absent keeps cards read-only prose
 		rollContext?: CardRollContext;
+		// Full catalog (static + custom) needed to resolve the linked parent
+		// name; falls back to the rendered cards for existing consumers.
+		allCards?: CardType[];
 	};
 
 	let {
@@ -32,13 +41,62 @@
 		onChange = () => {},
 		onCardReloadClick = () => {},
 		onEditCard = () => {},
+		onManageAssociation = undefined,
 		currentPP = 0,
 		currentGold = 0,
 		onPurchaseCard = () => {},
 		rollContext = undefined,
+		allCards = undefined,
 	}: Props = $props();
 
 	let characterCards = $derived(initialCharacterCards);
+
+	// Catalog used to resolve linked parent names and slot exemptions.
+	// Existing consumers that do not pass allCards keep resolving against the
+	// rendered cards, which still contains owned parents.
+	let allCardsCatalog = $derived(allCards ?? cards);
+
+	type CardLinkState = {
+		isLinked: boolean;
+		parentName: string | null;
+		parentInactive: boolean;
+		hasValidLink: boolean;
+		hasSlotExemption: boolean;
+	};
+
+	// Derives the presentation state of a linked card from the pure helpers of
+	// card-association-utils, so the Svelte layer never re-implements the rule.
+	const getCardLinkState = (
+		characterCard: CharacterCard | undefined,
+		characterCardsList: CharacterCard[],
+		catalog: CardType[],
+	): CardLinkState => {
+		const grantedBy = characterCard?.grantedBy;
+		if (!grantedBy || grantedBy.trim() === '') {
+			return {
+				isLinked: false,
+				parentName: null,
+				parentInactive: false,
+				hasValidLink: false,
+				hasSlotExemption: false,
+			};
+		}
+		const hasValidLink =
+			characterCard !== undefined ? hasValidCardLink(characterCard, characterCardsList) : false;
+		return {
+			isLinked: true,
+			parentName: catalog.find((c) => c.id === grantedBy)?.name ?? null,
+			// Parent-based rule: only an owned activable parent that is not
+			// active produces `Origen inactivo`; an effect parent never does.
+			parentInactive:
+				characterCard !== undefined &&
+				isInactiveActivableOrigin(characterCard, characterCardsList, catalog),
+			hasValidLink,
+			hasSlotExemption:
+				characterCard !== undefined &&
+				isEffectiveSlotExemption(characterCard, characterCardsList, catalog),
+		};
+	};
 
 	const deactivateCard = (cardId: string) => {
 		const originalCard = cards.find((card) => card.id === cardId);
@@ -175,11 +233,16 @@
 	{#each cards as card (card.id)}
 		{@const characterCard = characterCards.find((cc) => cc.id === card.id)}
 		{@const isCustom = card.id.startsWith('custom-')}
+		{@const cardLinkState = getCardLinkState(characterCard, characterCards, allCardsCatalog)}
 		<Card
 			{card}
 			isOvercharged={listMode === 'active' && (characterCard?.isOvercharged ?? false)}
 			isExhausted={listMode === 'active' && !hasRemainingCardUses(card)}
 			{isCustom}
+			linkedParentName={cardLinkState.isLinked ? cardLinkState.parentName : undefined}
+			linkedParentInactive={cardLinkState.parentInactive}
+			linkedParentOrphan={cardLinkState.isLinked && !cardLinkState.hasValidLink}
+			showSlotExemption={cardLinkState.hasSlotExemption}
 			rollContext={rollContext
 				? {
 						...rollContext,
@@ -236,7 +299,10 @@
 				{:else if listMode === 'collection'}
 					{@const showEdit = isCustom}
 					{@const showActivate = card.type === 'activable'}
-					{@const actionCount = [showEdit, true, showActivate].filter(Boolean).length}
+					{@const showManageAssociation = onManageAssociation !== undefined}
+					{@const actionCount = [showEdit, true, showActivate, showManageAssociation].filter(
+						Boolean,
+					).length}
 					{@const actionLayoutClass =
 						actionCount === 1
 							? 'one'
@@ -244,17 +310,34 @@
 								? 'two'
 								: actionCount === 3
 									? 'three'
-									: ''}
+									: actionCount === 4
+										? 'four'
+										: ''}
 					<div class="card-actions {actionLayoutClass}">
-						<button onclick={() => removeCard(card.id)}>Quitar</button>
+						<!-- Emojis are visual decoration only; the accessible names stay clean. -->
+						<button aria-label="Quitar" onclick={() => removeCard(card.id)}>🗑️ Quitar</button>
 						{#if showEdit}
-							<button onclick={() => onEditCard(card)}>Editar</button>
+							<button aria-label="Editar" onclick={() => onEditCard(card)}>✏️ Editar</button>
+						{/if}
+						{#if showManageAssociation}
+							{@const isLinked = !!characterCard?.grantedBy}
+							<button
+								class="association-action"
+								aria-label={isLinked ? `Editar vinculación ${card.name}` : `Vincular ${card.name}`}
+								onclick={() => onManageAssociation(card)}
+							>
+								{isLinked ? `🔗 Revincular` : `🔗 Vincular`}
+							</button>
 						{/if}
 						{#if showActivate}
 							{#if isCardActive(card)}
-								<button onclick={() => deactivateCard(card.id)}>Desactivar</button>
+								<button aria-label="Desactivar" onclick={() => deactivateCard(card.id)}>
+									🚫 Desactivar
+								</button>
 							{:else}
-								<button onclick={() => activateCard(card.id)}>Activar</button>
+								<button aria-label="Activar" onclick={() => activateCard(card.id)}>
+									✅ Activar
+								</button>
 							{/if}
 						{/if}
 					</div>
@@ -316,6 +399,7 @@
 		.card-actions {
 			display: flex;
 			flex-direction: row;
+			flex-wrap: wrap;
 			align-items: center;
 			justify-content: space-between;
 			flex-grow: 1;
@@ -332,8 +416,15 @@
 		}
 
 		.card-actions {
+			button {
+				font-size: 0.85rem;
+				padding-left: var(--spacing-xs);
+				padding-right: var(--spacing-xs);
+			}
+
 			&.two,
-			&.three {
+			&.three,
+			&.four {
 				justify-content: space-between;
 			}
 		}

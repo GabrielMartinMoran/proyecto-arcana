@@ -52,8 +52,8 @@ cards:
       - Monje
     requirements: Ráfaga de Golpes & Instinto 4
     uses:
-      type: RELOAD
-      qty: 6
+      type: null
+      qty: 0
     description: >-
       _Tu fluidez en combate alcanza niveles sobrenaturales, abrumando a tu objetivo con una lluvia incesante de
       impactos._<br><br> Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga.<br> Además, cuando activas

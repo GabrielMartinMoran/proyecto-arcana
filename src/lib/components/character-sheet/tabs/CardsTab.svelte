@@ -9,6 +9,11 @@
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
 	import type { Character, CharacterCard, Modifier } from '$lib/types/character';
+	import {
+		applyParentDeactivation,
+		applyParentRemoval,
+		getAssociatedDescendants,
+	} from '$lib/utils/card-association-utils';
 	import { buildCardRollContext } from '$lib/utils/card-inline-dice-formulas';
 	import { CONFIG } from '../../../../config';
 
@@ -142,9 +147,88 @@
 		}
 	};
 
-	const onCharacterCardsChange = (updatedCards: CharacterCard[]) => {
-		const addedCardId = findAddedCardId(character.cards, updatedCards);
-		const removedCardId = findRemovedCardId(character.cards, updatedCards);
+	const findDeactivatedParentId = (
+		previousCards: CharacterCard[],
+		nextCards: CharacterCard[],
+	): string | null => {
+		for (const previousCard of previousCards) {
+			if (!previousCard.isActive) continue;
+			const nextCard = nextCards.find((card) => card.id === previousCard.id);
+			if (nextCard && !nextCard.isActive) return previousCard.id;
+		}
+		return null;
+	};
+
+	const getAffectedCardNames = (parentId: string, cards: CharacterCard[]): string[] =>
+		getAssociatedDescendants(parentId, cards).map((card) => findCardById(card.id)?.name ?? card.id);
+
+	type ParentCascade = {
+		action: 'deactivate' | 'remove';
+		parentId: string;
+		parentName: string;
+		affectedNames: string[];
+	};
+
+	// Detects a parent deactivation/removal that has linked descendants so the
+	// user can confirm the cascade before any state changes (D6).
+	const resolveParentCascade = (
+		previousCards: CharacterCard[],
+		nextCards: CharacterCard[],
+	): ParentCascade | null => {
+		const deactivatedParentId = findDeactivatedParentId(previousCards, nextCards);
+		if (deactivatedParentId) {
+			const affectedNames = getAffectedCardNames(deactivatedParentId, previousCards);
+			if (affectedNames.length === 0) return null;
+			return {
+				action: 'deactivate',
+				parentId: deactivatedParentId,
+				parentName: findCardById(deactivatedParentId)?.name ?? deactivatedParentId,
+				affectedNames,
+			};
+		}
+
+		const removedParentId = findRemovedCardId(previousCards, nextCards);
+		if (removedParentId) {
+			const affectedNames = getAffectedCardNames(removedParentId, previousCards);
+			if (affectedNames.length === 0) return null;
+			return {
+				action: 'remove',
+				parentId: removedParentId,
+				parentName: findCardById(removedParentId)?.name ?? removedParentId,
+				affectedNames,
+			};
+		}
+
+		return null;
+	};
+
+	// Asks for confirmation enumerating the affected cards and, when accepted,
+	// applies the domain cascade; canceling leaves every card untouched.
+	const applyConfirmedParentCascade = (cascade: ParentCascade) => {
+		const affectedNames = cascade.affectedNames.join(', ');
+		const message =
+			cascade.action === 'remove'
+				? `${cascade.parentName} otorga un beneficio a: ${affectedNames}. Si continúas, se eliminará la vinculación de las cartas afectadas y las activables se desactivarán.`
+				: `${cascade.parentName} otorga un beneficio a: ${affectedNames}. Si continúas, las cartas vinculadas activables se desactivarán y dejarán de ser gratuitas.`;
+		dialogService
+			.confirm(message, {
+				title: 'Cartas vinculadas',
+				confirmLabel: 'Sí, continuar',
+				cancelLabel: 'Cancelar',
+			})
+			.then((isConfirmed) => {
+				if (!isConfirmed) return;
+				const cascadedCards =
+					cascade.action === 'remove'
+						? applyParentRemoval(cascade.parentId, character.cards, allCards)
+						: applyParentDeactivation(cascade.parentId, character.cards, allCards);
+				applyCharacterCardsChange(cascadedCards);
+			});
+	};
+
+	const applyCharacterCardsChange = (cardsToApply: CharacterCard[]) => {
+		const addedCardId = findAddedCardId(character.cards, cardsToApply);
+		const removedCardId = findRemovedCardId(character.cards, cardsToApply);
 
 		if (addedCardId) {
 			const addedCard = findCardById(addedCardId);
@@ -155,7 +239,7 @@
 
 		if (removedCardId) {
 			const removedCard =
-				updatedCards.find((c) => c.id === removedCardId) ||
+				cardsToApply.find((c) => c.id === removedCardId) ||
 				character.cards.find((c) => c.id === removedCardId);
 			if (removedCard) {
 				const cardInfo = findCardById(removedCardId);
@@ -176,7 +260,7 @@
 						})
 						.then((confirmed) => {
 							if (confirmed) {
-								character.cards = character.cards.filter((c) => c.id !== removedCardId);
+								character.cards = cardsToApply.filter((c) => c.id !== removedCardId);
 								character.modifiers = (character.modifiers ?? []).filter(
 									(m) =>
 										m.reason.toLowerCase() !== cardNameLower &&
@@ -192,16 +276,25 @@
 			}
 		}
 
-		character.cards = updatedCards;
+		character.cards = cardsToApply;
 
 		if (removedCardId && removedCardId.startsWith('custom-')) {
-			const stillPresent = updatedCards.some((c) => c.id === removedCardId);
+			const stillPresent = cardsToApply.some((c) => c.id === removedCardId);
 			if (!stillPresent) {
 				character.customCards = (character.customCards ?? []).filter((c) => c.id !== removedCardId);
 			}
 		}
 
 		onChange(character);
+	};
+
+	const onCharacterCardsChange = (updatedCards: CharacterCard[]) => {
+		const cascade = resolveParentCascade(character.cards, updatedCards);
+		if (cascade) {
+			applyConfirmedParentCascade(cascade);
+			return;
+		}
+		applyCharacterCardsChange(updatedCards);
 	};
 
 	const onCorruptedCardsChange = (updatedCorruptedCards: CharacterCard[]) => {

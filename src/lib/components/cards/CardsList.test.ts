@@ -1,6 +1,6 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/svelte';
 import { tick } from 'svelte';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const rollContextMocks = vi.hoisted(() => ({
 	rollExpression: vi.fn(),
@@ -12,10 +12,10 @@ vi.mock('$lib/services/dice-roller-service', () => ({
 	}),
 }));
 
-import CardsList from './CardsList.svelte';
 import type { AbilityCard } from '$lib/types/cards/ability-card';
 import type { ItemCard } from '$lib/types/cards/item-card';
 import type { CharacterCard } from '$lib/types/character';
+import CardsList from './CardsList.svelte';
 
 const mockCards: AbilityCard[] = [
 	{
@@ -380,6 +380,8 @@ describe('CardsList', () => {
 
 			const deactivateButton = screen.getByRole('button', { name: 'Desactivar' });
 			expect(deactivateButton).toBeInTheDocument();
+			// The emoji stays as visual decoration; the accessible name is clean.
+			expect(deactivateButton).toHaveTextContent('🚫 Desactivar');
 			await fireEvent.click(deactivateButton);
 
 			expect(onChange).toHaveBeenCalledWith([
@@ -639,6 +641,39 @@ describe('CardsList', () => {
 			await fireEvent.click(editButton);
 
 			expect(onEditCard).toHaveBeenCalledWith(mockCustomCard);
+		});
+
+		it('keeps emoji visuals while exposing clean accessible names for the collection actions', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCustomCard],
+					characterCards: [
+						{
+							id: 'custom-abc',
+							uses: null,
+							isActive: false,
+							level: 1,
+							cardType: 'ability',
+							isOvercharged: false,
+						},
+					],
+					listMode: 'collection',
+					readonly: false,
+					onManageAssociation: vi.fn(),
+				},
+			});
+
+			const removeButton = screen.getByRole('button', { name: 'Quitar' });
+			expect(removeButton).toHaveTextContent('🗑️ Quitar');
+
+			const editButton = screen.getByRole('button', { name: 'Editar' });
+			expect(editButton).toHaveTextContent('✏️ Editar');
+
+			const activateButton = screen.getByRole('button', { name: 'Activar' });
+			expect(activateButton).toHaveTextContent('✅ Activar');
+
+			const linkButton = screen.getByRole('button', { name: 'Vincular Custom Fire Bolt' });
+			expect(linkButton).toHaveTextContent('🔗 Vincular');
 		});
 	});
 
@@ -1060,6 +1095,367 @@ describe('CardsList', () => {
 			expect(document.body).toHaveTextContent('Inflige 2d6 de daño');
 			expect(document.body).toHaveTextContent('Recupera 1d4 + Cuerpo');
 			expect(screen.queryByRole('button', { name: /🎲/ })).toBeNull();
+		});
+	});
+
+	describe('card association link action', () => {
+		it('renders the link action with the card name for every card type when wired', () => {
+			const onManageAssociation = vi.fn();
+			render(CardsList, {
+				props: {
+					cards: mockCards,
+					characterCards: mockCharacterCards,
+					listMode: 'collection',
+					readonly: false,
+					onManageAssociation,
+				},
+			});
+
+			expect(screen.getByRole('button', { name: 'Vincular Fire Bolt' })).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: 'Vincular Shield' })).toBeInTheDocument();
+		});
+
+		it('labels the action as editing when the card already has a parent', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCards[0]],
+					characterCards: [{ ...mockCharacterCards[0], grantedBy: 'parent-1' }],
+					listMode: 'collection',
+					readonly: false,
+					onManageAssociation: vi.fn(),
+				},
+			});
+
+			const linkButton = screen.getByRole('button', { name: 'Editar vinculación Fire Bolt' });
+			expect(linkButton).toBeInTheDocument();
+			// The 🔗 emoji remains as visual decoration; the accessible name is clean.
+			expect(linkButton).toHaveTextContent('🔗 Revincular');
+			expect(screen.queryByRole('button', { name: /^Vincular / })).not.toBeInTheDocument();
+		});
+
+		it('does not render the link action when the callback is not wired', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCards[0]],
+					characterCards: [mockCharacterCards[0]],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: /Vincular/ })).not.toBeInTheDocument();
+		});
+
+		it('calls onManageAssociation with the card when the action is clicked', async () => {
+			const onManageAssociation = vi.fn();
+			render(CardsList, {
+				props: {
+					cards: [mockCards[0]],
+					characterCards: [mockCharacterCards[0]],
+					listMode: 'collection',
+					readonly: false,
+					onManageAssociation,
+				},
+			});
+
+			await fireEvent.click(screen.getByRole('button', { name: 'Vincular Fire Bolt' }));
+
+			expect(onManageAssociation).toHaveBeenCalledWith(mockCards[0]);
+		});
+
+		it('does not render the link action in active mode', () => {
+			render(CardsList, {
+				props: {
+					cards: [mockCards[0]],
+					characterCards: [mockCharacterCards[0]],
+					listMode: 'active',
+					readonly: false,
+					onManageAssociation: vi.fn(),
+				},
+			});
+
+			expect(screen.queryByRole('button', { name: /Vincular/ })).not.toBeInTheDocument();
+		});
+	});
+
+	describe('card link tag presentation', () => {
+		const disciplinaMonasticaCard: AbilityCard = {
+			id: 'disciplina-monastica-card',
+			name: 'Disciplina Monástica',
+			description: 'Disciplina del monje',
+			cardType: 'ability',
+			type: 'activable',
+			level: 1,
+			tags: ['Monje'],
+			img: '',
+			uses: { type: 'USES', qty: 2 },
+			requirements: null,
+		};
+
+		const artesMarcialesCard: AbilityCard = {
+			id: 'artes-marciales-card',
+			name: 'Artes Marciales',
+			description: 'Artes marciales del monje',
+			cardType: 'ability',
+			type: 'activable',
+			level: 1,
+			tags: ['Monje'],
+			img: '',
+			uses: { type: 'USES', qty: 3 },
+			requirements: 'Disciplina Monástica',
+		};
+
+		const sangreMagicaEffectCard: AbilityCard = {
+			...artesMarcialesCard,
+			id: 'sangre-magica-card',
+			name: 'Sangre Mágica',
+			type: 'efecto',
+			requirements: null,
+		};
+
+		const herenciaSobrenaturalEffectCard: AbilityCard = {
+			...artesMarcialesCard,
+			id: 'herencia-sobrenatural-card',
+			name: 'Herencia Sobrenatural',
+			type: 'efecto',
+			requirements: null,
+		};
+
+		const pocionConsumibleCard: ItemCard = {
+			id: 'pocion-card',
+			name: 'Poción de Curación',
+			description: 'Bebes la poción',
+			cardType: 'item',
+			type: 'consumible',
+			level: 1,
+			tags: ['Consumible'],
+			img: '',
+			uses: { type: 'USES', qty: 1 },
+			requirements: null,
+			cost: '50',
+		};
+
+		const parentOwned = (overrides: Partial<CharacterCard> = {}): CharacterCard => ({
+			id: 'disciplina-monastica-card',
+			uses: 2,
+			isActive: true,
+			level: 1,
+			cardType: 'ability',
+			isOvercharged: false,
+			...overrides,
+		});
+
+		const childOwned = (overrides: Partial<CharacterCard> = {}): CharacterCard => ({
+			id: 'artes-marciales-card',
+			uses: 3,
+			isActive: true,
+			level: 1,
+			cardType: 'ability',
+			isOvercharged: false,
+			grantedBy: 'disciplina-monastica-card',
+			...overrides,
+		});
+
+		const effectParentOwned = (overrides: Partial<CharacterCard> = {}): CharacterCard => ({
+			id: 'herencia-sobrenatural-card',
+			uses: 1,
+			isActive: false,
+			level: 1,
+			cardType: 'ability',
+			isOvercharged: false,
+			...overrides,
+		});
+
+		it('shows the compact 🔗 tag with the parent name for linked activable cards', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [childOwned(), parentOwned()],
+					allCards: [artesMarcialesCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
+		});
+
+		it('shows the Siempre activa badge when the flagged linked activable card has an active parent', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [childOwned({ doesNotConsumeActiveSlot: true }), parentOwned()],
+					allCards: [artesMarcialesCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
+			expect(screen.getByText('Siempre activa')).toBeInTheDocument();
+		});
+
+		it('does not show the Siempre activa badge nor invent use controls for a flagged linked activable card with an inactive activable parent', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [
+						childOwned({ doesNotConsumeActiveSlot: true }),
+						parentOwned({ isActive: false }),
+					],
+					allCards: [artesMarcialesCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
+			expect(screen.getByText('Origen inactivo')).toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+		});
+
+		it('shows the link tag for linked effect cards without inventing the Siempre activa badge or Origen inactivo', () => {
+			render(CardsList, {
+				props: {
+					cards: [sangreMagicaEffectCard],
+					characterCards: [
+						{
+							...childOwned(),
+							id: 'sangre-magica-card',
+							cardType: 'ability',
+						},
+						parentOwned(),
+					],
+					allCards: [sangreMagicaEffectCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
+		});
+
+		it('does not show Origen inactivo for a linked effect card whose parent is an effect', () => {
+			render(CardsList, {
+				props: {
+					cards: [sangreMagicaEffectCard],
+					characterCards: [
+						{
+							...childOwned(),
+							id: 'sangre-magica-card',
+							grantedBy: 'herencia-sobrenatural-card',
+							cardType: 'ability',
+						},
+						effectParentOwned(),
+					],
+					allCards: [sangreMagicaEffectCard, herenciaSobrenaturalEffectCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
+			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+		});
+
+		it('shows the Siempre activa badge for a flagged activable child granted by an effect parent even when the parent is inactive', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [
+						{
+							...childOwned(),
+							grantedBy: 'herencia-sobrenatural-card',
+							doesNotConsumeActiveSlot: true,
+						},
+						effectParentOwned(),
+					],
+					allCards: [artesMarcialesCard, herenciaSobrenaturalEffectCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
+			expect(screen.getByText('Siempre activa')).toBeInTheDocument();
+			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
+		});
+
+		it('shows the link tag for linked consumable cards without inventing the Siempre activa badge', () => {
+			render(CardsList, {
+				props: {
+					cards: [pocionConsumibleCard],
+					characterCards: [
+						{
+							id: 'pocion-card',
+							uses: 1,
+							isActive: true,
+							level: 1,
+							cardType: 'item',
+							isOvercharged: false,
+							grantedBy: 'disciplina-monastica-card',
+						},
+						parentOwned(),
+					],
+					allCards: [pocionConsumibleCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+		});
+
+		it('marks an orphan link as pending instead of pretending the exemption is in force', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [childOwned({ grantedBy: 'missing-parent-id' })],
+					allCards: [artesMarcialesCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.getByText(/Vinculación pendiente/)).toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+		});
+
+		it('does not render link chips for cards without an association', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [childOwned({ grantedBy: null })],
+					allCards: [artesMarcialesCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(screen.queryByText(/🔗/)).not.toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+		});
+
+		it('exposes an accessible name with the slot exemption for effective links', () => {
+			render(CardsList, {
+				props: {
+					cards: [artesMarcialesCard],
+					characterCards: [childOwned({ doesNotConsumeActiveSlot: true }), parentOwned()],
+					allCards: [artesMarcialesCard, disciplinaMonasticaCard],
+					listMode: 'collection',
+					readonly: false,
+				},
+			});
+
+			expect(
+				screen.getByLabelText(
+					/Carta vinculada a Disciplina Monástica\. No consume una Ranura de Carta Activa/,
+				),
+			).toBeInTheDocument();
 		});
 	});
 });

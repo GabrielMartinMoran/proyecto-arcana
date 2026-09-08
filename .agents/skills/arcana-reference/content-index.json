@@ -90,8 +90,31 @@
         "type": "efecto",
         "requirements": "Solo Creación de Personaje"
       },
-      "search": "_Tu linaje te ha adaptado a los entornos más extremos._<br><br> Al elegir este linaje, selecciona un clima: Frío o Calor. Obtienes Mitigación Mágica contra el daño del tipo elemental correspondiente (Frío o Fuego) igual a la mitad de tu puntuación de Cuerpo (redondeando hacia arriba). Además, no sufres los efectos negativos de las temperaturas extremas asociadas a tu clima elegido.",
-      "hash": "b3c158dd8bc02598515fe78561c48c38d133d414"
+      "search": "_Tu linaje te ha adaptado a los entornos más extremos._<br><br> Al elegir este linaje, selecciona un clima: Frío o Calor. Obtienes Resistencia al tipo de daño elemental correspondiente (Frío o Fuego).<br> Además, no sufres los efectos negativos de las temperaturas extremas asociadas a tu clima elegido.",
+      "hash": "785bec210148cda8ded182d4eeeca20266b60b43"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Adaptación Elemental",
+      "id": "17be69d865e0b99ad5469328b065307bdf85262b",
+      "slug": "adaptacion-elemental",
+      "aliases": [
+        "adaptacion elemental"
+      ],
+      "tags": [
+        "Genasi",
+        "Linaje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_La esencia elemental que corre por tu cuerpo ha transformado tu fisiología, permitiéndote existir allí donde otros apenas podrían sobrevivir._<br><br> Al elegir esta carta, aplica el beneficio correspondiente a tu manifestación elemental:<br> - **Aire — Aliento del Viento:** No necesitas respirar y no recibes daño por caída.<br> - **Tierra — Cuerpo Pétreo:** Cuando recibes daño Físico o Elemental, puedes obtener Resistencia contra esa instancia de daño. Puedes utilizar este beneficio un número de veces igual a la mitad de tu puntuación de Cuerpo, redondeando hacia abajo (mínimo 1), por día de descanso. Además, el terreno difícil natural compuesto principalmente de tierra, piedra, arena o escombros no te cuesta movimiento adicional.<br> - **Fuego — Corazón de Brasa:** Obtienes Resistencia al daño de Fuego y no sufres los efectos negativos de temperaturas ambientales extremadamente altas.<br> - **Agua — Naturaleza Anfibia:** Puedes respirar tanto aire como agua y obtienes una velocidad de nado igual a tu Velocidad normal.",
+      "hash": "90a9e13889699ec2ff03752246ea01b1e366c5c4"
     },
     {
       "kind": "card",
@@ -347,8 +370,8 @@
         "type": "efecto",
         "requirements": "Pacto Supremo"
       },
-      "search": "_Materializas un arma forjada con energía inestable, atada eternamente a tu voluntad y a la de tu Patrón._<br><br> Elije un arma que poseas y sintonizala con el poder de tu patrón:<br> - **Llamada Ineludible:** Como Interacción, materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se desvanezca y reaparezca instantáneamente en tu agarre, sin importar la distancia. - **Poder Sobrenatural**: Usas tu puntuación de Presencia para las tiradas de ataque. Además, puedes reemplazar el dado de daño base original del arma por 1d8 del tipo de tu _Descarga Sobrenatural_.",
-      "hash": "9503d2aa708c601f63424e0439975bb04be7c900"
+      "search": "_Materializas un arma forjada con energía inestable, atada eternamente a tu voluntad y a la de tu Patrón._<br><br> Elije un arma que poseas y sintonizala con el poder de tu patrón:<br><br> - **Llamada Ineludible:** Como Interacción, materializas el arma en tu mano libre. Si la pierdes, puedes usar tu Interacción para que se desvanezca y reaparezca instantáneamente en tu agarre, sin importar la distancia.<br> - **Poder Sobrenatural**: Usas tu puntuación de Presencia para las tiradas de ataque. Además, puedes reemplazar el dado de daño base original del arma por 1d8 del tipo de tu _Descarga Sobrenatural_.",
+      "hash": "97fa3ad44372e8be10f7b77384bc6662b3423540"
     },
     {
       "kind": "card",
@@ -2599,6 +2622,28 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Estilo Kensei",
+      "id": "e1800d8214c4933beef4c2b2b002270ec05de0f8",
+      "slug": "estilo-kensei",
+      "aliases": [
+        "estilo kensei"
+      ],
+      "tags": [
+        "Monje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Disciplina Monástica"
+      },
+      "search": "_Has aprendido a canalizar tu Ki a través de armas ligeras y precisas, convirtiéndolas en una extensión de tu propio cuerpo._<br><br> Consideras **Armas de Monje** las siguientes armas: Bastón, Daga, Látigo, Espada Corta, Cimitarra, Dardo, Arco Corto y Honda.<br><br> Puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque realizadas con Armas de Monje.<br><br> A efectos de tus cartas de Monje, los ataques cuerpo a cuerpo que realices con Armas de Monje se consideran ataques desarmados.",
+      "hash": "70fc2a986739342cfbf5cb6abdad2a3d8aaa274d"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Estudios Mágicos",
       "id": "25c879f1f6e8023e115f5a11d3d9122059b35ed0",
       "slug": "estudios-magicos",
@@ -2731,8 +2776,8 @@
         "type": "efecto",
         "requirements": "Pacto Supremo"
       },
-      "search": "_Invocas a un emisario menor y perturbador que te sirve como compañero, espía, conducto arcano y trampa letal._<br><br> Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de Presencia, y su Esquiva es 5 + tu puntuación de Presencia. Posee una Velocidad de vuelo igual a 4 + tu puntuación de Presencia. Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br> - **Desplazamiento:** Como Interacción, puedes ordenar a tu familiar que se mueva hasta su Velocidad total a un punto que puedas ver.<br> - **Vigía:** Mientras esté a distancia Larga o inferior, compartes sus sentidos perfectamente sin usar acciones.<br> - **Conducto Eldritch:** Puedes lanzar tu _Descarga Sobrenatural_ originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br> - **Detonación:** Si el familiar llega a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de Reflejos (ND 5 + Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).",
-      "hash": "e96611fe0cbf6debb14cd90f18847c1db2b92a66"
+      "search": "_Invocas a un emisario menor y perturbador que te sirve como compañero, espía, conducto arcano y trampa letal._<br><br> Tras un ritual de 10 minutos, invocas a un emisario menor de tu patrón. Su Salud es igual a tu puntuación de Presencia, y su Esquiva es 5 + tu puntuación de Presencia. Posee una Velocidad de vuelo igual a 4 + tu puntuación de Presencia. Flota a tu lado, obedece órdenes telepáticas y ganas estos beneficios:<br> - **Desplazamiento:** Como Interacción, puedes ordenar a tu familiar que se mueva hasta su Velocidad total a un punto que puedas ver.<br> - **Vigía:** Mientras esté a distancia Larga o inferior, compartes sus sentidos perfectamente sin usar acciones.<br> - **Conducto Sobrenatural:** Puedes lanzar tu _Descarga Sobrenatural_ originándola desde el espacio que ocupa el familiar en lugar del tuyo.<br> - **Detonación:** Si el familiar llega a 0 Puntos de Salud, explota. Las criaturas a distancia Inmediata de él deben superar una TS de Reflejos (ND 5 + Presencia) o sufrir 1d8 de daño (del tipo de tu _Descarga Sobrenatural_).",
+      "hash": "eded836fc39837212f7d52726882420503b1e945"
     },
     {
       "kind": "card",
@@ -3553,6 +3598,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Heraldo de las Mareas",
+      "id": "c8e19b92403ab5b73f92c4c802794b07fa71d705",
+      "slug": "heraldo-de-las-mareas",
+      "aliases": [
+        "heraldo de las mareas"
+      ],
+      "tags": [
+        "Linaje",
+        "Tritón"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_El mar reconoce tu presencia, y las criaturas que lo habitan perciben en ti algo familiar._<br><br> Puedes comunicarte verbalmente con Bestias que tengan una velocidad de nado, aunque no compartan una lengua. La información que puedes intercambiar está limitada por la inteligencia y los sentidos de la criatura. Esta capacidad no modifica su actitud hacia ti ni la obliga a obedecerte.<br><br> Además, como Interacción, puedes manipular de forma menor agua no mágica que puedas ver a distancia Cercana: puedes hacer que se agite, se aquiete, fluya lentamente o adopte una forma simple. Esta manipulación no puede infligir daño, desplazar criaturas, crear cobertura ni reproducir los efectos de una carta.",
+      "hash": "090905ffdcca58352b330595eb3d394abdd72e0e"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Herencia Draconiana",
       "id": "4afc1e3fce719100a9ac3fdced210cf4ce6f0d8e",
       "slug": "herencia-draconiana",
@@ -3571,8 +3639,8 @@
         "type": "efecto",
         "requirements": "Solo Creación de Personaje"
       },
-      "search": "_Tu linaje te ha otorgado una resistencia innata al elementos que tus ancestros dominaban._<br><br> Al elegir esta carta, seleccionas un tipo de ancestro dracónico de la siguiente lista. Tus escamas te protegen contra la energía elemental de tu linaje, otorgándote Mitigación Mágica contra el tipo de daño asociado igual a tu puntuación de **Cuerpo**.<br> - **Rojo, Dorado o Latón:** Fuego<br> - **Azul o Bronce:** Eléctrico<br> - **Blanco o Plateado:** Frío<br> - **Negro o Cobre:** Ácido<br> - **Verde:** Veneno",
-      "hash": "036acf208226c3233e8f5b9a6aac8eeb7cfddc9f"
+      "search": "_Tu linaje te ha otorgado una resistencia innata al elementos que tus ancestros dominaban._<br><br> Al elegir esta carta, seleccionas un tipo de ancestro dracónico de la siguiente lista. Obtienes Resistencia al tipo de daño asociado:<br> - **Rojo, Dorado o Latón:** Fuego<br> - **Azul o Bronce:** Eléctrico<br> - **Blanco o Plateado:** Frío<br> - **Negro o Cobre:** Ácido<br> - **Verde:** Veneno",
+      "hash": "e4099600fcb9104d94f055b6beb096771198a771"
     },
     {
       "kind": "card",
@@ -4718,6 +4786,52 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Mente Inquebrantable",
+      "id": "d23d7bd814434cdbfb26620a9c6f752066cbe7ec",
+      "slug": "mente-inquebrantable",
+      "aliases": [
+        "mente inquebrantable"
+      ],
+      "tags": [
+        "Gith",
+        "Linaje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Siglos de disciplina psiónica y resistencia a la dominación han convertido tu mente en una fortaleza difícil de quebrar._<br><br> Obtienes Resistencia al daño Psíquico.<br><br> Además, obtienes Ventaja (+1d4) en las Tiradas de Salvación para evitar quedar Encantado.",
+      "hash": "2f548eb4c188b26fef2e831f28b29ce074f95a8b"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Mente Psiónica",
+      "id": "ea1bf8e4b2397f6049e887a5d598f5ff2e2c34ad",
+      "slug": "mente-psionica",
+      "aliases": [
+        "mente psionica"
+      ],
+      "tags": [
+        "Gith",
+        "Linaje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Tu voluntad puede ejercer fuerza sobre el mundo físico, desplazando materia sin necesidad de tocarla._<br><br> Puedes usar tu Interacción para manipular telequinéticamente un objeto que puedas ver a distancia Cercana, siempre que ninguna criatura lo esté sosteniendo, llevando puesto o transportando y que no pese más de 5 kg. Puedes moverlo hasta 5 metros, recogerlo, dejarlo, abrir o cerrar mecanismos sencillos y realizar otras manipulaciones que razonablemente podrían hacerse con una mano. Esta capacidad no puede utilizarse para realizar ataques ni activar objetos mágicos.<br><br> Además, como Interacción, puedes ejercer una descarga de fuerza telequinética sobre una criatura que puedas ver a distancia Cercana. El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Mente) o ser empujado o atraído hasta 2 metros en línea recta.<br><br> Puedes utilizar esta descarga una cantidad de veces igual a la mitad de tu puntuación de Mente, redondeando hacia abajo (mínimo 1), por día de descanso.",
+      "hash": "f45f7667f65fb74826f8d39ccc2fdd76da8481bd"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Metal Incandescente",
       "id": "371f5d5956d696eb6ba8378e82bb980ff63b60ad",
       "slug": "metal-incandescente",
@@ -4812,6 +4926,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Mirada Elemental",
+      "id": "6e81304e1f9069e95ca8f4d88efcd16718e54ff6",
+      "slug": "mirada-elemental",
+      "aliases": [
+        "mirada elemental"
+      ],
+      "tags": [
+        "Genasi",
+        "Linaje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Tus sentidos están impregnados por la esencia de tu elemento y perciben aspectos del mundo que permanecen ocultos para los demás._<br><br> Al elegir esta carta, obtienes el sentido correspondiente a tu manifestación elemental:<br> - **Aire — Percepción Eólica:** Percibes la ubicación y movimiento de criaturas y objetos materiales a 5 metros mediante las alteraciones que producen en el aire, incluso aunque sean invisibles o no puedas verlos. Esta percepción requiere que el aire pueda circular entre tú y aquello que percibes y no atraviesa barreras sólidas. No reemplaza la visión normal.<br> - **Tierra — Percepción Sísmica:** Mientras estés en contacto con una superficie de tierra o piedra, percibes la ubicación y movimiento de cualquier criatura a 5 metros que esté en contacto con la misma superficie continua. Esta percepción no reemplaza la visión normal.<br> - **Fuego — Visión Térmica:** Percibes fuentes de calor y la ubicación y silueta de criaturas que emitan calor hasta distancia Cercana, incluso en oscuridad, aunque sean invisibles o aunque humo, niebla u otras obstrucciones puramente visuales impidan verlas normalmente. Esta visión no atraviesa barreras sólidas ni te permite percibir detalles que no puedan distinguirse mediante el calor.<br> - **Agua — Visión Abisal:** Obtienes Visión en la Oscuridad hasta distancia Cercana. Mientras estés sumergido, su alcance aumenta a distancia Media.",
+      "hash": "93cfbd9c56d263caf4666209491abdc5862a460e"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Mirada Estelar",
       "id": "a703e29747d72a8019fbc45f8ecfb9c8f1a2ef64",
       "slug": "mirada-estelar",
@@ -4857,6 +4994,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Movilidad Elemental",
+      "id": "bf1976ad9e141aeb18512ec7357e5c275c0e3183",
+      "slug": "movilidad-elemental",
+      "aliases": [
+        "movilidad elemental"
+      ],
+      "tags": [
+        "Genasi",
+        "Linaje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Por unos instantes, tu cuerpo abandona las limitaciones de la carne y adopta las propiedades del elemento que corre por tus venas._<br><br> Puedes utilizar la capacidad correspondiente a tu manifestación elemental un número de veces igual a la mitad de tu puntuación de Reflejos, redondeando hacia abajo (mínimo 1), por día de descanso:<br> - **Aire — Corriente Ascendente:** Como Interacción, hasta el final de tu turno obtienes una velocidad de vuelo igual a tu Velocidad y tu movimiento no provoca Reacciones. Si al finalizar tu turno continúas en el aire, desciendes suavemente hasta la primera superficie capaz de sostenerte que se encuentre debajo de ti, sin recibir daño por caída.<br> - **Tierra — Fundirse con la Tierra:** Como Interacción, te fundes con una superficie de tierra o piedra natural que estés tocando y reapareces en un espacio desocupado que puedas ver a una distancia máxima igual a tu Velocidad, siempre que el destino esté en contacto con la misma superficie continua de tierra o piedra. Este desplazamiento es una teletransportación y no provoca Reacciones.<br> - **Fuego — Salto Ígneo:** Como Interacción, tu cuerpo se deshace momentáneamente en llamas y reapareces en un espacio desocupado que puedas ver a una distancia máxima igual a tu Velocidad. Este desplazamiento es una teletransportación y no provoca Reacciones.<br> - **Agua — Forma Fluida:** Como Interacción, hasta el final de tu turno tu cuerpo adquiere una consistencia líquida. Durante ese tiempo puedes moverte a través del espacio ocupado por otras criaturas, ignoras terreno difícil, tu movimiento no provoca Reacciones y puedes atravesar aberturas suficientemente grandes para permitir el paso del volumen de agua que compone tu cuerpo.",
+      "hash": "a4fec696cd7ec82e0c1792d16f9a41f319f3f644"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Narrativa Cautivadora",
       "id": "e5c99b9e76b9f4192cd50eecf66ddacbf4b5d2b0",
       "slug": "narrativa-cautivadora",
@@ -4879,6 +5039,29 @@
       },
       "search": "_Tu relato verbal es tan hipnótico y envolvente que la línea entre tu ficción y la realidad desaparece por completo para quienes te escuchan._<br><br> Como Acción, eliges un objetivo a distancia Media y comienzas a hablarle. Este debe superar una TS de Instinto (ND 5 + Presencia). Si falla, durante 1 minuto, cree que tus afirmaciones son hechos, siempre que no sean directamente suicidas o contradigan una creencia fundamental.<br> Una vez que una criatura ha sido objetivo de este conjuro, es inmune a él durante un día de descanso, independientemente del resultado.",
       "hash": "59e630584b7c47d823dbcf142d1c544741b74db6"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Naturaleza Anfibia",
+      "id": "c3d767081609c86e166fe64b5ccdc28ddf7b6f1e",
+      "slug": "naturaleza-anfibia",
+      "aliases": [
+        "naturaleza anfibia"
+      ],
+      "tags": [
+        "Linaje",
+        "Tritón"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Tu cuerpo pertenece tanto al mar como a la superficie._<br><br> Puedes respirar tanto aire como agua y obtienes una velocidad de nado igual a tu Velocidad normal.",
+      "hash": "b5d1731895bcf84d90f1d52a54497759078f086d"
     },
     {
       "kind": "card",
@@ -4951,6 +5134,29 @@
       },
       "search": "_Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br> Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br> - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br> - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>",
       "hash": "2411e5cbc662ff457364cb2fca884f64265a48fb"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Ojos Abisales",
+      "id": "b27cb495dbb591617456765d7771bc18858f430e",
+      "slug": "ojos-abisales",
+      "aliases": [
+        "ojos abisales"
+      ],
+      "tags": [
+        "Linaje",
+        "Tritón"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Tus ojos están hechos para profundidades donde la luz es apenas un recuerdo._<br><br> Obtienes Visión en la Oscuridad hasta distancia Cercana.<br><br> Además, obtienes Ventaja (+1d4) en Tiradas de Salvación para resistir efectos que pudieran dejarte Cegado.",
+      "hash": "1582b2c2a963ba5ef935227f61bd135c363427ce"
     },
     {
       "kind": "card",
@@ -5695,8 +5901,8 @@
         "cardType": "ability",
         "type": "efecto"
       },
-      "search": "_Tu curiosidad y versatilidad te han convertido en un experto en múltiples disciplinas._<br><br> Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de 2 o más. Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br> Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.",
-      "hash": "6375d3837429419664473dc41f03038d3c32c475"
+      "search": "_Tu curiosidad y versatilidad te han convertido en un experto en múltiples disciplinas._<br><br> Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de 2 o más. Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br><br> _Puedes elegir esta carta más de una vez seleccionando una set de habilidad diferente cada vez._",
+      "hash": "256e75a43bababd4fb384c64e0d8edb8843ff0a7"
     },
     {
       "kind": "card",
@@ -6850,8 +7056,8 @@
         "type": "efecto",
         "requirements": "Cuerpo 2"
       },
-      "search": "_No solo empuñas tus armas; te conviertes en una extensión de ellas. Tu cuerpo es el yunque sobre el cual se rompen las ambiciones de tus enemigos._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br> **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial. Tu Salud máxima aumenta en +6 y obtienes Ventaja (+1d4) en pruebas de Fuerza Bruta. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>",
-      "hash": "3c1163764a8d1b608588009c612a937d30f8b6d2"
+      "search": "_No solo empuñas tus armas; te conviertes en una extensión de ellas. Tu cuerpo es el yunque sobre el cual se rompen las ambiciones de tus enemigos._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Atletismo y Percepción.<br><br> Adquieres la carta _Maestría Marcial_ y usas Cuerpo como tu Atributo Marcial para las cartas de _Combatiente_.<br><br> **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +6 y obtienes Ventaja (+1d4) en pruebas de Fuerza Bruta. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 7 PS por cada 10 PP que hayas gastado.<br><br>",
+      "hash": "505c19f4ac976bb146d72b3d42029044558c62a1"
     },
     {
       "kind": "card",
@@ -6896,8 +7102,8 @@
         "type": "efecto",
         "requirements": "Reflejos 2"
       },
-      "search": "_Eres como el viento entre las hojas: inalcanzable, veloz y capaz de golpear con precisión antes de desaparecer de la vista de tus rivales._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Acrobacias y Supervivencia.<br><br> **Beneficio de Arquetipo:** Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial. Tu Salud máxima aumenta en +5. Además, ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo, mínimo 1), siempre que cumplas el requisito de atributo de la armadura. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>",
-      "hash": "401424762f0a6fd25b53cfc00f4756b1b40154ab"
+      "search": "_Eres como el viento entre las hojas: inalcanzable, veloz y capaz de golpear con precisión antes de desaparecer de la vista de tus rivales._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Acrobacias y Supervivencia.<br><br> Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial para las cartas de _Combatiente_.<br><br> **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +5. Además, ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo, mínimo 1), siempre que cumplas el requisito de atributo de la armadura. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>",
+      "hash": "434eab7bd26e986cab6edbe932cbf9c2fb4ab1c4"
     },
     {
       "kind": "card",
@@ -7246,11 +7452,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Ráfaga de Golpes & Instinto 4",
-        "uses": "RELOAD:6"
+        "requirements": "Ráfaga de Golpes & Instinto 4"
       },
       "search": "_Tu fluidez en combate alcanza niveles sobrenaturales, abrumando a tu objetivo con una lluvia incesante de impactos._<br><br> Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga.<br> Además, cuando activas _Ráfaga de Golpes_, realizas dos ataques desarmados adicionales en lugar de uno.",
-      "hash": "80543220fdd4dc7ad6ab6d38c65fc32d771617bc"
+      "hash": "ec30d75d2137c6b657c5cecae94c8ace7531b1b3"
     },
     {
       "kind": "card",
@@ -7533,6 +7738,29 @@
       },
       "search": "_Forjas un pacto espiritual inquebrantable con un animal, compartiendo cacerías y batallas como verdaderos hermanos de manada._<br><br> Tras un ritual de 1 hora, forjas un vínculo con una bestia voluntaria de Rango 1. La bestia se convierte en tu aliada y actúa en tu misma iniciativa.<br> - **Comandar:** Como Acción, puedes comandar a la bestia para que se mueva y realice una acción de forma inmediata. Si no usas tu Acción para comandarla, la bestia actuará de forma autónoma solo para moverse a tu lado y usar la acción de Ponerse en Guardia.<br> - **Vitalidad:** El compañero usa su propio bloque de estadísticas, pero su Salud Máxima es igual a la Salud base de la bestia + tu puntuación de Instinto.<br> Si tu compañero muere, puedes vincularte con una nueva bestia.",
       "hash": "5608ab0ceb2a90f9fe4c684d2da61a85f314b4ef"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Vínculo Mental",
+      "id": "7f6c19e79816b48c48b6149978d44dd9c0a555ea",
+      "slug": "vinculo-mental",
+      "aliases": [
+        "vinculo mental"
+      ],
+      "tags": [
+        "Gith",
+        "Linaje"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Para los tuyos, la distancia entre dos mentes es una barrera mucho menos sólida que la distancia entre dos cuerpos._<br><br> Puedes comunicarte telepáticamente con una criatura que puedas ver a distancia Cercana, siempre que esta conozca al menos una lengua. La criatura puede responderte telepáticamente mientras permanezca dentro del alcance.<br><br> Además, puedes usar tu Interacción para establecer un vínculo mental con una criatura voluntaria a distancia Cercana. Durante 10 minutos, mientras ambos permanezcan a distancia Media uno del otro, conocen intuitivamente la dirección en la que se encuentra el otro y pueden comunicarse telepáticamente aunque no puedan verse.<br><br> Solo puedes mantener un vínculo mental de este tipo a la vez.",
+      "hash": "db182ba5c740b7a4ef51800a696d371488e16824"
     },
     {
       "kind": "card",

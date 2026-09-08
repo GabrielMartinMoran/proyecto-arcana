@@ -2,7 +2,8 @@
 	import type { Card } from '$lib/types/cards/card';
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
-	import { removeDiacritics } from '$lib/utils/formatting';
+	import { getCardTypeName } from '$lib/utils/card-utils';
+	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
 	import { formatRequirements } from '$lib/utils/requirement-expression';
 	import type { Snippet } from 'svelte';
 	import CardDescription from './CardDescription.svelte';
@@ -13,6 +14,13 @@
 		isExhausted?: boolean;
 		isCustom?: boolean;
 		rollContext?: CardRollContext;
+		// Linked-card presentation. Absent values keep the default card render
+		// (library and custom previews); CardsList provides them from the
+		// character state using the pure association helpers.
+		linkedParentName?: string | null;
+		linkedParentInactive?: boolean;
+		linkedParentOrphan?: boolean;
+		showSlotExemption?: boolean;
 		children?: Snippet;
 	};
 
@@ -22,8 +30,25 @@
 		isExhausted = false,
 		isCustom = false,
 		rollContext = undefined,
+		linkedParentName = undefined,
+		linkedParentInactive = false,
+		linkedParentOrphan = false,
+		showSlotExemption = false,
 		children = undefined,
 	}: Props = $props();
+
+	const composeLinkBadgeLabel = (
+		parentName: string,
+		parentInactive: boolean,
+		parentOrphan: boolean,
+		slotExemption: boolean,
+	): string => {
+		if (slotExemption)
+			return `Carta vinculada a ${parentName}. No consume una Ranura de Carta Activa`;
+		if (parentInactive) return `Carta vinculada a ${parentName}. Origen inactivo`;
+		if (parentOrphan) return `Carta vinculada a ${parentName}. Vinculación pendiente`;
+		return `Carta vinculada a ${parentName}`;
+	};
 
 	const getBorderColor = (tags: string[]) => {
 		let first = removeDiacritics(tags.length > 0 ? String(tags[0]).toLowerCase() : '');
@@ -61,10 +86,10 @@
 	<div class="inner">
 		<div class="header">
 			<div class="chips">
-				<span class="chip">{card.cardType === 'ability' ? 'Habilidad' : 'Objeto Mágico'}</span>
+				<span class="chip">{getCardTypeName(card)}</span>
 				<span class="chip">Nivel {card.level}</span>
 				<span class="spacer"></span>
-				<span class="chip">{card.type.charAt(0).toUpperCase() + card.type.slice(1)}</span>
+				<span class="chip">{capitalize(card.type)}</span>
 			</div>
 			<h3>{card.name}</h3>
 		</div>
@@ -90,6 +115,34 @@
 				{/if}
 				{#if isCustom}
 					<span class="chip custom-badge">Personalizada</span>
+				{/if}
+				{#if linkedParentName !== undefined}
+					{#if linkedParentName !== null}
+						<span
+							class="chip link-badge"
+							aria-label={composeLinkBadgeLabel(
+								linkedParentName,
+								linkedParentInactive,
+								linkedParentOrphan,
+								showSlotExemption,
+							)}>🔗 {linkedParentName}</span
+						>
+					{:else}
+						<span
+							class="chip link-badge"
+							aria-label="Vinculación pendiente. El vínculo no está vigente"
+							>🔗 Vinculación pendiente</span
+						>
+					{/if}
+					{#if linkedParentOrphan && linkedParentName !== null}
+						<span class="chip link-status-badge">Vinculación pendiente</span>
+					{/if}
+					{#if linkedParentInactive}
+						<span class="chip link-status-badge">Origen inactivo</span>
+					{/if}
+					{#if showSlotExemption}
+						<span class="chip link-always-active-badge">Siempre activa</span>
+					{/if}
 				{/if}
 			</div>
 		</div>
@@ -259,9 +312,16 @@
 	}
 
 	.custom-badge {
-		background-color: var(--accent-arcanista, #7c3aed);
-		color: white;
-		border: 1px solid white;
+		background-color: var(--custom-card-badge-bg);
+	}
+
+	.link-status-badge,
+	.link-badge {
+		background-color: var(--linked-card-badge-bg);
+	}
+
+	.link-always-active-badge {
+		background-color: var(--card-always-active-badge-bg);
 	}
 
 	.spacer {

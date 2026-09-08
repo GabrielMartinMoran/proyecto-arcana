@@ -1,8 +1,11 @@
 import type { Card } from '$lib/types/cards/card';
 import type { Character } from '$lib/types/character';
+import { getSlotConsumingActiveCards } from '$lib/utils/card-association-utils';
 
 export const serializeCharacterAsMD = (character: Character, cards: Card[]): string => {
 	let md = '';
+
+	const mergedCatalog = [...cards, ...(character.customCards ?? [])];
 
 	md += `# ${character.name}\n\n`;
 
@@ -77,17 +80,20 @@ export const serializeCharacterAsMD = (character: Character, cards: Card[]): str
 	md += '\n';
 
 	md += `## Cartas\n`;
-	md += `**Cartas activas:** ${character.numActiveCards}/${character.maxActiveCards}\n`;
+	md += `**Cartas activas:** ${getSlotConsumingActiveCards(character.cards, mergedCatalog).length}/${character.maxActiveCards}\n`;
 	md += `### Colección\n`;
 	if (character.cards.length > 0) {
-		md += '| Nombre | Tipo | Activa |\n';
-		md += '| - | - | - |\n';
+		md += '| Nombre | Tipo | Activa | Vinculada |\n';
+		md += '| - | - | - | - |\n';
 		for (const playerCard of character.cards) {
 			const card =
 				cards.find((x) => x.id === playerCard.id) ??
 				character.customCards?.find((x) => x.id === playerCard.id);
 			if (!card) continue;
-			md += `| ${card.name} | ${card.cardType === 'item' ? 'Objeto Mágico' : 'Habilidad'} | ${playerCard.isActive ? 'Si' : 'No'} |\n`;
+			const linkedParentName = playerCard.grantedBy
+				? (mergedCatalog.find((x) => x.id === playerCard.grantedBy)?.name ?? playerCard.grantedBy)
+				: null;
+			md += `| ${card.name} | ${card.cardType === 'item' ? 'Objeto Mágico' : 'Habilidad'} | ${playerCard.isActive ? 'Si' : 'No'} | ${linkedParentName ? `Vinculada a: ${linkedParentName}` : '-'} |\n`;
 		}
 	} else {
 		md += '__No hay cartas en la colección.__\n';

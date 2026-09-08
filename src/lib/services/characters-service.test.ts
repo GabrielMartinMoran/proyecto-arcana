@@ -12,7 +12,7 @@
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 import type { Character } from '$lib/types/character';
 
 // ---- Mock Firebase service ----
@@ -67,6 +67,52 @@ const createMockCharacter = (overrides: Partial<TestCharacter> = {}): TestCharac
 	party: { partyId: null, ownerId: null },
 	...overrides,
 });
+
+const buildLinkedCharacter = (id: string): string =>
+	JSON.stringify([
+		{
+			id,
+			name: 'Linka',
+			attributes: { body: 2, reflexes: 2, mind: 2, instinct: 2, presence: 2 },
+			cards: [
+				{
+					id: 'parent-card',
+					uses: 1,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: 'child-card',
+					uses: 3,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+					grantedBy: 'parent-card',
+					doesNotConsumeActiveSlot: true,
+				},
+			],
+			ppHistory: [],
+			goldHistory: [],
+			equipment: [],
+			modifiers: [],
+			currentHP: 10,
+			tempHP: 0,
+			currentLuck: 5,
+			img: null,
+			narrativeContext: { appearance: '', background: '', beliefs: '' },
+			notes: [],
+			languages: '',
+			quickInfo: '',
+			attacks: [],
+			maxActiveCards: 1,
+			version: 1,
+			party: { partyId: null, ownerId: null },
+			skills: [],
+		},
+	]);
 
 // ---- Module under test ----
 // We import the raw module functions we need to test by re-implementing
@@ -493,6 +539,175 @@ describe('characters-service', () => {
 		it('should use correct storage keys', () => {
 			expect('arcana:characters').toBeDefined();
 			expect('arcana:pendingCharacterDeletes').toBeDefined();
+		});
+	});
+
+	// ===== grantedBy association persistence =====
+
+	describe('grantedBy association persistence', () => {
+		it('@cards @association @persistence — keeps grantedBy when characters reload from the local store', async () => {
+			vi.resetModules();
+			mockFirebase.isEnabled.mockReturnValue(false);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: null) => void) => {
+				cb(null);
+				return () => {};
+			});
+
+			localStorage.setItem('arcana:characters', buildLinkedCharacter('char-linked'));
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const loaded = get(service.characters)[0];
+			const childCard = loaded.cards.find((card) => card.id === 'child-card');
+			expect(childCard?.grantedBy).toBe('parent-card');
+		});
+
+		it('@cards @association @persistence — persists grantedBy to the local store through the characters store', async () => {
+			vi.resetModules();
+			mockFirebase.isEnabled.mockReturnValue(false);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: null) => void) => {
+				cb(null);
+				return () => {};
+			});
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const character = JSON.parse(buildLinkedCharacter('char-linked-2'))[0] as Character;
+			service.characters.set([character]);
+			await Promise.resolve();
+			await Promise.resolve();
+
+			const stored = JSON.parse(localStorage.getItem('arcana:characters')!);
+			expect(stored[0].cards[1].grantedBy).toBe('parent-card');
+		});
+
+		it('@cards @association @persistence — includes grantedBy in the debounced Firestore save payload', async () => {
+			vi.resetModules();
+			vi.useFakeTimers();
+			mockFirebase.isEnabled.mockReturnValue(true);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: { uid: string }) => void) => {
+				cb({ uid: 'user-1' });
+				return () => {};
+			});
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const character = JSON.parse(buildLinkedCharacter('char-linked-3'))[0] as Character;
+			service.characters.set([character]);
+			await vi.advanceTimersByTimeAsync(UPDATE_STORE_DEBOUNCE_MS);
+			await Promise.resolve();
+			await Promise.resolve();
+
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledWith(
+				'user-1',
+				expect.arrayContaining([
+					expect.objectContaining({
+						cards: expect.arrayContaining([expect.objectContaining({ grantedBy: 'parent-card' })]),
+					}),
+				]),
+			);
+		});
+	});
+
+	// ===== doesNotConsumeActiveSlot association persistence =====
+
+	describe('doesNotConsumeActiveSlot persistence', () => {
+		it('@cards @association @persistence — keeps the no-slot choice when characters reload from the local store', async () => {
+			vi.resetModules();
+			mockFirebase.isEnabled.mockReturnValue(false);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: null) => void) => {
+				cb(null);
+				return () => {};
+			});
+
+			localStorage.setItem('arcana:characters', buildLinkedCharacter('char-linked-slot'));
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const loaded = get(service.characters)[0];
+			const childCard = loaded.cards.find((card) => card.id === 'child-card');
+			expect(childCard?.doesNotConsumeActiveSlot).toBe(true);
+		});
+
+		it('@cards @association @persistence — persists the no-slot choice to the local store through the characters store', async () => {
+			vi.resetModules();
+			mockFirebase.isEnabled.mockReturnValue(false);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: null) => void) => {
+				cb(null);
+				return () => {};
+			});
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const character = JSON.parse(buildLinkedCharacter('char-linked-slot-2'))[0] as Character;
+			service.characters.set([character]);
+			await Promise.resolve();
+			await Promise.resolve();
+
+			const stored = JSON.parse(localStorage.getItem('arcana:characters')!);
+			expect(stored[0].cards[1].doesNotConsumeActiveSlot).toBe(true);
+		});
+
+		it('@cards @association @persistence — includes the no-slot choice in the debounced Firestore save payload', async () => {
+			vi.resetModules();
+			vi.useFakeTimers();
+			mockFirebase.isEnabled.mockReturnValue(true);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: { uid: string }) => void) => {
+				cb({ uid: 'user-1' });
+				return () => {};
+			});
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const character = JSON.parse(buildLinkedCharacter('char-linked-slot-3'))[0] as Character;
+			service.characters.set([character]);
+			await vi.advanceTimersByTimeAsync(UPDATE_STORE_DEBOUNCE_MS);
+			await Promise.resolve();
+			await Promise.resolve();
+
+			expect(mockFirebase.saveCharactersForUser).toHaveBeenCalledWith(
+				'user-1',
+				expect.arrayContaining([
+					expect.objectContaining({
+						cards: expect.arrayContaining([
+							expect.objectContaining({ doesNotConsumeActiveSlot: true }),
+						]),
+					}),
+				]),
+			);
+		});
+
+		it('@cards @association @persistence — does not invent the no-slot choice when a reloaded card has no flag', async () => {
+			vi.resetModules();
+			mockFirebase.isEnabled.mockReturnValue(false);
+			mockFirebase.onAuthState.mockImplementation(async (cb: (u: null) => void) => {
+				cb(null);
+				return () => {};
+			});
+
+			const raw = JSON.parse(buildLinkedCharacter('char-linked-absent'));
+			delete raw[0].cards[1].doesNotConsumeActiveSlot;
+			localStorage.setItem('arcana:characters', JSON.stringify(raw));
+
+			const { useCharactersService } = await import('$lib/services/characters-service');
+			const service = useCharactersService();
+			await service.loadCharacters();
+
+			const loaded = get(service.characters)[0];
+			const childCard = loaded.cards.find((card) => card.id === 'child-card');
+			expect(childCard?.doesNotConsumeActiveSlot).toBeUndefined();
 		});
 	});
 });

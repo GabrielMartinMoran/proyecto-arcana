@@ -45,8 +45,8 @@ cards:
     description: >-
       _Tu curiosidad y versatilidad te han convertido en un experto en múltiples disciplinas._<br><br>
       Elige dos habilidades (como Atletismo, Persuasión, etc.) en cuyos atributos relacionados tengas una puntuación de 2 o más.
-      Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br>
-      Puedes elegir esta carta más de una vez seleccionando una habilidad diferente en cada una.
+      Obtienes Ventaja (+1d4) en todas las pruebas relacionadas con esas dos habilidades.<br><br>
+      _Puedes elegir esta carta más de una vez seleccionando una set de habilidad diferente cada vez._
     uses:
       type: null
       qty: 0

@@ -136,8 +136,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-1.yml",
       "kind": "file",
-      "size": 3913,
-      "sha1": "d19ac3cff1dabcf17b50d6d6e7bd0d57a217bbd5"
+      "size": 3925,
+      "sha1": "68ef6bdf6bf2a2fef0631394fb5db5924469a8f3"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-2.yml",
@@ -170,8 +170,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 1033,
-      "sha1": "3e9c40a208219ae3971835b8b88128fb4e9d4b47"
+      "size": 1074,
+      "sha1": "bc31e193dc632ad419ea63ea552c8fd9b8c67385"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml",
@@ -210,8 +210,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 860,
-      "sha1": "1024de327c8f271c588d7eb29dac2b519160fb59"
+      "size": 907,
+      "sha1": "f53bd88e1a3826f04b5b6c29545b9496180f2d10"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-1.yml",
@@ -376,8 +376,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
       "kind": "file",
-      "size": 4318,
-      "sha1": "a3ee3bc0740cc40084b2206c1169d818619214bd"
+      "size": 5109,
+      "sha1": "79725260fcb90a68bce58d7a2f9eae4db7a33f59"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
@@ -388,8 +388,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml",
       "kind": "file",
-      "size": 5842,
-      "sha1": "050f3b841a136b945f2d5a465ef24e7716f1df41"
+      "size": 5840,
+      "sha1": "401b1f8444ffb74d66b5d5234def25a1cf48190c"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-4.yml",
@@ -524,8 +524,8 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-1.yml",
       "kind": "file",
-      "size": 3996,
-      "sha1": "d25c109be5069897190edfa8e76ae0c2ec66dd87"
+      "size": 4006,
+      "sha1": "ff27d919f491ec7d7809b607af701f6b2668c9c1"
     },
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
@@ -540,8 +540,8 @@
     {
       "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
       "kind": "file",
-      "size": 18043,
-      "sha1": "277304f0661713e1b593b1effe138487fe777889"
+      "size": 28268,
+      "sha1": "f01e95f0fcc3ca53b0626e2c278c904c2871c619"
     },
     {
       "path": "references/cartas-de-habilidades/sinergia",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 268388,
-      "sha1": "84a85988773e7eb476ca9ec803ed9acae1b46e6b"
+      "size": 278972,
+      "sha1": "71e425b503580a5ff5066d681583822caf6f1d75"
     },
     {
       "path": "references/datasets/magical-items.yml",

@@ -300,4 +300,156 @@ describe('AvailableCardsView', () => {
 			expect(screen.queryByRole('button', { name: /🎲/ })).toBeNull();
 		});
 	});
+
+	describe('card link presentation', () => {
+		it('FEAT-card-associated-free @available @slots — keeps linked slot-free activable cards inside Cartas Activas and excludes them from the counter', () => {
+			const cards: Card[] = [
+				buildActivableCard('disciplina', 'Disciplina Monástica'),
+				buildActivableCard('artes', 'Artes Marciales'),
+				buildActivableCard('fuego', 'Fuego Rápido'),
+			];
+			const characterCards: CharacterCard[] = [
+				buildCharacterCard('disciplina', { isActive: true }),
+				buildCharacterCard('artes', {
+					isActive: true,
+					grantedBy: 'disciplina',
+					doesNotConsumeActiveSlot: true,
+				}),
+				buildCharacterCard('fuego', { isActive: true }),
+			];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			// The linked activable card is excluded from the slot counter but
+			// stays visible inside the Cartas Activas list.
+			expect(screen.getByText('Cartas Activas (2/3)')).toBeInTheDocument();
+			expect(screen.getByText('Artes Marciales')).toBeInTheDocument();
+			expect(screen.getByText('🔗 Disciplina Monástica')).toBeInTheDocument();
+			expect(screen.getByText('Siempre activa')).toBeInTheDocument();
+			// No separate linked section is created.
+			expect(screen.queryByText(/Cartas vinculadas/)).not.toBeInTheDocument();
+		});
+
+		it('FEAT-card-associated-free @available @slots — keeps counting the flagged linked card when its activable parent is inactive', () => {
+			const cards: Card[] = [
+				buildActivableCard('disciplina', 'Disciplina Monástica'),
+				buildActivableCard('artes', 'Artes Marciales'),
+				buildActivableCard('fuego', 'Fuego Rápido'),
+			];
+			const characterCards: CharacterCard[] = [
+				buildCharacterCard('disciplina', { isActive: false }),
+				buildCharacterCard('artes', {
+					isActive: true,
+					grantedBy: 'disciplina',
+					doesNotConsumeActiveSlot: true,
+				}),
+				buildCharacterCard('fuego', { isActive: true }),
+			];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			// The flagged card still consumes the slot while its activable
+			// parent is inactive: the exemption is not effective yet, so the
+			// Siempre activa badge must not appear.
+			expect(screen.getByText('Cartas Activas (2/3)')).toBeInTheDocument();
+			expect(screen.getByText('Origen inactivo')).toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText(/vinculada sin ranura/)).not.toBeInTheDocument();
+		});
+
+		it('FEAT-card-associated-free @effects — keeps linked effect cards in Efectos Activos with the link tag and without the Siempre activa badge or Origen inactivo', () => {
+			const cards: Card[] = [
+				buildEffectCard('sangre', 'Sangre Mágica'),
+				buildEffectCard('herencia', 'Herencia Sobrenatural'),
+			];
+			const characterCards: CharacterCard[] = [
+				buildCharacterCard('sangre', { isActive: true, grantedBy: 'herencia' }),
+				buildCharacterCard('herencia', { isActive: false }),
+			];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			// Both effect cards live in Efectos Activos; the linked child shows
+			// only its origin, never Origen inactivo from an effect parent.
+			expect(screen.getByText('Efectos Activos (2)')).toBeInTheDocument();
+			expect(screen.getByText('Sangre Mágica')).toBeInTheDocument();
+			expect(screen.getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
+			expect(screen.queryByText('Siempre activa')).not.toBeInTheDocument();
+			expect(screen.queryByText('Origen inactivo')).not.toBeInTheDocument();
+		});
+
+		it('FEAT-card-associated-free @available @accessibility — exposes an accessible name with the slot exemption', () => {
+			const cards: Card[] = [
+				buildActivableCard('disciplina', 'Disciplina Monástica'),
+				buildActivableCard('artes', 'Artes Marciales'),
+			];
+			const characterCards: CharacterCard[] = [
+				buildCharacterCard('disciplina', { isActive: true }),
+				buildCharacterCard('artes', {
+					isActive: true,
+					grantedBy: 'disciplina',
+					doesNotConsumeActiveSlot: true,
+				}),
+			];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 2,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			expect(screen.getByLabelText(/No consume una Ranura de Carta Activa/)).toBeInTheDocument();
+		});
+
+		it('FEAT-card-associated-free @available — omits the linked legend when there are no effective linked cards', () => {
+			const cards: Card[] = [buildActivableCard('fuego', 'Fuego Rápido')];
+			const characterCards: CharacterCard[] = [buildCharacterCard('fuego', { isActive: true })];
+
+			render(AvailableCardsView, {
+				props: {
+					cards,
+					characterCards,
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			expect(screen.getByText('Cartas Activas (1/3)')).toBeInTheDocument();
+			expect(screen.queryByText(/vinculada sin ranura/)).not.toBeInTheDocument();
+		});
+	});
 });

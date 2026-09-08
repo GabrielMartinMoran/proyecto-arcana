@@ -14,3 +14,7 @@ export const getCardTotalUses = (card: Card) => {
 			return null;
 	}
 };
+
+export const getCardTypeName = (card: Card) => {
+	return card.cardType === 'ability' ? 'Habilidad' : 'Objeto Mágico';
+};

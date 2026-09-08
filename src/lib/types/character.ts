@@ -202,6 +202,12 @@ export interface CharacterCard {
 	isActive: boolean;
 	cardType: 'ability' | 'item';
 	isOvercharged: boolean; // Whether the card is currently overcharged (manual toggle)
+	// Optional id of the owned parent card that grants/links this card (D1, D10).
+	// Absence preserves the existing behavior; null is the explicit "unlinked" state.
+	grantedBy?: string | null;
+	// Explicit choice that a linked activable card does not consume an active-card
+	// slot. Absence or false means there is no explicit exemption (v3).
+	doesNotConsumeActiveSlot?: boolean;
 }
 
 export interface Log {

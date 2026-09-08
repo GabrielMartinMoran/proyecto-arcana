@@ -58,6 +58,15 @@
 	--exhausted-overlay: #0068c5aa;
 	--overcharge-text: #cc3333;
 
+	/* Custom cards */
+	--custom-card-badge-bg: #cb8ccb;
+
+	/* Linked cards */
+	--linked-card-badge-bg: #f7c69f;
+
+	/* Always active cards */
+	--card-always-active-badge-bg: #c6e38d;
+
 	/* Input small variant */
 	--input-small-width: 5rem;
 	--input-small-height: 1.5rem;

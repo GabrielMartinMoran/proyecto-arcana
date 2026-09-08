@@ -4,6 +4,7 @@
 	import type { Card } from '$lib/types/cards/card';
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { CharacterCard } from '$lib/types/character';
+	import { getSlotConsumingActiveCards } from '$lib/utils/card-association-utils';
 
 	type Props = {
 		cards: Card[];
@@ -36,9 +37,14 @@
 	let effectCards = $derived(
 		cards.filter((c) => c.type === 'efecto' && characterCards.some((cc) => cc.id === c.id)),
 	);
+
+	// Slot accounting derived from the pure helpers: linked activable cards
+	// with an effective exemption stay visible in the list but are excluded
+	// from the slot-consuming counter.
+	let slotConsumingActiveCards = $derived(getSlotConsumingActiveCards(characterCards, cards));
 </script>
 
-<Container title="Cartas Activas ({activeActivableCards.length}/{maxActiveCards})">
+<Container title={`Cartas Activas (${slotConsumingActiveCards.length}/${maxActiveCards})`}>
 	{#if activeActivableCards.length > 0}
 		<CardsList
 			cards={activeActivableCards}
@@ -48,6 +54,7 @@
 			{onChange}
 			{onCardReloadClick}
 			{rollContext}
+			allCards={cards}
 		/>
 	{:else}
 		<p class="empty-message">
@@ -66,6 +73,7 @@
 			onChange={() => {}}
 			onCardReloadClick={() => {}}
 			{rollContext}
+			allCards={cards}
 		/>
 	{:else}
 		<p class="empty-message">No tienes cartas de efecto en tu colección.</p>
@@ -78,5 +86,12 @@
 		font-size: 0.9rem;
 		text-align: center;
 		padding: var(--spacing-md);
+	}
+
+	.slot-exemption-legend {
+		color: var(--text-secondary);
+		font-size: 0.85rem;
+		margin: 0;
+		padding: var(--spacing-xs) 0 var(--spacing-sm);
 	}
 </style>
