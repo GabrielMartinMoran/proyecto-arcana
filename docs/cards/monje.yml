@@ -67,6 +67,21 @@ cards:
     uses:
       type: null
       qty: 0
+
+  - name: Estilo Kensei
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica
+    description: >-
+      _Has aprendido a canalizar tu Ki a través de armas ligeras y precisas, convirtiéndolas en una extensión de tu propio cuerpo._<br><br>
+      Consideras **Armas de Monje** las siguientes armas: Bastón, Daga, Látigo, Espada Corta, Cimitarra, Dardo, Arco Corto y Honda.<br><br>
+      Puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque realizadas con Armas de Monje.<br><br>
+      A efectos de tus cartas de Monje, los ataques cuerpo a cuerpo que realices con Armas de Monje se consideran ataques desarmados.
+    uses:
+      type: null
+      qty: 0
   - name: Desviar Proyectiles
     level: 2
     type: activable
@@ -183,8 +198,8 @@ cards:
       Tu habilidad _Ráfaga de Golpes_ ya no requiere tirada de recarga.<br>
       Además, cuando activas _Ráfaga de Golpes_, realizas dos ataques desarmados adicionales en lugar de uno.
     uses:
-      type: RELOAD
-      qty: 6
+      type: null
+      qty: 0
   - name: Golpe Aturdidor
     level: 3
     type: activable
