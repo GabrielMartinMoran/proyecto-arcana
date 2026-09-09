@@ -54,22 +54,22 @@
 			class:selected={currentPartySheetTab === 'members'}
 			onclick={() => onPartySheetTabChange('members')}
 		>
-			Miembros
+			👥 Miembros
 		</button>
 		<button
 			class:selected={currentPartySheetTab === 'notes'}
 			onclick={() => onPartySheetTabChange('notes')}
 		>
-			Notas
+			📓 Notas
 		</button>
 		<button
 			class:selected={currentPartySheetTab === 'see_as_md'}
 			onclick={() => onPartySheetTabChange('see_as_md')}
 		>
-			Ver como MD
+			🤖 Ver como MD
 		</button>
 		<span class="spacer"></span>
-		<button onclick={copyPartyId}> Copiar ID de invitación </button>
+		<button onclick={copyPartyId}>🪪 Copiar ID de invitación </button>
 	</div>
 
 	{#if currentPartySheetTab === 'members'}

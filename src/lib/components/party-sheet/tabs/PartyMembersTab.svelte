@@ -141,7 +141,18 @@
 					class:selected={selectedCharacterId === character.id}
 					onclick={() => selectCharacter(character.id)}
 				>
-					{character.name}
+					<div class="character-btn-name">
+						{#if character.img === null || character.img!.trim() === ''}
+							<div class="portrait">
+								<span class="portrait-char">{(character.name || '?').charAt(0).toUpperCase()}</span>
+							</div>
+						{:else}
+							<div class="portrait">
+								<img class="portrait-img" src={character.img} alt={character.name} />
+							</div>
+						{/if}
+						<span>{character.name}</span>
+					</div>
 				</button>
 			{/each}
 		</div>
@@ -192,6 +203,42 @@
 		flex-wrap: wrap;
 		gap: var(--spacing-sm);
 		margin-bottom: var(--spacing-sm);
+	}
+
+	.character-btn-name {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: var(--spacing-xs);
+
+		.portrait {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			border: 1px solid var(--border-color);
+			width: 25px;
+			height: 25px;
+			padding: 0px;
+			margin: 0px;
+			background: var(--background-color);
+			background-color: #d9d9d9;
+			overflow: hidden;
+
+			.portrait-char {
+				padding-left: 2rem;
+				padding-right: 2rem;
+				margin: 0;
+				font-size: 1rem;
+			}
+
+			.portrait-img {
+				width: 100%;
+				height: 100%;
+				object-fit: fill;
+			}
+		}
 	}
 
 	.actions {
