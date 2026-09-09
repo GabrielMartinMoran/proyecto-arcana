@@ -135,7 +135,7 @@
 		<!-- Horizontal character tabs above the character sheet.
 				 Use the same .tabs / .tab classes as the character sheet so styles match. -->
 		<div class="tabs">
-			{#each party.characters as character (character.id)}
+			{#each party.characters.toSorted( (a, b) => a.name.localeCompare(b.name) ) as character (character.id)}
 				<button
 					class="tab"
 					class:selected={selectedCharacterId === character.id}
