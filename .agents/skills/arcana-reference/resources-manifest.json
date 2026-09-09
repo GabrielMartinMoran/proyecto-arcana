@@ -540,8 +540,8 @@
     {
       "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
       "kind": "file",
-      "size": 28268,
-      "sha1": "f01e95f0fcc3ca53b0626e2c278c904c2871c619"
+      "size": 31570,
+      "sha1": "6ed102024506c2c45716fcc71c14eb103dcaf637"
     },
     {
       "path": "references/cartas-de-habilidades/sinergia",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 278972,
-      "sha1": "71e425b503580a5ff5066d681583822caf6f1d75"
+      "size": 282098,
+      "sha1": "940ab1c784e6aa03185abaaa1afc21b2905318e7"
     },
     {
       "path": "references/datasets/magical-items.yml",

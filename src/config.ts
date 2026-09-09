@@ -138,6 +138,7 @@ export const CONFIG = {
 			'Genasi',
 			'Tritón',
 			'Gith',
+			'Tortle',
 		],
 		Mecánicas: ['Reacción', 'Conjuro', 'Ritual', 'Concentración', 'Curación'],
 		Otros: ['Dote', 'Sinergia'],

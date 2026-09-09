@@ -283,6 +283,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Anatomía Migratoria",
+      "id": "65022a00dcffdfc149b84b9977609c3e98cf5472",
+      "slug": "anatomia-migratoria",
+      "aliases": [
+        "anatomia migratoria"
+      ],
+      "tags": [
+        "Linaje",
+        "Tortle"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Tu organismo está adaptado a recorrer enormes distancias y sobrevivir durante largos períodos lejos de cualquier asentamiento._<br><br> Obtienes los siguientes beneficios:<br> - **Aliento Prolongado:** Puedes contener la respiración durante 1 hora.<br> - **Metabolismo Eficiente:** Necesitas consumir solamente la mitad de la comida y el agua que requeriría normalmente una criatura de tu tamaño.<br> - **Orientación Migratoria:** Siempre conoces intuitivamente los puntos cardinales y recuerdas con precisión general el camino que has recorrido, por lo que puedes desandar una ruta recorrida sin perderte por medios naturales. Esto no te permite conocer rutas desconocidas, encontrar automáticamente el camino más seguro ni detectar peligros.<br> - **Resistencia del Viajero:** Una vez por día de descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de Salvación de Cuerpo provocada por una marcha prolongada, hambre, sed, cansancio o una condición ambiental natural, puedes considerar que la tirada fue exitosa en su lugar, a menos que el fallo haya sido una pifia.",
+      "hash": "b32b8f74b2510ee2500aaf6087503f2e9bd4e4bb"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Anclaje Arcano",
       "id": "a240436b8820b6ccba5ffec0f0f9c8702e8975ff",
       "slug": "anclaje-arcano",
@@ -1220,6 +1243,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Caparazón Natural",
+      "id": "c3c6e00078caa801af5c23d55c8f716a73ad56f3",
+      "slug": "caparazon-natural",
+      "aliases": [
+        "caparazon natural"
+      ],
+      "tags": [
+        "Linaje",
+        "Tortle"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Tu caparazón desvía impactos que destrozarían el cuerpo de otras criaturas._<br><br> La primera vez en cada ronda que un ataque que te impacte sea un golpe crítico, recibes daño normal de ese ataque. El ataque sigue considerándose un golpe crítico a efectos de cualquier otro efecto.",
+      "hash": "0db737003c9d1a097746fc05833b1d6dba207098"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Castigo Elemental",
       "id": "f4fc0cd08c0b3f2d91a3192cebfc6a9edfd0eaa9",
       "slug": "castigo-elemental",
@@ -1870,6 +1916,29 @@
       },
       "search": "_Cada corte de tu arma debilita la mente y el cuerpo del enemigo, dejandolo vulnerabla a tus sortilegios._<br><br> Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br> Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.",
       "hash": "abbdfdf3cb26d9b49aa407ff3f7b7ab356f4d475"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Defensa de Caparazón",
+      "id": "670f9fb0c252a43a4d854e21e97d0b9200b370b8",
+      "slug": "defensa-de-caparazon",
+      "aliases": [
+        "defensa de caparazon"
+      ],
+      "tags": [
+        "Linaje",
+        "Tortle"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Solo Creación de Personaje"
+      },
+      "search": "_Puedes desaparecer por completo dentro de tu caparazón, convirtiéndolo tanto en una fortaleza como en tu refugio natural._<br><br> Como Acción, retraes tu cabeza y extremidades dentro de tu caparazón. Permaneces retraído hasta que uses una Interacción para emerger.<br><br> Mientras estás retraído:<br> - Obtienes Resistencia al daño Físico y Elemental.<br> - Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.<br> - Sufres Desventaja (-1d4) en Tiradas de Salvación de Reflejos.<br> - Tu Velocidad es 0.<br> - No puedes realizar Acciones, Interacciones ni Reacciones, excepto usar una Interacción para emerger.<br><br> Además, mientras descansas retraído dentro de tu caparazón, no necesitas refugio frente a condiciones ambientales ordinarias, como lluvia, viento o humedad. Si completas un día de descanso de esta manera, recuperas una cantidad adicional de Salud igual a tu puntuación de Cuerpo.",
+      "hash": "a4544ee9b9a95e94f76b41eebf69f7848b09d79c"
     },
     {
       "kind": "card",
