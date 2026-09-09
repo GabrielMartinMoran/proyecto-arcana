@@ -128,6 +128,15 @@
 
 <div class="character-sheet">
 	<div class="title">
+		{#if character.img === null || character.img!.trim() === ''}
+			<div class="portrait">
+				<span class="portrait-char">{(character.name || '?').charAt(0).toUpperCase()}</span>
+			</div>
+		{:else}
+			<div class="portrait">
+				<img class="portrait-img" src={character.img} alt={character.name} />
+			</div>
+		{/if}
 		<TitleField
 			value={character.name}
 			{readonly}
@@ -168,6 +177,41 @@
 		flex-direction: column;
 		gap: var(--spacing-md);
 		width: 100%;
+
+		.title {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			gap: var(--spacing-sm);
+
+			.portrait {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				border: 1px solid var(--border-color);
+				width: 50px;
+				height: 46px;
+				padding: 0px;
+				margin: 0px;
+				background: var(--background-color);
+				background-color: #d9d9d9;
+				overflow: hidden;
+
+				.portrait-char {
+					padding-left: 2rem;
+					padding-right: 2rem;
+					margin: 0;
+					font-size: 1.5rem;
+				}
+
+				.portrait-img {
+					width: 100%;
+					height: 100%;
+					object-fit: fill;
+				}
+			}
+		}
 
 		.tabs {
 			display: flex;
