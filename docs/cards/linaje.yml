@@ -505,3 +505,56 @@ cards:
     uses:
       type: null
       qty: 0
+
+  - name: Caparazón Natural
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Tortle
+    requirements: Solo Creación de Personaje
+    description: >-
+      _Tu caparazón desvía impactos que destrozarían el cuerpo de otras criaturas._<br><br>
+      La primera vez en cada ronda que un ataque que te impacte sea un golpe crítico, recibes daño normal de ese ataque. El ataque sigue considerándose un golpe crítico a efectos de cualquier otro efecto.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Defensa de Caparazón
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Tortle
+    requirements: Solo Creación de Personaje
+    description: >-
+      _Puedes desaparecer por completo dentro de tu caparazón, convirtiéndolo tanto en una fortaleza como en tu refugio natural._<br><br>
+      Como Acción, retraes tu cabeza y extremidades dentro de tu caparazón. Permaneces retraído hasta que uses una Interacción para emerger.<br><br>
+      Mientras estás retraído:<br>
+      - Obtienes Resistencia al daño Físico y Elemental.<br>
+      - Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.<br>
+      - Sufres Desventaja (-1d4) en Tiradas de Salvación de Reflejos.<br>
+      - Tu Velocidad es 0.<br>
+      - No puedes realizar Acciones, Interacciones ni Reacciones, excepto usar una Interacción para emerger.<br><br>
+      Además, mientras descansas retraído dentro de tu caparazón, no necesitas refugio frente a condiciones ambientales ordinarias, como lluvia, viento o humedad. Si completas un día de descanso de esta manera, recuperas una cantidad adicional de Salud igual a tu puntuación de Cuerpo.
+    uses:
+      type: null
+      qty: 0
+
+  - name: Anatomía Migratoria
+    level: 1
+    type: efecto
+    tags:
+      - Linaje
+      - Tortle
+    requirements: Solo Creación de Personaje
+    description: >-
+      _Tu organismo está adaptado a recorrer enormes distancias y sobrevivir durante largos períodos lejos de cualquier asentamiento._<br><br>
+      Obtienes los siguientes beneficios:<br>
+      - **Aliento Prolongado:** Puedes contener la respiración durante 1 hora.<br>
+      - **Metabolismo Eficiente:** Necesitas consumir solamente la mitad de la comida y el agua que requeriría normalmente una criatura de tu tamaño.<br>
+      - **Orientación Migratoria:** Siempre conoces intuitivamente los puntos cardinales y recuerdas con precisión general el camino que has recorrido, por lo que puedes desandar una ruta recorrida sin perderte por medios naturales. Esto no te permite conocer rutas desconocidas, encontrar automáticamente el camino más seguro ni detectar peligros.<br>
+      - **Resistencia del Viajero:** Una vez por día de descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de Salvación de Cuerpo provocada por una marcha prolongada, hambre, sed, cansancio o una condición ambiental natural, puedes considerar que la tirada fue exitosa en su lugar, a menos que el fallo haya sido una pifia.
+    uses:
+      type: null
+      qty: 0
