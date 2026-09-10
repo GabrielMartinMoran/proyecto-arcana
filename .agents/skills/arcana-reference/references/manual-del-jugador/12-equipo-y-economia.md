@@ -1,4 +1,4 @@
-# 11. Equipo y Economía
+# 12. Equipo y Economía
 
 ## Moneda y Riqueza
 
@@ -57,15 +57,31 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 
 > **Nota sobre armaduras no listadas:** La tabla representa familias funcionales de armaduras, no un catálogo exhaustivo. Si una armadura no aparece de forma explícita, puede utilizar las estadísticas de aquella que mejor represente su grado de protección, movilidad y ruido. Por ejemplo, una armadura de escamas puede tratarse como una Brigantina, mientras que una coraza puede utilizar las estadísticas de Placas parcial. El DJ tiene la última palabra sobre qué entrada resulta más apropiada.
 
-| Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
-| :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
-| Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
-| Gambesón        | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
-| Cota de mallas  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
-| Brigantina      | 3                 | -1      | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
-| Placas parcial  | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
-| Placas completa | 5                 | -3      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
-| Escudo          | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
+| Armadura        | Tipo   | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
+| :-------------- | :----- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
+| Cuero           | Ligera | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
+| Gambesón        | Ligera | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
+| Cota de mallas  | Media  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
+| Brigantina      | Media  | 3                 | -1      | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
+| Placas parcial  | Pesada | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
+| Placas completa | Pesada | 5                 | -3      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
+| Escudo          | —      | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
+
+### Dormir con Armadura
+
+Dormir con una armadura **Ligera** no interfiere de forma significativa con el descanso.
+
+Si completas tu Sueño Suficiente llevando una armadura **Media** o **Pesada**, debes realizar una Prueba de **Cuerpo (Aguante)** al despertar:
+
+| Tipo de Armadura | ND         |
+| :--------------- | :--------- |
+| Ligera o ninguna | Sin prueba |
+| Media            | 8          |
+| Pesada           | 10         |
+
+Si fallas, sufres **1 grado de Fatiga**.
+
+El sueño sigue contando como **Sueño Suficiente** aunque falles esta prueba. La Fatiga representa la recuperación deficiente provocada por haber descansado bajo el peso y las restricciones de la armadura.
 
 ## Equipo de Aventura y Servicios
 

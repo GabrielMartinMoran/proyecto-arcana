@@ -118,9 +118,9 @@ cards:
     description: >-
       _Fuerzas tu capacidad mágica al límite para superar las defensas enemigas._<br><br> Cuando lanzas una carta de
       Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar el
-      Nivel de Dificultad (ND) de esa tirada en +2.<br> Al hacerlo, te sientes agotado hasta el final de tu próximo
-      turno: sufres Desventaja en tus Tiradas de Ataque y Pruebas de Habilidad (incluyendo Concentración), y el ND de
-      cualquier carta que uses se reduce en -2.
+      Nivel de Dificultad (ND) de esa tirada en +2. Al hacerlo, sufres una sobrecarga mágica hasta el final de tu
+      próximo turno: tienes Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad, incluyendo las realizadas
+      para mantener la Concentración, y el ND de cualquier carta que uses se reduce en -2.
     slug: conjuracion-elevada
   - id: 3fd596350326c0671b326dba70fcf7c474b50074
     name: Maestría con Escudo
@@ -166,8 +166,8 @@ cards:
     description: >-
       _Tu cuerpo es un templo de resistencia física._<br><br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de
       Cuerpo.<br> Además, puedes aguantar la respiración durante una cantidad de minutos igual al doble de tu puntuación
-      de Cuerpo. Adicionalmente, puedes dormir con armaduras medias o pesadas sin sufrir penalizadores por fatiga o
-      incomodidad al día siguiente.
+      de Cuerpo.<br> Adicionalmente, puedes completar tu Sueño Suficiente llevando una armadura Media o Pesada sin tener
+      que realizar la Prueba de Cuerpo (Aguante) normalmente requerida por dormir con ella.
     slug: constitucion-de-hierro
   - id: 97b96b7435ed756d4c9b5d837974d405199629d1
     name: Destreza Suprema

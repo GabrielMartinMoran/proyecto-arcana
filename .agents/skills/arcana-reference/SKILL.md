@@ -124,23 +124,24 @@ ni el score.
 - [6. Interacción Social](references/manual-del-jugador/06-interaccion-social.md)
 - [7. Combate](references/manual-del-jugador/07-combate.md)
 - [8. Estados y Condiciones](references/manual-del-jugador/08-estados-y-condiciones.md)
-- [9. Progresión del Personaje](references/manual-del-jugador/09-progresion-del-personaje.md)
-- [10. Tiempo Entre Aventuras](references/manual-del-jugador/10-tiempo-entre-aventuras.md)
-- [11. Equipo y Economía](references/manual-del-jugador/11-equipo-y-economia.md)
-- [12. Reglas Narrativas Avanzadas](references/manual-del-jugador/12-reglas-narrativas-avanzadas.md)
-- [13. Un Ejemplo de Juego](references/manual-del-jugador/13-un-ejemplo-de-juego.md)
+- [9. Descanso y Recuperación](references/manual-del-jugador/09-descanso-y-recuperacion.md)
+- [10. Progresión del Personaje](references/manual-del-jugador/10-progresion-del-personaje.md)
+- [11. Tiempo Entre Aventuras](references/manual-del-jugador/11-tiempo-entre-aventuras.md)
+- [12. Equipo y Economía](references/manual-del-jugador/12-equipo-y-economia.md)
+- [13. Reglas Narrativas Avanzadas](references/manual-del-jugador/13-reglas-narrativas-avanzadas.md)
+- [14. Un Ejemplo de Juego](references/manual-del-jugador/14-un-ejemplo-de-juego.md)
 
 ## Manual del Director
 
 - [Guía para el Director de Juego](references/manual-del-director/01-guia-para-el-director-de-juego.md)
-- [Otorgar Puntos de Progreso (PP)](references/manual-del-director/02-otorgar-puntos-de-progreso-pp.md)
-- [El Pacto de Caos](references/manual-del-director/03-el-pacto-de-caos.md)
-- [Guía de Recompensas: Tesoro y Equipo](references/manual-del-director/04-guia-de-recompensas-tesoro-y-equipo.md)
-- [Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad](references/manual-del-director/05-establecer-niveles-de-dificultad-nd-para-pruebas-de-habilidad.md)
-- [Diseñar Criaturas y Encuentros](references/manual-del-director/06-disenar-criaturas-y-encuentros.md)
-- [Parte 1: Diseñar Encuentros](references/manual-del-director/07-parte-1-disenar-encuentros.md)
-- [Parte 2: Diseño Avanzado de Criaturas](references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md)
-- [Guía de Diseño de Conjuros y Habilidades](references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md)
+- [1. Otorgar Puntos de Progreso (PP)](references/manual-del-director/02-1-otorgar-puntos-de-progreso-pp.md)
+- [2. El Pacto de Caos](references/manual-del-director/03-2-el-pacto-de-caos.md)
+- [3. Recompensas: Tesoro y Equipo](references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md)
+- [4. Establecer Niveles de Dificultad (ND)](references/manual-del-director/05-4-establecer-niveles-de-dificultad-nd.md)
+- [5. Dirigir Viajes y Supervivencia](references/manual-del-director/06-5-dirigir-viajes-y-supervivencia.md)
+- [6. Diseñar Encuentros](references/manual-del-director/07-6-disenar-encuentros.md)
+- [7. Diseño Avanzado de Criaturas](references/manual-del-director/08-7-diseno-avanzado-de-criaturas.md)
+- [8. Diseño de Conjuros y Habilidades](references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md)
 
 ## Cartas de Habilidades
 

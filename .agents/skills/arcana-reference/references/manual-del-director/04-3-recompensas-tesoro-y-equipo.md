@@ -1,4 +1,4 @@
-# Guía de Recompensas: Tesoro y Equipo
+# 3. Recompensas: Tesoro y Equipo
 
 Además de los Puntos de Progreso, las recompensas materiales son un motor clave de la aventura. Un tesoro bien administrado no solo permite a los personajes comprar mejor equipo, sino que también puede ser un objetivo narrativo en sí mismo. La filosofía de ARCANA es que los objetos mágicos son hallazgos extraordinarios y raros, trofeos de grandes hazañas, no artículos en el catálogo de una tienda.
 

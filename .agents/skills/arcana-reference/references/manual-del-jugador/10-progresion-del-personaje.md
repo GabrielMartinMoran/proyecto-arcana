@@ -1,4 +1,4 @@
-# 9. Progresión del Personaje
+# 10. Progresión del Personaje
 
 A lo largo de sus aventuras, los personajes acumulan experiencia y aprenden de sus triunfos y fracasos. Esta evolución se representa mediante los **Puntos de Progreso (PP)**, que pueden invertir para desbloquear nuevas capacidades, ampliar su repertorio de habilidades o mejorar sus aptitudes innatas.
 

@@ -1,4 +1,4 @@
-# 12. Reglas Narrativas Avanzadas
+# 13. Reglas Narrativas Avanzadas
 
 Este capítulo presenta mecánicas opcionales diseñadas para dar a los jugadores un mayor grado de control sobre la narrativa, permitiéndoles contribuir a la historia de maneras creativas y sorprendentes.
 

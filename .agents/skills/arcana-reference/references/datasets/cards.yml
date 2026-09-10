@@ -73,11 +73,13 @@ cards:
     description: >-
       _Tu linaje te conecta con un estado de conciencia profunda capaz de
       restaurar tu cuerpo y tus energías._<br><br> No necesitas dormir. Puedes
-      entrar en un estado de meditación durante 4 horas para obtener los
-      beneficios de un día de descanso. Además, la magia y los venenos no pueden
-      dormirte.<br> Además, al finalizar tu trance, elige una habilidad en la
-      que no tengas Ventaja. Adquieres Ventaja (+1d4) en pruebas relacionadas
-      esa habilidad.
+      meditar durante 3 horas para satisfacer tu necesidad de Sueño Suficiente.
+      Además, necesitas solamente 12 horas de reposo para completar un Día de
+      Descanso, en lugar de las 24 horas habituales; este período debe incluir
+      al menos 3 horas de trance.<br> La magia y los venenos no pueden hacerte
+      dormir.<br> Al completar un Día de Descanso, elige una habilidad en la que
+      no tengas Ventaja. Obtienes Ventaja (+1d4) en las pruebas relacionadas con
+      esa habilidad hasta que completes tu próximo Día de Descanso.
     uses:
       type: null
       qty: 0
@@ -685,11 +687,12 @@ cards:
       precisión general el camino que has recorrido, por lo que puedes desandar
       una ruta recorrida sin perderte por medios naturales. Esto no te permite
       conocer rutas desconocidas, encontrar automáticamente el camino más seguro
-      ni detectar peligros.<br> - **Resistencia del Viajero:** Una vez por día
-      de descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de
-      Salvación de Cuerpo provocada por una marcha prolongada, hambre, sed,
-      cansancio o una condición ambiental natural, puedes considerar que la
-      tirada fue exitosa en su lugar, a menos que el fallo haya sido una pifia.
+      ni detectar peligros.<br> - **Resistencia del Viajero:** Una vez por Día
+      de Descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de
+      Salvación de Cuerpo provocada por una Marcha Forzada, hambre, sed,
+      privación de sueño o una condición ambiental natural, puedes considerar
+      que la tirada fue exitosa en su lugar, a menos que el fallo haya sido una
+      pifia.
     uses:
       type: null
       qty: 0
@@ -910,10 +913,11 @@ cards:
       _Fuerzas tu capacidad mágica al límite para superar las defensas
       enemigas._<br><br> Cuando lanzas una carta de Conjuro que obliga a un
       enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción
-      para aumentar el Nivel de Dificultad (ND) de esa tirada en +2.<br> Al
-      hacerlo, te sientes agotado hasta el final de tu próximo turno: sufres
-      Desventaja en tus Tiradas de Ataque y Pruebas de Habilidad (incluyendo
-      Concentración), y el ND de cualquier carta que uses se reduce en -2.
+      para aumentar el Nivel de Dificultad (ND) de esa tirada en +2. Al hacerlo,
+      sufres una sobrecarga mágica hasta el final de tu próximo turno: tienes
+      Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad,
+      incluyendo las realizadas para mantener la Concentración, y el ND de
+      cualquier carta que uses se reduce en -2.
     uses:
       type: RELOAD
       qty: 5
@@ -958,9 +962,9 @@ cards:
       _Tu cuerpo es un templo de resistencia física._<br><br> Obtienes Ventaja
       (+1d4) en Tiradas de Salvación de Cuerpo.<br> Además, puedes aguantar la
       respiración durante una cantidad de minutos igual al doble de tu
-      puntuación de Cuerpo. Adicionalmente, puedes dormir con armaduras medias o
-      pesadas sin sufrir penalizadores por fatiga o incomodidad al día
-      siguiente.
+      puntuación de Cuerpo.<br> Adicionalmente, puedes completar tu Sueño
+      Suficiente llevando una armadura Media o Pesada sin tener que realizar la
+      Prueba de Cuerpo (Aguante) normalmente requerida por dormir con ella.
     uses:
       type: null
       qty: 0
@@ -1696,10 +1700,11 @@ cards:
     description: >-
       _Tu resistencia es legendaria; marcas un ritmo que permite a tu grupo
       cruzar leguas sin que el cansancio haga mella._<br><br> Obtienes Ventaja
-      (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas
-      marchas.<br> Además, cuando lideras al grupo en un viaje por tierra, el
-      tiempo de viaje se reduce en un 25% gracias a tu capacidad para marcar el
-      ritmo y elegir las mejores rutas.
+      (+1d4) en Pruebas de Cuerpo (Aguante) para resistir la Fatiga provocada
+      por una Marcha Forzada.<br> Además, cuando lideras al grupo en un viaje
+      por tierra, el tiempo necesario para recorrer una ruta se reduce en un 25%
+      gracias a tu capacidad para marcar el ritmo y elegir los caminos más
+      eficientes.
     uses:
       type: null
       qty: 0

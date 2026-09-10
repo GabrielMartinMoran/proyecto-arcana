@@ -38,24 +38,28 @@
           "path": "references/manual-del-jugador/08-estados-y-condiciones.md"
         },
         {
-          "title": "9. Progresión del Personaje",
-          "path": "references/manual-del-jugador/09-progresion-del-personaje.md"
+          "title": "9. Descanso y Recuperación",
+          "path": "references/manual-del-jugador/09-descanso-y-recuperacion.md"
         },
         {
-          "title": "10. Tiempo Entre Aventuras",
-          "path": "references/manual-del-jugador/10-tiempo-entre-aventuras.md"
+          "title": "10. Progresión del Personaje",
+          "path": "references/manual-del-jugador/10-progresion-del-personaje.md"
         },
         {
-          "title": "11. Equipo y Economía",
-          "path": "references/manual-del-jugador/11-equipo-y-economia.md"
+          "title": "11. Tiempo Entre Aventuras",
+          "path": "references/manual-del-jugador/11-tiempo-entre-aventuras.md"
         },
         {
-          "title": "12. Reglas Narrativas Avanzadas",
-          "path": "references/manual-del-jugador/12-reglas-narrativas-avanzadas.md"
+          "title": "12. Equipo y Economía",
+          "path": "references/manual-del-jugador/12-equipo-y-economia.md"
         },
         {
-          "title": "13. Un Ejemplo de Juego",
-          "path": "references/manual-del-jugador/13-un-ejemplo-de-juego.md"
+          "title": "13. Reglas Narrativas Avanzadas",
+          "path": "references/manual-del-jugador/13-reglas-narrativas-avanzadas.md"
+        },
+        {
+          "title": "14. Un Ejemplo de Juego",
+          "path": "references/manual-del-jugador/14-un-ejemplo-de-juego.md"
         }
       ]
     },
@@ -67,36 +71,36 @@
           "path": "references/manual-del-director/01-guia-para-el-director-de-juego.md"
         },
         {
-          "title": "Otorgar Puntos de Progreso (PP)",
-          "path": "references/manual-del-director/02-otorgar-puntos-de-progreso-pp.md"
+          "title": "1. Otorgar Puntos de Progreso (PP)",
+          "path": "references/manual-del-director/02-1-otorgar-puntos-de-progreso-pp.md"
         },
         {
-          "title": "El Pacto de Caos",
-          "path": "references/manual-del-director/03-el-pacto-de-caos.md"
+          "title": "2. El Pacto de Caos",
+          "path": "references/manual-del-director/03-2-el-pacto-de-caos.md"
         },
         {
-          "title": "Guía de Recompensas: Tesoro y Equipo",
-          "path": "references/manual-del-director/04-guia-de-recompensas-tesoro-y-equipo.md"
+          "title": "3. Recompensas: Tesoro y Equipo",
+          "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md"
         },
         {
-          "title": "Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad",
-          "path": "references/manual-del-director/05-establecer-niveles-de-dificultad-nd-para-pruebas-de-habilidad.md"
+          "title": "4. Establecer Niveles de Dificultad (ND)",
+          "path": "references/manual-del-director/05-4-establecer-niveles-de-dificultad-nd.md"
         },
         {
-          "title": "Diseñar Criaturas y Encuentros",
-          "path": "references/manual-del-director/06-disenar-criaturas-y-encuentros.md"
+          "title": "5. Dirigir Viajes y Supervivencia",
+          "path": "references/manual-del-director/06-5-dirigir-viajes-y-supervivencia.md"
         },
         {
-          "title": "Parte 1: Diseñar Encuentros",
-          "path": "references/manual-del-director/07-parte-1-disenar-encuentros.md"
+          "title": "6. Diseñar Encuentros",
+          "path": "references/manual-del-director/07-6-disenar-encuentros.md"
         },
         {
-          "title": "Parte 2: Diseño Avanzado de Criaturas",
-          "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md"
+          "title": "7. Diseño Avanzado de Criaturas",
+          "path": "references/manual-del-director/08-7-diseno-avanzado-de-criaturas.md"
         },
         {
-          "title": "Guía de Diseño de Conjuros y Habilidades",
-          "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md"
+          "title": "8. Diseño de Conjuros y Habilidades",
+          "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md"
         }
       ]
     },

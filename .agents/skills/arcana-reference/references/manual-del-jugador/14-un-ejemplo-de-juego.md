@@ -1,4 +1,4 @@
-# 13. Un Ejemplo de Juego
+# 14. Un Ejemplo de Juego
 
 Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presentamos una escena de ejemplo para ilustrar cómo fluye una partida de ARCANA, combinando la narración del Director de Juego (DJ) con las acciones y decisiones de los jugadores.
 
@@ -70,3 +70,7 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 **Kaelen:** "Tiro 1d8 más mi Cuerpo (3). Saco un 5, ¡total 8! El esqueleto tira 1d8 más su Cuerpo (2)... y saca un 2, ¡total 4! Le gano."
 
 > **DJ:** _Con un empujón brutal, lanzas al esqueleto para atrás. Cae aparatosamente en el pozo y escuchás cómo sus huesos se rompen contra los escombros. Ya no es una amenaza. El combate sigue..._
+
+```
+
+```

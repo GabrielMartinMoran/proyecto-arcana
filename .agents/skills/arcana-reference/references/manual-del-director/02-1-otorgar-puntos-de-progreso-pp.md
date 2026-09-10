@@ -1,4 +1,4 @@
-# Otorgar Puntos de Progreso (PP)
+# 1. Otorgar Puntos de Progreso (PP)
 
 Los Puntos de Progreso son el motor de la evolución de los personajes. Otorgarlos de manera consistente y justa es clave para mantener a los jugadores motivados. Aquí tienes una guía sobre cuándo, cómo y cuántos PP repartir.
 

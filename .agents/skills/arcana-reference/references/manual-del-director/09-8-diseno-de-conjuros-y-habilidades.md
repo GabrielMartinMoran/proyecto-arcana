@@ -1,10 +1,10 @@
-# Guía de Diseño de Conjuros y Habilidades
+# 8. Diseño de Conjuros y Habilidades
 
 ## El Triángulo del Balance
 
 El diseño de un conjuro en ARCANA equilibra **Poder** (daño), **Utilidad** (efectos) y **Fiabilidad** (recarga). Un conjuro no puede tenerlo todo al máximo.
 
-### Paso 1: Establecer el Daño Base por Nivel
+## Paso 1: Establecer el Daño Base por Nivel
 
 Esta tabla muestra el daño para una **Acción** con **Recarga Estándar (4+/5+)**.
 
@@ -18,17 +18,17 @@ Esta tabla muestra el daño para una **Acción** con **Recarga Estándar (4+/5+)
 
 ---
 
-### Paso 2: Añadir Utilidad y Ajustar el Coste
+## Paso 2: Añadir Utilidad y Ajustar el Coste
 
 Añadir efectos tiene un precio en daño o dificultad.
 
-#### **A. Efectos Leves (Coste: 0)**
+### A. Efectos Leves (Coste: 0)
 
 Beneficios narrativos o menores. **No reducen el daño.**
 
 - _Ejemplos:_ Empujar 1m, cambiar elemento, luces/sonidos.
 
-#### **B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)**
+### B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)
 
 Efectos tácticos breves.
 
@@ -36,20 +36,20 @@ Efectos tácticos breves.
   - _Nota:_ Un conjuro de Área (Base d6) con control pasa a hacer daño **d4**.
 - _Ejemplos:_ Terreno difícil, Ceguera (1 turno), Desventaja (1 ataque).
 
-#### **C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)**
+### C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)
 
 Control duro o daño que se repite cada turno (Zonas). Requieren **Concentración**.
 
 - **Ajuste:** Usa el daño base del **Nivel Inferior** (ej: Un Nivel 3 hace daño de Nivel 2).
 - _Ejemplos:_ Inmovilizar, Aturdir, Muros de daño, Invisibilidad.
 
-#### **D. Versatilidad (Coste: +1 Recarga)**
+### D. Versatilidad (Coste: +1 Recarga)
 
 Elegir modo/elemento al lanzar. Aumenta la Recarga base en +1.
 
 ---
 
-### Paso 3: Ajustar la Fiabilidad (Recarga)
+## Paso 3: Ajustar la Fiabilidad (Recarga)
 
 - **Baja (3+):** Daño moderado/Spam. (75% éxito).
 - **Estándar (4+/5+):** Balance habitual Nivel 1-3. (50-62%).
@@ -63,7 +63,7 @@ Elegir modo/elemento al lanzar. Aumenta la Recarga base en +1.
 
 ---
 
-### Poniéndolo Todo Junto: Un Ejemplo de Diseño
+## Poniéndolo Todo Junto: Un Ejemplo de Diseño
 
 Este ejemplo ilustra el proceso mental para crear un conjuro nuevo usando las reglas v2.0. Queremos crear un conjuro de **Nivel 2** para el Arcanista llamado `Prisión de Hielo`.
 
@@ -86,7 +86,7 @@ Este ejemplo ilustra el proceso mental para crear un conjuro nuevo usando las re
 
 ---
 
-### Nota de Diseño: ¿Carta de Efecto o Activable?
+## ¿Carta de Efecto o Activable?
 
 Al crear nuevas habilidades u objetos mágicos, una de las decisiones más importantes es si deben ocupar una de las preciadas **Ranuras de Cartas Activas** del jugador o funcionar pasivamente desde la **Colección (Efecto)**.
 

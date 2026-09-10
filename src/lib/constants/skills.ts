@@ -21,7 +21,7 @@ export const DEFAULT_SKILLS: Omit<Skill, 'id'>[] = [
 		name: '🫀 Aguante',
 		attribute: 'body',
 		description:
-			'Mide tu capacidad para soportar el agotamiento, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para realizar marchas forzadas durante días, soportar climas extremos sin el equipo adecuado, aguantar la respiración bajo el agua, resistir los efectos del alcohol o el cansancio para no quedarte dormido, y para sobreponerse al dolor en un interrogatorio físico.',
+			'Mide tu capacidad para soportar la fatiga, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para resistir la Fatiga provocada por marchas forzadas, privación de sueño, hambre, sed o condiciones ambientales adversas; aguantar la respiración bajo el agua; resistir los efectos del alcohol; y sobreponerse al dolor en situaciones de exigencia física prolongada.',
 		hasAdvantage: false,
 	},
 	// Reflejos

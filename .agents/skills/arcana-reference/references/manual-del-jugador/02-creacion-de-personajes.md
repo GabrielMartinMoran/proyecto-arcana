@@ -4,7 +4,7 @@ Este capítulo te guiará paso a paso para crear tu personaje, desde sus capacid
 
 ## Paso 1: Atributos
 
-Un personaje se define por cinco **Atributos** principales, que representan sus capacidades fundamentales. Estos tienen un valor que va de **1 (deficiente) a 6 (legendario)**. Durante la creación, dispones de **10 puntos** para repartir entre ellos. Ningún atributo puede empezar con un valor superior a 3 y el valor mínimo posible es 1.
+Un personaje se define por cinco **Atributos** principales, que representan sus capacidades fundamentales. Estos tienen normalmente un valor que va de **1 (común) a 6 (legendario)**. Durante la creación, dispones de **10 puntos** para repartir entre ellos. Ningún atributo puede empezar con un valor superior a 3 y el valor mínimo posible es 1.
 
 - **Cuerpo:** Representa la fuerza bruta, la resistencia y la vitalidad física.
 - **Reflejos:** Mide la agilidad, la coordinación, la velocidad y la precisión.
@@ -14,24 +14,26 @@ Un personaje se define por cinco **Atributos** principales, que representan sus 
 
 ### ¿Qué significa cada puntuación?
 
-Un valor de atributo no es un número frío: describe quién es tu personaje frente al mundo. Un valor alto es un nombre que la gente susurra en las plazas; un valor bajo es una puerta que se cae sola. La siguiente escala te sirve para interpretar tus propios números y, cuando el DJ revele los de una criatura, para saber qué está en juego.
+Los Atributos representan capacidades amplias, no juicios absolutos sobre una criatura. Una puntuación baja no implica necesariamente una discapacidad o incapacidad para desenvolverse en situaciones cotidianas: indica cuánto destaca esa criatura cuando esa capacidad se pone realmente a prueba.
 
-| Puntuación | En la ficción                                                                                                                                                                                                                                                                                                                                                                          |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0**      | **Anulada.** La capacidad simplemente no existe. No hay nada que sumar a la tirada: un fantasma no tiene cuerpo para forcejear, un cubo gelatinoso no tiene mente que dominar, un gusano monumental no tiene dónde poner ternura. Algunas maldiciones y poderes excepcionales pueden dejar un atributo en 0. Ni siquiera así el dado deja de jugarse: la suerte siempre puede terciar. |
-| **1**      | **Deficiente.** Muy por debajo de un adulto común. Alguien enfermizo, sin entrenamiento o afectado por un problema físico o mental. Cuando la prueba depende de ese atributo, casi siempre fracasa, y fracasa feo.                                                                                                                                                                     |
-| **2**      | **Limitado.** El terreno de la mayoría de la gente: el herrero del pueblo, la moza de taberna. Puede arreglárselas, pero no destaca.                                                                                                                                                                                                                                                   |
-| **3**      | **Competente.** Un profesional con oficio, entrenamiento o talento real. Es el punto de partida de los aventureros recién creados.                                                                                                                                                                                                                                                     |
-| **4**      | **Destacado.** Por encima de la norma: el duelista que gana todas las rondas en la taberna, la sabia a la que la villa consulta. Nadie llega a 4 sin esfuerzo.                                                                                                                                                                                                                         |
-| **5**      | **Experto.** La cúspide de un oficio: capitanes de guardia, eruditos de referencia, especialistas que cobran caro. Pocos mortales lo alcanzan.                                                                                                                                                                                                                                         |
-| **6**      | **Legendario.** El techo de lo mortal: la excepción de una generación, la persona cuya proeza se cuenta en las plazas. Un personaje puede llegar aquí, y poquísimos lo hacen.                                                                                                                                                                                                          |
-| **7-8**    | **Sobrenatural.** Ya no es humano: el Cíclope, con un 7 en Cuerpo, o el Gólem de Piedra, con un 8. Un mortal suele no tener respuesta directa frente a esto.                                                                                                                                                                                                                           |
-| **9-10**   | **Titánico.** Bestias de leyenda: un Dragón Adulto con un 10 en Cuerpo, un Gigante de Fuego. Lo que aplasta, y ya está.                                                                                                                                                                                                                                                                |
-| **11-12**  | **Inconcebible.** El límite del mundo conocido: el Liche y el Aboleth, con un 12 en Mente. Mentes y cuerpos que nada mortal puede igualar.                                                                                                                                                                                                                                             |
+La siguiente escala sirve como referencia para interpretar qué representa cada puntuación en la ficción.
+
+| Puntuación | En la ficción                                                                                                                                                                                                                                                                                   |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0**      | **Anulada.** La capacidad no existe o no puede ejercerse de una forma convencional. Un fantasma puede carecer de Cuerpo físico, mientras que ciertas criaturas pueden no poseer una mente capaz de razonar. Algunas condiciones o efectos excepcionales también pueden reducir un Atributo a 0. |
+| **1**      | **Común.** Una capacidad ordinaria, propia de alguien sin entrenamiento, experiencia o talento particular en ese ámbito. Permite desenvolverse normalmente en la vida cotidiana, aunque los desafíos exigentes pueden resultar difíciles.                                                       |
+| **2**      | **Capaz.** Existe cierta aptitud, experiencia o entrenamiento. Es habitual entre personas acostumbradas a utilizar esa capacidad en su oficio o vida diaria, y representa aproximadamente el valor medio de un aventurero recién creado.                                                        |
+| **3**      | **Destacado.** Una capacidad claramente desarrollada. Puede representar a un profesional experimentado, alguien con un talento notable o un aventurero que ha hecho de ese atributo una de sus fortalezas principales.                                                                          |
+| **4**      | **Excepcional.** Muy por encima de lo habitual. Quienes alcanzan este grado llaman la atención incluso entre profesionales y aventureros experimentados.                                                                                                                                        |
+| **5**      | **Experto.** Una de las mayores expresiones mortales de esa capacidad. Representa a individuos extraordinarios que destacan incluso entre especialistas de élite.                                                                                                                               |
+| **6**      | **Legendario.** El límite que una criatura mortal puede alcanzar normalmente. Sus capacidades son excepcionales incluso para héroes y maestros, y sus proezas pueden convertirse en historias dignas de ser recordadas.                                                                         |
+| **7-8**    | **Sobrenatural.** La capacidad supera los límites normales de una persona. Es propia de criaturas cuya naturaleza, tamaño, magia o fisiología les permite realizar hazañas fuera del alcance mortal.                                                                                            |
+| **9-10**   | **Titánico.** Poder propio de grandes monstruos y seres legendarios. La diferencia respecto de una criatura ordinaria ya no representa simplemente entrenamiento o talento, sino una escala de capacidad fundamentalmente distinta.                                                             |
+| **11-12**  | **Inconcebible.** Capacidades reservadas para algunas de las criaturas más poderosas del mundo. Representan extremos que incluso los mayores héroes difícilmente pueden igualar por medios naturales.                                                                                           |
 
 > **Nota de Juego: La Escala del Mortal**
 >
-> Tu personaje se mueve entre 1 y 6 —y al crearlo, entre 1 y 3—. El 0 y las puntuaciones por encima de 6 son territorio de otras criaturas, de efectos excepcionales y de la mano del Director de Juego. Esta tabla te da el vocabulario para interpretarlos cuando aparezcan, y te permite saber qué estás mirando cuando un dragón te desafía con un número que no vas a alcanzar nunca.
+> Los personajes jugadores se mueven normalmente entre **1 y 6**, y durante su creación entre **1 y 3**. Una puntuación de 1 representa una capacidad perfectamente funcional, no una deficiencia. Las puntuaciones de 0 o superiores a 6 aparecen principalmente en criaturas cuya naturaleza se encuentra fuera de los límites humanos, o como resultado de reglas y efectos excepcionales.
 
 ## Paso 2: Habilidades
 
@@ -41,7 +43,7 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 
 - **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias o nadar en aguas turbulentas.
 - **Fuerza Bruta:** Se usa para aplicar tu poderío físico sin refinamiento para superar un obstáculo. Incluye actos de fuerza explosiva como derribar una puerta, levantar un portón pesado o doblar barrotes.
-- **Aguante:** Mide tu capacidad para soportar el agotamiento, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para realizar marchas forzadas durante días, soportar climas extremos sin el equipo adecuado, aguantar la respiración bajo el agua, resistir los efectos del alcohol o el cansancio para no quedarte dormido, y para sobreponerse al dolor en un interrogatorio físico.
+- **Aguante:** Mide tu capacidad para soportar la fatiga, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para resistir la Fatiga provocada por marchas forzadas, privación de sueño, hambre, sed o condiciones ambientales adversas; aguantar la respiración bajo el agua; resistir los efectos del alcohol; y sobreponerse al dolor en situaciones de exigencia física prolongada.
 
 **Reflejos:**
 
@@ -125,7 +127,7 @@ Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empeza
 
 ## Paso 6: Equipo Inicial
 
-Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#11 Equipo y Economía** encontrarás una lista de precios y objetos.
+Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **Equipo y Economía** encontrarás una lista de precios y objetos.
 
 ## Paso 7: Lenguas
 
@@ -168,7 +170,7 @@ No son idiomas completos, sino sistemas de comunicación especializados usados p
 
 - **Jerga de Ladrones**: No es un idioma formal que se hable abiertamente, sino una compleja mezcla de argot, gestos sutiles y símbolos crípticos que se usan para transmitir información de forma encubierta. Se integra en conversaciones en Común, haciendo que los mensajes pasen desapercibidos para los no iniciados. Permite señalar un negocio corrupto, advertir de la presencia de la guardia, identificar a un posible objetivo o reconocer a otro miembro del gremio. Conocerla implica poder entender y usar estos códigos, pero no leer o escribir textos complejos.
 
-## Paso 7: Dando Vida a tu Personaje
+## Paso 8: Dando Vida a tu Personaje
 
 Ya tenés definidos los números y las cartas que representan las capacidades de tu personaje, pero, ¿quién es realmente? ARCANA es un juego centrado en la historia, y los personajes más memorables son aquellos que se sienten como personas reales.
 

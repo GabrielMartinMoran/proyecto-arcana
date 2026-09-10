@@ -291,7 +291,9 @@ label {
 		font-weight: 700;
 		border-bottom: 1px solid var(--border-color);
 		text-align: center;
+		min-width: 7rem;
 	}
+
 	th,
 	td {
 		font-family: inherit;

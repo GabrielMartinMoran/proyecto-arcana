@@ -1,4 +1,4 @@
-# 10. Tiempo Entre Aventuras
+# 11. Tiempo Entre Aventuras
 
 Las aventuras son momentos de alta intensidad, peligro y gloria, pero ¿qué hace tu personaje cuando el polvo se asienta? El tiempo que pasa entre una misión y la siguiente, conocido como "tiempo de descanso" o "downtime", es una oportunidad para que tu personaje crezca, entrene, investigue y se conecte con el mundo de una forma más personal.
 

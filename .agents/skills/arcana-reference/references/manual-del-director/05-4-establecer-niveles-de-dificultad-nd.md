@@ -1,4 +1,4 @@
-# Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad
+# 4. Establecer Niveles de Dificultad (ND)
 
 Establecer el **Nivel de Dificultad (ND)** para las acciones de los jugadores es tu herramienta principal para modelar el mundo. Es más un arte que una ciencia.
 

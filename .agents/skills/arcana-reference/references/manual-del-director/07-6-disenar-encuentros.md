@@ -1,14 +1,16 @@
-# Parte 1: Diseñar Encuentros
+# 6. Diseñar Encuentros
+
+La esencia de una aventura emocionante reside en los desafíos que presenta. Esta guía te proporcionará un sistema de reglas ligeras, rápido e intuitivo para diseñar encuentros que sean justos, desafiantes y divertidos, alineados con la filosofía de ARCANA.
 
 Este sistema te permite preparar un encuentro balanceado rápidamente, basándose en el poder promedio de tu grupo y la dificultad deseada. Empodera al Director de Juego (DJ) para tomar decisiones informadas, guiado por principios en lugar de reglas estrictas.
 
-### Paso 1: Calcular el Poder Promedio del Grupo (PP Promedio)
+## Paso 1: Calcular el Poder Promedio del Grupo (PP Promedio)
 
 Primero, necesitas una medida del poder actual de tu grupo.
 
 **PP Promedio = (Suma total de PP gastados por todos los personajes) / (Número de personajes)**
 
-### Paso 2: Consultar la Tabla Maestra de Presupuesto por Personaje
+## Paso 2: Consultar la Tabla Maestra de Presupuesto por Personaje
 
 Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la siguiente tabla. Esta tabla te dará el **Presupuesto Base de Puntos de Amenaza por Personaje (PA Base/PJ)** para cada nivel de dificultad. También te ofrece una **sugerencia** sobre el Rango máximo de monstruo apropiado para encuentros estándar en ese nivel de poder.
 
@@ -26,7 +28,7 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 
 _(Nota: "Rango Nominal (Ref.)" es solo una etiqueta de referencia para entender en qué etapa de poder se encuentra el grupo)_
 
-### Paso 3: Calcular el Presupuesto Total del Encuentro (PA Total)
+## Paso 3: Calcular el Presupuesto Total del Encuentro (PA Total)
 
 Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu grupo. Redondea el resultado final al entero más cercano si obtienes decimales.
 
@@ -37,7 +39,7 @@ Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu 
 > - PA Base/PJ (Tabla v5.2): 10.5 PA
 > - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
 
-### Paso 4: Construir el Encuentro - Compra de Enemigos
+## Paso 4: Construir el Encuentro — Compra de Enemigos
 
 Gasta tu Presupuesto Total (PA) comprando enemigos usando la siguiente tabla de costes.
 
@@ -54,7 +56,7 @@ _(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para 
 
 **No hay límites estrictos sobre qué Rangos puedes usar**, pero tu elección debe estar guiada por tu criterio y los principios detallados en la siguiente **Guía Estratégica**.
 
-### Regla de Encuentro: Reacciones Adicionales para Jefes
+## Reacciones Adicionales para Jefes
 
 Todas las criaturas disponen normalmente de **1 Reacción por ronda**.
 
@@ -73,7 +75,7 @@ Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien par
 
 Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
 
-#### Reacciones de Jefe
+### Reacciones de Jefe
 
 Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
 
@@ -90,7 +92,7 @@ Estas opciones no reemplazan las Reacciones propias de la criatura. Simplemente 
 
 Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas lo indique expresamente.
 
-### Guía Estratégica para el DJ: Balance y Composición
+## Guía Estratégica para el DJ: Balance y Composición
 
 El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave final**. Usa estos principios para interpretar el presupuesto y construir encuentros memorables y balanceados:
 
@@ -134,6 +136,6 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
 > - **Opción 2 (Jefe R4 + Élites - Recomendada):** 1x Monstruo R4 (10 PA) + 4x Monstruos R3 (24 PA) + 4x Monstruos R2 (8 PA) = **42 PA**. _Análisis: 9 enemigos con una jerarquía clara y una combinación equilibrada entre amenaza central, élites y apoyo._
 > - **Opción 3 (Calidad sobre Cantidad):** 2x Monstruos R4 (20 PA) + 3x Monstruos R3 (18 PA) + 2x Monstruos R2 (4 PA) = **42 PA**. _Análisis: 7 enemigos de mayor calidad individual. La economía de acciones es más contenida, pero cada enemigo representa una amenaza considerable._
 
-### Paso 5: Diseño Avanzado de Criaturas (Resumen)
+## Crear Criaturas Propias
 
-Si deseas crear tus propios monstruos, la Parte 2 (detallada a continuación) te guía usando un sistema de **Puntos de Perfil (PPF)**. Cada Rango de Monstruo (1 a 6) tiene un presupuesto de PPF y tablas calibradas para "comprar" sus estadísticas y Rasgos Tácticos, asegurando que se alineen con el balance general del sistema.
+Si deseas crear tus propios monstruos, el capítulo **Diseño Avanzado de Criaturas** te guía usando un sistema de **Puntos de Perfil (PPF)**. Cada Rango de Monstruo (1 a 6) tiene un presupuesto de PPF y tablas calibradas para "comprar" sus estadísticas y Rasgos Tácticos, asegurando que se alineen con el balance general del sistema.

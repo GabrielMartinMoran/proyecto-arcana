@@ -1,10 +1,10 @@
-# Parte 2: Diseño Avanzado de Criaturas
+# 7. Diseño Avanzado de Criaturas
 
 Si bien el bestiario proporcionado ofrece una amplia variedad de enemigos, puede que desees crear tus propias criaturas únicas para poblar tu mundo o representar amenazas específicas de tu campaña. Esta sección te guiará a través de un sistema flexible para diseñar monstruos desde cero, asegurando que se integren de manera balanceada con el sistema de Rangos y Presupuestos de Encuentro.
 
 Utilizaremos un método de "compra" de estadísticas y habilidades llamado **Puntos de Perfil (PPF)**. Cada Rango de Monstruo tiene un presupuesto de PPF que puedes gastar para definir sus capacidades, permitiéndote crear desde frágiles "cañones de cristal" hasta resistentes "tanques" o astutos "controladores", todo dentro de un marco equilibrado.
 
-### Paso 1: Concepto, Rol y Rango
+## Paso 1: Concepto, Rol y Rango
 
 Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 
@@ -17,7 +17,7 @@ Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 | **Rango 5**        | 30 PPF            | Amenazas de final de campaña, avatares del apocalipsis.     |
 | **Rango 6**        | 38 PPF            | Jefes finales épicos, diseñados a medida.                   |
 
-### Paso 2: Linaje de la Criatura
+## Paso 2: Linaje de la Criatura
 
 Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.
 
@@ -48,7 +48,7 @@ Esta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o
 
 > **Ejemplo:** la Harpía habla el dialecto propio de los acantilados a los que es territorial; otras harpías de un litoral distinto podrían hablar una variante diferente, sin coste por ello.
 
-### Paso 3: Definir atributos y estadísticas
+## Paso 3: Definir Atributos y Estadísticas
 
 El Rango determina el presupuesto de PPF de la criatura. Usa la tabla del Rango
 correspondiente para distribuir esos puntos y respeta las **cotas de inversión
@@ -58,7 +58,7 @@ Los atributos se definen por separado. Describen las capacidades de la criatura
 y pueden influir en pruebas, tiradas enfrentadas y otras reglas que los utilicen
 de forma explícita.
 
-#### Asignar atributos
+### Asignar Atributos
 
 Los cinco atributos de una criatura son **Cuerpo, Reflejos, Mente, Instinto y
 Presencia**. Su distribución puede ser especializada o amplia, siempre que
@@ -139,7 +139,9 @@ De la misma manera, una criatura que haya adquirido **+5 / ND 10** puede poseer 
 
 Los valores adquiridos mediante la tabla representan el techo ofensivo estándar disponible para la criatura.
 
-#### Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)
+### Tablas de Constructor
+
+#### Monstruo de Rango 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -149,7 +151,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **3**     |  13   |    8    |   +4 / 9    |                    5                     |             2 / 1             |               -                |
 |    **4**     |  16   |    -    |      -      |                    6                     |             3 / 1             |               4                |
 
-#### Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)
+#### Monstruo de Rango 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -161,7 +163,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **5**     |  40   |   10    |      -      |                  13-14                   |             4 / 2             |               5                |
 |    **6**     |  45   |    -    |      -      |                  15-16                   |             5 / 2             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)
+#### Monstruo de Rango 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -175,7 +177,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **7**     |  86   |    -    |      -      |                  27-29                   |             6 / 3             |               -                |
 |    **8**     |  94   |    -    |      -      |                  30-32                   |             8 / 3             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)
+#### Monstruo de Rango 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -191,7 +193,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **9**     |  150  |    -    |      -      |                  45-48                   |             9 / 4             |               -                |
 |    **10**    |  160  |    -    |      -      |                  49-52                   |            11 / 4             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)
+#### Monstruo de Rango 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -209,7 +211,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **11**    |  232  |    -    |      -      |                  71-75                   |            12 / 5             |               -                |
 |    **12**    |  244  |    -    |      -      |                  76-80                   |            14 / 5             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)
+#### Monstruo de Rango 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)
 
 _(Para Jefes Finales Épicos)_
 
@@ -231,7 +233,7 @@ _(Para Jefes Finales Épicos)_
 |    **13**    |  345  |    -    |      -      |                  91-95                   |            16 / 7             |               -                |
 |    **14**    |  360  |    -    |      -      |                  96-100                  |            18 / 7             |               -                |
 
-### Regla de Diseño: La Reserva Defensiva
+## Reserva Defensiva
 
 El Director de Juego (DJ) utiliza los **Puntos de Defensa (PD)** obtenidos en la Tabla de Constructor del Rango correspondiente para configurar el perfil defensivo de una criatura.
 
@@ -239,7 +241,7 @@ Los PD representan defensas especiales que van más allá de sus valores básico
 
 Para facilitar la consulta durante el diseño, las opciones se agrupan en cuatro categorías principales.
 
-#### 1. Mitigación y Protecciones de Daño
+### 1. Mitigación y Protecciones de Daño
 
 - **Mitigación Plana (Coste: 1 PD por punto):** suma +1 a la Mitigación Física o a la Mitigación Mágica.
 
@@ -255,7 +257,7 @@ Para facilitar la consulta durante el diseño, las opciones se agrupan en cuatro
 
   > _Restricción:_ Una criatura puede poseer como máximo **1 Vulnerabilidad a Daño** adquirida de esta forma.
 
-##### Defensas de Daño Condicionales
+#### Defensas de Daño Condicionales
 
 Cuando una **Resistencia** o **Inmunidad a Daño** solo funciona bajo una condición clara y suficientemente restrictiva, calcula primero el coste normal de todas las defensas cubiertas y reduce ese coste a la **mitad, redondeando hacia arriba**.
 
@@ -267,7 +269,7 @@ Una condición trivial, prácticamente permanente o que los personajes no puedan
 >
 > **Ejemplo — Inmunidad Condicional:** una criatura es inmune a **Fuego** únicamente mientras permanece sumergida en lava. La Inmunidad costaría normalmente 4 PD; al ser condicional, cuesta **2 PD**.
 
-#### 2. Tiradas de Salvación
+### 2. Tiradas de Salvación
 
 - **Ventaja Condicional en TS (Coste: 1 PD):** la criatura obtiene Ventaja (+1d4) en Tiradas de Salvación contra una fuente, estado o categoría específica de efectos.
   - Ejemplos: Miedo, Venenos, efectos de Derribo o efectos que provocarían Encantado.
@@ -278,7 +280,7 @@ Una condición trivial, prácticamente permanente o que los personajes no puedan
 
   > _Restricción:_ Las criaturas de **Rango 1 y 2** solo pueden adquirir esta defensa para un máximo de **1 Atributo**.
 
-#### 3. Inmunidad a Estados y Control
+### 3. Inmunidad a Estados y Control
 
 Las inmunidades a estados se dividen según el impacto táctico de aquello que permiten ignorar.
 
@@ -301,7 +303,7 @@ Las inmunidades a estados se dividen según el impacto táctico de aquello que p
 
 Las inmunidades de esta sección deben adquirirse normalmente aunque parezcan apropiadas para la anatomía, comportamiento o naturaleza de una criatura, salvo que una excepción por Tipo de Criatura indique expresamente lo contrario.
 
-#### 4. Excepciones de Linaje
+### 4. Excepciones de Linaje
 
 Algunos Linajes poseen propiedades inherentes que modifican excepcionalmente las reglas anteriores.
 
@@ -319,17 +321,17 @@ Estas excepciones son específicas. **Pertenecer a un Linaje no concede otras Re
 
 Los demás Linajes no reciben excepciones defensivas automáticas salvo que otra regla indique expresamente lo contrario.
 
-### Paso 4: Comprar Habilidades
+## Paso 4: Comprar Habilidades
 
 Gasta los PPF restantes de tu presupuesto en habilidades, diferenciando entre Sabor y Táctica.
 
-#### A. Habilidades de Sabor (Coste: 0 PPF)
+### A. Habilidades de Sabor (Coste: 0 PPF)
 
 Describen _cómo_ se aplica el daño o añaden elementos narrativos. No tienen coste si no alteran la táctica del combate.
 
 - **Ejemplos:** `Asalto Múltiple` (si solo divide el Daño Promedio comprado), `Furia` (si el bono de daño ya está promediado en el Daño Promedio), `Ataque Venenoso` (si el daño del veneno está incluido en el Daño Promedio), `Visión en la Oscuridad`, tipo de daño elemental.
 
-#### B. Rasgos Tácticos (Coste en PPF)
+### B. Rasgos Tácticos (Coste en PPF)
 
 Habilidades que cambian las reglas del combate: Control, Movimiento Superior, Defensas Especiales, Reacciones, etc.
 
@@ -364,13 +366,13 @@ Poseer simplemente un ataque o capacidad a distancia no concede automáticamente
 
 Las capacidades adicionales de movimiento —teletransportarse, atravesar objetos sólidos, volverse no seleccionable como objetivo, desplazarse sin provocar Reacciones o ignorar barreras relevantes en combate— se valoran como Rasgos Tácticos independientes y no forman parte del coste de la locomoción.
 
-### Regla de Diseño: Arsenal Versátil
+## Arsenal Versátil
 
 Algunas criaturas poseen numerosos ataques, conjuros o técnicas entre los que deben elegir cada vez que actúan. Tener más opciones aporta versatilidad, pero no equivale a poder utilizarlas todas al mismo tiempo.
 
 **Arsenal Versátil** permite representar estos repertorios sin pagar cada alternativa como si fuera una capacidad completamente independiente.
 
-#### Crear un Arsenal
+### Crear un Arsenal
 
 Pueden agruparse en un mismo Arsenal varias capacidades que:
 
@@ -380,7 +382,7 @@ Pueden agruparse en un mismo Arsenal varias capacidades que:
 
 Cada recurso forma su propio Arsenal. Una Acción y una Reacción, por ejemplo, no se descuentan entre sí porque pueden utilizarse durante la misma ronda.
 
-#### Coste del Arsenal
+### Coste del Arsenal
 
 Determina normalmente el Rango y coste en PPF de cada capacidad.
 
@@ -398,7 +400,7 @@ Todas las demás opciones del mismo Arsenal cuestan **la mitad de sus PPF normal
 >
 > La criatura paga por disponer de alternativas, pero menos que si pudiera utilizar las tres capacidades conjuntamente.
 
-#### Daño y Arsenal Versátil
+### Daño y Arsenal Versátil
 
 Una capacidad no se convierte automáticamente en un Rasgo Táctico por infligir daño.
 
@@ -408,7 +410,7 @@ Un ataque que además inmoviliza, desplaza, debilita, altera acciones o produce 
 
 Al calcular el Daño Promedio de una criatura, considera **todo el daño que puede producir normalmente durante una ronda**, incluyendo sus Reacciones ofensivas.
 
-#### Qué no puede formar parte de un Arsenal
+### Qué no puede formar parte de un Arsenal
 
 Una capacidad no recibe el descuento de Arsenal Versátil si puede aportar su beneficio además de las demás sin competir por el mismo recurso.
 
@@ -423,13 +425,13 @@ Esto incluye:
 
 Estas capacidades se compran normalmente.
 
-#### Capacidades de Utilidad
+### Capacidades de Utilidad
 
 Las capacidades exclusivamente narrativas o de utilidad que no alteren significativamente el combate continúan considerándose **Habilidades de Sabor** y cuestan 0 PPF.
 
 Un amplio repertorio narrativo no aumenta por sí mismo la peligrosidad de una criatura.
 
-#### Recargas y Repertorios Amplios
+### Recargas y Repertorios Amplios
 
 La Recarga continúa formando parte del balance de cada capacidad.
 
@@ -437,7 +439,7 @@ Si un Arsenal contiene tantas capacidades limitadas que la criatura puede altern
 
 Arsenal Versátil reduce el coste de tener **alternativas**; no convierte las limitaciones de uso en irrelevantes.
 
-### Paso 5: La Filosofía de Rasgos Tácticos por Rango
+## Paso 5: Filosofía de Rasgos Tácticos por Rango
 
 - **Rasgos R1:** Efectos simples (Control blando menor, debuff simple, reacción defensiva, resistencia).
 - **Rasgos R2:** Impacto táctico (Control blando, AoE táctico, movilidad táctica, puzzle, reacción).
@@ -446,7 +448,7 @@ Arsenal Versátil reduce el coste de tener **alternativas**; no convierte las li
 - **Rasgos R5:** Alteran campaña (Manipulación acciones, inmunidades, ignora-defensas, mecánicas complejas).
 - **Rasgos R6:** Poderes divinos o cósmicos, alteración masiva de la realidad, múltiples fases.
 
-### Paso 6: Nota sobre Daño de Área (AoE)
+## Paso 6: Daño de Área (AoE)
 
 El **Daño Promedio por Ronda (ST)** de las tablas representa la referencia ofensiva de la criatura contra un único objetivo.
 
@@ -468,7 +470,7 @@ Al diseñar un AoE, considerar conjuntamente:
 
 La referencia de 60-70% funciona como punto de partida para AoE a distancia eficientes, mientras que las capacidades de área más restrictivas pueden justificar porcentajes mayores.
 
-### Paso 7: Poniéndolo en Práctica (Ejemplos Finales)
+## Paso 7: Poniéndolo en Práctica
 
 > **Ejemplo 1: Berserker R2 (12 PPF / Cota de inversión 6)**
 >

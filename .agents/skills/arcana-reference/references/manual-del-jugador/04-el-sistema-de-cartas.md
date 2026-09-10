@@ -39,7 +39,7 @@ El funcionamiento de las cartas se divide en dos conceptos clave:
 
 ## Activar y Cambiar Cartas
 
-Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de descanso** (aproximadamente 8 horas de sueño y actividades ligeras).
+Puedes cambiar qué **Cartas Activables** tienes activas al completar un **Día de Descanso**, siguiendo las reglas descritas en el capítulo **Descanso y Recuperación**.
 
 ## Anatomía de una Carta
 

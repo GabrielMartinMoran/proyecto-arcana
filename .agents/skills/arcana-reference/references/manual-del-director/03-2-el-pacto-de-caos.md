@@ -1,15 +1,15 @@
-# El Pacto de Caos
+# 2. El Pacto de Caos
 
 El Caos es un recurso narrativo y mecánico que el DJ acumula cuando los jugadores eligen forzar su suerte. Representa cómo el mundo y el destino reaccionan para reequilibrar la balanza.
 
-### Ganar Puntos de Caos
+## Ganar Puntos de Caos
 
 Tal como está descrito en el Manual del Jugador, el DJ gana **1 Punto de Caos** cada vez que un jugador declara que va a comprar **1 Punto de Suerte**.
 
 - Esta reserva de Puntos de Caos **no tiene límite máximo**.
 - Esta reserva **no se reinicia** al final de la sesión; es una "deuda" persistente del grupo a lo largo de la campaña.
 
-### Gastar Puntos de Caos
+## Gastar Puntos de Caos
 
 El DJ puede gastar Puntos de Caos en cualquier momento para influir en la narrativa y complicar la vida de los héroes. Existen tres formas de gastar Caos:
 

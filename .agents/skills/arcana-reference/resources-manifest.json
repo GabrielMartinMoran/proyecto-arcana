@@ -490,8 +490,8 @@
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-1.yml",
       "kind": "file",
-      "size": 2463,
-      "sha1": "66ff05be1454554d2922d5f8f390f336dc39a034"
+      "size": 2512,
+      "sha1": "d088316c4b31d4844f3ae44aa42a7259a28ab1b4"
     },
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-2.yml",
@@ -530,8 +530,8 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
       "kind": "file",
-      "size": 9266,
-      "sha1": "bbba8a11912ed8a3a208adedfcb8ca97187c1dcb"
+      "size": 9372,
+      "sha1": "4523946637dcf9712da36536334920f68c294f9e"
     },
     {
       "path": "references/cartas-de-habilidades/linaje",
@@ -540,8 +540,8 @@
     {
       "path": "references/cartas-de-habilidades/linaje/nivel-1.yml",
       "kind": "file",
-      "size": 31570,
-      "sha1": "6ed102024506c2c45716fcc71c14eb103dcaf637"
+      "size": 31796,
+      "sha1": "a022881a817355c5f8769490e1470967bde63aa1"
     },
     {
       "path": "references/cartas-de-habilidades/sinergia",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 282098,
-      "sha1": "940ab1c784e6aa03185abaaa1afc21b2905318e7"
+      "size": 282497,
+      "sha1": "2fa09d2d790e7cfb12eaa7d2497bed8ebf690a92"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -586,52 +586,52 @@
       "sha1": "28f714307b53be9d6a2d56b87c409ff2dd59f5f2"
     },
     {
-      "path": "references/manual-del-director/02-otorgar-puntos-de-progreso-pp.md",
+      "path": "references/manual-del-director/02-1-otorgar-puntos-de-progreso-pp.md",
       "kind": "file",
-      "size": 4671,
-      "sha1": "b82cd8af0db795e6fdd4ba3ab878ae93e7a48f6e"
+      "size": 4674,
+      "sha1": "57f408a56fde88e4e539a034b994218974e3ab93"
     },
     {
-      "path": "references/manual-del-director/03-el-pacto-de-caos.md",
+      "path": "references/manual-del-director/03-2-el-pacto-de-caos.md",
       "kind": "file",
-      "size": 2143,
-      "sha1": "c177706bcf36da5cc1ea3e17b89ac33034e2ff6e"
+      "size": 2144,
+      "sha1": "7b5ddc8e01bc1baaf0a90666464fc3fbcdd4f9f2"
     },
     {
-      "path": "references/manual-del-director/04-guia-de-recompensas-tesoro-y-equipo.md",
+      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
       "kind": "file",
-      "size": 8982,
-      "sha1": "ed4780588decaedf6a2d246cccaed797c6c016e5"
+      "size": 8976,
+      "sha1": "66599011ea74120282e83cd98ed5d2ac25876cd8"
     },
     {
-      "path": "references/manual-del-director/05-establecer-niveles-de-dificultad-nd-para-pruebas-de-habilidad.md",
+      "path": "references/manual-del-director/05-4-establecer-niveles-de-dificultad-nd.md",
       "kind": "file",
-      "size": 1701,
-      "sha1": "347fa5d9d81bf42246fa4bfbabae91235972484e"
+      "size": 1678,
+      "sha1": "0630f81a4f5d71fd87a846d8dc39b346473cdaa2"
     },
     {
-      "path": "references/manual-del-director/06-disenar-criaturas-y-encuentros.md",
+      "path": "references/manual-del-director/06-5-dirigir-viajes-y-supervivencia.md",
       "kind": "file",
-      "size": 589,
-      "sha1": "5f40dd5b620c163ce79f6985c290dd66d4a73177"
+      "size": 3327,
+      "sha1": "426158c3e78e8049489e21b495dfa92888c64574"
     },
     {
-      "path": "references/manual-del-director/07-parte-1-disenar-encuentros.md",
+      "path": "references/manual-del-director/07-6-disenar-encuentros.md",
       "kind": "file",
-      "size": 17783,
-      "sha1": "84b1b8960b691910d6592f19ecec6bc95c49846f"
+      "size": 17999,
+      "sha1": "cc6c9a5e3c28431650e9576b1711c9c09464e716"
     },
     {
-      "path": "references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md",
+      "path": "references/manual-del-director/08-7-diseno-avanzado-de-criaturas.md",
       "kind": "file",
-      "size": 39219,
-      "sha1": "48f52e65ff525b13db418edf7a5edc4bbb9c98a1"
+      "size": 39013,
+      "sha1": "1f1da0a954d1a0ec0802e2919893c717fa89f85b"
     },
     {
-      "path": "references/manual-del-director/09-guia-de-diseno-de-conjuros-y-habilidades.md",
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
       "kind": "file",
-      "size": 5368,
-      "sha1": "7e7cb6ab5c42b3adf33588bde6487a41fcfb92b2"
+      "size": 5320,
+      "sha1": "a5b8cc00a98322d3b782ad425b0e9f953610fe25"
     },
     {
       "path": "references/manual-del-jugador",
@@ -646,8 +646,8 @@
     {
       "path": "references/manual-del-jugador/02-creacion-de-personajes.md",
       "kind": "file",
-      "size": 20469,
-      "sha1": "b08b5fa568b36acd78aebf8bfab4ef3199c1e847"
+      "size": 19487,
+      "sha1": "5032b6de06d26e6aa3aad07ab719b7df859b7232"
     },
     {
       "path": "references/manual-del-jugador/03-mecanicas-de-juego.md",
@@ -658,14 +658,14 @@
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
       "kind": "file",
-      "size": 20331,
-      "sha1": "028c26f2f786e26539e467031656f82700b0f0d2"
+      "size": 20355,
+      "sha1": "d4615a58f9d0f3b14ab54656243d2d0007e8dc55"
     },
     {
       "path": "references/manual-del-jugador/05-exploracion.md",
       "kind": "file",
-      "size": 3348,
-      "sha1": "5ae0c2694a1bfcb45784b1a61cdb736674e54d71"
+      "size": 7226,
+      "sha1": "2ad337d58395204a64e9f6d069e4627e0dcb0e5f"
     },
     {
       "path": "references/manual-del-jugador/06-interaccion-social.md",
@@ -676,44 +676,50 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 13515,
-      "sha1": "614373d5a993ef0f1aee7da6bbc83e7e585f41b4"
+      "size": 13372,
+      "sha1": "beb30b57a0f609fd4729f181237e3875b2851426"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",
       "kind": "file",
-      "size": 1397,
-      "sha1": "50dec7d2c6586ae8dd6b33462142c7f6a64a1627"
+      "size": 3132,
+      "sha1": "1f72b69d0eb5a0364efe3bee1596f9a7ff50a279"
     },
     {
-      "path": "references/manual-del-jugador/09-progresion-del-personaje.md",
+      "path": "references/manual-del-jugador/09-descanso-y-recuperacion.md",
       "kind": "file",
-      "size": 2121,
-      "sha1": "47a5df270fbd409afc779f5a50b9ce8ee182fec6"
+      "size": 3935,
+      "sha1": "97b53006e66091bbb37128943c4a8b80f61c0cfd"
     },
     {
-      "path": "references/manual-del-jugador/10-tiempo-entre-aventuras.md",
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "kind": "file",
+      "size": 2122,
+      "sha1": "6e9ebc9698dbe8b32bcaa58fa7ff7b08864f77c7"
+    },
+    {
+      "path": "references/manual-del-jugador/11-tiempo-entre-aventuras.md",
       "kind": "file",
       "size": 3822,
-      "sha1": "a746bfc0de7a585761f97695afcf4be7ab9fdeec"
+      "sha1": "af6af5115e4c74058e43000095cb2eb1985a2994"
     },
     {
-      "path": "references/manual-del-jugador/11-equipo-y-economia.md",
+      "path": "references/manual-del-jugador/12-equipo-y-economia.md",
       "kind": "file",
-      "size": 14217,
-      "sha1": "27e20c1a44e8bae288368c3c6b2580c408d40140"
+      "size": 14982,
+      "sha1": "f7466e6dcbd123348bbb4940a4981cf74ae83826"
     },
     {
-      "path": "references/manual-del-jugador/12-reglas-narrativas-avanzadas.md",
+      "path": "references/manual-del-jugador/13-reglas-narrativas-avanzadas.md",
       "kind": "file",
       "size": 4428,
-      "sha1": "c453546fb60c8d518e65f967f216488dd88018d8"
+      "sha1": "1de74a7ce032813c2c06879f2bc858dc90ab4639"
     },
     {
-      "path": "references/manual-del-jugador/13-un-ejemplo-de-juego.md",
+      "path": "references/manual-del-jugador/14-un-ejemplo-de-juego.md",
       "kind": "file",
-      "size": 5923,
-      "sha1": "bf108ee6f9a5d76b796b61a51c9ae83bad98644a"
+      "size": 5933,
+      "sha1": "0cf742ecc2dc726c3e03c6c196dc81dc2ff35d8b"
     },
     {
       "path": "references/objetos-magicos",

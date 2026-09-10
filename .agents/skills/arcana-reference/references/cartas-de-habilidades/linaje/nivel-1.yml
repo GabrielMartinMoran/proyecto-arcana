@@ -77,9 +77,11 @@ cards:
       qty: 0
     description: >-
       _Tu linaje te conecta con un estado de conciencia profunda capaz de restaurar tu cuerpo y tus energías._<br><br>
-      No necesitas dormir. Puedes entrar en un estado de meditación durante 4 horas para obtener los beneficios de un
-      día de descanso. Además, la magia y los venenos no pueden dormirte.<br> Además, al finalizar tu trance, elige una
-      habilidad en la que no tengas Ventaja. Adquieres Ventaja (+1d4) en pruebas relacionadas esa habilidad.
+      No necesitas dormir. Puedes meditar durante 3 horas para satisfacer tu necesidad de Sueño Suficiente. Además,
+      necesitas solamente 12 horas de reposo para completar un Día de Descanso, en lugar de las 24 horas habituales;
+      este período debe incluir al menos 3 horas de trance.<br> La magia y los venenos no pueden hacerte dormir.<br> Al
+      completar un Día de Descanso, elige una habilidad en la que no tengas Ventaja. Obtienes Ventaja (+1d4) en las
+      pruebas relacionadas con esa habilidad hasta que completes tu próximo Día de Descanso.
     slug: trance-elfico
   - id: a703e29747d72a8019fbc45f8ecfb9c8f1a2ef64
     name: Mirada Estelar
@@ -663,7 +665,7 @@ cards:
       intuitivamente los puntos cardinales y recuerdas con precisión general el camino que has recorrido, por lo que
       puedes desandar una ruta recorrida sin perderte por medios naturales. Esto no te permite conocer rutas
       desconocidas, encontrar automáticamente el camino más seguro ni detectar peligros.<br> - **Resistencia del
-      Viajero:** Una vez por día de descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de Salvación de
-      Cuerpo provocada por una marcha prolongada, hambre, sed, cansancio o una condición ambiental natural, puedes
+      Viajero:** Una vez por Día de Descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de Salvación de
+      Cuerpo provocada por una Marcha Forzada, hambre, sed, privación de sueño o una condición ambiental natural, puedes
       considerar que la tirada fue exitosa en su lugar, a menos que el fallo haya sido una pifia.
     slug: anatomia-migratoria

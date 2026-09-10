@@ -57,7 +57,7 @@ cards:
       qty: 0
     description: >-
       _Tu resistencia es legendaria; marcas un ritmo que permite a tu grupo cruzar leguas sin que el cansancio haga
-      mella._<br><br> Obtienes Ventaja (+1d4) en pruebas de Cuerpo (Aguante) para resistir la fatiga de largas
-      marchas.<br> Además, cuando lideras al grupo en un viaje por tierra, el tiempo de viaje se reduce en un 25%
-      gracias a tu capacidad para marcar el ritmo y elegir las mejores rutas.
+      mella._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Cuerpo (Aguante) para resistir la Fatiga provocada por una
+      Marcha Forzada.<br> Además, cuando lideras al grupo en un viaje por tierra, el tiempo necesario para recorrer una
+      ruta se reduce en un 25% gracias a tu capacidad para marcar el ritmo y elegir los caminos más eficientes.
     slug: marcha-incansable
