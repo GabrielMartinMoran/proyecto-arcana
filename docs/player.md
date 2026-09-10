@@ -14,7 +14,7 @@ Este capítulo te guiará paso a paso para crear tu personaje, desde sus capacid
 
 ## Paso 1: Atributos
 
-Un personaje se define por cinco **Atributos** principales, que representan sus capacidades fundamentales. Estos tienen un valor que va de **1 (deficiente) a 6 (legendario)**. Durante la creación, dispones de **10 puntos** para repartir entre ellos. Ningún atributo puede empezar con un valor superior a 3 y el valor mínimo posible es 1.
+Un personaje se define por cinco **Atributos** principales, que representan sus capacidades fundamentales. Estos tienen normalmente un valor que va de **1 (común) a 6 (legendario)**. Durante la creación, dispones de **10 puntos** para repartir entre ellos. Ningún atributo puede empezar con un valor superior a 3 y el valor mínimo posible es 1.
 
 - **Cuerpo:** Representa la fuerza bruta, la resistencia y la vitalidad física.
 - **Reflejos:** Mide la agilidad, la coordinación, la velocidad y la precisión.
@@ -24,24 +24,26 @@ Un personaje se define por cinco **Atributos** principales, que representan sus 
 
 ### ¿Qué significa cada puntuación?
 
-Un valor de atributo no es un número frío: describe quién es tu personaje frente al mundo. Un valor alto es un nombre que la gente susurra en las plazas; un valor bajo es una puerta que se cae sola. La siguiente escala te sirve para interpretar tus propios números y, cuando el DJ revele los de una criatura, para saber qué está en juego.
+Los Atributos representan capacidades amplias, no juicios absolutos sobre una criatura. Una puntuación baja no implica necesariamente una discapacidad o incapacidad para desenvolverse en situaciones cotidianas: indica cuánto destaca esa criatura cuando esa capacidad se pone realmente a prueba.
 
-| Puntuación | En la ficción                                                                                                                                                                                                                                                                                                                                                                          |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **0**      | **Anulada.** La capacidad simplemente no existe. No hay nada que sumar a la tirada: un fantasma no tiene cuerpo para forcejear, un cubo gelatinoso no tiene mente que dominar, un gusano monumental no tiene dónde poner ternura. Algunas maldiciones y poderes excepcionales pueden dejar un atributo en 0. Ni siquiera así el dado deja de jugarse: la suerte siempre puede terciar. |
-| **1**      | **Deficiente.** Muy por debajo de un adulto común. Alguien enfermizo, sin entrenamiento o afectado por un problema físico o mental. Cuando la prueba depende de ese atributo, casi siempre fracasa, y fracasa feo.                                                                                                                                                                     |
-| **2**      | **Limitado.** El terreno de la mayoría de la gente: el herrero del pueblo, la moza de taberna. Puede arreglárselas, pero no destaca.                                                                                                                                                                                                                                                   |
-| **3**      | **Competente.** Un profesional con oficio, entrenamiento o talento real. Es el punto de partida de los aventureros recién creados.                                                                                                                                                                                                                                                     |
-| **4**      | **Destacado.** Por encima de la norma: el duelista que gana todas las rondas en la taberna, la sabia a la que la villa consulta. Nadie llega a 4 sin esfuerzo.                                                                                                                                                                                                                         |
-| **5**      | **Experto.** La cúspide de un oficio: capitanes de guardia, eruditos de referencia, especialistas que cobran caro. Pocos mortales lo alcanzan.                                                                                                                                                                                                                                         |
-| **6**      | **Legendario.** El techo de lo mortal: la excepción de una generación, la persona cuya proeza se cuenta en las plazas. Un personaje puede llegar aquí, y poquísimos lo hacen.                                                                                                                                                                                                          |
-| **7-8**    | **Sobrenatural.** Ya no es humano: el Cíclope, con un 7 en Cuerpo, o el Gólem de Piedra, con un 8. Un mortal suele no tener respuesta directa frente a esto.                                                                                                                                                                                                                           |
-| **9-10**   | **Titánico.** Bestias de leyenda: un Dragón Adulto con un 10 en Cuerpo, un Gigante de Fuego. Lo que aplasta, y ya está.                                                                                                                                                                                                                                                                |
-| **11-12**  | **Inconcebible.** El límite del mundo conocido: el Liche y el Aboleth, con un 12 en Mente. Mentes y cuerpos que nada mortal puede igualar.                                                                                                                                                                                                                                             |
+La siguiente escala sirve como referencia para interpretar qué representa cada puntuación en la ficción.
+
+| Puntuación | En la ficción                                                                                                                                                                                                                                                                                   |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0**      | **Anulada.** La capacidad no existe o no puede ejercerse de una forma convencional. Un fantasma puede carecer de Cuerpo físico, mientras que ciertas criaturas pueden no poseer una mente capaz de razonar. Algunas condiciones o efectos excepcionales también pueden reducir un Atributo a 0. |
+| **1**      | **Común.** Una capacidad ordinaria, propia de alguien sin entrenamiento, experiencia o talento particular en ese ámbito. Permite desenvolverse normalmente en la vida cotidiana, aunque los desafíos exigentes pueden resultar difíciles.                                                       |
+| **2**      | **Capaz.** Existe cierta aptitud, experiencia o entrenamiento. Es habitual entre personas acostumbradas a utilizar esa capacidad en su oficio o vida diaria, y representa aproximadamente el valor medio de un aventurero recién creado.                                                        |
+| **3**      | **Destacado.** Una capacidad claramente desarrollada. Puede representar a un profesional experimentado, alguien con un talento notable o un aventurero que ha hecho de ese atributo una de sus fortalezas principales.                                                                          |
+| **4**      | **Excepcional.** Muy por encima de lo habitual. Quienes alcanzan este grado llaman la atención incluso entre profesionales y aventureros experimentados.                                                                                                                                        |
+| **5**      | **Experto.** Una de las mayores expresiones mortales de esa capacidad. Representa a individuos extraordinarios que destacan incluso entre especialistas de élite.                                                                                                                               |
+| **6**      | **Legendario.** El límite que una criatura mortal puede alcanzar normalmente. Sus capacidades son excepcionales incluso para héroes y maestros, y sus proezas pueden convertirse en historias dignas de ser recordadas.                                                                         |
+| **7-8**    | **Sobrenatural.** La capacidad supera los límites normales de una persona. Es propia de criaturas cuya naturaleza, tamaño, magia o fisiología les permite realizar hazañas fuera del alcance mortal.                                                                                            |
+| **9-10**   | **Titánico.** Poder propio de grandes monstruos y seres legendarios. La diferencia respecto de una criatura ordinaria ya no representa simplemente entrenamiento o talento, sino una escala de capacidad fundamentalmente distinta.                                                             |
+| **11-12**  | **Inconcebible.** Capacidades reservadas para algunas de las criaturas más poderosas del mundo. Representan extremos que incluso los mayores héroes difícilmente pueden igualar por medios naturales.                                                                                           |
 
 > **Nota de Juego: La Escala del Mortal**
 >
-> Tu personaje se mueve entre 1 y 6 —y al crearlo, entre 1 y 3—. El 0 y las puntuaciones por encima de 6 son territorio de otras criaturas, de efectos excepcionales y de la mano del Director de Juego. Esta tabla te da el vocabulario para interpretarlos cuando aparezcan, y te permite saber qué estás mirando cuando un dragón te desafía con un número que no vas a alcanzar nunca.
+> Los personajes jugadores se mueven normalmente entre **1 y 6**, y durante su creación entre **1 y 3**. Una puntuación de 1 representa una capacidad perfectamente funcional, no una deficiencia. Las puntuaciones de 0 o superiores a 6 aparecen principalmente en criaturas cuya naturaleza se encuentra fuera de los límites humanos, o como resultado de reglas y efectos excepcionales.
 
 ## Paso 2: Habilidades
 
@@ -51,7 +53,7 @@ Si bien ARCANA no utiliza una lista de habilidades rígida y cerrada, las siguie
 
 - **Atletismo:** Se usa para actividades físicas exigentes como escalar, saltar largas distancias o nadar en aguas turbulentas.
 - **Fuerza Bruta:** Se usa para aplicar tu poderío físico sin refinamiento para superar un obstáculo. Incluye actos de fuerza explosiva como derribar una puerta, levantar un portón pesado o doblar barrotes.
-- **Aguante:** Mide tu capacidad para soportar el agotamiento, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para realizar marchas forzadas durante días, soportar climas extremos sin el equipo adecuado, aguantar la respiración bajo el agua, resistir los efectos del alcohol o el cansancio para no quedarte dormido, y para sobreponerse al dolor en un interrogatorio físico.
+- **Aguante:** Mide tu capacidad para soportar la fatiga, el dolor y las condiciones adversas a través de pura tenacidad. Se utiliza para resistir la Fatiga provocada por marchas forzadas, privación de sueño, hambre, sed o condiciones ambientales adversas; aguantar la respiración bajo el agua; resistir los efectos del alcohol; y sobreponerse al dolor en situaciones de exigencia física prolongada.
 
 **Reflejos:**
 
@@ -135,7 +137,7 @@ Las cartas definen las habilidades y rasgos únicos de tu personaje. Para empeza
 
 ## Paso 6: Equipo Inicial
 
-Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **#11 Equipo y Economía** encontrarás una lista de precios y objetos.
+Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **Equipo y Economía** encontrarás una lista de precios y objetos.
 
 ## Paso 7: Lenguas
 
@@ -178,7 +180,7 @@ No son idiomas completos, sino sistemas de comunicación especializados usados p
 
 - **Jerga de Ladrones**: No es un idioma formal que se hable abiertamente, sino una compleja mezcla de argot, gestos sutiles y símbolos crípticos que se usan para transmitir información de forma encubierta. Se integra en conversaciones en Común, haciendo que los mensajes pasen desapercibidos para los no iniciados. Permite señalar un negocio corrupto, advertir de la presencia de la guardia, identificar a un posible objetivo o reconocer a otro miembro del gremio. Conocerla implica poder entender y usar estos códigos, pero no leer o escribir textos complejos.
 
-## Paso 7: Dando Vida a tu Personaje
+## Paso 8: Dando Vida a tu Personaje
 
 Ya tenés definidos los números y las cartas que representan las capacidades de tu personaje, pero, ¿quién es realmente? ARCANA es un juego centrado en la historia, y los personajes más memorables son aquellos que se sienten como personas reales.
 
@@ -311,7 +313,7 @@ El funcionamiento de las cartas se divide en dos conceptos clave:
 
 ## Activar y Cambiar Cartas
 
-Puedes cambiar qué **Cartas Activables** tienes activas durante un **día de descanso** (aproximadamente 8 horas de sueño y actividades ligeras).
+Puedes cambiar qué **Cartas Activables** tienes activas al completar un **Día de Descanso**, siguiendo las reglas descritas en el capítulo **Descanso y Recuperación**.
 
 ## Anatomía de una Carta
 
@@ -507,6 +509,50 @@ Cada atributo tiene un papel fundamental a la hora de superar los obstáculos qu
 
 Tener el equipo adecuado puede marcar la diferencia entre el éxito y el fracaso. El DJ puede determinar que tener las herramientas correctas (como un juego de ganzúas para abrir una cerradura o una cuerda de escalada para un muro) te otorga **Ventaja (+1d4)** en tu tirada, o incluso te permite superar el obstáculo sin necesidad de una tirada si no hay presión.
 
+## Viajes de Larga Distancia
+
+Cuando la distancia recorrida resulta relevante, el viaje se mide en horas. Cada medio de transporte posee una **velocidad de viaje**, que indica aproximadamente cuántos kilómetros puede recorrer por hora en condiciones favorables, y una cantidad de **horas normales de avance** que puede sostener durante un día sin forzar a quienes realizan el esfuerzo.
+
+| Medio de Viaje                | Velocidad de Viaje | Horas Normales de Avance | Distancia Diaria Aproximada |
+| :---------------------------- | :----------------- | :----------------------- | :-------------------------- |
+| A pie                         | 4 km/h             | 8 horas                  | 32 km                       |
+| Mula o burro                  | 4 km/h             | 8 horas                  | 32 km                       |
+| Caballo de monta              | 6 km/h             | 8 horas                  | 48 km                       |
+| Carreta                       | 4 km/h             | 8 horas                  | 32 km                       |
+| Carruaje ligero               | 5 km/h             | 8 horas                  | 40 km                       |
+| Bote de remos o canoa         | 4 km/h             | 8 horas                  | 32 km                       |
+| Barcaza o embarcación fluvial | 5 km/h             | 10 horas                 | 50 km                       |
+| Velero costero o mercante     | 8 km/h             | 24 horas\*               | 192 km                      |
+| Navío rápido                  | 10 km/h            | 24 horas\*               | 240 km                      |
+
+_\* Una embarcación con una tripulación suficiente puede continuar navegando mientras sus integrantes se alternan en turnos de trabajo y descanso._
+
+Estos valores representan condiciones razonablemente favorables. El terreno, el clima, las corrientes, el viento, el estado de los caminos y otras circunstancias pueden modificar el avance, según determine el Director de Juego.
+
+Las horas indicadas representan **horas efectivas de viaje**. El tiempo empleado en detenerse a comer, investigar un lugar, resolver un encuentro, reparar equipo o realizar otras actividades no cuenta como horas de avance.
+
+### Marcha Forzada
+
+Una criatura puede realizar hasta las **horas normales de avance** correspondientes a su forma de viaje sin realizar pruebas adicionales por el mero esfuerzo de desplazarse.
+
+Continuar más allá de ese límite constituye una **Marcha Forzada**. Al finalizar cada hora adicional durante la que la criatura continúe realizando el esfuerzo, debe superar una Prueba de **Cuerpo (Aguante)**. La primera hora adicional tiene **ND 8**, y el ND aumenta en **+1 por cada hora adicional consecutiva**.
+
+Por ejemplo, para una criatura que viaja a pie:
+
+| Horas de Viaje | Prueba de Marcha Forzada |
+| :------------- | :----------------------- |
+| 1–8 horas      | Sin prueba               |
+| 9 horas        | ND 8                     |
+| 10 horas       | ND 9                     |
+| 11 horas       | ND 10                    |
+| 12 horas       | ND 11                    |
+
+Si falla una de estas pruebas, la criatura sufre **1 grado de Fatiga**.
+
+En los viajes a pie, a caballo o mediante animales de tiro, **12 horas de avance en un mismo día** representan normalmente el límite de lo que puede sostenerse mediante esfuerzo ordinario. Superar ese límite queda reservado para circunstancias excepcionales y queda a criterio del DJ.
+
+La Marcha Forzada afecta a quienes estén realizando el esfuerzo prolongado. Un pasajero que viaja a bordo de una embarcación, carro u otro vehículo no realiza estas pruebas únicamente porque el vehículo continúe avanzando. Si se fuerza durante demasiado tiempo a una montura, animal de tiro o miembro de una tripulación, el DJ determina quién debe realizar las pruebas correspondientes.
+
 # 6. Interacción Social
 
 La interacción social es el campo de batalla de las palabras, las ideas y las voluntades. Es el arte de convencer a un rey para que te preste su ejército, engañar a un guardia para que abandone su puesto, inspirar a un pueblo a rebelarse o intimidar a un mercader para que te dé un precio justo. En muchas aventuras, una conversación en el momento adecuado puede ser más poderosa que cualquier espada.
@@ -675,7 +721,7 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Elementales:** Fuego, Frío, Eléctrico.
 - **Mágicos:** Sónico, Psíquico, Veneno, Ácido, Necrótico, Radiante, Fuerza.
 
-## Heridas y Recuperación
+## Heridas y caer Moribundo
 
 - **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
   de Cuerpo (ND 8). Si fallas tres veces, mueres. En caso de superar alguna de las tiradas de salvación por 5 o más, recuperas
@@ -683,9 +729,30 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
   Un aliado puede usar su Acción para intentar superar una Prueba de Instinto (Medicina) (ND 8) y estabilizarte (tambien recuperando 1 punto de salud en caso de superar por 5 o más).
   Si recuperas salud por un medio mágico, el estado de **Inconsciente** termina.
   Si recibes daño estando moribundo, se considera como 2 fallos en la tirada de salvación.
-- **Recuperación:** Con cada **día de descanso**, un personaje recupera una cantidad de Salud igual a dos veces su puntuación de **Cuerpo**.
 
 # 8. Estados y Condiciones
+
+## Fatiga
+
+La **Fatiga** representa el deterioro físico y mental provocado por la falta de sueño, las marchas prolongadas, la exposición al entorno y otras formas de desgaste extremo.
+
+La Fatiga posee tres grados progresivos:
+
+**Cansado → Agotado → Exhausto**
+
+Cada vez que una criatura sufre **1 grado de Fatiga**, avanza un paso en esta progresión. Los grados no se acumulan como estados independientes: una criatura solo se encuentra bajo los efectos de su grado actual.
+
+Si una criatura **Exhausta** fuera a sufrir otro grado de Fatiga, **muere**.
+
+Las penalizaciones provocadas por Cansado, Agotado o Exhausto **no se aplican a las Pruebas de Cuerpo (Aguante) realizadas específicamente para evitar sufrir nuevos grados de Fatiga**. Cualquier otra bonificación o penalización aplicable a esas pruebas funciona normalmente.
+
+- **Cansado:** Sufres un **-1** en tus Tiradas de Ataque, Pruebas de Habilidad o de Atributo, Tiradas de Salvación y tiradas de Iniciativa. Además, el ND de cualquier carta o capacidad que calcules a partir de uno de tus Atributos se reduce en **-1**.
+- **Agotado:** Sufres **Desventaja (-1d4)** en tus Tiradas de Ataque, Pruebas de Habilidad o de Atributo, Tiradas de Salvación y tiradas de Iniciativa. Además, el ND de cualquier carta o capacidad que calcules a partir de uno de tus Atributos se reduce en **-2**.
+- **Exhausto:** Sufres todos los efectos de **Agotado**. Además, tu Velocidad se reduce a la mitad, redondeando hacia abajo, y no puedes realizar **Reacciones**.
+
+Las penalizaciones de estos grados **no se acumulan entre sí**. Por ejemplo, una criatura Agotada aplica únicamente los efectos de Agotado, no los de Agotado y Cansado simultáneamente.
+
+## Otras Condiciones
 
 - **Asustado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y pruebas de habilidad mientras la fuente del miedo esta en tu rango de visión.
 - **Aturdido:** No puedes realizar **Acciones** ni **Reacciones**. Los ataques contra ti obtienen **Ventaja (+1d4)**.
@@ -699,7 +766,66 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Inmovilizado:** No puedes usar tu **Movimiento**.
 - **Moribundo:** Estás **Inconsciente** y con 0 puntos de salud. Los ataques contra ti obtienen **Ventaja (+1d4)**. No puedes hacer tiradas para recargar cartas.
 
-# 9. Progresión del Personaje
+# 9. Descanso y Recuperación
+
+Dormir y dedicar un día completo a recuperarse son cosas distintas. El **Sueño Suficiente** cubre la necesidad fisiológica de dormir, mientras que un **Día de Descanso** representa un período prolongado dedicado a la recuperación física y mental.
+
+## Sueño Suficiente
+
+Una criatura que necesite dormir debe completar aproximadamente **6 horas de sueño** durante un mismo período de reposo para satisfacer su necesidad de sueño.
+
+Las interrupciones breves no invalidan automáticamente el sueño ya obtenido, siempre que la criatura pueda continuar descansando y completar las horas necesarias.
+
+Completar un Sueño Suficiente:
+
+- reinicia el tiempo utilizado para determinar la **Privación de Sueño**;
+- permite reducir la **Fatiga en 1 grado**.
+
+Una criatura solo puede reducir su Fatiga de esta manera **una vez cada 24 horas**.
+
+Dormir lo suficiente **no constituye por sí mismo un Día de Descanso**. No recupera Salud, usos de cartas ni permite cambiar las Cartas Activables preparadas.
+
+Caer en el estado **Dormido** debido a un conjuro, veneno u otro efecto no cuenta automáticamente como Sueño Suficiente, salvo que el efecto indique lo contrario.
+
+## Privación de Sueño
+
+Si transcurren **24 horas** desde la última vez que una criatura completó un Sueño Suficiente, esta sufre automáticamente **1 grado de Fatiga**.
+
+A partir de ese momento, por cada **6 horas adicionales** que permanezca sin completar un Sueño Suficiente, debe realizar una Prueba de **Cuerpo (Aguante)**. La primera de estas pruebas tiene **ND 6**, y el ND aumenta en **+1 con cada prueba posterior**.
+
+| Tiempo sin Sueño Suficiente | Consecuencia            |
+| :-------------------------- | :---------------------- |
+| 24 horas                    | Sufre 1 grado de Fatiga |
+| 30 horas                    | Cuerpo (Aguante), ND 6  |
+| 36 horas                    | Cuerpo (Aguante), ND 7  |
+| 42 horas                    | Cuerpo (Aguante), ND 8  |
+| 48 horas                    | Cuerpo (Aguante), ND 9  |
+| 54 horas                    | Cuerpo (Aguante), ND 10 |
+| 60 horas                    | Cuerpo (Aguante), ND 11 |
+
+Cada fallo hace que la criatura sufra **1 grado de Fatiga**. Si continúa despierta, el ND sigue aumentando en +1 por cada período adicional de 6 horas.
+
+Completar un Sueño Suficiente reinicia esta progresión.
+
+## Día de Descanso
+
+Un **Día de Descanso** consiste en aproximadamente **24 horas dedicadas al reposo y a actividades ligeras**. Para una criatura que necesite dormir, este período debe incluir un Sueño Suficiente.
+
+Durante un Día de Descanso pueden realizarse actividades poco exigentes, como comer, conversar, leer, estudiar, rezar, mantener el equipo o realizar una guardia tranquila. Las interrupciones breves no invalidan automáticamente el descanso, pero un período dedicado de forma significativa al viaje, al trabajo físico intenso o a otras actividades propias de una aventura no puede considerarse un Día de Descanso.
+
+Al completar un Día de Descanso:
+
+- recuperas una cantidad de Salud igual a **dos veces tu puntuación de Cuerpo**;
+- recuperas todos los usos de tus cartas limitados por Día de Descanso;
+- recuperas las cartas con **Recarga** que permanezcan agotadas o sobrecargadas;
+- puedes cambiar qué **Cartas Activables** tienes preparadas;
+- reduces tu **Fatiga en 1 grado adicional** al que puedas haber recuperado mediante el Sueño Suficiente incluido en ese descanso.
+
+Una criatura no puede obtener los beneficios de un nuevo Día de Descanso hasta que hayan transcurrido **24 horas desde que completó el anterior**, salvo que una regla indique expresamente lo contrario.
+
+La Fatiga causada por una condición que continúa afectando a la criatura —como la falta de alimento, agua o protección frente a un entorno extremo— no puede reducirse mediante sueño o descanso mientras esa causa persista, a discreción del DJ.
+
+# 10. Progresión del Personaje
 
 A lo largo de sus aventuras, los personajes acumulan experiencia y aprenden de sus triunfos y fracasos. Esta evolución se representa mediante los **Puntos de Progreso (PP)**, que pueden invertir para desbloquear nuevas capacidades, ampliar su repertorio de habilidades o mejorar sus aptitudes innatas.
 
@@ -743,7 +869,7 @@ Añadir una nueva carta a tu **Colección** expande tu repertorio de habilidades
 | Nivel 4           | 12 PP       |
 | Nivel 5           | 17 PP       |
 
-# 10. Tiempo Entre Aventuras
+# 11. Tiempo Entre Aventuras
 
 Las aventuras son momentos de alta intensidad, peligro y gloria, pero ¿qué hace tu personaje cuando el polvo se asienta? El tiempo que pasa entre una misión y la siguiente, conocido como "tiempo de descanso" o "downtime", es una oportunidad para que tu personaje crezca, entrene, investigue y se conecte con el mundo de una forma más personal.
 
@@ -791,7 +917,7 @@ Pasás tiempo en tabernas, cortes nobles o los bajos fondos para hacer amigos e 
 - **Costo:** Implica gastar dinero en invitaciones, regalos o sobornos.
 - **Tirada:** Una serie de Pruebas de **Presencia** (Persuasión, Intimidación o Engaño, dependiendo de tu enfoque). El éxito podría darte un contacto confiable en una organización, un rumor útil para tu próxima aventura, o Ventaja en futuras interacciones sociales en esa comunidad.
 
-# 11. Equipo y Economía
+# 12. Equipo y Economía
 
 ## Moneda y Riqueza
 
@@ -850,15 +976,31 @@ La armadura proporciona **Mitigación Física**, que reduce el daño físico rec
 
 > **Nota sobre armaduras no listadas:** La tabla representa familias funcionales de armaduras, no un catálogo exhaustivo. Si una armadura no aparece de forma explícita, puede utilizar las estadísticas de aquella que mejor represente su grado de protección, movilidad y ruido. Por ejemplo, una armadura de escamas puede tratarse como una Brigantina, mientras que una coraza puede utilizar las estadísticas de Placas parcial. El DJ tiene la última palabra sobre qué entrada resulta más apropiada.
 
-| Armadura        | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
-| :-------------- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
-| Cuero           | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
-| Gambesón        | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
-| Cota de mallas  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
-| Brigantina      | 3                 | -1      | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
-| Placas parcial  | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
-| Placas completa | 5                 | -3      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
-| Escudo          | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
+| Armadura        | Tipo   | Mitigación Física | Esquiva | Penalización Sigilo | Requisito             | Precio |
+| :-------------- | :----- | :---------------- | :------ | :------------------ | :-------------------- | :----- |
+| Cuero           | Ligera | 1                 | 0       | 0                   | Cuerpo 1              | 20 o   |
+| Gambesón        | Ligera | 2                 | -1      | -1 (Ruidosa)        | Cuerpo 2              | 50 o   |
+| Cota de mallas  | Media  | 2                 | 0       | -2 (Muy ruidosa)    | Cuerpo 3              | 75 o   |
+| Brigantina      | Media  | 3                 | -1      | -1 (Ruidosa)        | Cuerpo 3              | 150 o  |
+| Placas parcial  | Pesada | 4                 | -2      | -2 (Muy ruidosa)    | Cuerpo 4              | 300 o  |
+| Placas completa | Pesada | 5                 | -3      | -2 (Muy ruidosa)    | Cuerpo 5              | 750 o  |
+| Escudo          | —      | 0                 | +1      | 0                   | Cuerpo 3 y Mano libre | 10 o   |
+
+### Dormir con Armadura
+
+Dormir con una armadura **Ligera** no interfiere de forma significativa con el descanso.
+
+Si completas tu Sueño Suficiente llevando una armadura **Media** o **Pesada**, debes realizar una Prueba de **Cuerpo (Aguante)** al despertar:
+
+| Tipo de Armadura | ND         |
+| :--------------- | :--------- |
+| Ligera o ninguna | Sin prueba |
+| Media            | 8          |
+| Pesada           | 10         |
+
+Si fallas, sufres **1 grado de Fatiga**.
+
+El sueño sigue contando como **Sueño Suficiente** aunque falles esta prueba. La Fatiga representa la recuperación deficiente provocada por haber descansado bajo el peso y las restricciones de la armadura.
 
 ## Equipo de Aventura y Servicios
 
@@ -945,7 +1087,7 @@ El **efecto exacto** de un veneno lo define el DJ, pero aquí hay algunos ejempl
 
 Un personaje puede comprar, encontrar o intentar fabricar venenos (esto último requeriría una prueba de **Mente** para la alquimia o de **Instinto** para la recolección, a discreción del DJ). Las cartas como `Toxinas Potenciadas` del Pícaro representan una maestría que permite alterar y mejorar los efectos de estos venenos base.
 
-# 12. Reglas Narrativas Avanzadas
+# 13. Reglas Narrativas Avanzadas
 
 Este capítulo presenta mecánicas opcionales diseñadas para dar a los jugadores un mayor grado de control sobre la narrativa, permitiéndoles contribuir a la historia de maneras creativas y sorprendentes.
 
@@ -985,7 +1127,7 @@ A veces, la preparación, una coincidencia afortunada o un detalle del pasado de
 >
 > **DJ (narrando el resultado):** "Bien. Entonces, la escena cambia. El portón de piedra cae con un estruendo ensordecedor, pero justo antes de sellar la salida, se detiene con un chirrido metálico. La cuña de hierro que Roric colocó ha aguantado, dejando una pequeña abertura de apenas un palmo en la base. No es suficiente para escapar ahora mismo, pero os da una esperanza y una posible vía de escape si lográis sobrevivir a los gólems."
 
-# 13. Un Ejemplo de Juego
+# 14. Un Ejemplo de Juego
 
 Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presentamos una escena de ejemplo para ilustrar cómo fluye una partida de ARCANA, combinando la narración del Director de Juego (DJ) con las acciones y decisiones de los jugadores.
 
@@ -1057,3 +1199,7 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 **Kaelen:** "Tiro 1d8 más mi Cuerpo (3). Saco un 5, ¡total 8! El esqueleto tira 1d8 más su Cuerpo (2)... y saca un 2, ¡total 4! Le gano."
 
 > **DJ:** _Con un empujón brutal, lanzas al esqueleto para atrás. Cae aparatosamente en el pozo y escuchás cómo sus huesos se rompen contra los escombros. Ya no es una amenaza. El combate sigue..._
+
+```
+
+```

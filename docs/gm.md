@@ -2,7 +2,7 @@
 
 Esta guía contiene consejos y directrices para ayudarte a dirigir una partida de ARCANA. Recuerda que estas son recomendaciones, no reglas inamovibles. La regla más importante es que tú eres el árbitro final de la historia y las mecánicas; siéntete libre de adaptar, improvisar y modificar lo que sea necesario para que la experiencia sea memorable para tu grupo.
 
-# Otorgar Puntos de Progreso (PP)
+# 1. Otorgar Puntos de Progreso (PP)
 
 Los Puntos de Progreso son el motor de la evolución de los personajes. Otorgarlos de manera consistente y justa es clave para mantener a los jugadores motivados. Aquí tienes una guía sobre cuándo, cómo y cuántos PP repartir.
 
@@ -47,18 +47,18 @@ En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupu
 
 **+1 PP (Bono Individual):** Independientemente del ritmo, siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
 
-# El Pacto de Caos
+# 2. El Pacto de Caos
 
 El Caos es un recurso narrativo y mecánico que el DJ acumula cuando los jugadores eligen forzar su suerte. Representa cómo el mundo y el destino reaccionan para reequilibrar la balanza.
 
-### Ganar Puntos de Caos
+## Ganar Puntos de Caos
 
 Tal como está descrito en el Manual del Jugador, el DJ gana **1 Punto de Caos** cada vez que un jugador declara que va a comprar **1 Punto de Suerte**.
 
 - Esta reserva de Puntos de Caos **no tiene límite máximo**.
 - Esta reserva **no se reinicia** al final de la sesión; es una "deuda" persistente del grupo a lo largo de la campaña.
 
-### Gastar Puntos de Caos
+## Gastar Puntos de Caos
 
 El DJ puede gastar Puntos de Caos en cualquier momento para influir en la narrativa y complicar la vida de los héroes. Existen tres formas de gastar Caos:
 
@@ -68,7 +68,7 @@ El DJ puede gastar Puntos de Caos en cualquier momento para influir en la narrat
 
 **Filosofía de Uso:** Para evitar una sensación punitiva, el DJ no debería gastar Caos para contrarrestar _directamente_ la misma acción para la cual el jugador acaba de comprar Suerte. El Caos es una _consecuencia_ inminente, no un impuesto inmediato. Utiliza las Complicaciones Ambientales para alterar el entorno de forma narrativa, y reserva la Segunda Oportunidad para los villanos principales.
 
-# Guía de Recompensas: Tesoro y Equipo
+# 3. Recompensas: Tesoro y Equipo
 
 Además de los Puntos de Progreso, las recompensas materiales son un motor clave de la aventura. Un tesoro bien administrado no solo permite a los personajes comprar mejor equipo, sino que también puede ser un objetivo narrativo en sí mismo. La filosofía de ARCANA es que los objetos mágicos son hallazgos extraordinarios y raros, trofeos de grandes hazañas, no artículos en el catálogo de una tienda.
 
@@ -199,7 +199,7 @@ Los objetos mágicos no son mercancía común. Su venta es un evento raro, manej
 
 Recuerda que las mejores recompensas no siempre brillan. Un mapa a una ruina olvidada, el favor de un noble, el perdón de un crimen o una información vital pueden ser mucho más valiosos que cualquier cantidad de oro.
 
-# Establecer Niveles de Dificultad (ND) para Pruebas de Habilidad
+# 4. Establecer Niveles de Dificultad (ND)
 
 Establecer el **Nivel de Dificultad (ND)** para las acciones de los jugadores es tu herramienta principal para modelar el mundo. Es más un arte que una ciencia.
 
@@ -230,23 +230,54 @@ Una vez que tienes un ND base en mente, ajústalo +/- 1 o 2 puntos basándote en
 - **¿Las condiciones son desfavorables?** Escalar un muro bajo la lluvia es más difícil que hacerlo en un día seco (ND +2).
 - **¿Están bajo presión?** Desactivar una trampa mientras el techo se derrumba es más difícil que hacerlo con calma (ND +1).
 
-# Diseñar Criaturas y Encuentros
+# 5. Dirigir Viajes y Supervivencia
+
+Las velocidades de viaje del Manual del Jugador representan condiciones razonablemente favorables. Como DJ, puedes modificar la distancia recorrida cuando el terreno, el clima o las condiciones de la ruta hagan que avanzar resulte sensiblemente más fácil o difícil.
+
+## Terreno y Rutas
+
+Como referencia, puedes aplicar los siguientes modificadores a la **distancia recorrida por hora**:
+
+| Condiciones del Terreno | Avance | Ejemplos                                                             |
+| :---------------------- | :----- | :------------------------------------------------------------------- |
+| Favorables              | ×1     | Camino mantenido, llanura abierta, sendero claro                     |
+| Irregulares             | ×0,75  | Colinas, bosque abierto, camino deteriorado                          |
+| Difíciles               | ×0,5   | Montaña, pantano, bosque denso, nieve profunda                       |
+| Extremas                | ×0,25  | Terreno casi intransitable, ascensos severos, ausencia total de ruta |
+
+Estos modificadores afectan cuánto terreno se recorre durante una hora, **no cuánto esfuerzo representa esa hora** a efectos de una Marcha Forzada. Ocho horas atravesando un pantano siguen siendo ocho horas de viaje, aunque el grupo haya avanzado una distancia mucho menor.
+
+No todos los medios de transporte pueden utilizarse en todos los terrenos. Una carreta puede resultar impracticable fuera de un camino, mientras que una mula puede continuar por una senda donde un carruaje no podría avanzar. Cuando un medio de transporte resulte claramente inadecuado, no es necesario reducir indefinidamente su velocidad: simplemente puede ser imposible continuar con él.
+
+## Viento, Corrientes y Navegación
+
+En viajes por agua, el viento y las corrientes pueden modificar considerablemente el avance.
+
+Como guía general, condiciones favorables pueden aumentar la distancia recorrida aproximadamente en un **25%**, mientras que condiciones adversas pueden reducirla entre un **25% y un 50%**. Una ausencia total de viento, una corriente especialmente fuerte o una tormenta pueden reducir todavía más el avance o incluso detener una embarcación que dependa de esas condiciones.
+
+Cuando controlar la embarcación bajo esas circunstancias sea incierto y tenga consecuencias relevantes, una Prueba de **Reflejos (Pilotaje)** resulta apropiada.
+
+## Quién Sufre el Esfuerzo
+
+La Marcha Forzada debe aplicarse a la criatura que realiza el esfuerzo prolongado, no automáticamente a todos aquellos que se estén desplazando.
+
+En un viaje a pie, serán normalmente los propios personajes. Al utilizar monturas o animales de tiro, el esfuerzo adicional puede recaer principalmente sobre esos animales. En una embarcación impulsada a remo, recaerá sobre quienes remen. En cambio, los pasajeros de un barco que continúa navegando gracias a una tripulación organizada en turnos, no están realizando una Marcha Forzada simplemente porque la embarcación permanezca en movimiento durante todo el día.
+
+Utiliza estas reglas cuando el desgaste forme parte real de las decisiones del grupo. Si un viaje transcurre por una ruta segura, con tiempo suficiente y sin presión significativa, no es necesario convertir cada jornada en una sucesión de tiradas.
+
+# 6. Diseñar Encuentros
 
 La esencia de una aventura emocionante reside en los desafíos que presenta. Esta guía te proporcionará un sistema de reglas ligeras, rápido e intuitivo para diseñar encuentros que sean justos, desafiantes y divertidos, alineados con la filosofía de ARCANA.
 
-Este capítulo está dividido en dos partes. La primera, **Diseñar Encuentro**, es la guía fundamental que usarás en cada sesión. La segunda, **Diseño Avanzado de Criaturas**, es una sección opcional para aquellos Directores de Juego que deseen crear sus propios monstruos desde cero.
-
-# Parte 1: Diseñar Encuentros
-
 Este sistema te permite preparar un encuentro balanceado rápidamente, basándose en el poder promedio de tu grupo y la dificultad deseada. Empodera al Director de Juego (DJ) para tomar decisiones informadas, guiado por principios en lugar de reglas estrictas.
 
-### Paso 1: Calcular el Poder Promedio del Grupo (PP Promedio)
+## Paso 1: Calcular el Poder Promedio del Grupo (PP Promedio)
 
 Primero, necesitas una medida del poder actual de tu grupo.
 
 **PP Promedio = (Suma total de PP gastados por todos los personajes) / (Número de personajes)**
 
-### Paso 2: Consultar la Tabla Maestra de Presupuesto por Personaje
+## Paso 2: Consultar la Tabla Maestra de Presupuesto por Personaje
 
 Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la siguiente tabla. Esta tabla te dará el **Presupuesto Base de Puntos de Amenaza por Personaje (PA Base/PJ)** para cada nivel de dificultad. También te ofrece una **sugerencia** sobre el Rango máximo de monstruo apropiado para encuentros estándar en ese nivel de poder.
 
@@ -264,7 +295,7 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 
 _(Nota: "Rango Nominal (Ref.)" es solo una etiqueta de referencia para entender en qué etapa de poder se encuentra el grupo)_
 
-### Paso 3: Calcular el Presupuesto Total del Encuentro (PA Total)
+## Paso 3: Calcular el Presupuesto Total del Encuentro (PA Total)
 
 Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu grupo. Redondea el resultado final al entero más cercano si obtienes decimales.
 
@@ -275,7 +306,7 @@ Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu 
 > - PA Base/PJ (Tabla v5.2): 10.5 PA
 > - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
 
-### Paso 4: Construir el Encuentro - Compra de Enemigos
+## Paso 4: Construir el Encuentro — Compra de Enemigos
 
 Gasta tu Presupuesto Total (PA) comprando enemigos usando la siguiente tabla de costes.
 
@@ -292,7 +323,7 @@ _(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para 
 
 **No hay límites estrictos sobre qué Rangos puedes usar**, pero tu elección debe estar guiada por tu criterio y los principios detallados en la siguiente **Guía Estratégica**.
 
-### Regla de Encuentro: Reacciones Adicionales para Jefes
+## Reacciones Adicionales para Jefes
 
 Todas las criaturas disponen normalmente de **1 Reacción por ronda**.
 
@@ -311,7 +342,7 @@ Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien par
 
 Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
 
-#### Reacciones de Jefe
+### Reacciones de Jefe
 
 Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
 
@@ -328,7 +359,7 @@ Estas opciones no reemplazan las Reacciones propias de la criatura. Simplemente 
 
 Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas lo indique expresamente.
 
-### Guía Estratégica para el DJ: Balance y Composición
+## Guía Estratégica para el DJ: Balance y Composición
 
 El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave final**. Usa estos principios para interpretar el presupuesto y construir encuentros memorables y balanceados:
 
@@ -372,17 +403,17 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
 > - **Opción 2 (Jefe R4 + Élites - Recomendada):** 1x Monstruo R4 (10 PA) + 4x Monstruos R3 (24 PA) + 4x Monstruos R2 (8 PA) = **42 PA**. _Análisis: 9 enemigos con una jerarquía clara y una combinación equilibrada entre amenaza central, élites y apoyo._
 > - **Opción 3 (Calidad sobre Cantidad):** 2x Monstruos R4 (20 PA) + 3x Monstruos R3 (18 PA) + 2x Monstruos R2 (4 PA) = **42 PA**. _Análisis: 7 enemigos de mayor calidad individual. La economía de acciones es más contenida, pero cada enemigo representa una amenaza considerable._
 
-### Paso 5: Diseño Avanzado de Criaturas (Resumen)
+## Crear Criaturas Propias
 
-Si deseas crear tus propios monstruos, la Parte 2 (detallada a continuación) te guía usando un sistema de **Puntos de Perfil (PPF)**. Cada Rango de Monstruo (1 a 6) tiene un presupuesto de PPF y tablas calibradas para "comprar" sus estadísticas y Rasgos Tácticos, asegurando que se alineen con el balance general del sistema.
+Si deseas crear tus propios monstruos, el capítulo **Diseño Avanzado de Criaturas** te guía usando un sistema de **Puntos de Perfil (PPF)**. Cada Rango de Monstruo (1 a 6) tiene un presupuesto de PPF y tablas calibradas para "comprar" sus estadísticas y Rasgos Tácticos, asegurando que se alineen con el balance general del sistema.
 
-# Parte 2: Diseño Avanzado de Criaturas
+# 7. Diseño Avanzado de Criaturas
 
 Si bien el bestiario proporcionado ofrece una amplia variedad de enemigos, puede que desees crear tus propias criaturas únicas para poblar tu mundo o representar amenazas específicas de tu campaña. Esta sección te guiará a través de un sistema flexible para diseñar monstruos desde cero, asegurando que se integren de manera balanceada con el sistema de Rangos y Presupuestos de Encuentro.
 
 Utilizaremos un método de "compra" de estadísticas y habilidades llamado **Puntos de Perfil (PPF)**. Cada Rango de Monstruo tiene un presupuesto de PPF que puedes gastar para definir sus capacidades, permitiéndote crear desde frágiles "cañones de cristal" hasta resistentes "tanques" o astutos "controladores", todo dentro de un marco equilibrado.
 
-### Paso 1: Concepto, Rol y Rango
+## Paso 1: Concepto, Rol y Rango
 
 Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 
@@ -395,7 +426,7 @@ Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 | **Rango 5**        | 30 PPF            | Amenazas de final de campaña, avatares del apocalipsis.     |
 | **Rango 6**        | 38 PPF            | Jefes finales épicos, diseñados a medida.                   |
 
-### Paso 2: Linaje de la Criatura
+## Paso 2: Linaje de la Criatura
 
 Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.
 
@@ -426,7 +457,7 @@ Esta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o
 
 > **Ejemplo:** la Harpía habla el dialecto propio de los acantilados a los que es territorial; otras harpías de un litoral distinto podrían hablar una variante diferente, sin coste por ello.
 
-### Paso 3: Definir atributos y estadísticas
+## Paso 3: Definir Atributos y Estadísticas
 
 El Rango determina el presupuesto de PPF de la criatura. Usa la tabla del Rango
 correspondiente para distribuir esos puntos y respeta las **cotas de inversión
@@ -436,7 +467,7 @@ Los atributos se definen por separado. Describen las capacidades de la criatura
 y pueden influir en pruebas, tiradas enfrentadas y otras reglas que los utilicen
 de forma explícita.
 
-#### Asignar atributos
+### Asignar Atributos
 
 Los cinco atributos de una criatura son **Cuerpo, Reflejos, Mente, Instinto y
 Presencia**. Su distribución puede ser especializada o amplia, siempre que
@@ -517,7 +548,9 @@ De la misma manera, una criatura que haya adquirido **+5 / ND 10** puede poseer 
 
 Los valores adquiridos mediante la tabla representan el techo ofensivo estándar disponible para la criatura.
 
-#### Tabla de Constructor: Monstruo de RANGO 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)
+### Tablas de Constructor
+
+#### Monstruo de Rango 1 (Presupuesto: 8 PPF / Cota de inversión por categoría: 4 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -527,7 +560,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **3**     |  13   |    8    |   +4 / 9    |                    5                     |             2 / 1             |               -                |
 |    **4**     |  16   |    -    |      -      |                    6                     |             3 / 1             |               4                |
 
-#### Tabla de Constructor: Monstruo de RANGO 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)
+#### Monstruo de Rango 2 (Presupuesto: 12 PPF / Cota de inversión por categoría: 6 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -539,7 +572,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **5**     |  40   |   10    |      -      |                  13-14                   |             4 / 2             |               5                |
 |    **6**     |  45   |    -    |      -      |                  15-16                   |             5 / 2             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)
+#### Monstruo de Rango 3 (Presupuesto: 17 PPF / Cota de inversión por categoría: 8 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -553,7 +586,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **7**     |  86   |    -    |      -      |                  27-29                   |             6 / 3             |               -                |
 |    **8**     |  94   |    -    |      -      |                  30-32                   |             8 / 3             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)
+#### Monstruo de Rango 4 (Presupuesto: 23 PPF / Cota de inversión por categoría: 10 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -569,7 +602,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **9**     |  150  |    -    |      -      |                  45-48                   |             9 / 4             |               -                |
 |    **10**    |  160  |    -    |      -      |                  49-52                   |            11 / 4             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)
+#### Monstruo de Rango 5 (Presupuesto: 30 PPF / Cota de inversión por categoría: 12 PPF)
 
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
@@ -587,7 +620,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 |    **11**    |  232  |    -    |      -      |                  71-75                   |            12 / 5             |               -                |
 |    **12**    |  244  |    -    |      -      |                  76-80                   |            14 / 5             |               -                |
 
-#### Tabla de Constructor: Monstruo de RANGO 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)
+#### Monstruo de Rango 6 (Presupuesto: 38 PPF / Cota de inversión por categoría: 14 PPF)
 
 _(Para Jefes Finales Épicos)_
 
@@ -609,7 +642,7 @@ _(Para Jefes Finales Épicos)_
 |    **13**    |  345  |    -    |      -      |                  91-95                   |            16 / 7             |               -                |
 |    **14**    |  360  |    -    |      -      |                  96-100                  |            18 / 7             |               -                |
 
-### Regla de Diseño: La Reserva Defensiva
+## Reserva Defensiva
 
 El Director de Juego (DJ) utiliza los **Puntos de Defensa (PD)** obtenidos en la Tabla de Constructor del Rango correspondiente para configurar el perfil defensivo de una criatura.
 
@@ -617,7 +650,7 @@ Los PD representan defensas especiales que van más allá de sus valores básico
 
 Para facilitar la consulta durante el diseño, las opciones se agrupan en cuatro categorías principales.
 
-#### 1. Mitigación y Protecciones de Daño
+### 1. Mitigación y Protecciones de Daño
 
 - **Mitigación Plana (Coste: 1 PD por punto):** suma +1 a la Mitigación Física o a la Mitigación Mágica.
 
@@ -633,7 +666,7 @@ Para facilitar la consulta durante el diseño, las opciones se agrupan en cuatro
 
   > _Restricción:_ Una criatura puede poseer como máximo **1 Vulnerabilidad a Daño** adquirida de esta forma.
 
-##### Defensas de Daño Condicionales
+#### Defensas de Daño Condicionales
 
 Cuando una **Resistencia** o **Inmunidad a Daño** solo funciona bajo una condición clara y suficientemente restrictiva, calcula primero el coste normal de todas las defensas cubiertas y reduce ese coste a la **mitad, redondeando hacia arriba**.
 
@@ -645,7 +678,7 @@ Una condición trivial, prácticamente permanente o que los personajes no puedan
 >
 > **Ejemplo — Inmunidad Condicional:** una criatura es inmune a **Fuego** únicamente mientras permanece sumergida en lava. La Inmunidad costaría normalmente 4 PD; al ser condicional, cuesta **2 PD**.
 
-#### 2. Tiradas de Salvación
+### 2. Tiradas de Salvación
 
 - **Ventaja Condicional en TS (Coste: 1 PD):** la criatura obtiene Ventaja (+1d4) en Tiradas de Salvación contra una fuente, estado o categoría específica de efectos.
   - Ejemplos: Miedo, Venenos, efectos de Derribo o efectos que provocarían Encantado.
@@ -656,7 +689,7 @@ Una condición trivial, prácticamente permanente o que los personajes no puedan
 
   > _Restricción:_ Las criaturas de **Rango 1 y 2** solo pueden adquirir esta defensa para un máximo de **1 Atributo**.
 
-#### 3. Inmunidad a Estados y Control
+### 3. Inmunidad a Estados y Control
 
 Las inmunidades a estados se dividen según el impacto táctico de aquello que permiten ignorar.
 
@@ -679,7 +712,7 @@ Las inmunidades a estados se dividen según el impacto táctico de aquello que p
 
 Las inmunidades de esta sección deben adquirirse normalmente aunque parezcan apropiadas para la anatomía, comportamiento o naturaleza de una criatura, salvo que una excepción por Tipo de Criatura indique expresamente lo contrario.
 
-#### 4. Excepciones de Linaje
+### 4. Excepciones de Linaje
 
 Algunos Linajes poseen propiedades inherentes que modifican excepcionalmente las reglas anteriores.
 
@@ -697,17 +730,17 @@ Estas excepciones son específicas. **Pertenecer a un Linaje no concede otras Re
 
 Los demás Linajes no reciben excepciones defensivas automáticas salvo que otra regla indique expresamente lo contrario.
 
-### Paso 4: Comprar Habilidades
+## Paso 4: Comprar Habilidades
 
 Gasta los PPF restantes de tu presupuesto en habilidades, diferenciando entre Sabor y Táctica.
 
-#### A. Habilidades de Sabor (Coste: 0 PPF)
+### A. Habilidades de Sabor (Coste: 0 PPF)
 
 Describen _cómo_ se aplica el daño o añaden elementos narrativos. No tienen coste si no alteran la táctica del combate.
 
 - **Ejemplos:** `Asalto Múltiple` (si solo divide el Daño Promedio comprado), `Furia` (si el bono de daño ya está promediado en el Daño Promedio), `Ataque Venenoso` (si el daño del veneno está incluido en el Daño Promedio), `Visión en la Oscuridad`, tipo de daño elemental.
 
-#### B. Rasgos Tácticos (Coste en PPF)
+### B. Rasgos Tácticos (Coste en PPF)
 
 Habilidades que cambian las reglas del combate: Control, Movimiento Superior, Defensas Especiales, Reacciones, etc.
 
@@ -742,13 +775,13 @@ Poseer simplemente un ataque o capacidad a distancia no concede automáticamente
 
 Las capacidades adicionales de movimiento —teletransportarse, atravesar objetos sólidos, volverse no seleccionable como objetivo, desplazarse sin provocar Reacciones o ignorar barreras relevantes en combate— se valoran como Rasgos Tácticos independientes y no forman parte del coste de la locomoción.
 
-### Regla de Diseño: Arsenal Versátil
+## Arsenal Versátil
 
 Algunas criaturas poseen numerosos ataques, conjuros o técnicas entre los que deben elegir cada vez que actúan. Tener más opciones aporta versatilidad, pero no equivale a poder utilizarlas todas al mismo tiempo.
 
 **Arsenal Versátil** permite representar estos repertorios sin pagar cada alternativa como si fuera una capacidad completamente independiente.
 
-#### Crear un Arsenal
+### Crear un Arsenal
 
 Pueden agruparse en un mismo Arsenal varias capacidades que:
 
@@ -758,7 +791,7 @@ Pueden agruparse en un mismo Arsenal varias capacidades que:
 
 Cada recurso forma su propio Arsenal. Una Acción y una Reacción, por ejemplo, no se descuentan entre sí porque pueden utilizarse durante la misma ronda.
 
-#### Coste del Arsenal
+### Coste del Arsenal
 
 Determina normalmente el Rango y coste en PPF de cada capacidad.
 
@@ -776,7 +809,7 @@ Todas las demás opciones del mismo Arsenal cuestan **la mitad de sus PPF normal
 >
 > La criatura paga por disponer de alternativas, pero menos que si pudiera utilizar las tres capacidades conjuntamente.
 
-#### Daño y Arsenal Versátil
+### Daño y Arsenal Versátil
 
 Una capacidad no se convierte automáticamente en un Rasgo Táctico por infligir daño.
 
@@ -786,7 +819,7 @@ Un ataque que además inmoviliza, desplaza, debilita, altera acciones o produce 
 
 Al calcular el Daño Promedio de una criatura, considera **todo el daño que puede producir normalmente durante una ronda**, incluyendo sus Reacciones ofensivas.
 
-#### Qué no puede formar parte de un Arsenal
+### Qué no puede formar parte de un Arsenal
 
 Una capacidad no recibe el descuento de Arsenal Versátil si puede aportar su beneficio además de las demás sin competir por el mismo recurso.
 
@@ -801,13 +834,13 @@ Esto incluye:
 
 Estas capacidades se compran normalmente.
 
-#### Capacidades de Utilidad
+### Capacidades de Utilidad
 
 Las capacidades exclusivamente narrativas o de utilidad que no alteren significativamente el combate continúan considerándose **Habilidades de Sabor** y cuestan 0 PPF.
 
 Un amplio repertorio narrativo no aumenta por sí mismo la peligrosidad de una criatura.
 
-#### Recargas y Repertorios Amplios
+### Recargas y Repertorios Amplios
 
 La Recarga continúa formando parte del balance de cada capacidad.
 
@@ -815,7 +848,7 @@ Si un Arsenal contiene tantas capacidades limitadas que la criatura puede altern
 
 Arsenal Versátil reduce el coste de tener **alternativas**; no convierte las limitaciones de uso en irrelevantes.
 
-### Paso 5: La Filosofía de Rasgos Tácticos por Rango
+## Paso 5: Filosofía de Rasgos Tácticos por Rango
 
 - **Rasgos R1:** Efectos simples (Control blando menor, debuff simple, reacción defensiva, resistencia).
 - **Rasgos R2:** Impacto táctico (Control blando, AoE táctico, movilidad táctica, puzzle, reacción).
@@ -824,7 +857,7 @@ Arsenal Versátil reduce el coste de tener **alternativas**; no convierte las li
 - **Rasgos R5:** Alteran campaña (Manipulación acciones, inmunidades, ignora-defensas, mecánicas complejas).
 - **Rasgos R6:** Poderes divinos o cósmicos, alteración masiva de la realidad, múltiples fases.
 
-### Paso 6: Nota sobre Daño de Área (AoE)
+## Paso 6: Daño de Área (AoE)
 
 El **Daño Promedio por Ronda (ST)** de las tablas representa la referencia ofensiva de la criatura contra un único objetivo.
 
@@ -846,7 +879,7 @@ Al diseñar un AoE, considerar conjuntamente:
 
 La referencia de 60-70% funciona como punto de partida para AoE a distancia eficientes, mientras que las capacidades de área más restrictivas pueden justificar porcentajes mayores.
 
-### Paso 7: Poniéndolo en Práctica (Ejemplos Finales)
+## Paso 7: Poniéndolo en Práctica
 
 > **Ejemplo 1: Berserker R2 (12 PPF / Cota de inversión 6)**
 >
@@ -876,13 +909,13 @@ La referencia de 60-70% funciona como punto de partida para AoE a distancia efic
 > - **Total:** 3(Hab) + 3(PS) + 4(Defensa) + 1(Esq) + 1(Atq) = 12 PPF.
 > - **Final:** PS 30, Esq 8, Mit. Física 2, Mit. Mágica 1, Atq +4/ND 9, Daño 0 (base). Rasgo: `Protección`.
 
-# Guía de Diseño de Conjuros y Habilidades
+# 8. Diseño de Conjuros y Habilidades
 
 ## El Triángulo del Balance
 
 El diseño de un conjuro en ARCANA equilibra **Poder** (daño), **Utilidad** (efectos) y **Fiabilidad** (recarga). Un conjuro no puede tenerlo todo al máximo.
 
-### Paso 1: Establecer el Daño Base por Nivel
+## Paso 1: Establecer el Daño Base por Nivel
 
 Esta tabla muestra el daño para una **Acción** con **Recarga Estándar (4+/5+)**.
 
@@ -896,17 +929,17 @@ Esta tabla muestra el daño para una **Acción** con **Recarga Estándar (4+/5+)
 
 ---
 
-### Paso 2: Añadir Utilidad y Ajustar el Coste
+## Paso 2: Añadir Utilidad y Ajustar el Coste
 
 Añadir efectos tiene un precio en daño o dificultad.
 
-#### **A. Efectos Leves (Coste: 0)**
+### A. Efectos Leves (Coste: 0)
 
 Beneficios narrativos o menores. **No reducen el daño.**
 
 - _Ejemplos:_ Empujar 1m, cambiar elemento, luces/sonidos.
 
-#### **B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)**
+### B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)
 
 Efectos tácticos breves.
 
@@ -914,20 +947,20 @@ Efectos tácticos breves.
   - _Nota:_ Un conjuro de Área (Base d6) con control pasa a hacer daño **d4**.
 - _Ejemplos:_ Terreno difícil, Ceguera (1 turno), Desventaja (1 ataque).
 
-#### **C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)**
+### C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)
 
 Control duro o daño que se repite cada turno (Zonas). Requieren **Concentración**.
 
 - **Ajuste:** Usa el daño base del **Nivel Inferior** (ej: Un Nivel 3 hace daño de Nivel 2).
 - _Ejemplos:_ Inmovilizar, Aturdir, Muros de daño, Invisibilidad.
 
-#### **D. Versatilidad (Coste: +1 Recarga)**
+### D. Versatilidad (Coste: +1 Recarga)
 
 Elegir modo/elemento al lanzar. Aumenta la Recarga base en +1.
 
 ---
 
-### Paso 3: Ajustar la Fiabilidad (Recarga)
+## Paso 3: Ajustar la Fiabilidad (Recarga)
 
 - **Baja (3+):** Daño moderado/Spam. (75% éxito).
 - **Estándar (4+/5+):** Balance habitual Nivel 1-3. (50-62%).
@@ -941,7 +974,7 @@ Elegir modo/elemento al lanzar. Aumenta la Recarga base en +1.
 
 ---
 
-### Poniéndolo Todo Junto: Un Ejemplo de Diseño
+## Poniéndolo Todo Junto: Un Ejemplo de Diseño
 
 Este ejemplo ilustra el proceso mental para crear un conjuro nuevo usando las reglas v2.0. Queremos crear un conjuro de **Nivel 2** para el Arcanista llamado `Prisión de Hielo`.
 
@@ -964,7 +997,7 @@ Este ejemplo ilustra el proceso mental para crear un conjuro nuevo usando las re
 
 ---
 
-### Nota de Diseño: ¿Carta de Efecto o Activable?
+## ¿Carta de Efecto o Activable?
 
 Al crear nuevas habilidades u objetos mágicos, una de las decisiones más importantes es si deben ocupar una de las preciadas **Ranuras de Cartas Activas** del jugador o funcionar pasivamente desde la **Colección (Efecto)**.
 
