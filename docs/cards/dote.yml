@@ -52,7 +52,7 @@ cards:
       qty: 0
   - name: Intervención Oportuna
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción
@@ -164,7 +164,7 @@ cards:
       qty: 0
   - name: Reflejos Afortunados
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción
@@ -189,7 +189,7 @@ cards:
       qty: 5
   - name: Maestría con Escudo
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción

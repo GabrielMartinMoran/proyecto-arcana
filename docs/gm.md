@@ -141,42 +141,72 @@ El mejor tesoro a menudo no viene en una bolsa de monedas, sino en la forma de u
 
 Esto evita las bonificaciones numéricas genéricas y, en su lugar, otorga capacidades nuevas y narrativamente interesantes.
 
-### Creando Objetos Únicos como Cartas
+### Objetos de Efecto y Objetos Activables
 
-Cuando diseñes un objeto especial, trátalo como si estuvieras creando una nueva carta exclusiva de ese objeto. La distinción entre un objeto "menor" y uno "poderoso" radica en si su carta necesita ocupar una de tus **Ranuras de Cartas Activas** para funcionar.
+Los objetos mágicos utilizan el mismo lenguaje de cartas que las capacidades de los personajes, pero no todo objeto poderoso necesita ocupar una Ranura de Carta Activa.
 
-- **Objetos de Efecto (Menores):** Otorgan beneficios constantes sin necesidad de ocupar una ranura activa. Son "siempre activos" mientras el personaje los porte o utilice.
-- **Objetos Activables (Mayores):** Requieren que el jugador dedique una de sus Ranuras de Cartas Activas a la carta del objeto. Esto representa el esfuerzo mental y la concentración necesarios para canalizar el poder del objeto, y crea una decisión estratégica interesante para el jugador.
+La distinción entre un objeto de **Efecto** y uno **Activable** depende principalmente de qué clase de poder añade al personaje.
 
-Utiliza la siguiente plantilla:
+#### Objetos de Efecto
 
-- **[NOMBRE DEL OBJETO]**
-- **Tipo:** Objeto (Puede ser de **Efecto** o **Activable**).
-- **Descripción:** Explica el efecto mecánico y narrativo del objeto.
-- **Usos:** Si es **Activable**, detalla cuántas veces se puede usar (ej. `1 por día de descanso`, `Recarga 5+`, etc.).
-- **Requerimientos:** Listado de requerimientos para poder usar el objeto.
+Un Objeto de Efecto funciona mientras el personaje lo porte, vista o utilice, sin ocupar una Ranura de Carta Activa.
 
-#### Ejemplos de Objetos-Carta
+Esta categoría es apropiada cuando la magia del objeto:
 
-Aquí tienes dos ejemplos que ilustran la diferencia:
+- mejora de forma acotada la función propia del objeto;
+- modifica alguna de sus propiedades sin otorgar al personaje una capacidad completamente nueva;
+- proporciona una ventaja situacional o especializada;
+- ofrece principalmente utilidad, exploración, conveniencia o posibilidades narrativas;
+- tiene un efecto suficientemente limitado como para no competir con las capacidades principales del personaje.
 
-> **Amuleto del Guardián Vigilante**
->
-> **Tipo:** Objeto (Efecto)
->
-> **Descripción:** Mientras lleves este amuleto de plata con forma de ojo abierto, tu percepción del peligro se agudiza. Obtienes **Ventaja (+1d4)** en todas tus tiradas de **Iniciativa** y en las Pruebas de Habilidad de **Instinto (Percepción)**.
->
-> **Requerimientos:** -
+Un arma mágica puede ser más precisa, infligir un efecto adicional bajo ciertas condiciones, ignorar una forma concreta de cobertura o poseer una propiedad sobrenatural sin necesidad de convertirse por ello en un Objeto Activable.
 
-> **Hacha de Batalla Rúnica**
->
-> **Tipo:** Objeto (Activable)
->
-> **Descripción:** Como una **Acción**, puedes golpear el suelo con esta hacha para liberar una onda de choque. Todo enemigo a distancia **Inmediata** debe superar una **Tirada de Salvación de Cuerpo (ND 9)** o quedar en el estado **Derribado**.
->
-> **Usos:** 1 (Recarga 5+)
->
-> **Requerimientos:** Cuerpo 3
+Del mismo modo, una herramienta mágica puede proporcionar una capacidad extraordinaria pero muy específica sin ocupar una Ranura Activa.
+
+#### Objetos Activables
+
+Un Objeto Activable representa una fuente de poder suficientemente relevante como para formar parte de la configuración activa del personaje.
+
+Para beneficiarse de sus propiedades mágicas, su carta debe ocupar una de las **Ranuras de Cartas Activas** del personaje siguiendo las reglas de activación de Objetos Mágicos.
+
+Esta categoría es apropiada cuando el objeto:
+
+- concede una capacidad nueva comparable a una Carta Activable;
+- proporciona nuevas opciones tácticas importantes;
+- mejora de forma amplia al personaje en lugar de mejorar únicamente al objeto;
+- aumenta o recupera recursos generales como Salud, Suerte, usos de Cartas o Ranuras Activas;
+- concede defensas, movilidad o capacidades especiales de gran impacto;
+- permite realizar acciones, reacciones o efectos que el personaje no tendría normalmente;
+- altera de manera importante la configuración o economía de Cartas del personaje.
+
+Un Objeto Activable puede proporcionar un beneficio completamente pasivo mientras su carta permanezca activa. El término **Activable** no significa que el personaje deba realizar una Acción, Interacción o Reacción cada vez que utiliza su poder; significa que el objeto debe ocupar una Ranura de Carta Activa para que sus propiedades mágicas funcionen.
+
+#### Lo que no determina el Tipo de un Objeto
+
+La presencia de una Acción, Interacción o Reacción en la descripción de un objeto **no determina** que este deba ser Activable.
+
+Del mismo modo, poseer usos limitados, cargas o un sistema de Recarga tampoco determina por sí solo su Tipo.
+
+Por ejemplo:
+
+- un arma que obtiene un pequeño beneficio únicamente al obtener un golpe crítico puede ser de **Efecto**;
+- una herramienta que abre una cerradura una vez por día puede ser de **Efecto**;
+- un arma que permite adoptar posturas tácticas diferentes cada turno puede ser **Activable**;
+- un amuleto que aumenta permanentemente la Salud del personaje puede ser **Activable**, aunque su efecto no requiera ninguna acción.
+
+La pregunta principal no es _"¿hay que activar este poder?"_, sino:
+
+> **¿Este objeto mejora lo que ya hace el equipo o añade una nueva porción significativa de poder al personaje?**
+
+Si principalmente mejora las propiedades del propio objeto, suele ser apropiado como **Efecto**.
+
+Si añade una capacidad, recurso o ventaja general comparable a las Cartas del personaje, debería ser **Activable**.
+
+#### Consumibles
+
+Los objetos **Consumibles** no necesitan ocupar Ranuras de Cartas Activas salvo que una regla específica indique lo contrario.
+
+Su poder ya está limitado por su disponibilidad y por consumirse al utilizarse, por lo que no necesitan competir además con las capacidades activas del personaje.
 
 ### Objetos como Llaves para Cartas Existentes
 

@@ -58,7 +58,7 @@ cards:
       qty: 0
   - name: Evasión
     level: 3
-    type: activable
+    type: efecto
     tags:
       - Pícaro
     requirements: 'Acción Astuta & Reflejos 4'

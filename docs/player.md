@@ -313,7 +313,25 @@ El funcionamiento de las cartas se divide en dos conceptos clave:
 
 ## Activar y Cambiar Cartas
 
-Puedes cambiar qué **Cartas Activables** tienes activas al completar un **Día de Descanso**, siguiendo las reglas descritas en el capítulo **Descanso y Recuperación**.
+Puedes cambiar qué **Cartas Activables de tu Colección** tienes activas al completar un **Día de Descanso**. Al hacerlo, eliges libremente qué cartas ocuparán tus Ranuras de Cartas Activas, respetando todos sus Requerimientos.
+
+Las cartas otorgadas por **Objetos Mágicos Activables** utilizan las mismas Ranuras de Cartas Activas, pero siguen reglas especiales para su activación.
+
+### Activar Objetos Mágicos
+
+Un Objeto Mágico Activable no forma parte de tu Colección. Mientras tengas el objeto en tu poder y cumplas sus Requerimientos, puedes hacer que su carta ocupe una de tus Ranuras de Cartas Activas.
+
+Por defecto, activar un Objeto Mágico requiere **1 hora de concentración y manipulación del objeto**, durante la cual estableces un vínculo con su magia. Algunos objetos pueden indicar un tiempo diferente.
+
+Para activar un Objeto Mágico debes cumplir sus Requerimientos y disponer de una Ranura de Carta Activa. Si no tienes ninguna libre, puedes desactivar una de tus Cartas Activables actualmente activas para hacerle espacio. Una carta de tu Colección desactivada de esta manera no puede ser reemplazada por otra carta de tu Colección hasta que completes un Día de Descanso.
+
+Para desactivar un Objeto Mágico no es necesario estar en contacto con él. Debes concentrarte durante **1 minuto** en el vínculo establecido con el objeto para romperlo y liberar la Ranura de Carta Activa que ocupaba.
+
+Liberar una ranura de esta manera no permite activar automáticamente otra carta de tu Colección. Las Cartas Activables de tu Colección solo pueden cambiarse al completar un Día de Descanso, salvo que una regla indique expresamente lo contrario.
+
+Desactivar y volver a activar un objeto no restaura sus usos, elimina una Sobrecarga ni reinicia su Recarga. Sus recursos se recuperan únicamente mediante las reglas indicadas por el propio objeto.
+
+Mientras la carta de un Objeto Activable no esté activa, el objeto conserva todas sus propiedades mundanas, pero sus propiedades mágicas no tienen efecto, salvo que su descripción indique lo contrario.
 
 ## Anatomía de una Carta
 

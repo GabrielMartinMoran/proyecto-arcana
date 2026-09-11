@@ -27,7 +27,7 @@ cards:
       qty: 2
   - name: Ataque de Oportunidad
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Combatiente
       - Reacción
@@ -36,8 +36,8 @@ cards:
       _Nunca dejas que un enemigo se retire impunemente; cualquier descuido en su guardia es castigado con un golpe instantáneo._<br><br>
       Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu Reacción para realizar un único ataque cuerpo a cuerpo contra él.
     uses:
-      type: RELOAD
-      qty: 3
+      type: null
+      qty: 0
 
   - name: Duelo de Honor
     level: 2
