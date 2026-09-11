@@ -5875,8 +5875,8 @@
         "type": "efecto",
         "requirements": "Sintonía Primordial & Instinto 3"
       },
-      "search": "_Tu piel se endurece y se agrieta, adoptando la formidable resiliencia de un árbol milenario._<br><br> Mientras no lleves armadura que imponga alguna penalización a tu Esquiva o Sigilo, obtienes Mitigación Física y Mágica +1.",
-      "hash": "52d42b23bfcb84bf6234a669231adceb48d8aa57"
+      "search": "_Tu piel se endurece y se agrieta, adoptando la formidable resiliencia de un árbol milenario._<br><br> Mientras no lleves armadura que imponga alguna penalización a tu Esquiva o Sigilo, obtienes Mitigación Física y Mágica +1. Este bonificador aumenta a +2 cuando alcanzas Instinto 5.",
+      "hash": "c83ad9f1bc429b2465639144b5c2565b1d54a774"
     },
     {
       "kind": "card",
