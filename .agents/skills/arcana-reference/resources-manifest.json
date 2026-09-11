@@ -52,8 +52,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml",
       "kind": "file",
-      "size": 6564,
-      "sha1": "477d89a307364a2604a076809971c519da6cf2b2"
+      "size": 8948,
+      "sha1": "339f7b8b8a8b6c26a0cf46265d1c407e9ca0e5c9"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml",
@@ -170,8 +170,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 1074,
-      "sha1": "bc31e193dc632ad419ea63ea552c8fd9b8c67385"
+      "size": 1288,
+      "sha1": "7acc7376f7b57891c5e2b860230073c7af1d732a"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml",
@@ -256,8 +256,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-1.yml",
       "kind": "file",
-      "size": 6113,
-      "sha1": "76bc8542f25235b8759547063d74dadf51b79119"
+      "size": 6570,
+      "sha1": "bc4068a51dc63aab510274466fbfb5ddeb5ab3d7"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 283073,
-      "sha1": "e2c91f6d843aa4513a0f9ef0eff1c2a77bdb375f"
+      "size": 286130,
+      "sha1": "20ffa781f6313d63f831d11bb5b2918adb29e900"
     },
     {
       "path": "references/datasets/magical-items.yml",

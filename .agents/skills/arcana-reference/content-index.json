@@ -1538,8 +1538,8 @@
         "type": "efecto",
         "requirements": "Sintonía Primordial"
       },
-      "search": "_Acada paso, el mundo natural responde a tu llamado con pequeños favores y manifestaciones de vida._<br><br> Adquieres la capacidad de manifestar tu poder natural en forma de los siguientes trucos:<br> - **Truco Druídico (Interacción):** A voluntad, creas efectos sensoriales menores: haces brotar una flor, creas una brisa suave, predices el clima de las próximas horas o enciendes/apagas una fogata.<br> - **Lazo Natural (Acción):** Haces brotar una enredadera o rama animada a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para que manipule objetos, tire de palancas o entregue ítems a 5 metros de su origen.",
-      "hash": "52131f8b1928ad866d3930cd8ffbe4eeebc9ff8f"
+      "search": "_Acada paso, el mundo natural responde a tu llamado con pequeños favores y manifestaciones de vida._<br><br> Adquieres la capacidad de manifestar tu poder natural en forma de los siguientes trucos:<br> - **Truco Druídico:** Como Interacción, produces una manifestación natural menor o haces que una pequeña parte del entorno natural responda brevemente a tu voluntad. Puedes crear una brisa suave, agitar o aquietar agua, avivar o apagar una llama pequeña, mover una pequeña cantidad de tierra o arena suelta, hacer brotar una flor, producir un aroma natural o realizar otra manifestación semejante.<br> Estas alteraciones son pequeñas y no permiten desplazar cantidades significativas de materia, modificar sustancialmente el terreno, infligir daño, desplazar criaturas, imponer estados ni reproducir los efectos de otra carta.<br> - **Lazo Natural (Acción):** Haces brotar una enredadera o rama animada a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para que manipule objetos, tire de palancas o entregue ítems a 5 metros de su origen.",
+      "hash": "c1ee09c90485a5abb4852f10829f379accbfb34a"
     },
     {
       "kind": "card",
@@ -5062,6 +5062,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Moldeo Elemental",
+      "id": "3997f12d630bad5c1e96a339afdb8c0567f1d609",
+      "slug": "moldeo-elemental",
+      "aliases": [
+        "moldeo elemental"
+      ],
+      "tags": [
+        "Arcanista",
+        "Conjuro"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Afinidad Arcana"
+      },
+      "search": "_Has aprendido a percibir la estructura fundamental de los elementos y a reorganizarla mediante la Urdimbre, alterando su forma y comportamiento sin cambiar su naturaleza._<br><br> Como Acción, eliges hasta 1 metro cúbico de agua, fuego, aire o materia mineral no mágica que puedas ver a distancia Cercana. Puedes manipularla de una de las siguientes formas:<br> - **Agua:** Puedes desplazarla lentamente hasta 3 metros, alterar su flujo, agitarla, aquietarla o hacer que adopte una forma simple. También puedes congelarla o descongelar hielo dentro del volumen permitido.<br> - **Tierra:** Puedes mover, excavar, compactar, aflojar o dar forma a tierra, arena, barro, arcilla, grava o piedra suelta. No puedes moldear directamente piedra sólida ni materiales manufacturados.<br> - **Fuego:** Puedes avivar, reducir, extinguir, desplazar o alterar la forma de una llama existente dentro del volumen permitido. No puedes crear fuego donde no exista una fuente de combustión.<br> - **Aire:** Puedes generar o redirigir corrientes de aire dentro del volumen permitido, suficientes para mover humo, niebla, vapores, polvo u objetos Diminutos que no estén asegurados.<br> Los cambios que puedan mantenerse naturalmente permanecen después de la manipulación, como tierra excavada, agua congelada o una llama extinguida. Cualquier forma o movimiento que requiera sostenerse mágicamente termina al inicio de tu próximo turno, salvo que vuelvas a utilizar esta carta para mantenerlo.<br> Esta carta no puede utilizarse para infligir daño directamente, desplazar criaturas, imponer estados ni transformar una sustancia en otra diferente.",
+      "hash": "b8f43748cf947627489c256ef61b55e52d66806c"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Movilidad Elemental",
       "id": "bf1976ad9e141aeb18512ec7357e5c275c0e3183",
       "slug": "movilidad-elemental",
@@ -7169,8 +7192,8 @@
         "type": "efecto",
         "requirements": "Reflejos 2"
       },
-      "search": "_Eres como el viento entre las hojas: inalcanzable, veloz y capaz de golpear con precisión antes de desaparecer de la vista de tus rivales._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Acrobacias y Supervivencia.<br><br> Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial para las cartas de _Combatiente_.<br><br> **Beneficio de Arquetipo:** Tu Salud máxima aumenta en +5. Además, ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo, mínimo 1), siempre que cumplas el requisito de atributo de la armadura. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>",
-      "hash": "434eab7bd26e986cab6edbe932cbf9c2fb4ab1c4"
+      "search": "_Eres como el viento entre las hojas: inalcanzable, veloz y capaz de golpear con precisión antes de desaparecer de la vista de tus rivales._<br><br> Obtienes Ventaja (+1d4) en Pruebas de Acrobacias y Supervivencia.<br><br> Adquieres la carta _Maestría Marcial_ y usas Reflejos como tu Atributo Marcial para las cartas de _Combatiente_.<br><br> **Beneficio de Arquetipo:**<br> - **Manos Diestras:** Para ti, Espadas Largas, Lanzas y Hachas de Mano adquieren la propiedad Precisa. El DJ puede extender este beneficio a otras armas de características similares.<br> - **Postura Fluida:** Ignoras una cantidad de la penalización a la Esquiva de tu armadura igual a tu puntuación de Reflejos dividida por 3 (redondeando hacia abajo, mínimo 1), siempre que cumplas el requisito de atributo de la armadura.<br> Adicionalmente, tu Salud máxima aumenta en +5 y ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.",
+      "hash": "88b5a60bd19564d9d891bfe805429b10e5c1aea7"
     },
     {
       "kind": "card",
@@ -7661,8 +7684,8 @@
         "type": "efecto",
         "requirements": "Afinidad Arcana"
       },
-      "search": "_Dominas los rudimentos de la magia, permitiéndote realizar pequeñas proezas que, aunque simples, demuestran tu control sobre la Urdimbre._<br><br> Puedes ejecutar los siguientes trucos arcanos:<br> - **Efectos mágicos menores:** Como Acción, creas una fuente de luz, un sonido, un olor, limpias un objeto, enciendes una vela, etc. El efecto no puede infligir daño ni imponer un estado.<br> - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.",
-      "hash": "7487bd55c3b2c0b16597f0043bb89bfef61fbafc"
+      "search": "_Dominas los rudimentos de la magia, permitiéndote realizar pequeñas proezas que, aunque simples, demuestran tu control sobre la Urdimbre._<br><br> Puedes ejecutar los siguientes trucos arcanos:<br> - **Efectos mágicos menores:** Como Acción, produces una manifestación mágica menor: creas una fuente de luz, un sonido u olor, limpias o ensucias un objeto, enciendes o apagas una llama pequeña, generas una brisa breve, produces una chispa, enfrías o calientas levemente un objeto, formas escarcha superficial, haces ondular una pequeña cantidad de agua o agitas polvo, arena o pequeños fragmentos sueltos, etc. Estos efectos no pueden infligir daño, desplazar criaturas, crear cobertura, alterar terreno ni reproducir los efectos de otra carta.<br> - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.",
+      "hash": "29d54152ed3eb32b12ac02f19b8a744e7ad34cbc"
     },
     {
       "kind": "card",

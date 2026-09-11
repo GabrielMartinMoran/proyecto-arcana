@@ -23,14 +23,32 @@ cards:
     description: >-
       _Dominas los rudimentos de la magia, permitiéndote realizar pequeñas proezas que, aunque simples, demuestran tu control sobre la Urdimbre._<br><br>
       Puedes ejecutar los siguientes trucos arcanos:<br>
-      - **Efectos mágicos menores:** Como Acción, creas una fuente de luz, un sonido, un olor, limpias un objeto,
-      enciendes una vela, etc. El efecto no puede infligir daño ni imponer un estado.<br>
-      - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto.
-      Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una
-      palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.
+      - **Efectos mágicos menores:** Como Acción, produces una manifestación mágica menor: creas una fuente de luz, un sonido u olor, limpias o ensucias un objeto, enciendes o apagas una llama pequeña, generas una brisa breve, produces una chispa, enfrías o calientas levemente un objeto, formas escarcha superficial, haces ondular una pequeña cantidad de agua o agitas polvo, arena o pequeños fragmentos sueltos, etc. Estos efectos no pueden infligir daño, desplazar criaturas, crear cobertura, alterar terreno ni reproducir los efectos de otra carta.<br>
+      - **Mano espectral:** Como Acción, creas una mano espectral flotante en un punto a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para mover la mano hasta 5 metros y hacer que manipule un objeto, abra una puerta o tire de una palanca. La mano no puede atacar ni activar objetos mágicos, y solo puede levantar hasta 5 Kg.
     uses:
       type: null
       qty: 0
+
+  - name: Moldeo Elemental
+    level: 1
+    type: efecto
+    tags:
+      - Arcanista
+      - Conjuro
+    requirements: Afinidad Arcana
+    description: >-
+      _Has aprendido a percibir la estructura fundamental de los elementos y a reorganizarla mediante la Urdimbre, alterando su forma y comportamiento sin cambiar su naturaleza._<br><br>
+      Como Acción, eliges hasta 1 metro cúbico de agua, fuego, aire o materia mineral no mágica que puedas ver a distancia Cercana. Puedes manipularla de una de las siguientes formas:<br>
+      - **Agua:** Puedes desplazarla lentamente hasta 3 metros, alterar su flujo, agitarla, aquietarla o hacer que adopte una forma simple. También puedes congelarla o descongelar hielo dentro del volumen permitido.<br>
+      - **Tierra:** Puedes mover, excavar, compactar, aflojar o dar forma a tierra, arena, barro, arcilla, grava o piedra suelta. No puedes moldear directamente piedra sólida ni materiales manufacturados.<br>
+      - **Fuego:** Puedes avivar, reducir, extinguir, desplazar o alterar la forma de una llama existente dentro del volumen permitido. No puedes crear fuego donde no exista una fuente de combustión.<br>
+      - **Aire:** Puedes generar o redirigir corrientes de aire dentro del volumen permitido, suficientes para mover humo, niebla, vapores, polvo u objetos Diminutos que no estén asegurados.<br>
+      Los cambios que puedan mantenerse naturalmente permanecen después de la manipulación, como tierra excavada, agua congelada o una llama extinguida. Cualquier forma o movimiento que requiera sostenerse mágicamente termina al inicio de tu próximo turno, salvo que vuelvas a utilizar esta carta para mantenerlo.<br>
+      Esta carta no puede utilizarse para infligir daño directamente, desplazar criaturas, imponer estados ni transformar una sustancia en otra diferente.
+    uses:
+      type: null
+      qty: 0
+
   - name: Descarga Elemental
     level: 1
     type: activable

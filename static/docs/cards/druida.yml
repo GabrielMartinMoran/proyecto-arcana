@@ -27,7 +27,8 @@ cards:
     description: >-
       _Acada paso, el mundo natural responde a tu llamado con pequeños favores y manifestaciones de vida._<br><br>
       Adquieres la capacidad de manifestar tu poder natural en forma de los siguientes trucos:<br>
-      - **Truco Druídico (Interacción):** A voluntad, creas efectos sensoriales menores: haces brotar una flor, creas una brisa suave, predices el clima de las próximas horas o enciendes/apagas una fogata.<br>
+      - **Truco Druídico:** Como Interacción, produces una manifestación natural menor o haces que una pequeña parte del entorno natural responda brevemente a tu voluntad. Puedes crear una brisa suave, agitar o aquietar agua, avivar o apagar una llama pequeña, mover una pequeña cantidad de tierra o arena suelta, hacer brotar una flor, producir un aroma natural o realizar otra manifestación semejante.<br>
+      Estas alteraciones son pequeñas y no permiten desplazar cantidades significativas de materia, modificar sustancialmente el terreno, infligir daño, desplazar criaturas, imponer estados ni reproducir los efectos de otra carta.<br>
       - **Lazo Natural (Acción):** Haces brotar una enredadera o rama animada a distancia Cercana que dura 1 minuto. Puedes usar tu Interacción para que manipule objetos, tire de palancas o entregue ítems a 5 metros de su origen.
     uses:
       type: null
