@@ -80,13 +80,15 @@ cards:
       - Arcanista
     requirements: Afinidad Arcana & Atributo Arcano 5
     uses:
-      type: RELOAD
-      qty: 6
+      type: null
+      qty: 0
     description: >-
-      _Fuerzas los límites de tu poder para saturar tus conjuros más simples con una potencia devastadora._<br><br> Tu
-      dominio de la magia te permite saturar los conjuros simples con un poder devastador.<br> Cuando lanzas una carta
-      con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes usar tu Interacción para
-      sobrecargar el lanzamiento. Si lo haces, duplicas la cantidad de dados de daño del conjuro.
+      _Fuerzas los límites de tu poder para saturar tus conjuros más simples con una potencia devastadora._<br><br>
+      Cuando utilizas una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes
+      potenciarla para duplicar el daño base que esta inflija durante ese turno. Para ello debes pagar un recurso
+      adicional según su tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en potenciar el
+      conjuro.<br> - **Lanzamiento con Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las cartas
+      utilizadas como Reacción no pueden potenciarse de esta forma.
     slug: sobrecarga-arcana
   - id: 016e5895a908e37a73c37aa26d6c1c42335c024c
     name: Segador Incorpóreo

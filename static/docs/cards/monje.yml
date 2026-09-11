@@ -84,7 +84,7 @@ cards:
       qty: 0
   - name: Desviar Proyectiles
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Monje
       - Reacción

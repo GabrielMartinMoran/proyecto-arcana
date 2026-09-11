@@ -70,8 +70,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
       "kind": "file",
-      "size": 6660,
-      "sha1": "9046932746784f049fbba7564b945eff6903ed82"
+      "size": 6859,
+      "sha1": "4173775d86a537683b6c6fc2f0bc07c5852579b1"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml",
@@ -382,8 +382,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
       "kind": "file",
-      "size": 9378,
-      "sha1": "34e525966b357b92d5f500dea7c7301dae6d7e28"
+      "size": 9375,
+      "sha1": "02b406ca5981ade246ec89dfef71ac2d5f2d2067"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml",
@@ -428,8 +428,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-3.yml",
       "kind": "file",
-      "size": 6347,
-      "sha1": "f39b1ea3ff1df5f63782c962561b26a5307fd519"
+      "size": 6344,
+      "sha1": "dd9f806cdd67625e3cf806e42c24ef2d06493b40"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-4.yml",
@@ -474,8 +474,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml",
       "kind": "file",
-      "size": 6761,
-      "sha1": "7905835f77a8637246dd46031ae86a086464debb"
+      "size": 7140,
+      "sha1": "8360ba3113dc3a5947eaf0de8bc014213d58c9a6"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-5.yml",
@@ -496,8 +496,8 @@
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-2.yml",
       "kind": "file",
-      "size": 4582,
-      "sha1": "88c593c5557f2750d33dab851c81aa320ef25151"
+      "size": 4577,
+      "sha1": "8ce279b929287e67f3105cc29b47467f8e00f672"
     },
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-3.yml",
@@ -524,14 +524,14 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-1.yml",
       "kind": "file",
-      "size": 4006,
-      "sha1": "ff27d919f491ec7d7809b607af701f6b2668c9c1"
+      "size": 4003,
+      "sha1": "4cab98d0b8403c628040d135db44ee316140d8d4"
     },
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
       "kind": "file",
-      "size": 9372,
-      "sha1": "4523946637dcf9712da36536334920f68c294f9e"
+      "size": 9366,
+      "sha1": "df6c1ed65b6b72ac98b162ad9e3bf028779edea0"
     },
     {
       "path": "references/cartas-de-habilidades/linaje",
@@ -566,14 +566,14 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 282497,
-      "sha1": "2fa09d2d790e7cfb12eaa7d2497bed8ebf690a92"
+      "size": 283073,
+      "sha1": "e2c91f6d843aa4513a0f9ef0eff1c2a77bdb375f"
     },
     {
       "path": "references/datasets/magical-items.yml",
       "kind": "file",
-      "size": 46947,
-      "sha1": "11f8c33e08a37263e23ea6c531e430d1aa4d39f3"
+      "size": 47470,
+      "sha1": "0404b169a4a6b3accf0f37c938c4eb54901d8cef"
     },
     {
       "path": "references/manual-del-director",
@@ -600,8 +600,8 @@
     {
       "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
       "kind": "file",
-      "size": 8976,
-      "sha1": "66599011ea74120282e83cd98ed5d2ac25876cd8"
+      "size": 11077,
+      "sha1": "fbc4f42025030a6e2e166c66963942f0775e0cc5"
     },
     {
       "path": "references/manual-del-director/05-4-establecer-niveles-de-dificultad-nd.md",
@@ -658,8 +658,8 @@
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
       "kind": "file",
-      "size": 20355,
-      "sha1": "d4615a58f9d0f3b14ab54656243d2d0007e8dc55"
+      "size": 22266,
+      "sha1": "110d8d244dc8965a551485ba30345a459dcee06f"
     },
     {
       "path": "references/manual-del-jugador/05-exploracion.md",
@@ -734,26 +734,26 @@
     {
       "path": "references/objetos-magicos/nivel-2.yml",
       "kind": "file",
-      "size": 15059,
-      "sha1": "951f2451112d4ce31469668a725f941cf1d771f4"
+      "size": 15074,
+      "sha1": "7e3dcce52b8940ba8aec61c8247c45c7bce86e4b"
     },
     {
       "path": "references/objetos-magicos/nivel-3.yml",
       "kind": "file",
-      "size": 15147,
-      "sha1": "9bfda1bc872be22cb3b25eced9fd76b92ba99bac"
+      "size": 15171,
+      "sha1": "25012ba951b734561e4456ee1e0288d882dc7044"
     },
     {
       "path": "references/objetos-magicos/nivel-4.yml",
       "kind": "file",
-      "size": 7545,
-      "sha1": "229df17f09141b5cb9b1889fe94dfc5dfa862b58"
+      "size": 7814,
+      "sha1": "d198fd8b2484860cfa6271f412498b89b057cfa1"
     },
     {
       "path": "references/objetos-magicos/nivel-5.yml",
       "kind": "file",
-      "size": 2999,
-      "sha1": "21399509c8f1138940559da3b53105bc2a14ce2c"
+      "size": 3244,
+      "sha1": "9ecd9d6d1d8243621c6e66da829e0d12c923d61c"
     },
     {
       "path": "references/objetos-magicos/nivel-6.yml",

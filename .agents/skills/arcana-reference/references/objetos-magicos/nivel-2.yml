@@ -48,7 +48,7 @@ items:
   - id: 86736bf1eb6b04d4ba4d03c9921d0d2424f780fb
     name: Amuleto del Troll de Piedra
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Salud
     requirements: null
@@ -61,7 +61,7 @@ items:
   - id: bb466162f166635c52cc8c324000089039ec7a6b
     name: Escarabajo de la Fortuna
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Suerte
     requirements: null
@@ -76,7 +76,7 @@ items:
   - id: c47a327cdd25d1d231e7ec0232647d7fbaf5aebf
     name: Manto Arácnido
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Movimiento
     requirements: null
@@ -267,7 +267,7 @@ items:
   - id: 655e090d5bdcde4c1f875e94568fffe2bf66ed6a
     name: Arma Vigilante
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Arma
       - Iniciativa
@@ -317,7 +317,7 @@ items:
   - id: 1bc7526ec6e0c5d74249bc079199e9213182ae4c
     name: Arma del Hambre Profunda
     level: 2
-    type: efecto
+    type: activable
     tags:
       - Arma
       - Salud

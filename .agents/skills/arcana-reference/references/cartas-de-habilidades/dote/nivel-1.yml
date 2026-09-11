@@ -46,7 +46,7 @@ cards:
   - id: ec0845a4007dc566aaa7be22068bf9d740bce35a
     name: Intervención Oportuna
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción

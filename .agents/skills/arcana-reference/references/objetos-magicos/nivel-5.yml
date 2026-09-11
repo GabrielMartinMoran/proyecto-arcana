@@ -32,7 +32,7 @@ items:
   - id: 9b5034aa1ef0ac62f56c8afb687428a82583fea8
     name: Perla de Resonancia Arcana
     level: 5
-    type: efecto
+    type: activable
     tags:
       - Habilidades
     requirements: null
@@ -87,7 +87,9 @@ items:
       type: null
       qty: 0
     description: >-
-      Este anillo te permite organizar y acceder a tus habilidades de forma más eficiente. Mientras lo lleves puesto,
-      ganas una Ranura de Carta Activa adicional.
+      Mientras esta carta esté activa, obtienes 2 Ranuras de Cartas Activas adicionales.<br> Estas ranuras adicionales
+      solo pueden utilizarse para Cartas con la etiqueta Conjuro de tu Colección.<br> Si esta carta deja de estar
+      activa, las cartas que ocupen estas ranuras adicionales se desactivan inmediatamente.<br> No puedes beneficiarte
+      de más de un _Anillo de Enfoque Arcano_ a la vez.
     slug: anillo-de-enfoque-arcano
     cost: 10000

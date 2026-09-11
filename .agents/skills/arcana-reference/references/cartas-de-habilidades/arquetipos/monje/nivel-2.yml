@@ -18,7 +18,7 @@ cards:
   - id: d4d2ba2aade508df77553c52c6ea435802c08f99
     name: Desviar Proyectiles
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Monje
       - Reacción

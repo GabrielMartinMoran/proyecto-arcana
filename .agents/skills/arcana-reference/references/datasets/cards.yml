@@ -752,7 +752,7 @@ cards:
       qty: 0
   - name: Intervención Oportuna
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción
@@ -889,7 +889,7 @@ cards:
       qty: 0
   - name: Reflejos Afortunados
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción
@@ -923,7 +923,7 @@ cards:
       qty: 5
   - name: Maestría con Escudo
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción
@@ -1103,7 +1103,7 @@ cards:
       qty: 0
   - name: Evasión
     level: 3
-    type: activable
+    type: efecto
     tags:
       - Pícaro
     requirements: Acción Astuta & Reflejos 4
@@ -1500,7 +1500,7 @@ cards:
       qty: 2
   - name: Ataque de Oportunidad
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Combatiente
       - Reacción
@@ -1511,8 +1511,8 @@ cards:
       enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu
       Reacción para realizar un único ataque cuerpo a cuerpo contra él.
     uses:
-      type: RELOAD
-      qty: 3
+      type: null
+      qty: 0
   - name: Duelo de Honor
     level: 2
     type: activable
@@ -2672,14 +2672,17 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 5
     description: >-
       _Fuerzas los límites de tu poder para saturar tus conjuros más simples con
-      una potencia devastadora._<br><br> Tu dominio de la magia te permite
-      saturar los conjuros simples con un poder devastador.<br> Cuando lanzas
-      una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que
-      inflija daño, puedes usar tu Interacción para sobrecargar el lanzamiento.
-      Si lo haces, duplicas la cantidad de dados de daño del conjuro.
+      una potencia devastadora._<br><br> Cuando utilizas una carta con las
+      etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes
+      potenciarla para duplicar el daño base que esta inflija durante ese turno.
+      Para ello debes pagar un recurso adicional según su tiempo de
+      lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en
+      potenciar el conjuro.<br> - **Lanzamiento con Interacción:** gastas tu
+      Reacción en potenciar el conjuro.<br> Las cartas utilizadas como Reacción
+      no pueden potenciarse de esta forma.
     uses:
-      type: RELOAD
-      qty: 6
+      type: null
+      qty: 0
   - name: Maestría Arcana
     level: 5
     type: efecto
@@ -4140,11 +4143,16 @@ cards:
     description: >-
       _Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos
       más simples en manifestaciones de poder abrumador._<br><br> Cuando
-      infliges daño con una carta que tenga las etiquetas _Sacerdote_ y
-      _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+      utilizas una carta con las etiquetas _Sacerdote_ y _Conjuro_ de Nivel 1 o
+      2 que inflija daño, puedes potenciarla para duplicar el daño base que esta
+      inflija durante ese turno. Para ello debes pagar un recurso adicional
+      según su tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas
+      tu Interacción en potenciar el conjuro.<br> - **Lanzamiento con
+      Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las cartas
+      utilizadas como Reacción no pueden potenciarse de esta forma.
     uses:
-      type: RELOAD
-      qty: 6
+      type: null
+      qty: 0
   - name: Gracia Salvadora
     level: 5
     type: activable
@@ -5723,7 +5731,7 @@ cards:
       qty: 0
   - name: Desviar Proyectiles
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Monje
       - Reacción

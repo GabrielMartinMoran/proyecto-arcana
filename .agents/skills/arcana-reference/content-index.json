@@ -594,12 +594,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
-        "requirements": "Maestría Marcial & Atributo Marcial 2",
-        "uses": "RELOAD:3"
+        "type": "efecto",
+        "requirements": "Maestría Marcial & Atributo Marcial 2"
       },
       "search": "_Nunca dejas que un enemigo se retire impunemente; cualquier descuido en su guardia es castigado con un golpe instantáneo._<br><br> Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu Reacción para realizar un único ataque cuerpo a cuerpo contra él.",
-      "hash": "2cd5de253e5893d07ec99b236507b47a2bd5c8f5"
+      "hash": "61a83d4bf9699708d24a5a137454ce72045e4dc2"
     },
     {
       "kind": "card",
@@ -2094,12 +2093,12 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Disciplina Monástica & Instinto 3",
         "uses": "RELOAD:4"
       },
       "search": "_Tus reflejos te permiten atrapar flechas y virotes en el aire, devolviéndolos a tus agresores con un giro de muñeca._<br><br> Como Reacción, cuando eres impactado por un ataque a distancia con un arma de un atacante que puedas ver, puedes reducir el daño que recibes en una cantidad igual a 1d4 + tu Reflejos.<br> En caso de reducir el daño a cero, puedes relanzar el proyectil a una criatura a distancia Cercana. Para esto realiza una tirada de ataque de Reflejos, el daño del ataque es 1d4.",
-      "hash": "82a0e7178ee8237b5398693dc8551c4c5fd176ba"
+      "hash": "2876b41f5e920d661d1dad7829d5ddf1c4a45201"
     },
     {
       "kind": "card",
@@ -2751,11 +2750,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Acción Astuta & Reflejos 4"
       },
       "search": "_Tu agilidad sobrenatural te permite escapar ileso de explosiones y peligros de área que destrozarían a un combatiente normal._<br><br> Cuando un efecto te obliga a realizar una TS de Reflejos para recibir la mitad de daño, si tienes éxito no recibes daño alguno, y si fallas, recibes solo la mitad.",
-      "hash": "7e2d4213b7c091c9a9eb2c04087fc83d0b625dee"
+      "hash": "d194883a4ad8476d94c0152ee4d900e88e3e3f87"
     },
     {
       "kind": "card",
@@ -3962,11 +3961,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Presencia 2 | Instinto 2"
       },
       "search": "_Eres un experto en leer la situación y tomar las riendas para salvar a un aliado de un error._<br><br> Cuando un aliado a distancia Cercana falla una prueba de habilidad de Presencia o Instinto, puedes usar tu Reacción y gastar 1 Punto de Suerte para intervenir. Realizas tú mismo la misma prueba de habilidad; tu aliado puede usar el resultado de tu tirada en lugar de la suya. Esta habilidad no puede usarse si el fallo de tu aliado fue un fallo crítico (pifia).",
-      "hash": "7ed3bdd5e997dbb522d7a8a297b1b0a2e4349e86"
+      "hash": "4d6ced9ea9da5a8b1e902b77b256a5c9c19139ae"
     },
     {
       "kind": "card",
@@ -4388,11 +4387,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Cuerpo 3"
       },
       "search": "_Eres un maestro en el uso del escudo como una barrera impenetrable._<br><br> Si debes realizar una Tirada de Salvación de Reflejos para recibir la mitad de daño de un efecto que puedas ver, puedes usar tu Reacción para interponer tu escudo. Si tienes éxito en la tirada, no recibes daño alguno.",
-      "hash": "669ee6be99e21eb1df1b2fab51cccac2722baf4f"
+      "hash": "5873c64084a544732c2b1f0deb4bf3018ad67e65"
     },
     {
       "kind": "card",
@@ -5946,11 +5945,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Fe Inspiradora & Instinto 5",
-        "uses": "RELOAD:6"
+        "requirements": "Fe Inspiradora & Instinto 5"
       },
-      "search": "_Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.",
-      "hash": "1cd14c2355032aba7f8c0e56e946752dd5639c4b"
+      "search": "_Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br> Cuando utilizas una carta con las etiquetas _Sacerdote_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes potenciarla para duplicar el daño base que esta inflija durante ese turno. Para ello debes pagar un recurso adicional según su tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en potenciar el conjuro.<br> - **Lanzamiento con Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las cartas utilizadas como Reacción no pueden potenciarse de esta forma.",
+      "hash": "3ae39551d2f3a33aa232302867a3af8574f12b06"
     },
     {
       "kind": "card",
@@ -6366,11 +6364,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Reflejos 3"
       },
       "search": "_Tu suerte te permite esquivar golpes que parecían certeros._<br><br> Como Reacción, cuando un enemigo te impacta con un ataque, puedes gastar cualquier cantidad de tus Puntos de Suerte. La tirada de ataque del enemigo sufre una penalización de -1 por cada Punto de Suerte que hayas gastado, lo que podría hacer que el ataque falle.",
-      "hash": "0ffc74647cf9f3730a7b50d037b175bd2876b325"
+      "hash": "5acad85089f393536504bafca12e647ff6419c05"
     },
     {
       "kind": "card",
@@ -7214,11 +7212,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Afinidad Arcana & Atributo Arcano 5",
-        "uses": "RELOAD:6"
+        "requirements": "Afinidad Arcana & Atributo Arcano 5"
       },
-      "search": "_Fuerzas los límites de tu poder para saturar tus conjuros más simples con una potencia devastadora._<br><br> Tu dominio de la magia te permite saturar los conjuros simples con un poder devastador.<br> Cuando lanzas una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes usar tu Interacción para sobrecargar el lanzamiento. Si lo haces, duplicas la cantidad de dados de daño del conjuro.",
-      "hash": "1b34aff52db54ad9f50539c245b68ac26293ecb9"
+      "search": "_Fuerzas los límites de tu poder para saturar tus conjuros más simples con una potencia devastadora._<br><br> Cuando utilizas una carta con las etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes potenciarla para duplicar el daño base que esta inflija durante ese turno. Para ello debes pagar un recurso adicional según su tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en potenciar el conjuro.<br> - **Lanzamiento con Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las cartas utilizadas como Reacción no pueden potenciarse de esta forma.",
+      "hash": "338efd9b42cff34f971014e066b1800ecb460e5e"
     },
     {
       "kind": "card",
@@ -9828,11 +9825,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "1100"
       },
       "search": "Este amuleto de jaspe rojo late con una suave calidez. Mientras lo lleves puesto, te estabilizas automáticamente al final de tu turno si estás Moribundo. Además, recuperas 2 Puntos de Salud adicionales cada vez que completas un día de descanso.",
-      "hash": "4378d297e19ec7c3bb0555ad9abf3edc01b41534"
+      "hash": "51dae4a2a09591aa439f5d263ab1091d7f10ebf3"
     },
     {
       "kind": "item",
@@ -9873,11 +9870,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "500"
       },
       "search": "Mientras lleves puesto este amuleto, la esencia de la piedra te infunde vitalidad. Tu Salud máxima aumenta en 5.",
-      "hash": "f038a9fc8c5fb5d00cdcc611e6580f0557887a6a"
+      "hash": "ff61a2a3cc708918d4a4c983a5d3853a71f3d3d1"
     },
     {
       "kind": "item",
@@ -9944,8 +9941,8 @@
         "type": "efecto",
         "cost": "10000"
       },
-      "search": "Este anillo te permite organizar y acceder a tus habilidades de forma más eficiente. Mientras lo lleves puesto, ganas una Ranura de Carta Activa adicional.",
-      "hash": "3dc451c3776e980bba1f0dd54b054441beae2dd4"
+      "search": "Mientras esta carta esté activa, obtienes 2 Ranuras de Cartas Activas adicionales.<br> Estas ranuras adicionales solo pueden utilizarse para Cartas con la etiqueta Conjuro de tu Colección.<br> Si esta carta deja de estar activa, las cartas que ocupen estas ranuras adicionales se desactivan inmediatamente.<br> No puedes beneficiarte de más de un _Anillo de Enfoque Arcano_ a la vez.",
+      "hash": "0e29e4defefd2916fbff4b1e44ecce9c39185bf9"
     },
     {
       "kind": "item",
@@ -10078,11 +10075,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "1800"
       },
-      "search": "_Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como una Interacción durante tu turno, puedes adoptar una de las siguientes posturas hasta el inicio de tu próximo turno. Solo puedes adoptar una postura por turno:<br> - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno,\n  infliges 1d4 de daño adicional del mismo tipo que el arma.<br>\n- **Defensiva:** Mientras empuñes esta arma, obtienes +1 a tu Esquiva.",
-      "hash": "803ccaa44c2a4d3606ceed7b3a13ed4b55542069"
+      "search": "_Esta propiedad se puede aplicar a cualquier arma cuerpo a cuerpo._<br><br> Como una Interacción durante tu turno, puedes adoptar una de las siguientes posturas hasta el inicio de tu próximo turno. Solo puedes adoptar una postura por turno:<br> - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno, infliges 1d4 de daño adicional del mismo tipo que el arma.<br> - **Defensiva:** Mientras empuñes esta arma, obtienes +1 a tu Esquiva.",
+      "hash": "62bf46c198fde9d6e4dece90fe24b16d8b43534b"
     },
     {
       "kind": "item",
@@ -10124,11 +10121,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "550"
       },
       "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> Una presencia oscura e insondable habita en el arma y se alimenta de las criaturas que caen ante ella. Una vez por turno, cuando reduces a una criatura hostil a 0 Puntos de Salud con esta arma, obtienes 1d6 Puntos de Salud Temporal.",
-      "hash": "cf4ba983152dfe035b4334dcbad332fea87f7960"
+      "hash": "762e1be77a55364bd4eedc75b5d815a1e76bff4e"
     },
     {
       "kind": "item",
@@ -10219,8 +10216,8 @@
         "uses": "DAY:1",
         "cost": "3000"
       },
-      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> Como una Interacción, eliges una criatura que puedas ver y la declaras presa juramentada del arma durante 1 minuto. Una vez por turno, el primer ataque que realices con esta arma contra esa criatura obtiene Ventaja (+1d4). Además, los ataques realizados con esta arma contra tu presa ignoran Cobertura Parcial.",
-      "hash": "0ca7286b5d07f8b7ef1ecb56809e12416de44332"
+      "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> Como una Interacción, eliges una criatura que puedas ver y la declaras presa juramentada del arma. El juramento permanece hasta que la criatura sea reducida a 0 Puntos de Salud o hasta que completes tu próximo Día de Descanso, lo que ocurra primero.<br> Una vez por turno, el primer ataque que realices con esta arma contra esa criatura obtiene Ventaja (+1d4). Además, los ataques realizados con esta arma contra tu presa ignoran Cobertura Parcial.",
+      "hash": "4cfab273b6b6290006c6ce9a62c7c4fed2207b47"
     },
     {
       "kind": "item",
@@ -10263,11 +10260,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "450"
       },
       "search": "_Esta propiedad se puede aplicar a cualquier arma._<br><br> El arma percibe el peligro antes que su portador. Mientras la lleves contigo y puedas acceder a ella, obtienes Ventaja (+1d4) en tus tiradas de Iniciativa. Además, si estás dormido naturalmente cuando comienza un combate, el arma te despierta inmediatamente.",
-      "hash": "ed223cd228beb6e154fac7f34710695f7a0ebdaa"
+      "hash": "3659974f0656d78e2f59678b0fccb0b3240c2e6d"
     },
     {
       "kind": "item",
@@ -10290,8 +10287,8 @@
         "requirements": "Cuerpo 2",
         "cost": "1300"
       },
-      "search": "(Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior). Las placas o anillas de esta armadura están cubiertas de filos mágicos. Cada vez que una criatura a distancia Inmediata te impacta con un ataque cuerpo a cuerpo, recibe 1d4 de daño Cortante.",
-      "hash": "d47c35fbd8caea08c1c814cc957c116a3c1fc985"
+      "search": "_Esta propiedad se puede aplicar a cualquier armadura Media o Pesada._<br> Las placas o anillas de esta armadura están cubiertas de filos mágicos. Una vez por ronda, cuando una criatura a distancia Inmediata te impacta con un ataque cuerpo a cuerpo, puedes hacer que reciba 1d4 de daño Cortante.",
+      "hash": "3cef97559e134e6df9c8fa9686f646aa881c1010"
     },
     {
       "kind": "item",
@@ -10359,11 +10356,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "1100"
       },
       "search": "_Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o superior._<br><br> La estructura encantada de la armadura protege incluso sus puntos más vulnerables. Cuando un ataque contra ti fuera a convertirse en un golpe crítico, se considera un impacto normal en su lugar.",
-      "hash": "1f70d2463869186fa81de675d3dfc901f1af4741"
+      "hash": "ae7cd104dd7f8c6efb063391b57178fb0b3418d2"
     },
     {
       "kind": "item",
@@ -10566,11 +10563,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "1200"
       },
       "search": "Este broche de hierro te ayuda a mantener la calma bajo presión. Obtienes Ventaja (+1d4) en todas las pruebas de atributo que realices para mantener la Concentración en una carta.",
-      "hash": "27e8af5f2ff10ac2a12135ab1d136d0ffec3e977"
+      "hash": "d0833f88d7a7ae1dc9c64cb805e0bdac3982242d"
     },
     {
       "kind": "item",
@@ -10702,12 +10699,12 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "requirements": "Cuerpo 3",
         "cost": "4000"
       },
       "search": "(Esta propiedad se puede aplicar a cualquier armadura de Placas Parcial o superior). Durante un día de descanso, puedes pasar una hora realizando un ritual para sintonizar la coraza con un tipo de energía elemental: Fuego, Frío o Eléctrico. Mientras estés sintonizado, obtienes Resistencia contra ese tipo de daño específico. Puedes cambiar la sintonía realizando el ritual de nuevo.",
-      "hash": "e69d8d67027b1f6d6f7cb698c1eac164a88bfbab"
+      "hash": "4f43faf50d29b5b357ef3a0d9ff3550a4201c3c0"
     },
     {
       "kind": "item",
@@ -10910,12 +10907,12 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "uses": "DAY:1",
         "cost": "550"
       },
       "search": "Como una Interacción, puedes frotar este escarabajo de jade para que la suerte te sonría. Recuperas 2 Puntos de Suerte gastados.",
-      "hash": "a6bae26727357864abc66d9ee602f7950e6ece62"
+      "hash": "f3ad3795929429c5b3f3bfd927e713b9ac316698"
     },
     {
       "kind": "item",
@@ -11209,11 +11206,11 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "cost": "350"
       },
       "search": "Esta capa gris y pegajosa al tacto te permite adherirte a las superficies. Mientras la lleves puesta, obtienes una velocidad de trepar igual a tu velocidad terrestre y puedes moverte por superficies verticales y techos manteniendo las manos libres.",
-      "hash": "525dce2dcf3d7a759573413f1fb8db5d8d8f88cb"
+      "hash": "681e417f5149a7fff64122bf9fac5c94e1cfebaf"
     },
     {
       "kind": "item",
@@ -11370,12 +11367,12 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "uses": "DAY:1",
         "cost": "6000"
       },
       "search": "Como una Interacción, puedes tocar esta perla para recuperar el aliento arcano o físico. Elige una de tus cartas activables que ya hayas usado y que tenga un sistema de 'Recarga (X+)' o 'Usos por día'. Recuperas inmediatamente un uso de esa carta.",
-      "hash": "93c976a1a853b2e16b715220d9e76aacdc1dc1fb"
+      "hash": "d56028452b45fb195a625b5f38ddfbaa70579bfe"
     },
     {
       "kind": "item",
@@ -11677,8 +11674,8 @@
     },
     {
       "kind": "item",
-      "canonicalName": "Talisman del Estratega",
-      "id": "001bf6bbb81d8159bc4b67483c2f1fbf6febd474",
+      "canonicalName": "Talismán del Estratega",
+      "id": "91f2e53267ee827d1700e28a21477f60583c1378",
       "slug": "talisman-del-estratega",
       "aliases": [
         "talisman del estratega"
@@ -11691,12 +11688,12 @@
       "source": "magical-items.yml",
       "structured": {
         "cardType": "item",
-        "type": "efecto",
+        "type": "activable",
         "uses": "DAY:1",
         "cost": "2500"
       },
-      "search": "Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para tocar este talismán y reorganizar tus tácticas. Elige una de tus cartas Activables que tengas equipada en una ranura. Puedes cambiarla instantáneamente por otra carta de tu Colección del mismo nivel o inferior.",
-      "hash": "41bb092289b5fc9e786bce7ddd7ee7c5eef736f7"
+      "search": "Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para tocar este talismán y reorganizar tus tácticas.<br> Elige hasta dos Cartas Activables con de tipo Habilidad que tengas activas. Puedes reemplazar cada una de ellas por otra Carta Activable con la etiqueta Habilidad de tu Colección que sea de su mismo nivel o inferior.<br> Las nuevas cartas quedan activas inmediatamente.",
+      "hash": "e6f60cda33cc0368f65de36d0fbab6b66b1aa1bf"
     },
     {
       "kind": "item",
@@ -12126,6 +12123,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Activar Objetos Mágicos",
+      "slug": "04-el-sistema-de-cartas-activar-objetos-magicos",
+      "aliases": [
+        "activar objetos magicos"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
+      "heading": "Activar Objetos Mágicos",
+      "anchor": "activar-objetos-mágicos",
+      "chapter": "4. El Sistema de Cartas",
+      "source": "player.md",
+      "search": "Un Objeto Mágico Activable no forma parte de tu Colección. Mientras tengas el objeto en tu poder y cumplas sus Requerimientos, puedes hacer que su carta ocupe una de tus Ranuras de Cartas Activas.\n\nPor defecto, activar un Objeto Mágico requiere **1 hora de concentración y manipulación del objeto**, durante la cual estableces un vínculo con su magia. Algunos objetos pueden indicar un tiempo diferente.\n\nPara activar un Objeto Mágico debes cumplir sus Requerimientos y disponer de una Ranura de Carta Activa. Si no tienes ninguna libre, puedes desactivar una de tus Cartas Activables actualmente activas para hacerle espacio. Una carta de tu Colección desactivada de esta manera no puede ser reemplazada por otra carta de tu Colección hasta que completes un Día de Descanso.\n\nPara desactivar un Objeto Mágico no es necesario estar en contacto con él. Debes concentrarte durante **1 minuto** en el vínculo establecido con el objeto para romperlo y liberar la Ranura de Carta Activa que ocupaba.\n\nLiberar una ranura de esta manera no permite activar automáticamente otra carta de tu Colección. Las Cartas Activables de tu Colección solo pueden cambiarse al completar un Día de Descanso, salvo que una regla indique expresamente lo contrario.\n\nDesactivar y volver a activar un objeto no restaura sus usos, elimina una Sobrecarga ni reinicia su Recarga. Sus recursos se recuperan únicamente mediante las reglas indicadas por el propio objeto.\n\nMientras la carta de un Objeto Activable no esté activa, el objeto conserva todas sus propiedades mundanas, pero sus propiedades mágicas no tienen efecto, salvo que su descripción indique lo contrario.",
+      "hash": "5606db4a26502af004a8798c7723b3519d40e940"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Activar y Cambiar Cartas",
       "slug": "04-el-sistema-de-cartas-activar-y-cambiar-cartas",
       "aliases": [
@@ -12137,8 +12150,8 @@
       "anchor": "activar-y-cambiar-cartas",
       "chapter": "4. El Sistema de Cartas",
       "source": "player.md",
-      "search": "Puedes cambiar qué **Cartas Activables** tienes activas al completar un **Día de Descanso**, siguiendo las reglas descritas en el capítulo **Descanso y Recuperación**.",
-      "hash": "e67c8abbc89ff39af4018a0257dfc9971ac22f4d"
+      "search": "Puedes cambiar qué **Cartas Activables de tu Colección** tienes activas al completar un **Día de Descanso**. Al hacerlo, eliges libremente qué cartas ocuparán tus Ranuras de Cartas Activas, respetando todos sus Requerimientos.\n\nLas cartas otorgadas por **Objetos Mágicos Activables** utilizan las mismas Ranuras de Cartas Activas, pero siguen reglas especiales para su activación.",
+      "hash": "1d3dc869ced7b1d14eb6ca9d5a0a234a00585f7c"
     },
     {
       "kind": "section",
@@ -12558,6 +12571,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Consumibles",
+      "slug": "04-3-recompensas-tesoro-y-equipo-consumibles",
+      "aliases": [
+        "consumibles"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
+      "heading": "Consumibles",
+      "anchor": "consumibles",
+      "chapter": "3. Recompensas: Tesoro y Equipo",
+      "source": "gm.md",
+      "search": "Los objetos **Consumibles** no necesitan ocupar Ranuras de Cartas Activas salvo que una regla específica indique lo contrario.\n\nSu poder ya está limitado por su disponibilidad y por consumirse al utilizarse, por lo que no necesitan competir además con las capacidades activas del personaje.",
+      "hash": "9151b3566d6efcb639a460296925ac47c64a1f8b"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Coste del Arsenal",
       "slug": "08-7-diseno-avanzado-de-criaturas-coste-del-arsenal",
       "aliases": [
@@ -12571,22 +12600,6 @@
       "source": "gm.md",
       "search": "Determina normalmente el Rango y coste en PPF de cada capacidad.\n\nLa capacidad más cara se paga a su **coste completo**.\n\nTodas las demás opciones del mismo Arsenal cuestan **la mitad de sus PPF normales, redondeando hacia arriba**.\n\n> **Ejemplo:** una criatura posee tres Acciones tácticas de Rango 3, Rango 2 y Rango 2.\n>\n> Sus costes normales serían 4, 3 y 3 PPF.\n>\n> Mediante Arsenal Versátil paga:\n>\n> **4 + 2 + 2 = 8 PPF.**\n>\n> La criatura paga por disponer de alternativas, pero menos que si pudiera utilizar las tres capacidades conjuntamente.",
       "hash": "0e3a985c7cab795dabed8b091d8d86b226ae5381"
-    },
-    {
-      "kind": "section",
-      "canonicalName": "Creando Objetos Únicos como Cartas",
-      "slug": "04-3-recompensas-tesoro-y-equipo-creando-objetos-unicos-como-cartas",
-      "aliases": [
-        "creando objetos unicos como cartas"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
-      "heading": "Creando Objetos Únicos como Cartas",
-      "anchor": "creando-objetos-únicos-como-cartas",
-      "chapter": "3. Recompensas: Tesoro y Equipo",
-      "source": "gm.md",
-      "search": "Cuando diseñes un objeto especial, trátalo como si estuvieras creando una nueva carta exclusiva de ese objeto. La distinción entre un objeto \"menor\" y uno \"poderoso\" radica en si su carta necesita ocupar una de tus **Ranuras de Cartas Activas** para funcionar.\n\n- **Objetos de Efecto (Menores):** Otorgan beneficios constantes sin necesidad de ocupar una ranura activa. Son \"siempre activos\" mientras el personaje los porte o utilice.\n- **Objetos Activables (Mayores):** Requieren que el jugador dedique una de sus Ranuras de Cartas Activas a la carta del objeto. Esto representa el esfuerzo mental y la concentración necesarios para canalizar el poder del objeto, y crea una decisión estratégica interesante para el jugador.\n\nUtiliza la siguiente plantilla:\n\n- **[NOMBRE DEL OBJETO]**\n- **Tipo:** Objeto (Puede ser de **Efecto** o **Activable**).\n- **Descripción:** Explica el efecto mecánico y narrativo del objeto.\n- **Usos:** Si es **Activable**, detalla cuántas veces se puede usar (ej. `1 por día de descanso`, `Recarga 5+`, etc.).\n- **Requerimientos:** Listado de requerimientos para poder usar el objeto.",
-      "hash": "fd6cea74a160db5d030a6790901e6e7185686c2e"
     },
     {
       "kind": "section",
@@ -12747,22 +12760,6 @@
       "source": "player.md",
       "search": "Dormir con una armadura **Ligera** no interfiere de forma significativa con el descanso.\n\nSi completas tu Sueño Suficiente llevando una armadura **Media** o **Pesada**, debes realizar una Prueba de **Cuerpo (Aguante)** al despertar:\n\n| Tipo de Armadura | ND         |\n| :--------------- | :--------- |\n| Ligera o ninguna | Sin prueba |\n| Media            | 8          |\n| Pesada           | 10         |\n\nSi fallas, sufres **1 grado de Fatiga**.\n\nEl sueño sigue contando como **Sueño Suficiente** aunque falles esta prueba. La Fatiga representa la recuperación deficiente provocada por haber descansado bajo el peso y las restricciones de la armadura.",
       "hash": "551ee533ba6c55e7f119bbd7b171d3b0f5a97061"
-    },
-    {
-      "kind": "section",
-      "canonicalName": "Ejemplos de Objetos-Carta",
-      "slug": "04-3-recompensas-tesoro-y-equipo-ejemplos-de-objetos-carta",
-      "aliases": [
-        "ejemplos de objetos-carta"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
-      "heading": "Ejemplos de Objetos-Carta",
-      "anchor": "ejemplos-de-objetos-carta",
-      "chapter": "3. Recompensas: Tesoro y Equipo",
-      "source": "gm.md",
-      "search": "Aquí tienes dos ejemplos que ilustran la diferencia:\n\n> **Amuleto del Guardián Vigilante**\n>\n> **Tipo:** Objeto (Efecto)\n>\n> **Descripción:** Mientras lleves este amuleto de plata con forma de ojo abierto, tu percepción del peligro se agudiza. Obtienes **Ventaja (+1d4)** en todas tus tiradas de **Iniciativa** y en las Pruebas de Habilidad de **Instinto (Percepción)**.\n>\n> **Requerimientos:** -\n\n> **Hacha de Batalla Rúnica**\n>\n> **Tipo:** Objeto (Activable)\n>\n> **Descripción:** Como una **Acción**, puedes golpear el suelo con esta hacha para liberar una onda de choque. Todo enemigo a distancia **Inmediata** debe superar una **Tirada de Salvación de Cuerpo (ND 9)** o quedar en el estado **Derribado**.\n>\n> **Usos:** 1 (Recarga 5+)\n>\n> **Requerimientos:** Cuerpo 3",
-      "hash": "840c4eaf8d0fa3e1b6fab78d87734e8268943d2d"
     },
     {
       "kind": "section",
@@ -13294,6 +13291,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Lo que no determina el Tipo de un Objeto",
+      "slug": "04-3-recompensas-tesoro-y-equipo-lo-que-no-determina-el-tipo-de-un-objeto",
+      "aliases": [
+        "lo que no determina el tipo de un objeto"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
+      "heading": "Lo que no determina el Tipo de un Objeto",
+      "anchor": "lo-que-no-determina-el-tipo-de-un-objeto",
+      "chapter": "3. Recompensas: Tesoro y Equipo",
+      "source": "gm.md",
+      "search": "La presencia de una Acción, Interacción o Reacción en la descripción de un objeto **no determina** que este deba ser Activable.\n\nDel mismo modo, poseer usos limitados, cargas o un sistema de Recarga tampoco determina por sí solo su Tipo.\n\nPor ejemplo:\n\n- un arma que obtiene un pequeño beneficio únicamente al obtener un golpe crítico puede ser de **Efecto**;\n- una herramienta que abre una cerradura una vez por día puede ser de **Efecto**;\n- un arma que permite adoptar posturas tácticas diferentes cada turno puede ser **Activable**;\n- un amuleto que aumenta permanentemente la Salud del personaje puede ser **Activable**, aunque su efecto no requiera ninguna acción.\n\nLa pregunta principal no es _\"¿hay que activar este poder?\"_, sino:\n\n> **¿Este objeto mejora lo que ya hace el equipo o añade una nueva porción significativa de poder al personaje?**\n\nSi principalmente mejora las propiedades del propio objeto, suele ser apropiado como **Efecto**.\n\nSi añade una capacidad, recurso o ventaja general comparable a las Cartas del personaje, debería ser **Activable**.",
+      "hash": "e3aa17071a61e06cfa222d6e05f2f528e17a5cdd"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Maniobra Arcana: El Uso Creativo de la Magia",
       "slug": "07-combate-maniobra-arcana-el-uso-creativo-de-la-magia",
       "aliases": [
@@ -13518,6 +13531,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Objetos Activables",
+      "slug": "04-3-recompensas-tesoro-y-equipo-objetos-activables",
+      "aliases": [
+        "objetos activables"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
+      "heading": "Objetos Activables",
+      "anchor": "objetos-activables",
+      "chapter": "3. Recompensas: Tesoro y Equipo",
+      "source": "gm.md",
+      "search": "Un Objeto Activable representa una fuente de poder suficientemente relevante como para formar parte de la configuración activa del personaje.\n\nPara beneficiarse de sus propiedades mágicas, su carta debe ocupar una de las **Ranuras de Cartas Activas** del personaje siguiendo las reglas de activación de Objetos Mágicos.\n\nEsta categoría es apropiada cuando el objeto:\n\n- concede una capacidad nueva comparable a una Carta Activable;\n- proporciona nuevas opciones tácticas importantes;\n- mejora de forma amplia al personaje en lugar de mejorar únicamente al objeto;\n- aumenta o recupera recursos generales como Salud, Suerte, usos de Cartas o Ranuras Activas;\n- concede defensas, movilidad o capacidades especiales de gran impacto;\n- permite realizar acciones, reacciones o efectos que el personaje no tendría normalmente;\n- altera de manera importante la configuración o economía de Cartas del personaje.\n\nUn Objeto Activable puede proporcionar un beneficio completamente pasivo mientras su carta permanezca activa. El término **Activable** no significa que el personaje deba realizar una Acción, Interacción o Reacción cada vez que utiliza su poder; significa que el objeto debe ocupar una Ranura de Carta Activa para que sus propiedades mágicas funcionen.",
+      "hash": "b4f53e22c8bf48a1fffa7d38dfaa39caa9b413d8"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Objetos como Llaves para Cartas Existentes",
       "slug": "04-3-recompensas-tesoro-y-equipo-objetos-como-llaves-para-cartas-existentes",
       "aliases": [
@@ -13531,6 +13560,38 @@
       "source": "gm.md",
       "search": "La idea de que un objeto desbloquee una carta de la biblioteca sigue siendo una excelente opción. Encontrar el \"Manual del Duelista Experto\" podría ser el catalizador narrativo que le permita a un personaje comprar la carta `Parada del Duelista` con sus Puntos de Progreso. Este método es ideal para integrar el aprendizaje de nuevas habilidades directamente en la exploración y el descubrimiento.",
       "hash": "9348e827b98f597bd9e346f3cf5ac9c387b56455"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Objetos de Efecto",
+      "slug": "04-3-recompensas-tesoro-y-equipo-objetos-de-efecto",
+      "aliases": [
+        "objetos de efecto"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
+      "heading": "Objetos de Efecto",
+      "anchor": "objetos-de-efecto",
+      "chapter": "3. Recompensas: Tesoro y Equipo",
+      "source": "gm.md",
+      "search": "Un Objeto de Efecto funciona mientras el personaje lo porte, vista o utilice, sin ocupar una Ranura de Carta Activa.\n\nEsta categoría es apropiada cuando la magia del objeto:\n\n- mejora de forma acotada la función propia del objeto;\n- modifica alguna de sus propiedades sin otorgar al personaje una capacidad completamente nueva;\n- proporciona una ventaja situacional o especializada;\n- ofrece principalmente utilidad, exploración, conveniencia o posibilidades narrativas;\n- tiene un efecto suficientemente limitado como para no competir con las capacidades principales del personaje.\n\nUn arma mágica puede ser más precisa, infligir un efecto adicional bajo ciertas condiciones, ignorar una forma concreta de cobertura o poseer una propiedad sobrenatural sin necesidad de convertirse por ello en un Objeto Activable.\n\nDel mismo modo, una herramienta mágica puede proporcionar una capacidad extraordinaria pero muy específica sin ocupar una Ranura Activa.",
+      "hash": "90281ba5e641db1358eb880f0a9dad7ddcb160ee"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Objetos de Efecto y Objetos Activables",
+      "slug": "04-3-recompensas-tesoro-y-equipo-objetos-de-efecto-y-objetos-activables",
+      "aliases": [
+        "objetos de efecto y objetos activables"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/04-3-recompensas-tesoro-y-equipo.md",
+      "heading": "Objetos de Efecto y Objetos Activables",
+      "anchor": "objetos-de-efecto-y-objetos-activables",
+      "chapter": "3. Recompensas: Tesoro y Equipo",
+      "source": "gm.md",
+      "search": "Los objetos mágicos utilizan el mismo lenguaje de cartas que las capacidades de los personajes, pero no todo objeto poderoso necesita ocupar una Ranura de Carta Activa.\n\nLa distinción entre un objeto de **Efecto** y uno **Activable** depende principalmente de qué clase de poder añade al personaje.",
+      "hash": "bb64ed8898f21e6591978593dcf00bda0680be02"
     },
     {
       "kind": "section",

@@ -92,7 +92,7 @@ cards:
   - id: 6a215e1c470fad53dfd174d8a45d27c8605e68db
     name: Reflejos Afortunados
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción
@@ -125,7 +125,7 @@ cards:
   - id: 3fd596350326c0671b326dba70fcf7c474b50074
     name: Maestría con Escudo
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Dote
       - Reacción

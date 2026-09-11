@@ -262,7 +262,7 @@ items:
   - name: 'Perla de Resonancia Arcana'
     level: 5
     cost: 6000
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Habilidades'
     requirements: null
@@ -278,7 +278,7 @@ items:
   - name: 'Amuleto del Troll de Piedra'
     level: 2
     cost: 500
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Salud'
     requirements: null
@@ -291,7 +291,7 @@ items:
   - name: 'Escarabajo de la Fortuna'
     level: 2
     cost: 550
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Suerte'
     requirements: null
@@ -337,7 +337,7 @@ items:
   - name: 'Manto Arácnido'
     level: 2
     cost: 350
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Movimiento'
     requirements: null
@@ -370,7 +370,7 @@ items:
   - name: 'Amuleto de Salud'
     level: 3
     cost: 1100
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Curación'
       - 'Supervivencia'
@@ -387,7 +387,7 @@ items:
   - name: 'Broche de la Voluntad Férrea'
     level: 3
     cost: 1200
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Concentración'
     requirements: null
@@ -414,18 +414,17 @@ items:
       type: NULL
       qty: 0
 
-  - name: 'Talisman del Estratega'
+  - name: 'Talismán del Estratega'
     level: 4
     cost: 2500
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Habilidades'
     requirements: null
     description: >-
-      Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para
-      tocar este talismán y reorganizar tus tácticas. Elige una de tus cartas
-      Activables que tengas equipada en una ranura. Puedes cambiarla
-      instantáneamente por otra carta de tu Colección del mismo nivel o inferior.
+      Como una Interacción en tu turno, puedes gastar 2 Puntos de Suerte para tocar este talismán y reorganizar tus tácticas.<br>
+      Elige hasta dos Cartas Activables con de tipo Habilidad que tengas activas. Puedes reemplazar cada una de ellas por otra Carta Activable con la etiqueta Habilidad de tu Colección que sea de su mismo nivel o inferior.<br>
+      Las nuevas cartas quedan activas inmediatamente.
     uses:
       type: DAY
       qty: 1
@@ -470,9 +469,10 @@ items:
       - 'Habilidades'
     requirements: null
     description: >-
-      Este anillo te permite organizar y acceder a tus habilidades de forma más
-      eficiente. Mientras lo lleves puesto, ganas una Ranura de Carta
-      Activa adicional.
+      Mientras esta carta esté activa, obtienes 2 Ranuras de Cartas Activas adicionales.<br>
+      Estas ranuras adicionales solo pueden utilizarse para Cartas con la etiqueta Conjuro de tu Colección.<br>
+      Si esta carta deja de estar activa, las cartas que ocupen estas ranuras adicionales se desactivan inmediatamente.<br>
+      No puedes beneficiarte de más de un _Anillo de Enfoque Arcano_ a la vez.
     uses:
       type: NULL
       qty: 0
@@ -967,10 +967,10 @@ items:
       - 'Daño'
     requirements: Cuerpo 2
     description: >-
-      (Esta propiedad se puede aplicar a cualquier armadura de Cota de Mallas o
-      superior). Las placas o anillas de esta armadura están cubiertas de filos
-      mágicos. Cada vez que una criatura a distancia Inmediata te impacta con
-      un ataque cuerpo a cuerpo, recibe 1d4 de daño Cortante.
+      _Esta propiedad se puede aplicar a cualquier armadura Media o Pesada._<br>
+      Las placas o anillas de esta armadura están cubiertas de filos
+      mágicos. Una vez por ronda, cuando una criatura a distancia Inmediata te impacta con
+      un ataque cuerpo a cuerpo, puedes hacer que reciba 1d4 de daño Cortante.
     uses:
       type: NULL
       qty: 0
@@ -1016,7 +1016,7 @@ items:
   - name: 'Coraza del Guardián Elemental'
     level: 4
     cost: 4000
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Armadura'
       - 'Defensa'
@@ -1088,7 +1088,7 @@ items:
   - name: 'Arma Vigilante'
     level: 2
     cost: 450
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Arma'
       - 'Iniciativa'
@@ -1163,7 +1163,7 @@ items:
   - name: 'Arma del Estratega'
     level: 3
     cost: 1800
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Arma'
       - 'Versatilidad'
@@ -1173,8 +1173,7 @@ items:
       Como una Interacción durante tu turno, puedes adoptar una de las siguientes
       posturas hasta el inicio de tu próximo turno. Solo puedes adoptar una postura
       por turno:<br>
-      - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno,
-        infliges 1d4 de daño adicional del mismo tipo que el arma.<br>
+      - **Ofensiva:** La primera vez que impactes con esta arma durante tu turno, infliges 1d4 de daño adicional del mismo tipo que el arma.<br>
       - **Defensiva:** Mientras empuñes esta arma, obtienes +1 a tu Esquiva.
     uses:
       type: NULL
@@ -1191,10 +1190,9 @@ items:
     description: >-
       _Esta propiedad se puede aplicar a cualquier arma._<br><br>
       Como una Interacción, eliges una criatura que puedas ver y la declaras
-      presa juramentada del arma durante 1 minuto. Una vez por turno, el primer
-      ataque que realices con esta arma contra esa criatura obtiene Ventaja (+1d4).
-      Además, los ataques realizados con esta arma contra tu presa ignoran
-      Cobertura Parcial.
+      presa juramentada del arma. El juramento permanece hasta que la criatura sea reducida a 0 Puntos de Salud o hasta que completes tu próximo Día de Descanso, lo que ocurra primero.<br>
+      Una vez por turno, el primer ataque que realices con esta arma contra esa criatura obtiene Ventaja (+1d4).
+      Además, los ataques realizados con esta arma contra tu presa ignoran Cobertura Parcial.
     uses:
       type: DAY
       qty: 1
@@ -1253,7 +1251,7 @@ items:
   - name: 'Arma del Hambre Profunda'
     level: 2
     cost: 550
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Arma'
       - 'Salud'
@@ -1290,7 +1288,7 @@ items:
   - name: 'Armadura Inquebrantable'
     level: 3
     cost: 1100
-    type: 'efecto'
+    type: 'activable'
     tags:
       - 'Armadura'
       - 'Defensa'

@@ -2,14 +2,14 @@ cards:
   - id: a26da69489da45944c6fd6f14867cebd537a4c9b
     name: Ataque de Oportunidad
     level: 2
-    type: activable
+    type: efecto
     tags:
       - Combatiente
       - Reacción
     requirements: Maestría Marcial & Atributo Marcial 2
     uses:
-      type: RELOAD
-      qty: 3
+      type: null
+      qty: 0
     description: >-
       _Nunca dejas que un enemigo se retire impunemente; cualquier descuido en su guardia es castigado con un golpe
       instantáneo._<br><br> Cuando un enemigo a tu alcance Inmediato intenta moverse fuera de él, puedes usar tu
