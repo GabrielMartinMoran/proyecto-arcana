@@ -145,7 +145,7 @@ Los venenos son herramientas sutiles y mortales, capaces de incapacitar a un gig
 
 A menos que la descripción de un veneno específico diga lo contrario, todos funcionan de la siguiente manera:
 
-- **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse. Los especialistas, como un Pícaro con la carta `Frasquero`, pueden ser capaces de hacerlo mucho más rápido.
+- **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse.
 - **Resistencia:** Una criatura afectada por un veneno (ya sea por una herida, ingestión o contacto) debe superar una **Tirada de Salvación de Cuerpo**. La dificultad (ND) y el efecto en caso de fallo dependen del tipo y la potencia del veneno.
 
 ### Tipos de Venenos

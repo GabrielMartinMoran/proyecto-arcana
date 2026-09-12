@@ -83,11 +83,8 @@ cards:
       qty: 0
     description: >-
       _Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder
-      abrumador._<br><br> Cuando utilizas una carta con las etiquetas _Sacerdote_ y _Conjuro_ de Nivel 1 o 2 que inflija
-      daño, puedes potenciarla para duplicar el daño base que esta inflija durante ese turno. Para ello debes pagar un
-      recurso adicional según su tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en
-      potenciar el conjuro.<br> - **Lanzamiento con Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las
-      cartas utilizadas como Reacción no pueden potenciarse de esta forma.
+      abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de
+      Nivel 1 o 2, duplicas el daño base de la carta.
     slug: poder-sagrado
   - id: c3a179b2e2208c06c74178cc9a9d54519af9b212
     name: Restitución Divina

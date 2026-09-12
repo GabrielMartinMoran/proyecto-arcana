@@ -256,8 +256,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-1.yml",
       "kind": "file",
-      "size": 6570,
-      "sha1": "bc4068a51dc63aab510274466fbfb5ddeb5ab3d7"
+      "size": 7037,
+      "sha1": "2631da853becd12b8a4d7e77a5f211e962f62610"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
@@ -474,8 +474,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml",
       "kind": "file",
-      "size": 7140,
-      "sha1": "8360ba3113dc3a5947eaf0de8bc014213d58c9a6"
+      "size": 6759,
+      "sha1": "f3315281b2db37db04d0dc979d85d7069f4f1387"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-5.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 286188,
-      "sha1": "54699f7add6f898a921e903e28f4d45a900df101"
+      "size": 286274,
+      "sha1": "c02ba65fc0dacf20bdff043edbdeaa7fc90bfa8b"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -676,8 +676,8 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 13372,
-      "sha1": "beb30b57a0f609fd4729f181237e3875b2851426"
+      "size": 14224,
+      "sha1": "e07180ea9f0ca0bca10e79da1c229f8fef4151c6"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",
@@ -706,8 +706,8 @@
     {
       "path": "references/manual-del-jugador/12-equipo-y-economia.md",
       "kind": "file",
-      "size": 14982,
-      "sha1": "f7466e6dcbd123348bbb4940a4981cf74ae83826"
+      "size": 14871,
+      "sha1": "e8cadea90b525a86f91aaae36aae3c830f1f6957"
     },
     {
       "path": "references/manual-del-jugador/13-reglas-narrativas-avanzadas.md",

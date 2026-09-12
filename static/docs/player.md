@@ -739,6 +739,16 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Elementales:** Fuego, Frío, Eléctrico.
 - **Mágicos:** Sónico, Psíquico, Veneno, Ácido, Necrótico, Radiante, Fuerza.
 
+### Puntos de Salud Temporales
+
+Los **Puntos de Salud Temporales** representan protección, vigor o resistencia adicional que absorbe daño antes de afectar tu Salud normal.
+
+- Cuando recibes daño, este reduce primero tus Puntos de Salud Temporales. Cualquier daño restante se aplica normalmente a tu Salud.
+- Los Puntos de Salud Temporales provenientes de distintas fuentes **no se acumulan**, salvo que un efecto indique expresamente lo contrario.
+- Si obtienes Puntos de Salud Temporales mientras todavía conservas otros, eliges si mantienes los que ya posees o los reemplazas por los nuevos.
+- Cada fuente conserva su propia duración. Si eliges mantener tus Puntos de Salud Temporales actuales, obtener una nueva fuente no renueva ni modifica su duración.
+- Los Puntos de Salud Temporales no pueden recuperarse mediante efectos de curación.
+
 ## Heridas y caer Moribundo
 
 - **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación
@@ -1082,7 +1092,7 @@ Los venenos son herramientas sutiles y mortales, capaces de incapacitar a un gig
 
 A menos que la descripción de un veneno específico diga lo contrario, todos funcionan de la siguiente manera:
 
-- **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse. Los especialistas, como un Pícaro con la carta `Frasquero`, pueden ser capaces de hacerlo mucho más rápido.
+- **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse.
 - **Resistencia:** Una criatura afectada por un veneno (ya sea por una herida, ingestión o contacto) debe superar una **Tirada de Salvación de Cuerpo**. La dificultad (ND) y el efecto en caso de fallo dependen del tipo y la potencia del veneno.
 
 ### Tipos de Venenos

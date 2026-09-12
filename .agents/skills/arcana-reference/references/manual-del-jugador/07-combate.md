@@ -133,6 +133,16 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Elementales:** Fuego, Frío, Eléctrico.
 - **Mágicos:** Sónico, Psíquico, Veneno, Ácido, Necrótico, Radiante, Fuerza.
 
+### Puntos de Salud Temporales
+
+Los **Puntos de Salud Temporales** representan protección, vigor o resistencia adicional que absorbe daño antes de afectar tu Salud normal.
+
+- Cuando recibes daño, este reduce primero tus Puntos de Salud Temporales. Cualquier daño restante se aplica normalmente a tu Salud.
+- Los Puntos de Salud Temporales provenientes de distintas fuentes **no se acumulan**, salvo que un efecto indique expresamente lo contrario.
+- Si obtienes Puntos de Salud Temporales mientras todavía conservas otros, eliges si mantienes los que ya posees o los reemplazas por los nuevos.
+- Cada fuente conserva su propia duración. Si eliges mantener tus Puntos de Salud Temporales actuales, obtener una nueva fuente no renueva ni modifica su duración.
+- Los Puntos de Salud Temporales no pueden recuperarse mediante efectos de curación.
+
 ## Heridas y caer Moribundo
 
 - **Llegar a 0 de Salud:** Quedas **Moribundo**. Al final de cada uno de tus turnos, debes hacer una Tirada de Salvación

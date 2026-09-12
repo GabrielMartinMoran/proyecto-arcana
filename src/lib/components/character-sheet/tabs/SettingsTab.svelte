@@ -230,7 +230,7 @@
 			<em
 				><p>Valores disponibles: cuerpo, reflejos, mente, instinto, presencia, ppGastados.</p>
 				<p>
-					Funciones disponibles: floor, ceil, round, <a
+					Funciones disponibles: floor, ceil, round, max, min, <a
 						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
 						>Math</a
 					>

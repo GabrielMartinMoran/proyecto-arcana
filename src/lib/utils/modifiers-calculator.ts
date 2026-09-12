@@ -15,6 +15,8 @@ const evaluateModifierExpression = (expression: string, context: any) => {
 			'floor',
 			'ceil',
 			'round',
+			'max',
+			'min',
 			'Math',
 			`return (${expr});`,
 		);

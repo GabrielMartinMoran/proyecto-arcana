@@ -3056,8 +3056,8 @@
         "requirements": "Sintonía Primordial",
         "uses": "LONG_REST:2"
       },
-      "search": "_Dejas atrás tu humanidad para abrazar a la bestia interior, adoptando la piel, las garras y los sentidos de los animales._<br><br> Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo) durante 1 hora. Tu equipo se funde con tu nueva forma y no puedes usarlo. En esta forma:<br> - Ganas 3 Puntos de Salud temporales.<br> - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**, pero tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br> - No puedes hablar, atacar ni utilizar habilidades Activables (a menos que una habilidad lo permita específicamente), pero conservas los beneficios de tus cartas de **Efecto** y de las cartas **Activables** que ya tuvieras activas antes de transformarte.<br> - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un olfato agudo).<br> La transformación termina antes si pierdes la Concentración o si decides revertirla (no requiere acción).<br> Mientras tengas al menos 1 Punto de Salud Temporal, no necesitas realizar pruebas para mantener la Concentración de tu forma salvaje.<br> Mientras estes transformado, no puedes ganar Puntos de Salud Temporales.",
-      "hash": "efea8ac5db0a849575e3dabd82280afa71779f88"
+      "search": "_Dejas atrás tu humanidad para abrazar a la bestia interior, adoptando la piel, las garras y los sentidos de los animales._<br><br> Como acción, te transformas en una bestia Pequeña o Mediana no combatiente (como un gato, un sabueso o un cuervo) durante 1 hora. Tu equipo se funde con tu nueva forma y deja de funcionar mientras permanezcas transformado.<br> Durante este tiempo, no obtienes sus propiedades, bonificadores ni efectos, incluidos aquellos provenientes de objetos mágicos, y a efectos de las reglas no se considera que estés usando o llevando ese equipo. Todo recupera su funcionamiento normal cuando termina la transformación.<br> En esta forma:<br> - Ganas 3 Puntos de Salud temporales (que reemplazan cualquier otra cantidad de puntos de salud temporales que poseas).<br> - Conservas tus atributos de **Mente**, **Instinto** y **Presencia**, pero tu **Cuerpo** se establece en **1**, y tus **Reflejos** se igualan a tu puntuación de **Instinto**.<br> - No puedes hablar, atacar ni utilizar habilidades Activables (a menos que una habilidad lo permita específicamente), pero conservas los beneficios de tus cartas de **Efecto** (que no provengan de tu equipo) y de las cartas **Activables** que ya tuvieras activas antes de transformarte.<br> - Adoptas los sentidos y formas de movimiento de la criatura elegida (como trepar, volar o un olfato agudo).<br> La transformación termina antes si pierdes la Concentración o si decides revertirla (no requiere acción).<br> Mientras tengas al menos 1 Punto de Salud Temporal, no necesitas realizar pruebas para mantener la Concentración de tu forma salvaje.<br> Mientras estes transformado, no puedes ganar Puntos de Salud Temporales.",
+      "hash": "cbbd8fbaa86353813a8f7480cb27f93418e64d39"
     },
     {
       "kind": "card",
@@ -5970,8 +5970,8 @@
         "type": "efecto",
         "requirements": "Fe Inspiradora & Instinto 5"
       },
-      "search": "_Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br> Cuando utilizas una carta con las etiquetas _Sacerdote_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes potenciarla para duplicar el daño base que esta inflija durante ese turno. Para ello debes pagar un recurso adicional según su tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en potenciar el conjuro.<br> - **Lanzamiento con Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las cartas utilizadas como Reacción no pueden potenciarse de esta forma.",
-      "hash": "3ae39551d2f3a33aa232302867a3af8574f12b06"
+      "search": "_Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.",
+      "hash": "d5ff3e045b06c697adaa4ac1602667de53de9bca"
     },
     {
       "kind": "card",
@@ -13373,8 +13373,8 @@
       "anchor": "mecánica-general-de-los-venenos",
       "chapter": "12. Equipo y Economía",
       "source": "player.md",
-      "search": "A menos que la descripción de un veneno específico diga lo contrario, todos funcionan de la siguiente manera:\n\n- **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse. Los especialistas, como un Pícaro con la carta `Frasquero`, pueden ser capaces de hacerlo mucho más rápido.\n- **Resistencia:** Una criatura afectada por un veneno (ya sea por una herida, ingestión o contacto) debe superar una **Tirada de Salvación de Cuerpo**. La dificultad (ND) y el efecto en caso de fallo dependen del tipo y la potencia del veneno.",
-      "hash": "5ac2f43e2613fbfbb96a9dc18372484cdded802e"
+      "search": "A menos que la descripción de un veneno específico diga lo contrario, todos funcionan de la siguiente manera:\n\n- **Aplicación:** Se requiere una **Acción** para aplicar una dosis de veneno a un arma cortante o perforante, o a tres piezas de munición. Una vez aplicado, el veneno permanece activo durante 1 minuto antes de secarse.\n- **Resistencia:** Una criatura afectada por un veneno (ya sea por una herida, ingestión o contacto) debe superar una **Tirada de Salvación de Cuerpo**. La dificultad (ND) y el efecto en caso de fallo dependen del tipo y la potencia del veneno.",
+      "hash": "78a9a05adcdb058a62058f2e668f92df25bc721d"
     },
     {
       "kind": "section",
@@ -14095,6 +14095,22 @@
       "source": "player.md",
       "search": "Cuando un personaje intenta realizar una acción cuyo resultado es incierto, debe realizar una **Prueba de Habilidad**. El objetivo es igualar o superar un **Nivel de Dificultad (ND)** establecido por el DJ. La fórmula básica es:\n\n**Tirada = 1d8 + Valor de Atributo**\n\n| Dificultad  | ND Sugerido | Ejemplo                                        |\n| :---------- | :---------- | :--------------------------------------------- |\n| Fácil       | 6           | Escalar un muro con buenos agarres.            |\n| Normal      | 8           | Persuadir a un guardia para que te deje pasar. |\n| Difícil     | 10          | Descifrar un texto antiguo en otro idioma.     |\n| Muy Difícil | 12          | Saltar de un carruaje a otro en movimiento.    |\n| Imposible   | 14+         | Desviar una flecha con una daga.               |\n\nEn caso de superar la tirada por 5 o más, se considera un éxito crítico.",
       "hash": "275d1bcfa8de24b70685c948509de5f694a90993"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Puntos de Salud Temporales",
+      "slug": "07-combate-puntos-de-salud-temporales",
+      "aliases": [
+        "puntos de salud temporales"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/07-combate.md",
+      "heading": "Puntos de Salud Temporales",
+      "anchor": "puntos-de-salud-temporales",
+      "chapter": "7. Combate",
+      "source": "player.md",
+      "search": "Los **Puntos de Salud Temporales** representan protección, vigor o resistencia adicional que absorbe daño antes de afectar tu Salud normal.\n\n- Cuando recibes daño, este reduce primero tus Puntos de Salud Temporales. Cualquier daño restante se aplica normalmente a tu Salud.\n- Los Puntos de Salud Temporales provenientes de distintas fuentes **no se acumulan**, salvo que un efecto indique expresamente lo contrario.\n- Si obtienes Puntos de Salud Temporales mientras todavía conservas otros, eliges si mantienes los que ya posees o los reemplazas por los nuevos.\n- Cada fuente conserva su propia duración. Si eliges mantener tus Puntos de Salud Temporales actuales, obtener una nueva fuente no renueva ni modifica su duración.\n- Los Puntos de Salud Temporales no pueden recuperarse mediante efectos de curación.",
+      "hash": "f40b722e30a64815567d31c370e448b559eb77aa"
     },
     {
       "kind": "section",
