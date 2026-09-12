@@ -286,10 +286,15 @@
 			{
 				"attribute": "physicalMitigation",
 				"type": "add",
-				"formula": "1",
+				"formula": "instinto < 5 ? 1 : 2",
 				"reason": "Piel de Roble"
 			},
-			{ "attribute": "magicalMitigation", "type": "add", "formula": "1", "reason": "Piel de Roble" }
+			{
+				"attribute": "magicalMitigation",
+				"type": "add",
+				"formula": "instinto < 5 ? 1 : 2",
+				"reason": "Piel de Roble"
+			}
 		]
 	},
 	{
