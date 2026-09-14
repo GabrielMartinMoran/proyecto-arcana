@@ -2274,7 +2274,7 @@ cards:
     uses:
       type: RELOAD
       qty: 5
-  - name: Rayo Energético
+  - name: Andanada Energética
     level: 2
     type: activable
     tags:
@@ -2282,13 +2282,15 @@ cards:
       - Conjuro
     requirements: Descarga Elemental & Atributo Arcano 3
     description: >-
-      _Concentras el poder elemental en un haz concentrado de largo alcance
-      capaz de atravesar el campo de batalla._<br><br> Realizas un ataque de
-      conjuro (1d8e + Atributo Arcano) a distancia Media. Si impactas, el
-      objetivo recibe 2d8 de daño de Fuego, Frío o Eléctrico.
+      _Divides la energía elemental en una rápida salva de proyectiles que
+      convergen sobre uno o varios enemigos._<br><br> Elige Fuego, Frío o
+      Eléctrico. Realizas tres ataques de conjuro independientes (1d8e +
+      Atributo Arcano) contra criaturas que puedas ver a distancia Cercana.
+      Puedes elegir el mismo objetivo o uno diferente para cada ataque.<br> Cada
+      ataque que impacte inflige 1d6 de daño del tipo elegido.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Nube de Dagas
     level: 2
     type: activable
@@ -2714,14 +2716,16 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 5
     description: >-
       _Fuerzas los límites de tu poder para saturar tus conjuros más simples con
-      una potencia devastadora._<br><br> Cuando utilizas una carta con las
-      etiquetas _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño, puedes
-      potenciarla para duplicar el daño base que esta inflija durante ese turno.
-      Para ello debes pagar un recurso adicional según su tiempo de
-      lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu Interacción en
-      potenciar el conjuro.<br> - **Lanzamiento con Interacción:** gastas tu
-      Reacción en potenciar el conjuro.<br> Las cartas utilizadas como Reacción
-      no pueden potenciarse de esta forma.
+      una potencia muy superior a aquella para la que fueron
+      concebidos._<br><br> Cuando utilizas una carta con las etiquetas
+      _Arcanista_ y _Conjuro_ de Nivel 1 o 2 que inflija daño u otorgue Puntos
+      de Salud temporales, puedes potenciarla. Durante ese turno, duplicas la
+      cantidad de dados que la carta tire para infligir daño u otorgar Puntos de
+      Salud temporales. Para ello debes pagar un recurso adicional según su
+      tiempo de lanzamiento:<br> - **Lanzamiento con Acción:** gastas tu
+      Interacción en potenciar el conjuro.<br> - **Lanzamiento con
+      Interacción:** gastas tu Reacción en potenciar el conjuro.<br> Las cartas
+      utilizadas como Reacción no pueden potenciarse de esta forma.
     uses:
       type: null
       qty: 0

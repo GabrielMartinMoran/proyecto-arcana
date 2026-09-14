@@ -105,8 +105,8 @@ cards:
       o efecto mágico, puedes agotar esta carta para sobrecargar la barrera.<br> Ganas Mitigación Mágica igual a dos
       veces tu puntuación de Atributo Arcano contra ese daño específico.
     slug: barrera-arcana
-  - id: 8d24dcfd6b4f928646e2ae6403e4efac30c58374
-    name: Rayo Energético
+  - id: a2244f825324a70f1c9206db2bec16494c3f057e
+    name: Andanada Energética
     level: 2
     type: activable
     tags:
@@ -115,12 +115,13 @@ cards:
     requirements: Descarga Elemental & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
-      _Concentras el poder elemental en un haz concentrado de largo alcance capaz de atravesar el campo de
-      batalla._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Media. Si impactas, el
-      objetivo recibe 2d8 de daño de Fuego, Frío o Eléctrico.
-    slug: rayo-energetico
+      _Divides la energía elemental en una rápida salva de proyectiles que convergen sobre uno o varios
+      enemigos._<br><br> Elige Fuego, Frío o Eléctrico. Realizas tres ataques de conjuro independientes (1d8e + Atributo
+      Arcano) contra criaturas que puedas ver a distancia Cercana. Puedes elegir el mismo objetivo o uno diferente para
+      cada ataque.<br> Cada ataque que impacte inflige 1d6 de daño del tipo elegido.
+    slug: andanada-energetica
   - id: fc5dc86cecef98a62eeff4d5c0920aa87359b7a7
     name: Nube de Dagas
     level: 2
