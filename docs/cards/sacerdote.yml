@@ -136,7 +136,7 @@ cards:
       Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Santuario Silencioso
     level: 2
     type: activable
@@ -306,7 +306,7 @@ cards:
       decir una mentira deliberada.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 5
   - name: Curar
     level: 3
     type: activable
@@ -317,7 +317,7 @@ cards:
     description: >-
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br>
       Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br>
-      - **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br>
+      - **Restauración Vital:** La criatura recupera 3d6 + tu Instinto en Puntos de Salud.<br>
       - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.
     uses:
       type: RELOAD
@@ -355,7 +355,7 @@ cards:
       Una criatura inmune al estado Encantado no se ve afectada por este conjuro.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: Eco del Pasado
     level: 3
@@ -383,10 +383,10 @@ cards:
     requirements: 'Curar & Instinto 5'
     description: >-
       _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br>
-      Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
+      Como Acción, tocas a una criatura voluntaria. Recupera 6d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
     uses:
-      type: LONG_REST
-      qty: 1
+      type: RELOAD
+      qty: 8
 
   - name: Destruir Impíos
     level: 4
@@ -416,7 +416,7 @@ cards:
       Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5 + Instinto) para tratar de liberarse.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Arma Espiritual
     level: 4
@@ -429,10 +429,11 @@ cards:
       _Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br>
       Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
       Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
-      - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
+      - **Canalizar Castigo:** Cando impactas un ataque con el _Arma Espiritual_, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.<br>
+      - **Manifestación Única:** Solo puedes tener un _Arma Espiritual_ activa a la vez. Si vuelves a lanzar este conjuro mientras ya tienes una activa, la anterior desaparece inmediatamente.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Poder Sagrado
     level: 4

@@ -387,7 +387,7 @@ cards:
       Además, las criaturas que fallaron quedan Asustadas de ti durante 1 minuto. Pueden repetir la TS al final de cada uno de sus turnos para terminar el efecto.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Discordia
     level: 4
@@ -408,7 +408,7 @@ cards:
       Las criaturas afectadas pueden repetir la salvación al final de cada uno de sus turnos.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Sinfonía Heroica
     level: 5
@@ -487,7 +487,7 @@ cards:
       - **Serenar Ánimo:** Eliges un número de criaturas voluntarias que puedan oírte igual a tu Presencia. Mientras dure la interpretación, quedan suprimidos sobre ellas los efectos que las mantengan Asustadas o Encantadas. El efecto original no termina: si todavía debería seguir activo cuando acaba el Interludio, vuelve a aplicarse normalmente.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
 
   - name: 'Conocer la Leyenda'
     level: 3

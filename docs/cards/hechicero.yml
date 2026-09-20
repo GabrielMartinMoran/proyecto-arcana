@@ -89,7 +89,7 @@ cards:
       Además, el remanente de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: 'Esfera de Caos'
     level: 3
@@ -107,7 +107,7 @@ cards:
       &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección opuesta al centro de la esfera y caen Derribadas.<br> Si una criatura tiene éxito en la salvación, recibe la mitad del daño total acumulado y no sufre la anomalía gravitacional.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: 'Apoteosis Arcana'
     level: 4
     type: activable

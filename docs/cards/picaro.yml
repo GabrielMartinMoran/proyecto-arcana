@@ -245,7 +245,7 @@ cards:
       realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   # --- Pícaro: Asesino ---
   - name: Asesinar
@@ -274,7 +274,7 @@ cards:
       La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
 
   # --- Pícaro: Ladrón ---
   - name: Manos Rápidas
