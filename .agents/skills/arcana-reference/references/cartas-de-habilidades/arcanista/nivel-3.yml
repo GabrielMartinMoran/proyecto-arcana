@@ -9,7 +9,7 @@ cards:
     requirements: Estudios Mágicos & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Manipulas las leyes fundamentales de la física para crear una perturbación que altera el tiempo o la gravedad en
       un punto._<br><br> Al lanzar el conjuro, elije un punto a distancia Media. En un radio de 3 metros del punto
@@ -31,7 +31,7 @@ cards:
     requirements: Descarga Elemental & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Generas una detonación masiva de energía en la distancia, devastando una amplia zona del campo de
       batalla._<br><br> Provocas una explosión mágica en una esfera de 5 metros de radio a distancia Larga. Todas las
@@ -110,7 +110,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _Alteras la estructura de la materia inerte, deformándola como arcilla o reorganizándola para crear nuevas
       herramientas y estructuras._<br><br> Al utilizar este conjuro, eliges uno de los siguientes modos:<br> -
@@ -141,7 +141,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _Creas un sensor místico invisible que actúa como una extensión de tus propios sentidos en la distancia._<br><br>
       Al lanzar el conjuro, elije un punto que puedas ver a distancia Media, donde aparece el sensor. Este esta
@@ -181,7 +181,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _El suelo se pudre y se vuelve fangoso, vomitando cientos de manos esqueléticas que arrastran a los vivos hacia la
       tumba._<br><br> Eliges un punto a distancia Media, creando un área de terreno difícil en un radio de 3 metros
@@ -200,7 +200,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _Exhalas una espesa nube de gas amarillo y verdoso que corroe la carne y nubla los sentidos._<br><br> Creas una
       esfera de 5 metros de radio en un punto a distancia Media.<br> El área queda fuertemente oscurecida (bloquea la

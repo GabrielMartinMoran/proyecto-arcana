@@ -102,7 +102,7 @@
 								onlyAvailables: (event.target as HTMLInputElement).checked,
 							});
 						}}
-					/>Ver Solo disponibles
+					/>Solo disponibles
 				</label>
 			</div>
 		{/if}
@@ -120,14 +120,27 @@
 		flex-grow: 1;
 		flex-wrap: wrap;
 
-		input {
-			flex: 1;
-			min-width: 300px;
+		@media (min-width: 641px) {
+			input {
+				flex: 1;
+				min-width: 300px;
+			}
+
+			select {
+				width: 200px;
+				padding: var(--spacing-sm);
+			}
 		}
 
-		select {
-			width: 200px;
-			padding: var(--spacing-sm);
+		@media (max-width: 640px) {
+			input {
+				max-width: var(--min-filter-width);
+			}
+
+			select {
+				max-width: var(--min-filter-width);
+				padding: var(--spacing-sm);
+			}
 		}
 
 		.only-availables-field {

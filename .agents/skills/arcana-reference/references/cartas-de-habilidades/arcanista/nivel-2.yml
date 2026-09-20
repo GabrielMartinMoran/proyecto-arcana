@@ -9,7 +9,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Proyectas un pulso de energía psíquica diseñado para fracturar la concentración y la voluntad de tu
       enemigo._<br><br> Elije una criatura que puedas ver a distancia Media. Esta criatura debe superar una Tirada de
@@ -45,7 +45,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Tejes un nudo de mala fortuna alrededor del alma de tu enemigo, entorpeciendo sus capacidades._<br><br> Eliges un
       objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le aplicas
@@ -151,7 +151,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Liberas una onda de choque elemental desde tus manos que barre a todos los enemigos frente a ti._<br><br> Liberas
       un cono de energía (Sónico, Fuego, Frío o Eléctrico) de 3 metros. Las criaturas en el área deben superar una TS de
@@ -171,7 +171,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Proyectas una onda de fuerza telequinética invisible capaz de mover objetos masivos o derribar
       oponentes._<br><br> Como Acción, elije un punto a distancia Media sobre el que liberar energía para empujar,
@@ -219,7 +219,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Manipulas la luz y el sonido para crear engaños sensoriales que confunden a tus enemigos o te ocultan de su
       vista._<br><br> Como acción, al lanzar el conjuro, elige uno de los siguientes modos:<br> - **Señuelo:** Creas una
@@ -241,7 +241,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Generas un vacío de energía en un área donde el sonido y la luz se extinguen casi por completo._<br><br> Eliges
       un punto a distancia Media, creando una esfera de 5 metros de radio que dura hasta 10 minutos. Dentro de la
@@ -278,7 +278,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu
       enemigo._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) contra una criatura a distancia

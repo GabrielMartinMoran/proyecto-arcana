@@ -10,7 +10,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Levantas un muro de energía pura e invisible que bloquea el paso de cualquier proyectil o criatura._<br><br>
       Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15
@@ -29,7 +29,7 @@ cards:
     requirements: Paso Brumoso & Atributo Arcano 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Perforas el tejido de la realidad para conectar dos puntos distantes mediante portales gemelos._<br><br> Eliges
       dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3
@@ -64,7 +64,7 @@ cards:
     requirements: Maledicción & Atributo Arcano 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Implantas una idea en la mente de un humanoide, forzándolo a seguir tus órdenes como si fueran propias._<br><br>
       Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo
@@ -102,7 +102,7 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de
       sombra._<br><br> Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1

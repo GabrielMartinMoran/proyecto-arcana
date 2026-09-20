@@ -8,11 +8,11 @@ cards:
       - Conjuro
     requirements: Curar & Instinto 5
     uses:
-      type: LONG_REST
-      qty: 1
+      type: RELOAD
+      qty: 8
     description: >-
       _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al
-      instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud.
+      instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 6d6 + tu Instinto en Puntos de Salud.
       Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni
       petrificación.
     slug: sanacion-verdadera
@@ -42,7 +42,7 @@ cards:
     requirements: Fe Inspiradora & Instinto 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Grilletes forjados con pura luz divina brotan del suelo, apresando y quemando a quienes se resisten a la
       justicia._<br><br> Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media.
@@ -61,15 +61,16 @@ cards:
     requirements: Fe Inspiradora & Instinto 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable
       voluntad._<br><br> Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
       Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma
       hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si
-      impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el arma
-      espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma
-      Interacción.
+      impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el _Arma
+      Espiritual_, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma
+      Interacción.<br> - **Manifestación Única:** Solo puedes tener un _Arma Espiritual_ activa a la vez. Si vuelves a
+      lanzar este conjuro mientras ya tienes una activa, la anterior desaparece inmediatamente.
     slug: arma-espiritual
   - id: 8e203ce6d413c18333301f74c073e6c0a3904780
     name: Poder Sagrado

@@ -61,7 +61,7 @@ cards:
       Además, si el atacante se encuentra a distancia Inmediata de ti, sufre daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: 'Manifestación del Patrón'
     level: 3
     type: activable
@@ -84,7 +84,7 @@ cards:
       Si tienen éxito en la salvación, reciben la mitad del daño y no sufren el efecto secundario.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: 'Condena Ineludible'
     level: 4
     type: activable
@@ -97,7 +97,7 @@ cards:
       Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros, impones Desventaja (-1d4) a su tirada.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: 'Consumación del Pacto'
     level: 5
     type: activable
@@ -135,9 +135,10 @@ cards:
       - Brujo
     requirements: 'Arma del Pacto & Presencia 4'
     description: >-
-      _Cada corte de tu arma debilita la mente y el cuerpo del enemigo, dejandolo vulnerabla a tus sortilegios._<br><br>
-      Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br>
-      Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.
+      _Has aprendido a entrelazar los movimientos de tu arma con el flujo de tu magia, encadenando acero y poder sobrenatural en una única danza letal._<br><br>
+      Una vez durante tu turno, puedes gastar el uso de esta carta para activar uno de los siguientes efectos:<br>
+      - **Magia y Acero:** Después de usar tu Acción para lanzar una carta de _Conjuro_ de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes usar tu Interacción para realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.<br>
+      - **Danza de Acero:** Después de usar tu Acción para realizar al menos un ataque cuerpo a cuerpo con tu _Arma del Pacto_, puedes usar tu Interacción para realizar un ataque adicional con ella.
     uses:
       type: RELOAD
       qty: 5

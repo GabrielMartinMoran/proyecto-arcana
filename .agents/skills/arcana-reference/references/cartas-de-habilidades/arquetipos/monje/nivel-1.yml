@@ -73,7 +73,7 @@ cards:
     requirements: Disciplina Monástica
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
     description: >-
       _Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus
       heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras

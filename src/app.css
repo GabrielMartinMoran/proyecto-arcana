@@ -75,6 +75,8 @@
 	--input-width-normal: 8.2rem;
 	--input-width-small: 5rem;
 	--input-width-large: 12.3rem;
+
+	--min-filter-width: 130px;
 }
 
 /* CSS reset (minimal) */

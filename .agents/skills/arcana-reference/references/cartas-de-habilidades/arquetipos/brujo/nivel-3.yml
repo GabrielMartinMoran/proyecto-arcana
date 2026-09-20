@@ -9,7 +9,7 @@ cards:
     requirements: Pacto Supremo & Presencia 4
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _Invocas la protección de tu Patrón para amortiguar el golpe y castigar al agresor con energía oscura._<br><br>
       Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, reduces el daño de ese ataque a
@@ -26,7 +26,7 @@ cards:
     requirements: Pacto Supremo & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Abres una brecha hacia el dominio de tu Patrón, inundando la realidad con su aterradora esencia y sus
       anomalías._<br><br> Elije un punto a distancia Media, inundando una esfera de 3 metros de radio con una descarga
@@ -51,12 +51,13 @@ cards:
       type: RELOAD
       qty: 5
     description: >-
-      _Cada corte de tu arma debilita la mente y el cuerpo del enemigo, dejandolo vulnerabla a tus sortilegios._<br><br>
-      Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre
-      Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista
-      antes del final de tu próximo turno.<br> Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o
-      _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar
-      un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.
+      _Has aprendido a entrelazar los movimientos de tu arma con el flujo de tu magia, encadenando acero y poder
+      sobrenatural en una única danza letal._<br><br> Una vez durante tu turno, puedes gastar el uso de esta carta para
+      activar uno de los siguientes efectos:<br> - **Magia y Acero:** Después de usar tu Acción para lanzar una carta de
+      _Conjuro_ de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes usar tu Interacción para realizar un único ataque cuerpo
+      a cuerpo con tu _Arma del Pacto_.<br> - **Danza de Acero:** Después de usar tu Acción para realizar al menos un
+      ataque cuerpo a cuerpo con tu _Arma del Pacto_, puedes usar tu Interacción para realizar un ataque adicional con
+      ella.
     slug: danza-sobrenatural
   - id: fe84a8e9dad92d8eb0ae0c24a21e461d67273212
     name: Revelación del Abismo

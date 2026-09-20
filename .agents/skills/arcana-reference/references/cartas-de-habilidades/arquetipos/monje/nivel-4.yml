@@ -8,7 +8,7 @@ cards:
     requirements: Golpe Aturdidor & Instinto 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Tus golpes bloquean los canales de energía del enemigo, impidiéndole usar sus habilidades más poderosas._<br><br>
       Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo
@@ -24,7 +24,7 @@ cards:
     requirements: Paso del Viento & Instinto 5
     uses:
       type: RELOAD
-      qty: 5
+      qty: 7
     description: >-
       _Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un
       suspiro._<br><br> Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un

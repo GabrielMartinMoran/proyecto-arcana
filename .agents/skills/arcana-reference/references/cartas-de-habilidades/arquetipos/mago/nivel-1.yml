@@ -26,7 +26,7 @@ cards:
     requirements: Estudios Mágicos
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
     description: >-
       _Dardos de pura energía arcana brotan de tus manos, persiguiendo a tus enemigos de forma ineludible._<br><br>
       Creas dos dardos de energía arcana que persiguen a sus objetivos a distancia Cercana.<br> Los dardos no pueden

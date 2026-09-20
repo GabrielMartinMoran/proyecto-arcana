@@ -189,7 +189,7 @@ cards:
       Además, el primer ataque que realice cada uno de esos aliados en su próximo turno obtiene Ventaja (+1d4).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   # --- Combatiente: Explorador Veterano ---
   - name: Marcha Incansable
     level: 1

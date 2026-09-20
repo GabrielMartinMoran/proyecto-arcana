@@ -1,7 +1,7 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
 import type { Card } from '$lib/types/cards/card';
 import type { Character } from '$lib/types/character';
+import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 // ---- Mock SvelteKit internals used by cards-filter-service ----
 vi.mock('$app/navigation', () => ({
@@ -84,7 +84,7 @@ describe('AddCardModal', () => {
 		onCreateCustom.mockClear();
 	});
 
-	describe('toggle "Ver Solo disponibles"', () => {
+	describe('toggle "Solo disponibles"', () => {
 		it('shows only available cards when toggle is on (default)', async () => {
 			const character = buildCharacter({
 				cards: [
@@ -145,8 +145,8 @@ describe('AddCardModal', () => {
 				},
 			});
 
-			// Uncheck "Ver Solo disponibles"
-			const toggle = await screen.findByLabelText('Ver Solo disponibles');
+			// Uncheck "Solo disponibles"
+			const toggle = await screen.findByLabelText('Solo disponibles');
 			await fireEvent.click(toggle);
 
 			await waitFor(() => {
@@ -259,7 +259,7 @@ describe('AddCardModal', () => {
 			});
 
 			// Turn off "only availables" so the unavailable card is visible
-			const toggle = await screen.findByLabelText('Ver Solo disponibles');
+			const toggle = await screen.findByLabelText('Solo disponibles');
 			await fireEvent.click(toggle);
 
 			await waitFor(() => {

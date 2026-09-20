@@ -106,7 +106,7 @@ cards:
     requirements: Acción Astuta
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _En un instante, te conviertes en una ráfaga de movimiento que cruza la estancia antes de que el enemigo pueda
       parpadear._<br><br> Como Interacción, duplicas tu Velocidad de movimiento para este turno. Además, obtienes
@@ -122,7 +122,7 @@ cards:
     requirements: Asesinar & Instinto 3
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
     description: >-
       _Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con
       un solo toque._<br><br> Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti.

@@ -72,7 +72,7 @@ cards:
     requirements: Sintonía Primordial & Instinto 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Liberas una nube concentrada de esporas tóxicas que invade los pulmones y entumece los sentidos de tu
       presa._<br><br> Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de
@@ -89,7 +89,7 @@ cards:
     requirements: Sintonía Primordial & Instinto 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _La tierra revienta súbitamente mientras raíces, espinas y tallos irrumpen con fuerza suficiente para arrancar a
       tus enemigos de sus pies._<br><br> Como Acción, eliges un punto sobre una superficie a distancia Media. La

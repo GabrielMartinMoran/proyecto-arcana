@@ -91,7 +91,7 @@ cards:
       en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Comprender Lenguas
     level: 1
     type: activable
@@ -190,7 +190,7 @@ cards:
       - Le das desventaja en sus tiradas de habilidad un atributo en específico.<br>
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Paso Brumoso
     level: 2
     type: activable
@@ -284,7 +284,7 @@ cards:
       Si tienen éxito en la Tirada de Salvación, reciben la mitad del daño y ningún efecto adicional.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: 'Distorsión Singular'
     level: 3
     type: activable
@@ -300,7 +300,7 @@ cards:
       En ambos casos, si la criatura tiene éxito en la salvación, recibe la mitad del daño y no sufre los efectos secundarios.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Explosión Elemental
     level: 3
     type: activable
@@ -317,7 +317,7 @@ cards:
       - **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Volar
     level: 3
     type: activable
@@ -400,7 +400,7 @@ cards:
       - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Levitar
     level: 2
     type: activable
@@ -437,7 +437,7 @@ cards:
       Una criatura puede usar su Acción para interactuar físicamente con la ilusión, realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Arcano para descubrir el engaño.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Transmutar Materia
     level: 3
     type: activable
@@ -458,7 +458,7 @@ cards:
       La categoría máxima de precio que puedes fabricar con este conjuro es de Calidad.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Visión Remota
     level: 3
     type: activable
@@ -473,7 +473,7 @@ cards:
       El sensor es detectable con magia o visión especial. Dura 10 minutos.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Zona Nula
     level: 2
     type: activable
@@ -489,7 +489,7 @@ cards:
       y toda fuente de luz, mágica o no, se reduce a una penumbra tenue.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Santuario Arcano
     level: 3
     type: activable
@@ -522,7 +522,7 @@ cards:
       y puede ser terminada prematuramente por efectos de disipación mágica. Dura hasta 10 minutos.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Pliegue Espacial
     level: 4
     type: activable
@@ -538,7 +538,7 @@ cards:
       que permanece abierta mientras te concentres, hasta por 1 minuto.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Dominio Elemental
     level: 4
     type: efecto
@@ -568,7 +568,7 @@ cards:
       La orden no puede ser obviamente dañina para si mismo. La criatura obedece lo mejor que puede mientras mantengas la concentración.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Sobrecarga Arcana
     level: 4
@@ -648,7 +648,7 @@ cards:
       El objetivo u otra criatura a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: 'Fosa de los Lamentos'
     level: 3
@@ -665,7 +665,7 @@ cards:
       Si falla, recibe 2d6 de daño Necrótico y queda Inmovilizada hasta el inicio de su próximo turno mientras los huesos tiran de ella. Si tiene éxito, recibe la mitad del daño y no queda atrapada.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: 'Niebla de Putrefacción'
     level: 3
@@ -682,7 +682,7 @@ cards:
       Cualquier criatura que empiece su turno en el interior de la nube debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 3d6 de daño de Ácido o Veneno (a tu elección al lanzar el conjuro) y sufre el estado Envenenado hasta el inicio de su próximo turno. Si tiene éxito, recibe la mitad del daño y no se envenena.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
 
   - name: 'Segador Incorpóreo'
     level: 4
@@ -699,7 +699,7 @@ cards:
       Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8e + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: 'Legión de los Condenados'
     level: 5

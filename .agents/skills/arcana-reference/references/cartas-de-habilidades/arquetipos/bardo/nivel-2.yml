@@ -136,7 +136,7 @@ cards:
     requirements: Don del Elocuente & Presencia 3
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
     description: >-
       _Cambias el tono de la escena con una melodía imposible de ignorar, haciendo que durante unos instantes el miedo,
       la ira y la violencia pierdan su dominio._<br><br> Como Acción, interpretas una melodía que dura hasta 1 minuto o

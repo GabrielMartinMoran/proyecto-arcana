@@ -154,7 +154,7 @@ cards:
       Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Veneno y queda Envenenado hasta el final de tu próximo turno. Si tiene éxito, recibe la mitad del daño y no queda Envenenado.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
 
   - name: 'Brote Violento'
     level: 2
@@ -169,7 +169,7 @@ cards:
       La vegetación se marchita inmediatamente después del estallido.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Llamar a la Tormenta
     level: 3
     type: activable
@@ -329,7 +329,7 @@ cards:
     description: >-
       _Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br>
       Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas,
-      recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.
+      recuperan 1d6 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.
     uses:
       type: RELOAD
       qty: 6
@@ -420,7 +420,7 @@ cards:
       El área afectada queda permanentemente convertida en terreno difícil.<br>
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Mil Formas
     level: 5

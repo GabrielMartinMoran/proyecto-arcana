@@ -5,6 +5,7 @@
 	type BestiaryFilters = {
 		name: string;
 		tier: string; // keep as string to mirror query param handling (empty string = all)
+		lineage?: string; // optional until the route owns lineage state (empty string = all)
 	};
 
 	type Props = {
@@ -19,6 +20,13 @@
 	const getAvailableTiers = (): number[] => {
 		const tiers = new Set<number>(creatures.map((c) => c.tier));
 		return Array.from(tiers).sort((a, b) => a - b);
+	};
+
+	const getAvailableLineages = (): string[] => {
+		const lineages = new Set(
+			creatures.map((creature) => creature.lineage.trim()).filter((lineage) => lineage.length > 0),
+		);
+		return Array.from(lineages).sort((a, b) => a.localeCompare(b));
 	};
 </script>
 
@@ -36,6 +44,17 @@
 			<option value="" selected={!filters.tier}>Todos los Rangos</option>
 			{#each getAvailableTiers() as t (t)}
 				<option value={`${t}`} selected={filters.tier === String(t)}>Rango {t}</option>
+			{/each}
+		</select>
+		<select
+			aria-label="Linaje"
+			value={filters.lineage ?? ''}
+			onchange={(e) =>
+				onFiltersChange({ ...filters, lineage: (e.target as HTMLSelectElement).value })}
+		>
+			<option value="">Todos los Linajes</option>
+			{#each getAvailableLineages() as lineage (lineage)}
+				<option value={lineage}>{lineage}</option>
 			{/each}
 		</select>
 		<button onclick={() => onResetFilters()}>Limpiar Filtros</button>

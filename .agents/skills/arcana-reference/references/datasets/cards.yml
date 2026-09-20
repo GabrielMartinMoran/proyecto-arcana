@@ -823,7 +823,10 @@ cards:
       _Tu conocimiento de la anatomía y la medicina potencia tus
       cuidados._<br><br> Cuando usas una carta o un objeto consumible para
       restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de
-      Salud adicionales.<br> Además, cuando superas una prueba de Instinto
+      Salud adicionales.<br> Si el efecto restaura Salud varias veces a la misma
+      criatura —por ejemplo, durante varios turnos—, este bono se aplica
+      únicamente la primera vez que esa criatura recupera Salud mediante ese uso
+      de la carta u objeto.<br> Además, cuando superas una prueba de Instinto
       (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de
       simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br>
       No puedes usar esta habilidad en la misma criatura más de una vez por día
@@ -1326,7 +1329,7 @@ cards:
       turno se hace con Desventaja (-1d4).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Asesinar
     level: 2
     type: efecto
@@ -1362,7 +1365,7 @@ cards:
       maximiza (cada dado cuenta como su valor máximo).
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
   - name: Manos Rápidas
     level: 2
     type: efecto
@@ -1690,7 +1693,7 @@ cards:
       de esos aliados en su próximo turno obtiene Ventaja (+1d4).
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Marcha Incansable
     level: 1
     type: efecto
@@ -2104,7 +2107,7 @@ cards:
       final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Comprender Lenguas
     level: 1
     type: activable
@@ -2223,7 +2226,7 @@ cards:
       habilidad un atributo en específico.<br>
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Paso Brumoso
     level: 2
     type: activable
@@ -2332,7 +2335,7 @@ cards:
       daño y ningún efecto adicional.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Distorsión Singular
     level: 3
     type: activable
@@ -2357,7 +2360,7 @@ cards:
       salvación, recibe la mitad del daño y no sufre los efectos secundarios.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Explosión Elemental
     level: 3
     type: activable
@@ -2382,7 +2385,7 @@ cards:
       usar Reacciones hasta el final de su próximo turno.<br>
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Volar
     level: 3
     type: activable
@@ -2481,7 +2484,7 @@ cards:
       éxito).
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Levitar
     level: 2
     type: activable
@@ -2535,7 +2538,7 @@ cards:
       engaño.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Transmutar Materia
     level: 3
     type: activable
@@ -2573,7 +2576,7 @@ cards:
       con este conjuro es de Calidad.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Visión Remota
     level: 3
     type: activable
@@ -2592,7 +2595,7 @@ cards:
       Dura 10 minutos.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Zona Nula
     level: 2
     type: activable
@@ -2610,7 +2613,7 @@ cards:
       reduce a una penumbra tenue.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Santuario Arcano
     level: 3
     type: activable
@@ -2652,7 +2655,7 @@ cards:
       minutos.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Pliegue Espacial
     level: 4
     type: activable
@@ -2671,7 +2674,7 @@ cards:
       concentres, hasta por 1 minuto.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Dominio Elemental
     level: 4
     type: efecto
@@ -2707,7 +2710,7 @@ cards:
       puede mientras mantengas la concentración.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Sobrecarga Arcana
     level: 4
     type: efecto
@@ -2801,7 +2804,7 @@ cards:
       el efecto.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Fosa de los Lamentos
     level: 3
     type: activable
@@ -2821,7 +2824,7 @@ cards:
       éxito, recibe la mitad del daño y no queda atrapada.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Niebla de Putrefacción
     level: 3
     type: activable
@@ -2841,7 +2844,7 @@ cards:
       próximo turno. Si tiene éxito, recibe la mitad del daño y no se envenena.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Segador Incorpóreo
     level: 4
     type: activable
@@ -2863,7 +2866,7 @@ cards:
       Salud hasta el inicio de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Legión de los Condenados
     level: 5
     type: activable
@@ -3146,7 +3149,7 @@ cards:
       resultados antes de que el enemigo aplique su Mitigación Mágica.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Rompeconjuros
     level: 3
     type: activable
@@ -3247,7 +3250,7 @@ cards:
       al valor de tu Atributo Arcano.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Manifestación del Patrón
     level: 3
     type: activable
@@ -3274,7 +3277,7 @@ cards:
       salvación, reciben la mitad del daño y no sufren el efecto secundario.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Condena Ineludible
     level: 4
     type: activable
@@ -3289,7 +3292,7 @@ cards:
       tus conjuros, impones Desventaja (-1d4) a su tirada.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Consumación del Pacto
     level: 5
     type: activable
@@ -3336,15 +3339,16 @@ cards:
       - Brujo
     requirements: Arma del Pacto & Presencia 4
     description: >-
-      _Cada corte de tu arma debilita la mente y el cuerpo del enemigo,
-      dejandolo vulnerabla a tus sortilegios._<br><br> Mientras tengas esta
-      carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el
-      objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que
-      realice contra uno de tus conjuros de Brujo o Arcanista antes del final de
-      tu próximo turno.<br> Además, cuando usas tu Acción para lanzar un conjuro
-      de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta
-      carta para usar tu Interacción en ese mismo turno y realizar un único
-      ataque cuerpo a cuerpo con tu _Arma del Pacto_.
+      _Has aprendido a entrelazar los movimientos de tu arma con el flujo de tu
+      magia, encadenando acero y poder sobrenatural en una única danza
+      letal._<br><br> Una vez durante tu turno, puedes gastar el uso de esta
+      carta para activar uno de los siguientes efectos:<br> - **Magia y Acero:**
+      Después de usar tu Acción para lanzar una carta de _Conjuro_ de
+      _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes usar tu Interacción para
+      realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.<br> -
+      **Danza de Acero:** Después de usar tu Acción para realizar al menos un
+      ataque cuerpo a cuerpo con tu _Arma del Pacto_, puedes usar tu Interacción
+      para realizar un ataque adicional con ella.
     uses:
       type: RELOAD
       qty: 5
@@ -3600,7 +3604,7 @@ cards:
       _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
   - name: Esfera de Caos
     level: 3
     type: activable
@@ -3629,7 +3633,7 @@ cards:
       anomalía gravitacional.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Apoteosis Arcana
     level: 4
     type: activable
@@ -3833,7 +3837,7 @@ cards:
       hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Santuario Silencioso
     level: 2
     type: activable
@@ -4030,7 +4034,7 @@ cards:
       Instinto (ND 5 + Instinto) para poder decir una mentira deliberada.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 5
   - name: Curar
     level: 3
     type: activable
@@ -4042,7 +4046,7 @@ cards:
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y
       mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una
       criatura voluntaria. Eliges uno de los siguientes efectos:<br> -
-      **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos
+      **Restauración Vital:** La criatura recupera 3d6 + tu Instinto en Puntos
       de Salud.<br> - **Purificación:** Terminas un efecto mágico o una de las
       siguientes condiciones que afecten a la criatura: Aturdido, Encantado,
       Inmovilizado, Dormido, Cegado o Envenenado.
@@ -4087,7 +4091,7 @@ cards:
       al estado Encantado no se ve afectada por este conjuro.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Eco del Pasado
     level: 3
     type: activable
@@ -4117,12 +4121,12 @@ cards:
     description: >-
       _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y
       devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas
-      a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud.
+      a una criatura voluntaria. Recupera 6d6 + tu Instinto en Puntos de Salud.
       Además, eliminas todas las condiciones y efectos mágicos negativos que la
       afecten que no sean maldiciones ni petrificación.
     uses:
-      type: LONG_REST
-      qty: 1
+      type: RELOAD
+      qty: 8
   - name: Destruir Impíos
     level: 4
     type: efecto
@@ -4158,7 +4162,7 @@ cards:
       + Instinto) para tratar de liberarse.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Arma Espiritual
     level: 4
     type: activable
@@ -4174,12 +4178,15 @@ cards:
       subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros
       y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura
       Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br> -
-      **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si
-      tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como
-      parte de la misma Interacción.
+      **Canalizar Castigo:** Cando impactas un ataque con el _Arma Espiritual_,
+      si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como
+      parte de la misma Interacción.<br> - **Manifestación Única:** Solo puedes
+      tener un _Arma Espiritual_ activa a la vez. Si vuelves a lanzar este
+      conjuro mientras ya tienes una activa, la anterior desaparece
+      inmediatamente.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Poder Sagrado
     level: 4
     type: efecto
@@ -4549,7 +4556,7 @@ cards:
       éxito, recibe la mitad del daño y no queda Envenenado.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Brote Violento
     level: 2
     type: activable
@@ -4569,7 +4576,7 @@ cards:
       estallido.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Llamar a la Tormenta
     level: 3
     type: activable
@@ -4785,7 +4792,7 @@ cards:
       _Conjuras esporas regenerativas sobre tus aliados, haciendo que sus
       heridas se cierren rápidamente como capullos en primavera._<br><br> Como
       Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al
-      final del turno de cada una de esas criaturas, recuperan 1d4 Puntos de
+      final del turno de cada una de esas criaturas, recuperan 1d6 Puntos de
       Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la
       Concentración.
     uses:
@@ -4897,7 +4904,7 @@ cards:
       en terreno difícil.<br>
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Mil Formas
     level: 5
     type: efecto
@@ -5516,7 +5523,7 @@ cards:
       al final de cada uno de sus turnos para terminar el efecto.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Discordia
     level: 4
     type: activable
@@ -5538,7 +5545,7 @@ cards:
       afectadas pueden repetir la salvación al final de cada uno de sus turnos.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Sinfonía Heroica
     level: 5
     type: efecto
@@ -5654,7 +5661,7 @@ cards:
       aplicarse normalmente.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
   - name: Conocer la Leyenda
     level: 3
     type: activable
@@ -5882,7 +5889,7 @@ cards:
       Instinto.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
   - name: Contraataque Fluido
     level: 2
     type: activable
@@ -5897,7 +5904,7 @@ cards:
       desarmado contra él.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 4
   - name: Proyección de Ki
     level: 3
     type: activable
@@ -5912,7 +5919,7 @@ cards:
       hasta distancia Cercana.
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
   - name: Tormenta de Golpes
     level: 3
     type: efecto
@@ -5942,7 +5949,7 @@ cards:
       hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Visión del Ki
     level: 3
     type: activable
@@ -6168,7 +6175,7 @@ cards:
       efectos negativos durante 1 hora.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
   - name: Toque Disruptor
     level: 4
     type: activable
@@ -6184,7 +6191,7 @@ cards:
       requiera Recarga, hasta el final de tu próximo turno.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Paso del Vacío
     level: 4
     type: activable
@@ -6198,7 +6205,7 @@ cards:
       un espacio desocupado que puedas ver.
     uses:
       type: RELOAD
-      qty: 5
+      qty: 7
   - name: Palma Vibratoria
     level: 5
     type: activable
@@ -6595,9 +6602,9 @@ cards:
       _Tu voz es un conducto de inspiración divina y curación, entonando
       plegarias que resuenan en los corazones como verdaderos cánticos
       celestiales._<br><br> **Beneficio de Sinergia:**<br> - **Inspiración
-      Sanadora:** Cuando usas Canto de Inspiración en un aliado, este también
-      recupera 1d4 Puntos de Salud.<br> - **Mandato Convincente:** Tu Palabra de
-      Autoridad ahora puede dar órdenes ligeramente más complejas (una frase
+      Sanadora:** Cuando usas _Canto de Inspiración_ en un aliado, este también
+      recupera 1d4 Puntos de Salud.<br> - **Mandato Convincente:** Tu _Palabra
+      de Autoridad_ ahora puede dar órdenes ligeramente más complejas (una frase
       corta). Además, las criaturas normalmente inmunes al estado Encantado
       pueden ser afectadas, pero realizan su Tirada de Salvación con Ventaja
       (+1d4).

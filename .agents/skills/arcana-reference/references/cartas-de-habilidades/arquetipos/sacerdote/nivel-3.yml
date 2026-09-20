@@ -81,7 +81,7 @@ cards:
     description: >-
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más
       puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> -
-      **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:**
+      **Restauración Vital:** La criatura recupera 3d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:**
       Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado,
       Inmovilizado, Dormido, Cegado o Envenenado.
     slug: curar

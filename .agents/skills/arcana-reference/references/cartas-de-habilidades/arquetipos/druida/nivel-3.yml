@@ -130,6 +130,6 @@ cards:
     description: >-
       _Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos
       en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del
-      turno de cada una de esas criaturas, recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta
+      turno de cada una de esas criaturas, recuperan 1d6 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta
       que pierdas la Concentración.
     slug: crecimiento-regenerativo

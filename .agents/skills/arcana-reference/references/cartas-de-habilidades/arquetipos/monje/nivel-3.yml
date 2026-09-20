@@ -38,7 +38,7 @@ cards:
     requirements: Disciplina Monástica & Instinto 4
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Extiendes tu energía vital más allá de tus puños, permitiéndote golpear a enemigos que se encuentran a varios
       metros de distancia._<br><br> Usas tu Interacción para hacer que hasta el final de tu turno, tus ataques
@@ -68,7 +68,7 @@ cards:
     requirements: Disciplina Monástica & Instinto 4
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Golpeas un punto de presión con la precisión de un maestro, colapsando el sistema nervioso de tu oponente en un
       instante._<br><br> Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo
@@ -132,7 +132,7 @@ cards:
     requirements: Trance de Piedra & Instinto 4
     uses:
       type: RELOAD
-      qty: 6
+      qty: 5
     description: >-
       _Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como
       Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> - **Criatura:**

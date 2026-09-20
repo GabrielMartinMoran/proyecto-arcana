@@ -68,7 +68,7 @@ cards:
     requirements: Grito de Guerra
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _Diriges a tus compañeros con la precisión de un general, permitiéndoles reposicionarse y golpear con una
       coordinación letal._<br><br> Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu

@@ -46,7 +46,7 @@ cards:
     requirements: Don del Elocuente & Presencia 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Proyectas las pesadillas más oscuras engendradas directamente en la mente de tus aterrorizados
       adversarios._<br><br> Liberas una onda psíquica en un cono de 5 metros. Las criaturas en el área deben superar una
@@ -66,7 +66,7 @@ cards:
     requirements: Don del Elocuente & Presencia 5
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Liberas una onda de locura psíquica que sume a tus enemigos en un caos absoluto de balbuceos incomprensibles,
       huidas despavoridas y ataques erráticos._<br><br> Creas una distorsión psíquica en una esfera de 3 metros de radio

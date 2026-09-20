@@ -20,10 +20,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Herencia Sobrenatural & Presencia 4",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_En lugar de rehuir del daño mágico, obligas a tu cuerpo a absorber esa energía para alimentar tus próximos conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a absorber esa energía para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.",
-      "hash": "770c1c848014d7692f4308261ade4c6e0e85a93a"
+      "hash": "a293a46ecc2f1cc6d0d7e0df657d983dbb70aa97"
     },
     {
       "kind": "card",
@@ -439,10 +439,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Fe Inspiradora & Instinto 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
-      "search": "_Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br> Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el arma espiritual, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.",
-      "hash": "55ce20d581279b8b2d2eabb51a9c71dc3a763263"
+      "search": "_Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br> Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el _Arma Espiritual_, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.<br> - **Manifestación Única:** Solo puedes tener un _Arma Espiritual_ activa a la vez. Si vuelves a lanzar este conjuro mientras ya tienes una activa, la anterior desaparece inmediatamente.",
+      "hash": "4ad59710fb374aae3c8d8f4c768c051c08a9aa1d"
     },
     {
       "kind": "card",
@@ -951,10 +951,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Levantas un muro de energía pura e invisible que bloquea el paso de cualquier proyectil o criatura._<br><br> Creas una pared plana, delgada e invisible de energía arcana a distancia Cercana. La pared puede tener hasta 15 metros de largo y 5 de alto, o puede ser una cúpula de 4m de radio. La barrera es inmune a todo daño físico, pero es destruida automáticamente por efectos mágicos de desintegración y puede ser terminada prematuramente por efectos de disipación mágica. Dura hasta 10 minutos.",
-      "hash": "1056a16c3a4087af91fbc666c0050fd4c9211a34"
+      "hash": "e9510dd28506b514ac31e24ec7b398873b3505ac"
     },
     {
       "kind": "card",
@@ -1069,10 +1069,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Sintonía Primordial & Instinto 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_La tierra revienta súbitamente mientras raíces, espinas y tallos irrumpen con fuerza suficiente para arrancar a tus enemigos de sus pies._<br><br> Como Acción, eliges un punto sobre una superficie a distancia Media. La vegetación brota violentamente en un radio de 2 metros. Todas las criaturas en el área deben realizar una Tirada de Salvación de Reflejos (ND 5 + Instinto). Si fallan, reciben 2d4 de daño Perforante y quedan Derribadas. Si tienen éxito, reciben la mitad del daño y no quedan Derribadas.<br><br> La vegetación se marchita inmediatamente después del estallido.",
-      "hash": "e2b51d50f68f11c2d48cd1fc13041b9fff8e270b"
+      "hash": "3b9fa9a985cfc3aeabfa1b29a7b9c23dd55b07db"
     },
     {
       "kind": "card",
@@ -1118,10 +1118,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Fe Inspiradora & Instinto 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Grilletes forjados con pura luz divina brotan del suelo, apresando y quemando a quienes se resisten a la justicia._<br><br> Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Instinto). Si fallan, reciben 4d8 de daño Radiante y quedan Inmovilizadas por las cadenas durante 1 minuto. Si tienen éxito en la salvación inicial, reciben la mitad del daño y no quedan atrapadas.<br> Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5 + Instinto) para tratar de liberarse.",
-      "hash": "558678dcc16ba0ce846314870d9074012af8ef44"
+      "hash": "36133e4c1a2a7ae131961dee65db3c8b6cadd48e"
     },
     {
       "kind": "card",
@@ -1444,10 +1444,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Grito de Guerra",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_Diriges a tus compañeros con la precisión de un general, permitiéndoles reposicionarse y golpear con una coordinación letal._<br><br> Como Acción, eliges un número de aliados que puedan verte y oírte igual a tu puntuación de Presencia.<br> Esos aliados pueden usar su Reacción para moverse hasta la mitad de su velocidad.<br> Este movimiento no puede ser interceptado por Reacciones enemigas.<br> Además, el primer ataque que realice cada uno de esos aliados en su próximo turno obtiene Ventaja (+1d4).",
-      "hash": "1cfe1cdb2222d6f463dfc2a2de0a05d74c828a4e"
+      "hash": "a596d4582da56b0002c263ea00425ec45bf6f16d"
     },
     {
       "kind": "card",
@@ -1584,10 +1584,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Pacto Supremo & Presencia 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Tu mirada sella el destino de tu enemigo, asegurando que la magia de tu señor se aferre con más fuerza._<br><br> Como Reacción, cuando una criatura a distancia Media realiza una Tirada de Salvación contra uno de tus conjuros, impones Desventaja (-1d4) a su tirada.",
-      "hash": "18a9071c75c60a8bce92f32529d5c1cfd84b2ea2"
+      "hash": "5ddc03e106a52905a744c36c03b8f1edaa589584"
     },
     {
       "kind": "card",
@@ -1724,10 +1724,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Disciplina Monástica & Instinto 3",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:4"
       },
       "search": "_Usas la inercia del fallo de tu enemigo para castigarlo con un golpe instantáneo y certero._<br><br> Como Reacción, cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes realizar un único ataque desarmado contra él.",
-      "hash": "042719445ce5089daa41366e7fae35a4a1ebdd11"
+      "hash": "7f53b94082d6ac53b3994195abe96c3b49c59215"
     },
     {
       "kind": "card",
@@ -1776,8 +1776,8 @@
         "requirements": "Bálsamo Natural & Instinto 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas, recuperan 1d4 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.",
-      "hash": "04de59fc7b3dabdeca8972f3cdc63f99d400045a"
+      "search": "_Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas, recuperan 1d6 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.",
+      "hash": "db731c49aba14af64cc1254309eed72f81e540fb"
     },
     {
       "kind": "card",
@@ -1846,8 +1846,8 @@
         "requirements": "Toque Restaurador & Instinto 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> - **Restauración Vital:** La criatura recupera 2d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.",
-      "hash": "59668e537d555db45ee70b509def1633c4a1003c"
+      "search": "_Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> - **Restauración Vital:** La criatura recupera 3d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.",
+      "hash": "3d0156f67d16df7a45faed369f7102f70254ebf0"
     },
     {
       "kind": "card",
@@ -1937,8 +1937,8 @@
         "requirements": "Arma del Pacto & Presencia 4",
         "uses": "RELOAD:5"
       },
-      "search": "_Cada corte de tu arma debilita la mente y el cuerpo del enemigo, dejandolo vulnerabla a tus sortilegios._<br><br> Mientras tengas esta carta activa, cuando impactas a un enemigo con tu _Arma del Pacto_, el objetivo sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros de Brujo o Arcanista antes del final de tu próximo turno.<br> Además, cuando usas tu Acción para lanzar un conjuro de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes gastar el uso de esta carta para usar tu Interacción en ese mismo turno y realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.",
-      "hash": "abbdfdf3cb26d9b49aa407ff3f7b7ab356f4d475"
+      "search": "_Has aprendido a entrelazar los movimientos de tu arma con el flujo de tu magia, encadenando acero y poder sobrenatural en una única danza letal._<br><br> Una vez durante tu turno, puedes gastar el uso de esta carta para activar uno de los siguientes efectos:<br> - **Magia y Acero:** Después de usar tu Acción para lanzar una carta de _Conjuro_ de _Arcanista_ o _Brujo_ de Nivel 1 o 2, puedes usar tu Interacción para realizar un único ataque cuerpo a cuerpo con tu _Arma del Pacto_.<br> - **Danza de Acero:** Después de usar tu Acción para realizar al menos un ataque cuerpo a cuerpo con tu _Arma del Pacto_, puedes usar tu Interacción para realizar un ataque adicional con ella.",
+      "hash": "2c357eaec49af7cb5450908fba24af206a8874ac"
     },
     {
       "kind": "card",
@@ -2167,10 +2167,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Don del Elocuente & Presencia 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Liberas una onda de locura psíquica que sume a tus enemigos en un caos absoluto de balbuceos incomprensibles, huidas despavoridas y ataques erráticos._<br><br> Creas una distorsión psíquica en una esfera de 3 metros de radio a distancia Media. Las criaturas en el área deben superar una TS de Mente (ND 5 + Presencia). Si fallan, quedan Confundidas durante 1 minuto.<br> Una criatura Confundida no puede usar Reacciones y debe tirar 1d4 al inicio de su turno para determinar su comportamiento:<br> - **1-2:** No hace nada (balbucea).<br> - **3:** Huye en una dirección aleatoria.<br> - **4:** Ataca a la criatura más cercana.<br> Las criaturas afectadas pueden repetir la salvación al final de cada uno de sus turnos.",
-      "hash": "362908de236ce055dabfbb8f4dbd78b3ca5bab15"
+      "hash": "fcc0ff18f93dfd6fcc4672f12251c939238c491f"
     },
     {
       "kind": "card",
@@ -2191,10 +2191,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Estudios Mágicos & Atributo Arcano 4",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Manipulas las leyes fundamentales de la física para crear una perturbación que altera el tiempo o la gravedad en un punto._<br><br> Al lanzar el conjuro, elije un punto a distancia Media. En un radio de 3 metros del punto elegido, aplicas uno de los siguientes efectos:<br> - **Colapso Gravitatorio:** La gravedad del área se vuelve gigantesca y su fuerza tira en dirección al punto que elegiste. Toda criatura en el área debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, es arrastrada violentamente al centro de la esfera y queda Derribada.<br> - **Éxtasis Temporal:** El tiempo se congela y se fractura. Toda criatura en el área debe superar una TS de Mente (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, su Velocidad se reduce a la mitad y pierde la capacidad de usar Reacciones hasta el final de tu próximo turno.<br> En ambos casos, si la criatura tiene éxito en la salvación, recibe la mitad del daño y no sufre los efectos secundarios.",
-      "hash": "277fe677088e6d3b97fc2c0f9dfd481513616239"
+      "hash": "db71361f1e41f0ba899600a72adb65013c65ab18"
     },
     {
       "kind": "card",
@@ -2450,10 +2450,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_De las mangas de tu túnica brota una nube de insectos cadavéricos y escarabajos necrófagos que envuelven a tu enemigo._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) contra una criatura a distancia Cercana.<br> Si impactas, el enjambre se adhiere a ella durante 1 minuto.<br> La criatura sufre 1d6 de daño Perforante al inicio de cada uno de sus turnos.<br> Además, mientras el enjambre la cubra, la criatura sufre Desventaja (-1d4) en cualquier prueba de habilidad para mantener la Concentración.<br> El objetivo u otra criatura a distancia inmediata de este puede usar su Acción para aplastar y disipar el enjambre, terminando el efecto.",
-      "hash": "7d14f3116b22ece5acea894ddebc999e6d5cb9a2"
+      "hash": "f4f2516c6902d81212d27f975073f31f16302304"
     },
     {
       "kind": "card",
@@ -2545,10 +2545,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Pacto Supremo & Presencia 4",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_Invocas la protección de tu Patrón para amortiguar el golpe y castigar al agresor con energía oscura._<br><br> Como Reacción, cuando eres impactado por un ataque de una criatura que puedas ver, reduces el daño de ese ataque a la mitad.<br> Además, si el atacante se encuentra a distancia Inmediata de ti, sufre daño del tipo de tu _Descarga Sobrenatural_ igual al valor de tu Atributo Arcano.",
-      "hash": "b8db7d594b88e8a6b40ab9f0a69361397a74243b"
+      "hash": "abba12bfb6d361fe28cb409563d5c436cc9a88bf"
     },
     {
       "kind": "card",
@@ -2591,10 +2591,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Herencia Sobrenatural & Atributo Arcano 4",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Lanzas un orbe de magia cruda que detona violentamente, alterando la gravedad y la masa en su centro de impacto._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3 metros de radio. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño de la detonación es de 4d6 de daño de Fuerza.<br> - **Cascada Inestable:** Por cada dado de daño que resulte en un \"6\" natural, la magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales también generan más dados si sacan un 6.<br> - **Anomalía Gravitacional:** Observa el número total final del daño. Las criaturas que fallaron su Tirada de Salvación sufren uno de los siguientes efectos adicionales:<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es PAR (Implosión):_ Son arrastradas violentamente 2 metros hacia el centro de la esfera y su Velocidad se reduce a la mitad hasta el final de tu próximo turno.<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección opuesta al centro de la esfera y caen Derribadas.<br> Si una criatura tiene éxito en la salvación, recibe la mitad del daño total acumulado y no sufre la anomalía gravitacional.",
-      "hash": "3901f338ee4da91e12587fa06f4a5b5af159b01c"
+      "hash": "ab1ae4fe3e4c195a03805b731e43698f5943cba3"
     },
     {
       "kind": "card",
@@ -2663,10 +2663,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Sintonía Primordial & Instinto 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Liberas una nube concentrada de esporas tóxicas que invade los pulmones y entumece los sentidos de tu presa._<br><br> Como Acción, eliges una criatura a distancia Media. El objetivo debe realizar una Tirada de Salvación de Cuerpo (ND 5 + Instinto). Si falla, recibe 2d6 de daño de Veneno y queda Envenenado hasta el final de tu próximo turno. Si tiene éxito, recibe la mitad del daño y no queda Envenenado.",
-      "hash": "a90a1c69e67b1121d6ecab25c293f14bb57edb5c"
+      "hash": "229d92136ca827cb03710f9daa7ec8b4fa820866"
     },
     {
       "kind": "card",
@@ -2821,10 +2821,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Descarga Elemental & Atributo Arcano 4",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Generas una detonación masiva de energía en la distancia, devastando una amplia zona del campo de batalla._<br><br> Provocas una explosión mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br> Al lanzar el conjuro, eliges la forma que adopta:<br> - **Bola de Fuego (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br> - **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br> - **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>",
-      "hash": "ac715ca8d3ce676b3a0c37561622ba3bd7d7e45b"
+      "hash": "011ee9425e6bc230759bedd6910f801c4df1d10f"
     },
     {
       "kind": "card",
@@ -2982,10 +2982,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Disciplina Monástica",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:5"
       },
       "search": "_Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br> - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.",
-      "hash": "74456582a92801e47c3a3aab6acbbfd9e0ff33fe"
+      "hash": "366936a2c8de3470d42b917f389ef272bb540684"
     },
     {
       "kind": "card",
@@ -3193,10 +3193,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_El suelo se pudre y se vuelve fangoso, vomitando cientos de manos esqueléticas que arrastran a los vivos hacia la tumba._<br><br> Eliges un punto a distancia Media, creando un área de terreno difícil en un radio de 3 metros durante 1 minuto.<br> Toda criatura que entre en el área o empiece su turno allí debe superar una TS de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 2d6 de daño Necrótico y queda Inmovilizada hasta el inicio de su próximo turno mientras los huesos tiran de ella. Si tiene éxito, recibe la mitad del daño y no queda atrapada.",
-      "hash": "b381ee82f6f47c175ba87564a6de8724225126e4"
+      "hash": "b57f2e30d2ce2863fdfcbcf505bc5acf9d2f13f4"
     },
     {
       "kind": "card",
@@ -3240,10 +3240,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Sintonía Primordial & Instinto 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_El suelo bajo los pies de tus enemigos se rebela, estallando en una tormenta violenta de rocas y tierra que los aplasta sin piedad._<br><br> Provocas una erupción de roca y tierra en un punto a distancia Media a nivel del suelo. Todas las criaturas en un radio de 5 metros de ese punto deben superar una TS de Reflejos (ND 5 + Instinto).<br> Si fallan, reciben 4d6 de daño Contundente y quedan Derribadas y Aturdidas hasta el final de su próximo turno. Si tienen éxito, reciben la mitad del daño y no sufren efectos adicionales.<br> El área afectada queda permanentemente convertida en terreno difícil.<br>",
-      "hash": "ddc7346a8a3ae69bef209c7aa4a9fdb1ceda54bd"
+      "hash": "5763b7d3a812e6a1a8d5ead1ea888266aa8d37dd"
     },
     {
       "kind": "card",
@@ -3287,10 +3287,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Disciplina Monástica & Instinto 4",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Golpeas un punto de presión con la precisión de un maestro, colapsando el sistema nervioso de tu oponente en un instante._<br><br> Cuando impactas a una criatura con un ataque desarmado, puedes intentar aturdirla. El objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Aturdido hasta el final de tu próximo turno.",
-      "hash": "44726e729cb04b394c7d0d6a953c86ed9f879395"
+      "hash": "3e47c5e45dd4bfb369288f53bbaa8b52a4a5541a"
     },
     {
       "kind": "card",
@@ -3335,10 +3335,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Fe Inspiradora & Instinto 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Imbuyes tu arma con la furia de los cielos, desatando un resplandor que ciega a las fuerzas del mal._<br><br> Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de energía sagrada. El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el daño aumenta a 2d6.<br> Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.",
-      "hash": "265f4cf405e67942f17c96701e20a0fd1ce3d870"
+      "hash": "56c505e333ac306d394dcb32993f8958ec6f24c1"
     },
     {
       "kind": "card",
@@ -3963,10 +3963,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Don del Elocuente & Presencia 3",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:5"
       },
       "search": "_Cambias el tono de la escena con una melodía imposible de ignorar, haciendo que durante unos instantes el miedo, la ira y la violencia pierdan su dominio._<br><br> Como Acción, interpretas una melodía que dura hasta 1 minuto o hasta que pierdas la Concentración. Al comenzar, eliges uno de los siguientes efectos:<br> - **Apaciguar Hostilidad:** Las criaturas hostiles que puedan oírte en un radio de 5 metros centrado en un punto a distancia Media deben superar una TS de Instinto (ND 5 + Presencia). Si fallan, no pueden realizar ataques ni utilizar habilidades deliberadamente dañinas mientras permanezcan afectadas. El efecto termina inmediatamente sobre una criatura si esta recibe daño, es objetivo de un efecto hostil o presencia cómo uno de sus aliados es atacado por una criatura enemiga.<br> - **Serenar Ánimo:** Eliges un número de criaturas voluntarias que puedan oírte igual a tu Presencia. Mientras dure la interpretación, quedan suprimidos sobre ellas los efectos que las mantengan Asustadas o Encantadas. El efecto original no termina: si todavía debería seguir activo cuando acaba el Interludio, vuelve a aplicarse normalmente.",
-      "hash": "6ce6affb1f01c07c2583cc1c49073e811833a2d5"
+      "hash": "0853b75e67d2561355363ad3930ae72467a19621"
     },
     {
       "kind": "card",
@@ -4272,10 +4272,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Trance de Piedra & Instinto 4",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:5"
       },
       "search": "_Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.",
-      "hash": "e9fae3f761134521a0a8ffe18f8c3f94578ac536"
+      "hash": "38d9e25bb9d430c5d7b2cd405a326c1b1c256389"
     },
     {
       "kind": "card",
@@ -4687,10 +4687,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Tejes un nudo de mala fortuna alrededor del alma de tu enemigo, entorpeciendo sus capacidades._<br><br> Eliges un objetivo a distancia Cercana, que debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le aplicas uno de los siguientes efectos durante 1 minuto:<br> - Le das desventaja en sus tiradas de ataque usando un atributo en específico.<br> - Le das desventaja en sus tiradas de salvación de un atributo en específico.<br> - Le das desventaja en sus tiradas de habilidad un atributo en específico.<br>",
-      "hash": "84100b3a619c7c5d3cd600e3e595b00dc22c1959"
+      "hash": "8b0ea39c8bd8c435b9c9d527ac6ff3805e602632"
     },
     {
       "kind": "card",
@@ -4711,10 +4711,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Pacto Supremo & Atributo Arcano 4",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Abres una brecha hacia el dominio de tu Patrón, inundando la realidad con su aterradora esencia y sus anomalías._<br><br> Elije un punto a distancia Media, inundando una esfera de 3 metros de radio con una descarga de poder de tu patrón.<br> Todas las criaturas en el área deben superar una TS de Instinto (ND 5 + Atributo Arcano).<br> Si fallan, reciben 4d6 de daño del mismo tipo que tu _Descarga Sobrenatural_ y sufren una anomalía según el tipo de daño hasta el final de tu próximo turno:<br> - **Eléctrico:** Sobrecarga nerviosa; no pueden usar Reacciones.<br> - **Frío:** Escarcha paralizante; su Velocidad se reduce a la mitad.<br> - **Fuego:** Cenizas ardientes; reciben 1d6 de daño extra al inicio de su próximo turno.<br> - **Fuerza:** Impacto cinético; son empujadas 2 metros lejos del centro y quedan Derribadas.<br> - **Necrótico:** Marchitamiento; no pueden recuperar Puntos de Salud de ninguna forma.<br> - **Psíquico:** Terror incomprensible; quedan en el estado Asustado por ti.<br> - **Radiante:** Destello cegador; quedan en el estado Cegado.<br> Si tienen éxito en la salvación, reciben la mitad del daño y no sufren el efecto secundario.",
-      "hash": "a5e45c31bfcb1e5a4f9c4b001d5682d08d3476d1"
+      "hash": "3a8ee6f8a75fdd4dd72c98c5d9e7976896dc651e"
     },
     {
       "kind": "card",
@@ -5198,10 +5198,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_Exhalas una espesa nube de gas amarillo y verdoso que corroe la carne y nubla los sentidos._<br><br> Creas una esfera de 5 metros de radio en un punto a distancia Media.<br> El área queda fuertemente oscurecida (bloquea la visión) durante 1 minuto.<br> Cualquier criatura que empiece su turno en el interior de la nube debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 3d6 de daño de Ácido o Veneno (a tu elección al lanzar el conjuro) y sufre el estado Envenenado hasta el inicio de su próximo turno. Si tiene éxito, recibe la mitad del daño y no se envenena.",
-      "hash": "b35fd4872cb59853bf5b6651bd4dc2a8846ec232"
+      "hash": "e268ebe382b9caaf89cbc92c4199ce77afcc3fc3"
     },
     {
       "kind": "card",
@@ -5385,10 +5385,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Fe Inspiradora & Instinto 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Tu voz resuena con un peso celestial, doblegando la voluntad de los mortales con un simple mandato._<br><br> Como Acción, eliges a una criatura a distancia Media. Le das una orden de una o dos palabras (ej: \"¡Suéltalo!\", \"¡Arrodíllate!\"). El objetivo debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto). Si falla, obedece la orden en su próximo turno, siempre que no sea directamente dañina. Una criatura inmune al estado Encantado no se ve afectada por este conjuro.",
-      "hash": "f6a213be2b98aecd1d76b15d46f04ab30e600f72"
+      "hash": "4d574ef2a56d9122915399cc7747e65b1b2d7119"
     },
     {
       "kind": "card",
@@ -5482,8 +5482,8 @@
         "type": "efecto",
         "requirements": "Fe Inspiradora & Don del Elocuente & Presencia 5"
       },
-      "search": "_Tu voz es un conducto de inspiración divina y curación, entonando plegarias que resuenan en los corazones como verdaderos cánticos celestiales._<br><br> **Beneficio de Sinergia:**<br> - **Inspiración Sanadora:** Cuando usas Canto de Inspiración en un aliado, este también recupera 1d4 Puntos de Salud.<br> - **Mandato Convincente:** Tu Palabra de Autoridad ahora puede dar órdenes ligeramente más complejas (una frase corta). Además, las criaturas normalmente inmunes al estado Encantado pueden ser afectadas, pero realizan su Tirada de Salvación con Ventaja (+1d4).",
-      "hash": "7b3db3379847a26cbe418a6b96e430b3aa0bcb58"
+      "search": "_Tu voz es un conducto de inspiración divina y curación, entonando plegarias que resuenan en los corazones como verdaderos cánticos celestiales._<br><br> **Beneficio de Sinergia:**<br> - **Inspiración Sanadora:** Cuando usas _Canto de Inspiración_ en un aliado, este también recupera 1d4 Puntos de Salud.<br> - **Mandato Convincente:** Tu _Palabra de Autoridad_ ahora puede dar órdenes ligeramente más complejas (una frase corta). Además, las criaturas normalmente inmunes al estado Encantado pueden ser afectadas, pero realizan su Tirada de Salvación con Ventaja (+1d4).",
+      "hash": "e912f55a143070a5c0b51378b8875177a4d6dde0"
     },
     {
       "kind": "card",
@@ -5647,10 +5647,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Paso del Viento & Instinto 5",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:7"
       },
       "search": "_Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un suspiro._<br><br> Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.",
-      "hash": "a73742f679da8acb3986184873599b03c7631e98"
+      "hash": "11db2a744debb038571da0a038784af0b7e999dc"
     },
     {
       "kind": "card",
@@ -5784,10 +5784,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Acción Astuta",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_En un instante, te conviertes en una ráfaga de movimiento que cruza la estancia antes de que el enemigo pueda parpadear._<br><br> Como Interacción, duplicas tu Velocidad de movimiento para este turno. Además, obtienes Ventaja (+1d4) en la próxima tirada de ataque que realices este turno, y el primer ataque que te realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).",
-      "hash": "7b260e72676fe08d5143da0b22c7b5953350d342"
+      "hash": "bd75438de21c8c81cfe0b9332924c9e0b7beda14"
     },
     {
       "kind": "card",
@@ -5970,10 +5970,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Paso Brumoso & Atributo Arcano 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Perforas el tejido de la realidad para conectar dos puntos distantes mediante portales gemelos._<br><br> Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3 metros de diámetro. Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías que permanece abierta mientras te concentres, hasta por 1 minuto.",
-      "hash": "d210134f99f4b614e0fb5aa750eb37bc123042dc"
+      "hash": "12a5143b8821b444b63c5a669b5edf172c1b9ca6"
     },
     {
       "kind": "card",
@@ -6127,10 +6127,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Disciplina Monástica & Instinto 4",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Extiendes tu energía vital más allá de tus puños, permitiéndote golpear a enemigos que se encuentran a varios metros de distancia._<br><br> Usas tu Interacción para hacer que hasta el final de tu turno, tus ataques desarmados se proyecten para poder golpear a criaturas que se encuentren hasta distancia Cercana.",
-      "hash": "4fa79eefa3a0c5a6d021096ce129cf533213a1b5"
+      "hash": "d0c4bd24108b44b326111214c029ff9adba47d2f"
     },
     {
       "kind": "card",
@@ -6151,10 +6151,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Estudios Mágicos",
-        "uses": "RELOAD:3"
+        "uses": "RELOAD:4"
       },
       "search": "_Dardos de pura energía arcana brotan de tus manos, persiguiendo a tus enemigos de forma ineludible._<br><br> Creas dos dardos de energía arcana que persiguen a sus objetivos a distancia Cercana.<br> Los dardos no pueden fallar. Puedes dirigirlos al mismo objetivo o a objetivos distintos. Cada dardo inflige 1d4 de daño de Fuerza.<br> - **Concentración de Poder:** Si diriges ambos proyectiles al mismo objetivo, suma sus resultados antes de que el enemigo aplique su Mitigación Mágica.",
-      "hash": "59da0b2332d1a1362552e0914e83dec74e60030b"
+      "hash": "1c20faa834d445428323acf48bf034a1d82fb785"
     },
     {
       "kind": "card",
@@ -6175,10 +6175,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Proyectas una onda de fuerza telequinética invisible capaz de mover objetos masivos o derribar oponentes._<br><br> Como Acción, elije un punto a distancia Media sobre el que liberar energía para empujar, atraer o expandir materia. La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br> Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo Arcano)**.<br> - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br> - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).",
-      "hash": "0419477d9c1d06670b0f958c304a2f1c6dd476b4"
+      "hash": "039f6a0a75b766952d4ed67fa9048abcddc49644"
     },
     {
       "kind": "card",
@@ -6198,10 +6198,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Asesinar & Instinto 3",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:5"
       },
       "search": "_Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con un solo toque._<br><br> Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital. La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).",
-      "hash": "188675c7352c97d44038a8bf2efea5c52aff4fc4"
+      "hash": "7d55b93e7353c734206e65694d7072fe97000646"
     },
     {
       "kind": "card",
@@ -6269,10 +6269,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Liberas una onda de choque elemental desde tus manos que barre a todos los enemigos frente a ti._<br><br> Liberas un cono de energía (Sónico, Fuego, Frío o Eléctrico) de 3 metros. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si fallan, reciben 2d6 de daño del tipo elegido y sufren un efecto adicional:<br> - **Sónico:** Es empujada 2 metros lejos de ti.<br> - **Fuego:** Recibe 1d4 de daño extra al inicio de su próximo turno.<br> - **Frío:** Su Velocidad se reduce a la mitad hasta el final de su próximo turno.<br> - **Eléctrico:** No puede usar Reacciones hasta el final de su próximo turno.<br> Si tienen éxito en la Tirada de Salvación, reciben la mitad del daño y ningún efecto adicional.",
-      "hash": "5a894b2eb862d5e96eb7999e53e7d24e9f468fa6"
+      "hash": "f1769afbd56f19b238f1b9ef3c5aee1aec2b367a"
     },
     {
       "kind": "card",
@@ -6722,10 +6722,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Proyectas un pulso de energía psíquica diseñado para fracturar la concentración y la voluntad de tu enemigo._<br><br> Elije una criatura que puedas ver a distancia Media. Esta criatura debe superar una Tirada de Salvación de Mente (ND 5 + Atributo Arcano) o sufrir 2d6 de daño Psíquico y tener desventaja en la próxima Tirada de Salvación que realice, hasta el final de tu próximo turno.",
-      "hash": "4d550f55f4c46bdf518cf27b40bee7b7f868e851"
+      "hash": "d56d6d8a4c8c004f6750df6aa4e0ac053ae4c1b3"
     },
     {
       "kind": "card",
@@ -6769,10 +6769,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Curar & Instinto 5",
-        "uses": "LONG_REST:1"
+        "uses": "RELOAD:8"
       },
-      "search": "_El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 4d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.",
-      "hash": "0408b252a4df4205eb701ef107d82ebc074873d7"
+      "search": "_El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 6d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.",
+      "hash": "d2de2fb4f65b391a143fa97e13de58bd3939a686"
     },
     {
       "kind": "card",
@@ -6793,8 +6793,8 @@
         "type": "efecto",
         "requirements": "Instinto 3"
       },
-      "search": "_Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br> Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br> Además, cuando superas una prueba de Instinto (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br> No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.",
-      "hash": "5fc5a30bc8690c7d1af375b77a23c94c83cd032d"
+      "search": "_Tu conocimiento de la anatomía y la medicina potencia tus cuidados._<br><br> Cuando usas una carta o un objeto consumible para restaurar Puntos de Salud a una criatura, esta recupera 1d4 Puntos de Salud adicionales.<br> Si el efecto restaura Salud varias veces a la misma criatura —por ejemplo, durante varios turnos—, este bono se aplica únicamente la primera vez que esa criatura recupera Salud mediante ese uso de la carta u objeto.<br> Además, cuando superas una prueba de Instinto (Medicina) para estabilizar a una criatura moribunda, puedes, en lugar de simplemente estabilizarla, devolverla al combate con 1 Punto de Salud.<br> No puedes usar esta habilidad en la misma criatura más de una vez por día de descanso.",
+      "hash": "fce9d21cce447586db5cdc671344e76ea3bcda3a"
     },
     {
       "kind": "card",
@@ -6959,10 +6959,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Desgarras el velo para conjurar a un verdugo espectral envuelto en mortajas, armado con una guadaña de sombra._<br><br> Invocas una entidad incorpórea que ocupa un espacio Mediano a distancia Cercana durante 1 minuto.<br> El segador es invulnerable, pero no bloquea el paso.<br> Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes ordenar al Segador que se mueva hasta 10 metros en cualquier dirección y realice un ataque de conjuro cuerpo a cuerpo (1d8e + Atributo Arcano) contra un enemigo a distancia Inmediata a él. Si impacta, inflige 2d8 de daño Necrótico y el objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo turno.",
-      "hash": "cb72889e1bb2ec65dee504c44427ef95e019eda1"
+      "hash": "3ac359f2e3f24f559dfd69b4b0b021ba5cbb6d03"
     },
     {
       "kind": "card",
@@ -7260,10 +7260,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Maledicción & Atributo Arcano 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Implantas una idea en la mente de un humanoide, forzándolo a seguir tus órdenes como si fueran propias._<br><br> Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: \"protege este puente\").<br> La orden no puede ser obviamente dañina para si mismo. La criatura obedece lo mejor que puede mientras mantengas la concentración.",
-      "hash": "60f7ecf52bee3d4b9896b74f0afe1552551d1d9f"
+      "hash": "24ac57f209eefdf48858eb23105dd1f961b36b51"
     },
     {
       "kind": "card",
@@ -7354,10 +7354,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Manipulas la luz y el sonido para crear engaños sensoriales que confunden a tus enemigos o te ocultan de su vista._<br><br> Como acción, al lanzar el conjuro, elige uno de los siguientes modos:<br> - **Señuelo:** Creas una ilusión visual (de hasta 2 metros cúbicos) o auditiva, en un punto fijo a distancia Cercana durante 10 minutos.<br> - **Disfraz:** Te cubres con una ilusión que altera tu apariencia (ropa, rasgos faciales) y tu voz durante 1 hora. Puedes aparentar ser hasta medio metro más alto o más bajo.<br> - **Velo:** Envuelves a un aliado a distancia Cercana en sombras, otorgándole Ventaja (+1d4) en sus pruebas de Sigilo durante 10 minutos.<br> Una criatura puede usar su Acción para interactuar físicamente con la ilusión, realizando una prueba de Instinto (Percepción) contra un ND 5 + tu puntuación de Atributo Arcano para descubrir el engaño.",
-      "hash": "aa06e5dc7053f8f4cc0749089640bdd12e830363"
+      "hash": "a55461c62c0ef3fc0075b96061cb8ee1e13cd5b1"
     },
     {
       "kind": "card",
@@ -7424,10 +7424,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Don del Elocuente & Presencia 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Proyectas las pesadillas más oscuras engendradas directamente en la mente de tus aterrorizados adversarios._<br><br> Liberas una onda psíquica en un cono de 5 metros. Las criaturas en el área deben superar una TS de Instinto (ND 5 + Presencia).<br> Si fallan, reciben 4d6 de daño Psíquico y deben usar su Reacción (si la tienen disponible) para moverse lo más lejos posible de ti por la ruta más segura posible.<br> Además, las criaturas que fallaron quedan Asustadas de ti durante 1 minuto. Pueden repetir la TS al final de cada uno de sus turnos para terminar el efecto.",
-      "hash": "7d4a1f3dda50b3781d0f732d2e1209b38e7d4d15"
+      "hash": "20f2616189315896bba6555bbd25db19bfdae426"
     },
     {
       "kind": "card",
@@ -7447,10 +7447,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Golpe Aturdidor & Instinto 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
       "search": "_Tus golpes bloquean los canales de energía del enemigo, impidiéndole usar sus habilidades más poderosas._<br><br> Como Acción, realizas un ataque desarmado. Si impactas, además del daño, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto). Si falla, no puede usar ninguna habilidad listada bajo sus Acciones o Reacciones que especifique usos limitados o requiera Recarga, hasta el final de tu próximo turno.",
-      "hash": "bd3ffbdab540c43c5ec83ebe0fcad513d1cfd436"
+      "hash": "638dc26fcf3ba129b70d1c98e2c5c7d4c48aaa94"
     },
     {
       "kind": "card",
@@ -7659,10 +7659,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_Alteras la estructura de la materia inerte, deformándola como arcilla o reorganizándola para crear nuevas herramientas y estructuras._<br><br> Al utilizar este conjuro, eliges uno de los siguientes modos:<br> - **Transmutar:** Como Acción, tocas un objeto no mágico de hasta 1 metro cúbico. Durante 1 hora, puedes alterar una de sus propiedades físicas —como dureza, peso o textura— o modificar su forma. No puedes cambiar su masa total ni transformar una sustancia en otra distinta. Por ejemplo, puedes ablandar una cerradura metálica como si fuera cera, volver quebradiza una sección de piedra o esculpir una palanca a partir de un trozo de metal.<br> - **Fabricar:** Como Acción, reorganizas una cantidad de materia prima no mágica que puedas tocar y que ocupe como máximo 1 metro cúbico, convirtiéndola en uno o varios objetos terminados compuestos principalmente por esos mismos materiales. La masa total no cambia. Puedes fabricar objetos corrientes cuya construcción comprendas, pero los mecanismos de precisión, obras artesanales especializadas o dispositivos complejos requieren que poseas el conocimiento o la habilidad apropiada. No puedes crear sustancias alquímicas, seres vivos, objetos mágicos ni transformar materiales de menor valor en otros de mayor valor.<br> Puedes utilizar _Fabricar_ de esta forma únicamente si el objeto terminado pertenece a la categoría de precio Mundano. Los objetos de categorías superiores solo pueden fabricarse lanzando el conjuro como Ritual. En ese caso, el tiempo de lanzamiento aumenta según la categoría de precio final del objeto.:<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Mundano:_ 10 minutos<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Común:_ 1 hora<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Calidad:_ 24 horas<br> La categoría máxima de precio que puedes fabricar con este conjuro es de Calidad.",
-      "hash": "c8e115be373113782fe67397f058bcc328e49bfc"
+      "hash": "cc408bd1abe3887e49879f0e92089459eaa61798"
     },
     {
       "kind": "card",
@@ -7991,10 +7991,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
-        "uses": "RELOAD:5"
+        "uses": "RELOAD:6"
       },
       "search": "_Creas un sensor místico invisible que actúa como una extensión de tus propios sentidos en la distancia._<br><br> Al lanzar el conjuro, elije un punto que puedas ver a distancia Media, donde aparece el sensor. Este esta compuesto de energía y no puede atravesar objetos sólidos. En tus turnos, puedes usar tu Acción para mover el sensor hasta 10 metros. Ves y oyes a través del sensor. El sensor es detectable con magia o visión especial. Dura 10 minutos.",
-      "hash": "ba657e72b778b5435ab4ba730a83214ca1d400af"
+      "hash": "8066193f622862c13805efc4110b5c1d0230435a"
     },
     {
       "kind": "card",
@@ -8135,10 +8135,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Fe Inspiradora & Instinto 3",
-        "uses": "RELOAD:3"
+        "uses": "RELOAD:5"
       },
       "search": "_Impones un manto de sinceridad absoluta; en este espacio sagrado, el engaño se marchita y muere._<br><br> Creas una zona de 5 metros de radio a distancia Media por 10 minutos. Quien esté dentro debe superar una TS de Instinto (ND 5 + Instinto) para poder decir una mentira deliberada.",
-      "hash": "60d37dd821f5756eb6f25bb35bad4b4630aa574e"
+      "hash": "c80bc9d062325c14399db1236d19e4327dec94af"
     },
     {
       "kind": "card",
@@ -8160,10 +8160,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Afinidad Arcana & Atributo Arcano 3",
-        "uses": "RELOAD:4"
+        "uses": "RELOAD:5"
       },
       "search": "_Generas un vacío de energía en un área donde el sonido y la luz se extinguen casi por completo._<br><br> Eliges un punto a distancia Media, creando una esfera de 5 metros de radio que dura hasta 10 minutos. Dentro de la esfera, el sonido se apaga por completo (otorgando inmunidad a daño Sónico y al estado Ensordecido) y toda fuente de luz, mágica o no, se reduce a una penumbra tenue.",
-      "hash": "d5107db7fda32413a48874aa7e0aaaf2188e7811"
+      "hash": "5e470b6867d3613a5e775c2283456003887c5369"
     },
     {
       "kind": "chapter",
@@ -11906,22 +11906,6 @@
     },
     {
       "kind": "section",
-      "canonicalName": "¿Carta de Efecto o Activable?",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-carta-de-efecto-o-activable",
-      "aliases": [
-        "¿carta de efecto o activable?"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "¿Carta de Efecto o Activable?",
-      "anchor": "carta-de-efecto-o-activable",
-      "chapter": "8. Diseño de Conjuros y Habilidades",
-      "source": "gm.md",
-      "search": "Al crear nuevas habilidades u objetos mágicos, una de las decisiones más importantes es si deben ocupar una de las preciadas **Ranuras de Cartas Activas** del jugador o funcionar pasivamente desde la **Colección (Efecto)**.\n\nEl sistema ARCANA ya mitiga la falta de espacio otorgando ranuras extra a los lanzadores de conjuros, pero como DJ debes cuidar no saturar la economía del jugador.\n\n**Hazla Activable si:**\n\n- Inflige daño directo o aplica estados de combate (Aturdir, Cegar).\n- Otorga una ventaja táctica inmediata en el turno (Teletransporte, Curación, Escudos).\n- Es una habilidad que requiere una decisión táctica de \"gastar un recurso\" (Recarga).\n\n**Hazla de Efecto si:**\n\n- Es utilidad narrativa, social o de exploración (Luz, Idiomas, Detectar).\n- Es un bono pasivo constante (+1 a una habilidad, Visión en la Oscuridad).\n- Modifica una habilidad existente que ya ocupa ranura (\"Tus bolas de fuego queman 1 turno extra\").\n\n**La Regla de Oro:** Si el jugador lo usará para ganar en combate, es **Activable**. Si lo usará para resolver el mundo o personalizar su estilo, es **Efecto**.",
-      "hash": "f76f1a5c76fb96c61cd8691d1132b8942041ead4"
-    },
-    {
-      "kind": "section",
       "canonicalName": "¿Cómo Otorgar PP? (La Filosofía de la Recompensa)",
       "slug": "02-1-otorgar-puntos-de-progreso-pp-como-otorgar-pp-la-filosofia-de-la-recompensa",
       "aliases": [
@@ -12114,22 +12098,6 @@
     },
     {
       "kind": "section",
-      "canonicalName": "A. Efectos Leves (Coste: 0)",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-a-efectos-leves-coste-0",
-      "aliases": [
-        "a. efectos leves (coste: 0)"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "A. Efectos Leves (Coste: 0)",
-      "anchor": "a-efectos-leves-coste-0",
-      "chapter": "8. Diseño de Conjuros y Habilidades",
-      "source": "gm.md",
-      "search": "Beneficios narrativos o menores. **No reducen el daño.**\n\n- _Ejemplos:_ Empujar 1m, cambiar elemento, luces/sonidos.",
-      "hash": "785ea1f6aa7e697592dfbfea673a2be2d30a7251"
-    },
-    {
-      "kind": "section",
       "canonicalName": "A. Habilidades de Sabor (Coste: 0 PPF)",
       "slug": "08-7-diseno-avanzado-de-criaturas-a-habilidades-de-sabor-coste-0-ppf",
       "aliases": [
@@ -12143,6 +12111,22 @@
       "source": "gm.md",
       "search": "Describen _cómo_ se aplica el daño o añaden elementos narrativos. No tienen coste si no alteran la táctica del combate.\n\n- **Ejemplos:** `Asalto Múltiple` (si solo divide el Daño Promedio comprado), `Furia` (si el bono de daño ya está promediado en el Daño Promedio), `Ataque Venenoso` (si el daño del veneno está incluido en el Daño Promedio), `Visión en la Oscuridad`, tipo de daño elemental.",
       "hash": "30ca1298fb0f212ff254c62734e9f87929da85ce"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Acción",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-accion",
+      "aliases": [
+        "accion"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Acción",
+      "anchor": "acción",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Es la referencia estándar para las capacidades de impacto importante.",
+      "hash": "fccf94fe16558dc87c56fedb331e20aa912df6ff"
     },
     {
       "kind": "section",
@@ -12210,6 +12194,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Alteraciones de la Economía de Acciones",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-alteraciones-de-la-economia-de-acciones",
+      "aliases": [
+        "alteraciones de la economia de acciones"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Alteraciones de la Economía de Acciones",
+      "anchor": "alteraciones-de-la-economía-de-acciones",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Obtener Acciones, Reacciones o ataques adicionales; negar las acciones de un enemigo; o producir efectos importantes sin consumir la economía normal del personaje es especialmente poderoso.\n\nEstas capacidades pueden justificar desviaciones grandes de la Recarga de referencia.\n\nUna carta de Nivel 3 que produzca un efecto excepcional sobre la economía de acciones puede, por ejemplo, llegar a `Recarga 8+` aunque la referencia general del Nivel sea `6+`.\n\nLa economía de acciones debe considerarse una de las herramientas de balance más importantes del sistema.\n\n---",
+      "hash": "9c4e038793e30aa359e9590dd73e3c03ae0a88b1"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Anatomía de una Carta",
       "slug": "04-el-sistema-de-cartas-anatomia-de-una-carta",
       "aliases": [
@@ -12271,6 +12271,22 @@
       "source": "player.md",
       "search": "Tu personaje busca expandir sus horizontes aprendiendo algo que no está cubierto por una carta, como un nuevo idioma o una habilidad mundana.\n\n- **Tiempo:** Aprender un nuevo idioma puede llevar meses de estudio. Aprender a usar un nuevo tipo de herramienta podría llevar varias semanas.\n- **Costo:** Necesitarás un tutor, libros o acceso a un taller, lo que puede costar una suma considerable de oro.\n- **Tirada:** El DJ podría pedir una serie de Pruebas de **Mente** a lo largo del tiempo para medir tu progreso. Varios éxitos consecutivos podrían significar que has aprendido la nueva capacidad.",
       "hash": "1f3dd316223489df627322e9ba31fadac42022d6"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Áreas y Efectos Persistentes",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-areas-y-efectos-persistentes",
+      "aliases": [
+        "areas y efectos persistentes"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Áreas y Efectos Persistentes",
+      "anchor": "áreas-y-efectos-persistentes",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Al evaluar una capacidad de área, considera conjuntamente:\n\n- el tamaño y forma del área;\n- su alcance;\n- la facilidad para afectar a múltiples criaturas;\n- si permite seleccionar o excluir objetivos;\n- la necesidad de exponerse o posicionarse;\n- si el efecto ocurre una sola vez o puede repetirse durante varios turnos;\n- el daño y control aplicados;\n- su duración;\n- si requiere Concentración.\n\nUna Tirada de Salvación reduce la fiabilidad del efecto sobre cada objetivo, pero tampoco debe considerarse por sí sola una compensación universal. El balance final depende del conjunto completo de la carta.\n\n---",
+      "hash": "29197ffa7952b0d0bcbb41c68f15ee8992545ee2"
     },
     {
       "kind": "section",
@@ -12354,6 +12370,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Aumentar la Fiabilidad",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-aumentar-la-fiabilidad",
+      "aliases": [
+        "aumentar la fiabilidad"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Aumentar la Fiabilidad",
+      "anchor": "aumentar-la-fiabilidad",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Reducir la Recarga en `-1` hace que una capacidad pueda formar parte mucho más consistentemente de la estrategia del personaje.\n\nEsto debería estar acompañado por alguna razón concreta:\n\n- menor daño;\n- efecto más estrecho;\n- alcance limitado;\n- desencadenante específico;\n- condición previa;\n- utilidad principalmente narrativa.\n\nReducir la Recarga en **dos pasos** es una modificación muy importante y debería ser excepcional.",
+      "hash": "36e790fa2e751f3346cbad524c392862aa2591e6"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Ayuda, Ventaja y Desventaja",
       "slug": "03-mecanicas-de-juego-ayuda-ventaja-y-desventaja",
       "aliases": [
@@ -12367,22 +12399,6 @@
       "source": "player.md",
       "search": "Ciertas situaciones pueden modificar una tirada, añadiendo o restando un dado de cuatro caras (d4).\n\n- **Ayuda:** Si un personaje ayuda a otro, el personaje que realiza la acción principal obtiene **Ventaja**.\n- **Ventaja:** Añade **+1d4** al resultado total de la tirada.\n- **Desventaja:** Resta **1d4** al resultado total de la tirada.",
       "hash": "9ddb7a919e8603fbb6278b2d0fb06be9bf1501b5"
-    },
-    {
-      "kind": "section",
-      "canonicalName": "B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-b-efectos-moderados-coste-reducir-dado-o-1-recarga",
-      "aliases": [
-        "b. efectos moderados (coste: reducir dado o +1 recarga)"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "B. Efectos Moderados (Coste: Reducir Dado o +1 Recarga)",
-      "anchor": "b-efectos-moderados-coste-reducir-dado-o-1-recarga",
-      "chapter": "8. Diseño de Conjuros y Habilidades",
-      "source": "gm.md",
-      "search": "Efectos tácticos breves.\n\n- **Ajuste:** Reduce el tamaño del dado (**d8→d6**, **d6→d4**).\n  - _Nota:_ Un conjuro de Área (Base d6) con control pasa a hacer daño **d4**.\n- _Ejemplos:_ Terreno difícil, Ceguera (1 turno), Desventaja (1 ataque).",
-      "hash": "310a62afa183d47f6a35f2d6d494a770ee875f12"
     },
     {
       "kind": "section",
@@ -12450,19 +12466,19 @@
     },
     {
       "kind": "section",
-      "canonicalName": "C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-c-efectos-fuertes-o-persistencia-coste-1-nivel-de-dano",
+      "canonicalName": "Calibración con el Catálogo Existente",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-calibracion-con-el-catalogo-existente",
       "aliases": [
-        "c. efectos fuertes o persistencia (coste: -1 nivel de dano)"
+        "calibracion con el catalogo existente"
       ],
       "tags": [],
       "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "C. Efectos Fuertes o Persistencia (Coste: -1 Nivel de Daño)",
-      "anchor": "c-efectos-fuertes-o-persistencia-coste--1-nivel-de-daño",
+      "heading": "Calibración con el Catálogo Existente",
+      "anchor": "calibración-con-el-catálogo-existente",
       "chapter": "8. Diseño de Conjuros y Habilidades",
       "source": "gm.md",
-      "search": "Control duro o daño que se repite cada turno (Zonas). Requieren **Concentración**.\n\n- **Ajuste:** Usa el daño base del **Nivel Inferior** (ej: Un Nivel 3 hace daño de Nivel 2).\n- _Ejemplos:_ Inmovilizar, Aturdir, Muros de daño, Invisibilidad.",
-      "hash": "143a237235e5c4c76fa00235392bb92fbb46211c"
+      "search": "ARCANA posee suficientes cartas como para que el catálogo sea una de las mejores herramientas de diseño disponibles.\n\nAntes de finalizar una carta nueva:\n\n1. Busca varias cartas del mismo Nivel y función aproximada.\n2. Compara su economía de acciones, frecuencia, alcance, daño, control y duración.\n3. Evita tomar una única carta excepcional como precedente para todo un Nivel.\n4. Comprueba que la nueva carta no haga simplemente lo mismo que una carta existente de forma claramente superior.\n5. Comprueba también las cartas de Niveles inferiores: progresar debería abrir nuevas posibilidades y aumentar el poder, pero no convertir automáticamente todas las opciones anteriores en decisiones incorrectas.\n\nLas referencias matemáticas de esta sección establecen el punto de partida. El catálogo permite comprobar si el resultado funciona dentro del ecosistema real del juego.\n\n---",
+      "hash": "c1680144d206ce4493d81c9ae61647f7181fdd14"
     },
     {
       "kind": "section",
@@ -12479,6 +12495,38 @@
       "source": "gm.md",
       "search": "Las capacidades exclusivamente narrativas o de utilidad que no alteren significativamente el combate continúan considerándose **Habilidades de Sabor** y cuestan 0 PPF.\n\nUn amplio repertorio narrativo no aumenta por sí mismo la peligrosidad de una criatura.",
       "hash": "b84f52cb5558d79cf993a5ab315662447794eae1"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Carta Activable",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-carta-activable",
+      "aliases": [
+        "carta activable"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Carta Activable",
+      "anchor": "carta-activable",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Una Carta Activable representa una capacidad cuya disponibilidad forma parte de la preparación táctica del personaje.\n\nDebe ocupar una Ranura de Carta Activa para poder utilizarse.\n\nHaz que una carta sea Activable cuando decidir **tenerla preparada o no** constituya una elección relevante para la construcción y estrategia del personaje.\n\n> **Regla de Diseño:** La pregunta principal no es _\"¿sirve para ganar un combate?\"_, sino _\"¿esta capacidad debería formar parte siempre del personaje una vez aprendida, o debería competir con otras capacidades por una Ranura de Carta Activa?\"_\n\n---",
+      "hash": "cd58280b0af910c46a196bc2eb8d0d9409a23bdc"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Carta de Efecto",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-carta-de-efecto",
+      "aliases": [
+        "carta de efecto"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Carta de Efecto",
+      "anchor": "carta-de-efecto",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Una Carta de Efecto forma parte permanentemente de las capacidades disponibles del personaje con solo encontrarse en su Colección.\n\nPuede representar:\n\n- un beneficio pasivo;\n- una modificación permanente a otra capacidad;\n- una regla de identidad del personaje;\n- una capacidad activada o reactiva que deliberadamente no requiere ocupar una Ranura de Carta Activa.\n\nUna Carta de Efecto puede poseer desencadenantes, utilizar Acciones o Reacciones e incluso tener usos limitados o Recarga.",
+      "hash": "7a68b0c97f14e3e4e4f12631e46197fa1a22590a"
     },
     {
       "kind": "section",
@@ -12578,6 +12626,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Concentración como Limitación",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-concentracion-como-limitacion",
+      "aliases": [
+        "concentracion como limitacion"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Concentración como Limitación",
+      "anchor": "concentración-como-limitación",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "La **Concentración** constituye por sí misma una limitación importante.\n\nMientras una carta agotada con `Recarga n+` mantiene un efecto mediante Concentración, **no puede intentar recuperar su uso mediante Adrenalina, Reenfoque ni Recarga con Suerte**. Por lo tanto, cuanto más tiempo resulte útil mantener el efecto, más tiempo permanecerá también agotada la carta.\n\nEsto significa que añadir Concentración a una capacidad persistente ya reduce de forma natural su frecuencia efectiva de uso.\n\n> **Regla de Diseño: Evitar el Doble Cobro**\n>\n> La duración o persistencia de un efecto **no justifica automáticamente aumentar también su Recarga** cuando la carta requiere Concentración.\n>\n> Si el efecto ya posee una magnitud apropiada para su Nivel, utiliza normalmente la **Recarga de referencia de ese Nivel**. Aumenta la Recarga únicamente cuando la carta continúe excediendo claramente su presupuesto incluso después de considerar la Concentración, su daño, sus Tiradas de Salvación, su economía de acciones y las demás restricciones presentes.\n\nPor ejemplo, una carta de Nivel 3 con `Recarga 6+` que crea una zona durante 1 minuto mediante Concentración no necesita pasar automáticamente a `7+` solo porque el efecto pueda repetirse durante varios turnos. Mientras esa zona permanezca activa, la propia carta no puede comenzar a recuperarse.\n\nEn cambio, una capacidad de Nivel 3 que produzca inmediatamente el daño completo esperado para su Nivel, añada además un efecto de control importante y **no requiera Concentración** puede justificar `Recarga 7+`.\n\nLa Concentración tampoco compensa cualquier magnitud de efecto. Una capacidad que combine daño elevado, gran área, control fuerte y larga duración puede seguir necesitando menor daño, menor área, Tiradas de Salvación adicionales u otras restricciones aunque requiera Concentración.",
+      "hash": "a1ac1465ef670697c4f854496e0519d47ecee8e5"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Construir una Red de Contactos",
       "slug": "11-tiempo-entre-aventuras-construir-una-red-de-contactos",
       "aliases": [
@@ -12607,6 +12671,22 @@
       "source": "gm.md",
       "search": "Los objetos **Consumibles** no necesitan ocupar Ranuras de Cartas Activas salvo que una regla específica indique lo contrario.\n\nSu poder ya está limitado por su disponibilidad y por consumirse al utilizarse, por lo que no necesitan competir además con las capacidades activas del personaje.",
       "hash": "9151b3566d6efcb639a460296925ac47c64a1f8b"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Control Fuerte y Efectos Persistentes",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-control-fuerte-y-efectos-persistentes",
+      "aliases": [
+        "control fuerte y efectos persistentes"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Control Fuerte y Efectos Persistentes",
+      "anchor": "control-fuerte-y-efectos-persistentes",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Estados capaces de negar acciones, impedir movimiento de forma importante, retirar temporalmente criaturas del combate o mantener efectos poderosos durante varios turnos requieren especial atención.\n\nUna carta que combine **daño competitivo + control fuerte + buena área + larga duración** no debería considerarse equilibrada simplemente por poseer Concentración.\n\nEn estos casos suele ser necesario combinar varias limitaciones: menor daño, Recarga superior, Tirada de Salvación, Concentración, duración limitada o una condición previa.",
+      "hash": "70af8801e02eb7e6ba67d045391516ce457cf749"
     },
     {
       "kind": "section",
@@ -12671,22 +12751,6 @@
       "source": "player.md",
       "search": "_¿Qué te impulsa a seguir adelante?_\n\n- ¿Cuál es tu mayor objetivo en la vida? ¿Qué estarías dispuesto a hacer para conseguirlo?\n- ¿Cuál es tu mayor miedo?\n- ¿Tenés un código moral? ¿Hay algo que jamás harías, sin importar la recompensa?\n- ¿Cómo te relacionás con los demás? ¿Sos confiado y abierto, o cínico y reservado?\n- ¿Guardás algún secreto que nadie más conoce?",
       "hash": "731fc6ccba997f0b389cc546021e9b28c263b642"
-    },
-    {
-      "kind": "section",
-      "canonicalName": "D. Versatilidad (Coste: +1 Recarga)",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-d-versatilidad-coste-1-recarga",
-      "aliases": [
-        "d. versatilidad (coste: +1 recarga)"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "D. Versatilidad (Coste: +1 Recarga)",
-      "anchor": "d-versatilidad-coste-1-recarga",
-      "chapter": "8. Diseño de Conjuros y Habilidades",
-      "source": "gm.md",
-      "search": "Elegir modo/elemento al lanzar. Aumenta la Recarga base en +1.\n\n---",
-      "hash": "71a2a5e9e552bec825154b5b1bc6f631a85e8f0c"
     },
     {
       "kind": "section",
@@ -12786,6 +12850,70 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Efectos Menores",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-efectos-menores",
+      "aliases": [
+        "efectos menores"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Efectos Menores",
+      "anchor": "efectos-menores",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Un efecto secundario pequeño puede no requerir compensación.\n\nEjemplos:\n\n- empujar una distancia mínima;\n- alterar detalles sensoriales;\n- cambiar entre tipos de daño equivalentes;\n- producir una consecuencia narrativa menor;\n- ofrecer una pequeña ventaja de posicionamiento muy circunstancial.",
+      "hash": "6df6d5165eab36bee602bc9baec3dfa02aea14f7"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Efectos Significativos",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-efectos-significativos",
+      "aliases": [
+        "efectos significativos"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Efectos Significativos",
+      "anchor": "efectos-significativos",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Cuando una carta combina su función principal con una ventaja táctica importante, debería realizar al menos una concesión significativa.\n\nEntre las posibles compensaciones se encuentran:\n\n- reducir el tamaño o cantidad de dados;\n- utilizar el daño de un Nivel inferior;\n- aumentar la Recarga en `+1`;\n- reducir alcance o área;\n- exigir una Tirada de Salvación adicional;\n- requerir una condición o posicionamiento concreto;\n- limitar la duración;\n- exigir Concentración.\n\nNo todas estas medidas tienen el mismo valor en todas las cartas. Deben elegirse aquellas que realmente limiten el efecto durante el juego.",
+      "hash": "7ed560c7950008fa9f6ca1199dd9a4a3005f9f62"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Efectos sin coste de acción",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-efectos-sin-coste-de-accion",
+      "aliases": [
+        "efectos sin coste de accion"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Efectos sin coste de acción",
+      "anchor": "efectos-sin-coste-de-acción",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Deben utilizarse con especial cuidado. Los límites de _una vez por turno_, _una vez por ronda_, condiciones específicas o recursos limitados resultan especialmente importantes cuando una capacidad no consume Acción, Interacción ni Reacción.\n\n---",
+      "hash": "f1131e90b1a8202604b2454aa1b6a0450da83999"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Ejemplo de Diseño",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-ejemplo-de-diseno",
+      "aliases": [
+        "ejemplo de diseno"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Ejemplo de Diseño",
+      "anchor": "ejemplo-de-diseño",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Queremos crear una carta de Arcanista de **Nivel 2** llamada `Prisión de Hielo`.\n\n**Concepto:** infligir daño a un enemigo y atraparlo temporalmente.\n\n**Daño de referencia:** una capacidad ofensiva Single-Target de Nivel 2 comienza alrededor de `2d8`.\n\n**Recarga de referencia:** Nivel 2 utiliza `Recarga 5+`.\n\n**Control:** Inmovilizar es un efecto importante. Para incorporarlo reducimos el daño al presupuesto ofensivo aproximado de Nivel 1 y exigimos Concentración.\n\n> **Prisión de Hielo — Nivel 2**\n>\n> Como Acción, eliges a una criatura a distancia Media. Debe superar una Tirada de Salvación de Cuerpo. Si falla, recibe `1d8` de daño de Frío y queda Inmovilizada mientras mantengas la Concentración. Puede repetir la Tirada de Salvación al final de cada uno de sus turnos.\n>\n> **Usos:** 1 (`Recarga 5+`)\n\nA partir de esta versión pueden diseñarse variantes.\n\nUna versión más fiable podría utilizar `Recarga 4+`, pero debería reducir todavía más su potencia o exigir una condición adicional.\n\nUna versión deliberadamente más explosiva podría conservar más daño y aumentar su Recarga a `6+` o `7+`.\n\nEl objetivo no es encontrar una fórmula universal, sino comprender **qué está pagando cada parte del efecto** y comprobar después el resultado contra cartas comparables del catálogo.",
+      "hash": "1073abee73277fe0d186bfd13ede7cf92e758d7f"
+    },
+    {
+      "kind": "section",
       "canonicalName": "El Presupuesto de Tesoro: Cálculo y Filosofía",
       "slug": "04-3-recompensas-tesoro-y-equipo-el-presupuesto-de-tesoro-calculo-y-filosofia",
       "aliases": [
@@ -12799,6 +12927,22 @@
       "source": "gm.md",
       "search": "En lugar de calcular el oro por cada enemigo derrotado, utilizaremos un presupuesto de recompensa por misión o arco argumental. Este presupuesto representa el **valor total** del botín que el grupo debería obtener, combinando monedas, gemas, objetos de arte y el valor de cualquier equipo especial que encuentren.",
       "hash": "457b1534be5232013a0c473741feb1c41513b35e"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "El Presupuesto de una Carta",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-el-presupuesto-de-una-carta",
+      "aliases": [
+        "el presupuesto de una carta"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "El Presupuesto de una Carta",
+      "anchor": "el-presupuesto-de-una-carta",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Al evaluar una carta, considera conjuntamente:\n\n- **Potencia:** daño, curación, protección o magnitud del efecto.\n- **Control:** cuánto limita las opciones de otras criaturas.\n- **Alcance y Área:** desde qué distancia actúa y cuántos objetivos puede afectar.\n- **Duración:** si produce un efecto inmediato o altera varios turnos.\n- **Economía de Acciones:** si requiere Acción, Interacción, Reacción o no consume ninguna de ellas.\n- **Fiabilidad:** con qué frecuencia puede utilizarse y recuperarse.\n- **Condiciones de Uso:** posicionamiento, desencadenantes, Concentración, Tiradas de Salvación u otras restricciones.\n- **Versatilidad:** cuántos problemas distintos puede resolver una misma carta.\n\nNinguno de estos elementos debe analizarse de forma aislada.\n\n---",
+      "hash": "48f34e18f701a8b3c5f533027836a4a8078ef0a9"
     },
     {
       "kind": "section",
@@ -12847,22 +12991,6 @@
       "source": "player.md",
       "search": "La Suerte es un recurso que permite a los jugadores influir en el resultado de sus acciones.\n\n- **Ganar Suerte:** Cada vez que un dado explota (un 8 natural en el d8), el personaje gana **1 Punto de Suerte**.\n- **Límite de Suerte:** Un personaje puede acumular un máximo de **5 Puntos de Suerte**.\n- **Gastar Suerte:** Un jugador puede gastar Puntos de Suerte _después_ de realizar una tirada ataque, habilidad o salvación, para añadir **+1d4 al resultado final por cada punto gastado**. Sin embargo, el jugador debe declarar la cantidad total de puntos que vas a gastar antes de lanzar los dados de bonificación. No puede lanzar los dados de suerte uno a uno y decidir sobre la marcha; debe hacer su apuesta de una sola vez.\n- **Reinicio:** Al final de cada sesión de juego, los Puntos de Suerte de todos los personajes se reinician a 1.",
       "hash": "85eab509b999366637f5332be7d002d573f8446f"
-    },
-    {
-      "kind": "section",
-      "canonicalName": "El Triángulo del Balance",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-el-triangulo-del-balance",
-      "aliases": [
-        "el triangulo del balance"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "El Triángulo del Balance",
-      "anchor": "el-triángulo-del-balance",
-      "chapter": "8. Diseño de Conjuros y Habilidades",
-      "source": "gm.md",
-      "search": "El diseño de un conjuro en ARCANA equilibra **Poder** (daño), **Utilidad** (efectos) y **Fiabilidad** (recarga). Un conjuro no puede tenerlo todo al máximo.",
-      "hash": "8fcae5559eb7d105a5ea878dbb670cbcc28e4943"
     },
     {
       "kind": "section",
@@ -13074,6 +13202,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Interacción",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-interaccion",
+      "aliases": [
+        "interaccion"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Interacción",
+      "anchor": "interacción",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Una capacidad utilizada como Interacción permite conservar la Acción para atacar, lanzar otro efecto o realizar una maniobra.\n\nPor ello, una carta poderosa como Interacción debe justificar esta eficiencia mediante menor magnitud, mayor Recarga, alcance restringido, condiciones de uso u otra limitación real.\n\nEsto **no significa** que una Interacción esté limitada automáticamente a daño mínimo o utilidad menor. Su coste debe analizarse dentro del paquete completo.",
+      "hash": "a5427d25d6a94df6a8ab601d2c2e165b104d05cd"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Investigar un Misterio",
       "slug": "11-tiempo-entre-aventuras-investigar-un-misterio",
       "aliases": [
@@ -13263,6 +13407,22 @@
       "source": "player.md",
       "search": "No son idiomas completos, sino sistemas de comunicación especializados usados por gremios, sociedades secretas u organizaciones para ocultar información a simple vista.\n\n- **Jerga de Ladrones**: No es un idioma formal que se hable abiertamente, sino una compleja mezcla de argot, gestos sutiles y símbolos crípticos que se usan para transmitir información de forma encubierta. Se integra en conversaciones en Común, haciendo que los mensajes pasen desapercibidos para los no iniciados. Permite señalar un negocio corrupto, advertir de la presencia de la guardia, identificar a un posible objetivo o reconocer a otro miembro del gremio. Conocerla implica poder entender y usar estos códigos, pero no leer o escribir textos complejos.",
       "hash": "2fd3c97c5db0c04d8f030edb4c5e0a2c1cf59ca7"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Límites de la Escala",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-limites-de-la-escala",
+      "aliases": [
+        "limites de la escala"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Límites de la Escala",
+      "anchor": "límites-de-la-escala",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "`Recarga 3+` representa normalmente el extremo más fiable para una capacidad relevante con usos limitados. Si una habilidad debería estar disponible prácticamente siempre, considera si realmente necesita Recarga o si debería funcionar mediante otra estructura.\n\n`Recarga 8+` es el límite natural del sistema. **No existe una Recarga 9+.**\n\nSi una carta continúa siendo demasiado poderosa incluso con `Recarga 8+`, debe limitarse mediante otros mecanismos: usos por Día de Descanso, condiciones más estrictas, Concentración, duración, requisitos narrativos o un rediseño del efecto.\n\nLas Cartas de Nivel 6 no siguen una progresión hipotética más allá de `8+`. Su propia naturaleza excepcional exige diseñar individualmente qué limita su uso.\n\n---",
+      "hash": "5cdf529f3493594bd54e67dad19426771df9a45d"
     },
     {
       "kind": "section",
@@ -13698,35 +13858,35 @@
     },
     {
       "kind": "section",
-      "canonicalName": "Paso 1: Establecer el Daño Base por Nivel",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-1-establecer-el-dano-base-por-nivel",
+      "canonicalName": "Paso 1: Determinar el Nivel y la Recarga de Referencia",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-1-determinar-el-nivel-y-la-recarga-de-referencia",
       "aliases": [
-        "paso 1: establecer el dano base por nivel"
+        "paso 1: determinar el nivel y la recarga de referencia"
       ],
       "tags": [],
       "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "Paso 1: Establecer el Daño Base por Nivel",
-      "anchor": "paso-1-establecer-el-daño-base-por-nivel",
+      "heading": "Paso 1: Determinar el Nivel y la Recarga de Referencia",
+      "anchor": "paso-1-determinar-el-nivel-y-la-recarga-de-referencia",
       "chapter": "8. Diseño de Conjuros y Habilidades",
       "source": "gm.md",
-      "search": "Esta tabla muestra el daño para una **Acción** con **Recarga Estándar (4+/5+)**.\n\n| Nivel | Daño Single-Target (ST) | Promedio ST | Daño en Área (AoE) | Promedio AoE | Rol Táctico                        |\n| :---- | :---------------------- | :---------- | :----------------- | :----------- | :--------------------------------- |\n| **1** | 1d8                     | 4.5         | 1d6                | 3.5          | Daño base.                         |\n| **2** | 2d8                     | 9           | 2d6                | 7            | Mejora lineal.                     |\n| **3** | 4d8                     | 18          | 4d6                | 14           | **Salto de Poder.**                |\n| **4** | 6d8                     | 27          | 6d6                | 21           | Daño fuerte. Recarga alta (6+).    |\n| **5** | 10d8                    | 45          | 8d6                | 28           | **Ultimate.** Recarga límite (8+). |\n\n---",
-      "hash": "3f4b3771cd3e8a288273463ea10ed4f6be1a2369"
+      "search": "Cuando una carta utiliza el sistema de Recarga, su **Nivel determina el valor de Recarga de referencia**.\n\n| Nivel | Recarga de Referencia | Probabilidad por Tirada | Expectativa                                                             |\n| :---- | :-------------------- | :---------------------- | :---------------------------------------------------------------------- |\n| **1** | **3+ / 4+**           | 75% / 62,5%             | Capacidades fundamentales y de uso frecuente.                           |\n| **2** | **5+**                | 50%                     | Técnicas especializadas con impacto claro.                              |\n| **3** | **6+**                | 37,5%                   | Poder avanzado. Aquí ocurre el principal salto de poder.                |\n| **4** | **7+**                | 25%                     | Capacidades de maestría, difíciles de repetir durante un mismo combate. |\n| **5** | **8+**                | 12,5%                   | Poder cumbre. Recuperarlo durante el combate debe ser excepcional.      |\n| **6** | **—**                 | —                       | Poderes fuera de la progresión normal. Se diseñan individualmente.      |\n\nPara **Nivel 1**, `Recarga 4+` funciona como referencia general. `Recarga 3+` está reservada para capacidades simples, fundamentales o expresamente diseñadas para utilizarse con mucha frecuencia.\n\nLa Recarga indicada por el Nivel **no es una obligación**. Es el punto desde el cual comienza el diseño.\n\n> **Ejemplo:** una carta de Nivel 3 comienza normalmente en `Recarga 6+`. Si posee un efecto relativamente contenido puede bajar a `5+`. Si altera fuertemente la economía de acciones o produce un efecto excepcional para su Nivel, puede subir a `7+` o incluso `8+`.",
+      "hash": "d7b4e451b0ef9344770a7218fa5f8015d42fe1d4"
     },
     {
       "kind": "section",
-      "canonicalName": "Paso 2: Añadir Utilidad y Ajustar el Coste",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-2-anadir-utilidad-y-ajustar-el-coste",
+      "canonicalName": "Paso 10: ¿Carta de Efecto o Activable?",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-10-carta-de-efecto-o-activable",
       "aliases": [
-        "paso 2: anadir utilidad y ajustar el coste"
+        "paso 10: ¿carta de efecto o activable?"
       ],
       "tags": [],
       "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "Paso 2: Añadir Utilidad y Ajustar el Coste",
-      "anchor": "paso-2-añadir-utilidad-y-ajustar-el-coste",
+      "heading": "Paso 10: ¿Carta de Efecto o Activable?",
+      "anchor": "paso-10-carta-de-efecto-o-activable",
       "chapter": "8. Diseño de Conjuros y Habilidades",
       "source": "gm.md",
-      "search": "Añadir efectos tiene un precio en daño o dificultad.",
-      "hash": "2a20b2cbe73cd0e120294ffdb42eda077dc98da1"
+      "search": "La distinción no depende de si una capacidad sirve o no para combatir.",
+      "hash": "56528df3970cc36d7deb92d21c0648ac7669b4b1"
     },
     {
       "kind": "section",
@@ -13762,6 +13922,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Paso 2: Establecer el Daño de Referencia",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-2-establecer-el-dano-de-referencia",
+      "aliases": [
+        "paso 2: establecer el dano de referencia"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 2: Establecer el Daño de Referencia",
+      "anchor": "paso-2-establecer-el-daño-de-referencia",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Para una carta principalmente ofensiva que requiera una **Acción**, utilice aproximadamente la **Recarga de referencia de su Nivel** y no posea un efecto secundario importante, utiliza estos valores como punto de partida:\n\n| Nivel | Daño Single-Target (ST) | Promedio ST | Daño en Área (AoE) | Promedio AoE |\n| :---- | :---------------------- | :---------- | :----------------- | :----------- |\n| **1** | 1d8                     | 4,5         | 1d6                | 3,5          |\n| **2** | 2d8                     | 9           | 2d6                | 7            |\n| **3** | 4d8                     | 18          | 4d6                | 14           |\n| **4** | 6d8                     | 27          | 6d6                | 21           |\n| **5** | 10d8                    | 45          | 8d6                | 28           |\n\nEstos valores representan un **presupuesto ofensivo aproximado**, no un daño obligatorio.\n\nSi una carta divide su daño entre varios ataques, proyectiles o impactos, debe evaluarse su **daño total esperado**, no aplicar el valor completo de la tabla a cada impacto.\n\nDel mismo modo, no debe asumirse que curación, Puntos de Salud temporales, mitigación o control poseen una equivalencia matemática directa con el daño. Para esos efectos resulta especialmente importante comparar la carta con otras capacidades similares del catálogo.\n\n---",
+      "hash": "4cbd98ca9a04b5935406d47fab7ad394071cd32d"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Paso 2: Habilidades",
       "slug": "02-creacion-de-personajes-paso-2-habilidades",
       "aliases": [
@@ -13791,22 +13967,6 @@
       "source": "gm.md",
       "search": "Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.\n\nEl Linaje puede ser utilizado por habilidades, objetos, efectos y otras reglas para determinar cómo interactúan con la criatura.\n\nLos Linajes de criatura habituales son:\n\n- **Humanoide:** pueblos y seres de naturaleza principalmente humanoide.\n- **Goblinoide:** goblins y criaturas pertenecientes a sus estirpes o familias afines.\n- **Bestia:** animales y criaturas naturales guiadas principalmente por el instinto.\n- **Monstruosidad:** criaturas extraordinarias cuya naturaleza no encaja en otras categorías.\n- **No-muerto:** cadáveres animados, espíritus y otras criaturas sostenidas más allá de la muerte.\n- **Constructo:** seres artificiales animados mediante magia, ingeniería u otros medios.\n- **Elemental:** criaturas vinculadas fundamentalmente a una fuerza o elemento primordial.\n- **Feérico:** seres ligados a la magia feérica, sus dominios o su naturaleza sobrenatural.\n- **Dragón:** dragones verdaderos y otras criaturas de naturaleza dracónica.\n- **Gigante:** gigantes verdaderos y criaturas pertenecientes a sus estirpes.\n- **Celestial:** seres originados o imbuidos por fuerzas celestiales.\n- **Infernal:** seres originados o imbuidos por fuerzas infernales.\n- **Aberración:** criaturas de naturaleza antinatural, alienígena o ajena a las leyes normales del mundo.\n- **Planta:** criaturas vegetales animadas o conscientes.\n\nEsta lista no es cerrada. El DJ puede crear nuevos Linajes cuando una criatura o ambientación lo requiera.\n\n> **Importante:** el Linaje de una criatura no otorga beneficios por sí mismo, salvo cuando una regla indique expresamente lo contrario. No debe utilizarse como justificación para añadir Resistencias, Inmunidades u otros beneficios gratuitos.\n\n**Idiomas:** los idiomas de una criatura son parte de su identidad y no tienen coste en PPF. La lista puede incluir lenguas propias, dialectos específicos de una región, subespecie o comunidad, o variantes que la criatura solo comprende o solo habla. El DJ puede añadir, restringir o ajustar los idiomas según la ficción de su mundo sin alterar el balance del bloque.\n\n> **Ejemplo:** la Harpía habla el dialecto propio de los acantilados a los que es territorial; otras harpías de un litoral distinto podrían hablar una variante diferente, sin coste por ello.",
       "hash": "77f0c5b730f354713c371da8331ac07d1742b00b"
-    },
-    {
-      "kind": "section",
-      "canonicalName": "Paso 3: Ajustar la Fiabilidad (Recarga)",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-3-ajustar-la-fiabilidad-recarga",
-      "aliases": [
-        "paso 3: ajustar la fiabilidad (recarga)"
-      ],
-      "tags": [],
-      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "Paso 3: Ajustar la Fiabilidad (Recarga)",
-      "anchor": "paso-3-ajustar-la-fiabilidad-recarga",
-      "chapter": "8. Diseño de Conjuros y Habilidades",
-      "source": "gm.md",
-      "search": "- **Baja (3+):** Daño moderado/Spam. (75% éxito).\n- **Estándar (4+/5+):** Balance habitual Nivel 1-3. (50-62%).\n- **Alta (6+):** Efectos potentes o Nivel 4. (37%).\n- **Límite (8+):** Ultimates Nivel 5. (12.5%).\n\n**Nota sobre Economía de Acción:**\n\n- **Interacción:** Solo utilidad menor o daño residual (máx 1d4). Nunca control fuerte.\n- **Reacción:** Solo defensa o castigo inmediato. Recargas medias.\n\n---",
-      "hash": "58d1ffab36833aedaa113b667a9e951afd1360b0"
     },
     {
       "kind": "section",
@@ -13858,6 +14018,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Paso 3: Incorporar Utilidad, Control y Efectos Secundarios",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-3-incorporar-utilidad-control-y-efectos-secundarios",
+      "aliases": [
+        "paso 3: incorporar utilidad, control y efectos secundarios"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 3: Incorporar Utilidad, Control y Efectos Secundarios",
+      "anchor": "paso-3-incorporar-utilidad-control-y-efectos-secundarios",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Añadir efectos a una carta consume parte de su presupuesto, pero no existe una única moneda con la que pagar ese coste.",
+      "hash": "0c5192cbfb73a7710f7ce02033af72588f32b793"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Paso 3: Recursos Derivados",
       "slug": "02-creacion-de-personajes-paso-3-recursos-derivados",
       "aliases": [
@@ -13871,6 +14047,22 @@
       "source": "player.md",
       "search": "A partir de tus atributos, se calculan otros valores esenciales para tu personaje:\n\n- **Salud:** Es la cantidad de daño que puedes soportar antes de quedar inconsciente.\n  - **Salud = 5 + (Cuerpo × 3)**\n- **Velocidad:** Es la distancia en metros que puedes moverte en un turno de combate.\n  - **Velocidad = 6 + Reflejos**\n- **Ranuras de Cartas Activas:** Representa cuántas de tus habilidades especiales puedes tener preparadas. Comienzas con **3 ranuras**.\n- **Suerte:** Es un recurso que ganas y gastas durante el juego. Comienzas cada sesión con **1 Punto de Suerte**.\n- **Tamaño:** Por defecto, todos los personajes son de tamaño **Mediano**, a menos que el Director de Juego (DJ) autorice explícitamente una excepción.",
       "hash": "4796a3105ac65f62e579b30b8ab8665dc0851168"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Paso 4: Ajustar la Fiabilidad",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-4-ajustar-la-fiabilidad",
+      "aliases": [
+        "paso 4: ajustar la fiabilidad"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 4: Ajustar la Fiabilidad",
+      "anchor": "paso-4-ajustar-la-fiabilidad",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Una vez establecido el efecto, compara la carta con la Recarga de referencia de su Nivel.",
+      "hash": "ef1b7fc53c406a9ce7301d18819c73826abb4b11"
     },
     {
       "kind": "section",
@@ -13954,6 +14146,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Paso 5: Recarga o Usos Fijos",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-5-recarga-o-usos-fijos",
+      "aliases": [
+        "paso 5: recarga o usos fijos"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 5: Recarga o Usos Fijos",
+      "anchor": "paso-5-recarga-o-usos-fijos",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "No todas las Cartas Activables necesitan utilizar Recarga.",
+      "hash": "405a9791468f865fdb91da2528ad13826227eb4c"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Paso 6: Daño de Área (AoE)",
       "slug": "08-7-diseno-avanzado-de-criaturas-paso-6-dano-de-area-aoe",
       "aliases": [
@@ -13970,6 +14178,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Paso 6: Economía de Acciones",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-6-economia-de-acciones",
+      "aliases": [
+        "paso 6: economia de acciones"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 6: Economía de Acciones",
+      "anchor": "paso-6-economía-de-acciones",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Los valores de daño de esta sección asumen normalmente que utilizar la carta consume una **Acción**.\n\nCambiar ese coste modifica considerablemente su valor.",
+      "hash": "00d11d9e2b76595903e741e23e81bd11296cc60e"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Paso 6: Equipo Inicial",
       "slug": "02-creacion-de-personajes-paso-6-equipo-inicial",
       "aliases": [
@@ -13983,6 +14207,22 @@
       "source": "player.md",
       "search": "Cada personaje comienza su aventura con **100 de Oro** para comprar su equipo inicial. En el capítulo **Equipo y Economía** encontrarás una lista de precios y objetos.",
       "hash": "68575482751cda70606d71d1205d9abd13340550"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Paso 7: Duración, Área y Concentración",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-7-duracion-area-y-concentracion",
+      "aliases": [
+        "paso 7: duracion, area y concentracion"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 7: Duración, Área y Concentración",
+      "anchor": "paso-7-duración-área-y-concentración",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Un efecto que permanece activo debe evaluarse por su impacto durante toda su duración razonable, no únicamente por lo que hace en el turno inicial.\n\nUna zona que inflige daño cada ronda, un aura que modifica múltiples ataques o un control que puede mantener a una criatura fuera del combate pueden superar ampliamente el valor aparente de su primera activación.",
+      "hash": "3312294ed891fdfcef2e4e776554e8ae7cd65461"
     },
     {
       "kind": "section",
@@ -14034,19 +14274,35 @@
     },
     {
       "kind": "section",
-      "canonicalName": "Poniéndolo Todo Junto: Un Ejemplo de Diseño",
-      "slug": "09-8-diseno-de-conjuros-y-habilidades-poniendolo-todo-junto-un-ejemplo-de-diseno",
+      "canonicalName": "Paso 8: Versatilidad",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-8-versatilidad",
       "aliases": [
-        "poniendolo todo junto: un ejemplo de diseno"
+        "paso 8: versatilidad"
       ],
       "tags": [],
       "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
-      "heading": "Poniéndolo Todo Junto: Un Ejemplo de Diseño",
-      "anchor": "poniéndolo-todo-junto-un-ejemplo-de-diseño",
+      "heading": "Paso 8: Versatilidad",
+      "anchor": "paso-8-versatilidad",
       "chapter": "8. Diseño de Conjuros y Habilidades",
       "source": "gm.md",
-      "search": "Este ejemplo ilustra el proceso mental para crear un conjuro nuevo usando las reglas v2.0. Queremos crear un conjuro de **Nivel 2** para el Arcanista llamado `Prisión de Hielo`.\n\n1.  **Concepto:** Un conjuro que daña y atrapa a un solo enemigo (Single Target).\n2.  **Daño Base:** Consultamos la Tabla. Para Nivel 2 Single-Target (ST), el daño base es **2d8**.\n3.  **Añadir Efecto:** Queremos que el objetivo quede **Inmovilizado**.\n    - Consultamos la guía: Inmovilizar es un **Efecto Fuerte**.\n    - **Coste:** El daño se reduce al del nivel inferior (Nivel 1).\n    - **Ajuste:** El daño baja a **1d8**.\n4.  **Establecer Recarga:** Es un conjuro de Nivel 2 estándar. La Recarga base es **4+**.\n5.  **Conjuro Base Terminado:**\n\n    > **`Prisión de Hielo` (Nivel 2 ST):** El objetivo debe superar una TS de Cuerpo. Si falla, recibe **1d8 de daño de Frío** y queda **Inmovilizado**. Requiere **Concentración**. **Recarga 4+**.\n\n6.  **Crear Variantes (Ajustando la Fiabilidad):**\n    - **Versión \"Avalancha\" (Más Poder):** Queremos recuperar el daño de 2d8. Pagamos el coste subiendo la dificultad de recarga (+2 pasos).\n      - _Resultado:_ **2d8** daño + Inmovilizado. **Recarga 6+**.\n    - **Versión \"Escarcha Eterna\" (Más Fiabilidad):** Queremos que sea muy fácil de recargar (3+). Pagamos el coste bajando el dado de daño (d8 -> d6).\n      - _Resultado:_ **1d6** daño + Inmovilizado. **Recarga 3+**.\n\n---",
-      "hash": "aff5f0a749ffe834c01d85d28ca58c919d5efd3e"
+      "search": "La capacidad de elegir entre varios modos solo tiene un coste importante cuando esos modos ofrecen **soluciones tácticas realmente diferentes**.\n\nElegir entre Fuego o Frío para producir esencialmente el mismo efecto no requiere necesariamente aumentar la Recarga.\n\nEn cambio, una carta que pueda alternativamente hacer daño, controlar enemigos, proteger aliados o resolver problemas de exploración posee una versatilidad significativa.\n\nEn esos casos puede ser apropiado:\n\n- aumentar la Recarga;\n- reducir la potencia individual de cada modo;\n- limitar qué modos están disponibles en determinadas circunstancias.\n\nNo aumentes automáticamente la Recarga de toda carta con varias opciones. Evalúa cuánto amplían realmente esas opciones el rango de situaciones que la carta puede resolver.\n\n---",
+      "hash": "746eb25597fbb25122ab5f833b0b6e0564320896"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Paso 9: Requerimientos y Dependencias",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-paso-9-requerimientos-y-dependencias",
+      "aliases": [
+        "paso 9: requerimientos y dependencias"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Paso 9: Requerimientos y Dependencias",
+      "anchor": "paso-9-requerimientos-y-dependencias",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Los Requerimientos de Atributo y las dependencias entre cartas determinan **cuándo y cómo se accede** a una capacidad.\n\nNo deberían utilizarse como moneda principal para justificar una carta excesivamente poderosa una vez que esta se encuentra disponible.\n\nUna carta no está equilibrada en combate únicamente porque requiera haber adquirido previamente otras tres cartas.\n\nLas dependencias deben existir principalmente porque representan una progresión mecánica o temática coherente, no para corregir mediante requisitos un efecto cuyo balance interno ya es problemático.\n\n---",
+      "hash": "ef5a60767a5c97b9b8539adf5d742d8cca5c2d1c"
     },
     {
       "kind": "section",
@@ -14143,6 +14399,22 @@
       "source": "gm.md",
       "search": "La Marcha Forzada debe aplicarse a la criatura que realiza el esfuerzo prolongado, no automáticamente a todos aquellos que se estén desplazando.\n\nEn un viaje a pie, serán normalmente los propios personajes. Al utilizar monturas o animales de tiro, el esfuerzo adicional puede recaer principalmente sobre esos animales. En una embarcación impulsada a remo, recaerá sobre quienes remen. En cambio, los pasajeros de un barco que continúa navegando gracias a una tripulación organizada en turnos, no están realizando una Marcha Forzada simplemente porque la embarcación permanezca en movimiento durante todo el día.\n\nUtiliza estas reglas cuando el desgaste forme parte real de las decisiones del grupo. Si un viaje transcurre por una ruta segura, con tiempo suficiente y sin presión significativa, no es necesario convertir cada jornada en una sucesión de tiradas.",
       "hash": "991d1b1d8aee16619727d7ad6497dc573c697d2a"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Reacción",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-reaccion",
+      "aliases": [
+        "reaccion"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Reacción",
+      "anchor": "reacción",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Las Reacciones están limitadas por un desencadenante y por competir con otras Reacciones.\n\nUn desencadenante estrecho puede ser por sí mismo una limitación importante. En cambio, una Reacción fácil de activar que produzca daño completo, niegue un ataque o otorgue una acción ofensiva adicional posee un valor considerable.\n\nEvalúa siempre:\n\n- qué tan frecuentemente puede ocurrir el desencadenante;\n- cuánto control tiene el jugador sobre provocarlo;\n- qué otras Reacciones compiten con ella;\n- cuánto cambia el resultado cuando se utiliza.",
+      "hash": "3580b3bdd13fc24393b991f8c4374f94313d4b9b"
     },
     {
       "kind": "section",
@@ -14287,6 +14559,22 @@
       "source": "gm.md",
       "search": "El mejor tesoro a menudo no viene en una bolsa de monedas, sino en la forma de un objeto único que define a un personaje. En ARCANA, los objetos especiales y mágicos se integran en el juego utilizando el mismo lenguaje que las habilidades del personaje: el formato de carta.\n\nEsto evita las bonificaciones numéricas genéricas y, en su lugar, otorga capacidades nuevas y narrativamente interesantes.",
       "hash": "5c5e4a63b1e4f0c96b29b95a51c9bbc09713787d"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Reducir la Fiabilidad",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-reducir-la-fiabilidad",
+      "aliases": [
+        "reducir la fiabilidad"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Reducir la Fiabilidad",
+      "anchor": "reducir-la-fiabilidad",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Aumentar la Recarga en `+1` permite otorgar a una carta una potencia superior a la referencia de su Nivel.\n\nAumentarla en **dos pasos** representa una capacidad excepcionalmente poderosa o difícil de repetir y debe utilizarse deliberadamente.\n\nLa Recarga no debe convertirse en una excusa para ignorar cualquier otro límite. Una habilidad problemática puede continuar siendo problemática incluso si solo se recupera con un `8+`.\n\n---",
+      "hash": "1297a1a4677af06d043c486750b5bc258f390b97"
     },
     {
       "kind": "section",
@@ -14478,6 +14766,38 @@
       "source": "player.md",
       "search": "_¿De dónde venís y qué te convirtió en quien sos hoy?_\n\n- ¿Dónde creciste? ¿En una ciudad bulliciosa, una aldea tranquila, en medio de la naturaleza salvaje?\n- ¿A qué se dedica tu familia? ¿Seguís sus pasos o te rebelaste contra ellos?\n- ¿Cuál es el evento más importante que te ha pasado hasta ahora? ¿Fue un triunfo o una tragedia?\n- ¿Quién es la persona más importante en tu vida (un mentor, un familiar, un amor perdido)?\n- ¿Por qué decidiste convertirte en un aventurero? ¿Buscás fama, fortuna, venganza, conocimiento o algo completamente distinto?",
       "hash": "9f72be61e0a4e6117b0f4d001ae36e4f9950c253"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Utiliza Recarga cuando:",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-utiliza-recarga-cuando",
+      "aliases": [
+        "utiliza recarga cuando:"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Utiliza Recarga cuando:",
+      "anchor": "utiliza-recarga-cuando",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "La capacidad puede utilizarse potencialmente varias veces durante una aventura o combate sin romper el ritmo del juego.\n\nLa incertidumbre de si volverá a estar disponible forma parte interesante de su funcionamiento.",
+      "hash": "2f88036bbf7f5b29e34e525fe764911ab848c7fb"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Utiliza usos fijos cuando:",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-utiliza-usos-fijos-cuando",
+      "aliases": [
+        "utiliza usos fijos cuando:"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Utiliza usos fijos cuando:",
+      "anchor": "utiliza-usos-fijos-cuando",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "El efecto es tan decisivo que repetirlo durante un mismo combate resulta problemático incluso si la probabilidad es baja.\n\nEsto es especialmente apropiado para capacidades que:\n\n- producen muerte o neutralización inmediata bajo ciertas condiciones;\n- resucitan personajes;\n- generan transformaciones extremadamente poderosas;\n- modifican radicalmente la economía de acciones;\n- resuelven problemas estratégicos o narrativos de gran escala;\n- poseen un impacto que ya supera aquello que `Recarga 8+` puede limitar razonablemente.\n\nLas cartas de Nivel 5 pueden utilizar tanto `Recarga 8+` como usos por Día de Descanso según la naturaleza de su efecto.\n\n---",
+      "hash": "63a94299bd66404fb60c1e99ccd5ef4331c089ec"
     },
     {
       "kind": "section",

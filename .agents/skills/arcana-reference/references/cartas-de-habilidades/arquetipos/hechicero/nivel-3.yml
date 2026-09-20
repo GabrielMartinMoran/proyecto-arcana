@@ -29,7 +29,7 @@ cards:
     requirements: Herencia Sobrenatural & Presencia 4
     uses:
       type: RELOAD
-      qty: 5
+      qty: 6
     description: >-
       _En lugar de rehuir del daño mágico, obligas a tu cuerpo a absorber esa energía para alimentar tus próximos
       conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a
@@ -48,7 +48,7 @@ cards:
     requirements: Herencia Sobrenatural & Atributo Arcano 4
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
     description: >-
       _Lanzas un orbe de magia cruda que detona violentamente, alterando la gravedad y la masa en su centro de
       impacto._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3 metros de radio.

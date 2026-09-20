@@ -44,7 +44,7 @@ cards:
     requirements: Fe Inspiradora & Instinto 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Imbuyes tu arma con la furia de los cielos, desatando un resplandor que ciega a las fuerzas del mal._<br><br>
       Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de
@@ -161,7 +161,7 @@ cards:
     requirements: Fe Inspiradora & Instinto 3
     uses:
       type: RELOAD
-      qty: 3
+      qty: 5
     description: >-
       _Impones un manto de sinceridad absoluta; en este espacio sagrado, el engaño se marchita y muere._<br><br> Creas
       una zona de 5 metros de radio a distancia Media por 10 minutos. Quien esté dentro debe superar una TS de Instinto
@@ -197,7 +197,7 @@ cards:
     requirements: Fe Inspiradora & Instinto 3
     uses:
       type: RELOAD
-      qty: 4
+      qty: 5
     description: >-
       _Tu voz resuena con un peso celestial, doblegando la voluntad de los mortales con un simple mandato._<br><br> Como
       Acción, eliges a una criatura a distancia Media. Le das una orden de una o dos palabras (ej: "¡Suéltalo!",

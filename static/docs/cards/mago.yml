@@ -109,7 +109,7 @@ cards:
       - **Concentración de Poder:** Si diriges ambos proyectiles al mismo objetivo, suma sus resultados antes de que el enemigo aplique su Mitigación Mágica.
     uses:
       type: RELOAD
-      qty: 3
+      qty: 4
   - name: Rompeconjuros
     level: 3
     type: activable
