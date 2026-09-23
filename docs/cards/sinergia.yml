@@ -63,12 +63,12 @@ cards:
       - Sinergia
       - Combatiente
       - Arcanista
-    requirements: 'Maestría Marcial & Afinidad Arcana & Cuerpo 5'
+    requirements: 'Maestría Marcial & Afinidad Arcana & Atributo Marcial 5'
     description: >-
-      _El acero de tu arma y la magia de los elementos se vuelven uno solo en tus manos letales._<br><br>
+      _Tu dominio del combate y de la Urdimbre ha alcanzado un punto en el que ya no distingues entre atacar y conjurar. El arma simplemente se convierte en otro conducto para tu poder arcano._<br><br>
       **Beneficio de Sinergia:**<br>
-      - **Acero Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br>
-      - **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por Recarga 6+)
+      - **Acero Arcano:** Siempre que finalices un día de descanso, puedes elegir uno de los siguientes tipos de daño: Fuego, Frío, Eléctrico, Fuerza, Psíquico o Necrótico. Una vez por turno, cuando impactas con un ataque con arma, infliges 1d6 de daño adicional del tipo elegido.<br>
+      - **Cadencia de Acero y Magia:** Cuando usas tu Acción para Atacar, puedes reemplazar uno de tus ataques por el lanzamiento de una carta de _Conjuro_ de _Arcanista_ de Nivel 1 que normalmente requiera una Acción. El conjuro se lanza como parte de la misma Acción de Atacar. Solo puedes reemplazar un ataque de esta forma por turno.<br>
     uses:
       type: null
       qty: 0
