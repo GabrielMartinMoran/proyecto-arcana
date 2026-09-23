@@ -15,3 +15,32 @@ cards:
       de Salud temporales igual a la mitad de los PS sacrificados (redondeado hacia arriba). Estos puntos temporales
       duran hasta el inicio de tu próximo turno.
     slug: escudo-residual
+  - id: 46c71684ff41d23af3e6b09d07bb4ad08c81b3c4
+    name: Desborde Armado
+    level: 2
+    type: activable
+    tags:
+      - Hechicero
+      - Conjuro
+    requirements: Herencia Sobrenatural & Presencia 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Cuando el acero impacta, la magia que corre por tus venas encuentra una grieta por la que escapar, deformando
+      violentamente el golpe y la realidad a su alrededor._<br><br> Cuando impactas a una criatura con un ataque con
+      arma, puedes usar tu Interacción y gastar el uso de esta carta para liberar un desborde de magia inestable.<br>
+      Tira 1d4 y aplica la manifestación correspondiente:<br> - **1 — Sobrecarga Arcana:** El daño base del arma se
+      convierte en Fuerza. Vuelve a tirar el dado de daño base del arma y utiliza el resultado más alto. Si el dado
+      original ya había obtenido su valor máximo, no lo vuelves a tirar; en su lugar, infliges 1d4 de daño de Fuerza
+      adicional.<br> - **2 — Ruptura Cinética:** Si el objetivo es como máximo un tamaño mayor que tú, es empujado 3
+      metros directamente en dirección opuesta a ti. Si es de tu tamaño o menor, además queda Derribado.<br> - **3 —
+      Fractura Espacial:** Si el objetivo es como máximo un tamaño mayor que tú, lo teletransportas hasta 5 metros a un
+      espacio desocupado que puedas ver. El destino debe ser capaz de sostener físicamente a la criatura y no puede
+      colocarla directamente dentro de un peligro ambiental evidente.<br> - **4 — Reflujo Arcano:** Obtienes una
+      cantidad de Puntos de Salud temporales igual a 2d4 + tu Presencia durante 1 minuto.<br><br> **Forzar el
+      Desborde:** Antes de tirar el dado, puedes sacrificar 2 Puntos de Salud como uso de tu carta _Sangre Mágica_. Si
+      lo haces, tira 2d4 y elige cuál de los dos resultados aplicar.<br> Si posees la carta _Sangre Mágica_, este
+      sacrificio cuenta como tu uso de _Sangre Mágica_ de la ronda y activa cualquier efecto que se desencadene al
+      sacrificar Salud mediante esa carta.
+    slug: desborde-armado

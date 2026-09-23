@@ -446,6 +446,29 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Arma Primordial",
+      "id": "19701c14b7896540dbd0eee68e20e124591b150b",
+      "slug": "arma-primordial",
+      "aliases": [
+        "arma primordial"
+      ],
+      "tags": [
+        "Conjuro",
+        "Druida"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Sintonía Primordial"
+      },
+      "search": "_Invocas la fuerza latente de la naturaleza para despertar un arma de madera, hueso o piedra, convirtiéndola en una extensión de tu voluntad._<br><br> Como Interacción, eliges una Porra, Bastón, Lanza u otra arma apropiada compuesta principalmente de materiales naturales que estés empuñando.<br> Durante 1 minuto:<br> - Puedes usar Instinto en lugar de Cuerpo o Reflejos para sus tiradas de ataque.<br> - Puedes reemplazar su dado de daño base por 1d8.<br> - El arma se considera mágica a efectos de Resistencias e Inmunidades.<br> - Puedes utilizar el arma como Foco para tus cartas de _Conjuro_ de Druida.<br> Solo puedes tener un arma imbuida de esta forma a la vez.",
+      "hash": "f278b27390c54ac4b985b8b3aee09b4c567833be"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Artes Marciales",
       "id": "94a9e2f9de039aa0296a722e8c6ae855c1fdde91",
       "slug": "artes-marciales",
@@ -1987,6 +2010,30 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Desborde Armado",
+      "id": "46c71684ff41d23af3e6b09d07bb4ad08c81b3c4",
+      "slug": "desborde-armado",
+      "aliases": [
+        "desborde armado"
+      ],
+      "tags": [
+        "Conjuro",
+        "Hechicero"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Herencia Sobrenatural & Presencia 3",
+        "uses": "RELOAD:5"
+      },
+      "search": "_Cuando el acero impacta, la magia que corre por tus venas encuentra una grieta por la que escapar, deformando violentamente el golpe y la realidad a su alrededor._<br><br> Cuando impactas a una criatura con un ataque con arma, puedes usar tu Interacción y gastar el uso de esta carta para liberar un desborde de magia inestable.<br> Tira 1d4 y aplica la manifestación correspondiente:<br> - **1 — Sobrecarga Arcana:** El daño base del arma se convierte en Fuerza. Vuelve a tirar el dado de daño base del arma y utiliza el resultado más alto. Si el dado original ya había obtenido su valor máximo, no lo vuelves a tirar; en su lugar, infliges 1d4 de daño de Fuerza adicional.<br> - **2 — Ruptura Cinética:** Si el objetivo es como máximo un tamaño mayor que tú, es empujado 3 metros directamente en dirección opuesta a ti. Si es de tu tamaño o menor, además queda Derribado.<br> - **3 — Fractura Espacial:** Si el objetivo es como máximo un tamaño mayor que tú, lo teletransportas hasta 5 metros a un espacio desocupado que puedas ver. El destino debe ser capaz de sostener físicamente a la criatura y no puede colocarla directamente dentro de un peligro ambiental evidente.<br> - **4 — Reflujo Arcano:** Obtienes una cantidad de Puntos de Salud temporales igual a 2d4 + tu Presencia durante 1 minuto.<br><br> **Forzar el Desborde:** Antes de tirar el dado, puedes sacrificar 2 Puntos de Salud como uso de tu carta _Sangre Mágica_. Si lo haces, tira 2d4 y elige cuál de los dos resultados aplicar.<br> Si posees la carta _Sangre Mágica_, este sacrificio cuenta como tu uso de _Sangre Mágica_ de la ronda y activa cualquier efecto que se desencadene al sacrificar Salud mediante esa carta.",
+      "hash": "fc7c919362aadc0990b106c6a2583a4241fd2754"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Descarga Elemental",
       "id": "e6dd796221eaecac504f9d928e19651064802215",
       "slug": "descarga-elemental",
@@ -3007,8 +3054,8 @@
         "requirements": "Sintonía Fluida",
         "uses": "LONG_REST:2"
       },
-      "search": "_Entras en un estado de calma absoluta donde el tiempo parece ralentizarse, permitiéndote reaccionar a cada amenaza antes de que ocurra._<br><br> Como Interacción, entras en un estado de concentración absoluta durante 1 minuto o hasta que quedes inconsciente. Mientras dure este estado, tu velocidad de reacción te otorga un +1 a tu Esquiva y puedes desenvainar o guardar armas sin gastar tu Interacción.<br> Mientras dure el foco, no puedes mantener concentración en otras habilidades o usar cartas con la etiqueta _Conjuro_.",
-      "hash": "3e9c3b988c5bbcebb4d1da5be8c5aa307e350444"
+      "search": "_Entras en un estado de calma absoluta donde el tiempo parece ralentizarse, permitiéndote reaccionar a cada amenaza antes de que ocurra._<br><br> Como Interacción, entras en un estado de concentración absoluta durante 1 minuto o hasta que quedes inconsciente. Mientras dure este estado, tu velocidad de reacción te otorga un +1 a tu Esquiva y puedes desenvainar o guardar armas sin gastar tu Interacción.<br> Mientras dure el foco, no puedes mantener ningún otro efecto que requiera Concentración.",
+      "hash": "3116b7cd4c20ddc11215e977fb643a46d44ae374"
     },
     {
       "kind": "card",
@@ -3130,6 +3177,30 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Fórmulas de Combate",
+      "id": "fd2d3e54927d15e5b0f0d19ed88884f231eb44b0",
+      "slug": "formulas-de-combate",
+      "aliases": [
+        "formulas de combate"
+      ],
+      "tags": [
+        "Conjuro",
+        "Mago"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Estudios Mágicos & Atributo Arcano 3",
+        "uses": "RELOAD:5"
+      },
+      "search": "_Has aprendido a inscribir fórmulas de transformación sobre tus movimientos, alterando la naturaleza de un impacto en el instante preciso en que tu arma encuentra a su objetivo._<br><br> Cuando impactas a una criatura con un ataque usando un arma preparada como Foco, puedes usar tu Interacción y gastar el uso de esta carta para aplicar una de las siguientes fórmulas.<br> La fórmula solo modifica el daño base del arma. Todo daño adicional procedente de otras cartas, objetos o efectos conserva su tipo original.<br> - **Combustión (Fuego):** El daño base del arma se convierte en Fuego. Al inicio del próximo turno del objetivo, este recibe 1d4 de daño de Fuego.<br> - **Congelación (Frío):** El daño base del arma se convierte en Frío. La Velocidad del objetivo se reduce a la mitad hasta el final de su próximo turno.<br> - **Sobrecarga Nerviosa (Eléctrico):** El daño base del arma se convierte en Eléctrico. El objetivo sufre -1 a su Esquiva hasta el inicio de tu próximo turno.<br> - **Conversión Cinética (Fuerza):** El daño base del arma se convierte en Fuerza. Antes de aplicar el daño, puedes reducir su resultado hasta una cantidad igual a tu Atributo Arcano. Por cada punto de daño sacrificado de esta forma, obtienes 2 Puntos de Salud temporales durante 1 minuto.<br> - **Resonancia (Psíquico):** El daño base del arma se convierte en Psíquico. La próxima Tirada de Salvación que el objetivo realice contra uno de tus _Conjuros_ antes del final de tu próximo turno sufre Desventaja (-1d4).<br> - **Entropía (Necrótico):** El daño base del arma se convierte en Necrótico. El objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.",
+      "hash": "210af495ab9a9f4a35d3dcbb566b07ee0117e80e"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Fortaleza Interior",
       "id": "607896f39bbbba8b139712dff2a5af66fbf60fd1",
       "slug": "fortaleza-interior",
@@ -3218,8 +3289,8 @@
         "requirements": "Sintonía con el Acero",
         "uses": "LONG_REST:2"
       },
-      "search": "_Dejas que el instinto primordial tome el control, convirtiéndote en una fuerza de la naturaleza que ignora el dolor y siembra el caos._<br><br> Entras en furia por 1 minuto o hasta que quedes inconsciente.<br> Al entrar en furia, ganas una cantidad de Puntos de Salud temporales igual a dos veces tu puntuación de Cuerpo. Además, mientras dure la furia, ganas los siguientes efectos:<br> - **Temple de Hierro:** Ganas ventaja en Pruebas de Habilidad de Cuerpo.<br> - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación.<br> - **Instinto Primordial:** Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.<br> En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, tu furia termina.",
-      "hash": "1094600fc7a9327200cd8fae01241590364b02c2"
+      "search": "_Dejas que el instinto primordial tome el control, convirtiéndote en una fuerza de la naturaleza que ignora el dolor y siembra el caos._<br><br> Entras en furia por 1 minuto o hasta que quedes inconsciente.<br> Al entrar en furia, ganas una cantidad de Puntos de Salud temporales igual a dos veces tu puntuación de Cuerpo. Además, mientras dure la furia, ganas los siguientes efectos:<br> - **Dureza Salvaje:** Obtienes +1 a tu Mitigación Física y Mágica.<br> - **Temple de Hierro:** Ganas ventaja en Pruebas de Habilidad de Cuerpo.<br> - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de Intimidación.<br> - **Instinto Primordial:** Mientras dure la furia, no puedes pensar con claridad ni mantener concentración. Además, no puedes utilizar cartas con la etiqueta _Conjuro_, salvo cuando estas se utilicen como parte de un ataque con arma o se activen como consecuencia de impactar con uno.<br> En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, tu furia termina.",
+      "hash": "f1864b9729b3445a46ddc78aa620db1bcf179f09"
     },
     {
       "kind": "card",
@@ -4459,10 +4530,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Maestría Marcial & Afinidad Arcana & Cuerpo 5"
+        "requirements": "Maestría Marcial & Afinidad Arcana & Atributo Marcial 5"
       },
-      "search": "_El acero de tu arma y la magia de los elementos se vuelven uno solo en tus manos letales._<br><br> **Beneficio de Sinergia:**<br> - **Acero Elemental:** Al finalizar un día de descanso, eliges un tipo de daño elemental (Fuego, Frío o Eléctrico). Tus ataques con armas cuerpo a cuerpo infligen 1d4 de daño adicional de ese tipo hasta tu próximo descanso.<br> - **Desviar Energía:** Cuando recibes daño de Fuego, Frío o Eléctrico de un conjuro o efecto mágico, puedes usar tu Reacción. Ganas Resistencia (mitad de daño) contra ese daño específico. Además, tu próximo impacto con un arma cuerpo a melee antes del final de tu próximo turno inflige 1d4 de daño adicional del tipo absorbido. (Usos: 1 por Recarga 6+)",
-      "hash": "d0292c27fb6ff80de8774ab542d085d92b7a3de2"
+      "search": "_Tu dominio del combate y de la Urdimbre ha alcanzado un punto en el que ya no distingues entre atacar y conjurar. El arma simplemente se convierte en otro conducto para tu poder arcano._<br><br> **Beneficio de Sinergia:**<br> - **Acero Arcano:** Siempre que finalices un día de descanso, puedes elegir uno de los siguientes tipos de daño: Fuego, Frío, Eléctrico, Fuerza, Psíquico o Necrótico. Una vez por turno, cuando impactas con un ataque con arma, infliges 1d6 de daño adicional del tipo elegido.<br> - **Cadencia de Acero y Magia:** Cuando usas tu Acción para Atacar, puedes reemplazar uno de tus ataques por el lanzamiento de una carta de _Conjuro_ de _Arcanista_ de Nivel 1 que normalmente requiera una Acción. El conjuro se lanza como parte de la misma Acción de Atacar. Solo puedes reemplazar un ataque de esta forma por turno.<br>",
+      "hash": "08d60e72a74028425d5fc3956b150086344173fe"
     },
     {
       "kind": "card",

@@ -176,8 +176,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml",
       "kind": "file",
-      "size": 844,
-      "sha1": "b1768d7f5348ca7bf137cd919aafed9a826649a4"
+      "size": 816,
+      "sha1": "2bebd6ab151483b09d05dfabd7da2280ebf02e45"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-2.yml",
@@ -216,8 +216,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-1.yml",
       "kind": "file",
-      "size": 2312,
-      "sha1": "86d0c901d56a0cdb31088058f10c288f23976642"
+      "size": 2518,
+      "sha1": "d6d3e0e109ba6553bf1efde48477355f39538a08"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-2.yml",
@@ -256,8 +256,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-1.yml",
       "kind": "file",
-      "size": 7037,
-      "sha1": "2631da853becd12b8a4d7e77a5f211e962f62610"
+      "size": 8026,
+      "sha1": "245211a7613103d2062b35363ccccdf83fde1bcc"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
@@ -302,8 +302,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
       "kind": "file",
-      "size": 691,
-      "sha1": "5f92bfe1dd531ffe1f767523e48dadd9c164f71c"
+      "size": 2801,
+      "sha1": "be0531b3ec0c9aed879d140267c84a14645b94d5"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml",
@@ -342,8 +342,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-2.yml",
       "kind": "file",
-      "size": 1699,
-      "sha1": "54c3176454931b1eae51a319dc940645994bbebb"
+      "size": 3794,
+      "sha1": "7ed80d675f75a19f7222e8946c73ad02066dce12"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-3.yml",
@@ -550,8 +550,8 @@
     {
       "path": "references/cartas-de-habilidades/sinergia/nivel-4.yml",
       "kind": "file",
-      "size": 19761,
-      "sha1": "c93cb8a638798cd3d58eb6d159cc7df976d5da3d"
+      "size": 19898,
+      "sha1": "a537d882d53739014addbee54486f3c666d0dd88"
     },
     {
       "path": "references/datasets",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 287114,
-      "sha1": "404d99dae54843c18e8bfd7f9a5b44c8067305d8"
+      "size": 292538,
+      "sha1": "6b2eaa64311c1ad9c6de08c45979a4a7a7f0ab83"
     },
     {
       "path": "references/datasets/magical-items.yml",

@@ -25,9 +25,10 @@ cards:
       _Dejas que el instinto primordial tome el control, convirtiéndote en una fuerza de la naturaleza que ignora el dolor y siembra el caos._<br><br>
       Entras en furia por 1 minuto o hasta que quedes inconsciente.<br>
       Al entrar en furia, ganas una cantidad de Puntos de Salud temporales igual a dos veces tu puntuación de Cuerpo. Además, mientras dure la furia, ganas los siguientes efectos:<br>
+      - **Dureza Salvaje:** Obtienes +1 a tu Mitigación Física y Mágica.<br>
       - **Temple de Hierro:** Ganas ventaja en Pruebas de Habilidad de Cuerpo.<br>
-      - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de habilidad de Intimidación.<br>
-      - **Instinto Primordial:** Mientras dure la furia, no puedes pensar con claridad, mantener concentración ni usar cartas con la etiqueta _Conjuro_.<br>
+      - **Presencia Imponente:** Tu imponente estado físico te permite usar tu puntuación de Cuerpo en lugar de tu puntuación de Presencia al realizar pruebas de Intimidación.<br>
+      - **Instinto Primordial:** Mientras dure la furia, no puedes pensar con claridad ni mantener concentración. Además, no puedes utilizar cartas con la etiqueta _Conjuro_, salvo cuando estas se utilicen como parte de un ataque con arma o se activen como consecuencia de impactar con uno.<br>
       En caso de no recibir ninguna agresión o agredir a alguien durante una ronda, tu furia termina.
     uses:
       type: LONG_REST

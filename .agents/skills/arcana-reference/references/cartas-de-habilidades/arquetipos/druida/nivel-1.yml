@@ -59,6 +59,25 @@ cards:
       impactas, infliges 1d6 de daño Cortante y puedes forzar al objetivo a realizar una Tirada de Salvación de Cuerpo
       (ND 5 + Instinto). Si falla la Tirada de Salvación, mueves al objetivo 1 metro en cualquier dirección.
     slug: latigo-de-espinas
+  - id: 19701c14b7896540dbd0eee68e20e124591b150b
+    name: Arma Primordial
+    level: 1
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+    requirements: Sintonía Primordial
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Invocas la fuerza latente de la naturaleza para despertar un arma de madera, hueso o piedra, convirtiéndola en
+      una extensión de tu voluntad._<br><br> Como Interacción, eliges una Porra, Bastón, Lanza u otra arma apropiada
+      compuesta principalmente de materiales naturales que estés empuñando.<br> Durante 1 minuto:<br> - Puedes usar
+      Instinto en lugar de Cuerpo o Reflejos para sus tiradas de ataque.<br> - Puedes reemplazar su dado de daño base
+      por 1d8.<br> - El arma se considera mágica a efectos de Resistencias e Inmunidades.<br> - Puedes utilizar el arma
+      como Foco para tus cartas de _Conjuro_ de Druida.<br> Solo puedes tener un arma imbuida de esta forma a la vez.
+    slug: arma-primordial
   - id: 0dc88f8a1d948ee135b1a1b2124b0753d84f72ce
     name: Forma Salvaje
     level: 1
