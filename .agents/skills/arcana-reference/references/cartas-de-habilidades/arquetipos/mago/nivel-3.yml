@@ -16,10 +16,10 @@ cards:
       recuperarlo:<br> - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas
       su alcance un rango (ej. de Cercana a Media).<br> - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las
       dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas
-      igual a tu Atributo Arcano dentro del área para que no sean afectadas por el conjuro.<br> - **Conjuro Bifurcado
-      (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del
-      alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante
-      fuera superior a 8.
+      igual a tu puntuación de Mente dentro del área para que no sean afectadas por el conjuro.<br> - **Conjuro
+      Bifurcado (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido
+      dentro del alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga
+      resultante fuera superior a 8.
     slug: teoria-arcana-avanzada
   - id: af7be8e7ce4f47d5eaa84f27f8245ea88f71cff4
     name: Rompeconjuros
@@ -30,16 +30,15 @@ cards:
       - Conjuro
       - Reacción
       - Ritual
-    requirements: Estudios Mágicos & Atributo Arcano 4
+    requirements: Estudios Mágicos & Mente 4
     uses:
       type: RELOAD
       qty: 6
     description: >-
       _Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los
       existentes._<br><br> Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br> - **Contraconjurar:**
-      Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Atributo Arcano
-      contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como
-      Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una
-      prueba de Atributo Arcano contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes
-      éxito, el efecto mágico.
+      Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Mente contra el
+      atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o
+      Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una prueba de
+      Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
     slug: rompeconjuros

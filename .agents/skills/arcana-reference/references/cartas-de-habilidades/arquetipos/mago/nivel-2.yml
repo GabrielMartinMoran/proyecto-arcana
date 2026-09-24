@@ -6,7 +6,7 @@ cards:
     tags:
       - Mago
       - Conjuro
-    requirements: Estudios Mágicos & Atributo Arcano 3
+    requirements: Estudios Mágicos & Mente 3
     uses:
       type: RELOAD
       qty: 5
@@ -21,11 +21,11 @@ cards:
       hasta el final de su próximo turno.<br> - **Sobrecarga Nerviosa (Eléctrico):** El daño base del arma se convierte
       en Eléctrico. El objetivo sufre -1 a su Esquiva hasta el inicio de tu próximo turno.<br> - **Conversión Cinética
       (Fuerza):** El daño base del arma se convierte en Fuerza. Antes de aplicar el daño, puedes reducir su resultado
-      hasta una cantidad igual a tu Atributo Arcano. Por cada punto de daño sacrificado de esta forma, obtienes 2 Puntos
-      de Salud temporales durante 1 minuto.<br> - **Resonancia (Psíquico):** El daño base del arma se convierte en
-      Psíquico. La próxima Tirada de Salvación que el objetivo realice contra uno de tus _Conjuros_ antes del final de
-      tu próximo turno sufre Desventaja (-1d4).<br> - **Entropía (Necrótico):** El daño base del arma se convierte en
-      Necrótico. El objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
+      hasta una cantidad igual a tu Mente. Por cada punto de daño sacrificado de esta forma, obtienes 2 Puntos de Salud
+      temporales durante 1 minuto.<br> - **Resonancia (Psíquico):** El daño base del arma se convierte en Psíquico. La
+      próxima Tirada de Salvación que el objetivo realice contra uno de tus _Conjuros_ antes del final de tu próximo
+      turno sufre Desventaja (-1d4).<br> - **Entropía (Necrótico):** El daño base del arma se convierte en Necrótico. El
+      objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.
     slug: formulas-de-combate
   - id: 1ca9045b448eeee24d9937eb1cc600beafa581c2
     name: Familiar Arcano
@@ -34,7 +34,7 @@ cards:
     tags:
       - Mago
       - Ritual
-    requirements: Estudios Mágicos & Atributo Arcano 3
+    requirements: Estudios Mágicos & Mente 3
     uses:
       type: null
       qty: 0

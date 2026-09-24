@@ -2891,10 +2891,10 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Estudios Mágicos & Atributo Arcano 3"
+        "requirements": "Estudios Mágicos & Mente 3"
       },
       "search": "_Invocas a un pequeño espíritu mágico que actúa como tus ojos, oídos y conducto en el mundo físico._<br><br> Tras 1 hora de ritual, invocas un espíritu mágico menor encarnado en el cuerpo de un animal pequeño (cuervo, gato, sapo, etc.).<br> Su Salud es igual a tu puntuación de Mente, y su Esquiva es 10 + tu puntuación de Mente. El familiar no puede atacar.<br> Mientras te encuentres a una distancia Larga o menor del familiar, obtienes los siguientes beneficios:<br> - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br> - **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br> - **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de ataque de toque o tenga alcance Inmediata, el familiar puede realizar el contacto por ti (usando tu tirada de ataque).<br> - **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).",
-      "hash": "256f2f66111181ed65dd80085af9750b22e69249"
+      "hash": "5360d889c05428286a712d4cd4c349c24f3267bc"
     },
     {
       "kind": "card",
@@ -3193,11 +3193,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Estudios Mágicos & Atributo Arcano 3",
+        "requirements": "Estudios Mágicos & Mente 3",
         "uses": "RELOAD:5"
       },
-      "search": "_Has aprendido a inscribir fórmulas de transformación sobre tus movimientos, alterando la naturaleza de un impacto en el instante preciso en que tu arma encuentra a su objetivo._<br><br> Cuando impactas a una criatura con un ataque usando un arma preparada como Foco, puedes usar tu Interacción y gastar el uso de esta carta para aplicar una de las siguientes fórmulas.<br> La fórmula solo modifica el daño base del arma. Todo daño adicional procedente de otras cartas, objetos o efectos conserva su tipo original.<br> - **Combustión (Fuego):** El daño base del arma se convierte en Fuego. Al inicio del próximo turno del objetivo, este recibe 1d4 de daño de Fuego.<br> - **Congelación (Frío):** El daño base del arma se convierte en Frío. La Velocidad del objetivo se reduce a la mitad hasta el final de su próximo turno.<br> - **Sobrecarga Nerviosa (Eléctrico):** El daño base del arma se convierte en Eléctrico. El objetivo sufre -1 a su Esquiva hasta el inicio de tu próximo turno.<br> - **Conversión Cinética (Fuerza):** El daño base del arma se convierte en Fuerza. Antes de aplicar el daño, puedes reducir su resultado hasta una cantidad igual a tu Atributo Arcano. Por cada punto de daño sacrificado de esta forma, obtienes 2 Puntos de Salud temporales durante 1 minuto.<br> - **Resonancia (Psíquico):** El daño base del arma se convierte en Psíquico. La próxima Tirada de Salvación que el objetivo realice contra uno de tus _Conjuros_ antes del final de tu próximo turno sufre Desventaja (-1d4).<br> - **Entropía (Necrótico):** El daño base del arma se convierte en Necrótico. El objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.",
-      "hash": "210af495ab9a9f4a35d3dcbb566b07ee0117e80e"
+      "search": "_Has aprendido a inscribir fórmulas de transformación sobre tus movimientos, alterando la naturaleza de un impacto en el instante preciso en que tu arma encuentra a su objetivo._<br><br> Cuando impactas a una criatura con un ataque usando un arma preparada como Foco, puedes usar tu Interacción y gastar el uso de esta carta para aplicar una de las siguientes fórmulas.<br> La fórmula solo modifica el daño base del arma. Todo daño adicional procedente de otras cartas, objetos o efectos conserva su tipo original.<br> - **Combustión (Fuego):** El daño base del arma se convierte en Fuego. Al inicio del próximo turno del objetivo, este recibe 1d4 de daño de Fuego.<br> - **Congelación (Frío):** El daño base del arma se convierte en Frío. La Velocidad del objetivo se reduce a la mitad hasta el final de su próximo turno.<br> - **Sobrecarga Nerviosa (Eléctrico):** El daño base del arma se convierte en Eléctrico. El objetivo sufre -1 a su Esquiva hasta el inicio de tu próximo turno.<br> - **Conversión Cinética (Fuerza):** El daño base del arma se convierte en Fuerza. Antes de aplicar el daño, puedes reducir su resultado hasta una cantidad igual a tu Mente. Por cada punto de daño sacrificado de esta forma, obtienes 2 Puntos de Salud temporales durante 1 minuto.<br> - **Resonancia (Psíquico):** El daño base del arma se convierte en Psíquico. La próxima Tirada de Salvación que el objetivo realice contra uno de tus _Conjuros_ antes del final de tu próximo turno sufre Desventaja (-1d4).<br> - **Entropía (Necrótico):** El daño base del arma se convierte en Necrótico. El objetivo no puede recuperar Puntos de Salud hasta el final de tu próximo turno.",
+      "hash": "90ebd3a954a4076a0eae594035b78b77a8dde50f"
     },
     {
       "kind": "card",
@@ -6768,11 +6768,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Estudios Mágicos & Atributo Arcano 4",
+        "requirements": "Estudios Mágicos & Mente 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los existentes._<br><br> Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Atributo Arcano contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una prueba de Atributo Arcano contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.",
-      "hash": "26fabaa4c3c286ecacdb4fbade5cf14692cc6b6f"
+      "search": "_Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los existentes._<br><br> Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Mente contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una prueba de Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.",
+      "hash": "ef6a6f397da1569a6b0a4be2d18c26ff9e0ea6a4"
     },
     {
       "kind": "card",
@@ -7472,8 +7472,8 @@
         "type": "efecto",
         "requirements": "Estudios Mágicos & Mente 4"
       },
-      "search": "_Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros al momento de lanzarlos._<br><br> Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres recuperarlo:<br> - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas su alcance un rango (ej. de Cercana a Media).<br> - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas igual a tu Atributo Arcano dentro del área para que no sean afectadas por el conjuro.<br> - **Conjuro Bifurcado (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante fuera superior a 8.",
-      "hash": "62db8319387971bc267e892a4090149a802cc4fa"
+      "search": "_Tu entendimiento de la magia te permite manipular las fórmulas de tus conjuros al momento de lanzarlos._<br><br> Cuando lanzas un conjuro de _Arcanista_ que posea un valor de Recarga, puedes aplicar uno de los siguientes efectos. Al hacerlo, el conjuro se agota inmediatamente y su dificultad de Recarga aumenta hasta que logres recuperarlo:<br> - **Conjuro Sutil o Distante (Recarga +1):** Lanzas el conjuro sin componentes obvios, o aumentas su alcance un rango (ej. de Cercana a Media).<br> - **Conjuro Expansivo o Selectivo (Recarga +2):** Aumentas las dimensiones del área de efecto del conjuro en un 50% (redondeando hacia arriba), o eliges un número de criaturas igual a tu puntuación de Mente dentro del área para que no sean afectadas por el conjuro.<br> - **Conjuro Bifurcado (Recarga +3):** Un conjuro que afecta a un solo objetivo ahora afecta a un segundo objetivo válido dentro del alcance.<br><br> **Restricción:** No puedes aplicar ninguno de estos efectos si el valor de Recarga resultante fuera superior a 8.",
+      "hash": "2271d08f2c921f80c849f9362edb955a6ec479cd"
     },
     {
       "kind": "card",
