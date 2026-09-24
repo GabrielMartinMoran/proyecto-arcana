@@ -170,8 +170,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 1288,
-      "sha1": "7acc7376f7b57891c5e2b860230073c7af1d732a"
+      "size": 1399,
+      "sha1": "5a6ce09271cac17c93b18e9d22bd3b6b0d976191"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 292483,
-      "sha1": "6c6ea506ea832132d786d6d1f1801d5d0002f483"
+      "size": 292594,
+      "sha1": "c3c5a5b5238fa769bc3261a93e2b9985f8b7eaf4"
     },
     {
       "path": "references/datasets/magical-items.yml",
