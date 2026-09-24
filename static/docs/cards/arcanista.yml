@@ -395,7 +395,7 @@ cards:
       _Proyectas una onda de fuerza telequinética invisible capaz de mover objetos masivos o derribar oponentes._<br><br>
       Como Acción, elije un punto a distancia Media sobre el que liberar energía para empujar, atraer o expandir materia.
       La ráfaga puede mover objetos no asegurados de hasta 100 kg, permitiéndote manipular el entorno a distancia. <br>
-      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una **TS de Cuerpo (ND 5 + Atributo Arcano)**.<br>
+      Cuando una criatura se encuentra en el camino del pulso (ya sea como objetivo directo o dentro de un área de expansión), debe superar una TS de Cuerpo (ND 5 + Atributo Arcano).<br>
       - **Si el pulso es un Impulso o Atracción:** La criatura objetivo recibe 2d6 de daño de Fuerza y es movida 3 metros en caso de fallo (mitad de daño y no es movida en caso de éxito).<br>
       - **Si el pulso es una Expansión:** Todas las criaturas en un radio de 2 metros del punto elegido reciben 2d4 de daño de Fuerza y son empujadas fuera del radio en caso de fallo (mitad de daño y no son empujadas en caso de éxito).
     uses:
