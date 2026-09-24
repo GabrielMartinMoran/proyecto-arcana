@@ -18,9 +18,9 @@
 			"price": 3,
 			"damage": "1d4",
 			"type": "Perforante",
-			"properties": "Arrojadiza (Cercana)",
+			"properties": "Arrojadiza (Media)",
 			"requirement": "Cuerpo 2",
-			"notes": "Daño 1d4, Perforante, Arrojadiza (Cercana), Requiere Cuerpo 2"
+			"notes": "Daño 1d4, Perforante, Arrojadiza (Media), Requiere Cuerpo 2"
 		},
 		{
 			"id": "weapon-daga",
@@ -48,29 +48,29 @@
 			"id": "weapon-arco-corto",
 			"name": "Arco corto",
 			"category": "weapons",
-			"price": 20,
-			"damage": "1d4",
+			"price": 25,
+			"damage": "1d6",
 			"type": "Perforante",
 			"properties": "A dos manos, Rango (Media)",
 			"requirement": "Reflejos 2",
-			"notes": "Daño 1d4, Perforante, A dos manos, Rango (Media), Requiere Reflejos 2"
+			"notes": "Daño 1d6, Perforante, A dos manos, Rango (Media), Requiere Reflejos 2"
 		},
 		{
 			"id": "weapon-honda",
 			"name": "Honda",
 			"category": "weapons",
-			"price": 20,
+			"price": 5,
 			"damage": "1d4",
-			"type": "Perforante",
-			"properties": "A dos manos, Rango (Media)",
+			"type": "Contundente",
+			"properties": "A dos manos, Rango (Cercana)",
 			"requirement": "Reflejos 2",
-			"notes": "Daño 1d4, Perforante, A dos manos, Rango (Media), Requiere Reflejos 2"
+			"notes": "Daño 1d4, Contundente, A dos manos, Rango (Cercana), Requiere Reflejos 2"
 		},
 		{
 			"id": "weapon-baston",
 			"name": "Bastón",
 			"category": "weapons",
-			"price": 2,
+			"price": 4,
 			"damage": "1d4/1d6",
 			"type": "Contundente",
 			"properties": "Versátil",
@@ -148,22 +148,22 @@
 			"name": "Ballesta ligera",
 			"category": "weapons",
 			"price": 35,
-			"damage": "1d6",
+			"damage": "1d8",
 			"type": "Perforante",
 			"properties": "A dos manos, Rango (Media), Recarga",
 			"requirement": "Reflejos 2",
-			"notes": "Daño 1d6, Perforante, A dos manos, Rango (Media), Recarga, Requiere Reflejos 2"
+			"notes": "Daño 1d8, Perforante, A dos manos, Rango (Media), Recarga, Requiere Reflejos 2"
 		},
 		{
 			"id": "weapon-espada-larga",
 			"name": "Espada larga",
 			"category": "weapons",
-			"price": 50,
-			"damage": "1d6/1d8",
+			"price": 60,
+			"damage": "1d8/1d10",
 			"type": "Cortante",
 			"properties": "Versátil",
-			"requirement": "Cuerpo 2",
-			"notes": "Daño 1d6/1d8, Cortante, Versátil, Requiere Cuerpo 2"
+			"requirement": "Cuerpo 3",
+			"notes": "Daño 1d8/1d10, Cortante, Versátil, Requiere Cuerpo 3"
 		},
 		{
 			"id": "weapon-estoque",

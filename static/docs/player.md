@@ -968,19 +968,20 @@ Si no cumples el **Requisito** de un arma, la usas con **Desventaja (-1d4)**.
 | Arma                     | Daño     | Tipo        | Requisito             | Precio | Propiedades                         |
 | :----------------------- | :------- | :---------- | :-------------------- | :----- | :---------------------------------- |
 | Porra                    | 1d4      | Contundente | -                     | 2 o    | -                                   |
-| Jabalina                 | 1d4      | Perforante  | Cuerpo 2              | 3 o    | Arrojadiza (Cercana)                |
+| Jabalina                 | 1d4      | Perforante  | Cuerpo 2              | 3 o    | Arrojadiza (Media)                  |
 | Daga                     | 1d4      | Perforante  | -                     | 5 o    | Precisa, Arrojadiza (Cercana)       |
+| Honda                    | 1d4      | Contundente | Reflejos 2            | 5 o    | A dos manos, Rango (Cercana)        |
 | Látigo                   | 1d4      | Cortante    | Reflejos 2            | 15 o   | Precisa, Alcance                    |
-| Arco corto / Honda       | 1d4      | Perforante  | Reflejos 2            | 20 o   | A dos manos, Rango (Media)          |
-| Bastón                   | 1d4/1d6  | Contundente | -                     | 2 o    | Versátil                            |
+| Bastón                   | 1d4/1d6  | Contundente | -                     | 4 o    | Versátil                            |
 | Maza / Lucero del alba   | 1d6      | Contundente | Cuerpo 2              | 10 o   | -                                   |
 | Lanza                    | 1d6      | Perforante  | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
 | Hacha de mano            | 1d6      | Cortante    | Cuerpo 2              | 15 o   | Arrojadiza (Cercana)                |
 | Espada corta / Cimitarra | 1d6      | Cortante    | Cuerpo 2 o Reflejos 2 | 25 o   | Precisa                             |
-| Ballesta ligera          | 1d6      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
-| Espada larga             | 1d6/1d8  | Cortante    | Cuerpo 2              | 50 o   | Versátil                            |
+| Arco corto               | 1d6      | Perforante  | Reflejos 2            | 25 o   | A dos manos, Rango (Media)          |
 | Estoque                  | 1d8      | Perforante  | Reflejos 3            | 60 o   | Precisa                             |
+| Ballesta ligera          | 1d8      | Perforante  | Reflejos 2            | 35 o   | A dos manos, Rango (Media), Recarga |
 | Arco largo               | 1d8      | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga)          |
+| Espada larga             | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
 | Martillo de guerra       | 1d8/1d10 | Contundente | Cuerpo 3              | 60 o   | Versátil                            |
 | Hacha de guerra          | 1d8/1d10 | Cortante    | Cuerpo 3              | 60 o   | Versátil                            |
 | Ballesta pesada          | 1d10     | Perforante  | Reflejos 3            | 75 o   | A dos manos, Rango (Larga), Recarga |
