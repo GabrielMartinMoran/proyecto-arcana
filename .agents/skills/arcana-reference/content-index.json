@@ -258,6 +258,31 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Alterar Tamaño",
+      "id": "c538b67563875c8dfc671bb0b393c68a06a59e21",
+      "slug": "alterar-tamano",
+      "aliases": [
+        "alterar tamano"
+      ],
+      "tags": [
+        "Arcanista",
+        "Concentración",
+        "Conjuro"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Afinidad Arcana & Atributo Arcano 3",
+        "uses": "RELOAD:5"
+      },
+      "search": "_Manipulas la estructura física de una criatura, expandiendo o comprimiendo mágicamente su cuerpo sin alterar su naturaleza._<br><br> Como Acción, eliges una criatura que puedas ver a distancia Cercana. Si no es voluntaria, debe superar una Tirada de Salvación de Cuerpo (ND 5 + Atributo Arcano) o verse afectada.<br> El efecto dura hasta 1 minuto o hasta que pierdas la Concentración. Al lanzarlo, eliges uno de los siguientes efectos:<br> - **Agrandar:** El objetivo aumenta una categoría de tamaño, hasta un máximo de Grande. Obtiene Ventaja (+1d4) en Pruebas y Tiradas de Salvación de Cuerpo relacionadas con empujar, apresar, derribar o resistir estos efectos. Además, una vez por turno, cuando impacta con un ataque con arma cuerpo a cuerpo o un ataque desarmado, inflige 1d4 de daño adicional del mismo tipo que el ataque. Debido a su mayor volumen, su Esquiva se reduce en 1 mientras dure el efecto.<br> - **Reducir:** El objetivo disminuye una categoría de tamaño, hasta un mínimo de Diminuto. Obtiene +1 a su Esquiva y Ventaja (+1d4) en Pruebas de Acrobacias y Sigilo. Sin embargo, sufre Desventaja (-1d4) en Pruebas y Tiradas de Salvación de Cuerpo para empujar, apresar, derribar o resistir estos efectos.<br> El equipo llevado por el objetivo cambia de tamaño junto con él y recupera su tamaño normal cuando termina el conjuro.",
+      "hash": "399cdf672360f0c63d92808bcd6e462ac574f346"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Amparo Divino",
       "id": "4fdb60412734f869f55196c34b35b8bc120f3088",
       "slug": "amparo-divino",
@@ -347,11 +372,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Descarga Elemental & Atributo Arcano 3",
+        "requirements": "Afinidad Arcana & Atributo Arcano 3",
         "uses": "RELOAD:5"
       },
       "search": "_Divides la energía elemental en una rápida salva de proyectiles que convergen sobre uno o varios enemigos._<br><br> Elige Fuego, Frío o Eléctrico. Realizas tres ataques de conjuro independientes (1d8e + Atributo Arcano) contra criaturas que puedas ver a distancia Cercana. Puedes elegir el mismo objetivo o uno diferente para cada ataque.<br> Cada ataque que impacte inflige 1d6 de daño del tipo elegido.",
-      "hash": "3cc3c2a3361141aa57b196384dc75e07f7050d89"
+      "hash": "9211b4c64a50250ea525393371287fa335da4917"
     },
     {
       "kind": "card",
@@ -828,11 +853,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Toque Restaurador & Instinto 3",
+        "requirements": "Fe Inspiradora & Instinto 3",
         "uses": "LONG_REST:1"
       },
       "search": "_Tu sola presencia es un faro de esperanza que sostiene a los caídos en el mismísimo umbral de la muerte._<br><br> Como Reacción cuando un aliado a distancia Cercana es reducido a 0 Puntos de Salud, puedes hacer que quede con 1 Punto de Salud en su lugar.",
-      "hash": "004e32489a18be8896914a4a50799cb2fd626b2e"
+      "hash": "54a5a696246bf85dd561d1bf958c8b6250f211a4"
     },
     {
       "kind": "card",
@@ -948,11 +973,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Atributo Arcano 3",
+        "requirements": "Afinidad Arcana & Atributo Arcano 3",
         "uses": "RELOAD:5"
       },
       "search": "_Manifiestas un escudo de energía latente que se activa automáticamente para protegerte del daño._<br><br> Mientras tengas esta carta activa, una barrera de energía te protege. Siempre y cuando no lleves armadura, obtienes un +1 de mitigación Física y Mágica durante 8 horas.<br> Como Reacción, cuando recibes daño de un conjuro o efecto mágico, puedes agotar esta carta para sobrecargar la barrera.<br> Ganas Mitigación Mágica igual a dos veces tu puntuación de Atributo Arcano contra ese daño específico.",
-      "hash": "0501fab9cabde5fe5270b28b46e27287d4efd053"
+      "hash": "861480b0320b05c47b77995c2c34b577a0c297f2"
     },
     {
       "kind": "card",
@@ -1115,11 +1140,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Crescendo Aterrador & Presencia 4",
+        "requirements": "Don del Elocuente & Presencia 4",
         "uses": "RELOAD:6"
       },
       "search": "_Gritas o tocas una nota tan estridente y caótica que aturde la mente y desgarra los tímpanos de quienes tienen la desgracia de rodearte._<br><br> Como Acción, creas una explosión de sonido disonante en un punto a distancia Cercana. Toda criatura en un radio de 3 metros debe superar una TS de Cuerpo (ND 5 + Presencia) o recibirá 2d6 de daño Sónico y no podrá usar Reacciones hasta el final de tu próximo turno.<br> Además, si una criatura estaba manteniendo Concentración al momento de fallar la tirada, pierde la concentración imediatamente.",
-      "hash": "b90658fabb7bdd55e463e09b128c7a68d4f5bb66"
+      "hash": "4b06b87c458a0448559c14ea8744a3feef50e3c3"
     },
     {
       "kind": "card",
@@ -1145,6 +1170,31 @@
       },
       "search": "_Grilletes forjados con pura luz divina brotan del suelo, apresando y quemando a quienes se resisten a la justicia._<br><br> Invocas cadenas de luz sólida que brotan del suelo en un radio de 5 metros a distancia Media. Las criaturas en el área deben superar una TS de Reflejos (ND 5 + Instinto). Si fallan, reciben 4d8 de daño Radiante y quedan Inmovilizadas por las cadenas durante 1 minuto. Si tienen éxito en la salvación inicial, reciben la mitad del daño y no quedan atrapadas.<br> Una criatura inmovilizada puede usar su Acción para realizar una prueba de Cuerpo (ND 5 + Instinto) para tratar de liberarse.",
       "hash": "36133e4c1a2a7ae131961dee65db3c8b6cadd48e"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Cambio de Plano",
+      "id": "1c8d11b6ca4ab2257c9f0c58c71ffd0fe4af11b4",
+      "slug": "cambio-de-plano",
+      "aliases": [
+        "cambio de plano"
+      ],
+      "tags": [
+        "Arcanista",
+        "Conjuro",
+        "Ritual"
+      ],
+      "level": 5,
+      "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Círculo de Teletransporte & Atributo Arcano 6",
+        "uses": "LONG_REST:1"
+      },
+      "search": "_Has aprendido a plegar no solo la distancia, sino las fronteras que separan realidades enteras._<br><br> Como Acción, abres un portal a distancia Inmediata hacia otro plano de existencia. El portal permanece activo durante 10 minutos y puede ser atravesado voluntariamente en ambas direcciones mientras permanezca abierto.<br> Para abrirlo necesitas un Ancla Planar vinculada al plano de destino. Un Ancla Planar es un objeto, reliquia, fragmento, Firma Arcana u otro vínculo mágico que posea una conexión auténtica con ese plano.<br> El lugar de llegada depende de la precisión del Ancla Planar:<br> - **Destino Vinculado:** Si el Ancla está vinculada a un lugar concreto del plano, el portal se abre en un espacio viable cercano a ese lugar.<br> - **Círculo de Teletransporte:** Si utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_ permanente o actualmente activo en ese plano, el portal se abre exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el Ancla solo está vinculada al plano en general, el DJ determina un lugar de llegada apropiado relacionado con la naturaleza o procedencia del Ancla.<br> Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en otro plano cuenta por sí misma como un Ancla Planar para este conjuro.<br> Este conjuro no permite atravesar barreras que impidan explícitamente el viaje planar ni alcanzar un plano para el que no poseas un Ancla Planar válida.",
+      "hash": "c74f70af839ebf9125e0f1c561eff76774485c5a"
     },
     {
       "kind": "card",
@@ -1236,11 +1286,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Secretos Mágicos & Presencia 6",
+        "requirements": "Don del Elocuente & Presencia 6",
         "uses": "LONG_REST:1"
       },
       "search": "_Tu música es tan perfecta que trasciende la simple ilusión, solidificando la materia a partir del mismísimo silencio._<br><br> Tras 10 minutos de interpretación ininterrumpida, tejes una ilusión semi-real y duradera a partir de la música. Eliges uno de los siguientes efectos:<br> - **Crear Materia:** Creas un objeto no mágico que puede ocupar hasta un cubo de 10 metros de lado (como una casa pequeña o un puente de piedra). El objeto se ve y se siente real ante una inspección superficial. Sin embargo, puede ser identificado como una creación mágica mediante efectos de Visión Verdadera o realizando una inspección física exhaustiva superando una Prueba de Percepción vs (ND 5 + Presencia). El objeto es sólido y su duración se mantiene hasta ser disipado.<br> - **Reescribir Memoria:** Alteras permanentemente la memoria de una criatura sobre un evento específico. Si el objetivo no es voluntario, debe superar una Tirada de Salvación de Instinto (ND 5 + Presencia) para evitar el efecto.",
-      "hash": "8ff16b8644e6c42de1d85cb63d6343894db0c86d"
+      "hash": "3e5ae1a665962ba07be47411eefbf86cab4d9804"
     },
     {
       "kind": "card",
@@ -1443,11 +1493,36 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Barrera Arcana & Atributo Arcano 4",
+        "requirements": "Afinidad Arcana & Atributo Arcano 4",
         "uses": "RELOAD:6"
       },
       "search": "_Trazas un perímetro místico en el suelo que actúa como una barrera infranqueable para ciertos tipos de seres._<br><br> Creas un círculo mágico de 3 metros de radio en el suelo que dura 10 minutos. Elige un tipo de criatura (no-muertos, demonios, etc.). Para poder entrar al círculo, una criatura del tipo elegido debe superar una tirada de Instinto (ND 5 + Atributo Arcano). Además, los aliados dentro del círculo tienen Ventaja (+1d4) en las Tiradas de Salvación contra efectos de criaturas del tipo declarado.",
-      "hash": "4ccef8c63acb388665654fad1ba85314728c183c"
+      "hash": "6872e9f1024376763feffdc82929622c830b6d03"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Círculo de Teletransporte",
+      "id": "753a8ad6fa8185b62215f4af02f3b063e3806613",
+      "slug": "circulo-de-teletransporte",
+      "aliases": [
+        "circulo de teletransporte"
+      ],
+      "tags": [
+        "Arcanista",
+        "Conjuro",
+        "Ritual"
+      ],
+      "level": 4,
+      "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Afinidad Arcana & Atributo Arcano 5",
+        "uses": "LONG_REST:1"
+      },
+      "search": "_Trazas una secuencia de símbolos espaciales capaz de plegar enormes distancias y conectar lugares remotos mediante una misma geometría arcana._<br><br> Como Acción, creas un Círculo de Teletransporte sobre una superficie sólida a distancia Inmediata. El círculo permanece activo durante 10 minutos.<br> Al crearlo, puedes enlazarlo con otro Círculo de Teletransporte permanente o actualmente activo cuya Firma Arcana conozcas y que se encuentre en tu mismo plano de existencia. Mientras ambos círculos existan, cualquier criatura que entre voluntariamente en uno de ellos es transportada instantáneamente al otro. No necesitas atravesar el círculo y puedes permanecer en el lugar de origen mientras otras criaturas lo utilizan.<br> - **Firma Arcana:** Todo Círculo de Teletransporte posee una combinación única de símbolos que funciona como su dirección mágica. Conoces automáticamente la Firma Arcana de cualquier círculo que crees. Puedes aprender la de otro círculo estudiándolo durante 10 minutos o recibiéndola de alguien que la conozca. Una Firma Arcana puede copiarse, enseñarse o transmitirse como cualquier otra información.<br> - **Crear un Círculo Permanente:** Si utilizas este conjuro en el mismo lugar al menos una vez por día durante 30 días consecutivos, el círculo se vuelve permanente al completar el último lanzamiento. Conserva la misma Firma Arcana y, a partir de ese momento, puede utilizarse como destino aunque no se encuentre activo.<br> Un círculo permanente no transporta criaturas por sí solo. Permanece inactivo hasta que otro uso de _Círculo de Teletransporte_ u otro efecto compatible lo enlace.",
+      "hash": "76dbdb60b24c6f8e646e93a09d5e8bd83ed4b796"
     },
     {
       "kind": "card",
@@ -1796,11 +1871,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Bálsamo Natural & Instinto 4",
+        "requirements": "Sintonía Primordial & Instinto 4",
         "uses": "RELOAD:6"
       },
       "search": "_Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas, recuperan 1d6 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.",
-      "hash": "db731c49aba14af64cc1254309eed72f81e540fb"
+      "hash": "8ae8e25574a5f4c1f937d8c015ef314117560fad"
     },
     {
       "kind": "card",
@@ -1866,11 +1941,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Toque Restaurador & Instinto 4",
+        "requirements": "Fe Inspiradora & Instinto 4",
         "uses": "RELOAD:6"
       },
       "search": "_Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br> - **Restauración Vital:** La criatura recupera 3d6 + tu Instinto en Puntos de Salud.<br> - **Purificación:** Terminas un efecto mágico o una de las siguientes condiciones que afecten a la criatura: Aturdido, Encantado, Inmovilizado, Dormido, Cegado o Envenenado.",
-      "hash": "3d0156f67d16df7a45faed369f7102f70254ebf0"
+      "hash": "d86f759df97264294f99689aef216722ddd9df8e"
     },
     {
       "kind": "card",
@@ -2105,6 +2180,31 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Desterrar",
+      "id": "9d929e2ba25707d34733c44f18aebd102efda9d1",
+      "slug": "desterrar",
+      "aliases": [
+        "desterrar"
+      ],
+      "tags": [
+        "Arcanista",
+        "Concentración",
+        "Conjuro"
+      ],
+      "level": 4,
+      "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Afinidad Arcana & Atributo Arcano 5",
+        "uses": "RELOAD:7"
+      },
+      "search": "_Rompes momentáneamente el vínculo que mantiene a una criatura anclada al plano que ocupa y la arrojas más allá de sus fronteras._<br><br> Como Acción, eliges una criatura que puedas ver a distancia Media. El objetivo debe superar una Tirada de Salvación de Presencia (ND 5 + Atributo Arcano).<br> Si falla, desaparece del plano actual. Mientras permanezca desterrada, no puede actuar, percibir lo que ocurre en este plano ni ser afectada desde él.<br> Al final de cada uno de sus turnos, puede repetir la Tirada de Salvación. Si tiene éxito, reaparece en el espacio que ocupaba o en el espacio desocupado más cercano.<br> El efecto dura hasta 1 minuto o hasta que pierdas la Concentración.<br> Si mantienes el efecto durante toda su duración sobre una criatura que no sea nativa del plano actual, esta no reaparece: es devuelta a su plano de origen.<br> Una criatura nativa del plano actual reaparece normalmente cuando termina el conjuro.",
+      "hash": "6ee18fb042d1abeb72471e30dd592738e1715d11"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Destreza Suprema",
       "id": "97b96b7435ed756d4c9b5d837974d405199629d1",
       "slug": "destreza-suprema",
@@ -2144,8 +2244,8 @@
         "type": "efecto",
         "requirements": "Ritos Sagrados & Instinto 5"
       },
-      "search": "_Tu luz se vuelve tan abrumadora que las criaturas de la noche se desintegran al entrar en contacto con ella._<br><br> Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior falla su Tirada de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.",
-      "hash": "7a733bd27de8dfa61e03c42b920abda5508f3728"
+      "search": "_Tu presencia sagrada se vuelve insoportable para las criaturas que desafían el orden de la vida._<br><br> El modo _Expulsión_ de tu carta _Ritos Sagrados_ se potencia.<br> Cuando una criatura No-muerta o Infernal falla su Tirada de Salvación contra tu _Expulsión_:<br> - Si es de Rango 2 o inferior, es destruida instantáneamente.<br> - Si es de Rango 3 o superior, recibe 4d6 de daño Radiante.<br> Después se aplican normalmente los demás efectos de _Expulsión_.",
+      "hash": "67e2e168f35284bb63114ccfabf5f6a67a76ba6b"
     },
     {
       "kind": "card",
@@ -2237,11 +2337,36 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Estudios Mágicos & Atributo Arcano 4",
+        "requirements": "Afinidad Arcana & Atributo Arcano 4",
         "uses": "RELOAD:7"
       },
       "search": "_Manipulas las leyes fundamentales de la física para crear una perturbación que altera el tiempo o la gravedad en un punto._<br><br> Al lanzar el conjuro, elije un punto a distancia Media. En un radio de 3 metros del punto elegido, aplicas uno de los siguientes efectos:<br> - **Colapso Gravitatorio:** La gravedad del área se vuelve gigantesca y su fuerza tira en dirección al punto que elegiste. Toda criatura en el área debe superar una TS de Cuerpo (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, es arrastrada violentamente al centro de la esfera y queda Derribada.<br> - **Éxtasis Temporal:** El tiempo se congela y se fractura. Toda criatura en el área debe superar una TS de Mente (ND 5 + Atributo Arcano). Si falla, recibe 4d6 de daño de Fuerza, su Velocidad se reduce a la mitad y pierde la capacidad de usar Reacciones hasta el final de tu próximo turno.<br> En ambos casos, si la criatura tiene éxito en la salvación, recibe la mitad del daño y no sufre los efectos secundarios.",
-      "hash": "db71361f1e41f0ba899600a72adb65013c65ab18"
+      "hash": "f17bc3483e9a16241abfe28b42ddb124eeb6693e"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Distorsión Temporal",
+      "id": "11ab7a7076c10f42e98262b6a6343afde2261878",
+      "slug": "distorsion-temporal",
+      "aliases": [
+        "distorsion temporal"
+      ],
+      "tags": [
+        "Arcanista",
+        "Concentración",
+        "Conjuro"
+      ],
+      "level": 3,
+      "path": "references/cartas-de-habilidades/arcanista/nivel-3.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Afinidad Arcana & Atributo Arcano 4",
+        "uses": "RELOAD:7"
+      },
+      "search": "_Alteras el flujo temporal alrededor de una criatura, haciendo que el mundo parezca ralentizarse o acelerarse a su alrededor._<br><br> Como Acción, eliges una criatura que puedas ver a distancia Media y uno de los siguientes efectos:<br> - **Acelerar:** Una criatura voluntaria aumenta su Velocidad en 2 metros y obtiene +1 a su Esquiva. Además, durante cada uno de sus turnos obtiene una Interacción adicional especial. Esta Interacción puede utilizarse para realizar un único ataque o para realizar cualquier Interacción ordinaria, pero no para activar cartas o habilidades. Cuando este efecto termina, el objetivo sufre un colapso temporal: hasta el final de su próximo turno, su Velocidad se reduce a 0 y no puede realizar Acciones, Interacciones ni Reacciones.<br> - **Ralentizar:** Una criatura hostil debe superar una Tirada de Salvación de Cuerpo (ND 5 + Atributo Arcano). Si falla, su Velocidad se reduce a la mitad, su Esquiva se reduce en 1 y no puede utilizar Reacciones. Además, al inicio de cada uno de sus turnos debe elegir entre realizar una Acción o una Interacción durante ese turno; no puede realizar la opción que no haya elegido. Al final de cada uno de sus turnos puede repetir la Tirada de Salvación, terminando el efecto sobre sí misma si tiene éxito.<br> El efecto dura hasta 1 minuto o hasta que pierdas la Concentración.",
+      "hash": "0a3c64e57a9e442803dcb563beabf75dc7ba5e3b"
     },
     {
       "kind": "card",
@@ -2262,11 +2387,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Hechizar Persona & Presencia 5",
+        "requirements": "Don del Elocuente & Presencia 5",
         "uses": "RELOAD:7"
       },
       "search": "_Tu voz se convierte en las cadenas invisibles que atan y doblegan la voluntad de tu víctima, convirtiéndola en tu marioneta perfecta._<br><br> Como Acción, eliges a un humanoide a distancia Media. Este debe superar una TS de Instinto (ND 5 + Presencia). Si falla, queda Encantado por ti durante 1 minuto.<br> Mientras dure el efecto, tienes un vínculo telepático con él y puedes usar tu Interacción para darle órdenes que obedecerá.<br> Si le das una orden que atenta directamente contra su vida, o si tu o tus aliados lo atacan, el objetivo puede repetir la tirada de Salvación, liberandose del efecto en caso de éxito.",
-      "hash": "f9ea7b5072f74d1d66a86d28321f64a2cdb5d4a6"
+      "hash": "9b3f9ddb347a4fd6665c70700e4ecfdcdb4a4d8a"
     },
     {
       "kind": "card",
@@ -2311,10 +2436,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Atributo Arcano 5"
+        "requirements": "Afinidad Arcana & Atributo Arcano 5"
       },
       "search": "_Has alcanzado una comprensión tan profunda de un elemento que tus conjuros del mismo tipo se vuelven más letales._<br><br> Al adquirir esta carta, elige un tipo de daño: Fuego, Frío o Eléctrico. Ganas los siguientes beneficios para conjuros de Arcanista de ese tipo:<br> - Puedes volver a tirar cualquier dado de daño que resulte en un 1 (debes usar el nuevo resultado).<br> - El ND de tus conjuros que hagan daño de este tipo aumenta en 1.",
-      "hash": "2e98cdf85558ca0e571c83f7dbf2243c66042f34"
+      "hash": "5df70afa7c1319837cce82ebeeaa37ff3a679d0d"
     },
     {
       "kind": "card",
@@ -2822,10 +2947,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Acción Astuta & Reflejos 4"
+        "requirements": "Senda del Bribón & Reflejos 4"
       },
       "search": "_Tu agilidad sobrenatural te permite escapar ileso de explosiones y peligros de área que destrozarían a un combatiente normal._<br><br> Cuando un efecto te obliga a realizar una TS de Reflejos para recibir la mitad de daño, si tienes éxito no recibes daño alguno, y si fallas, recibes solo la mitad.",
-      "hash": "d194883a4ad8476d94c0152ee4d900e88e3e3f87"
+      "hash": "6ed0e2a99aaf5f4695047753d42913056a0cd7ff"
     },
     {
       "kind": "card",
@@ -2867,11 +2992,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Descarga Elemental & Atributo Arcano 4",
+        "requirements": "Afinidad Arcana & Atributo Arcano 4",
         "uses": "RELOAD:7"
       },
       "search": "_Generas una detonación masiva de energía en la distancia, devastando una amplia zona del campo de batalla._<br><br> Provocas una explosión mágica en una esfera de 5 metros de radio a distancia Larga. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). Si tienen éxito, reciben la mitad del daño y evitan los efectos secundarios.<br> Al lanzar el conjuro, eliges la forma que adopta:<br> - **Bola de Fuego (Fuego):** Una explosión naranja rugiente que incinera objetos inflamables y provoca 5d6 de daño de fuego.<br> - **Nova de Escarcha (Frío):** Un estallido azulado que congela líquidos y provoca 4d6 de daño de frío. Las criaturas que fallen la TS ven reducida su Velocidad a la mitad hasta el final de su próximo turno.<br> - **Tormenta Estática (Eléctrico):** Un trueno ensordecedor que rompe objetos de cristal y provoca 4d6 de daño eléctrico. Las criaturas que fallen la TS no pueden usar Reacciones hasta el final de su próximo turno.<br>",
-      "hash": "011ee9425e6bc230759bedd6910f801c4df1d10f"
+      "hash": "ced780aaf245016c79fbf26a3f4d87a7f3d2ee64"
     },
     {
       "kind": "card",
@@ -3564,11 +3689,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Paso Etéreo & Instinto 4",
+        "requirements": "Disciplina Monástica & Instinto 4",
         "uses": "RELOAD:6"
       },
       "search": "_Durante breves instantes, anulas tu propio peso y flotas en el aire, moviéndote con una libertad absoluta._<br><br> Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto.<br> Debes terminar cada uno de tus turnos en una superficie sólida o caerás.",
-      "hash": "ddb6e892cb5bd3d6a2dae28789616c8485fcf707"
+      "hash": "0a58722095d83f6b6a82c848fe5d15714054160d"
     },
     {
       "kind": "card",
@@ -3612,11 +3737,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "(Aura Protectora | Curar) & Instinto 6",
+        "requirements": "Fe Inspiradora & Instinto 6",
         "uses": "LONG_REST:1"
       },
       "search": "_En el momento de mayor desesperación, los cielos intervienen directamente, negando la muerte misma._<br><br> Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.",
-      "hash": "be14f8bdcb1179c67a9175427301a49847b962cc"
+      "hash": "c6d434b4b367c7726e21370ca1c94b3876aca69c"
     },
     {
       "kind": "card",
@@ -4081,11 +4206,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Atributo Arcano 3",
+        "requirements": "Afinidad Arcana & Atributo Arcano 3",
         "uses": "RELOAD:5"
       },
       "search": "_Doblas la luz a tu alrededor hasta volverte a ti o a otro una mancha imperceptible para los ojos de los demás._<br><br> Tocas a una criatura voluntaria y se vuelve invisible durante 10 minutos o hasta que ataque, lance un conjuro o pierdas la concentración.",
-      "hash": "39c3f0c4322e778679216a7727ecb4847913bd8b"
+      "hash": "b5a79b5c164af2d2e496480242343c26574b01eb"
     },
     {
       "kind": "card",
@@ -4106,11 +4231,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Manifestar Naturaleza & Dominio del Clima & Instinto 6",
+        "requirements": "Sintonía Primordial & Instinto 6",
         "uses": "LONG_REST:1"
       },
       "search": "_Desatas el cataclismo final: tormentas, terremotos y zarzas se alzan en un torbellino indiscriminado de destrucción natural._<br><br> Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto.<br> El terreno se vuelve difícil, la visibilidad se reduce a penumbra.<br> Al final de cada turno de una criatura hostil en el área, esta es azotada por relámpagos, raíces o vientos (a tu elección), recibiendo 3d8 de daño (TS de Reflejos ND 5 + Instinto para mitad de daño) y debe superar una TS de Cuerpo adicional o quedará Derribada.",
-      "hash": "50cb8185be72841f3f5366be5178f7ff6c498174"
+      "hash": "b9a422d2e787afe25c534630b5b0b22c5932a24a"
     },
     {
       "kind": "card",
@@ -4152,11 +4277,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "(Espíritus Guardianes | Castigo Inapelable) & Instinto 6",
+        "requirements": "Fe Inspiradora & Instinto 6",
         "uses": "RELOAD:8"
       },
       "search": "_Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la voluntad y colapsa los sentidos de tus enemigos._<br><br> Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno).",
-      "hash": "2ecfa0893d4253f240dc5f73736f8826bd9e2b2b"
+      "hash": "eb8ff159c20c7ee9f48fa70782c8e436dcc3b318"
     },
     {
       "kind": "card",
@@ -4342,11 +4467,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Trance de Piedra & Instinto 4",
+        "requirements": "Disciplina Monástica & Instinto 4",
         "uses": "RELOAD:5"
       },
       "search": "_Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.",
-      "hash": "38d9e25bb9d430c5d7b2cd405a326c1b1c256389"
+      "hash": "63a7a103af3216728fe917ee33dac51f9d8715e3"
     },
     {
       "kind": "card",
@@ -4460,10 +4585,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Teoría Arcana Avanzada & Atributo Arcano 6"
+        "requirements": "Afinidad Arcana & Atributo Arcano 6"
       },
       "search": "_Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto natural._<br><br> Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un sistema de Recarga, puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.",
-      "hash": "4c5484aefcb98bab4c43cf0eab56607bf4fad5b3"
+      "hash": "0ffde39db455dd3343138d5669f4724a93bcced4"
     },
     {
       "kind": "card",
@@ -5316,10 +5441,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Marcha Incansable & Instinto 2"
+        "requirements": "Maestría Marcial & Instinto 2"
       },
       "search": "_Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br> Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br> - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br> - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>",
-      "hash": "2411e5cbc662ff457364cb2fca884f64265a48fb"
+      "hash": "13e6ad5a23ff0688feef0136aaa8119402393052"
     },
     {
       "kind": "card",
@@ -5479,11 +5604,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Sugestión Mayor & Atributo Arcano 6",
+        "requirements": "Afinidad Arcana & Atributo Arcano 6",
         "uses": "LONG_REST:1"
       },
       "search": "_Pronuncias una palabra de poder cargada de una vibración arcana tan intensa que colapsa los sentidos de tu víctima._<br><br> Eliges una criatura que puedas ver a distancia Cercana. Si la criatura tiene 100 Puntos de Salud o menos, queda Aturdida. Al final de cada uno de sus turnos, la criatura puede realizar una TS de Instinto (ND 7 + Atributo Arcano) para terminar el efecto.",
-      "hash": "9569e3e996f999e5769f9c1d37f5246f6de24b4f"
+      "hash": "e788a464c4689040e87499484f2d67bc7bb4b15b"
     },
     {
       "kind": "card",
@@ -5831,11 +5956,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Asesinar & Reflejos 6",
+        "requirements": "Senda del Bribón & Reflejos 6",
         "uses": "RELOAD:8"
       },
       "search": "_Te fundes con la oscuridad y reapareces en el punto más débil de tu enemigo para asestar el golpe de gracia._<br><br> Como Interacción, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4). Si impactas, puedes usar tu _Ataque Furtivo_, y su daño se maximiza.",
-      "hash": "c84bb93143c2ff44448c423feb91e3ea9a90f6c0"
+      "hash": "2d556ec873144a3c80b7a59da518ecf9b2b83b3f"
     },
     {
       "kind": "card",
@@ -5854,11 +5979,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Acción Astuta",
+        "requirements": "Senda del Bribón & Reflejos 4",
         "uses": "RELOAD:6"
       },
       "search": "_En un instante, te conviertes en una ráfaga de movimiento que cruza la estancia antes de que el enemigo pueda parpadear._<br><br> Como Interacción, duplicas tu Velocidad de movimiento para este turno. Además, obtienes Ventaja (+1d4) en la próxima tirada de ataque que realices este turno, y el primer ataque que te realicen antes del inicio de tu próximo turno se hace con Desventaja (-1d4).",
-      "hash": "bd75438de21c8c81cfe0b9332924c9e0b7beda14"
+      "hash": "1846d77fc6bf5d93069757ad7c8d906f0e0a5f9f"
     },
     {
       "kind": "card",
@@ -6015,11 +6140,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Toque Restaurador & Instinto 4",
+        "requirements": "Fe Inspiradora & Instinto 4",
         "uses": "RELOAD:6"
       },
       "search": "_Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br> Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.",
-      "hash": "8124d4c4a714126aba0613ba67ccc2a1301fec7b"
+      "hash": "1bf36fec51eec8e050caa26c1125493e4f8db5f3"
     },
     {
       "kind": "card",
@@ -6040,11 +6165,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Paso Brumoso & Atributo Arcano 5",
+        "requirements": "Afinidad Arcana & Atributo Arcano 5",
         "uses": "RELOAD:7"
       },
       "search": "_Perforas el tejido de la realidad para conectar dos puntos distantes mediante portales gemelos._<br><br> Eliges dos puntos en superficies sólidas que puedas ver a distancia Larga. En cada punto, aparece un portal circular de 3 metros de diámetro. Los portales están intrínsecamente conectados; cualquier cosa que entre por uno, sale instantáneamente por el otro. Son una puerta de dos vías que permanece abierta mientras te concentres, hasta por 1 minuto.",
-      "hash": "12a5143b8821b444b63c5a669b5edf172c1b9ca6"
+      "hash": "5f9c8ceaa150dca5f91867c4d8854143b7d9ccf4"
     },
     {
       "kind": "card",
@@ -6387,11 +6512,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Afinidad Arcana & Atributo Arcano 5",
+        "requirements": "Afinidad Arcana & Atributo Arcano 6",
         "uses": "RELOAD:8"
       },
       "search": "_Un haz de energía verde esmeralda brota de tu dedo para reducir la materia de tu objetivo a cenizas._<br><br> Elije un objetivo a distancia Media. Este debe superar una TS de Reflejos (ND 5 + Atributo Arcano). Si falla, recibe 10d8 de daño de Fuerza. Si tiene éxito, la mitad.<br> Si el daño reduce al objetivo a 0 Puntos de Salud, se convierte en un fino polvo gris y es destruido.",
-      "hash": "ca3ba621234618f6afb7c7451e622bf575243785"
+      "hash": "bbd536c00e4f4b41d321210dcef2a76d6b1a1ca3"
     },
     {
       "kind": "card",
@@ -6644,11 +6769,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Toque Restaurador & Instinto 4",
+        "requirements": "Fe Inspiradora & Instinto 4",
         "uses": "LONG_REST:1"
       },
       "search": "_Te niegas a que el alma de un caído abandone este mundo, canalizando un torrente de luz divina para traerlo de vuelta del abismo._<br><br> Tocas a una criatura que haya muerto en el último minuto. Vuelve a la vida con 1 Punto de Salud.",
-      "hash": "3cf5644b4ba4e0427c3e14dd00490f74a74c353c"
+      "hash": "5b0afd5f9f367abe3528aa9ab910293f74364bda"
     },
     {
       "kind": "card",
@@ -6839,11 +6964,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Curar & Instinto 5",
+        "requirements": "Fe Inspiradora & Instinto 5",
         "uses": "RELOAD:8"
       },
       "search": "_El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas a una criatura voluntaria. Recupera 6d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.",
-      "hash": "d2de2fb4f65b391a143fa97e13de58bd3939a686"
+      "hash": "8455b3b91f324568d60d5f012127ea28893f0982"
     },
     {
       "kind": "card",
@@ -7176,6 +7301,28 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Sinfonía de los Mil Secretos",
+      "id": "f3497ead928480dd474ccf266b8720465d096c32",
+      "slug": "sinfonia-de-los-mil-secretos",
+      "aliases": [
+        "sinfonia de los mil secretos"
+      ],
+      "tags": [
+        "Bardo"
+      ],
+      "level": 4,
+      "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-4.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Secretos Mágicos & Presencia 5"
+      },
+      "search": "_Has dejado de estudiar las tradiciones mágicas como disciplinas separadas. Para ti, un himno sagrado, una fórmula arcana y un antiguo rito druídico son simplemente distintas estrofas de una misma canción._<br><br> El presupuesto total de niveles de cartas otorgado por tu carta _Secretos Mágicos_ aumenta de 3 a 7.<br> Además, ahora puedes elegir cartas de _Conjuro_ de hasta Nivel 4 y ya no es necesario que todas pertenezcan a la misma lista. Puedes combinar libremente cartas de Arcanista, Sacerdote y Druida dentro de tu presupuesto disponible.<br> Todas las cartas elegidas continúan siguiendo las demás reglas de _Secretos Mágicos_, incluyendo el uso de Presencia como atributo principal, la capacidad de ignorar sus requisitos y _Reaprendizaje_.",
+      "hash": "209472f65bc7aa2e92efa0a85bb140a34e2d76d0"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Sinfonía Heroica",
       "id": "5c268125127f96a9dcaa5dbfc7612983a952a98d",
       "slug": "sinfonia-heroica",
@@ -7330,11 +7477,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Maledicción & Atributo Arcano 5",
+        "requirements": "Afinidad Arcana & Atributo Arcano 5",
         "uses": "RELOAD:7"
       },
       "search": "_Implantas una idea en la mente de un humanoide, forzándolo a seguir tus órdenes como si fueran propias._<br><br> Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: \"protege este puente\").<br> La orden no puede ser obviamente dañina para si mismo. La criatura obedece lo mejor que puede mientras mantengas la concentración.",
-      "hash": "24ac57f209eefdf48858eb23105dd1f961b36b51"
+      "hash": "2694849edb039ca954babeeebd547ae919c4a9c2"
     },
     {
       "kind": "card",
@@ -7353,11 +7500,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Danza Eldritch & Presencia 6",
+        "requirements": "Danza Sobrenatural & Presencia 6",
         "uses": "LONG_REST:1"
       },
       "search": "_Un golpe devastador que desgarra la mismísima esencia del enemigo, ignorando sus defensas._<br><br> Como Acción, realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la Mitigación Mágica y Física del objetivo. Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño adicional (del mismo tipo de tu _Descarga Sobrenatural_).<br> Además, la energía profana sella sus heridas temporalmente: el objetivo no puede recuperar Puntos de Salud de ninguna forma hasta el final de tu próximo turno.",
-      "hash": "b06ed90efb17e9ebfac18f938c836c2a0777c886"
+      "hash": "3c7d0dafb40e153a8f32b6b46493c328d1145a6d"
     },
     {
       "kind": "card",
@@ -7542,11 +7689,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Bálsamo Natural & Instinto 3",
+        "requirements": "Sintonía Primordial & Instinto 3",
         "uses": "RELOAD:5"
       },
       "search": "_Las hierbas y la savia responden a tu toque, limpiando el veneno de la sangre y fortificando el cuerpo frágil._<br><br> Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br> - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.<br> - **Bendición Protectora:** La criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Venenos y Enfermedades durante los próximos 10 minutos.",
-      "hash": "c36f307cf9b1241d65a9b6e8c367b4425c71495e"
+      "hash": "2c7201f38e43ad3a0c962e55343412e8d586c277"
     },
     {
       "kind": "card",
@@ -7990,8 +8137,8 @@
         "type": "efecto",
         "requirements": "Afinidad Arcana & Don del Elocuente & Presencia 5"
       },
-      "search": "_Tus palabras son poder puro, desentrañando secretos mágicos y tejiendo maldiciones como si fueran simples canciones._<br><br> **Beneficio de Sinergia:**<br> - **Secretos Arcanos Ampliados:** Tu carta _Secretos Mágicos_ (si la tienes) se vuelve mucho más poderosa. Ahora te permite elegir conjuros de hasta **Nivel 4**, con un presupuesto total de 4 niveles, siempre que los conjuros elegidos sean de la lista del **Arcanista**.<br> - **Marca de la Condena:** Añades la carta _Maledicción_ a tu colección. Para ti, esta carta no requiere Concentración y puedes lanzarla usando tu atributo de **Presencia**.",
-      "hash": "f2fd4fc0a94e6edc513db7e435630ae2d250ac61"
+      "search": "_Has aprendido a interpretar la Urdimbre como una composición viva. Una nota perfectamente ejecutada puede tensar un conjuro hasta volverlo casi irresistible, mientras que un cambio de ritmo en el instante preciso evita que una fórmula colapse sobre sí misma._<br><br> **Beneficio de Sinergia:**<br> - **Crescendo Arcano:** Cuando lanzas un _Conjuro_ de Bardo o Arcanista que provoque una Tirada de Salvación, puedes gastar un uso disponible de _Canto de Inspiración_ para aumentar en 1 la ND de las Tiradas de Salvación provocadas por ese lanzamiento. Solo puedes gastar un uso de _Canto de Inspiración_ de esta forma por lanzamiento.<br> - **Contrapunto Arcano:** Cuando obtienes un 1 natural en una tirada de Recarga de una carta de _Conjuro_ de Bardo o Arcanista, puedes gastar un uso disponible de _Canto de Inspiración_. Si lo haces, la carta no sufre Sobrecarga y permanece simplemente agotada.",
+      "hash": "90dbddba0eb8f4b8a87285ab2733b012f903fd93"
     },
     {
       "kind": "card",
@@ -12825,6 +12972,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Cuándo utilizar una dependencia",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-cuando-utilizar-una-dependencia",
+      "aliases": [
+        "cuando utilizar una dependencia"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Cuándo utilizar una dependencia",
+      "anchor": "cuándo-utilizar-una-dependencia",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Una carta puede requerir otra carta cuando la dependencia representa al menos uno de los siguientes casos:\n\n- **Mejora directa:** la nueva carta modifica, amplía o reemplaza explícitamente una capacidad otorgada por la carta requerida.\n- **Dependencia funcional:** la nueva carta utiliza un recurso, estado, zona, objetivo o efecto creado por la carta requerida y no podría funcionar correctamente sin ella.\n- **Especialización deliberada:** ambas cartas forman parte de una rama claramente definida cuya progresión representa una elección significativa de construcción.\n- **Continuidad de una misma mecánica:** las cartas representan etapas sucesivas de una misma capacidad, como mejorar una transformación, un compañero, un recurso característico o una técnica concreta.\n\nUna dependencia **no debería existir solamente porque dos cartas compartan temática, representen grados distintos de una misma disciplina o parezca narrativamente lógico aprender una antes que la otra**.\n\n> **Regla de Diseño:** Pregúntate: _\"¿Esta carta necesita realmente la anterior para funcionar o para desarrollar una especialización concreta?\"_\n>\n> Si la respuesta es no, probablemente sea mejor utilizar únicamente el Requerimiento de Arquetipo, Afinidad o Atributo correspondiente.",
+      "hash": "556f869888f7bb794d6eb0e33528ca0a677ca1cc"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Daño Promedio por Ronda",
       "slug": "08-7-diseno-avanzado-de-criaturas-dano-promedio-por-ronda",
       "aliases": [
@@ -12886,6 +13049,22 @@
       "source": "gm.md",
       "search": "Cuando una **Resistencia** o **Inmunidad a Daño** solo funciona bajo una condición clara y suficientemente restrictiva, calcula primero el coste normal de todas las defensas cubiertas y reduce ese coste a la **mitad, redondeando hacia arriba**.\n\nPara recibir este descuento, la condición debe proporcionar a los personajes una forma razonable de **evitar, desactivar o superar** la defensa.\n\nUna condición trivial, prácticamente permanente o que los personajes no puedan razonablemente explotar **no reduce el coste**.\n\n> **Ejemplo — Resistencia Condicional:** una criatura posee Resistencia a daño **Contundente, Cortante y Perforante de fuentes no mágicas**. Las tres Resistencias costarían normalmente 6 PD. Al aplicarse únicamente contra fuentes no mágicas, el paquete cuesta **3 PD**.\n>\n> **Ejemplo — Inmunidad Condicional:** una criatura es inmune a **Fuego** únicamente mientras permanece sumergida en lava. La Inmunidad costaría normalmente 4 PD; al ser condicional, cuesta **2 PD**.",
       "hash": "954e7e69d5e5373140fdb8e6bbbf66ccb312db32"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Dependencias entre Conjuros",
+      "slug": "09-8-diseno-de-conjuros-y-habilidades-dependencias-entre-conjuros",
+      "aliases": [
+        "dependencias entre conjuros"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
+      "heading": "Dependencias entre Conjuros",
+      "anchor": "dependencias-entre-conjuros",
+      "chapter": "8. Diseño de Conjuros y Habilidades",
+      "source": "gm.md",
+      "search": "Como regla general, los **Conjuros no forman árboles de progresión**.\n\nUn conjuro de mayor Nivel no debería requerir otro conjuro de menor Nivel únicamente porque pertenezcan a la misma escuela, elemento, disciplina o temática. Su Nivel y sus Requerimientos de Atributo ya representan el dominio necesario para aprenderlo.\n\nLas dependencias entre Conjuros deberían reservarse para aquellos casos en los que exista una interacción mecánica directa.\n\nPor ejemplo:\n\n- una carta que mejora explícitamente el modo _Expulsión_ de _Ritos Sagrados_ puede requerir _Ritos Sagrados_;\n- una carta que permite regresar a un _Santuario_ previamente creado puede requerir _Santuario_;\n- un conjuro de teleportación más poderoso no necesita requerir otro conjuro de teleportación menor si ambos funcionan de manera independiente.\n\nLas dependencias deben existir porque enriquecen o estructuran una progresión concreta, **no para imponer un camino de aprendizaje innecesario ni para compensar mediante requisitos un efecto cuyo balance interno ya sea problemático**.\n\n---",
+      "hash": "e0852503a1086c7c22c46fe68bfe1bbaa7f5b87c"
     },
     {
       "kind": "section",
@@ -13769,6 +13948,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Negación de Reacciones y Jefes",
+      "slug": "07-6-disenar-encuentros-negacion-de-reacciones-y-jefes",
+      "aliases": [
+        "negacion de reacciones y jefes"
+      ],
+      "tags": [],
+      "path": "references/manual-del-director/07-6-disenar-encuentros.md",
+      "heading": "Negación de Reacciones y Jefes",
+      "anchor": "negación-de-reacciones-y-jefes",
+      "chapter": "6. Diseñar Encuentros",
+      "source": "gm.md",
+      "search": "Los efectos que normalmente impidan a una criatura utilizar Reacciones reducen en **1** la cantidad de Reacciones que puede utilizar por ronda, hasta un mínimo de 0, en lugar de anularlas por completo.\n\nPara una criatura normal, que dispone de una única Reacción, esto funciona normalmente y le impide utilizar Reacciones mientras dure el efecto.\n\nUna criatura que posea Reacciones adicionales conserva las restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.\n\nMúltiples efectos que impidan utilizar Reacciones no acumulan esta reducción, salvo que una regla indique expresamente lo contrario.",
+      "hash": "71ebb118c97fbbabca60c3cbe4a1fda32833f2e3"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Nivel 6: Poderes Prohibidos",
       "slug": "04-el-sistema-de-cartas-nivel-6-poderes-prohibidos",
       "aliases": [
@@ -14388,8 +14583,8 @@
       "anchor": "paso-9-requerimientos-y-dependencias",
       "chapter": "8. Diseño de Conjuros y Habilidades",
       "source": "gm.md",
-      "search": "Los Requerimientos de Atributo y las dependencias entre cartas determinan **cuándo y cómo se accede** a una capacidad.\n\nNo deberían utilizarse como moneda principal para justificar una carta excesivamente poderosa una vez que esta se encuentra disponible.\n\nUna carta no está equilibrada en combate únicamente porque requiera haber adquirido previamente otras tres cartas.\n\nLas dependencias deben existir principalmente porque representan una progresión mecánica o temática coherente, no para corregir mediante requisitos un efecto cuyo balance interno ya es problemático.\n\n---",
-      "hash": "ef5a60767a5c97b9b8539adf5d742d8cca5c2d1c"
+      "search": "Los Requerimientos de Atributo y las dependencias entre cartas determinan **cuándo y cómo se accede** a una capacidad.\n\nNo deberían utilizarse como moneda principal para justificar una carta excesivamente poderosa una vez que esta se encuentra disponible. Una carta no está equilibrada únicamente porque requiera haber adquirido previamente otras tres cartas.\n\nEl **Nivel de la carta** y sus **Requerimientos de Atributo** ya representan, en gran medida, el grado de dominio necesario para acceder a capacidades más poderosas. Por esta razón, las dependencias entre cartas deben utilizarse con moderación.",
+      "hash": "cca349f81e971fd9da753d768355d95bd1013428"
     },
     {
       "kind": "section",

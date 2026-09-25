@@ -135,7 +135,7 @@ cards:
       - Druida
       - Conjuro
       - Curación
-    requirements: 'Bálsamo Natural & Instinto 3'
+    requirements: 'Sintonía Primordial & Instinto 3'
     description: >-
       _Las hierbas y la savia responden a tu toque, limpiando el veneno de la sangre y fortificando el cuerpo frágil._<br><br>
       Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br>
@@ -344,7 +344,7 @@ cards:
       - Conjuro
       - Curación
       - Concentración
-    requirements: 'Bálsamo Natural & Instinto 4'
+    requirements: 'Sintonía Primordial & Instinto 4'
     description: >-
       _Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br>
       Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas,
@@ -465,7 +465,7 @@ cards:
       - Druida
       - Conjuro
       - Concentración
-    requirements: 'Manifestar Naturaleza & Dominio del Clima & Instinto 6'
+    requirements: 'Sintonía Primordial & Instinto 6'
     description: >-
       _Desatas el cataclismo final: tormentas, terremotos y zarzas se alzan en un torbellino indiscriminado de destrucción natural._<br><br>
       Como Acción, invocas la furia de la naturaleza en un radio de 20 metros a distancia Larga durante 1 minuto.<br>

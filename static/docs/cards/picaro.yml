@@ -61,7 +61,7 @@ cards:
     type: efecto
     tags:
       - Pícaro
-    requirements: 'Acción Astuta & Reflejos 4'
+    requirements: 'Senda del Bribón & Reflejos 4'
     description: >-
       _Tu agilidad sobrenatural te permite escapar ileso de explosiones y peligros de área que destrozarían a un combatiente normal._<br><br>
       Cuando un efecto te obliga a realizar una TS de Reflejos para recibir
@@ -237,7 +237,7 @@ cards:
     type: activable
     tags:
       - Pícaro
-    requirements: Acción Astuta
+    requirements: Senda del Bribón & Reflejos 4
     description: >-
       _En un instante, te conviertes en una ráfaga de movimiento que cruza la estancia antes de que el enemigo pueda parpadear._<br><br>
       Como Interacción, duplicas tu Velocidad de movimiento para este turno.
@@ -336,7 +336,7 @@ cards:
     type: activable
     tags:
       - Pícaro
-    requirements: 'Asesinar & Reflejos 6'
+    requirements: 'Senda del Bribón & Reflejos 6'
     description: >-
       _Te fundes con la oscuridad y reapareces en el punto más débil de tu enemigo para asestar el golpe de gracia._<br><br>
       Como Interacción, te fundes con las sombras y reapareces instantáneamente en un espacio desocupado a distancia Cercana. Inmediatamente después, puedes realizar un único ataque con arma cuerpo a cuerpo contra una criatura adyacente. Este ataque se realiza con Ventaja (+1d4).

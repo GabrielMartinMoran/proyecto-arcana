@@ -79,7 +79,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: Marcha Incansable & Instinto 2
+    requirements: Maestría Marcial & Instinto 2
     uses:
       type: null
       qty: 0

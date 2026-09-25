@@ -26,7 +26,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Paso Brumoso & Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 5
     uses:
       type: RELOAD
       qty: 7
@@ -43,7 +43,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 5
     uses:
       type: null
       qty: 0
@@ -61,7 +61,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Maledicción & Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 5
     uses:
       type: RELOAD
       qty: 7
@@ -137,3 +137,55 @@ cards:
       tirada con Desventaja (-1d4).<br> Si supera la TS, el conjuro falla y no obtienes información sobre su
       ubicación.<br> El sensor puede ser detectado mediante efectos capaces de percibir magia o criaturas invisibles.
     slug: escrutinio-arcano
+  - id: 9d929e2ba25707d34733c44f18aebd102efda9d1
+    name: Desterrar
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 5
+    uses:
+      type: RELOAD
+      qty: 7
+    description: >-
+      _Rompes momentáneamente el vínculo que mantiene a una criatura anclada al plano que ocupa y la arrojas más allá de
+      sus fronteras._<br><br> Como Acción, eliges una criatura que puedas ver a distancia Media. El objetivo debe
+      superar una Tirada de Salvación de Presencia (ND 5 + Atributo Arcano).<br> Si falla, desaparece del plano actual.
+      Mientras permanezca desterrada, no puede actuar, percibir lo que ocurre en este plano ni ser afectada desde
+      él.<br> Al final de cada uno de sus turnos, puede repetir la Tirada de Salvación. Si tiene éxito, reaparece en el
+      espacio que ocupaba o en el espacio desocupado más cercano.<br> El efecto dura hasta 1 minuto o hasta que pierdas
+      la Concentración.<br> Si mantienes el efecto durante toda su duración sobre una criatura que no sea nativa del
+      plano actual, esta no reaparece: es devuelta a su plano de origen.<br> Una criatura nativa del plano actual
+      reaparece normalmente cuando termina el conjuro.
+    slug: desterrar
+  - id: 753a8ad6fa8185b62215f4af02f3b063e3806613
+    name: Círculo de Teletransporte
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana & Atributo Arcano 5
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Trazas una secuencia de símbolos espaciales capaz de plegar enormes distancias y conectar lugares remotos
+      mediante una misma geometría arcana._<br><br> Como Acción, creas un Círculo de Teletransporte sobre una superficie
+      sólida a distancia Inmediata. El círculo permanece activo durante 10 minutos.<br> Al crearlo, puedes enlazarlo con
+      otro Círculo de Teletransporte permanente o actualmente activo cuya Firma Arcana conozcas y que se encuentre en tu
+      mismo plano de existencia. Mientras ambos círculos existan, cualquier criatura que entre voluntariamente en uno de
+      ellos es transportada instantáneamente al otro. No necesitas atravesar el círculo y puedes permanecer en el lugar
+      de origen mientras otras criaturas lo utilizan.<br> - **Firma Arcana:** Todo Círculo de Teletransporte posee una
+      combinación única de símbolos que funciona como su dirección mágica. Conoces automáticamente la Firma Arcana de
+      cualquier círculo que crees. Puedes aprender la de otro círculo estudiándolo durante 10 minutos o recibiéndola de
+      alguien que la conozca. Una Firma Arcana puede copiarse, enseñarse o transmitirse como cualquier otra
+      información.<br> - **Crear un Círculo Permanente:** Si utilizas este conjuro en el mismo lugar al menos una vez
+      por día durante 30 días consecutivos, el círculo se vuelve permanente al completar el último lanzamiento. Conserva
+      la misma Firma Arcana y, a partir de ese momento, puede utilizarse como destino aunque no se encuentre activo.<br>
+      Un círculo permanente no transporta criaturas por sí solo. Permanece inactivo hasta que otro uso de _Círculo de
+      Teletransporte_ u otro efecto compatible lo enlace.
+    slug: circulo-de-teletransporte

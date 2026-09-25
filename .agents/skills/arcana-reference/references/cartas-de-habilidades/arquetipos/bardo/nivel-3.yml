@@ -76,7 +76,7 @@ cards:
     tags:
       - Bardo
       - Conjuro
-    requirements: Crescendo Aterrador & Presencia 4
+    requirements: Don del Elocuente & Presencia 4
     uses:
       type: RELOAD
       qty: 6

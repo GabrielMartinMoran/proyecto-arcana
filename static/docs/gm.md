@@ -372,6 +372,16 @@ Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien par
 
 Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
 
+### Negación de Reacciones y Jefes
+
+Los efectos que normalmente impidan a una criatura utilizar Reacciones reducen en **1** la cantidad de Reacciones que puede utilizar por ronda, hasta un mínimo de 0, en lugar de anularlas por completo.
+
+Para una criatura normal, que dispone de una única Reacción, esto funciona normalmente y le impide utilizar Reacciones mientras dure el efecto.
+
+Una criatura que posea Reacciones adicionales conserva las restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.
+
+Múltiples efectos que impidan utilizar Reacciones no acumulan esta reducción, salvo que una regla indique expresamente lo contrario.
+
 ### Reacciones de Jefe
 
 Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
@@ -1227,11 +1237,40 @@ No aumentes automáticamente la Recarga de toda carta con varias opciones. Eval�
 
 Los Requerimientos de Atributo y las dependencias entre cartas determinan **cuándo y cómo se accede** a una capacidad.
 
-No deberían utilizarse como moneda principal para justificar una carta excesivamente poderosa una vez que esta se encuentra disponible.
+No deberían utilizarse como moneda principal para justificar una carta excesivamente poderosa una vez que esta se encuentra disponible. Una carta no está equilibrada únicamente porque requiera haber adquirido previamente otras tres cartas.
 
-Una carta no está equilibrada en combate únicamente porque requiera haber adquirido previamente otras tres cartas.
+El **Nivel de la carta** y sus **Requerimientos de Atributo** ya representan, en gran medida, el grado de dominio necesario para acceder a capacidades más poderosas. Por esta razón, las dependencias entre cartas deben utilizarse con moderación.
 
-Las dependencias deben existir principalmente porque representan una progresión mecánica o temática coherente, no para corregir mediante requisitos un efecto cuyo balance interno ya es problemático.
+### Cuándo utilizar una dependencia
+
+Una carta puede requerir otra carta cuando la dependencia representa al menos uno de los siguientes casos:
+
+- **Mejora directa:** la nueva carta modifica, amplía o reemplaza explícitamente una capacidad otorgada por la carta requerida.
+- **Dependencia funcional:** la nueva carta utiliza un recurso, estado, zona, objetivo o efecto creado por la carta requerida y no podría funcionar correctamente sin ella.
+- **Especialización deliberada:** ambas cartas forman parte de una rama claramente definida cuya progresión representa una elección significativa de construcción.
+- **Continuidad de una misma mecánica:** las cartas representan etapas sucesivas de una misma capacidad, como mejorar una transformación, un compañero, un recurso característico o una técnica concreta.
+
+Una dependencia **no debería existir solamente porque dos cartas compartan temática, representen grados distintos de una misma disciplina o parezca narrativamente lógico aprender una antes que la otra**.
+
+> **Regla de Diseño:** Pregúntate: _"¿Esta carta necesita realmente la anterior para funcionar o para desarrollar una especialización concreta?"_
+>
+> Si la respuesta es no, probablemente sea mejor utilizar únicamente el Requerimiento de Arquetipo, Afinidad o Atributo correspondiente.
+
+### Dependencias entre Conjuros
+
+Como regla general, los **Conjuros no forman árboles de progresión**.
+
+Un conjuro de mayor Nivel no debería requerir otro conjuro de menor Nivel únicamente porque pertenezcan a la misma escuela, elemento, disciplina o temática. Su Nivel y sus Requerimientos de Atributo ya representan el dominio necesario para aprenderlo.
+
+Las dependencias entre Conjuros deberían reservarse para aquellos casos en los que exista una interacción mecánica directa.
+
+Por ejemplo:
+
+- una carta que mejora explícitamente el modo _Expulsión_ de _Ritos Sagrados_ puede requerir _Ritos Sagrados_;
+- una carta que permite regresar a un _Santuario_ previamente creado puede requerir _Santuario_;
+- un conjuro de teleportación más poderoso no necesita requerir otro conjuro de teleportación menor si ambos funcionan de manera independiente.
+
+Las dependencias deben existir porque enriquecen o estructuran una progresión concreta, **no para imponer un camino de aprendizaje innecesario ni para compensar mediante requisitos un efecto cuyo balance interno ya sea problemático**.
 
 ---
 

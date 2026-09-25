@@ -27,7 +27,7 @@ cards:
       - Druida
       - Conjuro
       - Concentración
-    requirements: Manifestar Naturaleza & Dominio del Clima & Instinto 6
+    requirements: Sintonía Primordial & Instinto 6
     uses:
       type: LONG_REST
       qty: 1

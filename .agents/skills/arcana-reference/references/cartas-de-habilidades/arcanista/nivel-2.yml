@@ -77,7 +77,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Atributo Arcano 3
+    requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
       qty: 5
@@ -94,7 +94,7 @@ cards:
       - Arcanista
       - Conjuro
       - Reacción
-    requirements: Atributo Arcano 3
+    requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
       qty: 5
@@ -112,7 +112,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Descarga Elemental & Atributo Arcano 3
+    requirements: Afinidad Arcana & Atributo Arcano 3
     uses:
       type: RELOAD
       qty: 5
@@ -310,3 +310,30 @@ cards:
       efecto.<br> No puedes utilizar este conjuro sobre una criatura ni sobre un objeto que una criatura lleve puesto o
       sostenga.
     slug: anclaje-arcano
+  - id: c538b67563875c8dfc671bb0b393c68a06a59e21
+    name: Alterar Tamaño
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _Manipulas la estructura física de una criatura, expandiendo o comprimiendo mágicamente su cuerpo sin alterar su
+      naturaleza._<br><br> Como Acción, eliges una criatura que puedas ver a distancia Cercana. Si no es voluntaria,
+      debe superar una Tirada de Salvación de Cuerpo (ND 5 + Atributo Arcano) o verse afectada.<br> El efecto dura hasta
+      1 minuto o hasta que pierdas la Concentración. Al lanzarlo, eliges uno de los siguientes efectos:<br> -
+      **Agrandar:** El objetivo aumenta una categoría de tamaño, hasta un máximo de Grande. Obtiene Ventaja (+1d4) en
+      Pruebas y Tiradas de Salvación de Cuerpo relacionadas con empujar, apresar, derribar o resistir estos efectos.
+      Además, una vez por turno, cuando impacta con un ataque con arma cuerpo a cuerpo o un ataque desarmado, inflige
+      1d4 de daño adicional del mismo tipo que el ataque. Debido a su mayor volumen, su Esquiva se reduce en 1 mientras
+      dure el efecto.<br> - **Reducir:** El objetivo disminuye una categoría de tamaño, hasta un mínimo de Diminuto.
+      Obtiene +1 a su Esquiva y Ventaja (+1d4) en Pruebas de Acrobacias y Sigilo. Sin embargo, sufre Desventaja (-1d4)
+      en Pruebas y Tiradas de Salvación de Cuerpo para empujar, apresar, derribar o resistir estos efectos.<br> El
+      equipo llevado por el objetivo cambia de tamaño junto con él y recupera su tamaño normal cuando termina el
+      conjuro.
+    slug: alterar-tamano

@@ -1,3 +1,4 @@
+import type { Attributes } from '$lib/types/attributes';
 import type { CardFilters } from '$lib/types/card-filters';
 import type { Card } from '$lib/types/cards/card';
 import type { Character } from '$lib/types/character';
@@ -11,11 +12,10 @@ export const filterCards = (
 	character: Character | undefined = undefined,
 ) => {
 	let fulfilledRequirements: string[] = [];
-	let activeAliasExtras: AliasExtra[] = [];
 	let filterOnlyAvailables = false;
 	if (character && filters.onlyAvailables) {
 		fulfilledRequirements = getFulfilledRequirements(cards, character);
-		activeAliasExtras = getActiveAliasExtras(fulfilledRequirements, character);
+		fulfilledRequirements = addAliasFulfillments(fulfilledRequirements, character);
 		filterOnlyAvailables = true;
 	}
 
@@ -32,38 +32,42 @@ export const filterCards = (
 			(filters.tags.length === 0 ||
 				filters.tags.every((tag) => card.tags.map((t) => t.toLowerCase()).includes(tag))) &&
 			(!filters.type || filters.type === card.type) &&
-			(!filterOnlyAvailables || isAvailable(card, fulfilledRequirements, activeAliasExtras))
+			(!filterOnlyAvailables || evaluateRequirements(card.requirements, fulfilledRequirements))
 		);
 	});
 };
 
-type AliasExtra = {
-	targetCard: string;
-	extraFulfilled: string[];
+const getAttributeKeyByDisplayName = (displayName: string): keyof Attributes | undefined => {
+	const entry = Object.entries(CONFIG.ATTR_NAME_MAP).find(([, name]) => name === displayName);
+	return entry?.[0] as keyof Attributes | undefined;
 };
 
-const getActiveAliasExtras = (
-	fulfilledRequirements: string[],
-	character: Character,
-): AliasExtra[] => {
-	const extras: AliasExtra[] = [];
+/**
+ * Expands the fulfilled requirements with the aliases granted by possessed
+ * archetype cards: the target card they unlock and, for every substituted
+ * attribute, the virtual levels the character reaches with the real attribute
+ * (for example `Atributo Arcano 3` when Mente is 3). Adding them unconditionally
+ * keeps the availability check consistent with inline dice alias resolution,
+ * where the virtual attribute is available to every card that references it.
+ */
+const addAliasFulfillments = (fulfilledRequirements: string[], character: Character): string[] => {
+	const aliasFulfillments: string[] = [];
 	for (const alias of CONFIG.CARD_ALIASES) {
-		const hasTrigger = alias.triggerCards.some((name) =>
+		const isTriggerOwned = alias.triggerCards.some((name) =>
 			fulfilledRequirements.includes(name.toLowerCase()),
 		);
-		if (!hasTrigger) continue;
+		if (!isTriggerOwned) continue;
 
-		const extraFulfilled: string[] = [alias.targetCard.toLowerCase()];
-		for (const sub of alias.attributeSubstitutions) {
-			const toAttrKey = Object.entries(CONFIG.ATTR_NAME_MAP).find(([, v]) => v === sub.to)?.[0];
-			if (!toAttrKey) continue;
-			for (let i = 1; i <= character.attributes[toAttrKey]; i++) {
-				extraFulfilled.push(`${sub.from} ${i}`.toLowerCase());
+		aliasFulfillments.push(alias.targetCard.toLowerCase());
+		for (const substitution of alias.attributeSubstitutions) {
+			const attributeKey = getAttributeKeyByDisplayName(substitution.to);
+			if (!attributeKey) continue;
+			for (let value = 1; value <= character.attributes[attributeKey]; value++) {
+				aliasFulfillments.push(`${substitution.from} ${value}`.toLowerCase());
 			}
 		}
-		extras.push({ targetCard: alias.targetCard.toLowerCase(), extraFulfilled });
 	}
-	return extras;
+	return [...fulfilledRequirements, ...aliasFulfillments];
 };
 
 const getFulfilledRequirements = (cards: Card[], character: Character) => {
@@ -88,23 +92,4 @@ const getFulfilledRequirements = (cards: Card[], character: Character) => {
 		availableTags.push(CONFIG.LINEAGE_REQUIREMENT.toLowerCase());
 	}
 	return availableTags;
-};
-
-const isAvailable = (
-	card: Card,
-	fulfilledRequirements: string[],
-	activeAliasExtras: AliasExtra[],
-) => {
-	// Check with base fulfilled requirements first
-	if (evaluateRequirements(card.requirements, fulfilledRequirements)) return true;
-
-	// If base check failed, try applying alias extras for any alias whose targetCard
-	// appears in this card's requirements
-	for (const alias of activeAliasExtras) {
-		if (!card.requirements?.toLowerCase().includes(alias.targetCard)) continue;
-		const extended = [...fulfilledRequirements, ...alias.extraFulfilled];
-		if (evaluateRequirements(card.requirements, extended)) return true;
-	}
-
-	return false;
 };

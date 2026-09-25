@@ -114,7 +114,7 @@ cards:
     type: activable
     tags:
       - Monje
-    requirements: Paso Etéreo & Instinto 4
+    requirements: Disciplina Monástica & Instinto 4
     uses:
       type: RELOAD
       qty: 6
@@ -129,7 +129,7 @@ cards:
     type: activable
     tags:
       - Monje
-    requirements: Trance de Piedra & Instinto 4
+    requirements: Disciplina Monástica & Instinto 4
     uses:
       type: RELOAD
       qty: 5

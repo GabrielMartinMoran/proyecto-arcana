@@ -25,7 +25,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Reacción
-    requirements: Toque Restaurador & Instinto 3
+    requirements: Fe Inspiradora & Instinto 3
     uses:
       type: LONG_REST
       qty: 1

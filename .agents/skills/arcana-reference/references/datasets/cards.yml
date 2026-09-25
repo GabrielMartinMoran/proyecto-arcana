@@ -1109,7 +1109,7 @@ cards:
     type: efecto
     tags:
       - Pícaro
-    requirements: Acción Astuta & Reflejos 4
+    requirements: Senda del Bribón & Reflejos 4
     description: >-
       _Tu agilidad sobrenatural te permite escapar ileso de explosiones y
       peligros de área que destrozarían a un combatiente normal._<br><br> Cuando
@@ -1319,7 +1319,7 @@ cards:
     type: activable
     tags:
       - Pícaro
-    requirements: Acción Astuta
+    requirements: Senda del Bribón & Reflejos 4
     description: >-
       _En un instante, te conviertes en una ráfaga de movimiento que cruza la
       estancia antes de que el enemigo pueda parpadear._<br><br> Como
@@ -1431,7 +1431,7 @@ cards:
     type: activable
     tags:
       - Pícaro
-    requirements: Asesinar & Reflejos 6
+    requirements: Senda del Bribón & Reflejos 6
     description: >-
       _Te fundes con la oscuridad y reapareces en el punto más débil de tu
       enemigo para asestar el golpe de gracia._<br><br> Como Interacción, te
@@ -1716,7 +1716,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: Marcha Incansable & Instinto 2
+    requirements: Maestría Marcial & Instinto 2
     description: >-
       _Tu mirada veterana detecta debilidades en el terreno y en las
       estructuras, encontrando siempre el camino más seguro o el punto más
@@ -2253,7 +2253,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Atributo Arcano 3
+    requirements: Afinidad Arcana & Atributo Arcano 3
     description: >-
       _Doblas la luz a tu alrededor hasta volverte a ti o a otro una mancha
       imperceptible para los ojos de los demás._<br><br> Tocas a una criatura
@@ -2269,7 +2269,7 @@ cards:
       - Arcanista
       - Conjuro
       - Reacción
-    requirements: Atributo Arcano 3
+    requirements: Afinidad Arcana & Atributo Arcano 3
     description: >-
       _Manifiestas un escudo de energía latente que se activa automáticamente
       para protegerte del daño._<br><br> Mientras tengas esta carta activa, una
@@ -2287,7 +2287,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Descarga Elemental & Atributo Arcano 3
+    requirements: Afinidad Arcana & Atributo Arcano 3
     description: >-
       _Divides la energía elemental en una rápida salva de proyectiles que
       convergen sobre uno o varios enemigos._<br><br> Elige Fuego, Frío o
@@ -2346,7 +2346,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Estudios Mágicos & Atributo Arcano 4
+    requirements: Afinidad Arcana & Atributo Arcano 4
     description: >-
       _Manipulas las leyes fundamentales de la física para crear una
       perturbación que altera el tiempo o la gravedad en un punto._<br><br> Al
@@ -2371,7 +2371,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Descarga Elemental & Atributo Arcano 4
+    requirements: Afinidad Arcana & Atributo Arcano 4
     description: >-
       _Generas una detonación masiva de energía en la distancia, devastando una
       amplia zona del campo de batalla._<br><br> Provocas una explosión mágica
@@ -2415,7 +2415,7 @@ cards:
       - Conjuro
       - Concentración
       - Ritual
-    requirements: Barrera Arcana & Atributo Arcano 4
+    requirements: Afinidad Arcana & Atributo Arcano 4
     description: >-
       _Trazas un perímetro místico en el suelo que actúa como una barrera
       infranqueable para ciertos tipos de seres._<br><br> Creas un círculo
@@ -2453,7 +2453,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Afinidad Arcana & Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 6
     description: >-
       _Un haz de energía verde esmeralda brota de tu dedo para reducir la
       materia de tu objetivo a cenizas._<br><br> Elije un objetivo a distancia
@@ -2667,7 +2667,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Paso Brumoso & Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 5
     description: >-
       _Perforas el tejido de la realidad para conectar dos puntos distantes
       mediante portales gemelos._<br><br> Eliges dos puntos en superficies
@@ -2684,7 +2684,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 5
     description: >-
       _Has alcanzado una comprensión tan profunda de un elemento que tus
       conjuros del mismo tipo se vuelven más letales._<br><br> Al adquirir esta
@@ -2703,7 +2703,7 @@ cards:
       - Arcanista
       - Conjuro
       - Concentración
-    requirements: Maledicción & Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 5
     description: >-
       _Implantas una idea en la mente de un humanoide, forzándolo a seguir tus
       órdenes como si fueran propias._<br><br> Como Acción, eliges a una
@@ -2741,7 +2741,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: Teoría Arcana Avanzada & Atributo Arcano 6
+    requirements: Afinidad Arcana & Atributo Arcano 6
     description: >-
       _Tu control sobre el flujo de la magia es tan absoluto que reciclar la
       energía de tus conjuros se vuelve un acto natural._<br><br> Una vez por
@@ -2757,7 +2757,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Sugestión Mayor & Atributo Arcano 6
+    requirements: Afinidad Arcana & Atributo Arcano 6
     description: >-
       _Pronuncias una palabra de poder cargada de una vibración arcana tan
       intensa que colapsa los sentidos de tu víctima._<br><br> Eliges una
@@ -3000,6 +3000,162 @@ cards:
       tiene efecto.<br> Este efecto no inflige daño y, por lo tanto, no puede
       ser reducido mediante Mitigación, Resistencias u otros efectos que
       reduzcan daño.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Alterar Tamaño
+    level: 2
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 3
+    description: >-
+      _Manipulas la estructura física de una criatura, expandiendo o
+      comprimiendo mágicamente su cuerpo sin alterar su naturaleza._<br><br>
+      Como Acción, eliges una criatura que puedas ver a distancia Cercana. Si no
+      es voluntaria, debe superar una Tirada de Salvación de Cuerpo (ND 5 +
+      Atributo Arcano) o verse afectada.<br> El efecto dura hasta 1 minuto o
+      hasta que pierdas la Concentración. Al lanzarlo, eliges uno de los
+      siguientes efectos:<br> - **Agrandar:** El objetivo aumenta una categoría
+      de tamaño, hasta un máximo de Grande. Obtiene Ventaja (+1d4) en Pruebas y
+      Tiradas de Salvación de Cuerpo relacionadas con empujar, apresar, derribar
+      o resistir estos efectos. Además, una vez por turno, cuando impacta con un
+      ataque con arma cuerpo a cuerpo o un ataque desarmado, inflige 1d4 de daño
+      adicional del mismo tipo que el ataque. Debido a su mayor volumen, su
+      Esquiva se reduce en 1 mientras dure el efecto.<br> - **Reducir:** El
+      objetivo disminuye una categoría de tamaño, hasta un mínimo de Diminuto.
+      Obtiene +1 a su Esquiva y Ventaja (+1d4) en Pruebas de Acrobacias y
+      Sigilo. Sin embargo, sufre Desventaja (-1d4) en Pruebas y Tiradas de
+      Salvación de Cuerpo para empujar, apresar, derribar o resistir estos
+      efectos.<br> El equipo llevado por el objetivo cambia de tamaño junto con
+      él y recupera su tamaño normal cuando termina el conjuro.
+    uses:
+      type: RELOAD
+      qty: 5
+  - name: Distorsión Temporal
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 4
+    description: >-
+      _Alteras el flujo temporal alrededor de una criatura, haciendo que el
+      mundo parezca ralentizarse o acelerarse a su alrededor._<br><br> Como
+      Acción, eliges una criatura que puedas ver a distancia Media y uno de los
+      siguientes efectos:<br> - **Acelerar:** Una criatura voluntaria aumenta su
+      Velocidad en 2 metros y obtiene +1 a su Esquiva. Además, durante cada uno
+      de sus turnos obtiene una Interacción adicional especial. Esta Interacción
+      puede utilizarse para realizar un único ataque o para realizar cualquier
+      Interacción ordinaria, pero no para activar cartas o habilidades. Cuando
+      este efecto termina, el objetivo sufre un colapso temporal: hasta el final
+      de su próximo turno, su Velocidad se reduce a 0 y no puede realizar
+      Acciones, Interacciones ni Reacciones.<br> - **Ralentizar:** Una criatura
+      hostil debe superar una Tirada de Salvación de Cuerpo (ND 5 + Atributo
+      Arcano). Si falla, su Velocidad se reduce a la mitad, su Esquiva se reduce
+      en 1 y no puede utilizar Reacciones. Además, al inicio de cada uno de sus
+      turnos debe elegir entre realizar una Acción o una Interacción durante ese
+      turno; no puede realizar la opción que no haya elegido. Al final de cada
+      uno de sus turnos puede repetir la Tirada de Salvación, terminando el
+      efecto sobre sí misma si tiene éxito.<br> El efecto dura hasta 1 minuto o
+      hasta que pierdas la Concentración.
+    uses:
+      type: RELOAD
+      qty: 7
+  - name: Desterrar
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 5
+    description: >-
+      _Rompes momentáneamente el vínculo que mantiene a una criatura anclada al
+      plano que ocupa y la arrojas más allá de sus fronteras._<br><br> Como
+      Acción, eliges una criatura que puedas ver a distancia Media. El objetivo
+      debe superar una Tirada de Salvación de Presencia (ND 5 + Atributo
+      Arcano).<br> Si falla, desaparece del plano actual. Mientras permanezca
+      desterrada, no puede actuar, percibir lo que ocurre en este plano ni ser
+      afectada desde él.<br> Al final de cada uno de sus turnos, puede repetir
+      la Tirada de Salvación. Si tiene éxito, reaparece en el espacio que
+      ocupaba o en el espacio desocupado más cercano.<br> El efecto dura hasta 1
+      minuto o hasta que pierdas la Concentración.<br> Si mantienes el efecto
+      durante toda su duración sobre una criatura que no sea nativa del plano
+      actual, esta no reaparece: es devuelta a su plano de origen.<br> Una
+      criatura nativa del plano actual reaparece normalmente cuando termina el
+      conjuro.
+    uses:
+      type: RELOAD
+      qty: 7
+  - name: Círculo de Teletransporte
+    level: 4
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Afinidad Arcana & Atributo Arcano 5
+    description: >-
+      _Trazas una secuencia de símbolos espaciales capaz de plegar enormes
+      distancias y conectar lugares remotos mediante una misma geometría
+      arcana._<br><br> Como Acción, creas un Círculo de Teletransporte sobre una
+      superficie sólida a distancia Inmediata. El círculo permanece activo
+      durante 10 minutos.<br> Al crearlo, puedes enlazarlo con otro Círculo de
+      Teletransporte permanente o actualmente activo cuya Firma Arcana conozcas
+      y que se encuentre en tu mismo plano de existencia. Mientras ambos
+      círculos existan, cualquier criatura que entre voluntariamente en uno de
+      ellos es transportada instantáneamente al otro. No necesitas atravesar el
+      círculo y puedes permanecer en el lugar de origen mientras otras criaturas
+      lo utilizan.<br> - **Firma Arcana:** Todo Círculo de Teletransporte posee
+      una combinación única de símbolos que funciona como su dirección mágica.
+      Conoces automáticamente la Firma Arcana de cualquier círculo que crees.
+      Puedes aprender la de otro círculo estudiándolo durante 10 minutos o
+      recibiéndola de alguien que la conozca. Una Firma Arcana puede copiarse,
+      enseñarse o transmitirse como cualquier otra información.<br> - **Crear un
+      Círculo Permanente:** Si utilizas este conjuro en el mismo lugar al menos
+      una vez por día durante 30 días consecutivos, el círculo se vuelve
+      permanente al completar el último lanzamiento. Conserva la misma Firma
+      Arcana y, a partir de ese momento, puede utilizarse como destino aunque no
+      se encuentre activo.<br> Un círculo permanente no transporta criaturas por
+      sí solo. Permanece inactivo hasta que otro uso de _Círculo de
+      Teletransporte_ u otro efecto compatible lo enlace.
+    uses:
+      type: LONG_REST
+      qty: 1
+  - name: Cambio de Plano
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Círculo de Teletransporte & Atributo Arcano 6
+    description: >-
+      _Has aprendido a plegar no solo la distancia, sino las fronteras que
+      separan realidades enteras._<br><br> Como Acción, abres un portal a
+      distancia Inmediata hacia otro plano de existencia. El portal permanece
+      activo durante 10 minutos y puede ser atravesado voluntariamente en ambas
+      direcciones mientras permanezca abierto.<br> Para abrirlo necesitas un
+      Ancla Planar vinculada al plano de destino. Un Ancla Planar es un objeto,
+      reliquia, fragmento, Firma Arcana u otro vínculo mágico que posea una
+      conexión auténtica con ese plano.<br> El lugar de llegada depende de la
+      precisión del Ancla Planar:<br> - **Destino Vinculado:** Si el Ancla está
+      vinculada a un lugar concreto del plano, el portal se abre en un espacio
+      viable cercano a ese lugar.<br> - **Círculo de Teletransporte:** Si
+      utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_
+      permanente o actualmente activo en ese plano, el portal se abre
+      exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el Ancla solo
+      está vinculada al plano en general, el DJ determina un lugar de llegada
+      apropiado relacionado con la naturaleza o procedencia del Ancla.<br> Una
+      Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en
+      otro plano cuenta por sí misma como un Ancla Planar para este conjuro.<br>
+      Este conjuro no permite atravesar barreras que impidan explícitamente el
+      viaje planar ni alcanzar un plano para el que no poseas un Ancla Planar
+      válida.
     uses:
       type: LONG_REST
       qty: 1
@@ -3396,7 +3552,7 @@ cards:
     type: activable
     tags:
       - Brujo
-    requirements: Danza Eldritch & Presencia 6
+    requirements: Danza Sobrenatural & Presencia 6
     description: >-
       _Un golpe devastador que desgarra la mismísima esencia del enemigo,
       ignorando sus defensas._<br><br> Como Acción, realizas un único y
@@ -3885,7 +4041,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Reacción
-    requirements: Toque Restaurador & Instinto 3
+    requirements: Fe Inspiradora & Instinto 3
     description: >-
       _Tu sola presencia es un faro de esperanza que sostiene a los caídos en el
       mismísimo umbral de la muerte._<br><br> Como Reacción cuando un aliado a
@@ -4020,7 +4176,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Curación
-    requirements: Toque Restaurador & Instinto 4
+    requirements: Fe Inspiradora & Instinto 4
     description: >-
       _Alzas tu voz en un cántico de sanación que baña a tus aliados en una
       cálida y reparadora luz._<br><br> Tú y hasta 4 aliados a distancia Cercana
@@ -4054,7 +4210,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Toque Restaurador & Instinto 4
+    requirements: Fe Inspiradora & Instinto 4
     description: >-
       _Te niegas a que el alma de un caído abandone este mundo, canalizando un
       torrente de luz divina para traerlo de vuelta del abismo._<br><br> Tocas a
@@ -4115,7 +4271,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Toque Restaurador & Instinto 4
+    requirements: Fe Inspiradora & Instinto 4
     description: >-
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y
       mentes nubladas a su estado más puro._<br><br> Como Acción, tocas a una
@@ -4191,7 +4347,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Curar & Instinto 5
+    requirements: Fe Inspiradora & Instinto 5
     description: >-
       _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y
       devolviendo la vitalidad perdida al instante._<br><br> Como Acción, tocas
@@ -4208,11 +4364,13 @@ cards:
       - Sacerdote
     requirements: Ritos Sagrados & Instinto 5
     description: >-
-      _Tu luz se vuelve tan abrumadora que las criaturas de la noche se
-      desintegran al entrar en contacto con ella._<br><br> Tu carta Expulsar
-      Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o
-      inferior falla su Tirada de Salvación contra tu Expulsar Impíos, es
-      destruida instantáneamente.
+      _Tu presencia sagrada se vuelve insoportable para las criaturas que
+      desafían el orden de la vida._<br><br> El modo _Expulsión_ de tu carta
+      _Ritos Sagrados_ se potencia.<br> Cuando una criatura No-muerta o Infernal
+      falla su Tirada de Salvación contra tu _Expulsión_:<br> - Si es de Rango 2
+      o inferior, es destruida instantáneamente.<br> - Si es de Rango 3 o
+      superior, recibe 4d6 de daño Radiante.<br> Después se aplican normalmente
+      los demás efectos de _Expulsión_.
     uses:
       type: null
       qty: 0
@@ -4282,7 +4440,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Reacción
-    requirements: (Aura Protectora | Curar) & Instinto 6
+    requirements: Fe Inspiradora & Instinto 6
     description: >-
       _En el momento de mayor desesperación, los cielos intervienen
       directamente, negando la muerte misma._<br><br> Como Reacción, cuando tú o
@@ -4299,7 +4457,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: (Espíritus Guardianes | Castigo Inapelable) & Instinto 6
+    requirements: Fe Inspiradora & Instinto 6
     description: >-
       _Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la
       voluntad y colapsa los sentidos de tus enemigos._<br><br> Pronuncias una
@@ -4602,7 +4760,7 @@ cards:
       - Druida
       - Conjuro
       - Curación
-    requirements: Bálsamo Natural & Instinto 3
+    requirements: Sintonía Primordial & Instinto 3
     description: >-
       _Las hierbas y la savia responden a tu toque, limpiando el veneno de la
       sangre y fortificando el cuerpo frágil._<br><br> Como Acción, tocas a una
@@ -4882,7 +5040,7 @@ cards:
       - Conjuro
       - Curación
       - Concentración
-    requirements: Bálsamo Natural & Instinto 4
+    requirements: Sintonía Primordial & Instinto 4
     description: >-
       _Conjuras esporas regenerativas sobre tus aliados, haciendo que sus
       heridas se cierren rápidamente como capullos en primavera._<br><br> Como
@@ -5029,7 +5187,7 @@ cards:
       - Druida
       - Conjuro
       - Concentración
-    requirements: Manifestar Naturaleza & Dominio del Clima & Instinto 6
+    requirements: Sintonía Primordial & Instinto 6
     description: >-
       _Desatas el cataclismo final: tormentas, terremotos y zarzas se alzan en
       un torbellino indiscriminado de destrucción natural._<br><br> Como Acción,
@@ -5341,7 +5499,7 @@ cards:
       - Bardo
       - Conjuro
       - Concentración
-    requirements: Hechizar Persona & Presencia 5
+    requirements: Don del Elocuente & Presencia 5
     description: >-
       _Tu voz se convierte en las cadenas invisibles que atan y doblegan la
       voluntad de tu víctima, convirtiéndola en tu marioneta perfecta._<br><br>
@@ -5429,7 +5587,7 @@ cards:
     tags:
       - Bardo
       - Conjuro
-    requirements: Crescendo Aterrador & Presencia 4
+    requirements: Don del Elocuente & Presencia 4
     description: >-
       _Gritas o tocas una nota tan estridente y caótica que aturde la mente y
       desgarra los tímpanos de quienes tienen la desgracia de rodearte._<br><br>
@@ -5641,6 +5799,27 @@ cards:
     uses:
       type: RELOAD
       qty: 7
+  - name: Sinfonía de los Mil Secretos
+    level: 4
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Secretos Mágicos & Presencia 5
+    description: >-
+      _Has dejado de estudiar las tradiciones mágicas como disciplinas
+      separadas. Para ti, un himno sagrado, una fórmula arcana y un antiguo rito
+      druídico son simplemente distintas estrofas de una misma canción._<br><br>
+      El presupuesto total de niveles de cartas otorgado por tu carta _Secretos
+      Mágicos_ aumenta de 3 a 7.<br> Además, ahora puedes elegir cartas de
+      _Conjuro_ de hasta Nivel 4 y ya no es necesario que todas pertenezcan a la
+      misma lista. Puedes combinar libremente cartas de Arcanista, Sacerdote y
+      Druida dentro de tu presupuesto disponible.<br> Todas las cartas elegidas
+      continúan siguiendo las demás reglas de _Secretos Mágicos_, incluyendo el
+      uso de Presencia como atributo principal, la capacidad de ignorar sus
+      requisitos y _Reaprendizaje_.
+    uses:
+      type: null
+      qty: 0
   - name: Sinfonía Heroica
     level: 5
     type: efecto
@@ -5663,7 +5842,7 @@ cards:
       - Bardo
       - Conjuro
       - Ritual
-    requirements: Secretos Mágicos & Presencia 6
+    requirements: Don del Elocuente & Presencia 6
     description: >-
       _Tu música es tan perfecta que trasciende la simple ilusión, solidificando
       la materia a partir del mismísimo silencio._<br><br> Tras 10 minutos de
@@ -6227,7 +6406,7 @@ cards:
     type: activable
     tags:
       - Monje
-    requirements: Paso Etéreo & Instinto 4
+    requirements: Disciplina Monástica & Instinto 4
     description: >-
       _Durante breves instantes, anulas tu propio peso y flotas en el aire,
       moviéndote con una libertad absoluta._<br><br> Como Acción, ganas una
@@ -6259,7 +6438,7 @@ cards:
     type: activable
     tags:
       - Monje
-    requirements: Trance de Piedra & Instinto 4
+    requirements: Disciplina Monástica & Instinto 4
     description: >-
       _Purgas las influencias malignas y las maldiciones con un toque cargado de
       energía vital pura._<br><br> Como Acción, puedes tocar a una criatura o un
@@ -6737,15 +6916,19 @@ cards:
       - Bardo
     requirements: Afinidad Arcana & Don del Elocuente & Presencia 5
     description: >-
-      _Tus palabras son poder puro, desentrañando secretos mágicos y tejiendo
-      maldiciones como si fueran simples canciones._<br><br> **Beneficio de
-      Sinergia:**<br> - **Secretos Arcanos Ampliados:** Tu carta _Secretos
-      Mágicos_ (si la tienes) se vuelve mucho más poderosa. Ahora te permite
-      elegir conjuros de hasta **Nivel 4**, con un presupuesto total de 4
-      niveles, siempre que los conjuros elegidos sean de la lista del
-      **Arcanista**.<br> - **Marca de la Condena:** Añades la carta
-      _Maledicción_ a tu colección. Para ti, esta carta no requiere
-      Concentración y puedes lanzarla usando tu atributo de **Presencia**.
+      _Has aprendido a interpretar la Urdimbre como una composición viva. Una
+      nota perfectamente ejecutada puede tensar un conjuro hasta volverlo casi
+      irresistible, mientras que un cambio de ritmo en el instante preciso evita
+      que una fórmula colapse sobre sí misma._<br><br> **Beneficio de
+      Sinergia:**<br> - **Crescendo Arcano:** Cuando lanzas un _Conjuro_ de
+      Bardo o Arcanista que provoque una Tirada de Salvación, puedes gastar un
+      uso disponible de _Canto de Inspiración_ para aumentar en 1 la ND de las
+      Tiradas de Salvación provocadas por ese lanzamiento. Solo puedes gastar un
+      uso de _Canto de Inspiración_ de esta forma por lanzamiento.<br> -
+      **Contrapunto Arcano:** Cuando obtienes un 1 natural en una tirada de
+      Recarga de una carta de _Conjuro_ de Bardo o Arcanista, puedes gastar un
+      uso disponible de _Canto de Inspiración_. Si lo haces, la carta no sufre
+      Sobrecarga y permanece simplemente agotada.
     uses:
       type: null
       qty: 0

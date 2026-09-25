@@ -75,6 +75,16 @@ Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien par
 
 Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
 
+### Negación de Reacciones y Jefes
+
+Los efectos que normalmente impidan a una criatura utilizar Reacciones reducen en **1** la cantidad de Reacciones que puede utilizar por ronda, hasta un mínimo de 0, en lugar de anularlas por completo.
+
+Para una criatura normal, que dispone de una única Reacción, esto funciona normalmente y le impide utilizar Reacciones mientras dure el efecto.
+
+Una criatura que posea Reacciones adicionales conserva las restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.
+
+Múltiples efectos que impidan utilizar Reacciones no acumulan esta reducción, salvo que una regla indique expresamente lo contrario.
+
 ### Reacciones de Jefe
 
 Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.

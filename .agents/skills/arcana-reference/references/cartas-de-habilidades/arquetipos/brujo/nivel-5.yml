@@ -23,7 +23,7 @@ cards:
     type: activable
     tags:
       - Brujo
-    requirements: Danza Eldritch & Presencia 6
+    requirements: Danza Sobrenatural & Presencia 6
     uses:
       type: LONG_REST
       qty: 1

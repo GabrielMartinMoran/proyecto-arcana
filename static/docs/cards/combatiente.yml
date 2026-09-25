@@ -210,7 +210,7 @@ cards:
     type: efecto
     tags:
       - Combatiente
-    requirements: 'Marcha Incansable & Instinto 2'
+    requirements: 'Maestría Marcial & Instinto 2'
     description: >-
       _Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br>
       Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br>

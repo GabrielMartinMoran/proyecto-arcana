@@ -23,7 +23,7 @@ cards:
       - Bardo
       - Conjuro
       - Concentración
-    requirements: Hechizar Persona & Presencia 5
+    requirements: Don del Elocuente & Presencia 5
     uses:
       type: RELOAD
       qty: 7
@@ -76,3 +76,22 @@ cards:
       dirección aleatoria.<br> - **4:** Ataca a la criatura más cercana.<br> Las criaturas afectadas pueden repetir la
       salvación al final de cada uno de sus turnos.
     slug: discordia
+  - id: f3497ead928480dd474ccf266b8720465d096c32
+    name: Sinfonía de los Mil Secretos
+    level: 4
+    type: efecto
+    tags:
+      - Bardo
+    requirements: Secretos Mágicos & Presencia 5
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Has dejado de estudiar las tradiciones mágicas como disciplinas separadas. Para ti, un himno sagrado, una fórmula
+      arcana y un antiguo rito druídico son simplemente distintas estrofas de una misma canción._<br><br> El presupuesto
+      total de niveles de cartas otorgado por tu carta _Secretos Mágicos_ aumenta de 3 a 7.<br> Además, ahora puedes
+      elegir cartas de _Conjuro_ de hasta Nivel 4 y ya no es necesario que todas pertenezcan a la misma lista. Puedes
+      combinar libremente cartas de Arcanista, Sacerdote y Druida dentro de tu presupuesto disponible.<br> Todas las
+      cartas elegidas continúan siguiendo las demás reglas de _Secretos Mágicos_, incluyendo el uso de Presencia como
+      atributo principal, la capacidad de ignorar sus requisitos y _Reaprendizaje_.
+    slug: sinfonia-de-los-mil-secretos

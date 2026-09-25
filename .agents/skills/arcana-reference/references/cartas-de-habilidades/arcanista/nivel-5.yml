@@ -6,7 +6,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Afinidad Arcana & Atributo Arcano 5
+    requirements: Afinidad Arcana & Atributo Arcano 6
     uses:
       type: RELOAD
       qty: 8
@@ -22,7 +22,7 @@ cards:
     type: efecto
     tags:
       - Arcanista
-    requirements: Teoría Arcana Avanzada & Atributo Arcano 6
+    requirements: Afinidad Arcana & Atributo Arcano 6
     uses:
       type: null
       qty: 0
@@ -38,7 +38,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Sugestión Mayor & Atributo Arcano 6
+    requirements: Afinidad Arcana & Atributo Arcano 6
     uses:
       type: LONG_REST
       qty: 1
@@ -101,3 +101,31 @@ cards:
       posee más de 60 Puntos de Salud, la palabra no tiene efecto.<br> Este efecto no inflige daño y, por lo tanto, no
       puede ser reducido mediante Mitigación, Resistencias u otros efectos que reduzcan daño.
     slug: palabra-de-poder-matar
+  - id: 1c8d11b6ca4ab2257c9f0c58c71ffd0fe4af11b4
+    name: Cambio de Plano
+    level: 5
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Ritual
+    requirements: Círculo de Teletransporte & Atributo Arcano 6
+    uses:
+      type: LONG_REST
+      qty: 1
+    description: >-
+      _Has aprendido a plegar no solo la distancia, sino las fronteras que separan realidades enteras._<br><br> Como
+      Acción, abres un portal a distancia Inmediata hacia otro plano de existencia. El portal permanece activo durante
+      10 minutos y puede ser atravesado voluntariamente en ambas direcciones mientras permanezca abierto.<br> Para
+      abrirlo necesitas un Ancla Planar vinculada al plano de destino. Un Ancla Planar es un objeto, reliquia,
+      fragmento, Firma Arcana u otro vínculo mágico que posea una conexión auténtica con ese plano.<br> El lugar de
+      llegada depende de la precisión del Ancla Planar:<br> - **Destino Vinculado:** Si el Ancla está vinculada a un
+      lugar concreto del plano, el portal se abre en un espacio viable cercano a ese lugar.<br> - **Círculo de
+      Teletransporte:** Si utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_ permanente o
+      actualmente activo en ese plano, el portal se abre exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el
+      Ancla solo está vinculada al plano en general, el DJ determina un lugar de llegada apropiado relacionado con la
+      naturaleza o procedencia del Ancla.<br> Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en
+      otro plano cuenta por sí misma como un Ancla Planar para este conjuro.<br> Este conjuro no permite atravesar
+      barreras que impidan explícitamente el viaje planar ni alcanzar un plano para el que no poseas un Ancla Planar
+      válida.
+    slug: cambio-de-plano

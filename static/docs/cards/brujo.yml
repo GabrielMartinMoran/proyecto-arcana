@@ -148,7 +148,7 @@ cards:
     type: activable
     tags:
       - Brujo
-    requirements: 'Danza Eldritch & Presencia 6'
+    requirements: 'Danza Sobrenatural & Presencia 6'
     description: >-
       _Un golpe devastador que desgarra la mismísima esencia del enemigo, ignorando sus defensas._<br><br>
       Como Acción, realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la Mitigación Mágica y Física del objetivo. Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño adicional (del mismo tipo de tu _Descarga Sobrenatural_).<br>

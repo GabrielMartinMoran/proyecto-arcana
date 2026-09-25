@@ -32,7 +32,7 @@ cards:
       - Druida
       - Conjuro
       - Curación
-    requirements: Bálsamo Natural & Instinto 3
+    requirements: Sintonía Primordial & Instinto 3
     uses:
       type: RELOAD
       qty: 5

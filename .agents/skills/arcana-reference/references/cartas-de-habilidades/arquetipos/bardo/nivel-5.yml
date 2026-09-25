@@ -22,7 +22,7 @@ cards:
       - Bardo
       - Conjuro
       - Ritual
-    requirements: Secretos Mágicos & Presencia 6
+    requirements: Don del Elocuente & Presencia 6
     uses:
       type: LONG_REST
       qty: 1

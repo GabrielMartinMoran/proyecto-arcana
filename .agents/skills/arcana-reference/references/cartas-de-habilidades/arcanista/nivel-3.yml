@@ -6,7 +6,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Estudios Mágicos & Atributo Arcano 4
+    requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
       qty: 7
@@ -28,7 +28,7 @@ cards:
     tags:
       - Arcanista
       - Conjuro
-    requirements: Descarga Elemental & Atributo Arcano 4
+    requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
       qty: 7
@@ -70,7 +70,7 @@ cards:
       - Conjuro
       - Concentración
       - Ritual
-    requirements: Barrera Arcana & Atributo Arcano 4
+    requirements: Afinidad Arcana & Atributo Arcano 4
     uses:
       type: RELOAD
       qty: 6
@@ -230,3 +230,30 @@ cards:
       puedes atacar, lanzar conjuros, activar habilidades, manipular objetos ni utilizar equipamiento.<br> - No puedes
       ser Inmovilizado o Enredado mediante ataduras, presas u obstáculos puramente físicos.
     slug: forma-gaseosa
+  - id: 11ab7a7076c10f42e98262b6a6343afde2261878
+    name: Distorsión Temporal
+    level: 3
+    type: activable
+    tags:
+      - Arcanista
+      - Conjuro
+      - Concentración
+    requirements: Afinidad Arcana & Atributo Arcano 4
+    uses:
+      type: RELOAD
+      qty: 7
+    description: >-
+      _Alteras el flujo temporal alrededor de una criatura, haciendo que el mundo parezca ralentizarse o acelerarse a su
+      alrededor._<br><br> Como Acción, eliges una criatura que puedas ver a distancia Media y uno de los siguientes
+      efectos:<br> - **Acelerar:** Una criatura voluntaria aumenta su Velocidad en 2 metros y obtiene +1 a su Esquiva.
+      Además, durante cada uno de sus turnos obtiene una Interacción adicional especial. Esta Interacción puede
+      utilizarse para realizar un único ataque o para realizar cualquier Interacción ordinaria, pero no para activar
+      cartas o habilidades. Cuando este efecto termina, el objetivo sufre un colapso temporal: hasta el final de su
+      próximo turno, su Velocidad se reduce a 0 y no puede realizar Acciones, Interacciones ni Reacciones.<br> -
+      **Ralentizar:** Una criatura hostil debe superar una Tirada de Salvación de Cuerpo (ND 5 + Atributo Arcano). Si
+      falla, su Velocidad se reduce a la mitad, su Esquiva se reduce en 1 y no puede utilizar Reacciones. Además, al
+      inicio de cada uno de sus turnos debe elegir entre realizar una Acción o una Interacción durante ese turno; no
+      puede realizar la opción que no haya elegido. Al final de cada uno de sus turnos puede repetir la Tirada de
+      Salvación, terminando el efecto sobre sí misma si tiene éxito.<br> El efecto dura hasta 1 minuto o hasta que
+      pierdas la Concentración.
+    slug: distorsion-temporal

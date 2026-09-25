@@ -7,7 +7,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Reacción
-    requirements: (Aura Protectora | Curar) & Instinto 6
+    requirements: Fe Inspiradora & Instinto 6
     uses:
       type: LONG_REST
       qty: 1
@@ -24,7 +24,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: (Espíritus Guardianes | Castigo Inapelable) & Instinto 6
+    requirements: Fe Inspiradora & Instinto 6
     uses:
       type: RELOAD
       qty: 8

@@ -123,7 +123,7 @@ cards:
       - Conjuro
       - Curación
       - Concentración
-    requirements: Bálsamo Natural & Instinto 4
+    requirements: Sintonía Primordial & Instinto 4
     uses:
       type: RELOAD
       qty: 6

@@ -23,7 +23,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Curación
-    requirements: Toque Restaurador & Instinto 4
+    requirements: Fe Inspiradora & Instinto 4
     uses:
       type: RELOAD
       qty: 6
@@ -58,7 +58,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Toque Restaurador & Instinto 4
+    requirements: Fe Inspiradora & Instinto 4
     uses:
       type: LONG_REST
       qty: 1
@@ -74,7 +74,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Toque Restaurador & Instinto 4
+    requirements: Fe Inspiradora & Instinto 4
     uses:
       type: RELOAD
       qty: 6

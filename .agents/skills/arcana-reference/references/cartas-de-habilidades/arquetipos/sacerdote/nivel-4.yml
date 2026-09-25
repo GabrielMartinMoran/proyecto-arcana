@@ -6,7 +6,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: Curar & Instinto 5
+    requirements: Fe Inspiradora & Instinto 5
     uses:
       type: RELOAD
       qty: 8
@@ -27,9 +27,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tu luz se vuelve tan abrumadora que las criaturas de la noche se desintegran al entrar en contacto con
-      ella._<br><br> Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior
-      falla su Tirada de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.
+      _Tu presencia sagrada se vuelve insoportable para las criaturas que desafían el orden de la vida._<br><br> El modo
+      _Expulsión_ de tu carta _Ritos Sagrados_ se potencia.<br> Cuando una criatura No-muerta o Infernal falla su Tirada
+      de Salvación contra tu _Expulsión_:<br> - Si es de Rango 2 o inferior, es destruida instantáneamente.<br> - Si es
+      de Rango 3 o superior, recibe 4d6 de daño Radiante.<br> Después se aplican normalmente los demás efectos de
+      _Expulsión_.
     slug: destruir-impios
   - id: 56d14fc55ca28ba533bc5123bb54fb1e71e9240f
     name: Cadenas de Luz
