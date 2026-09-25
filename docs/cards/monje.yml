@@ -364,7 +364,7 @@ cards:
     type: activable
     tags:
       - Monje
-    requirements: 'Paso Etéreo & Instinto 4'
+    requirements: 'Disciplina Monástica & Instinto 4'
     description: >-
       _Durante breves instantes, anulas tu propio peso y flotas en el aire, moviéndote con una libertad absoluta._<br><br>
       Como Acción, ganas una velocidad de vuelo igual a tu velocidad normal durante 1 minuto.<br>
@@ -394,7 +394,7 @@ cards:
     type: activable
     tags:
       - Monje
-    requirements: 'Trance de Piedra & Instinto 4'
+    requirements: 'Disciplina Monástica & Instinto 4'
     description: >-
       _Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br>
       Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br>

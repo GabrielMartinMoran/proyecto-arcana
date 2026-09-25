@@ -353,13 +353,10 @@ cards:
       - Bardo
     requirements: 'Afinidad Arcana & Don del Elocuente & Presencia 5'
     description: >-
-      _Tus palabras son poder puro, desentrañando secretos mágicos y tejiendo maldiciones como si fueran simples canciones._<br><br>
+      _Has aprendido a interpretar la Urdimbre como una composición viva. Una nota perfectamente ejecutada puede tensar un conjuro hasta volverlo casi irresistible, mientras que un cambio de ritmo en el instante preciso evita que una fórmula colapse sobre sí misma._<br><br>
       **Beneficio de Sinergia:**<br>
-      - **Secretos Arcanos Ampliados:** Tu carta _Secretos Mágicos_ (si la tienes) se vuelve mucho más poderosa.
-      Ahora te permite elegir conjuros de hasta **Nivel 4**, con un presupuesto total de 4 niveles,
-      siempre que los conjuros elegidos sean de la lista del **Arcanista**.<br>
-      - **Marca de la Condena:** Añades la carta _Maledicción_ a tu colección.
-      Para ti, esta carta no requiere Concentración y puedes lanzarla usando tu atributo de **Presencia**.
+      - **Crescendo Arcano:** Cuando lanzas un _Conjuro_ de Bardo o Arcanista que provoque una Tirada de Salvación, puedes gastar un uso disponible de _Canto de Inspiración_ para aumentar en 1 la ND de las Tiradas de Salvación provocadas por ese lanzamiento. Solo puedes gastar un uso de _Canto de Inspiración_ de esta forma por lanzamiento.<br>
+      - **Contrapunto Arcano:** Cuando obtienes un 1 natural en una tirada de Recarga de una carta de _Conjuro_ de Bardo o Arcanista, puedes gastar un uso disponible de _Canto de Inspiración_. Si lo haces, la carta no sufre Sobrecarga y permanece simplemente agotada.
     uses:
       type: null
       qty: 0

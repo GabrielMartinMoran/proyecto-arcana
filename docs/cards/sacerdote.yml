@@ -114,7 +114,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Reacción
-    requirements: 'Toque Restaurador & Instinto 3'
+    requirements: 'Fe Inspiradora & Instinto 3'
     description: >-
       _Tu sola presencia es un faro de esperanza que sostiene a los caídos en el mismísimo umbral de la muerte._<br><br>
       Como Reacción cuando un aliado a distancia Cercana es reducido a 0 Puntos de Salud,
@@ -226,7 +226,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Curación
-    requirements: 'Toque Restaurador & Instinto 4'
+    requirements: 'Fe Inspiradora & Instinto 4'
     description: >-
       _Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br>
       Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.
@@ -256,7 +256,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: 'Toque Restaurador & Instinto 4'
+    requirements: 'Fe Inspiradora & Instinto 4'
     description: >-
       _Te niegas a que el alma de un caído abandone este mundo, canalizando un torrente de luz divina para traerlo de vuelta del abismo._<br><br>
       Tocas a una criatura que haya muerto en el último minuto. Vuelve a
@@ -313,7 +313,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: 'Toque Restaurador & Instinto 4'
+    requirements: 'Fe Inspiradora & Instinto 4'
     description: >-
       _Un milagro mayor fluye por tus venas, restaurando cuerpos destrozados y mentes nubladas a su estado más puro._<br><br>
       Como Acción, tocas a una criatura voluntaria. Eliges uno de los siguientes efectos:<br>
@@ -380,7 +380,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: 'Curar & Instinto 5'
+    requirements: 'Fe Inspiradora & Instinto 5'
     description: >-
       _El poder absoluto de tu fe se manifiesta, limpiando toda impureza y devolviendo la vitalidad perdida al instante._<br><br>
       Como Acción, tocas a una criatura voluntaria. Recupera 6d6 + tu Instinto en Puntos de Salud. Además, eliminas todas las condiciones y efectos mágicos negativos que la afecten que no sean maldiciones ni petrificación.
@@ -395,8 +395,12 @@ cards:
       - Sacerdote
     requirements: 'Ritos Sagrados & Instinto 5'
     description: >-
-      _Tu luz se vuelve tan abrumadora que las criaturas de la noche se desintegran al entrar en contacto con ella._<br><br>
-      Tu carta Expulsar Impíos se potencia. Cuando una criatura Infernal o No-muerta de NA 2 o inferior falla su Tirada de Salvación contra tu Expulsar Impíos, es destruida instantáneamente.
+      _Tu presencia sagrada se vuelve insoportable para las criaturas que desafían el orden de la vida._<br><br>
+      El modo _Expulsión_ de tu carta _Ritos Sagrados_ se potencia.<br>
+      Cuando una criatura No-muerta o Infernal falla su Tirada de Salvación contra tu _Expulsión_:<br>
+      - Si es de Rango 2 o inferior, es destruida instantáneamente.<br>
+      - Si es de Rango 3 o superior, recibe 4d6 de daño Radiante.<br>
+      Después se aplican normalmente los demás efectos de _Expulsión_.
     uses:
       type: null
       qty: 0
@@ -455,7 +459,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Reacción
-    requirements: '(Aura Protectora | Curar) & Instinto 6'
+    requirements: 'Fe Inspiradora & Instinto 6'
     description: >-
       _En el momento de mayor desesperación, los cielos intervienen directamente, negando la muerte misma._<br><br>
       Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.
@@ -469,7 +473,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-    requirements: '(Espíritus Guardianes | Castigo Inapelable) & Instinto 6'
+    requirements: 'Fe Inspiradora & Instinto 6'
     description: >-
       _Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la voluntad y colapsa los sentidos de tus enemigos._<br><br>
       Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno).
