@@ -676,8 +676,8 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 14224,
-      "sha1": "e07180ea9f0ca0bca10e79da1c229f8fef4151c6"
+      "size": 15085,
+      "sha1": "164fa185e6f9a1cbd643621db5ee671b3191c49d"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",
@@ -718,8 +718,8 @@
     {
       "path": "references/manual-del-jugador/14-un-ejemplo-de-juego.md",
       "kind": "file",
-      "size": 5933,
-      "sha1": "0cf742ecc2dc726c3e03c6c196dc81dc2ff35d8b"
+      "size": 6028,
+      "sha1": "e79e6c752fc01a654025d74cbd1acc1cb0612fce"
     },
     {
       "path": "references/objetos-magicos",

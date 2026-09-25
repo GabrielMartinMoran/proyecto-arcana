@@ -681,11 +681,20 @@ En el mundo de ARCANA, las criaturas se clasifican por su volumen y masa, lo que
 
 ## Realizar un Ataque
 
-Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva** del objetivo. Si la superas por 5 o más, el ataque es un **crítico**.
+Para atacar a un enemigo, realizas una **Tirada de Ataque**. El resultado debe igualar o superar la **Esquiva** del objetivo para impactar.
 
 - **Tirada de Ataque:** 1d8 + Atributo (Cuerpo para armas cuerpo a cuerpo, Reflejos para armas a distancia).
 - **Esquiva:** Es la defensa pasiva del objetivo. Se calcula con la siguiente fórmula:
   - **Esquiva = 5 + Reflejos − Penalización de Armadura + Bonificador de Escudo**
+
+### Golpes Críticos
+
+Un ataque se considera un **golpe crítico** únicamente si se cumplen estas condiciones:
+
+- El **d8 de la Tirada de Ataque explota** al menos una vez.
+- El resultado total de la tirada **supera la Esquiva del objetivo por 5 o más**.
+
+Superar la Esquiva por 5 o más sin que el d8 haya explotado sigue siendo un impacto normal. Del mismo modo, que el d8 explote no garantiza un crítico si el resultado total no supera la Esquiva por al menos 5.
 
 ## Cobertura
 
@@ -721,7 +730,10 @@ Si el resultado de la tirada de salvación **iguala o supera** el ND, el persona
 - **Daño de Armas:** Las armas infligen un tipo y cantidad de daño fijos (ej. 1d6 Cortante).
 - **Daño Físico:** La **Mitigación Física** reduce el daño físico recibido. Resta tu valor de **Mitigación Física** del daño final (mínimo 0).
 - **Daño Elemental y Mágico:** La **Mitigación Mágica** reduce el daño mágico o elemental recibido. Resta tu valor de **Mitigación Mágica** del daño final (mínimo 0).
-- **Daño Crítico:** Cuando un ataque resulta en un crítico, se duplican los dados de daño del ataque.
+- **Daño Crítico:** Cuando un ataque resulta en un golpe crítico, toma el **valor máximo de todos los dados de daño que formen parte de ese impacto** y luego tira esos mismos dados normalmente, sumando ambos resultados. Esto incluye los dados de daño adicionales provenientes de cartas o efectos que se apliquen directamente al impacto, como _Ataque Furtivo_. Los modificadores de daño que no sean dados se suman una sola vez.
+
+  Por ejemplo, un ataque que inflige `1d8 + 2d4` de daño inflige `16 + 1d8 + 2d4` en un golpe crítico.
+
 - **Resistencia y Vulnerabilidad:** Ciertos efectos, linajes u objetos otorgan Resistencia o Vulnerabilidad a un tipo de daño específico. La **Resistencia** reduce a la mitad el daño recibido de ese tipo (redondeando hacia abajo). La **Vulnerabilidad** duplica el daño recibido de ese tipo.
   - _Orden de operaciones:_ Si un personaje tiene tanto Resistencia (o Vulnerabilidad) como Mitigación contra el mismo ataque, las multiplicaciones o divisiones se aplican primero. Es decir, primero se divide (o duplica) el daño, y luego se resta el valor de Mitigación al resultado final (mínimo 0).
 
@@ -1205,13 +1217,17 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 > **DJ:** _¡Genial! Ganas 1 Punto de Suerte. Ahora tirá el d8 de nuevo y sumalo._
 
-**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 8 + 4 + 3... ¡un 15! Es un golpe crítico, ya que supera la Esquiva del esqueleto (7) por más de 5."
+**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 8 + 4 + 3... ¡un 15! El d8 explotó y supero la Esquiva del esqueleto (7) por más de 5."
 
-> **DJ:** _¡Un impacto devastador! Tirás el doble de dados de daño. Tu arco corto hace 1d4 de daño Perforante, así que tirás 2d4._
+> **DJ:** _Entonces es un golpe crítico. Además, como Kaelen está adyacente al esqueleto, puedes aplicar tu Ataque Furtivo a este impacto._
 
-**Elara:** "Saco un 3 y un 4. ¡7 puntos de daño! Además, como un aliado (Kaelen) está al lado de mi objetivo, activo mi `Ataque Furtivo` y sumo 1d4 más de daño."
+**Elara:** "Mi arco corto inflige 1d6 de daño Perforante y Ataque Furtivo añade 1d4. Como es un crítico, primero tomo el máximo de ambos dados: 6 + 4, para un total de 10. Después tiro normalmente 1d6 + 1d4 y lo sumo."
 
-> **DJ:** _Excelente jugada. El esqueleto recibe un total de 7 + 3... ¡10 puntos de daño! La flecha le atraviesa el cráneo y la criatura se desploma en una pila de huesos inertes. Te queda tu movimiento._
+> **DJ:** _Exactamente._
+
+**Elara:** "Saco un 4 en el d6 y un 3 en el d4. Son 10 + 4 + 3: ¡17 puntos de daño!"
+
+> **DJ:** _La flecha impacta exactamente donde debía. El esqueleto se desploma convertido en una pila de huesos. Te queda tu movimiento._
 
 **Elara:** "Me muevo para esconderme detrás de una columna, para tener cobertura parcial."
 

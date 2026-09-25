@@ -47,13 +47,17 @@ Las reglas de un juego de rol cobran vida en la mesa. A continuación, te presen
 
 > **DJ:** _¡Genial! Ganas 1 Punto de Suerte. Ahora tirá el d8 de nuevo y sumalo._
 
-**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 8 + 4 + 3... ¡un 15! Es un golpe crítico, ya que supera la Esquiva del esqueleto (7) por más de 5."
+**Elara:** "Vuelvo a tirar... ¡saco un 4! Mi tirada de ataque total es 8 + 4 + 3... ¡un 15! El d8 explotó y supero la Esquiva del esqueleto (7) por más de 5."
 
-> **DJ:** _¡Un impacto devastador! Tirás el doble de dados de daño. Tu arco corto hace 1d4 de daño Perforante, así que tirás 2d4._
+> **DJ:** _Entonces es un golpe crítico. Además, como Kaelen está adyacente al esqueleto, puedes aplicar tu Ataque Furtivo a este impacto._
 
-**Elara:** "Saco un 3 y un 4. ¡7 puntos de daño! Además, como un aliado (Kaelen) está al lado de mi objetivo, activo mi `Ataque Furtivo` y sumo 1d4 más de daño."
+**Elara:** "Mi arco corto inflige 1d6 de daño Perforante y Ataque Furtivo añade 1d4. Como es un crítico, primero tomo el máximo de ambos dados: 6 + 4, para un total de 10. Después tiro normalmente 1d6 + 1d4 y lo sumo."
 
-> **DJ:** _Excelente jugada. El esqueleto recibe un total de 7 + 3... ¡10 puntos de daño! La flecha le atraviesa el cráneo y la criatura se desploma en una pila de huesos inertes. Te queda tu movimiento._
+> **DJ:** _Exactamente._
+
+**Elara:** "Saco un 4 en el d6 y un 3 en el d4. Son 10 + 4 + 3: ¡17 puntos de daño!"
+
+> **DJ:** _La flecha impacta exactamente donde debía. El esqueleto se desploma convertido en una pila de huesos. Te queda tu movimiento._
 
 **Elara:** "Me muevo para esconderme detrás de una columna, para tener cobertura parcial."
 
