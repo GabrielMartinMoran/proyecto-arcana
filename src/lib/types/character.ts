@@ -1,6 +1,6 @@
+import type { Card } from '$lib/types/cards/card';
 import { calculateModifierFormula } from '$lib/utils/modifiers-calculator';
 import { CONFIG } from '../../config';
-import type { Card } from '$lib/types/cards/card';
 import type { Attributes } from './attributes';
 import type { PartyReference } from './party-reference';
 
@@ -139,18 +139,6 @@ export class Character {
 
 	get spentPP() {
 		return this.ppHistory.filter((x) => x.type === 'subtract').reduce((acc, x) => acc + x.value, 0);
-	}
-
-	get pjPower() {
-		const topCardLevels = this.cards
-			.map((card) => card.level)
-			.sort((a, b) => b - a)
-			.slice(0, CONFIG.TOP_N_CARDS_TO_CALCULATE_PJ_POWER);
-		console.log(topCardLevels);
-		const averageCardLevel =
-			topCardLevels.reduce((acc, level) => acc + level, 0) / topCardLevels.length;
-		const ppFactor = this.spentPP / CONFIG.PJ_POWER_SPENT_PP_DIVIDER;
-		return Math.round(averageCardLevel + ppFactor);
 	}
 
 	get tier() {

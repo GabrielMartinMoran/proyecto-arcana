@@ -23,12 +23,12 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 | **0-7**     | R1 (Inicio)   | 15    | 25     | 40      | 60    |
 | **8-15**    | R1 (Medio)    | 20    | 35     | 50      | 80    |
 | **16-25**   | R1 (Avanzado) | 25    | 45     | 65      | 100   |
-| **26-38**   | R2 (Inicio)   | 40    | 70     | 100     | 160   |
-| **39-50**   | R2 (Medio)    | 55    | 90     | 130     | 210   |
-| **51-60**   | R2 (Avanzado) | 70    | 120    | 180     | 280   |
-| **61-75**   | R3 (Inicio)   | 90    | 150    | 220     | 350   |
-| **76-90**   | R3 (Medio)    | 110   | 180    | 270     | 430   |
-| **91+**     | R3 (Avanzado) | 140   | 220    | 330     | 550   |
+| **26-39**   | R2 (Inicio)   | 40    | 70     | 100     | 160   |
+| **40-52**   | R2 (Medio)    | 55    | 90     | 130     | 210   |
+| **53-65**   | R2 (Avanzado) | 70    | 120    | 180     | 280   |
+| **66-80**   | R3 (Inicio)   | 90    | 150    | 220     | 350   |
+| **81-95**   | R3 (Medio)    | 110   | 180    | 270     | 430   |
+| **96+**     | R3 (Avanzado) | 140   | 220    | 330     | 550   |
 
 ### Paso 3: Calcular el Presupuesto Total de la Misión
 

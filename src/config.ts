@@ -4,7 +4,6 @@ export const CONFIG = {
 	HEALTH_BODY_MULTIPIER: 3,
 	MAX_LUCK: 5,
 	BASE_EVASION: 5,
-	PJ_POWER_SPENT_PP_DIVIDER: 10,
 	STARTING_LUCK: 1,
 	BASE_MAX_ACTIVE_CARDS: 3,
 	RELOAD_CARD_USES: 1,
@@ -29,11 +28,9 @@ export const CONFIG = {
 
 	CHARACTER_TIERS: [
 		{ tier: 1, minPP: 0, maxPP: 25 },
-		{ tier: 2, minPP: 26, maxPP: 60 },
-		{ tier: 3, minPP: 61, maxPP: Infinity },
+		{ tier: 2, minPP: 26, maxPP: 65 },
+		{ tier: 3, minPP: 66, maxPP: Infinity },
 	],
-
-	TOP_N_CARDS_TO_CALCULATE_PJ_POWER: 3,
 
 	MOBILE_MAX_WIDTH: 1280,
 

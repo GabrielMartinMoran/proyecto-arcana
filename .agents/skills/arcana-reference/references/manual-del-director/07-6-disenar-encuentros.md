@@ -19,14 +19,14 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 | **0-7**     | R1 (Inicio)          | 1                  | 1.5                 | 2                    | 2.5                | Rango 1                                 |
 | **8-15**    | R1 (Medio)           | 1.25               | 1.75                | 2.5                  | 3.25               | Rango 1                                 |
 | **16-25**   | R1 (Avanzado)        | 1.5                | 2.25                | 3.25                 | 4.25               | Rango 1 (_Considerar 1x R2_)            |
-| **26-38**   | R2 (Inicio)          | 2                  | 3                   | 4.5                  | 6                  | Rango 2                                 |
-| **39-50**   | R2 (Medio)           | 2.5                | 3.75                | 5.5                  | 7.25               | Rango 2                                 |
-| **51-60**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
-| **61-75**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
-| **76-90**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
-| **91+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
+| **26-39**   | R2 (Inicio)          | 2                  | 3                   | 4.5                  | 6                  | Rango 2                                 |
+| **40-52**   | R2 (Medio)           | 2.5                | 3.75                | 5.5                  | 7.25               | Rango 2                                 |
+| **53-65**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
+| **66-80**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
+| **81-95**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
+| **96+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
 
-_(Nota: "Rango Nominal (Ref.)" es solo una etiqueta de referencia para entender en qué etapa de poder se encuentra el grupo)_
+_(Nota: "Rango Nominal (Ref.)" representa la escala de amenazas frente a la cual un grupo de personajes de ese nivel de progreso puede contribuir de forma sostenida y significativa en encuentros estándar. No indica el Nivel máximo de carta que un personaje puede poseer: personajes muy especializados pueden acceder antes a capacidades propias de etapas posteriores, mientras que personajes más diversificados pueden consolidar su poder de forma más gradual.)_
 
 ## Paso 3: Calcular el Presupuesto Total del Encuentro (PA Total)
 
@@ -34,9 +34,9 @@ Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu 
 
 `Presupuesto Total (PA) = Redondear( (PA Base por PJ de la Tabla) x (Número de Jugadores) )`
 
-> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "91+"). Quieren dificultad **Difícil**.
+> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 100** (fila "96+"). Quieren dificultad **Difícil**.
 >
-> - PA Base/PJ (Tabla v5.2): 10.5 PA
+> - PA Base/PJ: 10.5 PA
 > - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
 
 ## Paso 4: Construir el Encuentro — Compra de Enemigos
@@ -139,7 +139,7 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
     - **El Caos como Herramienta:** Si decides extender la vida de un jefe clave de forma drástica, considera gastar tus Puntos de Caos para activar una Segunda Oportunidad narrativa o un Reflejo Hostil defensivo. De este modo, la alteración mecánica está anclada a los recursos del juego.
     - **Respeta el Triunfo Legítimo:** Si los jugadores derrotan rápidamente a un enemigo formidable a través de una planificación brillante, trabajo en equipo impecable y tiradas excepcionales, **déjalos ganar**. No hay nada más satisfactorio para un jugador que ver su estrategia ejecutada a la perfección; alargar el combate artificialmente en estos casos castiga su buen desempeño.
 
-> **Ejemplo Final:** Grupo de **4 Jugadores**, **PP Promedio 95** (R3 Avanzado), Dificultad **Difícil**.
+> **Ejemplo Final:** Grupo de **4 Jugadores**, **PP Promedio 100** (R3 Avanzado), Dificultad **Difícil**.
 >
 > - Presupuesto Total: **42 PA**. Rango Máx. Sugerido: R3 (_Considerar 1x R4_).
 > - **Opción 1 (Élites R3):** 7x Monstruos R3 (42 PA). _Análisis: Un encuentro homogéneo de enemigos poderosos. Tiene una cantidad de criaturas razonable, aunque puede volverse tácticamente repetitivo si todas cumplen funciones similares._

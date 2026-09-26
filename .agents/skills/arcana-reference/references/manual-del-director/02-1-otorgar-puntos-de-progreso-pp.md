@@ -21,14 +21,14 @@ ARCANA es un juego que recompensa más que solo el combate. Los PP deben ser un 
 Antes de definir la cantidad exacta de puntos por sesión, es importante acordar con tu mesa qué ritmo de progresión desean tener. Para proyectar el poder del grupo y el tiempo que tomará la campaña, utilizaremos los hitos mecánicos oficiales del sistema:
 
 - **Rango 2 - Inicio (26 PP):** El paso de aventureros locales a héroes experimentados.
-- **Rango 3 - Inicio (61 PP):** La transición hacia personajes de gran poder, capaces de alterar regiones enteras.
-- **Rango 3 - Avanzado (91+ PP):** El pico de poder del sistema, enfrentando amenazas legendarias.
+- **Rango 3 - Inicio (66 PP):** La transición hacia personajes de gran poder, capaces de alterar regiones enteras.
+- **Rango 3 - Avanzado (96+ PP):** El pico de poder del sistema, enfrentando amenazas legendarias.
 
 Elige uno de los siguientes enfoques según el estilo de tu mesa:
 
-- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando o viajando es la norma. (Llegar a Rango 2 toma ~17-20 sesiones; a Rango 3 Avanzado, 60+ sesiones).
-- **Ritmo Moderado / Estándar:** El equilibrio ideal para la mayoría de las mesas. Intercala exploración con combates decisivos de forma regular. (Llegar a Rango 2 toma ~9-10 sesiones; a Rango 3 Avanzado, 30-35 sesiones).
-- **Ritmo Rápido / Épico:** Ideal para campañas cortas o mesas que juegan con poca frecuencia. El avance es acelerado y el riesgo es constante. (Llegar a Rango 2 toma ~6-7 sesiones; a Rango 3 Avanzado, 20-25 sesiones).
+- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando o viajando es la norma. (Llegar a Rango 2 toma ~17-20 sesiones; a Rango 3 Avanzado, ~63+ sesiones).
+- **Ritmo Moderado / Estándar:** El equilibrio ideal para la mayoría de las mesas. Intercala exploración con combates decisivos de forma regular. (Llegar a Rango 2 toma ~9-10 sesiones; a Rango 3 Avanzado, ~32-37 sesiones).
+- **Ritmo Rápido / Épico:** Ideal para campañas cortas o mesas que juegan con poca frecuencia. El avance es acelerado y el riesgo es constante. (Llegar a Rango 2 toma ~6-7 sesiones; a Rango 3 Avanzado, ~21-26 sesiones).
 
 ## ¿Cuántos PP Otorgar? (Una Guía Flexible)
 
