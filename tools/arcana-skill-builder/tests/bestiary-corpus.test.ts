@@ -6,6 +6,7 @@ import { describe, test } from 'node:test';
 
 import { CONFIG } from '../src/config.js';
 import { loadBestiaryCreatures } from '../src/loaders/bestiary-loader.js';
+import { serializeStatblockAsMD } from '../src/serializers/statblock-serializer.js';
 
 const newCreatureNames = [
 	'Kobold',
@@ -202,5 +203,34 @@ describe('current bestiary corpus', () => {
 			/\*\*Ventaja contra efectos mágicos \(Coste: 2 PD\):\*\* la criatura obtiene Ventaja \(\+1d4\) en todas las Tiradas de Salvación contra conjuros y efectos mágicos/,
 		);
 		assert.match(gmManual, /no otorga resistencia al daño mágico/);
+	});
+
+	test('maps the whole corpus without undefined values in generated statblocks', () => {
+		const issues: string[] = [];
+
+		for (const creature of loadBestiaryCreatures()) {
+			if (!Number.isFinite(creature.tier))
+				issues.push(`${creature.name}: tier is ${creature.tier}`);
+			if (!creature.size) issues.push(`${creature.name}: size is ${creature.size}`);
+			if (!creature.lineage) issues.push(`${creature.name}: lineage is ${creature.lineage}`);
+
+			for (const [index, attack] of creature.attacks.entries()) {
+				const label = `${creature.name} attacks[${index}] "${attack.name}"`;
+				if (!Number.isFinite(attack.bonus)) issues.push(`${label}: bonus is ${attack.bonus}`);
+				if (!attack.damage || String(attack.damage).trim() === '') {
+					issues.push(`${label}: damage is ${attack.damage}`);
+				}
+			}
+		}
+
+		assert.deepEqual(issues, [], issues.join('\n'));
+
+		for (const creature of loadBestiaryCreatures()) {
+			assert.doesNotMatch(
+				serializeStatblockAsMD(creature),
+				/undefined|NaN/,
+				`${creature.name} statblock must not contain undefined or NaN`,
+			);
+		}
 	});
 });

@@ -383,8 +383,8 @@ describe('T5 real corpus reachability (static/docs)', () => {
 	test('schema v3 includes the documented 23-creature bestiary expansion', { skip }, () => {
 		const index = loadRealIndex();
 		assert.equal(index.schemaVersion, 3);
-		// T2 corpus: 359 cards + 91 items + 66 creatures + 190 sections + 23 chapters.
-		assert.equal(index.entries.length, 729);
+		// T2 corpus: 359 cards + 91 items + 66 creatures + 189 sections + 23 chapters.
+		assert.equal(index.entries.length, 728);
 		const cards = index.entries.filter((e) => e.kind === 'card').length;
 		const items = index.entries.filter((e) => e.kind === 'item').length;
 		const creatures = index.entries.filter((e) => e.kind === 'creature').length;
@@ -396,7 +396,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 				cards: 359,
 				items: 91,
 				creatures: 66,
-				sections: 190,
+				sections: 189,
 				chapters: 23,
 			},
 		);

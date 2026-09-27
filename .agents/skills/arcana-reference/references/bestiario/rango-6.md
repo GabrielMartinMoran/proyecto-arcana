@@ -143,7 +143,7 @@ Reacciones de Jefe generales.
 - **Iniciativa:** 5
 
 ## Ataques
-- **Mordida:** +undefined para golpear. Daño: 4d8 Perforante (El contemplador utiliza su Mordida cuando un enemigo se encuentra a distancia Inmediata.)
+- **Mordida:** +8 para golpear. Daño: 4d8 Perforante (El contemplador utiliza su Mordida cuando un enemigo se encuentra a distancia Inmediata.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Conocimiento Arcano, Historia, Investigación, Percepción

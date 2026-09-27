@@ -38,8 +38,8 @@
     {
       "path": "references/bestiario/rango-6.md",
       "kind": "file",
-      "size": 12223,
-      "sha1": "59e2cefa9c720c09ae1d8bd1543317e472343490"
+      "size": 12215,
+      "sha1": "be767776c4a01d902c0fa4ef6a19abcf0bbf9bf0"
     },
     {
       "path": "references/cartas-de-habilidades",
@@ -560,8 +560,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 132701,
-      "sha1": "3faf366ffbcaf01005830a0c9bb04b86eb538f2f"
+      "size": 132700,
+      "sha1": "2668588269805f4be2917961d55c8a7396b1bc91"
     },
     {
       "path": "references/datasets/cards.yml",
