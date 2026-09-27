@@ -31,7 +31,7 @@ creatures:
 
     attacks:
       - name: Mordida
-        attack: 8
+        bonus: 8
         damage: 4d8 Perforante
         note: El contemplador utiliza su Mordida cuando un enemigo se encuentra a distancia Inmediata.
 
