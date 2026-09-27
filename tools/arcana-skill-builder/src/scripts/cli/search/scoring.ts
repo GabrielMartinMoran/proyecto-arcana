@@ -69,6 +69,16 @@ export const toScoredResult = (entry: ContentIndexEntry, match: EntryMatch): Sco
 	archetypeRoot: isArchetypeRoot(entry),
 });
 
+/**
+ * Chapter/section ordinals ("1.", "12.3.") are numbering artifacts, not
+ * identity: when two entries tie on score, the numeric prefix of a chapter
+ * heading must not decide the order. This keeps the canonical player section
+ * "Gastar Puntos de Progreso (PP)" ahead of the GM twin
+ * "1. Otorgar Puntos de Progreso (PP)", as documented in the matcher's
+ * expansion-phrase contract.
+ */
+const identitySortName = (name: string): string => fold(name).replace(/^\d+(?:\.\d+)*\.?\s+/, '');
+
 export const compareScoredResults = (left: ScoredResult, right: ScoredResult): number => {
 	if (left.score !== right.score) return right.score - left.score;
 
@@ -82,8 +92,8 @@ export const compareScoredResults = (left: ScoredResult, right: ScoredResult): n
 	const rightPriority = MATCH_TYPE_PRIORITY[right.matchType];
 	if (leftPriority !== rightPriority) return rightPriority - leftPriority;
 
-	const leftName = fold(left.entry.canonicalName);
-	const rightName = fold(right.entry.canonicalName);
+	const leftName = identitySortName(left.entry.canonicalName);
+	const rightName = identitySortName(right.entry.canonicalName);
 	if (leftName !== rightName) return leftName.localeCompare(rightName, 'es');
 
 	if (left.entry.kind !== right.entry.kind) {

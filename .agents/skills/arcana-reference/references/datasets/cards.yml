@@ -1353,6 +1353,7 @@ cards:
     type: activable
     tags:
       - Pícaro
+      - Sostenida
     requirements: Asesinar & Instinto 3
     description: >-
       _Estudias a tu presa con la frialdad de un depredador, identificando el
@@ -2136,6 +2137,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Afinidad Arcana
     description: >-
       _Tejes una red de hilos invisibles de poder arcano que te alertan ante
@@ -2550,6 +2552,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Afinidad Arcana & Atributo Arcano 4
     description: >-
       _Alteras la estructura de la materia inerte, deformándola como arcilla o
@@ -2577,7 +2580,9 @@ cards:
       del objeto.:<br> &nbsp;&nbsp;&nbsp;&nbsp;• _Mundano:_ 10 minutos<br>
       &nbsp;&nbsp;&nbsp;&nbsp;• _Común:_ 1 hora<br> &nbsp;&nbsp;&nbsp;&nbsp;•
       _Calidad:_ 24 horas<br> La categoría máxima de precio que puedes fabricar
-      con este conjuro es de Calidad.
+      con este conjuro es de Calidad.<br> Solo el efecto de _Transmutar_ es
+      Sostenido: un objeto terminado mediante _Fabricar_ no constituye un efecto
+      activo que mantenga bloqueada la carta.
     uses:
       type: RELOAD
       qty: 6
@@ -4290,6 +4295,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Fe Inspiradora & Instinto 3
     description: >-
       _Trazas una frontera sagrada que los seres de oscuridad no pueden cruzar
@@ -4401,6 +4407,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
+      - Sostenida
     requirements: Fe Inspiradora & Instinto 5
     description: >-
       _Das forma a tu fe en la figura de un arma incorpórea que asesta golpes
@@ -4412,10 +4419,7 @@ cards:
       Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br> -
       **Canalizar Castigo:** Cando impactas un ataque con el _Arma Espiritual_,
       si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como
-      parte de la misma Interacción.<br> - **Manifestación Única:** Solo puedes
-      tener un _Arma Espiritual_ activa a la vez. Si vuelves a lanzar este
-      conjuro mientras ya tienes una activa, la anterior desaparece
-      inmediatamente.
+      parte de la misma Interacción.
     uses:
       type: RELOAD
       qty: 7
@@ -5058,6 +5062,7 @@ cards:
       - Druida
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Sintonía Primordial & Instinto 3
     description: >-
       _Las hojas se apartan y el barro se endurece a tu paso; la naturaleza
@@ -5241,6 +5246,7 @@ cards:
       - Druida
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Sintonía Primordial & Instinto 3
     description: >-
       _La vida no conquista los entornos hostiles mediante la fuerza, sino
@@ -5648,6 +5654,7 @@ cards:
     tags:
       - Bardo
       - Conjuro
+      - Sostenida
     requirements: Don del Elocuente & Presencia 3
     description: >-
       _Cuentas una broma cargada de encanto tan potente que tu víctima colapsa
@@ -6025,9 +6032,9 @@ cards:
     requirements: Disciplina Monástica
     description: >-
       _Canalizas el flujo de tu Ki hacia tus extremidades, permitiendo que tus
-      golpes atraviesen las defensas físicas más duras._<br><br> Tus ataques
-      desarmados ignoran una cantidad de Mitigación Física igual a la mitad de
-      tu puntuación de Instinto (redondeando hacia arriba).
+      golpes atraviesen incluso las defensas más resistentes._<br><br> El daño
+      de tus ataques desarmados ignora una cantidad de Mitigación igual a la
+      mitad de tu puntuación de Instinto, redondeando hacia arriba.
     uses:
       type: null
       qty: 0
@@ -6125,10 +6132,11 @@ cards:
       - Monje
     requirements: Golpes Energéticos & Instinto 4
     description: >-
-      _Tu control sobre la energía vital es total; tus ataques desarmados
-      ignoran por completo la resistencia de las armaduras._<br><br> Tus ataques
-      desarmados ahora ignoran una cantidad de Mitigación Física del objetivo
-      igual al total de tu puntuación de Instinto.
+      _Tu dominio del Ki te permite atravesar defensas físicas, mágicas o
+      elementales con la misma facilidad._<br><br> El daño de tus ataques
+      desarmados ignora una cantidad de Mitigación igual a tu puntuación de
+      Instinto.<br> Además, tus ataques desarmados se consideran mágicos a
+      efectos de superar Resistencias e Inmunidades.
     uses:
       type: null
       qty: 0
@@ -6184,16 +6192,40 @@ cards:
     type: activable
     tags:
       - Monje
+      - Sostenida
     requirements: Disciplina Monástica & Instinto 4
     description: >-
-      _Extiendes tu energía vital más allá de tus puños, permitiéndote golpear a
-      enemigos que se encuentran a varios metros de distancia._<br><br> Usas tu
-      Interacción para hacer que hasta el final de tu turno, tus ataques
-      desarmados se proyecten para poder golpear a criaturas que se encuentren
-      hasta distancia Cercana.
+      _Extiendes tu energía vital más allá de tu cuerpo, proyectando la fuerza
+      de tus golpes a través del espacio._<br><br> Como Interacción, proyectas
+      tu Ki durante 1 minuto.<br> Mientras dure el efecto, tus ataques
+      desarmados pueden alcanzar criaturas hasta distancia Cercana.
     uses:
       type: RELOAD
       qty: 5
+  - name: Forma del Ki Elemental
+    level: 3
+    type: activable
+    tags:
+      - Monje
+      - Sostenida
+    requirements: Disciplina Monástica & Instinto 4
+    description: >-
+      _Canalizas tu Ki hasta hacer que cuerpo y espíritu adopten las propiedades
+      de las fuerzas elementales._<br><br> Como Interacción, adoptas una de las
+      siguientes formas durante 1 minuto.<br> Mientras permanezcas en una forma,
+      obtienes Resistencia al tipo de daño indicado y puedes hacer que tus
+      ataques desarmados inflijan ese tipo de daño en lugar de su tipo
+      normal.<br> - **Llamarada Explosiva — Fuego:** Cada vez que una criatura a
+      distancia Inmediata te impacta con un ataque cuerpo a cuerpo, recibe 1d4
+      de daño de Fuego.<br> - **Témpano Glacial — Frío:** Al adoptar esta forma,
+      obtienes 3d6 + tu Instinto en Puntos de Salud temporales.<br> - **Castigo
+      de la Tormenta — Eléctrico:** El dado base de daño de tus ataques
+      desarmados pasa de 1d6 a 1d4. A cambio, cuando realizas la Acción de
+      Atacar con un ataque desarmado, realizas dos ataques desarmados
+      adicionales como parte de esa misma Acción.
+    uses:
+      type: RELOAD
+      qty: 7
   - name: Tormenta de Golpes
     level: 3
     type: efecto
@@ -6406,6 +6438,7 @@ cards:
     type: activable
     tags:
       - Monje
+      - Sostenida
     requirements: Disciplina Monástica & Instinto 4
     description: >-
       _Durante breves instantes, anulas tu propio peso y flotas en el aire,
@@ -6758,11 +6791,11 @@ cards:
     description: >-
       _Tu Ki y la Urdimbre arcana fluyen en perfecta armonía, transformando tus
       golpes en pura energía._<br><br> **Beneficio de Sinergia:**<br> - **Golpes
-      de Fuerza Pura:** Tus ataques desarmados se consideran mágicos y puedes
-      elegir que su daño sea de Fuerza.<br> - **Fluir Arcano-Marcial:** Cuando
-      usas Ráfaga de Golpes o Tormenta de Golpes, puedes reemplazar uno de los
-      ataques desarmados adicionales para lanzar un conjuro de Arcanista de
-      Nivel 1 que tengas activo y que requiera una Acción.
+      de Fuerza Pura:** Tus ataques desarmados pueden infligir daño de
+      Fuerza.<br> - **Fluir Arcano-Marcial:** Cuando usas _Ráfaga de Golpes_ o
+      _Tormenta de Golpes_, puedes reemplazar uno de los ataques desarmados
+      adicionales para lanzar un Conjuro de Arcanista de Nivel 1 que tengas
+      activo y que requiera una Acción.
     uses:
       type: null
       qty: 0
@@ -6834,14 +6867,17 @@ cards:
       - Sacerdote
     requirements: Disciplina Monástica & Fe Inspiradora & Instinto 5
     description: >-
-      _Tu Ki se purifica con fe, convirtiendo tus manos en instrumentos de
-      juicio divino y sanación milagrosa._<br><br> **Beneficio de
-      Sinergia:**<br> - **Golpes Selladores:** Tus ataques desarmados son
-      mágicos y pueden ser Radiantes. Si infligen daño Radiante, el objetivo no
-      recupera PH 1 turno.<br> - **Oleada de Vida:** Cuando usas Ráfaga de
-      Golpes o Tormenta de Golpes, puedes renunciar a uno de los ataques
-      adicionales para lanzar Toque Restaurador (si lo tienes) sobre ti mismo o
-      un aliado adyacente, sin gastar su uso de recarga.
+      _Tu Ki y tu fe se han vuelto indistinguibles. Cada golpe expulsa la
+      corrupción del mundo y devuelve su fuerza a quienes luchan a tu
+      lado._<br><br> **Beneficio de Sinergia:**<br> - **Golpes Consagrados:**
+      Tus ataques desarmados pueden infligir daño Radiante en lugar de su tipo
+      normal.<br> - **Juicio y Misericordia:** Una vez por turno, cuando
+      impactas con un ataque desarmado que inflija daño Radiante, eliges uno de
+      los siguientes efectos:<br> &nbsp;&nbsp;&nbsp;&nbsp;• **Juicio:** El
+      objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo
+      turno.<br> &nbsp;&nbsp;&nbsp;&nbsp;• **Misericordia:** Tú o un aliado a
+      distancia Cercana obtiene una cantidad de Puntos de Salud temporales igual
+      a la mitad de tu puntuación de Instinto, redondeando hacia arriba.
     uses:
       type: null
       qty: 0

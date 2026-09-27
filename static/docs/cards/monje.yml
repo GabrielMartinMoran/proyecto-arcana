@@ -49,8 +49,8 @@ cards:
       - Monje
     requirements: Disciplina Monástica
     description: >-
-      _Canalizas el flujo de tu Ki hacia tus extremidades, permitiendo que tus golpes atraviesen las defensas físicas más duras._<br><br>
-      Tus ataques desarmados ignoran una cantidad de Mitigación Física igual a la mitad de tu puntuación de Instinto (redondeando hacia arriba).
+      _Canalizas el flujo de tu Ki hacia tus extremidades, permitiendo que tus golpes atraviesen incluso las defensas más resistentes._<br><br>
+      El daño de tus ataques desarmados ignora una cantidad de Mitigación igual a la mitad de tu puntuación de Instinto, redondeando hacia arriba.
     uses:
       type: null
       qty: 0
@@ -130,8 +130,9 @@ cards:
       - Monje
     requirements: 'Golpes Energéticos & Instinto 4'
     description: >-
-      _Tu control sobre la energía vital es total; tus ataques desarmados ignoran por completo la resistencia de las armaduras._<br><br>
-      Tus ataques desarmados ahora ignoran una cantidad de Mitigación Física del objetivo igual al total de tu puntuación de Instinto.
+      _Tu dominio del Ki te permite atravesar defensas físicas, mágicas o elementales con la misma facilidad._<br><br>
+      El daño de tus ataques desarmados ignora una cantidad de Mitigación igual a tu puntuación de Instinto.<br>
+      Además, tus ataques desarmados se consideran mágicos a efectos de superar Resistencias e Inmunidades.
     uses:
       type: null
       qty: 0
@@ -180,13 +181,32 @@ cards:
     type: activable
     tags:
       - Monje
+      - Sostenida
     requirements: 'Disciplina Monástica & Instinto 4'
     description: >-
-      _Extiendes tu energía vital más allá de tus puños, permitiéndote golpear a enemigos que se encuentran a varios metros de distancia._<br><br>
-      Usas tu Interacción para hacer que hasta el final de tu turno, tus ataques desarmados se proyecten para poder golpear a criaturas que se encuentren hasta distancia Cercana.
+      _Extiendes tu energía vital más allá de tu cuerpo, proyectando la fuerza de tus golpes a través del espacio._<br><br>
+      Como Interacción, proyectas tu Ki durante 1 minuto.<br>
+      Mientras dure el efecto, tus ataques desarmados pueden alcanzar criaturas hasta distancia Cercana.
     uses:
       type: RELOAD
       qty: 5
+  - name: Forma del Ki Elemental
+    level: 3
+    type: activable
+    tags:
+      - Monje
+      - Sostenida
+    requirements: 'Disciplina Monástica & Instinto 4'
+    description: >-
+      _Canalizas tu Ki hasta hacer que cuerpo y espíritu adopten las propiedades de las fuerzas elementales._<br><br>
+      Como Interacción, adoptas una de las siguientes formas durante 1 minuto.<br>
+      Mientras permanezcas en una forma, obtienes Resistencia al tipo de daño indicado y puedes hacer que tus ataques desarmados inflijan ese tipo de daño en lugar de su tipo normal.<br>
+      - **Llamarada Explosiva — Fuego:** Cada vez que una criatura a distancia Inmediata te impacta con un ataque cuerpo a cuerpo, recibe 1d4 de daño de Fuego.<br>
+      - **Témpano Glacial — Frío:** Al adoptar esta forma, obtienes 3d6 + tu Instinto en Puntos de Salud temporales.<br>
+      - **Castigo de la Tormenta — Eléctrico:** El dado base de daño de tus ataques desarmados pasa de 1d6 a 1d4. A cambio, cuando realizas la Acción de Atacar con un ataque desarmado, realizas dos ataques desarmados adicionales como parte de esa misma Acción.
+    uses:
+      type: RELOAD
+      qty: 7
   - name: Tormenta de Golpes
     level: 3
     type: efecto
@@ -364,6 +384,7 @@ cards:
     type: activable
     tags:
       - Monje
+      - Sostenida
     requirements: 'Disciplina Monástica & Instinto 4'
     description: >-
       _Durante breves instantes, anulas tu propio peso y flotas en el aire, moviéndote con una libertad absoluta._<br><br>

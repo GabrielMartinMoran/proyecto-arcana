@@ -43,9 +43,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Canalizas el flujo de tu Ki hacia tus extremidades, permitiendo que tus golpes atraviesen las defensas físicas
-      más duras._<br><br> Tus ataques desarmados ignoran una cantidad de Mitigación Física igual a la mitad de tu
-      puntuación de Instinto (redondeando hacia arriba).
+      _Canalizas el flujo de tu Ki hacia tus extremidades, permitiendo que tus golpes atraviesen incluso las defensas
+      más resistentes._<br><br> El daño de tus ataques desarmados ignora una cantidad de Mitigación igual a la mitad de
+      tu puntuación de Instinto, redondeando hacia arriba.
     slug: golpes-energeticos
   - id: e1800d8214c4933beef4c2b2b002270ec05de0f8
     name: Estilo Kensei

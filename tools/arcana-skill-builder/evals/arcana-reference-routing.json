@@ -323,10 +323,10 @@
 			"id": 15,
 			"name": "cobertura-insuficiente-sugerencias",
 			"polarity": "negative",
-			"prompt": "¿Qué dice la magia sobre el poder misterioso antiguo prohibido?",
+			"prompt": "¿Qué dice la magia sobre el poder misterioso ancestral cristalino?",
 			"expected_route": {
 				"status": "not_found",
-				"command": "node dist/index.js search --query \"poder misterioso antiguo prohibido\""
+				"command": "node dist/index.js search --query \"poder misterioso ancestral cristalino\""
 			},
 			"expected_output": "Una consulta de varios términos que solo cubre términos genéricos no es un found fiable: el agente presenta sugerencias de confianza baja y pide verificación antes de responder.",
 			"expectations": [

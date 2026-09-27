@@ -52,8 +52,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml",
       "kind": "file",
-      "size": 8948,
-      "sha1": "339f7b8b8a8b6c26a0cf46265d1c407e9ca0e5c9"
+      "size": 8966,
+      "sha1": "080252f345a2af079f553ce3bbf7b0c44d6d2098"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml",
@@ -64,8 +64,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-3.yml",
       "kind": "file",
-      "size": 14043,
-      "sha1": "cb976535e624a441c8c7640b15c944f460577e8f"
+      "size": 14220,
+      "sha1": "9331e2c69c9a2488e9958cba351140e9f7d3d600"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-4.yml",
@@ -102,8 +102,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-2.yml",
       "kind": "file",
-      "size": 7592,
-      "sha1": "0e71e48338d4dfd6218229589a68822ed08ad176"
+      "size": 7610,
+      "sha1": "14b4f5e78dea3a786dedd33c093a22a677ebe49c"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-3.yml",
@@ -262,8 +262,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
       "kind": "file",
-      "size": 10897,
-      "sha1": "9934ea887e099de1182592a2a9cdf7a2ec78853f"
+      "size": 10933,
+      "sha1": "beee1ae9d5bab2a9a5d20f373beb88f3ebe3cc66"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-3.yml",
@@ -376,8 +376,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
       "kind": "file",
-      "size": 5109,
-      "sha1": "2ea664a854dad02e9b5fab1f66de911048a052fd"
+      "size": 5116,
+      "sha1": "2f58af3b7c9111bc8c6d752378d826277c402512"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
@@ -388,8 +388,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml",
       "kind": "file",
-      "size": 5854,
-      "sha1": "960d3cb3032c496cb5ee8299cec059e7b6a59bc8"
+      "size": 7181,
+      "sha1": "81a18ee6686b219fda7e6863382bec67f1d55655"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-4.yml",
@@ -428,8 +428,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-3.yml",
       "kind": "file",
-      "size": 6363,
-      "sha1": "e15b23fab0b24a0860e2a731012bc302c56aa211"
+      "size": 6381,
+      "sha1": "5c6b3a6cdbb77ddcc599b0db94ac32359fc3b76f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro/nivel-4.yml",
@@ -462,8 +462,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-2.yml",
       "kind": "file",
-      "size": 12178,
-      "sha1": "0d6dff3c1b3379adc6e9e7bbf9e9825de4eba40b"
+      "size": 12196,
+      "sha1": "e8e8070fa461e5343bd9d621c5eea1eb53039e48"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-3.yml",
@@ -474,8 +474,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml",
       "kind": "file",
-      "size": 7143,
-      "sha1": "43312abc7cf1ba87461d5c758119fd73758a38c1"
+      "size": 6963,
+      "sha1": "aabaf88d71a132cf63cdf1902cab06f9b4713de3"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-5.yml",
@@ -550,8 +550,8 @@
     {
       "path": "references/cartas-de-habilidades/sinergia/nivel-4.yml",
       "kind": "file",
-      "size": 20211,
-      "sha1": "8c25d2442b00e84f75c593ad59ba8d9ea6ac11ac"
+      "size": 20442,
+      "sha1": "4a48fa29ffc3b5866103b1f8d3b885d745414796"
     },
     {
       "path": "references/datasets",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 302737,
-      "sha1": "6d20cfad1e3b25fb9081bd263535b9e27e2e4491"
+      "size": 304355,
+      "sha1": "a774c7c0d979dd485f998e8341bb4a6727309ba9"
     },
     {
       "path": "references/datasets/magical-items.yml",
@@ -630,8 +630,8 @@
     {
       "path": "references/manual-del-director/09-8-diseno-de-conjuros-y-habilidades.md",
       "kind": "file",
-      "size": 22129,
-      "sha1": "12c7adb376d6e213659112a1bebdec3ac8289fa0"
+      "size": 22912,
+      "sha1": "ea8507e2c8587078dcbe26d8c2af818f510984f4"
     },
     {
       "path": "references/manual-del-jugador",
@@ -658,8 +658,8 @@
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
       "kind": "file",
-      "size": 22266,
-      "sha1": "110d8d244dc8965a551485ba30345a459dcee06f"
+      "size": 22752,
+      "sha1": "54742cab54d630e787b0000320b1882ecacb4da3"
     },
     {
       "path": "references/manual-del-jugador/05-exploracion.md",
@@ -676,8 +676,8 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 15085,
-      "sha1": "164fa185e6f9a1cbd643621db5ee671b3191c49d"
+      "size": 15059,
+      "sha1": "212ae2e87a3d8b5b161f9308dd3bf5cf7b551f20"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",

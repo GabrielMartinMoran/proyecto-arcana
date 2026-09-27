@@ -119,6 +119,7 @@ cards:
     type: activable
     tags:
       - Pícaro
+      - Sostenida
     requirements: Asesinar & Instinto 3
     uses:
       type: RELOAD

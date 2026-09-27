@@ -123,6 +123,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Afinidad Arcana
     uses:
       type: RELOAD

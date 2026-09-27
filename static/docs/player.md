@@ -338,7 +338,7 @@ Mientras la carta de un Objeto Activable no esté activa, el objeto conserva tod
 - **[NOMBRE]**
 - **Nivel:** De 1 a 5. Indica su poder y afecta a su coste de aprendizaje.
 - **Requerimiento:** Atributo y valor mínimo necesario para poder añadirla a tu Colección (ej. "Mente 3").
-- **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Conjuro").
+- **Etiquetas:** Etiquetas para agrupar cartas por temática (ej.: "Linaje", "Dote", "Combatiente", "Concentración", "Sostenida", "Conjuro").
 - **Tipo:** **Activable** (requiere que la carta este activa para poder usarse) o **Efecto** (proporciona un beneficio constante o pasivo).
 - **Descripción:** Explica el efecto mecánico y narrativo de la carta.
 - **Usos:** Indica la frecuencia con la que puedes utilizar la habilidad.
@@ -376,9 +376,15 @@ Poseer una Carta de Nivel 6 no significa necesariamente poder utilizarla sin con
 
 ## Recarga de Cartas
 
-Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo:
+Una vez que utilizas una carta con usos limitados, esta se considera **agotada** y debes recuperarla antes de volver a usarla. Existen tres formas de hacerlo: Adrenalina, Reenfoque y Recarga con Suerte. Cada una tiene sus propias reglas y limitaciones.
 
-- **Concentración:** Si una carta agotada con **Recarga n+** está manteniendo un efecto activo mediante **Concentración**, no puedes intentar recargarla por ningún método (Adrenalina, Reenfoque ni Recarga con Suerte) mientras el efecto siga en curso. El efecto debe terminar —por duración agotada, decisión voluntaria o ruptura de concentración— antes de que la carta pueda recuperarse.
+### Efectos Sostenidos
+
+Algunas cartas poseen la etiqueta **Sostenida**. Cuando utilizas una de estas cartas, su uso queda vinculado al efecto que produce: mientras ese efecto permanezca activo, la carta continúa agotada y **no puede recuperarse mediante Adrenalina, Reenfoque ni Recarga con Suerte**.
+
+Puedes finalizar voluntariamente un efecto Sostenido que hayas creado. Cuando el efecto termina, ya sea de esta forma, porque se agota su duración o por cualquier otra causa, la carta deja de estar bloqueada y puede volver a recuperarse normalmente.
+
+Los efectos que requieren **Concentración** se consideran también **Sostenidos** mientras permanezcan activos. Por esta razón, una carta con la etiqueta Concentración no necesita poseer también la etiqueta Sostenida.
 
 ### Recarga en Combate (La Adrenalina)
 
@@ -713,7 +719,7 @@ Algunos conjuros y habilidades requieren **Concentración** para mantener su efe
 - Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
 - Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
 - En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
-- **Sin Recarga mientras dure:** Mientras una carta agotada con Recarga mantenga su efecto activo por Concentración, no puedes intentar recargarla. Solo cuando el efecto termine podrás recuperarla por Adrenalina, Reenfoque o Recarga con Suerte.
+- **Efecto Sostenido:** Todo efecto mantenido mediante Concentración se considera **Sostenido** mientras permanezca activo. Por lo tanto, si la carta está agotada, no puede recuperar su uso hasta que el efecto termine.
 
 ## Tiradas de Salvación
 

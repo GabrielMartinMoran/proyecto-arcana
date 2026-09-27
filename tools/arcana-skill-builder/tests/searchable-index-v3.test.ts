@@ -383,8 +383,8 @@ describe('T5 real corpus reachability (static/docs)', () => {
 	test('schema v3 includes the documented 23-creature bestiary expansion', { skip }, () => {
 		const index = loadRealIndex();
 		assert.equal(index.schemaVersion, 3);
-		// T2 corpus: 333 cards + 91 items + 66 creatures + 144 sections + 22 chapters.
-		assert.equal(index.entries.length, 656);
+		// T2 corpus: 359 cards + 91 items + 66 creatures + 190 sections + 23 chapters.
+		assert.equal(index.entries.length, 729);
 		const cards = index.entries.filter((e) => e.kind === 'card').length;
 		const items = index.entries.filter((e) => e.kind === 'item').length;
 		const creatures = index.entries.filter((e) => e.kind === 'creature').length;
@@ -393,11 +393,11 @@ describe('T5 real corpus reachability (static/docs)', () => {
 		assert.deepEqual(
 			{ cards, items, creatures, sections, chapters },
 			{
-				cards: 333,
+				cards: 359,
 				items: 91,
 				creatures: 66,
-				sections: 144,
-				chapters: 22,
+				sections: 190,
+				chapters: 23,
 			},
 		);
 	});
@@ -435,7 +435,7 @@ describe('T5 real corpus reachability (static/docs)', () => {
 			(e) => e.kind === 'section' && e.canonicalName === 'Adquirir Nueva Carta',
 		);
 		assert.ok(entry, 'Adquirir Nueva Carta must be an index section');
-		assert.equal(entry.chapter, '9. Progresión del Personaje');
+		assert.equal(entry.chapter, '10. Progresión del Personaje');
 		assert.ok(entry.search, 'section must carry its searchable body');
 		assert.ok(entry.search!.includes('Coste en PP'));
 		assert.ok(entry.search!.includes('Nivel de la Carta'));
@@ -446,15 +446,12 @@ describe('T5 real corpus reachability (static/docs)', () => {
 	test('Arsenal Versátil (real) is reachable in creature design rules', { skip }, () => {
 		const index = loadRealIndex();
 		const entry = index.entries.find(
-			(e) => e.kind === 'section' && e.canonicalName === 'Regla de Diseño: Arsenal Versátil',
+			(e) => e.kind === 'section' && e.canonicalName === 'Arsenal Versátil',
 		);
 		assert.ok(entry, 'Arsenal Versátil must be an indexed GM section');
-		assert.equal(
-			entry.path,
-			'references/manual-del-director/08-parte-2-diseno-avanzado-de-criaturas.md',
-		);
-		assert.equal(entry.anchor, 'regla-de-diseño-arsenal-versátil');
-		assert.equal(entry.chapter, 'Parte 2: Diseño Avanzado de Criaturas');
+		assert.equal(entry.path, 'references/manual-del-director/08-7-diseno-avanzado-de-criaturas.md');
+		assert.equal(entry.anchor, 'arsenal-versátil');
+		assert.equal(entry.chapter, '7. Diseño Avanzado de Criaturas');
 		assert.ok(entry.search?.includes('aporta versatilidad'));
 		assert.ok(entry.search?.includes('independiente'));
 	});

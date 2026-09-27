@@ -6,6 +6,7 @@
 	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
 	import { formatRequirements } from '$lib/utils/requirement-expression';
 	import type { Snippet } from 'svelte';
+	import { CONFIG } from '../../../config';
 	import CardDescription from './CardDescription.svelte';
 
 	type Props = {
@@ -74,6 +75,13 @@
 				return 'var(--accent-default)';
 		}
 	};
+
+	const getTagDescription = (tag: string) => {
+		if (tag in CONFIG.TAG_DESCRIPTIONS) {
+			return CONFIG.TAG_DESCRIPTIONS[tag];
+		}
+		return undefined;
+	};
 </script>
 
 <div
@@ -97,7 +105,10 @@
 			<CardDescription description={card.description} {rollContext} />
 			<div class="tags">
 				{#each card.tags as tag (tag)}
-					<span class="chip">{tag}</span>
+					{@const hasTagDescription = getTagDescription(tag) !== undefined}
+					<span class={`chip ${hasTagDescription ? 'info' : ''}`} title={getTagDescription(tag)}
+						>{#if hasTagDescription}<small>ⓘ</small>{/if}{tag}</span
+					>
 				{/each}
 				{#if card.uses.type}
 					{#if card.uses.type === 'LONG_REST'}
@@ -309,6 +320,15 @@
 		background-color: #ded1b5;
 		padding: 0.2rem 0.4rem;
 		font-size: 0.8rem;
+
+		&.info {
+			cursor: help;
+		}
+
+		small {
+			font-size: 0.6rem;
+			margin-right: 0.2rem;
+		}
 	}
 
 	.custom-badge {

@@ -137,7 +137,7 @@ export const CONFIG = {
 			'Gith',
 			'Tortle',
 		],
-		Mecánicas: ['Reacción', 'Conjuro', 'Ritual', 'Concentración', 'Curación'],
+		Mecánicas: ['Reacción', 'Conjuro', 'Ritual', 'Concentración', 'Sostenida', 'Curación'],
 		Otros: ['Dote', 'Sinergia'],
 	},
 
@@ -148,6 +148,7 @@ export const CONFIG = {
 			'Reacción',
 			'Conjuro',
 			'Concentración',
+			'Sostenida',
 			'Curación',
 			'Daño',
 			'Debuff',
@@ -166,5 +167,20 @@ export const CONFIG = {
 			'Comunicación',
 		],
 		Otros: ['Poción', 'Artefacto', 'Estético', 'Narrativo', 'Herramienta'],
+	},
+
+	TAG_DESCRIPTIONS: {
+		Concentración:
+			'Requiere mantener la Concentración para conservar su efecto y solo puedes concentrarte en un efecto a la vez. Mientras su efecto siga activo, la carta no puede recuperar su uso.',
+		Sostenida: 'Mientras su efecto siga activo, la carta no puede recuperar su uso.',
+		Ritual:
+			'Puede lanzarse como ritual durante 10 minutos, sin gastar usos y aunque la carta no esté activa.',
+		Conjuro: 'Efecto mágico sujeto a las reglas y componentes de lanzamiento.',
+		Arquetipo:
+			'Define una disciplina principal y otorga un Beneficio de Arquetipo; solo puedes tener uno activo a la vez.',
+		Sinergia:
+			'Fusiona dos arquetipos; solo puedes tener un Beneficio de Sinergia activo a la vez y, mientras esté activo, solo puedes usar una carta de Nivel 5 entre ambos arquetipos.',
+		Linaje:
+			'Representa rasgos innatos de tu herencia; solo puede adquirirse durante la creación de personaje y puedes tener como máximo dos cartas de Linaje.',
 	},
 };

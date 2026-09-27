@@ -138,6 +138,7 @@ cards:
       - Druida
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Sintonía Primordial & Instinto 3
     uses:
       type: RELOAD
@@ -184,6 +185,7 @@ cards:
       - Druida
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Sintonía Primordial & Instinto 3
     uses:
       type: RELOAD

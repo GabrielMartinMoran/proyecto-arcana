@@ -232,10 +232,10 @@ cards:
       qty: 0
     description: >-
       _Tu Ki y la Urdimbre arcana fluyen en perfecta armonía, transformando tus golpes en pura energía._<br><br>
-      **Beneficio de Sinergia:**<br> - **Golpes de Fuerza Pura:** Tus ataques desarmados se consideran mágicos y puedes
-      elegir que su daño sea de Fuerza.<br> - **Fluir Arcano-Marcial:** Cuando usas Ráfaga de Golpes o Tormenta de
-      Golpes, puedes reemplazar uno de los ataques desarmados adicionales para lanzar un conjuro de Arcanista de Nivel 1
-      que tengas activo y que requiera una Acción.
+      **Beneficio de Sinergia:**<br> - **Golpes de Fuerza Pura:** Tus ataques desarmados pueden infligir daño de
+      Fuerza.<br> - **Fluir Arcano-Marcial:** Cuando usas _Ráfaga de Golpes_ o _Tormenta de Golpes_, puedes reemplazar
+      uno de los ataques desarmados adicionales para lanzar un Conjuro de Arcanista de Nivel 1 que tengas activo y que
+      requiera una Acción.
     slug: voluntad-trascendente
   - id: 6803c90e40b66d36464ddd79d8e79e86f5da4064
     name: Furia Silvana
@@ -308,11 +308,13 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tu Ki se purifica con fe, convirtiendo tus manos en instrumentos de juicio divino y sanación milagrosa._<br><br>
-      **Beneficio de Sinergia:**<br> - **Golpes Selladores:** Tus ataques desarmados son mágicos y pueden ser Radiantes.
-      Si infligen daño Radiante, el objetivo no recupera PH 1 turno.<br> - **Oleada de Vida:** Cuando usas Ráfaga de
-      Golpes o Tormenta de Golpes, puedes renunciar a uno de los ataques adicionales para lanzar Toque Restaurador (si
-      lo tienes) sobre ti mismo o un aliado adyacente, sin gastar su uso de recarga.
+      _Tu Ki y tu fe se han vuelto indistinguibles. Cada golpe expulsa la corrupción del mundo y devuelve su fuerza a
+      quienes luchan a tu lado._<br><br> **Beneficio de Sinergia:**<br> - **Golpes Consagrados:** Tus ataques desarmados
+      pueden infligir daño Radiante en lugar de su tipo normal.<br> - **Juicio y Misericordia:** Una vez por turno,
+      cuando impactas con un ataque desarmado que inflija daño Radiante, eliges uno de los siguientes efectos:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• **Juicio:** El objetivo no puede recuperar Puntos de Salud hasta el inicio de tu próximo
+      turno.<br> &nbsp;&nbsp;&nbsp;&nbsp;• **Misericordia:** Tú o un aliado a distancia Cercana obtiene una cantidad de
+      Puntos de Salud temporales igual a la mitad de tu puntuación de Instinto, redondeando hacia arriba.
     slug: mano-purgadora
   - id: 1088f97cf35d3877e12381652e46e041097c4061
     name: Bendición de Ciclo Vital

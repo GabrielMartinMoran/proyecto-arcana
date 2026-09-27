@@ -279,7 +279,11 @@ describe('search smoke over the real corpus (no generation, no network)', () => 
 				['Arma Enriquecida', 'found', 'Arma Enriquecida'],
 				['Adquirir Nueva Carta', 'found', 'Adquirir Nueva Carta'],
 				['LS', 'not_found'],
-				['poder misterioso antiguo prohibido', 'not_found'],
+				// Insufficient-coverage fixture: the query must not match half of its
+				// terms in any single entry. The previous wording started matching the
+				// real corpus (3/4 terms in "Nivel 6: Poderes Prohibidos"), so the
+				// fixture keeps the negative contract with terms absent from the corpus.
+				['poder misterioso ancestral cristalino', 'not_found'],
 			];
 			for (const [query, status, topName] of routes) {
 				const { output } = searchContentIndex(index, { query });

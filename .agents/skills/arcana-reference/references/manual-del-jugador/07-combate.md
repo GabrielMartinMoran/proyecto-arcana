@@ -107,7 +107,7 @@ Algunos conjuros y habilidades requieren **Concentración** para mantener su efe
 - Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
 - Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
 - En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
-- **Sin Recarga mientras dure:** Mientras una carta agotada con Recarga mantenga su efecto activo por Concentración, no puedes intentar recargarla. Solo cuando el efecto termine podrás recuperarla por Adrenalina, Reenfoque o Recarga con Suerte.
+- **Efecto Sostenido:** Todo efecto mantenido mediante Concentración se considera **Sostenido** mientras permanezca activo. Por lo tanto, si la carta está agotada, no puede recuperar su uso hasta que el efecto termine.
 
 ## Tiradas de Salvación
 

@@ -60,6 +60,7 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
+      - Sostenida
     requirements: Fe Inspiradora & Instinto 5
     uses:
       type: RELOAD
@@ -71,8 +72,7 @@ cards:
       hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si
       impactas, infliges 2d8 de daño de Fuerza.<br> - **Canalizar Castigo:** Cando impactas un ataque con el _Arma
       Espiritual_, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma
-      Interacción.<br> - **Manifestación Única:** Solo puedes tener un _Arma Espiritual_ activa a la vez. Si vuelves a
-      lanzar este conjuro mientras ya tienes una activa, la anterior desaparece inmediatamente.
+      Interacción.
     slug: arma-espiritual
   - id: 8e203ce6d413c18333301f74c073e6c0a3904780
     name: Poder Sagrado

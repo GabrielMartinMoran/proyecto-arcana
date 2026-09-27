@@ -360,6 +360,7 @@ cards:
       - Druida
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: 'Sintonía Primordial & Instinto 3'
     description: >-
       _Las hojas se apartan y el barro se endurece a tu paso; la naturaleza misma borra cualquier evidencia de que tu grupo estuvo allí._<br><br>
@@ -502,6 +503,7 @@ cards:
       - Druida
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: 'Sintonía Primordial & Instinto 3'
     description: >-
       _La vida no conquista los entornos hostiles mediante la fuerza, sino cambiando hasta que aquello que era imposible se vuelve natural._<br><br>

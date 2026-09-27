@@ -175,6 +175,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Fe Inspiradora & Instinto 3
     uses:
       type: RELOAD

@@ -28,7 +28,7 @@ const ABILITY_TAG_GROUPS: Record<string, string[]> = {
 		'Goliath',
 		'Dracónido',
 	],
-	Mecánicas: ['Reacción', 'Conjuro', 'Ritual', 'Concentración', 'Curación'],
+	Mecánicas: ['Reacción', 'Conjuro', 'Ritual', 'Concentración', 'Sostenida', 'Curación'],
 	Otros: ['Dote', 'Sinergia'],
 };
 
