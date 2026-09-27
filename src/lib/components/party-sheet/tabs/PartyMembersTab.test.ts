@@ -147,6 +147,18 @@ describe('PartyMembersTab group character editing permissions', () => {
 		);
 	});
 
+	it('FEAT-shared-character @share @group-view @character-owner-url — passes the character owner so the group share URL points to the right user', () => {
+		const characterSheet = renderMembersTabForUser('party-owner');
+
+		expect(characterSheet.characterOwnerId).toBe('character-owner');
+	});
+
+	it('FEAT-shared-character @share @group-view — passes the signed-in member as owner when viewing their own character', () => {
+		const characterSheet = renderMembersTabForUser('character-owner');
+
+		expect(characterSheet.characterOwnerId).toBe('character-owner');
+	});
+
 	it('FEAT-group-character-editing-sync @permissions — unrelated party member editing another member is blocked and keeps the previous value', async () => {
 		const characterSheet = renderMembersTabForUser('unrelated-member');
 

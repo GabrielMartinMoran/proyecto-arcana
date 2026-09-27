@@ -13,6 +13,13 @@ Feature: Shared Character
     And the URL is copied to the clipboard
     And a success notification is shown
 
+  @share @group-view @character-owner-url
+  Scenario: Share URL from the group view points to the character owner
+    Given a party owner is viewing another member's character in the group sheet
+    When the party owner clicks the share button on the character
+    Then the copied URL references the character owner user id
+    And the copied URL does not reference the party owner user id
+
   @share @import @open-readonly
   Scenario: Open shared read-only view
     Given another user has shared a character with URL

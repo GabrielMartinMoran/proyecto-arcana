@@ -57,13 +57,6 @@ const partyCharacterSync = createCharacterSyncCoordinator<Character>({
 	},
 });
 
-const getCharacterOwnerId = (party: Party, characterId: string) => {
-	for (const ownerId of Object.keys(party.members)) {
-		if ((party.members[ownerId] ?? []).includes(characterId)) return ownerId;
-	}
-	return null;
-};
-
 const mergePartyCharacters = (party: Party, characters: Character[]) => {
 	const remoteById = new Map<string, Character>();
 	for (const character of characters) {
@@ -73,7 +66,7 @@ const mergePartyCharacters = (party: Party, characters: Character[]) => {
 	const merged = [...party.characters];
 	for (const character of characters) {
 		if (!character?.id) continue;
-		const ownerId = getCharacterOwnerId(party, character.id);
+		const ownerId = party.getCharacterOwnerId(character.id);
 		if (ownerId && partyCharacterSync.shouldIgnoreRemoteSnapshot(ownerId, character.id)) continue;
 
 		const instance = new Character(character);
@@ -84,7 +77,7 @@ const mergePartyCharacters = (party: Party, characters: Character[]) => {
 
 	return merged.filter((character) => {
 		if (remoteById.has(character.id)) return true;
-		const ownerId = getCharacterOwnerId(party, character.id);
+		const ownerId = party.getCharacterOwnerId(character.id);
 		if (!ownerId) return false;
 		return partyCharacterSync.shouldIgnoreRemoteSnapshot(ownerId, character.id);
 	});

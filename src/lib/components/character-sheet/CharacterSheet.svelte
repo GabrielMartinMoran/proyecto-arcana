@@ -22,6 +22,7 @@
 		onTabChange: (tab: string) => void;
 		allowPartyChange?: boolean;
 		isEmbedded?: boolean;
+		characterOwnerId?: string;
 	};
 
 	let {
@@ -32,6 +33,7 @@
 		onTabChange,
 		allowPartyChange = true,
 		isEmbedded = false,
+		characterOwnerId,
 	}: Props = $props();
 
 	let { user } = useFirebaseService();
@@ -116,7 +118,7 @@
 	import { dialogService } from '$lib/services/dialog-service.svelte';
 
 	const copyPublicURL = async () => {
-		const userId = get(user)?.uid;
+		const userId = characterOwnerId ?? get(user)?.uid;
 		if (!userId) return;
 		const publicURL = resolve(`/characters/shared/${userId}/${character.id}`);
 		await navigator.clipboard.writeText(window.location.origin + publicURL);

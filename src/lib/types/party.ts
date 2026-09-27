@@ -50,6 +50,13 @@ export class Party {
 		return out;
 	}
 
+	getCharacterOwnerId(characterId: string): string | null {
+		for (const ownerId of Object.keys(this.members)) {
+			if ((this.members[ownerId] ?? []).includes(characterId)) return ownerId;
+		}
+		return null;
+	}
+
 	getCharactersFullIdentifiers(): { userId: string; characterId: string }[] {
 		const out: { userId: string; characterId: string }[] = [];
 		for (const key of Object.keys(this.members)) {

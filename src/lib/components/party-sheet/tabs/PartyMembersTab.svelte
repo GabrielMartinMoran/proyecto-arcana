@@ -32,20 +32,9 @@
 		party?.characters.find((c) => c.id === selectedCharacterId),
 	);
 
-	// Reactive safe members alias to avoid null checks in templates/helpers
-	let safeMembers: Record<string, string[]> = $derived(party ? party.members : {});
-
-	// Helper: find owner userId for charId inside party (uses safeMembers)
-	const getCharacterOwner = (charId: string) => {
-		for (const uid of Object.keys(safeMembers)) {
-			if ((safeMembers[uid] || []).includes(charId)) return uid;
-		}
-		return null;
-	};
-
 	const canEditCharacter = (charId: string) => {
 		const u = get(user);
-		const characterOwner = getCharacterOwner(charId);
+		const characterOwner = party.getCharacterOwnerId(charId);
 		return Boolean(u && characterOwner && (u.uid === party.ownerId || u.uid === characterOwner));
 	};
 
@@ -96,7 +85,7 @@
 			{ title: 'Confirmar eliminación', confirmLabel: 'Eliminar', cancelLabel: 'Cancelar' },
 		);
 		if (!proceed) return;
-		const owner = getCharacterOwner(selectedCharacterId);
+		const owner = party.getCharacterOwnerId(selectedCharacterId);
 		const u = get(user);
 		if (!owner || !u || u.uid !== party.ownerId) return;
 
@@ -135,7 +124,7 @@
 		<!-- Horizontal character tabs above the character sheet.
 				 Use the same .tabs / .tab classes as the character sheet so styles match. -->
 		<div class="tabs">
-			{#each party.characters.toSorted( (a, b) => a.name.localeCompare(b.name) ) as character (character.id)}
+			{#each party.characters.toSorted( (a, b) => a.name.localeCompare(b.name), ) as character (character.id)}
 				<button
 					class="tab"
 					class:selected={selectedCharacterId === character.id}
@@ -161,9 +150,10 @@
 			<Container>
 				<CharacterSheet
 					character={selectedCharacter}
+					characterOwnerId={party.getCharacterOwnerId(selectedCharacter.id) ?? undefined}
 					readonly={!canEditCharacter(selectedCharacter.id)}
 					onChange={async (character: Character) => {
-						const characterOwner = getCharacterOwner(character.id);
+						const characterOwner = party.getCharacterOwnerId(character.id);
 						if (!characterOwner) {
 							console.error('[PartyMembersTab] No owner found for character', character.id);
 							return;

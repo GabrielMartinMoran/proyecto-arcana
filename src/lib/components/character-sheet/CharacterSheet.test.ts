@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/svelte';
+import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
 import { writable } from 'svelte/store';
 import type { Character } from '$lib/types/character';
 import CharacterSheet from './CharacterSheet.svelte';
@@ -139,5 +139,58 @@ describe('CharacterSheet embedded mode', () => {
 		});
 
 		expect(screen.queryByRole('button', { name: '🔗 Compartir' })).not.toBeInTheDocument();
+	});
+});
+
+describe('CharacterSheet public share URL', () => {
+	const onChange = vi.fn();
+	const onTabChange = vi.fn();
+
+	const renderSheet = (extraProps: Record<string, unknown> = {}) =>
+		render(CharacterSheet, {
+			props: {
+				character: buildCharacter(),
+				readonly: false,
+				onChange,
+				currentTab: 'general',
+				onTabChange,
+				...extraProps,
+			} as any,
+		});
+
+	const clickShare = async () => {
+		await fireEvent.click(screen.getByRole('button', { name: '🔗 Compartir' }));
+	};
+
+	beforeEach(() => {
+		vi.clearAllMocks();
+		Object.defineProperty(navigator, 'clipboard', {
+			value: { writeText: vi.fn(async () => {}) },
+			configurable: true,
+		});
+	});
+
+	it('FEAT-shared-character @share @group-view @character-owner-url — copies a URL owned by the character owner when provided', async () => {
+		renderSheet({ characterOwnerId: 'character-owner' });
+
+		await clickShare();
+
+		await waitFor(() =>
+			expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
+				`${window.location.origin}/characters/shared/character-owner/char-1`,
+			),
+		);
+	});
+
+	it('FEAT-shared-character @share — falls back to the signed-in user when no character owner is provided', async () => {
+		renderSheet();
+
+		await clickShare();
+
+		await waitFor(() =>
+			expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
+				`${window.location.origin}/characters/shared/test-user/char-1`,
+			),
+		);
 	});
 });
