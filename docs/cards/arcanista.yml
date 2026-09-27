@@ -114,6 +114,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: Afinidad Arcana
     description: >-
       _Tejes una red de hilos invisibles de poder arcano que te alertan ante cualquier intrusión en tu territorio._<br><br>
@@ -445,6 +446,7 @@ cards:
       - Arcanista
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: 'Afinidad Arcana & Atributo Arcano 4'
     description: >-
       _Alteras la estructura de la materia inerte, deformándola como arcilla o reorganizándola para crear nuevas herramientas y estructuras._<br><br>
@@ -455,7 +457,8 @@ cards:
       &nbsp;&nbsp;&nbsp;&nbsp;• _Mundano:_ 10 minutos<br>
       &nbsp;&nbsp;&nbsp;&nbsp;• _Común:_ 1 hora<br>
       &nbsp;&nbsp;&nbsp;&nbsp;• _Calidad:_ 24 horas<br>
-      La categoría máxima de precio que puedes fabricar con este conjuro es de Calidad.
+      La categoría máxima de precio que puedes fabricar con este conjuro es de Calidad.<br>
+      Solo el efecto de _Transmutar_ es Sostenido: un objeto terminado mediante _Fabricar_ no constituye un efecto activo que mantenga bloqueada la carta.
     uses:
       type: RELOAD
       qty: 6

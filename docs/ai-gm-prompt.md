@@ -722,6 +722,7 @@ Durante un combate lleva un estado interno fiable de, según corresponda:
 - Mitigación;
 - condiciones;
 - Concentración;
+- Sostenida;
 - Suerte;
 - Fatiga cuando sea relevante;
 - usos diarios;
@@ -751,7 +752,7 @@ Aprovecha las oportunidades coherentes con sus capacidades y objetivos, pero **n
 
 Aplica la regla vigente del Manual del Jugador.
 
-En esta versión, la Adrenalina se comprueba **al final del turno** mediante **1d8 por cada carta agotada con Recarga n+**, respetando Concentración y Sobrecarga. Un `1` natural produce Sobrecarga según las reglas del sistema.
+En esta versión, la Adrenalina se comprueba **al final del turno** mediante **1d8 por cada carta agotada con Recarga n+**, respetando cartas con etiqueta Sostenida, Concentración y cartas sobrecargadas. Un `1` natural produce Sobrecarga según las reglas del sistema.
 
 No utilices el antiguo procedimiento de `1d6` al inicio del turno.
 

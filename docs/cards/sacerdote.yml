@@ -330,6 +330,7 @@ cards:
       - Sacerdote
       - Conjuro
       - Ritual
+      - Sostenida
     requirements: 'Fe Inspiradora & Instinto 3'
     description: >-
       _Trazas una frontera sagrada que los seres de oscuridad no pueden cruzar sin enfrentarse a la ira divina._<br><br>
@@ -428,13 +429,13 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
+      - Sostenida
     requirements: 'Fe Inspiradora & Instinto 5'
     description: >-
       _Das forma a tu fe en la figura de un arma incorpórea que asesta golpes dictados por tu inquebrantable voluntad._<br><br>
       Invocas un arma de energía pura que flota en el aire a distancia Cercana durante 1 minuto.<br>
       Cuando lanzas el conjuro, y en cada uno de tus turnos subsiguientes usando tu Interacción, puedes mover el arma hasta 10 metros y realizar un ataque de conjuro (1d8e + Instinto) contra una criatura Inmediata a ella. Si impactas, infliges 2d8 de daño de Fuerza.<br>
-      - **Canalizar Castigo:** Cando impactas un ataque con el _Arma Espiritual_, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.<br>
-      - **Manifestación Única:** Solo puedes tener un _Arma Espiritual_ activa a la vez. Si vuelves a lanzar este conjuro mientras ya tienes una activa, la anterior desaparece inmediatamente.
+      - **Canalizar Castigo:** Cando impactas un ataque con el _Arma Espiritual_, si tienes _Golpe Divino_ activa y disponible para usar, puedes usarla como parte de la misma Interacción.
     uses:
       type: RELOAD
       qty: 7

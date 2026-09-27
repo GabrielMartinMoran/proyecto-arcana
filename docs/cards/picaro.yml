@@ -267,6 +267,7 @@ cards:
     type: activable
     tags:
       - Pícaro
+      - Sostenida
     requirements: 'Asesinar & Instinto 3'
     description: >-
       _Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con un solo toque._<br><br>

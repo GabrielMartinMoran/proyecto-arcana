@@ -967,7 +967,7 @@ Al evaluar una carta, considera conjuntamente:
 - **Duración:** si produce un efecto inmediato o altera varios turnos.
 - **Economía de Acciones:** si requiere Acción, Interacción, Reacción o no consume ninguna de ellas.
 - **Fiabilidad:** con qué frecuencia puede utilizarse y recuperarse.
-- **Condiciones de Uso:** posicionamiento, desencadenantes, Concentración, Tiradas de Salvación u otras restricciones.
+- **Condiciones de Uso:** posicionamiento, desencadenantes, Sostenida, Concentración, Tiradas de Salvación u otras restricciones.
 - **Versatilidad:** cuántos problemas distintos puede resolver una misma carta.
 
 Ninguno de estos elementos debe analizarse de forma aislada.
@@ -999,7 +999,7 @@ La Recarga indicada por el Nivel **no es una obligación**. Es el punto desde el
 
 `Recarga 8+` es el límite natural del sistema. **No existe una Recarga 9+.**
 
-Si una carta continúa siendo demasiado poderosa incluso con `Recarga 8+`, debe limitarse mediante otros mecanismos: usos por Día de Descanso, condiciones más estrictas, Concentración, duración, requisitos narrativos o un rediseño del efecto.
+Si una carta continúa siendo demasiado poderosa incluso con `Recarga 8+`, debe limitarse mediante otros mecanismos: usos por Día de Descanso, condiciones más estrictas, Sostenida, Concentración, duración, requisitos narrativos o un rediseño del efecto.
 
 Las Cartas de Nivel 6 no siguen una progresión hipotética más allá de `8+`. Su propia naturaleza excepcional exige diseñar individualmente qué limita su uso.
 
@@ -1054,6 +1054,7 @@ Entre las posibles compensaciones se encuentran:
 - exigir una Tirada de Salvación adicional;
 - requerir una condición o posicionamiento concreto;
 - limitar la duración;
+- ser Sostenida;
 - exigir Concentración.
 
 No todas estas medidas tienen el mismo valor en todas las cartas. Deben elegirse aquellas que realmente limiten el efecto durante el juego.
@@ -1062,9 +1063,9 @@ No todas estas medidas tienen el mismo valor en todas las cartas. Deben elegirse
 
 Estados capaces de negar acciones, impedir movimiento de forma importante, retirar temporalmente criaturas del combate o mantener efectos poderosos durante varios turnos requieren especial atención.
 
-Una carta que combine **daño competitivo + control fuerte + buena área + larga duración** no debería considerarse equilibrada simplemente por poseer Concentración.
+Una carta que combine **daño competitivo + control fuerte + buena área + larga duración** no debería considerarse equilibrada simplemente por ser Sostenida o poseer Concentración.
 
-En estos casos suele ser necesario combinar varias limitaciones: menor daño, Recarga superior, Tirada de Salvación, Concentración, duración limitada o una condición previa.
+En estos casos suele ser necesario combinar varias limitaciones: menor daño, Recarga superior, Tirada de Salvación, Sostenida, Concentración, duración limitada o una condición previa.
 
 ### Alteraciones de la Economía de Acciones
 
@@ -1171,36 +1172,39 @@ Deben utilizarse con especial cuidado. Los límites de _una vez por turno_, _una
 
 ---
 
-## Paso 7: Duración, Área y Concentración
+## Paso 7: Duración, Área, Sostenida y Concentración
 
 Un efecto que permanece activo debe evaluarse por su impacto durante toda su duración razonable, no únicamente por lo que hace en el turno inicial.
 
 Una zona que inflige daño cada ronda, un aura que modifica múltiples ataques o un control que puede mantener a una criatura fuera del combate pueden superar ampliamente el valor aparente de su primera activación.
 
-### Concentración como Limitación
+### Efectos Sostenidos y Concentración
 
-La **Concentración** constituye por sí misma una limitación importante.
+Las capacidades que permanecen activas durante varios turnos pueden acumular mucho más valor que el que aparenta su activación inicial. La etiqueta **Sostenida** permite reflejar parte de ese valor limitando de forma natural la frecuencia con la que la capacidad puede volver a utilizarse.
 
-Mientras una carta agotada con `Recarga n+` mantiene un efecto mediante Concentración, **no puede intentar recuperar su uso mediante Adrenalina, Reenfoque ni Recarga con Suerte**. Por lo tanto, cuanto más tiempo resulte útil mantener el efecto, más tiempo permanecerá también agotada la carta.
+Mientras una carta agotada mantenga un efecto Sostenido, **no puede recuperar su uso mediante Adrenalina, Reenfoque ni Recarga con Suerte**. Cuanto más tiempo resulte útil mantener el efecto, más tiempo permanecerá también agotada la carta.
 
-Esto significa que añadir Concentración a una capacidad persistente ya reduce de forma natural su frecuencia efectiva de uso.
+La **Concentración** incorpora esta misma limitación y añade además sus propias restricciones: el personaje solo puede mantener una cantidad limitada de efectos de Concentración y corre el riesgo de perderlos al recibir daño. Todo efecto mantenido mediante Concentración se considera Sostenido mientras permanezca activo.
 
 > **Regla de Diseño: Evitar el Doble Cobro**
 >
-> La duración o persistencia de un efecto **no justifica automáticamente aumentar también su Recarga** cuando la carta requiere Concentración.
+> La duración o persistencia de una capacidad **no justifica automáticamente aumentar su Recarga** cuando su efecto ya es Sostenido.
 >
-> Si el efecto ya posee una magnitud apropiada para su Nivel, utiliza normalmente la **Recarga de referencia de ese Nivel**. Aumenta la Recarga únicamente cuando la carta continúe excediendo claramente su presupuesto incluso después de considerar la Concentración, su daño, sus Tiradas de Salvación, su economía de acciones y las demás restricciones presentes.
+> Si la capacidad posee una magnitud apropiada para su Nivel, utiliza normalmente la **Recarga de referencia de ese Nivel**. Aumenta la Recarga únicamente cuando el conjunto completo de la capacidad siga excediendo claramente su presupuesto después de considerar su duración, economía de acciones, daño, área, control, Tiradas de Salvación y demás restricciones.
+>
+> La Concentración representa una limitación adicional a Sostenida y, por lo tanto, puede justificar efectos persistentes más flexibles o poderosos que aquellos que no corren el riesgo de ser interrumpidos.
 
-Por ejemplo, una carta de Nivel 3 con `Recarga 6+` que crea una zona durante 1 minuto mediante Concentración no necesita pasar automáticamente a `7+` solo porque el efecto pueda repetirse durante varios turnos. Mientras esa zona permanezca activa, la propia carta no puede comenzar a recuperarse.
+Por ejemplo, una carta de Nivel 3 con `Recarga 6+` que crea una zona Sostenida durante 1 minuto no necesita pasar automáticamente a `7+` únicamente porque pueda producir beneficios durante varios turnos: mientras la zona permanezca activa, la propia carta tampoco puede comenzar a recuperarse.
 
-En cambio, una capacidad de Nivel 3 que produzca inmediatamente el daño completo esperado para su Nivel, añada además un efecto de control importante y **no requiera Concentración** puede justificar `Recarga 7+`.
+Del mismo modo, si esa zona requiere además Concentración, debe tenerse en cuenta que el personaje arriesga perder el efecto y compromete su capacidad de mantener otros efectos de Concentración.
 
-La Concentración tampoco compensa cualquier magnitud de efecto. Una capacidad que combine daño elevado, gran área, control fuerte y larga duración puede seguir necesitando menor daño, menor área, Tiradas de Salvación adicionales u otras restricciones aunque requiera Concentración.
+Sostenida o Concentración tampoco compensan cualquier magnitud de efecto. Una capacidad que combine daño elevado, gran área, control fuerte y larga duración puede seguir necesitando menor daño, menor área, Tiradas de Salvación adicionales, una Recarga superior u otras restricciones.
 
 ### Áreas y Efectos Persistentes
 
-Al evaluar una capacidad de área, considera conjuntamente:
+Al evaluar una capacidad de área o persistente, considera conjuntamente:
 
+- su magnitud;
 - el tamaño y forma del área;
 - su alcance;
 - la facilidad para afectar a múltiples criaturas;
@@ -1209,7 +1213,12 @@ Al evaluar una capacidad de área, considera conjuntamente:
 - si el efecto ocurre una sola vez o puede repetirse durante varios turnos;
 - el daño y control aplicados;
 - su duración;
-- si requiere Concentración.
+- su Recarga;
+- su economía de acciones;
+- sus Tiradas de Salvación;
+- si es Sostenida;
+- si requiere Concentración;
+- las demás restricciones presentes.
 
 Una Tirada de Salvación reduce la fiabilidad del efecto sobre cada objetivo, pero tampoco debe considerarse por sí sola una compensación universal. El balance final depende del conjunto completo de la carta.
 
