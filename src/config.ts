@@ -18,18 +18,18 @@ export const CONFIG = {
 
 	ACTIVE_SLOT_PP_COST: {
 		3: 3, // Buy 4th slot
-		4: 5, // Buy 5th slot
-		5: 8, // Buy 6th slot
-		6: 11, // Buy 7th slot
-		7: 15, // Buy 8th slot
-		8: 19, // Buy 9th slot
+		4: 4, // Buy 5th slot
+		5: 6, // Buy 6th slot
+		6: 9, // Buy 7th slot
+		7: 13, // Buy 8th slot
+		8: 18, // Buy 9th slot
 		9: 24, // Buy 10th slot
 	},
 
 	CHARACTER_TIERS: [
-		{ tier: 1, minPP: 0, maxPP: 25 },
-		{ tier: 2, minPP: 26, maxPP: 65 },
-		{ tier: 3, minPP: 66, maxPP: Infinity },
+		{ tier: 1, minPP: 0, maxPP: 22 },
+		{ tier: 2, minPP: 23, maxPP: 52 },
+		{ tier: 3, minPP: 53, maxPP: Infinity },
 	],
 
 	MOBILE_MAX_WIDTH: 1280,

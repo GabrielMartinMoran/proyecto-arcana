@@ -16,15 +16,15 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 
 | PP Promedio | Rango Nominal (Ref.) | PA Base/PJ (Fácil) | PA Base/PJ (Normal) | PA Base/PJ (Difícil) | PA Base/PJ (Épico) | Rango Máx. Monstruo Sugerido (Estándar) |
 | :---------- | :------------------- | :----------------- | :------------------ | :------------------- | :----------------- | :-------------------------------------- |
-| **0-7**     | R1 (Inicio)          | 1                  | 1.5                 | 2                    | 2.5                | Rango 1                                 |
-| **8-15**    | R1 (Medio)           | 1.25               | 1.75                | 2.5                  | 3.25               | Rango 1                                 |
-| **16-25**   | R1 (Avanzado)        | 1.5                | 2.25                | 3.25                 | 4.25               | Rango 1 (_Considerar 1x R2_)            |
-| **26-39**   | R2 (Inicio)          | 2                  | 3                   | 4.5                  | 6                  | Rango 2                                 |
-| **40-52**   | R2 (Medio)           | 2.5                | 3.75                | 5.5                  | 7.25               | Rango 2                                 |
-| **53-65**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
-| **66-80**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
-| **81-95**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
-| **96+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
+| **0-6**     | R1 (Inicio)          | 1                  | 1.5                 | 2                    | 2.5                | Rango 1                                 |
+| **7-13**    | R1 (Medio)           | 1.25               | 1.75                | 2.5                  | 3.25               | Rango 1                                 |
+| **14-22**   | R1 (Avanzado)        | 1.5                | 2.25                | 3.25                 | 4.25               | Rango 1 (_Considerar 1x R2_)            |
+| **23-32**   | R2 (Inicio)          | 2                  | 3                   | 4.5                  | 6                  | Rango 2                                 |
+| **33-42**   | R2 (Medio)           | 2.5                | 3.75                | 5.5                  | 7.25               | Rango 2                                 |
+| **43-52**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
+| **53-68**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
+| **69-84**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
+| **85+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
 
 _(Nota: "Rango Nominal (Ref.)" representa la escala de amenazas frente a la cual un grupo de personajes de ese nivel de progreso puede contribuir de forma sostenida y significativa en encuentros estándar. No indica el Nivel máximo de carta que un personaje puede poseer: personajes muy especializados pueden acceder antes a capacidades propias de etapas posteriores, mientras que personajes más diversificados pueden consolidar su poder de forma más gradual.)_
 
@@ -34,9 +34,9 @@ Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu 
 
 `Presupuesto Total (PA) = Redondear( (PA Base por PJ de la Tabla) x (Número de Jugadores) )`
 
-> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 100** (fila "96+"). Quieren dificultad **Difícil**.
+> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "85+"). Quieren dificultad **Difícil**.
 >
-> - PA Base/PJ: 10.5 PA
+> - PA Base/PJ (Tabla v5.2): 10.5 PA
 > - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
 
 ## Paso 4: Construir el Encuentro — Compra de Enemigos
