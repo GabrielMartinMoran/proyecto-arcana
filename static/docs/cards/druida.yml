@@ -134,7 +134,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
     requirements: 'Sintonía Primordial & Instinto 3'
     description: >-
       _Las hierbas y la savia responden a tu toque, limpiando el veneno de la sangre y fortificando el cuerpo frágil._<br><br>
@@ -262,7 +261,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
     requirements: Sintonía Primordial
     description: >-
       _Preparas ungüentos milagrosos a gran velocidad, imbuyéndolos de magia druídica para cerrar heridas progresivamente._<br><br>
@@ -342,7 +340,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
       - Concentración
     requirements: 'Sintonía Primordial & Instinto 4'
     description: >-

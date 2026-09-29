@@ -225,7 +225,6 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-      - Curación
     requirements: 'Fe Inspiradora & Instinto 4'
     description: >-
       _Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br>
@@ -240,7 +239,6 @@ cards:
       - Sacerdote
       - Conjuro
       - Concentración
-      - Curación
     requirements: 'Fe Inspiradora & Instinto 4'
     description: >-
       _Invocas espíritus ancestrales que forman una barrera protectora a tu alrededor, castigando a los impíos que se atrevan a acercarse._<br><br>

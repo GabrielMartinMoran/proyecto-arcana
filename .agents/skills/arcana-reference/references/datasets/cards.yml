@@ -1493,7 +1493,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Curación
     requirements: Maestría Marcial
     description: >-
       _Cuando otros caen agotados, tú encuentras una reserva interna de voluntad
@@ -4180,7 +4179,6 @@ cards:
     tags:
       - Sacerdote
       - Conjuro
-      - Curación
     requirements: Fe Inspiradora & Instinto 4
     description: >-
       _Alzas tu voz en un cántico de sanación que baña a tus aliados en una
@@ -4196,7 +4194,6 @@ cards:
       - Sacerdote
       - Conjuro
       - Concentración
-      - Curación
     requirements: Fe Inspiradora & Instinto 4
     description: >-
       _Invocas espíritus ancestrales que forman una barrera protectora a tu
@@ -4763,7 +4760,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
     requirements: Sintonía Primordial & Instinto 3
     description: >-
       _Las hierbas y la savia responden a tu toque, limpiando el veneno de la
@@ -4934,7 +4930,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
     requirements: Sintonía Primordial
     description: >-
       _Preparas ungüentos milagrosos a gran velocidad, imbuyéndolos de magia
@@ -5042,7 +5037,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
       - Concentración
     requirements: Sintonía Primordial & Instinto 4
     description: >-

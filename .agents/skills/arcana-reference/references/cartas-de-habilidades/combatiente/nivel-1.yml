@@ -21,7 +21,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Curación
     requirements: Maestría Marcial
     uses:
       type: LONG_REST

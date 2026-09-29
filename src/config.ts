@@ -149,7 +149,6 @@ export const CONFIG = {
 			'Conjuro',
 			'Concentración',
 			'Sostenida',
-			'Curación',
 			'Daño',
 			'Debuff',
 			'Control',

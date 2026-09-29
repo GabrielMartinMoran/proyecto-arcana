@@ -920,7 +920,6 @@
       ],
       "tags": [
         "Conjuro",
-        "Curación",
         "Druida"
       ],
       "level": 1,
@@ -933,7 +932,7 @@
         "uses": "RELOAD:4"
       },
       "search": "_Preparas ungüentos milagrosos a gran velocidad, imbuyéndolos de magia druídica para cerrar heridas progresivamente._<br><br> Tocas a una criatura y le aplicas un ungüento de hierbas. Durante 2 rondas, la criatura recupera 1d4 Puntos de Salud al inicio de cada uno de sus turnos.",
-      "hash": "a533e9b4d718e04fb8490119a009b2e2c5d2b9d2"
+      "hash": "01eb3ed6330e491a7b3716ca11fbd50bbf557690"
     },
     {
       "kind": "card",
@@ -1865,7 +1864,6 @@
       "tags": [
         "Concentración",
         "Conjuro",
-        "Curación",
         "Druida"
       ],
       "level": 3,
@@ -1878,7 +1876,7 @@
         "uses": "RELOAD:6"
       },
       "search": "_Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas, recuperan 1d6 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.",
-      "hash": "8ae8e25574a5f4c1f937d8c015ef314117560fad"
+      "hash": "a200ded0a419769ad0ed89f4b393f5227a26ae53"
     },
     {
       "kind": "card",
@@ -2804,7 +2802,6 @@
       "tags": [
         "Concentración",
         "Conjuro",
-        "Curación",
         "Sacerdote"
       ],
       "level": 3,
@@ -2817,7 +2814,7 @@
         "uses": "RELOAD:6"
       },
       "search": "_Invocas espíritus ancestrales que forman una barrera protectora a tu alrededor, castigando a los impíos que se atrevan a acercarse._<br><br> Como Acción (Concentración), espíritus revolotean a tu alrededor en un radio de 3 metros durante 1 minuto.<br> - Cualquier enemigo que entre o empiece su turno en el área debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto).<br> - Si falla, sufre 2d6 de daño Radiante. Si tiene éxito, la mitad.<br>",
-      "hash": "4e8e8cb5b3f3cd5d3174f60b7ce94d4ab60464c4"
+      "hash": "7fae33510d512e1a56f707ba22d9c353b01aa9df"
     },
     {
       "kind": "card",
@@ -6160,7 +6157,6 @@
       ],
       "tags": [
         "Conjuro",
-        "Curación",
         "Sacerdote"
       ],
       "level": 3,
@@ -6173,7 +6169,7 @@
         "uses": "RELOAD:6"
       },
       "search": "_Alzas tu voz en un cántico de sanación que baña a tus aliados en una cálida y reparadora luz._<br><br> Tú y hasta 4 aliados a distancia Cercana recuperan 1d6 + tu Instinto en Puntos de Salud.",
-      "hash": "1bf36fec51eec8e050caa26c1125493e4f8db5f3"
+      "hash": "074eabb0acb1ce0d90d97b58b9d714fe6280b145"
     },
     {
       "kind": "card",
@@ -7202,8 +7198,7 @@
         "segundo aliento"
       ],
       "tags": [
-        "Combatiente",
-        "Curación"
+        "Combatiente"
       ],
       "level": 1,
       "path": "references/cartas-de-habilidades/combatiente/nivel-1.yml",
@@ -7215,7 +7210,7 @@
         "uses": "LONG_REST:2"
       },
       "search": "_Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco más._<br><br> Usas tu Interacción para recuperar una cantidad de Salud igual a 1d4 + tu Atributo Marcial.",
-      "hash": "2ac4056cc8d8f72c80d57c507b29d2c6bac0cb69"
+      "hash": "c9728fdf95904cf146395bc4df9fc6ccf2ec61d4"
     },
     {
       "kind": "card",
@@ -7713,7 +7708,6 @@
       ],
       "tags": [
         "Conjuro",
-        "Curación",
         "Druida"
       ],
       "level": 2,
@@ -7726,7 +7720,7 @@
         "uses": "RELOAD:5"
       },
       "search": "_Las hierbas y la savia responden a tu toque, limpiando el veneno de la sangre y fortificando el cuerpo frágil._<br><br> Como Acción, tocas a una criatura voluntaria y eliges uno de los siguientes efectos:<br> - **Limpieza:** Eliminas un efecto de Enfermedad o Veneno que afecte a la criatura.<br> - **Bendición Protectora:** La criatura obtiene Ventaja (+1d4) en todas las Tiradas de Salvación de Cuerpo que realice contra Venenos y Enfermedades durante los próximos 10 minutos.",
-      "hash": "2c7201f38e43ad3a0c962e55343412e8d586c277"
+      "hash": "13e20f7a82b1b154bb18a2b020d355658595801e"
     },
     {
       "kind": "card",

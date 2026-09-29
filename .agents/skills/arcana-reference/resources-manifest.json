@@ -256,20 +256,20 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-1.yml",
       "kind": "file",
-      "size": 8026,
-      "sha1": "245211a7613103d2062b35363ccccdf83fde1bcc"
+      "size": 8008,
+      "sha1": "16d9fa9bb003d7bd44140898de63530eab6f98b8"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
       "kind": "file",
-      "size": 10933,
-      "sha1": "beee1ae9d5bab2a9a5d20f373beb88f3ebe3cc66"
+      "size": 10915,
+      "sha1": "8b7fa3acf612e2471ce9c16261af7bdc90dfba4b"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-3.yml",
       "kind": "file",
-      "size": 7854,
-      "sha1": "5145ab23d70b7fff5f3c93d180e10721129ce137"
+      "size": 7836,
+      "sha1": "697399b82488dbaf20a1418aa0a88a581da322ba"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-4.yml",
@@ -468,8 +468,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-3.yml",
       "kind": "file",
-      "size": 4161,
-      "sha1": "786d5616373cce64d9bad50dfeee14410901d4bf"
+      "size": 4125,
+      "sha1": "bf32efe1b5f0d92882644c9b505aeda13347f00a"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-4.yml",
@@ -490,8 +490,8 @@
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-1.yml",
       "kind": "file",
-      "size": 2512,
-      "sha1": "d088316c4b31d4844f3ae44aa42a7259a28ab1b4"
+      "size": 2494,
+      "sha1": "b899f7d52a281d5aa067f2a33024ba69aae76fb0"
     },
     {
       "path": "references/cartas-de-habilidades/combatiente/nivel-2.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 304355,
-      "sha1": "a774c7c0d979dd485f998e8341bb4a6727309ba9"
+      "size": 304247,
+      "sha1": "b7fc9633ee02f86770682d1f751aada0da7d1597"
     },
     {
       "path": "references/datasets/magical-items.yml",

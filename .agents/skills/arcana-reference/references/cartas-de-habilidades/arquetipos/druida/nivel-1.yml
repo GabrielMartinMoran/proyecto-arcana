@@ -114,7 +114,6 @@ cards:
     tags:
       - Druida
       - Conjuro
-      - Curación
     requirements: Sintonía Primordial
     uses:
       type: RELOAD

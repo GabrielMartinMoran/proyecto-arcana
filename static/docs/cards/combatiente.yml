@@ -17,7 +17,6 @@ cards:
     type: activable
     tags:
       - Combatiente
-      - Curación
     requirements: Maestría Marcial
     description: >-
       _Cuando otros caen agotados, tú encuentras una reserva interna de voluntad que te permite seguir luchando un poco más._<br><br>
