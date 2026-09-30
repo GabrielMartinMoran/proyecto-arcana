@@ -342,8 +342,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-2.yml",
       "kind": "file",
-      "size": 3772,
-      "sha1": "158ad5383f403662711b000ca4297eb6f0e25285"
+      "size": 3778,
+      "sha1": "8ce2c5734366fc99a79c446f6849154a90fc4e5f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-3.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 309383,
-      "sha1": "011afc83ae67b9092a4d631b083783058f17982f"
+      "size": 309389,
+      "sha1": "b6dc0a8e7678698c9191736d35d45986598d29ad"
     },
     {
       "path": "references/datasets/magical-items.yml",
