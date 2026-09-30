@@ -3220,20 +3220,24 @@ cards:
       usar tu Interacción y gastar el uso de esta carta para aplicar una de las
       siguientes fórmulas.<br> La fórmula solo modifica el daño base del arma.
       Todo daño adicional procedente de otras cartas, objetos o efectos conserva
-      su tipo original.<br> - **Combustión (Fuego):** El daño base del arma se
-      convierte en Fuego. El objetivo recibe 1d6 de daño de Fuego adicional como
-      parte del daño del ataque.<br> - **Congelación (Frío):** El daño base del
-      arma se convierte en Frío. La Velocidad del objetivo se reduce a la mitad
-      hasta el final de su próximo turno.<br> - **Sobrecarga Nerviosa
-      (Eléctrico):** El daño base del arma se convierte en Eléctrico. El
-      objetivo sufre -1 a su Esquiva hasta el inicio de tu próximo turno.<br> -
-      **Conversión Cinética (Fuerza):** El daño base del arma se convierte en
-      Fuerza. Antes de aplicar el daño, puedes reducir su resultado hasta una
-      cantidad igual a tu Mente. Por cada punto de daño sacrificado de esta
-      forma, obtienes 2 Puntos de Salud temporales durante 1 minuto.<br> -
-      **Resonancia (Psíquico):** El daño base del arma se convierte en Psíquico.
-      La próxima Tirada de Salvación que el objetivo realice contra uno de tus
-      _Conjuros_ antes del final de tu próximo turno sufre Desventaja
+      su tipo original.<br> Además, el objetivo recibe 1d6 de daño adicional del
+      tipo correspondiente a la fórmula elegida.<br> - **Combustión (Fuego):**
+      El daño base del arma se convierte en Fuego. Al inicio del próximo turno
+      del objetivo, este recibe 1d4 de daño de Fuego adicional.<br> -
+      **Congelación (Frío):** El daño base del arma se convierte en Frío. La
+      Velocidad del objetivo se reduce a la mitad hasta el final de su próximo
+      turno.<br> - **Sobrecarga Nerviosa (Eléctrico):** El daño base del arma se
+      convierte en Eléctrico. El objetivo sufre -1 a su Esquiva hasta el inicio
+      de tu próximo turno.<br> - **Conversión Cinética (Fuerza):** El daño base
+      del arma se convierte en Fuerza. Antes de aplicar el daño de Fuerza
+      generado por esta fórmula, incluyendo el daño base del arma y el 1d6 de
+      daño adicional, puedes reducir su resultado total hasta una cantidad igual
+      a tu Mente. Por cada punto de daño sacrificado de esta forma, obtienes 2
+      Puntos de Salud temporales durante 1 minuto. El daño adicional procedente
+      de otras cartas, objetos o efectos no puede sacrificarse de esta
+      forma.<br> - **Resonancia (Psíquico):** El daño base del arma se convierte
+      en Psíquico. La próxima Tirada de Salvación que el objetivo realice contra
+      uno de tus _Conjuros_ antes del final de tu próximo turno sufre Desventaja
       (-1d4).<br> - **Entropía (Necrótico):** El daño base del arma se convierte
       en Necrótico. El objetivo no puede recuperar Puntos de Salud hasta el
       final de tu próximo turno.
