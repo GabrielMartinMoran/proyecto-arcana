@@ -19,11 +19,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Herencia Sobrenatural & Presencia 4",
+        "requirements": "Sangre Mágica & Presencia 4",
         "uses": "RELOAD:6"
       },
-      "search": "_En lugar de rehuir del daño mágico, obligas a tu cuerpo a absorber esa energía para alimentar tus próximos conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a absorber esa energía para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.",
-      "hash": "a293a46ecc2f1cc6d0d7e0df657d983dbb70aa97"
+      "search": "_En lugar de rehuir del daño mágico, obligas a tu cuerpo a absorber esa energía para alimentar tus próximos conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, reduces el daño recibido a la mitad.<br><br> Además, el remanente de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de Salud.<br> Aplicar una opción de esta forma cuenta como tu uso de _Sangre Mágica_ de esa ronda, pero no activa efectos que requieran haber sacrificado Puntos de Salud.",
+      "hash": "f612dd4412c88dd5f62da1eac45955d34e2d03fe"
     },
     {
       "kind": "card",
@@ -141,6 +141,28 @@
       },
       "search": "_La vida no conquista los entornos hostiles mediante la fuerza, sino cambiando hasta que aquello que era imposible se vuelve natural._<br><br> Como Acción, eliges hasta un número de criaturas voluntarias igual a tu puntuación de Instinto y una de las siguientes adaptaciones. El efecto dura 1 hora:<br> - **Adaptación Acuática:** Las criaturas pueden respirar tanto aire como agua y obtienen una velocidad de nado igual a su Velocidad normal.<br> - **Adaptación Trepadora:** Las criaturas pueden desplazarse por superficies naturales verticales o muy inclinadas a una velocidad igual a su Velocidad normal sin realizar pruebas para trepadas ordinarias. Superficies completamente lisas o invertidas todavía pueden requerir una prueba o resultar imposibles.<br> - **Adaptación Climática:** Las criaturas toleran de forma sobrenatural el calor, frío o altitud extremos de origen natural, y obtienen Ventaja (+1d4) en Pruebas y Tiradas de Salvación de Cuerpo contra peligros ambientales.<br> - **Adaptación Nocturna:** Las criaturas obtienen Visión en la Oscuridad hasta distancia Cercana.",
       "hash": "ff23eedfcb657f4437b7f04114fbbc84c0fbf95a"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Adaptación Sobrenatural",
+      "id": "202bfd889f9bf008287e5460b6f2fcbac20fe191",
+      "slug": "adaptacion-sobrenatural",
+      "aliases": [
+        "adaptacion sobrenatural"
+      ],
+      "tags": [
+        "Hechicero"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Sangre Mágica & Presencia 2"
+      },
+      "search": "_Tu cuerpo ha comenzado a adaptarse a la energía sobrenatural que corre por tus venas, transformando parte del dolor de tus sacrificios en una barrera protectora y volviéndose cada vez más resistente a la esencia de tu propia herencia._<br><br> Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos de Salud temporales igual a la mitad de los PS sacrificados (redondeado hacia arriba). Estos Puntos de Salud temporales duran 1 minuto.<br> Además, obtienes Resistencia a tu _Daño de Herencia_.",
+      "hash": "01779f1249d4fc8555f8684f91a06fb58f334edd"
     },
     {
       "kind": "card",
@@ -397,10 +419,10 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Herencia Sobrenatural & Presencia 4"
+        "requirements": "Sangre Mágica & Presencia 4"
       },
       "search": "_Al forzar tu poder, la magia errática desestabiliza la realidad a tu alrededor, creando efectos aleatorios._<br><br> Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, tira 1d4 para determinar qué efecto secundario se manifiesta:<br> - **Parpadeo:** Te teletransportas hasta 3 metros a un espacio desocupado que puedas ver.<br> - **Distorsión:** El próximo ataque que recibas antes del inicio de tu próximo turno se realiza con Desventaja (-1d4).<br> - **Claridad:** Tu próxima tirada de ataque de conjuro antes del final de tu próximo turno obtiene Ventaja (+1d4).<br> - **Ruptura Defensiva:** Eliges a una criatura a distancia Media que puedas ver. Esta sufre Desventaja (-1d4) en la próxima Tirada de Salvación que realice contra uno de tus conjuros antes del final de tu próximo turno.",
-      "hash": "607270e1ad481bb28284600f2f11a6574129faa7"
+      "hash": "bad4381b8fbb6e9fbb18e0dd24ff80f1a6d63ca5"
     },
     {
       "kind": "card",
@@ -419,11 +441,11 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Herencia Sobrenatural & Presencia 5",
+        "requirements": "Sangre Mágica & Presencia 5",
         "uses": "LONG_REST:1"
       },
       "search": "_Dejas que la magia pura de tu linaje te consuma por completo, convirtiéndote en un faro de poder letal._<br><br> Como Acción, entras en un estado de poder arcano que dura 1 minuto.<br> Mientras estes en este estado, ganas una velocidad de vuelo igual a tu Velocidad normal, emites luz brillante a 3 metros, y el costo en Puntos de Salud de todas las opciones de tu carta _Sangre Mágica_ se reduce a la mitad (redondeado hacia arriba, hasta un mínimo de 1 PS).",
-      "hash": "6eb5ec79f267243928d8477b029f800a69f198e0"
+      "hash": "3e314db27d2ace87e9cad954ab17aaf679c9d26f"
     },
     {
       "kind": "card",
@@ -511,11 +533,11 @@
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
-        "type": "activable",
+        "type": "efecto",
         "requirements": "Disciplina Monástica"
       },
       "search": "_Has convertido tus manos y pies en armas letales, y tu agilidad instintiva es tu mejor armadura contra el acero enemigo._<br><br> Obtienes los siguientes beneficios:<br> - **Defensa sin Armadura:** Mientras no lleves armadura ni uses un escudo, tu **Esquiva** se calcula con la siguiente fórmula: **Esquiva = 5 + Reflejos + la mitad de tu Instinto** (redondeado hacia abajo).<br> - **Golpes de Ki:** Tus ataques desarmados infligen 1d6 de daño Contundente, se consideran armas con la propiedad Precisa, y puedes utilizar tu puntuación de Instinto para las Tiradas de Ataque.",
-      "hash": "a2b9f8c1dd8ad34c43eae2db8c68982fe7fc0631"
+      "hash": "ca0ea65c0edefc6003a5534b6b0a4545ce1d3529"
     },
     {
       "kind": "card",
@@ -2105,8 +2127,8 @@
         "requirements": "Herencia Sobrenatural & Presencia 3",
         "uses": "RELOAD:5"
       },
-      "search": "_Cuando el acero impacta, la magia que corre por tus venas encuentra una grieta por la que escapar, deformando violentamente el golpe y la realidad a su alrededor._<br><br> Cuando impactas a una criatura con un ataque con arma, puedes usar tu Interacción y gastar el uso de esta carta para liberar un desborde de magia inestable.<br> Tira 1d4 y aplica la manifestación correspondiente:<br> - **1 — Sobrecarga Arcana:** El daño base del arma se convierte en Fuerza. Vuelve a tirar el dado de daño base del arma y utiliza el resultado más alto. Si el dado original ya había obtenido su valor máximo, no lo vuelves a tirar; en su lugar, infliges 1d4 de daño de Fuerza adicional.<br> - **2 — Ruptura Cinética:** Si el objetivo es como máximo un tamaño mayor que tú, es empujado 3 metros directamente en dirección opuesta a ti. Si es de tu tamaño o menor, además queda Derribado.<br> - **3 — Fractura Espacial:** Si el objetivo es como máximo un tamaño mayor que tú, lo teletransportas hasta 5 metros a un espacio desocupado que puedas ver. El destino debe ser capaz de sostener físicamente a la criatura y no puede colocarla directamente dentro de un peligro ambiental evidente.<br> - **4 — Reflujo Arcano:** Obtienes una cantidad de Puntos de Salud temporales igual a 2d4 + tu Presencia durante 1 minuto.<br><br> **Forzar el Desborde:** Antes de tirar el dado, puedes sacrificar 2 Puntos de Salud como uso de tu carta _Sangre Mágica_. Si lo haces, tira 2d4 y elige cuál de los dos resultados aplicar.<br> Si posees la carta _Sangre Mágica_, este sacrificio cuenta como tu uso de _Sangre Mágica_ de la ronda y activa cualquier efecto que se desencadene al sacrificar Salud mediante esa carta.",
-      "hash": "fc7c919362aadc0990b106c6a2583a4241fd2754"
+      "search": "_Cuando tu ataque impacta, la magia que corre por tus venas encuentra una grieta por la que escapar, deformando violentamente el golpe y la realidad a su alrededor._<br><br> Cuando impactas a una criatura con un ataque con arma o desarmado, puedes usar tu Interacción y gastar el uso de esta carta para liberar un desborde de magia inestable.<br> Tira 1d4 y aplica la manifestación correspondiente:<br> - **1 — Sobrecarga Arcana:** El daño base del arma se convierte en tu _Daño de Herencia_. Vuelve a tirar el dado de daño base del arma y utiliza el resultado más alto. Si el dado original ya había obtenido su valor máximo, no lo vuelves a tirar; en su lugar, infliges 1d4 de _Daño de Herencia_ adicional.<br> - **2 — Ruptura Cinética:** Si el objetivo es como máximo un tamaño mayor que tú, es empujado 3 metros directamente en dirección opuesta a ti. Si es de tu tamaño o menor, además queda Derribado.<br> - **3 — Fractura Espacial:** Si el objetivo es como máximo un tamaño mayor que tú, lo teletransportas hasta 5 metros a un espacio desocupado que puedas ver. El destino debe ser capaz de sostener físicamente a la criatura y no puede colocarla directamente dentro de un peligro ambiental evidente.<br> - **4 — Reflujo Arcano:** Obtienes una cantidad de Puntos de Salud temporales igual a 2d4 + tu Presencia durante 1 minuto.<br><br> **Forzar el Desborde:** Si posees la carta _Sangre Mágica_, antes de tirar el dado puedes sacrificar 2 Puntos de Salud mediante ella. Si lo haces, tira 2d4 y elige cuál de los dos resultados aplicar.<br> Este sacrificio cuenta como tu uso de _Sangre Mágica_ de la ronda y activa cualquier efecto que se desencadene al sacrificar Salud mediante esa carta.",
+      "hash": "bbd6a91208721d0cd98eab881c0cdaa3065cf7c0"
     },
     {
       "kind": "card",
@@ -2292,8 +2314,8 @@
         "type": "efecto",
         "requirements": "Instinto 2"
       },
-      "search": "_Tu cuerpo es un templo de perfección y tu mente una calma imperturbable. Has aprendido que el poder verdadero fluye desde el equilibrio interior._<br><br> Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br> **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu colección y esta no necesita ocupar una de tus Ranuras de Cartas Activas para funcionar. Además, aprendes una lengua convencional. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>",
-      "hash": "69f619b2a471ebe656e43209e5abe7c2357944b6"
+      "search": "_Tu cuerpo es un templo de perfección y tu mente una calma imperturbable. Has aprendido que el poder verdadero fluye desde el equilibrio interior._<br><br> Obtienes Ventaja (+1d4) en pruebas de Acrobacias y Percepción.<br><br> **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, tu Salud máxima aumenta en +4 y añades la carta _Artes Marciales_ a tu colección. Además, aprendes una lengua convencional. Adicionalmente, ganas un bono a tus Puntos de Salud igual a 6 PS por cada 10 PP que hayas gastado.<br><br>",
+      "hash": "0f399ee28821d3d1369834d038d932bc5c1532d5"
     },
     {
       "kind": "card",
@@ -2725,28 +2747,6 @@
     },
     {
       "kind": "card",
-      "canonicalName": "Escudo Residual",
-      "id": "dd9dc454a5ca2372e2869c2cbf3dcbcde9009d5e",
-      "slug": "escudo-residual",
-      "aliases": [
-        "escudo residual"
-      ],
-      "tags": [
-        "Hechicero"
-      ],
-      "level": 2,
-      "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
-      "source": "cards.yml",
-      "structured": {
-        "cardType": "ability",
-        "type": "efecto",
-        "requirements": "Herencia Sobrenatural & Presencia 2"
-      },
-      "search": "_Tu cuerpo instintivamente convierte el dolor de tu sacrificio arcano en una barrera protectora efímera._<br><br> Inmediatamente después de sacrificar Puntos de Salud usando tu carta _Sangre Mágica_, ganas una cantidad de Puntos de Salud temporales igual a la mitad de los PS sacrificados (redondeado hacia arriba). Estos puntos temporales duran hasta el inicio de tu próximo turno.",
-      "hash": "c18056e73c7f2e2f17898158dafb4561cb105635"
-    },
-    {
-      "kind": "card",
       "canonicalName": "Esfera de Caos",
       "id": "8dd2631b84005e1b76a83f5e9a5aaf78a5bb1109",
       "slug": "esfera-de-caos",
@@ -2766,8 +2766,8 @@
         "requirements": "Herencia Sobrenatural & Atributo Arcano 4",
         "uses": "RELOAD:7"
       },
-      "search": "_Lanzas un orbe de magia cruda que detona violentamente, alterando la gravedad y la masa en su centro de impacto._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3 metros de radio. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño de la detonación es de 4d6 de daño de Fuerza.<br> - **Cascada Inestable:** Por cada dado de daño que resulte en un \"6\" natural, la magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales también generan más dados si sacan un 6.<br> - **Anomalía Gravitacional:** Observa el número total final del daño. Las criaturas que fallaron su Tirada de Salvación sufren uno de los siguientes efectos adicionales:<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es PAR (Implosión):_ Son arrastradas violentamente 2 metros hacia el centro de la esfera y su Velocidad se reduce a la mitad hasta el final de tu próximo turno.<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección opuesta al centro de la esfera y caen Derribadas.<br> Si una criatura tiene éxito en la salvación, recibe la mitad del daño total acumulado y no sufre la anomalía gravitacional.",
-      "hash": "ab1ae4fe3e4c195a03805b731e43698f5943cba3"
+      "search": "_Condensas tu poder sobrenatural en una esfera inestable que detona violentamente, deformando a su alrededor el espacio y la materia._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3 metros de radio. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño de la detonación es de 4d6 de _Daño de Herencia_.<br> - **Cascada Inestable:** Por cada dado de daño que resulte en un 6 natural, la magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales también generan más dados si sacan un 6.<br> - **Anomalía Gravitacional:** Observa el número total final del daño. Las criaturas que fallaron su Tirada de Salvación sufren uno de los siguientes efectos adicionales:<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es PAR (Implosión):_ Son arrastradas violentamente 2 metros hacia el centro de la esfera y su Velocidad se reduce a la mitad hasta el final de tu próximo turno.<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección opuesta al centro de la esfera y caen Derribadas.<br> Si una criatura tiene éxito en la Tirada de Salvación, recibe la mitad del daño total acumulado y no sufre la _Anomalía Gravitacional_.",
+      "hash": "952c77bf01457dce25442110121a87655027ff9d"
     },
     {
       "kind": "card",
@@ -3976,8 +3976,8 @@
         "type": "efecto",
         "requirements": "Presencia 2"
       },
-      "search": "_La magia no es algo que aprendiste; es algo que eres. Un fuego antiguo o un linaje cósmico late en tus venas, esperando ser liberado por tu voluntad._<br><br> Obtienes Ventaja (+1d4) en pruebas de **Persuasión** e **Intimidación**.<br> Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Arcano para las cartas de _Arcanista_.<br> <br> **Beneficio de Arquetipo:** <br> - **Uno con la Magia:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Sangre Mágica_ a tu colección.<br> Adicionalmente, tu Salud máxima aumenta en +3, aprendes un idioma (asociado con tu fuente de magia) y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.<br><br>",
-      "hash": "04cf9552a7ae13df567d66588d191ca71ff4b188"
+      "search": "_La magia no es algo que aprendiste, es algo que eres. Un fuego antiguo, una estirpe sobrenatural o la influencia de fuerzas imposibles late en tu interior, esperando ser liberada por tu voluntad._<br><br> Obtienes Ventaja (+1d4) en pruebas de Persuasión e Intimidación.<br> Adquieres la carta _Afinidad Arcana_, y puedes usar Presencia como tu Atributo Arcano para las cartas de _Arcanista_.<br><br> Al adquirir esta carta, determina el origen de tu poder sobrenatural y elige uno de los siguientes tipos de daño que sea apropiado para tu herencia: Ácido, Eléctrico, Frío, Fuego, Fuerza, Necrótico, Psíquico, Radiante o Veneno.<br> Esta elección es permanente y se convierte en tu _Daño de Herencia_. Siempre que una carta haga referencia a tu _Daño de Herencia_, utiliza el tipo elegido.<br><br> **Beneficio de Arquetipo:** Mientras este sea tu Beneficio de Arquetipo activo, añades la carta _Sangre Mágica_ a tu colección.<br> Adicionalmente, tu Salud máxima aumenta en +3, aprendes un idioma apropiado para el origen de tu poder y ganas un bono a tus Puntos de Salud igual a 5 PS por cada 10 PP que hayas gastado.",
+      "hash": "f91a1c16af0fd2996777593b448961a7769383ee"
     },
     {
       "kind": "card",
@@ -6518,8 +6518,8 @@
         "requirements": "Herencia Sobrenatural",
         "uses": "RELOAD:3"
       },
-      "search": "_Disparas un proyectil de energía pura que, al impactar, puede desbordarse en una cascada de destrucción impredecible._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d6 de daño de Fuerza.<br> - **Cascada Menor:** Si el dado de daño resulta en un 6 natural, la energía se desborda: tiras 1d6 adicional y lo sumas al daño total. Este dado también puede explotar si saca un 6.",
-      "hash": "3e885e7d8230d7d97c23b601637f5de4a3f20500"
+      "search": "_Liberas una descarga de la energía sobrenatural que, al impactar, puede desbordarse en una cascada de destrucción impredecible._<br><br> Realizas un ataque de conjuro (1d8e + Atributo Arcano) a distancia Cercana contra un objetivo. Si impactas, infliges 1d6 de _Daño de Herencia_.<br> - **Cascada Menor:** Si el dado de daño resulta en un 6 natural, la energía se desborda: tiras 1d6 adicional y lo sumas al daño total. Este dado también puede generar otro dado adicional si obtiene un 6.",
+      "hash": "2e19dfb0e068454b69eaf426fc9241804ec0ace7"
     },
     {
       "kind": "card",
@@ -7022,6 +7022,28 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Sangre Despierta",
+      "id": "b3e959eef16b6d53ed1620ded09194360b805062",
+      "slug": "sangre-despierta",
+      "aliases": [
+        "sangre despierta"
+      ],
+      "tags": [
+        "Hechicero"
+      ],
+      "level": 1,
+      "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto",
+        "requirements": "Herencia Sobrenatural"
+      },
+      "search": "_La esencia sobrenatural que corre por tus venas ha comenzado a manifestarse más allá de tu magia. Tu cuerpo, tu mente y los conjuros que canalizas reflejan cada vez con mayor intensidad la verdadera naturaleza de tu herencia._<br><br> Obtienes el siguiente beneficio según tu _Daño de Herencia_:<br> - **Ácido — Corrosión Arcana:** Cuando infliges tu _Daño de Herencia_, ignoras una cantidad de Mitigación Mágica del objetivo igual a la mitad de tu Presencia (redondeado hacia abajo).<br> - **Eléctrico — Descarga Encadenada:** Una vez por turno, cuando infliges tu _Daño de Herencia_, puedes elegir una de las criaturas dañadas como origen de una descarga eléctrica. Desde ella, la descarga puede saltar a otra criatura situada a 3 metros o menos, y continuar saltando desde cada nueva criatura alcanzada hacia otra criatura situada a 3 metros o menos, hasta realizar un máximo de saltos igual a tu Presencia. Cada criatura alcanzada por un salto recibe 1d4 de daño Eléctrico. Una misma criatura no puede ser alcanzada más de una vez por esta descarga.<br> - **Frío — Frío Entumecedor:** Cuando una criatura recibe tu _Daño de Herencia_, su Velocidad se reduce en una cantidad de metros igual a la mitad de tu Presencia (redondeado hacia arriba) hasta el inicio de tu próximo turno. Varias aplicaciones de este efecto no se acumulan.<br> - **Fuego — Combustión Sobrenatural:** Una vez por turno, cuando infliges tu _Daño de Herencia_ mediante una carta con la etiqueta _Conjuro_, añades 1d4 de daño de Fuego a su tirada de daño.<br> - **Fuerza — Campo Inercial:** Cuando utilizas una carta con la etiqueta _Conjuro_ que inflige tu _Daño de Herencia_, la energía residual se condensa alrededor de tu cuerpo. Hasta el inicio de tu próximo turno, obtienes +1 a tu Mitigación Física y Mágica. Si tu Presencia es 5 o superior, este bono aumenta a +2.<br> - **Necrótico — Marca de Extinción:** Cuando infliges tu _Daño de Herencia_ a una criatura hostil, esta queda marcada hasta el inicio de tu próximo turno. Si una criatura marcada es reducida a 0 Puntos de Salud mientras permanece marcada, recuperas una cantidad de Puntos de Salud igual a la mitad de tu Presencia (redondeado hacia abajo).<br> - **Psíquico — Mente Sin Fronteras:** Puedes comunicarte telepáticamente de forma bidireccional con criaturas que puedas percibir o que sepas que se encuentren a distancia Media. Esta comunicación transmite directamente pensamientos y conceptos, por lo que no requiere compartir una lengua. Si ya posees telepatía por otra fuente, su alcance aumenta en un rango.<br> - **Radiante — Marca Luminosa:** Cuando una criatura recibe tu _Daño de Herencia_, queda envuelta en un resplandor sobrenatural hasta el final de tu próximo turno. Mientras permanezca iluminada, no puede beneficiarse de Invisibilidad ni Esconderse, y la siguiente tirada de ataque realizada contra ella obtiene Ventaja (+1d4). La Ventaja se consume después de esa tirada, aunque el resplandor permanece hasta finalizar su duración.<br> - **Veneno — Metabolismo Tóxico:** Eres inmune al estado Envenenado. Además, cuando una criatura recibe tu _Daño de Herencia_ mediante una carta con la etiqueta _Conjuro_, queda intoxicada hasta el inicio de su próximo turno. Al inicio de ese turno, recibe 1d6 de daño de Veneno. Una criatura no puede tener más de una instancia de este efecto al mismo tiempo.",
+      "hash": "086ceb247f84406cf4c1456a526073ecfaa3277c"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Sangre Mágica",
       "id": "88b234b2894c0f8fd683481992f7be0b014182da",
       "slug": "sangre-magica",
@@ -7039,8 +7061,8 @@
         "type": "efecto",
         "requirements": "Herencia Sobrenatural"
       },
-      "search": "_Utilizas tu propia vitalidad como combustible, sacrificando tu cuerpo para potenciar tu inestable poder arcano._<br><br> Una vez por ronda, puedes sacrificar vitalidad (daño directo no mitigable) para alterar tus conjuros de _Arcanista_ o de _Hechicero_:<br> - **Sacrificio:** Cuando fallas una Recarga, puedes pagar **3 PS por cada punto** que quieras sumar al resultado.<br> - **Potencia:** Al tirar daño, puedes pagar **2 PS por nivel del conjuro** para volver a tirar un número de dados igual a tu **Presencia**.<br> - **Celeridad:** Puedes lanzar un conjuro de Nivel 1 o 2 usando tu **Interacción**. El coste es 3 + nivel del conjuro de daño.<br>",
-      "hash": "f54d341a186239241f9a117b87a3f3243116d864"
+      "search": "_Utilizas tu propia vitalidad como combustible, sacrificando tu cuerpo para potenciar tu inestable poder arcano._<br><br> Una vez por ronda, puedes sacrificar vitalidad para alterar tus conjuros de _Arcanista_ o de _Hechicero_. Los Puntos de Salud sacrificados de esta forma se pierden directamente, no pueden ser mitigados ni pagados con Puntos de Salud temporales. Este sacrificio puede reducir tus Puntos de Salud a 0.<br><br> - **Sacrificio:** Cuando fallas una tirada de Recarga, siempre que el dado no haya obtenido un 1 natural, puedes sacrificar 3 PS por cada punto que quieras sumar al resultado.<br> - **Potencia:** Cuando realizas una tirada de daño de un conjuro, puedes sacrificar una cantidad de PS igual a 2 × el Nivel del conjuro para volver a tirar hasta un número de sus dados de daño igual a tu Presencia. Debes conservar los nuevos resultados.<br> - **Celeridad:** Cuando lanzas un conjuro de Nivel 1 o 2 cuyo tiempo de lanzamiento sea una Acción, puedes lanzarlo como Interacción en su lugar. Para hacerlo, sacrificas una cantidad de PS igual a 3 + el Nivel del conjuro.",
+      "hash": "d2ccf34a6a1a0aeee6155d7b42a33919238be00c"
     },
     {
       "kind": "card",
@@ -7834,8 +7856,8 @@
         "requirements": "Herencia Sobrenatural & Presencia 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Te niegas a caer, anclando tu alma a la Urdimbre para desatar una onda de choque devastadora como tu último aliento._<br><br> Una vez por día de descanso, cuando tus Puntos de Salud se reducen a 0, puedes usar tu Reacción para negarte a caer, anclando tu alma a la Urdimbre. Quedas con 1 Punto de Salud y tu cuerpo desata una onda de choque inestable de magia pura.<br> liges hasta un número de criaturas hostiles a distancia Cercana igual a tu puntuación de Presencia. Cada objetivo debe superar una TS de Reflejos (ND 5 + Presencia) o recibir 5d8 de daño de Fuerza y ser empujado 3 metros lejos de ti. Si tiene éxito, recibe la mitad del daño y no es empujado.<br> Además, la pura adrenalina mágica te permite recuperar instantáneamente el uso de una carta de Arcanista que tuvieras agotada.",
-      "hash": "a752ae4366ffdd8de13ce7ec8279b307d3266e7a"
+      "search": "_Te niegas a caer, anclando tu alma a la Urdimbre para desatar una onda de choque devastadora como tu último aliento._<br><br> Una vez por día de descanso, cuando tus Puntos de Salud se reducen a 0, puedes usar tu Reacción para negarte a caer, anclando tu alma a la Urdimbre. Quedas con 1 Punto de Salud y tu cuerpo desata una onda de choque inestable de magia pura.<br> Eliges hasta un número de criaturas hostiles a distancia Cercana igual a tu puntuación de Presencia. Cada objetivo debe superar una TS de Reflejos (ND 5 + Presencia) o recibir 5d8 de _Daño de Herencia_ y ser empujado 3 metros lejos de ti. Si tiene éxito, recibe la mitad del daño y no es empujado.<br> Además, la pura adrenalina mágica te permite recuperar instantáneamente el uso de una carta de _Arcanista_ o _Hechicero_ que tuvieras agotada.",
+      "hash": "c6228e01115856ce607d879ca67944c685d0c9a3"
     },
     {
       "kind": "card",

@@ -2,7 +2,7 @@ cards:
   - id: 94a9e2f9de039aa0296a722e8c6ae855c1fdde91
     name: Artes Marciales
     level: 1
-    type: activable
+    type: efecto
     tags:
       - Monje
     requirements: Disciplina Monástica

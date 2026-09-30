@@ -5,7 +5,7 @@ cards:
     type: efecto
     tags:
       - Hechicero
-    requirements: Herencia Sobrenatural & Presencia 4
+    requirements: Sangre Mágica & Presencia 4
     uses:
       type: null
       qty: 0
@@ -26,17 +26,17 @@ cards:
     tags:
       - Hechicero
       - Reacción
-    requirements: Herencia Sobrenatural & Presencia 4
+    requirements: Sangre Mágica & Presencia 4
     uses:
       type: RELOAD
       qty: 6
     description: >-
       _En lugar de rehuir del daño mágico, obligas a tu cuerpo a absorber esa energía para alimentar tus próximos
-      conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, obligas a tu cuerpo a
-      absorber esa energía para alimentar tu propio poder. Reduces el daño recibido a la mitad.<br> Además, el remanente
-      de esa magia queda latente en tu interior: la próxima vez que lances una carta de _Conjuro_ antes del final de tu
-      próximo turno, puedes aplicar una de las opciones de tu carta _Sangre Mágica_ sin tener que sacrificar Puntos de
-      Salud.
+      conjuros._<br><br> Como Reacción, cuando recibes daño de un _Conjuro_ o efecto mágico, reduces el daño recibido a
+      la mitad.<br><br> Además, el remanente de esa magia queda latente en tu interior: la próxima vez que lances una
+      carta de _Conjuro_ antes del final de tu próximo turno, puedes aplicar una de las opciones de tu carta _Sangre
+      Mágica_ sin tener que sacrificar Puntos de Salud.<br> Aplicar una opción de esta forma cuenta como tu uso de
+      _Sangre Mágica_ de esa ronda, pero no activa efectos que requieran haber sacrificado Puntos de Salud.
     slug: absorcion-inestable
   - id: 8dd2631b84005e1b76a83f5e9a5aaf78a5bb1109
     name: Esfera de Caos
@@ -50,16 +50,16 @@ cards:
       type: RELOAD
       qty: 7
     description: >-
-      _Lanzas un orbe de magia cruda que detona violentamente, alterando la gravedad y la masa en su centro de
-      impacto._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3 metros de radio.
-      Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño de la detonación
-      es de 4d6 de daño de Fuerza.<br> - **Cascada Inestable:** Por cada dado de daño que resulte en un "6" natural, la
-      magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales también generan más
-      dados si sacan un 6.<br> - **Anomalía Gravitacional:** Observa el número total final del daño. Las criaturas que
-      fallaron su Tirada de Salvación sufren uno de los siguientes efectos adicionales:<br> &nbsp;&nbsp;&nbsp;&nbsp; -
-      _Si el daño total es PAR (Implosión):_ Son arrastradas violentamente 2 metros hacia el centro de la esfera y su
-      Velocidad se reduce a la mitad hasta el final de tu próximo turno.<br> &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño
-      total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección opuesta al centro de la esfera y caen
-      Derribadas.<br> Si una criatura tiene éxito en la salvación, recibe la mitad del daño total acumulado y no sufre
-      la anomalía gravitacional.
+      _Condensas tu poder sobrenatural en una esfera inestable que detona violentamente, deformando a su alrededor el
+      espacio y la materia._<br><br> Elije punto a distancia Media, donde provocas una detonación en una esfera de 3
+      metros de radio. Todas las criaturas en el área deben superar una TS de Reflejos (ND 5 + Atributo Arcano). El daño
+      de la detonación es de 4d6 de _Daño de Herencia_.<br> - **Cascada Inestable:** Por cada dado de daño que resulte
+      en un 6 natural, la magia se desborda y tiras 1d6 adicional para sumarlo al daño total. Estos dados adicionales
+      también generan más dados si sacan un 6.<br> - **Anomalía Gravitacional:** Observa el número total final del daño.
+      Las criaturas que fallaron su Tirada de Salvación sufren uno de los siguientes efectos adicionales:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es PAR (Implosión):_ Son arrastradas violentamente 2 metros hacia el
+      centro de la esfera y su Velocidad se reduce a la mitad hasta el final de tu próximo turno.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; - _Si el daño total es IMPAR (Onda Cinética):_ Son empujadas 2 metros en dirección
+      opuesta al centro de la esfera y caen Derribadas.<br> Si una criatura tiene éxito en la Tirada de Salvación,
+      recibe la mitad del daño total acumulado y no sufre la _Anomalía Gravitacional_.
     slug: esfera-de-caos

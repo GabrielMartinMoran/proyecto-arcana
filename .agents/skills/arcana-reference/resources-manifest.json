@@ -290,38 +290,38 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 1071,
-      "sha1": "aa59fea01907f251586cbe444518275829835528"
+      "size": 1497,
+      "sha1": "83318f4ad9bdb49f7ff09e6dca0e63c0efef8975"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-1.yml",
       "kind": "file",
-      "size": 1731,
-      "sha1": "45c773e140ee6312e4a81b73bd0277fec972ebc5"
+      "size": 6106,
+      "sha1": "175bbdd3fc38eb848ca5b6729d98582623f463ef"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
       "kind": "file",
-      "size": 2801,
-      "sha1": "be0531b3ec0c9aed879d140267c84a14645b94d5"
+      "size": 2999,
+      "sha1": "b9b3b77890a1b94b8dfa2e0d6a2f05892ea9cfa4"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml",
       "kind": "file",
-      "size": 3738,
-      "sha1": "bae6e1bae1d33e569831b601f76787fa3028766f"
+      "size": 3849,
+      "sha1": "11562f46b89659d0e6723f270339d71197accf46"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-4.yml",
       "kind": "file",
-      "size": 785,
-      "sha1": "80d2f07ab2077ac1cf719b166ed30835ed455f90"
+      "size": 778,
+      "sha1": "90e6c45676951798a21269bbf14fa2b5381e5ef2"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-5.yml",
       "kind": "file",
-      "size": 1176,
-      "sha1": "9eadaa0b311bdae6e4b5ba9d8c565f9354abd7c4"
+      "size": 1197,
+      "sha1": "a660c5cf44ebcbd11e2b33b00aec244a9b80a6eb"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago",
@@ -370,14 +370,14 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/arquetipo-nivel-1.yml",
       "kind": "file",
-      "size": 938,
-      "sha1": "8d1c1214f96536efda6a740800e911b55724a52d"
+      "size": 854,
+      "sha1": "b1775ecd64eb2ec4bb0049b5a3b8d6188839ba88"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
       "kind": "file",
-      "size": 5116,
-      "sha1": "2f58af3b7c9111bc8c6d752378d826277c402512"
+      "size": 5113,
+      "sha1": "9cbbf17839686187f29174f7190f01308f83c843"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 304247,
-      "sha1": "b7fc9633ee02f86770682d1f751aada0da7d1597"
+      "size": 309356,
+      "sha1": "70ce8d82b06053c5bbe62c72ac6c751c137162f0"
     },
     {
       "path": "references/datasets/magical-items.yml",
