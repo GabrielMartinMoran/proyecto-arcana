@@ -302,8 +302,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-2.yml",
       "kind": "file",
-      "size": 3018,
-      "sha1": "05db409df905d3d6bfb3183205cadc181f1d999c"
+      "size": 3120,
+      "sha1": "0793d8cc3b89f32ee248ef6aa6d8fd9f910c769d"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero/nivel-3.yml",
@@ -462,8 +462,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-2.yml",
       "kind": "file",
-      "size": 12196,
-      "sha1": "e8e8070fa461e5343bd9d621c5eea1eb53039e48"
+      "size": 12948,
+      "sha1": "cb67453954100b02a6fd2adea539def881ecfd73"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-3.yml",
@@ -566,8 +566,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 309728,
-      "sha1": "bd0739b62989afc6e720106dad548619b902d30b"
+      "size": 310612,
+      "sha1": "0459f150033fa73d80cfce857817d48ed53c6d06"
     },
     {
       "path": "references/datasets/magical-items.yml",

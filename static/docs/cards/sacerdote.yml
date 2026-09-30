@@ -130,10 +130,13 @@ cards:
       - Conjuro
     requirements: 'Fe Inspiradora & Instinto 3'
     description: >-
-      _Imbuyes tu arma con la furia de los cielos, desatando un resplandor que ciega a las fuerzas del mal._<br><br>
-      Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de energía sagrada.
-      El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el daño aumenta a 2d6.<br>
-      Además, el objetivo debe superar una TS de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.
+      _Imbuyes tu arma con la furia de los cielos, canalizando distintas formas de castigo divino sobre quienes reciben tu golpe._<br><br>
+      Cuando impactas a un enemigo con un ataque con arma, puedes usar tu Interacción para liberar una descarga de energía sagrada. El objetivo recibe 1d6 de daño Radiante adicional. Si el objetivo es un No-Muerto o Infernal, el daño aumenta a 2d6.<br>
+      Además, elige uno de los siguientes castigos:<br>
+      - **Castigo Cegador:** El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto) o quedar Cegado hasta el final de tu próximo turno.<br>
+      - **Castigo Atronador:** El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto) o ser empujado 3 metros directamente en dirección opuesta a ti y caer Derribado. Este efecto solo puede desplazar a criaturas de hasta un tamaño mayor que tú.<br>
+      - **Castigo Aterrador:** El objetivo debe superar una Tirada de Salvación de Instinto (ND 5 + Instinto) o quedar Asustado por ti hasta el final de tu próximo turno.<br>
+      - **Castigo Inmovilizador:** El objetivo debe superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto) o quedar Inmovilizado hasta el inicio de su próximo turno.
     uses:
       type: RELOAD
       qty: 5
