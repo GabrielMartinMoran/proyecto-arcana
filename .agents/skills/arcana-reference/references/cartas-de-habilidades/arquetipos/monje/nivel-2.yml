@@ -68,6 +68,21 @@ cards:
       tipo de daño._<br><br> Mientras no lleves armadura ni uses escudo, obtienes una Mitigación Física y Mágica igual a
       la mitad de tu puntuación de Instinto (redondeanda hacia abajo).
     slug: defensa-impasible
+  - id: 791a3bbee0af57d46c5bb31ca40b88fa3f430410
+    name: Cuerpo Puro
+    level: 2
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica & Instinto 3
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a
+      los mortales._<br><br> Eres inmune al estado Envenenado y a las Enfermedades.<br> Además, tienes Resistencia al
+      daño de Veneno y Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos, toxinas y efectos similares.
+    slug: cuerpo-puro
   - id: c6e3f9be7534d4567ee4d7af9ad7f238c5d2f2da
     name: Contraataque Fluido
     level: 2
@@ -159,12 +174,12 @@ cards:
       - Monje
     requirements: Disciplina Monástica
     uses:
-      type: LONG_REST
-      qty: 1
+      type: null
+      qty: 0
     description: >-
       _Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre de venenos y enfermedades._<br><br>
       Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un
-      efecto de enfermedad o veneno que afecte al objetivo.
+      efecto de Enfermedad o Veneno que afecte al objetivo.
     slug: canalizacion-sanadora
   - id: 688e77f37633d7f839078c846e1a85264c354490
     name: Centro Inquebrantable

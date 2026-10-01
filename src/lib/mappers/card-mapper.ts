@@ -29,6 +29,7 @@ const mapAbilityCardImg = (tags: string[]) => {
 export const mapAbilityCard = (data: any): AbilityCard => {
 	return {
 		...mapCard(data),
+		uses: normalizeUses(data.uses),
 		type: data.type,
 		img: mapAbilityCardImg(data.tags),
 		cardType: 'ability',
@@ -40,6 +41,7 @@ const getItemCardImg = () => CONFIG.ITEM_CARD_BACKGROUNDS.default;
 export const mapItemCard = (data: any): ItemCard => {
 	return {
 		...mapCard(data),
+		uses: normalizeUses(data.uses),
 		type: data.type,
 		cost: data.cost,
 		img: getItemCardImg(),
@@ -63,24 +65,36 @@ const validateCommonFields = (data: any) => {
 	}
 };
 
+const normalizeUsesType = (type: unknown): Uses['type'] => {
+	if (type === null || type === undefined || type === 'NULL') return null;
+	if (!VALID_USES_TYPES.includes(String(type))) {
+		throw new Error(`Invalid uses.type: ${type}. Must be one of ${VALID_USES_TYPES.join(', ')}`);
+	}
+	return type as Uses['type'];
+};
+
+const normalizeUsesFormula = (formula: unknown): string | undefined => {
+	if (formula === undefined || formula === null) return undefined;
+	if (typeof formula !== 'string' || formula.trim() === '') {
+		throw new Error('Card uses.formula must be a non-empty string');
+	}
+	return formula;
+};
+
 const normalizeUses = (uses: any): Uses => {
 	if (!uses || typeof uses !== 'object') {
 		return { qty: 0, type: null };
 	}
 
-	if (uses.type === null || uses.type === undefined || uses.type === 'NULL') {
-		return { qty: uses.qty ?? 0, type: null };
-	}
+	const normalized: Uses = {
+		qty: uses.qty ?? 0,
+		type: normalizeUsesType(uses.type),
+	};
 
-	if (uses.qty === undefined || uses.qty === null) {
-		throw new Error('Card uses.qty is required');
-	}
-	if (!VALID_USES_TYPES.includes(uses.type)) {
-		throw new Error(
-			`Invalid uses.type: ${uses.type}. Must be one of ${VALID_USES_TYPES.join(', ')}`,
-		);
-	}
-	return { qty: uses.qty, type: uses.type as Uses['type'] };
+	const formula = normalizeUsesFormula(uses.formula);
+	if (formula !== undefined) normalized.formula = formula;
+
+	return normalized;
 };
 
 export const mapCustomAbilityCard = (data: unknown, existingId?: string): AbilityCard => {

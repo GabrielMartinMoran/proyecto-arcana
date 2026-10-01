@@ -2,20 +2,31 @@ import type { Card } from '$lib/types/cards/card';
 import type { ItemCard } from '$lib/types/cards/item-card';
 import type { Uses } from '$lib/types/uses';
 
+const getFormulaText = (uses: Uses): string =>
+	typeof uses.formula === 'string' ? uses.formula.trim() : '';
+
+const formatQuantity = (qty: Uses['qty']): string =>
+	qty === null || qty === undefined ? '—' : String(qty);
+
 export const formatUses = (uses: Uses | null): string => {
-	if (!uses || !uses.type) return 'N/A';
+	if (!uses) return 'N/A';
+
+	const formula = getFormulaText(uses);
+	if (!uses.type && !formula) return 'N/A';
+
+	const amount = formula || formatQuantity(uses.qty);
 
 	switch (uses.type) {
 		case 'LONG_REST':
-			return `${uses.qty ?? '—'} por día de descanso`;
+			return `${amount} por día de descanso`;
 		case 'RELOAD':
-			return `1 (Recarga ${uses.qty ?? '—'}+)`;
+			return `1 (Recarga ${amount}+)`;
 		case 'USES':
-			return `${uses.qty ?? '—'}`;
+			return `${amount}`;
 		case 'DAY':
-			return '1 por día';
+			return formula ? `${amount} por día` : '1 por día';
 		default:
-			return '—';
+			return formula ? amount : '—';
 	}
 };
 

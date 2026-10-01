@@ -37,9 +37,7 @@ cards:
       **Beneficio de Sinergia:**<br> - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra
       efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br> - **Toque de Combate:**
       Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br> - **Castigo Imponente:** Cuando
-      activas tu carta Golpe Divino, puedes elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo
-      haces, el objetivo debe superar una TS de Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final
-      de tu próximo turno (en lugar de Cegado).
+      utilizas _Golpe Divino_, no necesitas usar tu Interacción para activarlo.
     slug: campeon-consagrado
   - id: b8ffaa7f29e59650fe4bb469a12c5f252aa72bc7
     name: Voluntad Indomable
@@ -51,8 +49,8 @@ cards:
       - Monje
     requirements: Maestría Marcial & Disciplina Monástica & Instinto 5
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: floor(instinto/2)
     description: >-
       _Tu disciplina marcial y tu fortaleza interior se fusionan en un estilo que ni el tiempo ni la fatiga pueden
       doblegar._<br><br> **Beneficio de Sinergia:**<br> - **Defensa Mental y Física:** Como Reacción, cuando te ves
@@ -99,9 +97,9 @@ cards:
       _Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero, convirtiéndote en el guardián de los
       bosques._<br><br> **Beneficio de Sinergia:**<br> - **Piel de Corteza:** Mientras no lleves armadura pesada,
       obtienes un +1 a tu Mitigación Física y Mágica.<br> - **Golpe Enredante:** Una vez por turno, cuando impactas a un
-      enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas en el impacto. El
-      objetivo queda Enredado hasta el inicio de tu próximo turno. Mientras esté enredado, sufre 1d4 de daño Perforante
-      por cada 2 metros que se mueva.
+      enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas que se aferran al
+      objetivo y duran hasta el inicio de tu próximo turno. Mientras dure el efecto, el objetivo sufre 1d4 de daño
+      Perforante por cada 2 metros que se mueva.
     slug: senor-del-yermo-indomable
   - id: 07183bb737614c3784a0806f215d919ee7df2db7
     name: Aura de Héroe
@@ -139,8 +137,8 @@ cards:
       _Combinas el sigilo con la fe para purgar la oscuridad, acechando a los impíos desde las sombras
       consagradas._<br><br> **Beneficio de Sinergia:**<br> - **Marca del Purgador:** Como Interacción, puedes marcar a
       una criatura impía (Infernal o No-muerta) durante 1 minuto (Concentración). Tus ataques con arma contra ella se
-      benefician de Ataque Furtivo (sin condiciones).<br> - **Toque Purificador Sigiloso:** Puedes usar Toque
-      Purificador (si lo tienes) usando tu Interacción en lugar de tu Acción.
+      benefician de Ataque Furtivo (sin condiciones).<br> - **Sanación Ágil:** Puedes usar _Toque Restaurador_ (si lo
+      tienes) usando tu Interacción en lugar de tu Acción.
     slug: juicio-ineludible
   - id: ae03e016ea7e3fd0134c43be47ee94c039052936
     name: Camino del Viento Fantasma
@@ -175,8 +173,9 @@ cards:
       qty: 0
     description: >-
       _Entrelazas la perfección de la magia ilusoria con tu indudable destreza criminal._<br><br> **Beneficio de
-      Sinergia:**<br> - **Mano de Ladrón Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano de
-      Mago con Ventaja (+1d4), como si fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas
+      Sinergia:**<br> - **Mano de Ladrón Experta:** Aprendes a utilizar _Mano espectral_ aunque no poseas la carta
+      _Trucos Arcanos_. Si ya podías hacerlo, su alcance aumenta un rango. Además, puedes realizar pruebas de Juego de
+      Manos mediante ella, como si fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas
       Invisibilidad sobre ti mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere
       Concentración).
     slug: maestria-del-engano-arcano
@@ -251,10 +250,12 @@ cards:
       qty: 0
     description: >-
       _Encarnas la furia indomable de la naturaleza, llevando la disciplina de tus golpes a las formas más salvajes del
-      mundo._<br><br> **Beneficio de Sinergia:**<br> - **Movimiento Primordial:** Puedes usar Paso Ligero y Paso Etéreo
-      (si los tienes) incluso mientras estás en Forma Salvaje.<br> - **Ráfaga Salvaje:** Mientras estás en tu forma de
-      combate de Aspecto Combativo o Maestría Salvaje, puedes usar las cartas Ráfaga de Golpes y Tormenta de Golpes (si
-      las tienes).
+      mundo._<br><br> **Beneficio de Sinergia:**<br> - **Disciplina de la Bestia:** Mientras estás en tu forma de
+      combate de _Aspecto Combativo_ o _Maestría Salvaje_, puedes utilizar cartas de Monje Activables que se activen
+      mediante, modifiquen o requieran un ataque desarmado. Tus ataques naturales de _Forma Salvaje_ cuentan como
+      ataques desarmados a estos efectos.<br> - **Flujo Depredador:** Una vez en cada uno de tus turnos, cuando utilices
+      una carta de Monje mientras estés en tu forma de combate de _Aspecto Combativo_ o _Maestría Salvaje_, puedes
+      moverte hasta 3 metros inmediatamente antes o después de resolverla, sin gastar tu Movimiento.
     slug: furia-silvana
   - id: 051c256cd09ec2e7bbea428dfeecfdf53d1ea8d8
     name: Versatilidad Teúrgica

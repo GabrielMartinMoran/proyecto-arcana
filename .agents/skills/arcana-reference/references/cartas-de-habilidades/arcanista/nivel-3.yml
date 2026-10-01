@@ -95,7 +95,7 @@ cards:
     description: >-
       _Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad
       aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si
-      impactas, el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque
+      impactas, el objetivo recibe 2d8 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque
       sufre un -1 acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional,
       hasta que falles una tirada de ataque o decidas detener la ráfaga.
     slug: rafaga-aniquiladora
@@ -230,7 +230,7 @@ cards:
       - Puedes volar a una velocidad igual a la mitad de tu Velocidad normal.<br> - Puedes atravesar cualquier abertura
       por la que pudiera pasar humo o aire, aunque no puedes atravesar superficies completamente selladas.<br> - No
       puedes atacar, lanzar conjuros, activar habilidades, manipular objetos ni utilizar equipamiento.<br> - No puedes
-      ser Inmovilizado o Enredado mediante ataduras, presas u obstáculos puramente físicos.
+      ser Inmovilizado mediante ataduras, presas u obstáculos puramente físicos.
     slug: forma-gaseosa
   - id: 11ab7a7076c10f42e98262b6a6343afde2261878
     name: Distorsión Temporal

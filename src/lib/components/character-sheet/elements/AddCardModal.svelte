@@ -7,6 +7,7 @@
 	import type { Card } from '$lib/types/cards/card';
 	import type { Character, CharacterCard } from '$lib/types/character';
 	import { filterCards } from '$lib/utils/card-filtering';
+	import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 
 	type Props = {
 		opened: boolean;
@@ -17,6 +18,7 @@
 		onCardsChange: (cards: CharacterCard[]) => void;
 		onPurchaseCard: (card: Card) => void;
 		onCreateCustom?: (cardType: 'ability' | 'item') => void;
+		formulaContext?: FormulaContext;
 	};
 
 	let {
@@ -28,6 +30,7 @@
 		onCardsChange,
 		onPurchaseCard,
 		onCreateCustom,
+		formulaContext = undefined,
 	}: Props = $props();
 
 	const { buildEmptyFilters } = useCardFiltersService();
@@ -69,6 +72,7 @@
 				currentPP={character.currentPP}
 				currentGold={character.currentGold}
 				{onPurchaseCard}
+				{formulaContext}
 			/>
 		{:else}
 			<div class="empty">

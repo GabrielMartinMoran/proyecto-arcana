@@ -2,8 +2,9 @@
 	import type { Card } from '$lib/types/cards/card';
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { ItemCard } from '$lib/types/cards/item-card';
-	import { getCardTypeName } from '$lib/utils/card-utils';
+	import { getCardTotalUses, getCardTypeName } from '$lib/utils/card-utils';
 	import { capitalize, removeDiacritics } from '$lib/utils/formatting';
+	import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 	import { formatRequirements } from '$lib/utils/requirement-expression';
 	import type { Snippet } from 'svelte';
 	import { CONFIG } from '../../../config';
@@ -15,6 +16,9 @@
 		isExhausted?: boolean;
 		isCustom?: boolean;
 		rollContext?: CardRollContext;
+		// Character attributes used to resolve a card formula. Absent in library
+		// and preview contexts, where a formula card shows no uses chip.
+		formulaContext?: FormulaContext;
 		// Linked-card presentation. Absent values keep the default card render
 		// (library and custom previews); CardsList provides them from the
 		// character state using the pure association helpers.
@@ -31,12 +35,15 @@
 		isExhausted = false,
 		isCustom = false,
 		rollContext = undefined,
+		formulaContext = undefined,
 		linkedParentName = undefined,
 		linkedParentInactive = false,
 		linkedParentOrphan = false,
 		showSlotExemption = false,
 		children = undefined,
 	}: Props = $props();
+
+	let totalUses = $derived(getCardTotalUses(card, formulaContext));
 
 	const composeLinkBadgeLabel = (
 		parentName: string,
@@ -110,7 +117,11 @@
 						>{#if hasTagDescription}<small>ⓘ</small>{/if}{tag}</span
 					>
 				{/each}
-				{#if card.uses.type}
+				{#if card.uses.formula}
+					{#if totalUses !== null}
+						<span class="chip">Usos: {totalUses}</span>
+					{/if}
+				{:else if card.uses.type}
 					{#if card.uses.type === 'LONG_REST'}
 						<span class="chip">Usos: {card.uses.qty ?? '?'} por día de descanso</span>
 					{:else if card.uses.type === 'DAY'}

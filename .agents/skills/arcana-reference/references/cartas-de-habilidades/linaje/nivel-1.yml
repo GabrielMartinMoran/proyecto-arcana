@@ -24,8 +24,8 @@ cards:
       - Humano
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 2
     description: >-
       _Tu mente es flexible y se adapta rápidamente a nuevos desafíos._<br><br> Adquieres los siguientes beneficios:<br>
       - Una vez por día de descanso, puedes tomarte 10 minutos para cambiar una de tus cartas activas por otra de tu
@@ -92,8 +92,8 @@ cards:
       - Elfo
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: mente
     description: >-
       _Tus ojos ven más allá de la simple luz y la sombra._<br><br> Obtienes Visión en la Oscuridad hasta distancia
       Cercana.<br> Además, puedes usar tu Acción para abrir tus sentidos al mundo invisible durante 1 minuto,
@@ -109,8 +109,8 @@ cards:
       - Enano
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
     description: >-
       _Tu herencia te otorga una constitución inquebrantable. Tu sangre purga las toxinas con facilidad y tu capacidad
       para sobreponerte al dolor físico es legendaria._<br><br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de
@@ -143,8 +143,8 @@ cards:
       - Enano
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: instinto
     description: >-
       _Tu conexión con la piedra es tan profunda que puedes sentir las vibraciones a través de ella._<br><br> Obtienes
       Visión en la Oscuridad hasta distancia Cercana.<br> Además, mientras estés en contacto con una superficie de
@@ -195,8 +195,8 @@ cards:
       - Reacción
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: mente
     description: >-
       _Eres un maestro en el arte de la distracción._<br><br> Obtienes Visión en la Oscuridad hasta distancia
       Cercana.<br> Además, cuando un enemigo declara un ataque contra ti pero antes de que realice la tirada, puedes
@@ -265,13 +265,13 @@ cards:
       - Reacción
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: presencia
     description: >-
       _Tu sangre infernal responde al dolor con una reprimenda infernal._<br><br> Cuando una criatura que puedas ver a
       distancia Cercana te inflige daño, puedes usar tu Reacción para desatar una descarga de Fuego, Frío o Electricidad
       contra ella (elijes el tipo de daño al escoger esta carta).<br> El atacante debe superar una Tirada de Salvación
-      de Reflejos (ND 5 + Presencia). Si falla, recibe 1d6 de daño de Fuego. Si tiene éxito, recibe la mitad del
+      de Reflejos (ND 5 + Presencia). Si falla, recibe 1d6 de daño del tipo elegido. Si tiene éxito, recibe la mitad del
       daño.<br> Puedes usar esta habilidad un número de veces por día de descanso igual a tu puntuación de Presencia.
     slug: reprension-infernal
   - id: 539ba0cdebd9f63e02a64aefcdc7e3fbeb19be78
@@ -305,8 +305,8 @@ cards:
       - Tiefling
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
     description: >-
       _Puedes hacer un pacto con tu propia sangre para forzar el destino cuando más lo necesites._<br><br> Obtienes
       Visión en la Oscuridad hasta distancia Cercana.<br> Además, una vez por día de descanso, puedes elegir sacar un 8
@@ -410,8 +410,8 @@ cards:
       - Dracónido
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: cuerpo
     description: >-
       _Puedes canalizar la energía de tus ancestros para castigar a tus enemigos._<br><br> Al elegir esta carta, debes
       seleccionar un tipo de ancestro dracónico de la siguiente lista para determinar tu tipo de daño.<br> - **Rojo,
@@ -480,8 +480,8 @@ cards:
       - Genasi
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: max(1, floor(cuerpo/2))
     description: >-
       _La esencia elemental que corre por tu cuerpo ha transformado tu fisiología, permitiéndote existir allí donde
       otros apenas podrían sobrevivir._<br><br> Al elegir esta carta, aplica el beneficio correspondiente a tu
@@ -529,8 +529,8 @@ cards:
       - Genasi
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: max(1, floor(reflejos/2))
     description: >-
       _Por unos instantes, tu cuerpo abandona las limitaciones de la carne y adopta las propiedades del elemento que
       corre por tus venas._<br><br> Puedes utilizar la capacidad correspondiente a tu manifestación elemental un número
@@ -574,8 +574,8 @@ cards:
       - Gith
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: max(1, floor(mente/2))
     description: >-
       _Tu voluntad puede ejercer fuerza sobre el mundo físico, desplazando materia sin necesidad de tocarla._<br><br>
       Puedes usar tu Interacción para manipular telequinéticamente un objeto que puedas ver a distancia Cercana, siempre
@@ -655,8 +655,8 @@ cards:
       - Tortle
     requirements: Solo Creación de Personaje
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
     description: >-
       _Tu organismo está adaptado a recorrer enormes distancias y sobrevivir durante largos períodos lejos de cualquier
       asentamiento._<br><br> Obtienes los siguientes beneficios:<br> - **Aliento Prolongado:** Puedes contener la

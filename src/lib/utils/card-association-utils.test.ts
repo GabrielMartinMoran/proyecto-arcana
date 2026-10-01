@@ -13,6 +13,7 @@ import {
 	isInactiveActivableOrigin,
 	validateCardAssociation,
 } from './card-association-utils';
+import type { FormulaContext } from './modifiers-calculator';
 
 const canonicalCard = (name: string, overrides: Partial<Card> = {}): Card => ({
 	id: generateId(name),
@@ -626,5 +627,59 @@ describe('applyParentRemoval', () => {
 		const cards = [child];
 
 		expect(applyParentRemoval('ghost-parent', cards, allCards)).toBe(cards);
+	});
+});
+
+describe('formula uses restoration with the attribute context', () => {
+	const buildContext = (overrides: Partial<FormulaContext> = {}): FormulaContext => ({
+		cuerpo: 1,
+		reflejos: 1,
+		mente: 1,
+		instinto: 1,
+		presencia: 1,
+		ppGastados: 0,
+		...overrides,
+	});
+
+	const golpeFerreo = canonicalCard('Golpe Férreo', {
+		uses: { type: 'LONG_REST', qty: 0, formula: 'floor(reflejos/2)' },
+	});
+	const allCards = [artesMarciales, disciplinaMonastica, golpeFerreo];
+
+	it('should restore the computed formula total when deactivating with a context', () => {
+		const parent = ownedCard(disciplinaMonastica.id, { uses: 1 });
+		const child = ownedCard(golpeFerreo.id, { uses: 1, grantedBy: disciplinaMonastica.id });
+
+		const result = applyParentDeactivation(
+			disciplinaMonastica.id,
+			[parent, child],
+			allCards,
+			buildContext({ reflejos: 8 }),
+		);
+
+		expect(result.find((card) => card.id === golpeFerreo.id)?.uses).toBe(4);
+	});
+
+	it('should keep the current behavior for a formula card without a context', () => {
+		const parent = ownedCard(disciplinaMonastica.id, { uses: 1 });
+		const child = ownedCard(golpeFerreo.id, { uses: 1, grantedBy: disciplinaMonastica.id });
+
+		const result = applyParentDeactivation(disciplinaMonastica.id, [parent, child], allCards);
+
+		expect(result.find((card) => card.id === golpeFerreo.id)?.uses).toBeNull();
+	});
+
+	it('should restore the computed formula total when removing the parent with a context', () => {
+		const parent = ownedCard(disciplinaMonastica.id, { uses: 1 });
+		const child = ownedCard(golpeFerreo.id, { uses: 1, grantedBy: disciplinaMonastica.id });
+
+		const result = applyParentRemoval(
+			disciplinaMonastica.id,
+			[parent, child],
+			allCards,
+			buildContext({ reflejos: 8 }),
+		);
+
+		expect(result.find((card) => card.id === golpeFerreo.id)?.uses).toBe(4);
 	});
 });

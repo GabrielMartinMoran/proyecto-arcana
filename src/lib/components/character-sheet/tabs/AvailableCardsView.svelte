@@ -5,6 +5,7 @@
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { CharacterCard } from '$lib/types/character';
 	import { getSlotConsumingActiveCards } from '$lib/utils/card-association-utils';
+	import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 
 	type Props = {
 		cards: Card[];
@@ -14,6 +15,7 @@
 		onChange: (characterCards: CharacterCard[]) => void;
 		onCardReloadClick: (cardId: string) => void;
 		rollContext?: CardRollContext;
+		formulaContext?: FormulaContext;
 	};
 
 	let {
@@ -24,6 +26,7 @@
 		onChange,
 		onCardReloadClick,
 		rollContext = undefined,
+		formulaContext = undefined,
 	}: Props = $props();
 
 	// Filter active + activable cards for the Cartas Activas section
@@ -54,6 +57,7 @@
 			{onChange}
 			{onCardReloadClick}
 			{rollContext}
+			{formulaContext}
 			allCards={cards}
 		/>
 	{:else}
@@ -65,14 +69,15 @@
 
 <Container title="Efectos Activos ({effectCards.length})">
 	{#if effectCards.length > 0}
+		<!-- Effect cards never activate or reload; they only track finite uses. -->
 		<CardsList
 			cards={effectCards}
-			readonly={true}
+			{readonly}
 			{characterCards}
 			listMode="active"
-			onChange={() => {}}
-			onCardReloadClick={() => {}}
+			{onChange}
 			{rollContext}
+			{formulaContext}
 			allCards={cards}
 		/>
 	{:else}

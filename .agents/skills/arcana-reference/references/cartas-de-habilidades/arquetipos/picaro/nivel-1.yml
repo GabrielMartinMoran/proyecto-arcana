@@ -77,8 +77,8 @@ cards:
       - Pícaro
     requirements: Senda del Bribón & Presencia 2
     uses:
-      type: null
-      qty: 0
+      type: USES
+      qty: 1
     description: >-
       _Conoces cada callejón, cada informante y cada código secreto; en la ciudad, las sombras te susurran sus
       verdades._<br><br> Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener información en entornos urbanos y

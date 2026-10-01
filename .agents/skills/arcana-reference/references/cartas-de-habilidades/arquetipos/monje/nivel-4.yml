@@ -26,7 +26,10 @@ cards:
       type: RELOAD
       qty: 7
     description: >-
-      _Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un
-      suspiro._<br><br> Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un
-      espacio desocupado que puedas ver.
+      _Tu dominio del Ki trasciende el movimiento físico. Durante un instante, vacías tu presencia del mundo y
+      reapareces donde tu voluntad ya había decidido estar._<br><br> Como Interacción, te teletransportas a un espacio
+      desocupado que puedas ver a distancia Media.<br> Hasta el final de tu turno, puedes volver a utilizar este poder
+      una vez, sin gastar Acción ni Interacción, para teletransportarte a un espacio desocupado que puedas ver hasta una
+      distancia igual a tu Velocidad.<br> Ambos desplazamientos son teleportaciones y no requieren recorrer el espacio
+      intermedio.
     slug: paso-del-vacio

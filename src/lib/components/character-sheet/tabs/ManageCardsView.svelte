@@ -5,6 +5,7 @@
 	import type { Card } from '$lib/types/cards/card';
 	import type { CardRollContext } from '$lib/types/cards/card-roll-context';
 	import type { Character, CharacterCard } from '$lib/types/character';
+	import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 	import { CONFIG } from '../../../../config';
 	import CardAssociationModal from '../elements/CardAssociationModal.svelte';
 
@@ -21,6 +22,7 @@
 		onBuyActiveSlot: () => void;
 		corruptedCards?: CharacterCard[];
 		rollContext?: CardRollContext;
+		formulaContext?: FormulaContext;
 	};
 
 	let {
@@ -36,6 +38,7 @@
 		onBuyActiveSlot,
 		corruptedCards = [],
 		rollContext = undefined,
+		formulaContext = undefined,
 	}: Props = $props();
 
 	let associationChild: CharacterCard | null = $state(null);
@@ -109,6 +112,7 @@
 		{onChange}
 		{onEditCard}
 		{rollContext}
+		{formulaContext}
 		onManageAssociation={(card) => openCardAssociation(card.id)}
 	/>
 </Container>
@@ -138,6 +142,7 @@
 			characterCards={corruptedCards}
 			listMode="collection"
 			onChange={onCorruptedCardsChange}
+			{formulaContext}
 		/>
 	</Container>
 {/if}

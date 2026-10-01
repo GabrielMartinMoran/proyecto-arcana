@@ -798,7 +798,7 @@ items:
       una espada, un castillo, etc.
     uses:
       type: NULL
-      qty: 0 que no requiere tirada
+      qty: 0
 
   - name: 'Aguja e Hilo de la Remendadora'
     level: 1
@@ -1082,8 +1082,8 @@ items:
       responder con un mensaje de la misma longitud, sin gastar una carga,
       siempre que ambos estén en el mismo plano de existencia.
     uses:
-      type: NULL
-      qty: 0
+      type: DAY
+      qty: 3
 
   - name: 'Arma Vigilante'
     level: 2

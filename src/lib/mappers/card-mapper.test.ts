@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { mapCustomAbilityCard, mapCustomItemCard } from './card-mapper';
+import {
+	mapAbilityCard,
+	mapCustomAbilityCard,
+	mapCustomItemCard,
+	mapItemCard,
+} from './card-mapper';
 
 describe('mapCustomAbilityCard', () => {
 	it('maps valid ability YAML data to AbilityCard with generated custom id', () => {
@@ -112,15 +117,56 @@ describe('mapCustomAbilityCard', () => {
 		expect(card.uses).toEqual({ qty: 0, type: null });
 	});
 
-	it('throws descriptive error when uses.qty is missing', () => {
+	it('defaults uses.qty to 0 when uses.qty is missing', () => {
 		const data = {
 			name: 'Test',
 			level: 1,
 			type: 'efecto',
+			tags: [],
 			uses: { type: 'USES' },
 		};
 
-		expect(() => mapCustomAbilityCard(data)).toThrow(/uses.qty is required/i);
+		const card = mapCustomAbilityCard(data);
+
+		expect(card.uses).toEqual({ qty: 0, type: 'USES' });
+	});
+
+	it('preserves a non-empty uses.formula in custom cards', () => {
+		const data = {
+			name: 'Test',
+			level: 1,
+			type: 'efecto',
+			tags: [],
+			uses: { type: 'LONG_REST', formula: 'presencia' },
+		};
+
+		const card = mapCustomAbilityCard(data);
+
+		expect(card.uses).toEqual({ qty: 0, type: 'LONG_REST', formula: 'presencia' });
+	});
+
+	it('throws descriptive error when uses.formula is not a non-empty string', () => {
+		const blankFormula = {
+			name: 'Test',
+			level: 1,
+			type: 'efecto',
+			tags: [],
+			uses: { type: 'LONG_REST', qty: 1, formula: '   ' },
+		};
+		const nonStringFormula = {
+			name: 'Test',
+			level: 1,
+			type: 'efecto',
+			tags: [],
+			uses: { type: 'LONG_REST', qty: 1, formula: 42 },
+		};
+
+		expect(() => mapCustomAbilityCard(blankFormula)).toThrow(
+			/uses\.formula must be a non-empty string/i,
+		);
+		expect(() => mapCustomAbilityCard(nonStringFormula)).toThrow(
+			/uses\.formula must be a non-empty string/i,
+		);
 	});
 
 	it('throws descriptive error when uses.type is invalid', () => {
@@ -330,5 +376,115 @@ describe('mapCustomItemCard', () => {
 		const card = mapCustomItemCard(data);
 
 		expect(card.uses).toEqual({ qty: 2, type: null });
+	});
+});
+
+describe('mapAbilityCard', () => {
+	const rawCard = (overrides: Record<string, unknown> = {}) => ({
+		name: 'Reprensión Infernal',
+		level: 1,
+		type: 'efecto',
+		tags: ['Linaje'],
+		description: 'Descripción de la carta',
+		...overrides,
+	});
+
+	it('normalizes a missing uses block to zero quantity and null type', () => {
+		expect(mapAbilityCard(rawCard()).uses).toEqual({ qty: 0, type: null });
+	});
+
+	it('normalizes a null uses block to zero quantity and null type', () => {
+		expect(mapAbilityCard(rawCard({ uses: null })).uses).toEqual({ qty: 0, type: null });
+	});
+
+	it('defaults a missing qty to zero when the uses type is declared', () => {
+		expect(mapAbilityCard(rawCard({ uses: { type: 'LONG_REST' } })).uses).toEqual({
+			qty: 0,
+			type: 'LONG_REST',
+		});
+	});
+
+	it('preserves a declared formula next to its type', () => {
+		expect(
+			mapAbilityCard(rawCard({ uses: { type: 'LONG_REST', formula: 'presencia' } })).uses,
+		).toEqual({ qty: 0, type: 'LONG_REST', formula: 'presencia' });
+	});
+
+	it('throws a descriptive error for an invalid uses type', () => {
+		expect(() => mapAbilityCard(rawCard({ uses: { type: 'WEEKLY', qty: 1 } }))).toThrow(
+			/invalid uses\.type/i,
+		);
+	});
+
+	it('throws a descriptive error when uses.formula is not a non-empty string', () => {
+		expect(() => mapAbilityCard(rawCard({ uses: { type: 'LONG_REST', formula: '' } }))).toThrow(
+			/uses\.formula must be a non-empty string/i,
+		);
+		expect(() => mapAbilityCard(rawCard({ uses: { type: 'LONG_REST', formula: 7 } }))).toThrow(
+			/uses\.formula must be a non-empty string/i,
+		);
+	});
+});
+
+describe('mapItemCard', () => {
+	const rawItem = (overrides: Record<string, unknown> = {}) => ({
+		name: 'Pipa del Cuentacuentos',
+		level: 1,
+		type: 'efecto',
+		tags: ['Estético'],
+		description: 'Descripción del objeto mágico',
+		cost: '100',
+		...overrides,
+	});
+
+	it('maps a declared uses block preserving its type and quantity', () => {
+		const card = mapItemCard(rawItem({ uses: { type: 'DAY', qty: 3 } }));
+
+		expect(card.uses).toEqual({ qty: 3, type: 'DAY' });
+		expect(card.type).toBe('efecto');
+		expect(card.cost).toBe('100');
+		expect(card.cardType).toBe('item');
+	});
+
+	it('normalizes a missing uses block to zero quantity and null type', () => {
+		expect(mapItemCard(rawItem()).uses).toEqual({ qty: 0, type: null });
+	});
+
+	it('normalizes a null uses block to zero quantity and null type', () => {
+		expect(mapItemCard(rawItem({ uses: null })).uses).toEqual({ qty: 0, type: null });
+	});
+
+	it('normalizes a non-object uses block to zero quantity and null type', () => {
+		expect(mapItemCard(rawItem({ uses: 'unexpected' })).uses).toEqual({ qty: 0, type: null });
+	});
+
+	it('defaults a missing qty to zero when the uses type is declared', () => {
+		expect(mapItemCard(rawItem({ uses: { type: 'USES' } })).uses).toEqual({
+			qty: 0,
+			type: 'USES',
+		});
+	});
+
+	it('preserves a declared formula next to its type', () => {
+		expect(mapItemCard(rawItem({ uses: { type: 'DAY', formula: 'mente' } })).uses).toEqual({
+			qty: 0,
+			type: 'DAY',
+			formula: 'mente',
+		});
+	});
+
+	it('throws a descriptive error for an invalid uses type', () => {
+		expect(() => mapItemCard(rawItem({ uses: { type: 'WEEKLY', qty: 1 } }))).toThrow(
+			/invalid uses\.type/i,
+		);
+	});
+
+	it('throws a descriptive error when uses.formula is not a non-empty string', () => {
+		expect(() => mapItemCard(rawItem({ uses: { type: 'DAY', formula: '' } }))).toThrow(
+			/uses\.formula must be a non-empty string/i,
+		);
+		expect(() => mapItemCard(rawItem({ uses: { type: 'DAY', formula: 7 } }))).toThrow(
+			/uses\.formula must be a non-empty string/i,
+		);
 	});
 });

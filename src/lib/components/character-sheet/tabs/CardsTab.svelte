@@ -15,6 +15,7 @@
 		getAssociatedDescendants,
 	} from '$lib/utils/card-association-utils';
 	import { buildCardRollContext } from '$lib/utils/card-inline-dice-formulas';
+	import { buildFormulaContext, type FormulaContext } from '$lib/utils/modifiers-calculator';
 	import { CONFIG } from '../../../../config';
 
 	import AddCardModal from '$lib/components/character-sheet/elements/AddCardModal.svelte';
@@ -52,6 +53,10 @@
 	let rollContext: CardRollContext | undefined = $derived(
 		buildCardRollContext({ character, canonicalCards: allCards, cardName: character.name }),
 	);
+
+	// Sheet-only attribute context used to resolve card uses formulas. Library
+	// and preview callers never receive it, so those cards stay unchanged.
+	let formulaContext: FormulaContext = $derived(buildFormulaContext(character));
 
 	let corruptedCharacterCards = $derived(
 		character.cards.filter(
@@ -220,8 +225,8 @@
 				if (!isConfirmed) return;
 				const cascadedCards =
 					cascade.action === 'remove'
-						? applyParentRemoval(cascade.parentId, character.cards, allCards)
-						: applyParentDeactivation(cascade.parentId, character.cards, allCards);
+						? applyParentRemoval(cascade.parentId, character.cards, allCards, formulaContext)
+						: applyParentDeactivation(cascade.parentId, character.cards, allCards, formulaContext);
 				applyCharacterCardsChange(cascadedCards);
 			});
 	};
@@ -427,7 +432,7 @@
 
 		const newCard: CharacterCard = {
 			id: card.id,
-			uses: getCardTotalUses(card),
+			uses: getCardTotalUses(card, formulaContext),
 			isActive: false,
 			level: card.level,
 			cardType: card.cardType,
@@ -487,6 +492,7 @@
 			onChange={onCharacterCardsChange}
 			{onCardReloadClick}
 			{rollContext}
+			{formulaContext}
 		/>
 	{:else}
 		<ManageCardsView
@@ -502,6 +508,7 @@
 			onBuyActiveSlot={handleBuyActiveSlot}
 			corruptedCards={corruptedCharacterCards}
 			{rollContext}
+			{formulaContext}
 		/>
 	{/if}
 </div>
@@ -515,6 +522,7 @@
 	onCardsChange={onCharacterCardsChange}
 	onPurchaseCard={handlePurchaseCard}
 	onCreateCustom={(cardType: 'ability' | 'item') => openCustomCardEditor(cardType)}
+	{formulaContext}
 />
 
 <CustomCardEditorModal

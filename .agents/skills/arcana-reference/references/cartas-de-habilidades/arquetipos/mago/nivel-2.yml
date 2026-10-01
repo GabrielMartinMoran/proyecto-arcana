@@ -49,9 +49,10 @@ cards:
       siguientes beneficios:<br> - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br> -
       **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu
       próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br> -
-      **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de ataque de toque
-      o tenga alcance Inmediata, el familiar puede realizar el contacto por ti (usando tu tirada de ataque).<br> -
-      **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de
-      Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual
-      o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).
+      **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera tocar a una criatura o tenga
+      alcance Inmediata, puedes hacer que el familiar realice el contacto por ti, siempre que el objetivo se encuentre a
+      distancia Inmediata del familiar. Utilizas normalmente tu Atributo Arcano y cualquier tirada requerida por el
+      conjuro.<br> - **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo
+      sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo
+      Nivel sea igual o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).
     slug: familiar-arcano

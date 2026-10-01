@@ -163,7 +163,6 @@ ni el score.
 - [Coloso — Nivel 1](references/cartas-de-habilidades/arquetipos/coloso/nivel-1.yml)
 - [Coloso — Nivel 2](references/cartas-de-habilidades/arquetipos/coloso/nivel-2.yml)
 - [Coloso — Nivel 3](references/cartas-de-habilidades/arquetipos/coloso/nivel-3.yml)
-- [Coloso — Nivel 4](references/cartas-de-habilidades/arquetipos/coloso/nivel-4.yml)
 - [Coloso — Nivel 5](references/cartas-de-habilidades/arquetipos/coloso/nivel-5.yml)
 - [Arquetipo — Céfiro — Nivel 1](references/cartas-de-habilidades/arquetipos/cefiro/arquetipo-nivel-1.yml)
 - [Céfiro — Nivel 1](references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml)

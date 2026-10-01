@@ -40,5 +40,6 @@ cards:
       Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Mente contra el
       atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o
       Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una prueba de
-      Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.
+      Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico
+      el efecto mágico termina sobre ese objetivo.
     slug: rompeconjuros

@@ -12,9 +12,11 @@ vi.mock('$lib/services/dice-roller-service', () => ({
 	}),
 }));
 
+import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import type { AbilityCard } from '$lib/types/cards/ability-card';
 import type { ItemCard } from '$lib/types/cards/item-card';
 import type { CharacterCard } from '$lib/types/character';
+import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 import CardsList from './CardsList.svelte';
 
 const mockCards: AbilityCard[] = [
@@ -362,6 +364,72 @@ describe('CardsList', () => {
 			const overloadToggle = screen.queryByRole('checkbox');
 			expect(overloadToggle).not.toBeInTheDocument();
 			expect(container.querySelector('.card-actions > .spacer')).toBeNull();
+		});
+	});
+
+	describe('effect card usage controls', () => {
+		const efectoCharacterCard = (overrides: Partial<CharacterCard> = {}): CharacterCard => ({
+			id: 'efecto-uses-1',
+			uses: 1,
+			isActive: true,
+			level: 1,
+			cardType: 'ability',
+			isOvercharged: false,
+			...overrides,
+		});
+
+		const reloadEffectCard: AbilityCard = {
+			...mockEfectoUsesCard,
+			id: 'efecto-reload-1',
+			name: 'Reload Aura',
+			uses: { type: 'RELOAD', qty: 3 },
+		};
+
+		it('FEAT-card-uses-formula @contract — renders only the usage control for a finite effect card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockEfectoUsesCard],
+					characterCards: [efectoCharacterCard()],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+
+			expect(container.querySelector('.reload-control')).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: '✨ Usar' })).toBeInTheDocument();
+			expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
+			expect(screen.queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
+			expect(screen.queryByRole('button', { name: '🎲 Recargar' })).not.toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @contract — never exposes the reload action for a RELOAD effect card', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [reloadEffectCard],
+					characterCards: [efectoCharacterCard({ id: 'efecto-reload-1', uses: 0 })],
+					listMode: 'active',
+					readonly: false,
+				},
+			});
+
+			expect(container.querySelector('.reload-control')).toBeInTheDocument();
+			expect(screen.getByRole('button', { name: '✨ Usar' })).toBeDisabled();
+			expect(screen.queryByRole('button', { name: '🎲 Recargar' })).not.toBeInTheDocument();
+			expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @contract — keeps the read-only list free of effect usage controls', () => {
+			const { container } = render(CardsList, {
+				props: {
+					cards: [mockEfectoUsesCard],
+					characterCards: [efectoCharacterCard()],
+					listMode: 'active',
+					readonly: true,
+				},
+			});
+
+			expect(container.querySelector('.reload-control')).toBeNull();
+			expect(screen.queryByRole('button', { name: '✨ Usar' })).toBeNull();
 		});
 	});
 
@@ -1456,6 +1524,240 @@ describe('CardsList', () => {
 					/Carta vinculada a Disciplina Monástica\. No consume una Ranura de Carta Activa/,
 				),
 			).toBeInTheDocument();
+		});
+	});
+
+	describe('formula uses', () => {
+		const buildContext = (overrides: Partial<FormulaContext> = {}): FormulaContext => ({
+			cuerpo: 1,
+			reflejos: 1,
+			mente: 1,
+			instinto: 1,
+			presencia: 1,
+			ppGastados: 0,
+			...overrides,
+		});
+
+		const formulaCard: AbilityCard = mapAbilityCard({
+			name: 'Reprensión Infernal',
+			level: 1,
+			type: 'efecto',
+			tags: ['Linaje'],
+			description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+			uses: { type: 'LONG_REST', formula: 'presencia' },
+		});
+
+		it('FEAT-card-uses-formula @character-sheet — shows the chip with the total computed from the formula context', () => {
+			render(CardsList, {
+				props: {
+					cards: [formulaCard],
+					listMode: 'all',
+					readonly: true,
+					formulaContext: buildContext({ presencia: 4 }),
+				},
+			});
+
+			expect(screen.getByText('Usos: 4')).toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @library — hides the chip for a formula card without a context', () => {
+			render(CardsList, {
+				props: {
+					cards: [formulaCard],
+					listMode: 'all',
+					readonly: true,
+				},
+			});
+
+			expect(screen.queryByText(/Usos:/)).not.toBeInTheDocument();
+		});
+
+		describe('lifecycle and effective remaining uses', () => {
+			const activableFormulaCard: AbilityCard = mapAbilityCard({
+				name: 'Golpe Férreo',
+				level: 1,
+				type: 'activable',
+				tags: ['Combatiente'],
+				description: 'Golpe con fórmula',
+				uses: { type: 'LONG_REST', formula: 'floor(reflejos/2)' },
+			});
+
+			const characterCard = (overrides: Partial<CharacterCard> = {}): CharacterCard => ({
+				id: formulaCard.id,
+				uses: 4,
+				isActive: true,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+				...overrides,
+			});
+
+			const inputValue = (container: HTMLElement): string =>
+				(container.querySelector('.reload-control .value-input') as HTMLInputElement).value;
+
+			it('FEAT-card-uses-formula @lifecycle — initializes remaining uses from the formula when the card is added', async () => {
+				const onChange = vi.fn();
+				render(CardsList, {
+					props: {
+						cards: [formulaCard],
+						listMode: 'all',
+						readonly: false,
+						formulaContext: buildContext({ presencia: 4 }),
+						onChange,
+					},
+				});
+
+				await fireEvent.click(screen.getByRole('button', { name: 'Agregar' }));
+
+				expect(onChange).toHaveBeenCalledWith([
+					expect.objectContaining({ id: formulaCard.id, uses: 4 }),
+				]);
+			});
+
+			it('FEAT-card-uses-formula @lifecycle — restores the formula total when deactivating an activable card', async () => {
+				const onChange = vi.fn();
+				render(CardsList, {
+					props: {
+						cards: [activableFormulaCard],
+						characterCards: [characterCard({ id: activableFormulaCard.id, uses: 1 })],
+						listMode: 'collection',
+						readonly: false,
+						formulaContext: buildContext({ reflejos: 8 }),
+						onChange,
+					},
+				});
+
+				await fireEvent.click(screen.getByRole('button', { name: 'Desactivar' }));
+
+				expect(onChange).toHaveBeenCalledWith([
+					expect.objectContaining({
+						id: activableFormulaCard.id,
+						isActive: false,
+						uses: 4,
+					}),
+				]);
+			});
+
+			it('FEAT-card-uses-formula @attributes — clamps the displayed remaining uses down to the computed total', () => {
+				const { container } = render(CardsList, {
+					props: {
+						cards: [formulaCard],
+						characterCards: [characterCard({ uses: 4 })],
+						listMode: 'active',
+						readonly: false,
+						formulaContext: buildContext({ presencia: 2 }),
+					},
+				});
+
+				expect(inputValue(container)).toBe('2');
+				expect(container.querySelector('.reload-control .max')).toHaveTextContent('2');
+			});
+
+			it('FEAT-card-uses-formula @attributes — spends a use from the clamped remaining uses', async () => {
+				const onChange = vi.fn();
+				render(CardsList, {
+					props: {
+						cards: [formulaCard],
+						characterCards: [characterCard({ uses: 4 })],
+						listMode: 'active',
+						readonly: false,
+						formulaContext: buildContext({ presencia: 2 }),
+						onChange,
+					},
+				});
+
+				await fireEvent.click(screen.getByRole('button', { name: '✨ Usar' }));
+
+				expect(onChange).toHaveBeenCalledWith([expect.objectContaining({ uses: 1 })]);
+			});
+
+			it('FEAT-card-uses-formula @attributes — keeps the clamped value when the computed total rises again', async () => {
+				const onChange = vi.fn();
+				const { container, rerender } = render(CardsList, {
+					props: {
+						cards: [formulaCard],
+						characterCards: [characterCard({ uses: 4 })],
+						listMode: 'active',
+						readonly: false,
+						formulaContext: buildContext({ presencia: 4 }),
+						onChange,
+					},
+				});
+
+				await rerender({
+					cards: [formulaCard],
+					characterCards: [characterCard({ uses: 4 })],
+					listMode: 'active',
+					readonly: false,
+					formulaContext: buildContext({ presencia: 2 }),
+					onChange,
+				});
+				await tick();
+				expect(inputValue(container)).toBe('2');
+				// The clamped value is persisted so the ratchet survives remounts.
+				expect(onChange).toHaveBeenCalledWith([
+					expect.objectContaining({ id: formulaCard.id, uses: 2 }),
+				]);
+
+				await rerender({
+					cards: [formulaCard],
+					characterCards: [characterCard({ uses: 4 })],
+					listMode: 'active',
+					readonly: false,
+					formulaContext: buildContext({ presencia: 6 }),
+					onChange,
+				});
+				await tick();
+				expect(inputValue(container)).toBe('2');
+			});
+
+			it('FEAT-card-uses-formula @library — keeps the legacy behavior for a formula card without a context', () => {
+				const { container } = render(CardsList, {
+					props: {
+						cards: [formulaCard],
+						characterCards: [characterCard({ uses: 4 })],
+						listMode: 'active',
+						readonly: false,
+					},
+				});
+
+				expect(container.querySelector('.reload-control')).toBeNull();
+				expect(screen.queryByRole('button', { name: '✨ Usar' })).toBeNull();
+				expect(screen.queryByText(/Usos:/)).toBeNull();
+			});
+
+			it('FEAT-card-uses-formula @library — shows no chip and no controls for an unlimited card', () => {
+				const unlimitedCard: AbilityCard = mapAbilityCard({
+					name: 'Poder Ilimitado',
+					level: 1,
+					type: 'efecto',
+					tags: ['Linaje'],
+					description: 'Sin usos declarados',
+				});
+				const { container } = render(CardsList, {
+					props: {
+						cards: [unlimitedCard],
+						characterCards: [
+							{
+								id: unlimitedCard.id,
+								uses: null,
+								isActive: false,
+								level: 1,
+								cardType: 'ability',
+								isOvercharged: false,
+							},
+						],
+						listMode: 'active',
+						readonly: false,
+						formulaContext: buildContext({ presencia: 4 }),
+					},
+				});
+
+				expect(container.querySelector('.reload-control')).toBeNull();
+				expect(screen.queryByRole('button', { name: '✨ Usar' })).toBeNull();
+				expect(screen.queryByRole('button', { name: '🎲 Recargar' })).toBeNull();
+				expect(screen.queryByText(/Usos:/)).toBeNull();
+			});
 		});
 	});
 });

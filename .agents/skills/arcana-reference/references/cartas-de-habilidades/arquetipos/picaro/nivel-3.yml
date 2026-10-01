@@ -91,11 +91,11 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tus venenos no solo matan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a
+      _Tus venenos no solo dañan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a
       tu merced._<br><br> Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br> -
       **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo
-      turno.<br> - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo
-      turno.
+      turno.<br> - **Esencia de Terror:** En caso de fallo, el objetivo queda Asustado de ti hasta el final de tu
+      próximo turno.
     slug: maestria-toxica
   - id: 308348974e7c8b1dea95f602e94d18c17866393f
     name: Paso Veloz
@@ -128,8 +128,9 @@ cards:
       _Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con
       un solo toque._<br><br> Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti.
       Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del
-      objetivo. Si tienes éxito, identificas un punto vital. La próxima vez que impactes a esa criatura con tu habilidad
-      Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+      objetivo. Si tienes éxito, identificas un punto vital.<br> Al usar _Asesinar_ contra el punto vital estudiado, los
+      dados de daño base del arma y de tu _Ataque Furtivo_ que normalmente volverías a tirar como parte del golpe
+      crítico también se consideran en su valor máximo.
     slug: punto-vital
   - id: 5aab682a89e0e192852d7f582cec7dd0d0b19e00
     name: Especialista Táctico

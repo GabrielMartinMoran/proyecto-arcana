@@ -250,8 +250,8 @@ items:
       - Utilidad
     requirements: null
     uses:
-      type: null
-      qty: 0
+      type: DAY
+      qty: 3
     description: >-
       Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema posee 3 cargas en total, que se
       recuperan cada día al amanecer. Mientras sostienes una gema, puedes usar tu Acción y gastar 1 carga para enviar un

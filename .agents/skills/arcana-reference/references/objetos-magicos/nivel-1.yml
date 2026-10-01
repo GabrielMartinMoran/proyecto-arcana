@@ -116,7 +116,7 @@ items:
     requirements: null
     uses:
       type: null
-      qty: 0 que no requiere tirada
+      qty: 0
     description: >-
       Tallada en madera de sauce, esta pipa produce un humo inofensivo y aromático incluso sin tabaco. Con una
       Interacción, puedes hacer que el humo adopte formas simples y efímeras que representen lo que estás narrando: un

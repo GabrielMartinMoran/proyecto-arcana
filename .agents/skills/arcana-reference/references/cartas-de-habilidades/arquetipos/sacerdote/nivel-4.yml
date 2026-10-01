@@ -87,7 +87,7 @@ cards:
     description: >-
       _Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder
       abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de
-      Nivel 1 o 2, duplicas el daño base de la carta.
+      Nivel 1 o 2, duplicas el daño que realiza la carta.
     slug: poder-sagrado
   - id: c3a179b2e2208c06c74178cc9a9d54519af9b212
     name: Restitución Divina

@@ -7,8 +7,8 @@ cards:
       - Mago
     requirements: Estudios Mágicos
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
     description: >-
       _Tu libro de estudio te permite adaptarte a los obstáculos de forma metódica, reorganizando tu mente para cada
       desafío._<br><br> Una vez por día de descanso, durante un momento de calma, puedes dedicar 10 minutos a estudiar.

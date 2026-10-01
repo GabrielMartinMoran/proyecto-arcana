@@ -1,12 +1,14 @@
 import type { Card } from '$lib/types/cards/card';
 import type { CharacterCard } from '$lib/types/character';
 import { getCardTotalUses } from './card-utils';
+import type { FormulaContext } from './modifiers-calculator';
 import { evaluateRequirements } from './requirement-expression';
 
 export type CardAssociationErrorCode = 'PARENT_NOT_OWNED' | 'SELF_ASSOCIATION' | 'CYCLE';
 
 export type CardAssociationValidationResult =
-	{ valid: true } | { valid: false; code: CardAssociationErrorCode; message: string };
+	| { valid: true }
+	| { valid: false; code: CardAssociationErrorCode; message: string };
 
 export interface ParentCandidateOption {
 	card: Card;
@@ -73,12 +75,16 @@ const candidateFulfillsRequirement = (
 	return evaluateRequirements(expression, fulfilledPossessedNames);
 };
 
-const deactivateWithRestoredUses = (card: CharacterCard, allCards: Card[]): CharacterCard => {
+const deactivateWithRestoredUses = (
+	card: CharacterCard,
+	allCards: Card[],
+	formulaContext?: FormulaContext,
+): CharacterCard => {
 	const definition = resolveCardDefinition(card.id, allCards);
 	return {
 		...card,
 		isActive: false,
-		uses: definition ? getCardTotalUses(definition) : card.uses,
+		uses: definition ? getCardTotalUses(definition, formulaContext) : card.uses,
 	};
 };
 
@@ -235,16 +241,17 @@ export const applyParentDeactivation = (
 	parentId: string,
 	characterCards: CharacterCard[],
 	allCards: Card[],
+	formulaContext?: FormulaContext,
 ): CharacterCard[] => {
 	if (!getParentById(parentId, characterCards)) return characterCards;
 	const affectedIds = new Set(
 		getAssociatedDescendants(parentId, characterCards).map((card) => card.id),
 	);
 	return characterCards.map((card) => {
-		if (card.id === parentId) return deactivateWithRestoredUses(card, allCards);
+		if (card.id === parentId) return deactivateWithRestoredUses(card, allCards, formulaContext);
 		if (!affectedIds.has(card.id)) return card;
 		if (!isActivableDefinition(card.id, allCards)) return card;
-		return deactivateWithRestoredUses(card, allCards);
+		return deactivateWithRestoredUses(card, allCards, formulaContext);
 	});
 };
 
@@ -252,6 +259,7 @@ export const applyParentRemoval = (
 	parentId: string,
 	characterCards: CharacterCard[],
 	allCards: Card[],
+	formulaContext?: FormulaContext,
 ): CharacterCard[] => {
 	if (!getParentById(parentId, characterCards)) return characterCards;
 	const affectedIds = new Set(
@@ -266,6 +274,6 @@ export const applyParentRemoval = (
 			const cleared = { ...card, grantedBy: null };
 			delete cleared.doesNotConsumeActiveSlot;
 			if (!isActivableDefinition(card.id, allCards)) return cleared;
-			return deactivateWithRestoredUses(cleared, allCards);
+			return deactivateWithRestoredUses(cleared, allCards, formulaContext);
 		});
 };

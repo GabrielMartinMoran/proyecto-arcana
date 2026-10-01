@@ -1,5 +1,7 @@
+import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import type { Card } from '$lib/types/cards/card';
 import type { CharacterCard } from '$lib/types/character';
+import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 import { fireEvent, render, screen } from '@testing-library/svelte';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import AvailableCardsView from './AvailableCardsView.svelte';
@@ -21,14 +23,18 @@ const buildActivableCard = (
 	img: '',
 });
 
-const buildEffectCard = (id: string, name: string): Card => ({
+const buildEffectCard = (
+	id: string,
+	name: string,
+	uses: Card['uses'] = { type: 'USES', qty: 1 },
+): Card => ({
 	id,
 	name,
 	level: 1,
 	tags: [],
 	requirements: null,
 	description: 'test effect',
-	uses: { type: 'USES', qty: 1 },
+	uses,
 	type: 'efecto',
 	cardType: 'ability',
 	img: '',
@@ -189,9 +195,42 @@ describe('AvailableCardsView', () => {
 		expect(screen.getByText('No tienes cartas de efecto en tu colección.')).toBeInTheDocument();
 	});
 
-	it('Efectos Activos section cards are display-only (no action buttons)', () => {
+	it('FEAT-card-uses-formula @interaction @contract — offers the usage control for a finite effect card and spends a use', async () => {
 		const cards: Card[] = [buildEffectCard('effect-1', 'Heal')];
-		const characterCards: CharacterCard[] = [buildCharacterCard('effect-1', { isActive: true })];
+		const characterCards: CharacterCard[] = [
+			buildCharacterCard('effect-1', { isActive: true, uses: 1 }),
+		];
+
+		const { container } = render(AvailableCardsView, {
+			props: {
+				cards,
+				characterCards,
+				maxActiveCards: 3,
+				readonly: false,
+				onChange,
+				onCardReloadClick,
+			},
+		});
+
+		// Effect cards keep their prose and gain only the usage control: they
+		// are never activable, so no activation toggle or Desactivar action.
+		expect(screen.getByText('Heal')).toBeInTheDocument();
+		expect(container.querySelector('.reload-control')).toBeInTheDocument();
+		const useButton = screen.getByRole('button', { name: '✨ Usar' });
+		expect(useButton).not.toBeDisabled();
+		expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
+		expect(screen.queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
+
+		await fireEvent.click(useButton);
+
+		expect(onChange).toHaveBeenCalledWith([expect.objectContaining({ id: 'effect-1', uses: 0 })]);
+	});
+
+	it('FEAT-card-uses-formula @interaction — disables the use action for a depleted finite effect card', () => {
+		const cards: Card[] = [buildEffectCard('effect-1', 'Heal')];
+		const characterCards: CharacterCard[] = [
+			buildCharacterCard('effect-1', { isActive: true, uses: 0 }),
+		];
 
 		render(AvailableCardsView, {
 			props: {
@@ -204,12 +243,72 @@ describe('AvailableCardsView', () => {
 			},
 		});
 
-		// In Efectos Activos, there should be NO Desactivar button
-		// (readonly=true means no buttons rendered by CardsList)
-		// The card name should still be visible
-		expect(screen.getByText('Heal')).toBeInTheDocument();
-		// No Desactivar button for effect cards
-		expect(screen.queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
+		expect(screen.getByRole('button', { name: '✨ Usar' })).toBeDisabled();
+		expect(screen.queryByRole('button', { name: '🎲 Recargar' })).not.toBeInTheDocument();
+	});
+
+	it('FEAT-card-uses-formula @contract — hides every control for an unlimited effect card', () => {
+		const cards: Card[] = [buildEffectCard('effect-1', 'Heal', { type: null, qty: 0 })];
+		const characterCards: CharacterCard[] = [buildCharacterCard('effect-1', { isActive: true })];
+
+		const { container } = render(AvailableCardsView, {
+			props: {
+				cards,
+				characterCards,
+				maxActiveCards: 3,
+				readonly: false,
+				onChange,
+				onCardReloadClick,
+			},
+		});
+
+		expect(container.querySelector('.reload-control')).toBeNull();
+		expect(screen.queryByRole('button', { name: '✨ Usar' })).toBeNull();
+		expect(screen.queryByRole('button', { name: 'Desactivar' })).toBeNull();
+		expect(screen.queryByRole('checkbox')).toBeNull();
+	});
+
+	it('FEAT-card-uses-formula @contract — never exposes the reload action for a RELOAD effect card', () => {
+		const cards: Card[] = [buildEffectCard('effect-1', 'Heal', { type: 'RELOAD', qty: 3 })];
+		const characterCards: CharacterCard[] = [
+			buildCharacterCard('effect-1', { isActive: true, uses: 0 }),
+		];
+
+		render(AvailableCardsView, {
+			props: {
+				cards,
+				characterCards,
+				maxActiveCards: 3,
+				readonly: false,
+				onChange,
+				onCardReloadClick,
+			},
+		});
+
+		expect(screen.queryByRole('button', { name: '🎲 Recargar' })).not.toBeInTheDocument();
+		expect(screen.getByRole('button', { name: '✨ Usar' })).toBeDisabled();
+		expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();
+	});
+
+	it('FEAT-card-uses-formula @contract — hides the effect usage control when the view is readonly', () => {
+		const cards: Card[] = [buildEffectCard('effect-1', 'Heal')];
+		const characterCards: CharacterCard[] = [
+			buildCharacterCard('effect-1', { isActive: true, uses: 1 }),
+		];
+
+		const { container } = render(AvailableCardsView, {
+			props: {
+				cards,
+				characterCards,
+				maxActiveCards: 3,
+				readonly: true,
+				onChange,
+				onCardReloadClick,
+			},
+		});
+
+		expect(container.querySelector('.reload-control')).toBeNull();
+		expect(screen.queryByRole('button', { name: '✨ Usar' })).toBeNull();
 	});
 
 	it('passes onCardReloadClick to reloadable activable cards', async () => {
@@ -450,6 +549,81 @@ describe('AvailableCardsView', () => {
 
 			expect(screen.getByText('Cartas Activas (1/3)')).toBeInTheDocument();
 			expect(screen.queryByText(/vinculada sin ranura/)).not.toBeInTheDocument();
+		});
+	});
+
+	describe('formula uses context', () => {
+		const buildContext = (overrides: Partial<FormulaContext> = {}): FormulaContext => ({
+			cuerpo: 1,
+			reflejos: 1,
+			mente: 1,
+			instinto: 1,
+			presencia: 1,
+			ppGastados: 0,
+			...overrides,
+		});
+
+		const mapFormulaCard = (type: string) =>
+			mapAbilityCard({
+				name: 'Reprensión Infernal',
+				level: 1,
+				type,
+				tags: ['Linaje'],
+				description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+				uses: { type: 'LONG_REST', formula: 'presencia' },
+			});
+
+		it('FEAT-card-uses-formula @character-sheet — forwards the formula context to the Cartas Activas list', () => {
+			const formulaCard = mapFormulaCard('activable');
+
+			render(AvailableCardsView, {
+				props: {
+					cards: [formulaCard],
+					characterCards: [buildCharacterCard(formulaCard.id, { isActive: true })],
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+					formulaContext: buildContext({ presencia: 4 }),
+				},
+			});
+
+			expect(screen.getByText('Usos: 4')).toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @character-sheet — forwards the formula context to the Efectos Activos list', () => {
+			const formulaCard = mapFormulaCard('efecto');
+
+			render(AvailableCardsView, {
+				props: {
+					cards: [formulaCard],
+					characterCards: [buildCharacterCard(formulaCard.id, { isActive: false })],
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+					formulaContext: buildContext({ presencia: 4 }),
+				},
+			});
+
+			expect(screen.getByText('Usos: 4')).toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @library — hides the chip for a formula card without a context', () => {
+			const formulaCard = mapFormulaCard('efecto');
+
+			render(AvailableCardsView, {
+				props: {
+					cards: [formulaCard],
+					characterCards: [buildCharacterCard(formulaCard.id, { isActive: false })],
+					maxActiveCards: 3,
+					readonly: false,
+					onChange,
+					onCardReloadClick,
+				},
+			});
+
+			expect(screen.queryByText(/Usos:/)).not.toBeInTheDocument();
 		});
 	});
 });

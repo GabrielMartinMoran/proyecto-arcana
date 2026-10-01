@@ -1,5 +1,7 @@
+import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import type { Card } from '$lib/types/cards/card';
 import type { Character, CharacterCard } from '$lib/types/character';
+import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 import { fireEvent, render, screen, within } from '@testing-library/svelte';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import ManageCardsView from './ManageCardsView.svelte';
@@ -605,6 +607,57 @@ describe('ManageCardsView', () => {
 			const child = updatedCards.find((card) => card.id === 'child-1');
 			expect(child).toMatchObject({ grantedBy: null });
 			expect(child).not.toHaveProperty('doesNotConsumeActiveSlot');
+		});
+	});
+
+	describe('formula uses context', () => {
+		const buildContext = (overrides: Partial<FormulaContext> = {}): FormulaContext => ({
+			cuerpo: 1,
+			reflejos: 1,
+			mente: 1,
+			instinto: 1,
+			presencia: 1,
+			ppGastados: 0,
+			...overrides,
+		});
+
+		const renderManageView = (formulaContext?: FormulaContext) => {
+			const formulaCard = mapAbilityCard({
+				name: 'Reprensión Infernal',
+				level: 1,
+				type: 'efecto',
+				tags: ['Linaje'],
+				description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+				uses: { type: 'LONG_REST', formula: 'presencia' },
+			});
+
+			return render(ManageCardsView, {
+				props: {
+					cards: [formulaCard],
+					characterCards: [buildCharacterCard(formulaCard.id)],
+					readonly: true,
+					character: buildCharacter(),
+					onChange,
+					onEditCard,
+					onCorruptedCardsChange,
+					onAddAbilityClick,
+					onAddItemClick,
+					onBuyActiveSlot,
+					formulaContext,
+				},
+			});
+		};
+
+		it('FEAT-card-uses-formula @character-sheet — forwards the formula context to the Colección Completa list', () => {
+			renderManageView(buildContext({ presencia: 4 }));
+
+			expect(screen.getByText('Usos: 4')).toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @library — hides the chip for a formula card without a context', () => {
+			renderManageView();
+
+			expect(screen.queryByText(/Usos:/)).not.toBeInTheDocument();
 		});
 	});
 });

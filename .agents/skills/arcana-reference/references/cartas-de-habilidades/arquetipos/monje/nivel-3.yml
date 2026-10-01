@@ -14,21 +14,6 @@ cards:
       El daño de tus ataques desarmados ignora una cantidad de Mitigación igual a tu puntuación de Instinto.<br> Además,
       tus ataques desarmados se consideran mágicos a efectos de superar Resistencias e Inmunidades.
     slug: golpes-energeticos-mejorados
-  - id: 791a3bbee0af57d46c5bb31ca40b88fa3f430410
-    name: Cuerpo Puro
-    level: 3
-    type: efecto
-    tags:
-      - Monje
-    requirements: Disciplina Monástica & Instinto 4
-    uses:
-      type: null
-      qty: 0
-    description: >-
-      _Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a
-      los mortales._<br><br> Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra venenos y
-      enfermedades.<br> Además, eres inmune al estado Envenenado.
-    slug: cuerpo-puro
   - id: 973133e715149bccf83728b202966fed538360bc
     name: Proyección de Ki
     level: 3
@@ -158,8 +143,8 @@ cards:
       qty: 5
     description: >-
       _Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como
-      Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> - **Criatura:**
-      Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el
-      atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes suprimir sus
-      efectos negativos durante 1 hora.
+      Acción, tocas una criatura u objeto afectado por una Maldición, Posesión, Encantamiento u otra influencia mágica o
+      sobrenatural similar. Realizas una Prueba de Instinto contra el atributo de lanzamiento o ND del efecto original;
+      si no posee uno, el DJ establece la ND según su poder. Si tienes éxito, un Encantamiento o Posesión termina. Una
+      Maldición queda suprimida durante 1 hora.
     slug: limpiar-energias

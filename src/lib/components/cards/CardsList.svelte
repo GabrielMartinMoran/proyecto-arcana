@@ -8,7 +8,8 @@
 		isEffectiveSlotExemption,
 		isInactiveActivableOrigin,
 	} from '$lib/utils/card-association-utils';
-	import { getCardTotalUses } from '$lib/utils/card-utils';
+	import { clampRemainingUses, getCardTotalUses } from '$lib/utils/card-utils';
+	import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 	import { CONFIG } from '../../../config';
 	import Card from './Card.svelte';
 	import ReloadControl from './ReloadControl.svelte';
@@ -28,6 +29,9 @@
 		onPurchaseCard?: (card: CardType) => void;
 		// Sheet-only optional roll context; absent keeps cards read-only prose
 		rollContext?: CardRollContext;
+		// Sheet-only optional character attributes used to resolve card formulas;
+		// absent keeps formula cards without chip or usage controls.
+		formulaContext?: FormulaContext;
 		// Full catalog (static + custom) needed to resolve the linked parent
 		// name; falls back to the rendered cards for existing consumers.
 		allCards?: CardType[];
@@ -46,6 +50,7 @@
 		currentGold = 0,
 		onPurchaseCard = () => {},
 		rollContext = undefined,
+		formulaContext = undefined,
 		allCards = undefined,
 	}: Props = $props();
 
@@ -55,6 +60,64 @@
 	// Existing consumers that do not pass allCards keep resolving against the
 	// rendered cards, which still contains owned parents.
 	let allCardsCatalog = $derived(allCards ?? cards);
+
+	// Effective remaining uses remembered per card: when the total computed from
+	// the character attributes shrinks below the persisted remaining, the value
+	// is clamped down and never topped up when the total rises again (D5).
+	type EffectiveUsesMemory = { stored: number | null; effective: number };
+	let effectiveUsesMemory = $state<Record<string, EffectiveUsesMemory>>({});
+
+	const getClampedUses = (characterCard: CharacterCard, card: CardType): number | null =>
+		clampRemainingUses(characterCard.uses, getCardTotalUses(card, formulaContext));
+
+	const getEffectiveUses = (cardId: string): number | null => {
+		const characterCard = characterCards.find((cc) => cc.id === cardId);
+		const card = cards.find((c) => c.id === cardId);
+		if (!characterCard || !card) return null;
+		const clamped = getClampedUses(characterCard, card);
+		if (clamped === null) return null;
+		const memory = effectiveUsesMemory[cardId];
+		if (memory && memory.stored === characterCard.uses) {
+			return Math.min(clamped, memory.effective);
+		}
+		return clamped;
+	};
+
+	// Keeps the remembered value in sync: it follows the persisted remaining
+	// (manual edits, reloads) and only ratchets down while the persisted value
+	// stays the same, so a rising total never tops the card up.
+	$effect(() => {
+		const next = { ...effectiveUsesMemory };
+		let changed = false;
+		for (const characterCard of characterCards) {
+			const card = cards.find((c) => c.id === characterCard.id);
+			if (!card) continue;
+			const clamped = getClampedUses(characterCard, card);
+			if (clamped === null) continue;
+			const memory = next[characterCard.id];
+			if (!memory || memory.stored !== characterCard.uses || clamped < memory.effective) {
+				next[characterCard.id] = { stored: characterCard.uses, effective: clamped };
+				changed = true;
+			}
+		}
+		if (changed) effectiveUsesMemory = next;
+	});
+
+	// Persists the clamped remaining for formula cards when the computed total
+	// shrinks below the stored value, so the clamp survives remounts and the
+	// remaining uses are never topped up later (D5).
+	$effect(() => {
+		const clampedCards = characterCards.map((characterCard) => {
+			const card = cards.find((c) => c.id === characterCard.id);
+			if (!card?.uses.formula || characterCard.uses === null) return characterCard;
+			const clamped = getClampedUses(characterCard, card);
+			if (clamped === null || clamped >= characterCard.uses) return characterCard;
+			return { ...characterCard, uses: clamped };
+		});
+		if (clampedCards.some((card, index) => card !== characterCards[index])) {
+			onChange(clampedCards);
+		}
+	});
 
 	type CardLinkState = {
 		isLinked: boolean;
@@ -106,7 +169,7 @@
 		}
 		characterCards = characterCards.map((card) => {
 			if (card.id === cardId) {
-				return { ...card, isActive: false, uses: getCardTotalUses(originalCard) };
+				return { ...card, isActive: false, uses: getCardTotalUses(originalCard, formulaContext) };
 			}
 			return card;
 		});
@@ -133,7 +196,7 @@
 			...characterCards,
 			{
 				id: card.id,
-				uses: getCardTotalUses(card),
+				uses: getCardTotalUses(card, formulaContext),
 				isActive: false,
 				level: card.level,
 				cardType: card.cardType,
@@ -158,8 +221,10 @@
 		return card ? card.uses : 0;
 	};
 
+	// The reload action belongs to activable cards only: effect cards are never
+	// activatable, so they track finite uses without exposing RELOAD.
 	const isReloadableCard = (card: CardType) => {
-		return card.uses.type === 'RELOAD';
+		return card.type === 'activable' && card.uses.type === 'RELOAD';
 	};
 
 	const toggleOverload = (cardId: string) => {
@@ -192,19 +257,17 @@
 	};
 
 	const hasRemainingCardUses = (card: CardType) => {
-		const currentUses = getCurrentUses(card.id);
-		const totalUses = getCardTotalUses(card);
+		const totalUses = getCardTotalUses(card, formulaContext);
 		if (totalUses === null) return true; // Unlimited uses
-		return (currentUses ?? 0) > 0;
+		return (getEffectiveUses(card.id) ?? 0) > 0;
 	};
 
 	const canReloadCard = (card: CardType) => {
 		const characterCard = characterCards.find((cc) => cc.id === card.id);
 		if (!characterCard || characterCard?.isOvercharged) return false; // Cannot reload if overcharged
-		const currentUses = getCurrentUses(card.id);
-		const totalUses = getCardTotalUses(card);
+		const totalUses = getCardTotalUses(card, formulaContext);
 		if (totalUses === null) return false; // Unlimited uses, cannot reload
-		return (currentUses ?? 0) < totalUses;
+		return (getEffectiveUses(card.id) ?? 0) < totalUses;
 	};
 
 	const useCard = (cardId: string) => {
@@ -212,20 +275,23 @@
 		if (!card) return;
 
 		const currentUses = getCurrentUses(cardId);
-		const totalUses = getCardTotalUses(card);
+		const totalUses = getCardTotalUses(card, formulaContext);
 
 		if (currentUses === null) {
 			// Unlimited uses, no need to decrease
 			return;
 		}
 
-		if (totalUses !== null && currentUses <= 0) {
+		// Spend from the effective remaining, which is clamped down to the total.
+		const effectiveUses = getEffectiveUses(cardId);
+		if (effectiveUses === null) return;
+
+		if (totalUses !== null && effectiveUses <= 0) {
 			// No remaining uses
 			return;
 		}
 
-		// Decrease the current uses by 1
-		updateCardCurrentUses(cardId, currentUses - 1);
+		updateCardCurrentUses(cardId, effectiveUses - 1);
 	};
 </script>
 
@@ -250,6 +316,7 @@
 						attackTitle: composeCardAttackTitle(rollContext.title, card.name),
 					}
 				: undefined}
+			{formulaContext}
 		>
 			{#if !readonly}
 				{#if listMode === 'active'}
@@ -268,10 +335,10 @@
 								<span class="label-text">Sob</span>
 							</label>
 						{/if}
-						{#if getCardTotalUses(card) !== null}
+						{#if getCardTotalUses(card, formulaContext) !== null}
 							<ReloadControl
-								value={getCurrentUses(card.id)!}
-								max={getCardTotalUses(card)!}
+								value={getEffectiveUses(card.id) ?? 0}
+								max={getCardTotalUses(card, formulaContext)!}
 								onValueChange={(value) => updateCardCurrentUses(card.id, value)}
 								onReload={() => onCardReloadClick(card.id)}
 								reloadDisabled={!canReloadCard(card)}

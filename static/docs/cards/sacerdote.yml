@@ -449,7 +449,7 @@ cards:
     requirements: 'Fe Inspiradora & Instinto 5'
     description: >-
       _Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br>
-      Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+      Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño que realiza la carta.
     uses:
       type: null
       qty: 0

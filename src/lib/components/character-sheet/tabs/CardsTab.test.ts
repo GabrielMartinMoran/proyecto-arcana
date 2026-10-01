@@ -146,6 +146,7 @@ vi.mock('$lib/services/dialog-service.svelte', () => ({
 }));
 
 import { dialogService } from '$lib/services/dialog-service.svelte';
+import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import { generateId } from '$lib/utils/id-generator';
 import CardsTab from './CardsTab.svelte';
 
@@ -684,6 +685,58 @@ describe('CardsTab', () => {
 			);
 			expect(character.ppHistory.length).toBe(0);
 			expect(onChange).not.toHaveBeenCalled();
+		});
+
+		it('FEAT-card-uses-formula @lifecycle — initializes the purchased formula card uses from the computed total', async () => {
+			const formulaCardData = {
+				id: 'ability-formula-1',
+				name: 'Reprensión Infernal',
+				level: 1,
+				tags: ['Linaje'],
+				requirements: null,
+				description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+				uses: { type: 'LONG_REST', qty: 0, formula: 'presencia' },
+				type: 'efecto',
+				cardType: 'ability',
+				img: '',
+			};
+			hoisted.abilityCardsValue.push(formulaCardData);
+			try {
+				const character = buildCharacter();
+				character.attributes.presence = 4;
+				setCurrentPP(character, 10);
+				const onChange = vi.fn();
+
+				render(CardsTab, { props: { character, readonly: false, onChange } });
+
+				const addAbilityButton = screen.getByRole('button', {
+					name: 'Agregar Carta de Habilidad',
+				});
+				await fireEvent.click(addAbilityButton);
+
+				const dialog = await screen.findByRole('dialog');
+				const cardHeading = within(dialog).getByRole('heading', {
+					name: 'Reprensión Infernal',
+				});
+				const cardElement = cardHeading.closest('.card');
+				if (!cardElement) throw new Error('No .card container found for Reprensión Infernal');
+				await fireEvent.click(
+					within(cardElement as HTMLElement).getByRole('button', { name: /Comprar.*3.*PP/ }),
+				);
+
+				await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+				const updatedCharacter = onChange.mock.calls[0][0];
+				const purchased = updatedCharacter.cards.find(
+					(card: { id: string }) => card.id === 'ability-formula-1',
+				);
+				expect(purchased).toMatchObject({ uses: 4, isActive: false });
+			} finally {
+				const index = hoisted.abilityCardsValue.findIndex(
+					(card) => card.id === 'ability-formula-1',
+				);
+				if (index >= 0) hoisted.abilityCardsValue.splice(index, 1);
+			}
 		});
 	});
 
@@ -1378,6 +1431,131 @@ describe('CardsTab', () => {
 			const updated = onChange.mock.calls[0][0].cards;
 			const customChild = updated.find((c: { id: string }) => c.id === 'custom-abc');
 			expect(customChild).toMatchObject({ isActive: false, uses: 2, grantedBy: 'card-1' });
+		});
+
+		it('FEAT-card-uses-formula @lifecycle — restores the computed formula uses of a linked activable child', async () => {
+			const character = buildCharacter();
+			character.attributes.reflexes = 8;
+			character.customCards = [
+				{
+					id: 'custom-golpe',
+					name: 'Golpe Férreo',
+					level: 1,
+					tags: ['Combatiente'],
+					requirements: null,
+					description: 'Golpe con fórmula',
+					uses: { type: 'LONG_REST', qty: 0, formula: 'floor(reflejos/2)' },
+					type: 'activable',
+					cardType: 'ability',
+					img: '',
+				},
+			];
+			character.cards = [
+				{
+					id: 'card-1',
+					uses: 0,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+				},
+				{
+					id: 'custom-golpe',
+					uses: 1,
+					isActive: true,
+					level: 1,
+					cardType: 'ability',
+					isOvercharged: false,
+					grantedBy: 'card-1',
+				},
+			];
+			const onChange = vi.fn();
+
+			render(CardsTab, { props: { character, readonly: false, onChange } });
+
+			await fireEvent.click(await getCardButton('Fire Bolt', 'Desactivar'));
+
+			await waitFor(() => expect(onChange).toHaveBeenCalled());
+
+			const updated = onChange.mock.calls[0][0].cards;
+			const child = updated.find((card: { id: string }) => card.id === 'custom-golpe');
+			expect(child).toMatchObject({ isActive: false, uses: 4 });
+		});
+	});
+
+	describe('formula uses', () => {
+		it('FEAT-card-uses-formula @character-sheet @rendering — shows the computed chip for an owned effect card with a formula in the Disponibles sub-tab', async () => {
+			const character = buildCharacter();
+			character.attributes.presence = 4;
+			const formulaCard = mapAbilityCard({
+				name: 'Reprensión Infernal',
+				level: 1,
+				type: 'efecto',
+				tags: ['Linaje'],
+				description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+				uses: { type: 'LONG_REST', formula: 'presencia' },
+			});
+			character.customCards = [formulaCard];
+			character.cards.push({
+				id: formulaCard.id,
+				uses: 4,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, { props: { character, readonly: false, onChange } });
+
+			expect(await screen.findByText('Usos: 4')).toBeInTheDocument();
+		});
+
+		it('FEAT-card-uses-formula @interaction — spends a formula use from the effect card control and persists the decrement', async () => {
+			const character = buildCharacter();
+			character.attributes.presence = 4;
+			// Keep the active reload card at its computed total so the first
+			// reported change comes from the effect usage control.
+			character.cards[0].uses = 1;
+			const formulaCard = mapAbilityCard({
+				name: 'Reprensión Infernal',
+				level: 1,
+				type: 'efecto',
+				tags: ['Linaje'],
+				description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+				uses: { type: 'LONG_REST', formula: 'presencia' },
+			});
+			character.customCards = [formulaCard];
+			character.cards.push({
+				id: formulaCard.id,
+				uses: 4,
+				isActive: false,
+				level: 1,
+				cardType: 'ability',
+				isOvercharged: false,
+			});
+			const onChange = vi.fn();
+
+			render(CardsTab, { props: { character, readonly: false, onChange } });
+
+			const heading = await screen.findByRole('heading', { name: 'Reprensión Infernal' });
+			const cardElement = heading.closest('.card');
+			if (!cardElement) throw new Error('No .card container found for Reprensión Infernal');
+			const effectCard = cardElement as HTMLElement;
+
+			expect(within(effectCard).getByText('Usos: 4')).toBeInTheDocument();
+			const useButton = within(effectCard).getByRole('button', { name: '✨ Usar' });
+			expect(useButton).not.toBeDisabled();
+
+			await fireEvent.click(useButton);
+
+			// The input reflects the spend immediately and the parent receives
+			// the persisted decrement.
+			expect(within(effectCard).getByDisplayValue('3')).toBeInTheDocument();
+			const updatedCharacter = onChange.mock.calls[onChange.mock.calls.length - 1][0];
+			expect(
+				updatedCharacter.cards.find((card: { id: string }) => card.id === formulaCard.id),
+			).toMatchObject({ uses: 3 });
 		});
 	});
 });

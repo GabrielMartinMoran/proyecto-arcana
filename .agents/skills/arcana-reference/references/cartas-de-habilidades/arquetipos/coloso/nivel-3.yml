@@ -17,3 +17,22 @@ cards:
       Inexpugnable:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Instinto para resistir los estados de
       _Encantado_ o efectos de miedo.<br> - **Impulso Imparable:** Tu Velocidad de movimiento aumenta en **2 metros**.
     slug: ira-del-berserker
+  - id: 7df6fa4a6546cd1c4321fae7abd58c1526f86238
+    name: Bastión Inamovible
+    level: 3
+    type: efecto
+    tags:
+      - Coloso
+    requirements: Sintonía con el Acero & Cuerpo 4
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Clavas los pies al suelo y afirmas todo tu peso como una fortaleza viviente. Derribarte o arrancarte de tu
+      posición requiere una fuerza verdaderamente monstruosa._<br><br> Obtienes los siguientes beneficios:<br> -
+      **Inquebrantable:** Eres inmune al estado Derribado.<br> - **Anclaje Titánico:** Cuando un efecto fuera a moverte
+      contra tu voluntad, reduces la distancia de ese movimiento en una cantidad de metros igual a la mitad de tu
+      puntuación de Cuerpo, redondeando hacia abajo, hasta un mínimo de 0.<br> - **Peso Inamovible:** Obtienes Ventaja
+      (+1d4) en Pruebas de Habilidad de Cuerpo y Tiradas Enfrentadas que realices específicamente para resistir que otra
+      criatura te empuje, arrastre, levante o desplace contra tu voluntad.
+    slug: bastion-inamovible

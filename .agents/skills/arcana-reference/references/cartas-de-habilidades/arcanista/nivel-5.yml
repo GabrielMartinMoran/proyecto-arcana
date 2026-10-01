@@ -28,8 +28,9 @@ cards:
       qty: 0
     description: >-
       _Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto
-      natural._<br><br> Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un
-      sistema de Recarga, puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.
+      natural._<br><br> Al final de tu turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes elegir
+      un conjuro de Arcanista de Nivel 2 o inferior que tengas agotado. Tira 2d8 para su Recarga y utiliza el resultado
+      más alto.
     slug: maestria-arcana
   - id: c66e21de47f990391825dad62eecb51918ad614b
     name: "Palabra de Poder: Aturdir"
@@ -114,18 +115,19 @@ cards:
       type: LONG_REST
       qty: 1
     description: >-
-      _Has aprendido a plegar no solo la distancia, sino las fronteras que separan realidades enteras._<br><br> Como
-      Acción, abres un portal a distancia Inmediata hacia otro plano de existencia. El portal permanece activo durante
-      10 minutos y puede ser atravesado voluntariamente en ambas direcciones mientras permanezca abierto.<br> Para
-      abrirlo necesitas un Ancla Planar vinculada al plano de destino. Un Ancla Planar es un objeto, reliquia,
-      fragmento, Firma Arcana u otro vínculo mágico que posea una conexión auténtica con ese plano.<br> El lugar de
-      llegada depende de la precisión del Ancla Planar:<br> - **Destino Vinculado:** Si el Ancla está vinculada a un
-      lugar concreto del plano, el portal se abre en un espacio viable cercano a ese lugar.<br> - **Círculo de
-      Teletransporte:** Si utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_ permanente o
-      actualmente activo en ese plano, el portal se abre exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el
-      Ancla solo está vinculada al plano en general, el DJ determina un lugar de llegada apropiado relacionado con la
-      naturaleza o procedencia del Ancla.<br> Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en
-      otro plano cuenta por sí misma como un Ancla Planar para este conjuro.<br> Este conjuro no permite atravesar
-      barreras que impidan explícitamente el viaje planar ni alcanzar un plano para el que no poseas un Ancla Planar
-      válida.
+      _Has aprendido a extender la geometría de tus Círculos de Teletransporte más allá de los límites del mundo,
+      plegando no solo la distancia, sino las fronteras que separan realidades enteras._<br><br> Como Acción, trazas
+      sobre una superficie sólida a distancia Inmediata una variante planar de un _Círculo de Teletransporte_, abriendo
+      un portal hacia otro plano de existencia. El portal permanece activo durante 10 minutos y puede ser atravesado
+      voluntariamente en ambas direcciones mientras permanezca abierto.<br> Para establecer la conexión necesitas un
+      _Ancla Planar_ vinculada al plano de destino. Un _Ancla Planar_ puede ser un objeto, reliquia, fragmento, Firma
+      Arcana u otro vínculo mágico que posea una conexión auténtica con ese plano.<br><br> El lugar de llegada depende
+      de la precisión del _Ancla Planar_:<br> - **Destino Vinculado:** Si el Ancla está vinculada a un lugar concreto
+      del plano, el portal se abre en un espacio viable cercano a ese lugar.<br> - **Círculo de Teletransporte:** Si
+      utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_ permanente o actualmente activo en ese
+      plano, el portal se abre exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el Ancla solo está vinculada
+      al plano en general, el DJ determina un lugar de llegada apropiado relacionado con la naturaleza o procedencia del
+      Ancla.<br><br> Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en otro plano cuenta por sí
+      misma como un _Ancla Planar_ para este conjuro.<br> Este conjuro no permite atravesar barreras que impidan
+      explícitamente el viaje planar ni alcanzar un plano para el que no poseas un _Ancla Planar_ válida.
     slug: cambio-de-plano

@@ -30,8 +30,8 @@ cards:
       carta Activable de **Nivel 1 o 2** que no tengas activada pero que poseas
       en tu Colección.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 2
   - name: Líder Nato
     level: 1
     type: efecto
@@ -98,8 +98,8 @@ cards:
       invisible o escondida a 10 metros de ti. Puedes usar esta habilidad un
       número de veces igual a tu puntuación de Mente por día de descanso.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: mente
   - name: Sangre Resistente
     level: 1
     type: efecto
@@ -118,8 +118,8 @@ cards:
       Salvación de Cuerpo para finalizarlo, puedes terminar el efecto sobre ti
       inmediatamente.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
   - name: Acorazado
     level: 1
     type: efecto
@@ -151,8 +151,8 @@ cards:
       superficie a 10 metros de ti. Puedes usar esta habilidad un número de
       veces igual a tu puntuación de Instinto por día de descanso.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: instinto
   - name: Mente Curiosa
     level: 1
     type: efecto
@@ -202,8 +202,8 @@ cards:
       a la ilusión y falla. Puedes usar esta habilidad un número de veces igual
       a tu puntuación de Mente por día de descanso.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: mente
   - name: Afortunado
     level: 1
     type: efecto
@@ -266,12 +266,13 @@ cards:
       te inflige daño, puedes usar tu Reacción para desatar una descarga de
       Fuego, Frío o Electricidad contra ella (elijes el tipo de daño al escoger
       esta carta).<br> El atacante debe superar una Tirada de Salvación de
-      Reflejos (ND 5 + Presencia). Si falla, recibe 1d6 de daño de Fuego. Si
-      tiene éxito, recibe la mitad del daño.<br> Puedes usar esta habilidad un
-      número de veces por día de descanso igual a tu puntuación de Presencia.
+      Reflejos (ND 5 + Presencia). Si falla, recibe 1d6 de daño del tipo
+      elegido. Si tiene éxito, recibe la mitad del daño.<br> Puedes usar esta
+      habilidad un número de veces por día de descanso igual a tu puntuación de
+      Presencia.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: presencia
   - name: Pacto de Sangre
     level: 1
     type: efecto
@@ -318,8 +319,8 @@ cards:
       se retira).<br> - Si el resultado es cualquier otro número, no ocurre nada
       adicional y conservas el Dado de Deuda para tu siguiente tirada.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
   - name: Fortaleza Rocosa
     level: 1
     type: efecto
@@ -422,8 +423,8 @@ cards:
       Puedes usar esta habilidad un número de veces igual a tu puntuación de
       Cuerpo por día de descanso.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: cuerpo
   - name: Naturaleza Anfibia
     level: 1
     type: efecto
@@ -498,8 +499,8 @@ cards:
       Naturaleza Anfibia:** Puedes respirar tanto aire como agua y obtienes una
       velocidad de nado igual a tu Velocidad normal.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: max(1, floor(cuerpo/2))
   - name: Mirada Elemental
     level: 1
     type: efecto
@@ -565,8 +566,8 @@ cards:
       suficientemente grandes para permitir el paso del volumen de agua que
       compone tu cuerpo.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: max(1, floor(reflejos/2))
   - name: Mente Inquebrantable
     level: 1
     type: efecto
@@ -606,8 +607,8 @@ cards:
       puntuación de Mente, redondeando hacia abajo (mínimo 1), por día de
       descanso.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: max(1, floor(mente/2))
   - name: Vínculo Mental
     level: 1
     type: efecto
@@ -694,8 +695,8 @@ cards:
       que la tirada fue exitosa en su lugar, a menos que el fallo haya sido una
       pifia.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
   - name: Vigor
     level: 2
     type: efecto
@@ -842,8 +843,8 @@ cards:
     requirements: Mente 3 | Instinto 3 | Presencia 3
     description: >-
       _Tu adaptación a la magia te permite mantener el control incluso en medio
-      del caos._<br><br> Obtienes un +1 a tus tiradas para mantener la
-      concentración de un conjuro.
+      del caos._<br><br> Obtienes Ventaja (+1d4) en todas tus pruebas para
+      mantener la Concentración.
     uses:
       type: null
       qty: 0
@@ -914,13 +915,13 @@ cards:
     requirements: Mente 3 | Instinto 3 | Presencia 3
     description: >-
       _Fuerzas tu capacidad mágica al límite para superar las defensas
-      enemigas._<br><br> Cuando lanzas una carta de Conjuro que obliga a un
-      enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción
-      para aumentar el Nivel de Dificultad (ND) de esa tirada en +2. Al hacerlo,
-      sufres una sobrecarga mágica hasta el final de tu próximo turno: tienes
-      Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad,
-      incluyendo las realizadas para mantener la Concentración, y el ND de
-      cualquier carta que uses se reduce en -2.
+      enemigas._<br><br> Cuando lanzas una carta de Conjuro que obliga a una o
+      más criaturas a realizar una Tirada de Salvación, puedes usar tu
+      Interacción para aumentar en +2 el ND de la tirada de una de esas
+      criaturas. Al hacerlo, sufres una sobrecarga mágica hasta el final de tu
+      próximo turno: tienes Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas
+      de Habilidad, incluyendo las realizadas para mantener la Concentración, y
+      el ND de cualquier carta que uses se reduce en -2.
     uses:
       type: RELOAD
       qty: 5
@@ -1262,13 +1263,13 @@ cards:
       - Pícaro
     requirements: Alquimia de Combate
     description: >-
-      _Tus venenos no solo matan; paralizan el cuerpo o llenan la mente de un
+      _Tus venenos no solo dañan; paralizan el cuerpo o llenan la mente de un
       terror absoluto, dejando a tus víctimas a tu merced._<br><br> Añades las
       siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 +
       Mente):<br> - **Neurotoxina Paralizante:** En caso de fallo, el objetivo
       queda Inmovilizado hasta el final de tu próximo turno.<br> - **Esencia de
-      Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de
-      tu próximo turno.
+      Terror:** En caso de fallo, el objetivo queda Asustado de ti hasta el
+      final de tu próximo turno.
     uses:
       type: null
       qty: 0
@@ -1312,8 +1313,8 @@ cards:
       dispuesto a escucharte, aunque obtener su ayuda pueda requerir persuasión,
       un favor o el pago adecuado.
     uses:
-      type: null
-      qty: 0
+      type: USES
+      qty: 1
   - name: Paso Veloz
     level: 3
     type: activable
@@ -1361,9 +1362,10 @@ cards:
       Acción, puedes estudiar a una criatura a distancia Larga que no sea
       consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de
       esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes
-      éxito, identificas un punto vital. La próxima vez que impactes a esa
-      criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se
-      maximiza (cada dado cuenta como su valor máximo).
+      éxito, identificas un punto vital.<br> Al usar _Asesinar_ contra el punto
+      vital estudiado, los dados de daño base del arma y de tu _Ataque Furtivo_
+      que normalmente volverías a tirar como parte del golpe crítico también se
+      consideran en su valor máximo.
     uses:
       type: RELOAD
       qty: 5
@@ -1720,12 +1722,11 @@ cards:
     description: >-
       _Tu mirada veterana detecta debilidades en el terreno y en las
       estructuras, encontrando siempre el camino más seguro o el punto más
-      frágil._<br><br> Obtienes Ventaja (+1d4) en las siguientes pruebas de
-      habilidad:<br> - **Instinto (Supervivencia):** Para evitar perderte,
-      encontrar un camino seguro o prever peligros naturales.<br> - **Mente
-      (Investigación):** Para encontrar debilidades estructurales en objetos o
-      fortificaciones (una pared agrietada, el eslabón débil de una cadena,
-      etc.).<br>
+      frágil._<br><br> Obtienes Ventaja (+1d4) en pruebas de Investigación y
+      Supervivencia.<br> Además, cuando superas una prueba para identificar un
+      peligro, una ruta segura o una debilidad estructural, tú y los aliados que
+      puedan seguir tus indicaciones obtienen Ventaja (+1d4) en la primera
+      tirada directamente destinada a aprovechar esa información.
     uses:
       type: null
       qty: 0
@@ -1840,18 +1841,23 @@ cards:
       type: null
       qty: 0
   - name: Bastión Inamovible
-    level: 4
+    level: 3
     type: efecto
     tags:
       - Coloso
-    requirements: Sintonía con el Acero & Cuerpo 5
+    requirements: Sintonía con el Acero & Cuerpo 4
     description: >-
-      _Eres una montaña contra la que se estrellan las olas; nadie puede moverte
-      de tu sitio ni doblegar tu espíritu físico._<br><br> Ganas los siguientes
-      beneficios:<br> - **Inquebrantable:** Eres inmune a ser Derribado o movido
-      contra tu voluntad por criaturas de tu tamaño o inferior.<br> -
-      **Resistencia Titánica:** Obtienes Ventaja (+1d4) en Tiradas de Salvación
-      de Cuerpo.
+      _Clavas los pies al suelo y afirmas todo tu peso como una fortaleza
+      viviente. Derribarte o arrancarte de tu posición requiere una fuerza
+      verdaderamente monstruosa._<br><br> Obtienes los siguientes
+      beneficios:<br> - **Inquebrantable:** Eres inmune al estado Derribado.<br>
+      - **Anclaje Titánico:** Cuando un efecto fuera a moverte contra tu
+      voluntad, reduces la distancia de ese movimiento en una cantidad de metros
+      igual a la mitad de tu puntuación de Cuerpo, redondeando hacia abajo,
+      hasta un mínimo de 0.<br> - **Peso Inamovible:** Obtienes Ventaja (+1d4)
+      en Pruebas de Habilidad de Cuerpo y Tiradas Enfrentadas que realices
+      específicamente para resistir que otra criatura te empuje, arrastre,
+      levante o desplace contra tu voluntad.
     uses:
       type: null
       qty: 0
@@ -1946,8 +1952,8 @@ cards:
       una ráfaga ineludible.<br> Si usas un arma a distancia, eliges un punto a
       distancia Larga. Si usas un arma cuerpo a cuerpo Precisa, el punto eres tú
       mismo.<br> Todas las criaturas a 3 metros del punto elegido deben superar
-      una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño (del mismo tipo
-      que tu arma).
+      una TS de Reflejos (ND 5 + Reflejos) o recibir 3d6 de daño (del mismo tipo
+      que tu arma) en caso de fallo, o la mitad en caso de éxito.
     uses:
       type: RELOAD
       qty: 5
@@ -2440,7 +2446,7 @@ cards:
       _Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo
       el ataque mientras tu voluntad aguante._<br><br> Realizas un ataque de
       conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si
-      impactas, el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el
+      impactas, el objetivo recibe 2d8 de daño de Fuerza y puedes repetir el
       ataque, pero la siguiente tirada de ataque sufre un -1 acumulativo. Puedes
       continuar atacando de esta manera, acumulando un -1 por cada golpe
       adicional, hasta que falles una tirada de ataque o decidas detener la
@@ -2748,10 +2754,10 @@ cards:
     requirements: Afinidad Arcana & Atributo Arcano 6
     description: >-
       _Tu control sobre el flujo de la magia es tan absoluto que reciclar la
-      energía de tus conjuros se vuelve un acto natural._<br><br> Una vez por
-      turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que
-      tenga un sistema de Recarga, puedes tirar 2 veces el dado de recarga para
-      ese conjuro y quedarte con el resultado más alto.
+      energía de tus conjuros se vuelve un acto natural._<br><br> Al final de tu
+      turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes
+      elegir un conjuro de Arcanista de Nivel 2 o inferior que tengas agotado.
+      Tira 2d8 para su Recarga y utiliza el resultado más alto.
     uses:
       type: null
       qty: 0
@@ -2908,8 +2914,8 @@ cards:
       atravesar cualquier abertura por la que pudiera pasar humo o aire, aunque
       no puedes atravesar superficies completamente selladas.<br> - No puedes
       atacar, lanzar conjuros, activar habilidades, manipular objetos ni
-      utilizar equipamiento.<br> - No puedes ser Inmovilizado o Enredado
-      mediante ataduras, presas u obstáculos puramente físicos.
+      utilizar equipamiento.<br> - No puedes ser Inmovilizado mediante ataduras,
+      presas u obstáculos puramente físicos.
     uses:
       type: RELOAD
       qty: 6
@@ -3139,27 +3145,30 @@ cards:
       - Ritual
     requirements: Círculo de Teletransporte & Atributo Arcano 6
     description: >-
-      _Has aprendido a plegar no solo la distancia, sino las fronteras que
-      separan realidades enteras._<br><br> Como Acción, abres un portal a
-      distancia Inmediata hacia otro plano de existencia. El portal permanece
-      activo durante 10 minutos y puede ser atravesado voluntariamente en ambas
-      direcciones mientras permanezca abierto.<br> Para abrirlo necesitas un
-      Ancla Planar vinculada al plano de destino. Un Ancla Planar es un objeto,
+      _Has aprendido a extender la geometría de tus Círculos de Teletransporte
+      más allá de los límites del mundo, plegando no solo la distancia, sino las
+      fronteras que separan realidades enteras._<br><br> Como Acción, trazas
+      sobre una superficie sólida a distancia Inmediata una variante planar de
+      un _Círculo de Teletransporte_, abriendo un portal hacia otro plano de
+      existencia. El portal permanece activo durante 10 minutos y puede ser
+      atravesado voluntariamente en ambas direcciones mientras permanezca
+      abierto.<br> Para establecer la conexión necesitas un _Ancla Planar_
+      vinculada al plano de destino. Un _Ancla Planar_ puede ser un objeto,
       reliquia, fragmento, Firma Arcana u otro vínculo mágico que posea una
-      conexión auténtica con ese plano.<br> El lugar de llegada depende de la
-      precisión del Ancla Planar:<br> - **Destino Vinculado:** Si el Ancla está
-      vinculada a un lugar concreto del plano, el portal se abre en un espacio
-      viable cercano a ese lugar.<br> - **Círculo de Teletransporte:** Si
-      utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_
+      conexión auténtica con ese plano.<br><br> El lugar de llegada depende de
+      la precisión del _Ancla Planar_:<br> - **Destino Vinculado:** Si el Ancla
+      está vinculada a un lugar concreto del plano, el portal se abre en un
+      espacio viable cercano a ese lugar.<br> - **Círculo de Teletransporte:**
+      Si utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_
       permanente o actualmente activo en ese plano, el portal se abre
       exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el Ancla solo
       está vinculada al plano en general, el DJ determina un lugar de llegada
-      apropiado relacionado con la naturaleza o procedencia del Ancla.<br> Una
-      Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en
-      otro plano cuenta por sí misma como un Ancla Planar para este conjuro.<br>
-      Este conjuro no permite atravesar barreras que impidan explícitamente el
-      viaje planar ni alcanzar un plano para el que no poseas un Ancla Planar
-      válida.
+      apropiado relacionado con la naturaleza o procedencia del Ancla.<br><br>
+      Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en
+      otro plano cuenta por sí misma como un _Ancla Planar_ para este
+      conjuro.<br> Este conjuro no permite atravesar barreras que impidan
+      explícitamente el viaje planar ni alcanzar un plano para el que no poseas
+      un _Ancla Planar_ válida.
     uses:
       type: LONG_REST
       qty: 1
@@ -3203,8 +3212,8 @@ cards:
       Colección.<br> Además, el tiempo de lanzamiento de tus conjuros de
       _Ritual_ para conjuros de _Arcanista_ se reduce a la mitad (5 minutos).
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
   - name: Fórmulas de Combate
     level: 2
     type: activable
@@ -3263,9 +3272,11 @@ cards:
       Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el
       inicio de tu próximo turno, ves y oyes a través de sus sentidos (quedando
       tú ciego y sordo a tu propio entorno).<br> - **Canalizador de Conjuros:**
-      Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de
-      ataque de toque o tenga alcance Inmediata, el familiar puede realizar el
-      contacto por ti (usando tu tirada de ataque).<br> - **Batería de
+      Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera tocar a una
+      criatura o tenga alcance Inmediata, puedes hacer que el familiar realice
+      el contacto por ti, siempre que el objetivo se encuentre a distancia
+      Inmediata del familiar. Utilizas normalmente tu Atributo Arcano y
+      cualquier tirada requerida por el conjuro.<br> - **Batería de
       Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar,
       reduciendo sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas
       inmediatamente una carta agotada que poseas cuyo Nivel sea igual o
@@ -3372,7 +3383,8 @@ cards:
       **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a
       distancia Cercana afectado por un efecto mágico. Realizas una prueba de
       Mente contra una ND establecida por el DJ basada en el poder del efecto
-      mágico. Si tienes éxito, el efecto mágico.
+      mágico. Si tienes éxito, el efecto mágico el efecto mágico termina sobre
+      ese objetivo.
     uses:
       type: RELOAD
       qty: 6
@@ -3435,8 +3447,8 @@ cards:
       hacerle una pregunta directa a tu Patrón. El DJ te dará una respuesta
       veraz, aunque frecuentemente críptica o interesada.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
   - name: Escudo de Sombras
     level: 3
     type: activable
@@ -4521,7 +4533,7 @@ cards:
       _Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos
       más simples en manifestaciones de poder abrumador._<br><br> Cuando
       infliges daño con una carta que tenga las etiquetas _Sacerdote_ y
-      _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.
+      _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño que realiza la carta.
     uses:
       type: null
       qty: 0
@@ -5212,22 +5224,25 @@ cards:
       - Conjuro
     requirements: Sintonía Primordial & Instinto 5
     description: >-
-      _Invocas el poder puro del sol o la luna, desatando un rayo cósmico
-      incandescente que purga y quema a quienes se interponen._<br><br>
-      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y
-      2 metros de ancho. Las criaturas en la línea deben superar una TS de
-      Cuerpo (ND 5 + Instinto).<br> Al lanzar el conjuro, eliges el astro:<br> -
-      **Rayo Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan
-      Cegadas hasta el final de tu próximo turno.<br> - **Rayo Lunar:** Inflige
-      6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o
-      inferior que afecte o tenga como fuente al objetivo se ve afectado:<br>
-        - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>
-        - _Conjuros activos_: Los efectos terminan automáticamente.<br>
-      Una criatura que supera la TS, recibe mitad de daño y no se ve afectada
-      por el efecto secundario.
+      _Invocas el poder puro de los astros, desatando un rayo cósmico que purga
+      y altera aquello que toca._<br><br> Proyectas un rayo de energía cósmica
+      en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en
+      la línea deben superar una Tirada de Salvación de Cuerpo (ND 5 +
+      Instinto).<br> Cada criatura que falle recibe 6d6 de daño Radiante y sufre
+      uno de los siguientes efectos, elegido al lanzar el conjuro:<br> - **Rayo
+      Solar:** Queda Cegada hasta el final de tu próximo turno.<br> - **Rayo
+      Lunar:** Eliges un objeto mágico que la criatura lleve o utilice, o un
+      conjuro o efecto mágico activo que la afecte o tenga a esa criatura como
+      fuente. Realizas una Prueba de Instinto contra la ND del efecto mágico. Si
+      el efecto no posee una ND apropiada, el DJ establece una según su poder.
+      Si tienes éxito:<br> &nbsp;&nbsp;&nbsp;&nbsp;- **Objeto Mágico:** Deja de
+      funcionar hasta el final de tu próximo turno.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- **Conjuro o Efecto Mágico:** Termina
+      inmediatamente.<br><br> Una criatura que supere la Tirada de Salvación
+      recibe la mitad del daño y no sufre ningún efecto secundario.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
   - name: Furia de la Tierra
     level: 4
     type: activable
@@ -6225,16 +6240,17 @@ cards:
       type: null
       qty: 0
   - name: Cuerpo Puro
-    level: 3
+    level: 2
     type: efecto
     tags:
       - Monje
-    requirements: Disciplina Monástica & Instinto 4
+    requirements: Disciplina Monástica & Instinto 3
     description: >-
       _Tu disciplina interna ha purificado tu organismo, volviéndote inmune a
-      las ponzoñas y enfermedades que afligen a los mortales._<br><br> Obtienes
-      **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra
-      venenos y enfermedades.<br> Además, eres inmune al estado Envenenado.
+      las ponzoñas y enfermedades que afligen a los mortales._<br><br> Eres
+      inmune al estado Envenenado y a las Enfermedades.<br> Además, tienes
+      Resistencia al daño de Veneno y Ventaja (+1d4) en Tiradas de Salvación de
+      Cuerpo contra venenos, toxinas y efectos similares.
     uses:
       type: null
       qty: 0
@@ -6247,7 +6263,7 @@ cards:
     description: >-
       _Manipulas tu Ki para crear escudos de energía o para entrar en una
       meditación profunda que sana tus heridas._<br><br> Adquieres los
-      siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):**
+      siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 5+):**
       Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en
       Puntos de Salud temporales.<br> - **Meditación Sanadora (Ritual, 1 por día
       de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al
@@ -6485,10 +6501,10 @@ cards:
       _Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre
       de venenos y enfermedades._<br><br> Pasas 10 minutos canalizando tu ki
       purificador en una criatura voluntaria que tocas. Al finalizar, eliminas
-      un efecto de enfermedad o veneno que afecte al objetivo.
+      un efecto de Enfermedad o Veneno que afecte al objetivo.
     uses:
-      type: LONG_REST
-      qty: 1
+      type: null
+      qty: 0
   - name: Centro Inquebrantable
     level: 2
     type: efecto
@@ -6558,12 +6574,12 @@ cards:
     requirements: Disciplina Monástica & Instinto 4
     description: >-
       _Purgas las influencias malignas y las maldiciones con un toque cargado de
-      energía vital pura._<br><br> Como Acción, puedes tocar a una criatura o un
-      objeto para intentar purgar una influencia maligna.<br> - **Criatura:** Si
-      la criatura está bajo el estado `Encantado`, puedes realizar una Tirada
-      Enfrentada de tu Instinto contra el atributo del encantador para romper el
-      efecto.<br> - **Objeto:** Si el objeto está maldito, puedes suprimir sus
-      efectos negativos durante 1 hora.
+      energía vital pura._<br><br> Como Acción, tocas una criatura u objeto
+      afectado por una Maldición, Posesión, Encantamiento u otra influencia
+      mágica o sobrenatural similar. Realizas una Prueba de Instinto contra el
+      atributo de lanzamiento o ND del efecto original; si no posee uno, el DJ
+      establece la ND según su poder. Si tienes éxito, un Encantamiento o
+      Posesión termina. Una Maldición queda suprimida durante 1 hora.
     uses:
       type: RELOAD
       qty: 5
@@ -6590,10 +6606,14 @@ cards:
       - Monje
     requirements: Paso del Viento & Instinto 5
     description: >-
-      _Te desplazas instantáneamente a través del espacio, desapareciendo de un
-      punto para reaparecer en otro en un suspiro._<br><br> Como Interacción, te
-      teletransportas hasta una distancia igual a tu velocidad de movimiento a
-      un espacio desocupado que puedas ver.
+      _Tu dominio del Ki trasciende el movimiento físico. Durante un instante,
+      vacías tu presencia del mundo y reapareces donde tu voluntad ya había
+      decidido estar._<br><br> Como Interacción, te teletransportas a un espacio
+      desocupado que puedas ver a distancia Media.<br> Hasta el final de tu
+      turno, puedes volver a utilizar este poder una vez, sin gastar Acción ni
+      Interacción, para teletransportarte a un espacio desocupado que puedas ver
+      hasta una distancia igual a tu Velocidad.<br> Ambos desplazamientos son
+      teleportaciones y no requieren recorrer el espacio intermedio.
     uses:
       type: RELOAD
       qty: 7
@@ -6672,10 +6692,8 @@ cards:
       contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti
       también se benefician.<br> - **Toque de Combate:** Puedes lanzar Toque
       Restaurador usando tu Interacción en lugar de tu Acción.<br> - **Castigo
-      Imponente:** Cuando activas tu carta Golpe Divino, puedes elegir golpear
-      el espíritu del enemigo en lugar de sus sentidos. Si lo haces, el objetivo
-      debe superar una TS de Instinto (en lugar de Cuerpo). Si falla, queda
-      Asustado hasta el final de tu próximo turno (en lugar de Cegado).
+      Imponente:** Cuando utilizas _Golpe Divino_, no necesitas usar tu
+      Interacción para activarlo.
     uses:
       type: null
       qty: 0
@@ -6699,8 +6717,8 @@ cards:
       veces igual a la mitad de tu Instinto (redondeado hacia abajo) por día de
       descanso.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      formula: floor(instinto/2)
   - name: Maestría de la Hoja Arcana
     level: 4
     type: efecto
@@ -6739,10 +6757,10 @@ cards:
       Sinergia:**<br> - **Piel de Corteza:** Mientras no lleves armadura pesada,
       obtienes un +1 a tu Mitigación Física y Mágica.<br> - **Golpe Enredante:**
       Una vez por turno, cuando impactas a un enemigo con un ataque con arma
-      (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas en el
-      impacto. El objetivo queda Enredado hasta el inicio de tu próximo turno.
-      Mientras esté enredado, sufre 1d4 de daño Perforante por cada 2 metros que
-      se mueva.
+      (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas que se
+      aferran al objetivo y duran hasta el inicio de tu próximo turno. Mientras
+      dure el efecto, el objetivo sufre 1d4 de daño Perforante por cada 2 metros
+      que se mueva.
     uses:
       type: null
       qty: 0
@@ -6780,9 +6798,8 @@ cards:
       Sinergia:**<br> - **Marca del Purgador:** Como Interacción, puedes marcar
       a una criatura impía (Infernal o No-muerta) durante 1 minuto
       (Concentración). Tus ataques con arma contra ella se benefician de Ataque
-      Furtivo (sin condiciones).<br> - **Toque Purificador Sigiloso:** Puedes
-      usar Toque Purificador (si lo tienes) usando tu Interacción en lugar de tu
-      Acción.
+      Furtivo (sin condiciones).<br> - **Sanación Ágil:** Puedes usar _Toque
+      Restaurador_ (si lo tienes) usando tu Interacción en lugar de tu Acción.
     uses:
       type: null
       qty: 0
@@ -6817,11 +6834,12 @@ cards:
     description: >-
       _Entrelazas la perfección de la magia ilusoria con tu indudable destreza
       criminal._<br><br> **Beneficio de Sinergia:**<br> - **Mano de Ladrón
-      Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano
-      de Mago con Ventaja (+1d4), como si fueran tus propias manos.<br> -
-      **Invisibilidad Ininterrumpida:** Cuando lanzas Invisibilidad sobre ti
-      mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía
-      requiere Concentración).
+      Experta:** Aprendes a utilizar _Mano espectral_ aunque no poseas la carta
+      _Trucos Arcanos_. Si ya podías hacerlo, su alcance aumenta un rango.
+      Además, puedes realizar pruebas de Juego de Manos mediante ella, como si
+      fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando
+      lanzas Invisibilidad sobre ti mismo, el conjuro ya no termina si atacas o
+      lanzas otro conjuro. (Todavía requiere Concentración).
     uses:
       type: null
       qty: 0
@@ -6894,11 +6912,15 @@ cards:
     description: >-
       _Encarnas la furia indomable de la naturaleza, llevando la disciplina de
       tus golpes a las formas más salvajes del mundo._<br><br> **Beneficio de
-      Sinergia:**<br> - **Movimiento Primordial:** Puedes usar Paso Ligero y
-      Paso Etéreo (si los tienes) incluso mientras estás en Forma Salvaje.<br> -
-      **Ráfaga Salvaje:** Mientras estás en tu forma de combate de Aspecto
-      Combativo o Maestría Salvaje, puedes usar las cartas Ráfaga de Golpes y
-      Tormenta de Golpes (si las tienes).
+      Sinergia:**<br> - **Disciplina de la Bestia:** Mientras estás en tu forma
+      de combate de _Aspecto Combativo_ o _Maestría Salvaje_, puedes utilizar
+      cartas de Monje Activables que se activen mediante, modifiquen o requieran
+      un ataque desarmado. Tus ataques naturales de _Forma Salvaje_ cuentan como
+      ataques desarmados a estos efectos.<br> - **Flujo Depredador:** Una vez en
+      cada uno de tus turnos, cuando utilices una carta de Monje mientras estés
+      en tu forma de combate de _Aspecto Combativo_ o _Maestría Salvaje_, puedes
+      moverte hasta 3 metros inmediatamente antes o después de resolverla, sin
+      gastar tu Movimiento.
     uses:
       type: null
       qty: 0

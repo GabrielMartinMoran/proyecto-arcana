@@ -7,8 +7,8 @@ cards:
       - Brujo
     requirements: Pacto Supremo & Presencia 3
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
     description: >-
       _Los ojos de tu patrón te permiten ver donde otros están ciegos, y su voz oscura te guía cuando buscas
       respuestas._<br><br> Puedes ver normalmente en oscuridad, incluso si es oscuridad mágica.<br> Además, una vez por

@@ -1,5 +1,7 @@
+import { mapAbilityCard } from '$lib/mappers/card-mapper';
 import type { Card } from '$lib/types/cards/card';
 import type { Character } from '$lib/types/character';
+import type { FormulaContext } from '$lib/utils/modifiers-calculator';
 import { fireEvent, render, screen, waitFor } from '@testing-library/svelte';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -285,6 +287,44 @@ describe('AddCardModal', () => {
 			await waitFor(() => {
 				expect(screen.queryByText('Unavailable Card')).not.toBeInTheDocument();
 			});
+		});
+	});
+
+	describe('formula uses context', () => {
+		const buildContext = (overrides: Partial<FormulaContext> = {}): FormulaContext => ({
+			cuerpo: 1,
+			reflejos: 1,
+			mente: 1,
+			instinto: 1,
+			presencia: 1,
+			ppGastados: 0,
+			...overrides,
+		});
+
+		it('FEAT-card-uses-formula — forwards the formula context to the add-card list', async () => {
+			const formulaCard = mapAbilityCard({
+				name: 'Reprensión Infernal',
+				level: 1,
+				type: 'efecto',
+				tags: ['Linaje'],
+				description: 'La usas un número de veces por día de descanso igual a tu Presencia',
+				uses: { type: 'LONG_REST', formula: 'presencia' },
+			});
+
+			render(AddCardModal, {
+				props: {
+					opened: true,
+					cards: [formulaCard],
+					cardType: 'ability',
+					character: buildCharacter(),
+					onClose,
+					onCardsChange,
+					onPurchaseCard,
+					formulaContext: buildContext({ presencia: 4 }),
+				},
+			});
+
+			expect(await screen.findByText('Usos: 4')).toBeInTheDocument();
 		});
 	});
 });

@@ -348,10 +348,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Solo Creación de Personaje"
+        "requirements": "Solo Creación de Personaje",
+        "uses": "LONG_REST:1"
       },
       "search": "_Tu organismo está adaptado a recorrer enormes distancias y sobrevivir durante largos períodos lejos de cualquier asentamiento._<br><br> Obtienes los siguientes beneficios:<br> - **Aliento Prolongado:** Puedes contener la respiración durante 1 hora.<br> - **Metabolismo Eficiente:** Necesitas consumir solamente la mitad de la comida y el agua que requeriría normalmente una criatura de tu tamaño.<br> - **Orientación Migratoria:** Siempre conoces intuitivamente los puntos cardinales y recuerdas con precisión general el camino que has recorrido, por lo que puedes desandar una ruta recorrida sin perderte por medios naturales. Esto no te permite conocer rutas desconocidas, encontrar automáticamente el camino más seguro ni detectar peligros.<br> - **Resistencia del Viajero:** Una vez por Día de Descanso, cuando falles una Prueba de Cuerpo (Aguante) o una Tirada de Salvación de Cuerpo provocada por una Marcha Forzada, hambre, sed, privación de sueño o una condición ambiental natural, puedes considerar que la tirada fue exitosa en su lugar, a menos que el fallo haya sido una pifia.",
-      "hash": "49e75154c8c51bdd863545e34f83fbb601c26e47"
+      "hash": "58ee5fc4951aa2c4ecc816f08d791e82d9d7930e"
     },
     {
       "kind": "card",
@@ -1062,16 +1063,16 @@
       "tags": [
         "Coloso"
       ],
-      "level": 4,
-      "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-4.yml",
+      "level": 3,
+      "path": "references/cartas-de-habilidades/arquetipos/coloso/nivel-3.yml",
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Sintonía con el Acero & Cuerpo 5"
+        "requirements": "Sintonía con el Acero & Cuerpo 4"
       },
-      "search": "_Eres una montaña contra la que se estrellan las olas; nadie puede moverte de tu sitio ni doblegar tu espíritu físico._<br><br> Ganas los siguientes beneficios:<br> - **Inquebrantable:** Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br> - **Resistencia Titánica:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.",
-      "hash": "b3d1507b5107b4badfe286d5cfa9c98b73a2a1c6"
+      "search": "_Clavas los pies al suelo y afirmas todo tu peso como una fortaleza viviente. Derribarte o arrancarte de tu posición requiere una fuerza verdaderamente monstruosa._<br><br> Obtienes los siguientes beneficios:<br> - **Inquebrantable:** Eres inmune al estado Derribado.<br> - **Anclaje Titánico:** Cuando un efecto fuera a moverte contra tu voluntad, reduces la distancia de ese movimiento en una cantidad de metros igual a la mitad de tu puntuación de Cuerpo, redondeando hacia abajo, hasta un mínimo de 0.<br> - **Peso Inamovible:** Obtienes Ventaja (+1d4) en Pruebas de Habilidad de Cuerpo y Tiradas Enfrentadas que realices específicamente para resistir que otra criatura te empuje, arrastre, levante o desplace contra tu voluntad.",
+      "hash": "4a880a987dccc5a902e9bc8835d945f1663f1707"
     },
     {
       "kind": "card",
@@ -1217,8 +1218,8 @@
         "requirements": "Círculo de Teletransporte & Atributo Arcano 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Has aprendido a plegar no solo la distancia, sino las fronteras que separan realidades enteras._<br><br> Como Acción, abres un portal a distancia Inmediata hacia otro plano de existencia. El portal permanece activo durante 10 minutos y puede ser atravesado voluntariamente en ambas direcciones mientras permanezca abierto.<br> Para abrirlo necesitas un Ancla Planar vinculada al plano de destino. Un Ancla Planar es un objeto, reliquia, fragmento, Firma Arcana u otro vínculo mágico que posea una conexión auténtica con ese plano.<br> El lugar de llegada depende de la precisión del Ancla Planar:<br> - **Destino Vinculado:** Si el Ancla está vinculada a un lugar concreto del plano, el portal se abre en un espacio viable cercano a ese lugar.<br> - **Círculo de Teletransporte:** Si utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_ permanente o actualmente activo en ese plano, el portal se abre exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el Ancla solo está vinculada al plano en general, el DJ determina un lugar de llegada apropiado relacionado con la naturaleza o procedencia del Ancla.<br> Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en otro plano cuenta por sí misma como un Ancla Planar para este conjuro.<br> Este conjuro no permite atravesar barreras que impidan explícitamente el viaje planar ni alcanzar un plano para el que no poseas un Ancla Planar válida.",
-      "hash": "c74f70af839ebf9125e0f1c561eff76774485c5a"
+      "search": "_Has aprendido a extender la geometría de tus Círculos de Teletransporte más allá de los límites del mundo, plegando no solo la distancia, sino las fronteras que separan realidades enteras._<br><br> Como Acción, trazas sobre una superficie sólida a distancia Inmediata una variante planar de un _Círculo de Teletransporte_, abriendo un portal hacia otro plano de existencia. El portal permanece activo durante 10 minutos y puede ser atravesado voluntariamente en ambas direcciones mientras permanezca abierto.<br> Para establecer la conexión necesitas un _Ancla Planar_ vinculada al plano de destino. Un _Ancla Planar_ puede ser un objeto, reliquia, fragmento, Firma Arcana u otro vínculo mágico que posea una conexión auténtica con ese plano.<br><br> El lugar de llegada depende de la precisión del _Ancla Planar_:<br> - **Destino Vinculado:** Si el Ancla está vinculada a un lugar concreto del plano, el portal se abre en un espacio viable cercano a ese lugar.<br> - **Círculo de Teletransporte:** Si utilizas como Ancla la Firma Arcana de un _Círculo de Teletransporte_ permanente o actualmente activo en ese plano, el portal se abre exactamente en dicho círculo.<br> - **Vínculo Planar:** Si el Ancla solo está vinculada al plano en general, el DJ determina un lugar de llegada apropiado relacionado con la naturaleza o procedencia del Ancla.<br><br> Una Firma Arcana perteneciente a un _Círculo de Teletransporte_ situado en otro plano cuenta por sí misma como un _Ancla Planar_ para este conjuro.<br> Este conjuro no permite atravesar barreras que impidan explícitamente el viaje planar ni alcanzar un plano para el que no poseas un _Ancla Planar_ válida.",
+      "hash": "7393dc6ea472be75d9711173381724e2a98baf3c"
     },
     {
       "kind": "card",
@@ -1265,8 +1266,8 @@
         "type": "efecto",
         "requirements": "Maestría Marcial & Fe Inspiradora & Instinto 5"
       },
-      "search": "_Eres el faro de esperanza en el campo de batalla, un guerrero cuya fe es tan afilada como su acero._<br><br> **Beneficio de Sinergia:**<br> - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br> - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br> - **Castigo Imponente:** Cuando activas tu carta Golpe Divino, puedes elegir golpear el espíritu del enemigo en lugar de sus sentidos. Si lo haces, el objetivo debe superar una TS de Instinto (en lugar de Cuerpo). Si falla, queda Asustado hasta el final de tu próximo turno (en lugar de Cegado).",
-      "hash": "400bafafeec532e00cd6c5da721eb612c6afc267"
+      "search": "_Eres el faro de esperanza en el campo de batalla, un guerrero cuya fe es tan afilada como su acero._<br><br> **Beneficio de Sinergia:**<br> - **Presencia Protectora:** Obtienes Ventaja (+1d4) en Tiradas de Salvación contra efectos de miedo y encantamiento. Los aliados a 3 metros de ti también se benefician.<br> - **Toque de Combate:** Puedes lanzar Toque Restaurador usando tu Interacción en lugar de tu Acción.<br> - **Castigo Imponente:** Cuando utilizas _Golpe Divino_, no necesitas usar tu Interacción para activarlo.",
+      "hash": "dc9f1a97a0101538fcc9ab197d9cc965195d0d3a"
     },
     {
       "kind": "card",
@@ -1285,11 +1286,10 @@
       "structured": {
         "cardType": "ability",
         "type": "activable",
-        "requirements": "Disciplina Monástica",
-        "uses": "LONG_REST:1"
+        "requirements": "Disciplina Monástica"
       },
-      "search": "_Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre de venenos y enfermedades._<br><br> Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un efecto de enfermedad o veneno que afecte al objetivo.",
-      "hash": "5f39076a044756e4aeacf6f463b318a61a3ce1db"
+      "search": "_Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre de venenos y enfermedades._<br><br> Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un efecto de Enfermedad o Veneno que afecte al objetivo.",
+      "hash": "a1cdf2f348c53cb65ffbe266fec6e815c22d6663"
     },
     {
       "kind": "card",
@@ -1731,8 +1731,8 @@
         "requirements": "Mente 3 | Instinto 3 | Presencia 3",
         "uses": "RELOAD:5"
       },
-      "search": "_Fuerzas tu capacidad mágica al límite para superar las defensas enemigas._<br><br> Cuando lanzas una carta de Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar el Nivel de Dificultad (ND) de esa tirada en +2. Al hacerlo, sufres una sobrecarga mágica hasta el final de tu próximo turno: tienes Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad, incluyendo las realizadas para mantener la Concentración, y el ND de cualquier carta que uses se reduce en -2.",
-      "hash": "24b7be845c2da719b85c7fa294facf91b41ddb92"
+      "search": "_Fuerzas tu capacidad mágica al límite para superar las defensas enemigas._<br><br> Cuando lanzas una carta de Conjuro que obliga a una o más criaturas a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar en +2 el ND de la tirada de una de esas criaturas. Al hacerlo, sufres una sobrecarga mágica hasta el final de tu próximo turno: tienes Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad, incluyendo las realizadas para mantener la Concentración, y el ND de cualquier carta que uses se reduce en -2.",
+      "hash": "50b144ecc80624816c6604f49e80aba273005d39"
     },
     {
       "kind": "card",
@@ -1935,16 +1935,16 @@
       "tags": [
         "Monje"
       ],
-      "level": 3,
-      "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml",
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Disciplina Monástica & Instinto 4"
+        "requirements": "Disciplina Monástica & Instinto 3"
       },
-      "search": "_Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a los mortales._<br><br> Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra venenos y enfermedades.<br> Además, eres inmune al estado Envenenado.",
-      "hash": "263debaaccc6be069b1c400fb3cff15c0c9e1c3d"
+      "search": "_Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a los mortales._<br><br> Eres inmune al estado Envenenado y a las Enfermedades.<br> Además, tienes Resistencia al daño de Veneno y Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos, toxinas y efectos similares.",
+      "hash": "b1cf16ae64b1045a86f603d5798736528a8f10da"
     },
     {
       "kind": "card",
@@ -2598,10 +2598,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Solo Creación de Personaje"
+        "requirements": "Solo Creación de Personaje",
+        "uses": "LONG_REST:2"
       },
       "search": "_Tu mente es flexible y se adapta rápidamente a nuevos desafíos._<br><br> Adquieres los siguientes beneficios:<br> - Una vez por día de descanso, puedes tomarte 10 minutos para cambiar una de tus cartas activas por otra de tu Colección.<br> - Una vez por día de descanso, puedes utilizar una carta Activable de **Nivel 1 o 2** que no tengas activada pero que poseas en tu Colección.",
-      "hash": "1f0c53a8d709d49a656ea2f3547c3ec03bad7f02"
+      "hash": "ad620572e79d8b35d764cfc4cfd40e0cb57eccf8"
     },
     {
       "kind": "card",
@@ -3018,8 +3019,8 @@
         "type": "activable",
         "requirements": "Estudios Mágicos & Mente 3"
       },
-      "search": "_Invocas a un pequeño espíritu mágico que actúa como tus ojos, oídos y conducto en el mundo físico._<br><br> Tras 1 hora de ritual, invocas un espíritu mágico menor encarnado en el cuerpo de un animal pequeño (cuervo, gato, sapo, etc.).<br> Su Salud es igual a tu puntuación de Mente, y su Esquiva es 10 + tu puntuación de Mente. El familiar no puede atacar.<br> Mientras te encuentres a una distancia Larga o menor del familiar, obtienes los siguientes beneficios:<br> - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br> - **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br> - **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera una tirada de ataque de toque o tenga alcance Inmediata, el familiar puede realizar el contacto por ti (usando tu tirada de ataque).<br> - **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).",
-      "hash": "5360d889c05428286a712d4cd4c349c24f3267bc"
+      "search": "_Invocas a un pequeño espíritu mágico que actúa como tus ojos, oídos y conducto en el mundo físico._<br><br> Tras 1 hora de ritual, invocas un espíritu mágico menor encarnado en el cuerpo de un animal pequeño (cuervo, gato, sapo, etc.).<br> Su Salud es igual a tu puntuación de Mente, y su Esquiva es 10 + tu puntuación de Mente. El familiar no puede atacar.<br> Mientras te encuentres a una distancia Larga o menor del familiar, obtienes los siguientes beneficios:<br> - **Comando a Distancia**: Puedes darle ordenes telepáticamente a tu familiar.<br> - **Vínculo Sensorial:** Como Interacción, puedes trasladar tu consciencia al familiar. Hasta el inicio de tu próximo turno, ves y oyes a través de sus sentidos (quedando tú ciego y sordo a tu propio entorno).<br> - **Canalizador de Conjuros:** Cuando lanzas un _Conjuro_ de _Arcanista_ que requiera tocar a una criatura o tenga alcance Inmediata, puedes hacer que el familiar realice el contacto por ti, siempre que el objetivo se encuentre a distancia Inmediata del familiar. Utilizas normalmente tu Atributo Arcano y cualquier tirada requerida por el conjuro.<br> - **Batería de Emergencia:** Como Interacción, puedes consumir la esencia de tu familiar, reduciendo sus Puntos de Salud a 0 y desvaneciéndolo. Al hacerlo, recargas inmediatamente una carta agotada que poseas cuyo Nivel sea igual o inferior a la mitad de tu puntuación de Mente (redondeado hacia abajo, mínimo Nivel 1).",
+      "hash": "a70699e802969c8f4cd0a28e62abdc5cb54a6cdb"
     },
     {
       "kind": "card",
@@ -3156,8 +3157,8 @@
         "requirements": "Disciplina Monástica",
         "uses": "RELOAD:5"
       },
-      "search": "_Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br> - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.",
-      "hash": "366936a2c8de3470d42b917f389ef272bb540684"
+      "search": "_Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br> Adquieres los siguientes capacidades:<br> - **Escudo de Ki (Interacción, Recarga 5+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br> - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.",
+      "hash": "2139528166bc100083fd85d196c56c0deb0e411a"
     },
     {
       "kind": "card",
@@ -3252,8 +3253,8 @@
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Tu cuerpo pierde su consistencia y se dispersa en una nube de gas tenue que fluye por lugares donde la carne jamás podría pasar._<br><br> Como Acción, transformas tu cuerpo y todo el equipo que lleves en una forma gaseosa durante un máximo de 10 minutos o hasta que pierdas la Concentración.<br> Mientras permanezcas en esta forma:<br> - Puedes volar a una velocidad igual a la mitad de tu Velocidad normal.<br> - Puedes atravesar cualquier abertura por la que pudiera pasar humo o aire, aunque no puedes atravesar superficies completamente selladas.<br> - No puedes atacar, lanzar conjuros, activar habilidades, manipular objetos ni utilizar equipamiento.<br> - No puedes ser Inmovilizado o Enredado mediante ataduras, presas u obstáculos puramente físicos.",
-      "hash": "40fc430e6ba7599c5adae1d641430866e24b99f5"
+      "search": "_Tu cuerpo pierde su consistencia y se dispersa en una nube de gas tenue que fluye por lugares donde la carne jamás podría pasar._<br><br> Como Acción, transformas tu cuerpo y todo el equipo que lleves en una forma gaseosa durante un máximo de 10 minutos o hasta que pierdas la Concentración.<br> Mientras permanezcas en esta forma:<br> - Puedes volar a una velocidad igual a la mitad de tu Velocidad normal.<br> - Puedes atravesar cualquier abertura por la que pudiera pasar humo o aire, aunque no puedes atravesar superficies completamente selladas.<br> - No puedes atacar, lanzar conjuros, activar habilidades, manipular objetos ni utilizar equipamiento.<br> - No puedes ser Inmovilizado mediante ataduras, presas u obstáculos puramente físicos.",
+      "hash": "4daedcbc48eeb4938f044281438abdbb5d3d030d"
     },
     {
       "kind": "card",
@@ -3486,8 +3487,8 @@
         "type": "efecto",
         "requirements": "Disciplina Monástica & Sintonía Primordial & Instinto 5"
       },
-      "search": "_Encarnas la furia indomable de la naturaleza, llevando la disciplina de tus golpes a las formas más salvajes del mundo._<br><br> **Beneficio de Sinergia:**<br> - **Movimiento Primordial:** Puedes usar Paso Ligero y Paso Etéreo (si los tienes) incluso mientras estás en Forma Salvaje.<br> - **Ráfaga Salvaje:** Mientras estás en tu forma de combate de Aspecto Combativo o Maestría Salvaje, puedes usar las cartas Ráfaga de Golpes y Tormenta de Golpes (si las tienes).",
-      "hash": "a1546c9efeb681a362e80a28ff97da97169b7bd5"
+      "search": "_Encarnas la furia indomable de la naturaleza, llevando la disciplina de tus golpes a las formas más salvajes del mundo._<br><br> **Beneficio de Sinergia:**<br> - **Disciplina de la Bestia:** Mientras estás en tu forma de combate de _Aspecto Combativo_ o _Maestría Salvaje_, puedes utilizar cartas de Monje Activables que se activen mediante, modifiquen o requieran un ataque desarmado. Tus ataques naturales de _Forma Salvaje_ cuentan como ataques desarmados a estos efectos.<br> - **Flujo Depredador:** Una vez en cada uno de tus turnos, cuando utilices una carta de Monje mientras estés en tu forma de combate de _Aspecto Combativo_ o _Maestría Salvaje_, puedes moverte hasta 3 metros inmediatamente antes o después de resolverla, sin gastar tu Movimiento.",
+      "hash": "e849da3b6b6f5c77f1decbe399621ca9f303f34b"
     },
     {
       "kind": "card",
@@ -3807,10 +3808,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Estudios Mágicos"
+        "requirements": "Estudios Mágicos",
+        "uses": "LONG_REST:1"
       },
       "search": "_Tu libro de estudio te permite adaptarte a los obstáculos de forma metódica, reorganizando tu mente para cada desafío._<br><br> Una vez por día de descanso, durante un momento de calma, puedes dedicar 10 minutos a estudiar. Al hacerlo, puedes intercambiar hasta dos de tus cartas con las etiquetas _Conjuro_ y _Arcanista_ (ambas) activas por otras de tu Colección.<br> Además, el tiempo de lanzamiento de tus conjuros de _Ritual_ para conjuros de _Arcanista_ se reduce a la mitad (5 minutos).",
-      "hash": "f59418d01d9000208f6d3b7264b53e876b29c2a4"
+      "hash": "4b81e949bcb0281e27f7fed16f6d9bee838628b5"
     },
     {
       "kind": "card",
@@ -3879,10 +3881,10 @@
         "cardType": "ability",
         "type": "activable",
         "requirements": "Sintonía Primordial & Instinto 5",
-        "uses": "RELOAD:6"
+        "uses": "RELOAD:7"
       },
-      "search": "_Invocas el poder puro del sol o la luna, desatando un rayo cósmico incandescente que purga y quema a quienes se interponen._<br><br> Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una TS de Cuerpo (ND 5 + Instinto).<br> Al lanzar el conjuro, eliges el astro:<br> - **Rayo Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan Cegadas hasta el final de tu próximo turno.<br> - **Rayo Lunar:** Inflige 6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o inferior que afecte o tenga como fuente al objetivo se ve afectado:<br>\n  - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>\n  - _Conjuros activos_: Los efectos terminan automáticamente.<br>\nUna criatura que supera la TS, recibe mitad de daño y no se ve afectada por el efecto secundario.",
-      "hash": "2970f5d253d834ff62a518014d6250754a24d972"
+      "search": "_Invocas el poder puro de los astros, desatando un rayo cósmico que purga y altera aquello que toca._<br><br> Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto).<br> Cada criatura que falle recibe 6d6 de daño Radiante y sufre uno de los siguientes efectos, elegido al lanzar el conjuro:<br> - **Rayo Solar:** Queda Cegada hasta el final de tu próximo turno.<br> - **Rayo Lunar:** Eliges un objeto mágico que la criatura lleve o utilice, o un conjuro o efecto mágico activo que la afecte o tenga a esa criatura como fuente. Realizas una Prueba de Instinto contra la ND del efecto mágico. Si el efecto no posee una ND apropiada, el DJ establece una según su poder. Si tienes éxito:<br> &nbsp;&nbsp;&nbsp;&nbsp;- **Objeto Mágico:** Deja de funcionar hasta el final de tu próximo turno.<br> &nbsp;&nbsp;&nbsp;&nbsp;- **Conjuro o Efecto Mágico:** Termina inmediatamente.<br><br> Una criatura que supere la Tirada de Salvación recibe la mitad del daño y no sufre ningún efecto secundario.",
+      "hash": "aa805e7d93d0f443173100cb2abb39d3a763c637"
     },
     {
       "kind": "card",
@@ -4329,8 +4331,8 @@
         "type": "efecto",
         "requirements": "Senda del Bribón & Fe Inspiradora & Instinto 5"
       },
-      "search": "_Combinas el sigilo con la fe para purgar la oscuridad, acechando a los impíos desde las sombras consagradas._<br><br> **Beneficio de Sinergia:**<br> - **Marca del Purgador:** Como Interacción, puedes marcar a una criatura impía (Infernal o No-muerta) durante 1 minuto (Concentración). Tus ataques con arma contra ella se benefician de Ataque Furtivo (sin condiciones).<br> - **Toque Purificador Sigiloso:** Puedes usar Toque Purificador (si lo tienes) usando tu Interacción en lugar de tu Acción.",
-      "hash": "1610ac881d7b636e2653d183926350a57f1b665e"
+      "search": "_Combinas el sigilo con la fe para purgar la oscuridad, acechando a los impíos desde las sombras consagradas._<br><br> **Beneficio de Sinergia:**<br> - **Marca del Purgador:** Como Interacción, puedes marcar a una criatura impía (Infernal o No-muerta) durante 1 minuto (Concentración). Tus ataques con arma contra ella se benefician de Ataque Furtivo (sin condiciones).<br> - **Sanación Ágil:** Puedes usar _Toque Restaurador_ (si lo tienes) usando tu Interacción en lugar de tu Acción.",
+      "hash": "dc1f8336ea2054be9d8fa92027e83725fa5fea2f"
     },
     {
       "kind": "card",
@@ -4495,8 +4497,8 @@
         "requirements": "Disciplina Monástica & Instinto 4",
         "uses": "RELOAD:5"
       },
-      "search": "_Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br> - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br> - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.",
-      "hash": "63a7a103af3216728fe917ee33dac51f9d8715e3"
+      "search": "_Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br> Como Acción, tocas una criatura u objeto afectado por una Maldición, Posesión, Encantamiento u otra influencia mágica o sobrenatural similar. Realizas una Prueba de Instinto contra el atributo de lanzamiento o ND del efecto original; si no posee uno, el DJ establece la ND según su poder. Si tienes éxito, un Encantamiento o Posesión termina. Una Maldición queda suprimida durante 1 hora.",
+      "hash": "780bea391697af53260b119ae9b1bbaa7309817f"
     },
     {
       "kind": "card",
@@ -4612,8 +4614,8 @@
         "type": "efecto",
         "requirements": "Afinidad Arcana & Atributo Arcano 6"
       },
-      "search": "_Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto natural._<br><br> Una vez por turno, cuando lanzas un conjuro de Arcanista de Nivel 2 o inferior que tenga un sistema de Recarga, puedes tirar 2 veces el dado de recarga para ese conjuro y quedarte con el resultado más alto.",
-      "hash": "0ffde39db455dd3343138d5669f4724a93bcced4"
+      "search": "_Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto natural._<br><br> Al final de tu turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes elegir un conjuro de Arcanista de Nivel 2 o inferior que tengas agotado. Tira 2d8 para su Recarga y utiliza el resultado más alto.",
+      "hash": "f4d5c12812619013f071bdb9a21970cb504d959d"
     },
     {
       "kind": "card",
@@ -4728,8 +4730,8 @@
         "type": "efecto",
         "requirements": "Senda del Bribón & Afinidad Arcana & Reflejos 5"
       },
-      "search": "_Entrelazas la perfección de la magia ilusoria con tu indudable destreza criminal._<br><br> **Beneficio de Sinergia:**<br> - **Mano de Ladrón Experta:** Puedes realizar pruebas de Juego de Manos a través de tu Mano de Mago con Ventaja (+1d4), como si fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas Invisibilidad sobre ti mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere Concentración).",
-      "hash": "62fe3df2541c7512468605e19a13c4967336c501"
+      "search": "_Entrelazas la perfección de la magia ilusoria con tu indudable destreza criminal._<br><br> **Beneficio de Sinergia:**<br> - **Mano de Ladrón Experta:** Aprendes a utilizar _Mano espectral_ aunque no poseas la carta _Trucos Arcanos_. Si ya podías hacerlo, su alcance aumenta un rango. Además, puedes realizar pruebas de Juego de Manos mediante ella, como si fueran tus propias manos.<br> - **Invisibilidad Ininterrumpida:** Cuando lanzas Invisibilidad sobre ti mismo, el conjuro ya no termina si atacas o lanzas otro conjuro. (Todavía requiere Concentración).",
+      "hash": "aaa660fe14c57f38fe832497b807af4afd5c16c7"
     },
     {
       "kind": "card",
@@ -4818,8 +4820,8 @@
         "type": "efecto",
         "requirements": "Alquimia de Combate"
       },
-      "search": "_Tus venenos no solo matan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a tu merced._<br><br> Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br> - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br> - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo turno.",
-      "hash": "f4eb1b2421d98ae988924eeed364601d2199305f"
+      "search": "_Tus venenos no solo dañan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a tu merced._<br><br> Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br> - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br> - **Esencia de Terror:** En caso de fallo, el objetivo queda Asustado de ti hasta el final de tu próximo turno.",
+      "hash": "fedaa9bd68d99fb6ee3559373b5aeaeae80b7f10"
     },
     {
       "kind": "card",
@@ -4885,8 +4887,8 @@
         "type": "efecto",
         "requirements": "Mente 3 | Instinto 3 | Presencia 3"
       },
-      "search": "_Tu adaptación a la magia te permite mantener el control incluso en medio del caos._<br><br> Obtienes un +1 a tus tiradas para mantener la concentración de un conjuro.",
-      "hash": "671396fc62cb8a51b9cc7448c4f41007f39523cb"
+      "search": "_Tu adaptación a la magia te permite mantener el control incluso en medio del caos._<br><br> Obtienes Ventaja (+1d4) en todas tus pruebas para mantener la Concentración.",
+      "hash": "b10a62a8752958e0c8cf5f0b87aba61401530db2"
     },
     {
       "kind": "card",
@@ -5468,8 +5470,8 @@
         "type": "efecto",
         "requirements": "Maestría Marcial & Instinto 2"
       },
-      "search": "_Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br> Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br> - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br> - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>",
-      "hash": "13e6ad5a23ff0688feef0136aaa8119402393052"
+      "search": "_Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br> Obtienes Ventaja (+1d4) en pruebas de Investigación y Supervivencia.<br> Además, cuando superas una prueba para identificar un peligro, una ruta segura o una debilidad estructural, tú y los aliados que puedan seguir tus indicaciones obtienen Ventaja (+1d4) en la primera tirada directamente destinada a aprovechar esa información.",
+      "hash": "99b1e45ee702b5a59018b17052aadd11dc2ee3c9"
     },
     {
       "kind": "card",
@@ -5558,10 +5560,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Solo Creación de Personaje"
+        "requirements": "Solo Creación de Personaje",
+        "uses": "LONG_REST:1"
       },
       "search": "_Puedes hacer un pacto con tu propia sangre para forzar el destino cuando más lo necesites._<br><br> Obtienes Visión en la Oscuridad hasta distancia Cercana.<br> Además, una vez por día de descanso, puedes elegir sacar un 8 automático (sin explosión ni obtención de suerte) en el dado de una tirada de ataque, prueba de habilidad o tirada de salvación (puedes decidirlo después de ver el resultado del dado real).<br> Al hacerlo, obtienes un \"Dado de Deuda\" (un d6). Mientras tengas este dado, la próxima vez que debas realizar una tirada de ataque, prueba de habilidad o tirada de salvación, debes lanzar el Dado de Deuda junto con tu tirada normal.<br> - Si el Dado de Deuda resulta en un 1, tu tirada se considera un fallo crítico independientemente de tu resultado, y la deuda se salda (el dado se retira).<br> - Si el resultado es cualquier otro número, no ocurre nada adicional y conservas el Dado de Deuda para tu siguiente tirada.",
-      "hash": "932199536d75ac0e0e941d40530ff569fd53dd35"
+      "hash": "b43f3218872330b6db016aef1dc63698b93d0bb0"
     },
     {
       "kind": "card",
@@ -5871,8 +5874,8 @@
         "requirements": "Paso del Viento & Instinto 5",
         "uses": "RELOAD:7"
       },
-      "search": "_Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un suspiro._<br><br> Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.",
-      "hash": "11db2a744debb038571da0a038784af0b7e999dc"
+      "search": "_Tu dominio del Ki trasciende el movimiento físico. Durante un instante, vacías tu presencia del mundo y reapareces donde tu voluntad ya había decidido estar._<br><br> Como Interacción, te teletransportas a un espacio desocupado que puedas ver a distancia Media.<br> Hasta el final de tu turno, puedes volver a utilizar este poder una vez, sin gastar Acción ni Interacción, para teletransportarte a un espacio desocupado que puedas ver hasta una distancia igual a tu Velocidad.<br> Ambos desplazamientos son teleportaciones y no requieren recorrer el espacio intermedio.",
+      "hash": "abfe716e9859adbf46480792079532af2e78b2f9"
     },
     {
       "kind": "card",
@@ -6215,8 +6218,8 @@
         "type": "efecto",
         "requirements": "Fe Inspiradora & Instinto 5"
       },
-      "search": "_Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño base de la carta.",
-      "hash": "d5ff3e045b06c697adaa4ac1602667de53de9bca"
+      "search": "_Tu fervor alcanza un nuevo límite, convirtiendo tus milagros ofensivos más simples en manifestaciones de poder abrumador._<br><br> Cuando infliges daño con una carta que tenga las etiquetas _Sacerdote_ y _Conjuro_ (ambas) de Nivel 1 o 2, duplicas el daño que realiza la carta.",
+      "hash": "de7a5652f33d0f46e9e73854a6b8e262e64ba87b"
     },
     {
       "kind": "card",
@@ -6423,8 +6426,8 @@
         "requirements": "Asesinar & Instinto 3",
         "uses": "RELOAD:5"
       },
-      "search": "_Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con un solo toque._<br><br> Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital. La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).",
-      "hash": "4fe60b53d8e3df82c222f848f416f4814dc40cb9"
+      "search": "_Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con un solo toque._<br><br> Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.<br> Al usar _Asesinar_ contra el punto vital estudiado, los dados de daño base del arma y de tu _Ataque Furtivo_ que normalmente volverías a tirar como parte del golpe crítico también se consideran en su valor máximo.",
+      "hash": "ac35ac4c98b147e43130ce9ccc985d2b512eb62f"
     },
     {
       "kind": "card",
@@ -6447,8 +6450,8 @@
         "requirements": "Afinidad Arcana & Atributo Arcano 4",
         "uses": "RELOAD:5"
       },
-      "search": "_Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si impactas, el objetivo recibe 1d10 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o decidas detener la ráfaga.",
-      "hash": "f5c6676be13f7d0ac1afbe9a21a35b0dde738a2e"
+      "search": "_Lanzas proyectiles de fuerza pura en una secuencia frenética, manteniendo el ataque mientras tu voluntad aguante._<br><br> Realizas un ataque de conjuro a distancia (1d8e + Atributo Arcano) contra un objetivo. Si impactas, el objetivo recibe 2d8 de daño de Fuerza y puedes repetir el ataque, pero la siguiente tirada de ataque sufre un -1 acumulativo. Puedes continuar atacando de esta manera, acumulando un -1 por cada golpe adicional, hasta que falles una tirada de ataque o decidas detener la ráfaga.",
+      "hash": "022e0d8a73161ff4d459d96b728704448a5cb0b8"
     },
     {
       "kind": "card",
@@ -6659,8 +6662,8 @@
         "type": "efecto",
         "requirements": "Solo Creación de Personaje"
       },
-      "search": "_Tu sangre infernal responde al dolor con una reprimenda infernal._<br><br> Cuando una criatura que puedas ver a distancia Cercana te inflige daño, puedes usar tu Reacción para desatar una descarga de Fuego, Frío o Electricidad contra ella (elijes el tipo de daño al escoger esta carta).<br> El atacante debe superar una Tirada de Salvación de Reflejos (ND 5 + Presencia). Si falla, recibe 1d6 de daño de Fuego. Si tiene éxito, recibe la mitad del daño.<br> Puedes usar esta habilidad un número de veces por día de descanso igual a tu puntuación de Presencia.",
-      "hash": "de2c180a18e910fc10fb3030bdb5cd312d2400ae"
+      "search": "_Tu sangre infernal responde al dolor con una reprimenda infernal._<br><br> Cuando una criatura que puedas ver a distancia Cercana te inflige daño, puedes usar tu Reacción para desatar una descarga de Fuego, Frío o Electricidad contra ella (elijes el tipo de daño al escoger esta carta).<br> El atacante debe superar una Tirada de Salvación de Reflejos (ND 5 + Presencia). Si falla, recibe 1d6 de daño del tipo elegido. Si tiene éxito, recibe la mitad del daño.<br> Puedes usar esta habilidad un número de veces por día de descanso igual a tu puntuación de Presencia.",
+      "hash": "75f6436f997f94391a3818b0f3727bde96f116e9"
     },
     {
       "kind": "card",
@@ -6924,8 +6927,8 @@
         "requirements": "Estudios Mágicos & Mente 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los existentes._<br><br> Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Mente contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una prueba de Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico.",
-      "hash": "ef6a6f397da1569a6b0a4be2d18c26ff9e0ea6a4"
+      "search": "_Desentrañas y rompes los hilos de la magia enemiga, anulando sus efectos antes de que te alcancen o disipando los existentes._<br><br> Al lanzar este conjuro, puedes elegir su modo de funcionamiento:<br> - **Contraconjurar:** Como Reacción cuando ves a una criatura lanzar un conjuro, realizas una Tirada Enfrentada de tu Mente contra el atributo de lanzamiento del conjurador. Si ganas, su conjuro falla y se disipa.<br> - **Disipar:** Como Acción o Ritual, eliges una criatura u objeto a distancia Cercana afectado por un efecto mágico. Realizas una prueba de Mente contra una ND establecida por el DJ basada en el poder del efecto mágico. Si tienes éxito, el efecto mágico el efecto mágico termina sobre ese objetivo.",
+      "hash": "2f6d76857a03be3a356ca86324cb77605a9769f0"
     },
     {
       "kind": "card",
@@ -7082,10 +7085,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Solo Creación de Personaje"
+        "requirements": "Solo Creación de Personaje",
+        "uses": "LONG_REST:1"
       },
       "search": "_Tu herencia te otorga una constitución inquebrantable. Tu sangre purga las toxinas con facilidad y tu capacidad para sobreponerte al dolor físico es legendaria._<br><br> Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos y enfermedades.<br> Además, tu capacidad para sobreponerte al dolor es legendaria. Una vez por día de descanso, al final de tu turno, si estás bajo un efecto causado por una Tirada de Salvación de Cuerpo fallida, y dicho efecto permita realizar otra Tirada de Salvación de Cuerpo para finalizarlo, puedes terminar el efecto sobre ti inmediatamente.",
-      "hash": "23fa9917ec0652f6b173d0e4cfdf00cb21ea586d"
+      "hash": "8eccdd9f201cf94e40a11609b6a9f0c169e04c86"
     },
     {
       "kind": "card",
@@ -7298,10 +7302,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Senda del Bribón & Presencia 2"
+        "requirements": "Senda del Bribón & Presencia 2",
+        "uses": "USES:1"
       },
       "search": "_Conoces cada callejón, cada informante y cada código secreto; en la ciudad, las sombras te susurran sus verdades._<br><br> Obtienes Ventaja (+1d4) en pruebas de Presencia para obtener información en entornos urbanos y en pruebas de Instinto para no perderte o encontrar pasajes ocultos en una ciudad.<br> Además, una vez por sesión, puedes declarar que \"conoces a alguien\" relevante en la localidad actual. Gasta 2 Puntos de Suerte y define el perfil de tu contacto (siempre de reputación dudosa o del hampa: un informante, un falsificador, un contrabandista, etc.). El DJ te revela cómo y dónde podrías encontrar a esa persona, creando una nueva pista o un mini-objetivo para el grupo. El contacto estará, como mínimo, dispuesto a escucharte, aunque obtener su ayuda pueda requerir persuasión, un favor o el pago adecuado.",
-      "hash": "5d1859b4691af2895ea454e12579b86f29239c0a"
+      "hash": "15503c98b0454428e7dbf7063c21df263e26b543"
     },
     {
       "kind": "card",
@@ -7324,8 +7329,8 @@
         "type": "efecto",
         "requirements": "Maestría Marcial & Sintonía Primordial & Instinto 5"
       },
-      "search": "_Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero, convirtiéndote en el guardián de los bosques._<br><br> **Beneficio de Sinergia:**<br> - **Piel de Corteza:** Mientras no lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br> - **Golpe Enredante:** Una vez por turno, cuando impactas a un enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas en el impacto. El objetivo queda Enredado hasta el inicio de tu próximo turno. Mientras esté enredado, sufre 1d4 de daño Perforante por cada 2 metros que se mueva.",
-      "hash": "624499516dd2eaa053b5865344e461052e653f59"
+      "search": "_Tu conexión con la naturaleza salvaje fortalece tu espíritu guerrero, convirtiéndote en el guardián de los bosques._<br><br> **Beneficio de Sinergia:**<br> - **Piel de Corteza:** Mientras no lleves armadura pesada, obtienes un +1 a tu Mitigación Física y Mágica.<br> - **Golpe Enredante:** Una vez por turno, cuando impactas a un enemigo con un ataque con arma (cuerpo a cuerpo o a distancia), puedes hacer que broten espinas que se aferran al objetivo y duran hasta el inicio de tu próximo turno. Mientras dure el efecto, el objetivo sufre 1d4 de daño Perforante por cada 2 metros que se mueva.",
+      "hash": "fed97578545d5220ba5e7e4a93f8a272d56c8527"
     },
     {
       "kind": "card",
@@ -7788,8 +7793,8 @@
         "requirements": "Precisión Letal & Reflejos 4",
         "uses": "RELOAD:5"
       },
-      "search": "_Te conviertes en un ciclón de filos que barre todo lo que te rodea, dejando un rastro de destrucción a tu paso._<br><br> Como Acción, desatas una ráfaga ineludible.<br> Si usas un arma a distancia, eliges un punto a distancia Larga. Si usas un arma cuerpo a cuerpo Precisa, el punto eres tú mismo.<br> Todas las criaturas a 3 metros del punto elegido deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 2d6 de daño (del mismo tipo que tu arma).",
-      "hash": "7968c0840fb08b62692415e888810a65440ac84e"
+      "search": "_Te conviertes en un ciclón de filos que barre todo lo que te rodea, dejando un rastro de destrucción a tu paso._<br><br> Como Acción, desatas una ráfaga ineludible.<br> Si usas un arma a distancia, eliges un punto a distancia Larga. Si usas un arma cuerpo a cuerpo Precisa, el punto eres tú mismo.<br> Todas las criaturas a 3 metros del punto elegido deben superar una TS de Reflejos (ND 5 + Reflejos) o recibir 3d6 de daño (del mismo tipo que tu arma) en caso de fallo, o la mitad en caso de éxito.",
+      "hash": "7d17b9cd2b3b1b1f2a9a9be3347097a2cbaa3879"
     },
     {
       "kind": "card",
@@ -8281,10 +8286,11 @@
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Pacto Supremo & Presencia 3"
+        "requirements": "Pacto Supremo & Presencia 3",
+        "uses": "LONG_REST:1"
       },
       "search": "_Los ojos de tu patrón te permiten ver donde otros están ciegos, y su voz oscura te guía cuando buscas respuestas._<br><br> Puedes ver normalmente en oscuridad, incluso si es oscuridad mágica.<br> Además, una vez por día de descanso, puedes gastar 1 Punto de Suerte y tomarte 1 minuto para hacerle una pregunta directa a tu Patrón. El DJ te dará una respuesta veraz, aunque frecuentemente críptica o interesada.",
-      "hash": "b23462582d94ede8df9addea5e150773a8b31f24"
+      "hash": "65fa5e2310980887e07f9fea76f813f7ad407978"
     },
     {
       "kind": "card",
@@ -11364,10 +11370,11 @@
       "structured": {
         "cardType": "item",
         "type": "efecto",
+        "uses": "DAY:3",
         "cost": "800"
       },
       "search": "Este objeto consiste en un par de gemas de aguamarina idénticas. Cada gema posee 3 cargas en total, que se recuperan cada día al amanecer. Mientras sostienes una gema, puedes usar tu Acción y gastar 1 carga para enviar un mensaje telepático de hasta 25 palabras al portador de la otra gema. El receptor oye el mensaje en su mente y puede usar su propia Acción para responder con un mensaje de la misma longitud, sin gastar una carga, siempre que ambos estén en el mismo plano de existencia.",
-      "hash": "4fe1407b70f1cc0fc666057d804deffe1a75a22a"
+      "hash": "4dbf2547dd430e81adeb1ceeeeb785cd68fb040d"
     },
     {
       "kind": "item",
