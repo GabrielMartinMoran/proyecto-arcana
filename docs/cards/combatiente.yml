@@ -212,9 +212,8 @@ cards:
     requirements: 'Maestría Marcial & Instinto 2'
     description: >-
       _Tu mirada veterana detecta debilidades en el terreno y en las estructuras, encontrando siempre el camino más seguro o el punto más frágil._<br><br>
-      Obtienes Ventaja (+1d4) en las siguientes pruebas de habilidad:<br>
-      - **Instinto (Supervivencia):** Para evitar perderte, encontrar un camino seguro o prever peligros naturales.<br>
-      - **Mente (Investigación):** Para encontrar debilidades estructurales en objetos o fortificaciones (una pared agrietada, el eslabón débil de una cadena, etc.).<br>
+      Obtienes Ventaja (+1d4) en pruebas de Investigación y Supervivencia.<br>
+      Además, cuando superas una prueba para identificar un peligro, una ruta segura o una debilidad estructural, tú y los aliados que puedan seguir tus indicaciones obtienen Ventaja (+1d4) en la primera tirada directamente destinada a aprovechar esa información.
     uses:
       type: null
       qty: 0

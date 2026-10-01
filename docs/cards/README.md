@@ -25,7 +25,7 @@ etiqueta en la fuente original, por ejemplo: `linaje.yml`, `dote.yml`,
 ## Declaración de cartas
 
 Todas las cartas se declaran bajo la clave `cards`, dentro de un arreglo.
-Una carta usa exactamente estos siete campos:
+Una carta declara estos campos:
 
 | Campo          | Requerido | Descripción                                                                                  |
 | -------------- | --------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------- |
@@ -35,7 +35,7 @@ Una carta usa exactamente estos siete campos:
 | `tags`         | Sí        | Lista de etiquetas para categorizar. La primera etiqueta agrupa la carta y define su imagen. |
 | `requirements` | No        | Lógica booleana con `&` (AND), `                                                             | `(OR) y`()`; puede omitirse o ser `null`. Ejemplo: `"(Cuerpo 2 & Mente 1) | (Instinto 3)"`. |
 | `description`  | Sí        | Descripción detallada. Usa `>-` para bloques de texto.                                       |
-| `uses`         | Sí        | Definición de usos y cargas con `type` y `qty`.                                              |
+| `uses`         | No        | Definición opcional de usos y cargas con `type`, `qty` y `formula`.                          |
 
 ### Formato por campo
 
@@ -57,12 +57,45 @@ Una carta usa exactamente estos siete campos:
   - Usa `**Negrita**` solo para nombres al inicio de viñetas.
   - Usa `_Cursiva_` para referencias a nombres de otras cartas o
     etiquetas.
-- `uses` define los usos de la carta:
-  - `type: null` — en cartas `efecto` o con usos ilimitados.
-  - `type: RELOAD` — se recarga al inicio del encuentro; `qty` es el
-    valor mínimo que hay que sacar para la recarga.
-  - `type: LONG_REST` — se recarga tras un día de descanso.
-  - `qty: 0` — cuando `type` es `efecto` o el uso es ilimitado.
+- `uses` es opcional: una carta sin este campo o con `null` no tiene usos
+  limitados. Define los usos de la carta:
+  - `type` — `null` (cartas `efecto` o usos ilimitados), `RELOAD` (se
+    recarga al inicio del encuentro; `qty` es el valor mínimo que hay que
+    sacar para la recarga), `USES`, `LONG_REST` (se recarga tras un día de
+    descanso) o `DAY`.
+  - `qty` — cantidad de usos. Es opcional y su valor por defecto es `0`.
+  - `formula` — fórmula opcional que calcula los usos totales. Si existe,
+    tiene prioridad sobre `qty`.
+
+### Fórmulas de usos
+
+`uses.formula` calcula los usos totales de la carta a partir de los
+atributos del personaje, con el mismo evaluador que usa la hoja de
+personaje. La fórmula puede usar los atributos `cuerpo`, `reflejos`,
+`mente`, `instinto`, `presencia` y `ppGastados`, además de `floor`, `ceil`,
+`round`, `max`, `min` y el objeto `Math`.
+
+Si la fórmula existe, tiene prioridad sobre `qty`. Si no compila o no
+evalúa a un número finito, la carta da 0 usos en tiempo de ejecución. La
+suite de tests recorre el corpus y evalúa todas las fórmulas declaradas
+con un contexto de atributos de muestra.
+
+Ejemplos:
+
+```yaml
+uses:
+  type: LONG_REST
+  formula: presencia
+```
+
+```yaml
+uses:
+  type: LONG_REST
+  formula: max(1, floor(reflejos/2))
+```
+
+La primera fórmula es la de _Reprensión Infernal_ y la segunda, la de
+_Movilidad Elemental_.
 
 ### Ejemplo
 

@@ -410,17 +410,17 @@ cards:
       - Conjuro
     requirements: 'Sintonía Primordial & Instinto 5'
     description: >-
-      _Invocas el poder puro del sol o la luna, desatando un rayo cósmico incandescente que purga y quema a quienes se interponen._<br><br>
-      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una TS de Cuerpo (ND 5 + Instinto).<br>
-      Al lanzar el conjuro, eliges el astro:<br>
-      - **Rayo Solar:** Inflige 6d6 de daño Radiante y las criaturas quedan Cegadas hasta el final de tu próximo turno.<br>
-      - **Rayo Lunar:** Inflige 6d6 de daño de Frío y cualquier objeto mágico o conjuro activo Nivel 3 o inferior que afecte o tenga como fuente al objetivo se ve afectado:<br>
-        - _Objetos mágicos_: Dejan de funcionar hasta el final de tu proximo turno.<br>
-        - _Conjuros activos_: Los efectos terminan automáticamente.<br>
-      Una criatura que supera la TS, recibe mitad de daño y no se ve afectada por el efecto secundario.
+      _Invocas el poder puro de los astros, desatando un rayo cósmico que purga y altera aquello que toca._<br><br>
+      Proyectas un rayo de energía cósmica en una línea de 15 metros de largo y 2 metros de ancho. Las criaturas en la línea deben superar una Tirada de Salvación de Cuerpo (ND 5 + Instinto).<br>
+      Cada criatura que falle recibe 6d6 de daño Radiante y sufre uno de los siguientes efectos, elegido al lanzar el conjuro:<br>
+      - **Rayo Solar:** Queda Cegada hasta el final de tu próximo turno.<br>
+      - **Rayo Lunar:** Eliges un objeto mágico que la criatura lleve o utilice, o un conjuro o efecto mágico activo que la afecte o tenga a esa criatura como fuente. Realizas una Prueba de Instinto contra la ND del efecto mágico. Si el efecto no posee una ND apropiada, el DJ establece una según su poder. Si tienes éxito:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- **Objeto Mágico:** Deja de funcionar hasta el final de tu próximo turno.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;- **Conjuro o Efecto Mágico:** Termina inmediatamente.<br><br>
+      Una criatura que supere la Tirada de Salvación recibe la mitad del daño y no sufre ningún efecto secundario.
     uses:
       type: RELOAD
-      qty: 6
+      qty: 7
 
   - name: Furia de la Tierra
     level: 4

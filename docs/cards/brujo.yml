@@ -46,8 +46,8 @@ cards:
       Puedes ver normalmente en oscuridad, incluso si es oscuridad mágica.<br>
       Además, una vez por día de descanso, puedes gastar 1 Punto de Suerte y tomarte 1 minuto para hacerle una pregunta directa a tu Patrón. El DJ te dará una respuesta veraz, aunque frecuentemente críptica o interesada.
     uses:
-      type: null
-      qty: 0
+      type: LONG_REST
+      qty: 1
   - name: 'Escudo de Sombras'
     level: 3
     type: activable

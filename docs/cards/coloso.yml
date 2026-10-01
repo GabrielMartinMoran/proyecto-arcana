@@ -86,16 +86,17 @@ cards:
       type: null
       qty: 0
   - name: Bastión Inamovible
-    level: 4
+    level: 3
     type: efecto
     tags:
       - Coloso
-    requirements: 'Sintonía con el Acero & Cuerpo 5'
+    requirements: 'Sintonía con el Acero & Cuerpo 4'
     description: >-
-      _Eres una montaña contra la que se estrellan las olas; nadie puede moverte de tu sitio ni doblegar tu espíritu físico._<br><br>
-      Ganas los siguientes beneficios:<br>
-      - **Inquebrantable:** Eres inmune a ser Derribado o movido contra tu voluntad por criaturas de tu tamaño o inferior.<br>
-      - **Resistencia Titánica:** Obtienes Ventaja (+1d4) en Tiradas de Salvación de Cuerpo.
+      _Clavas los pies al suelo y afirmas todo tu peso como una fortaleza viviente. Derribarte o arrancarte de tu posición requiere una fuerza verdaderamente monstruosa._<br><br>
+      Obtienes los siguientes beneficios:<br>
+      - **Inquebrantable:** Eres inmune al estado Derribado.<br>
+      - **Anclaje Titánico:** Cuando un efecto fuera a moverte contra tu voluntad, reduces la distancia de ese movimiento en una cantidad de metros igual a la mitad de tu puntuación de Cuerpo, redondeando hacia abajo, hasta un mínimo de 0.<br>
+      - **Peso Inamovible:** Obtienes Ventaja (+1d4) en Pruebas de Habilidad de Cuerpo y Tiradas Enfrentadas que realices específicamente para resistir que otra criatura te empuje, arrastre, levante o desplace contra tu voluntad.
     uses:
       type: null
       qty: 0

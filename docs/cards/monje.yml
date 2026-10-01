@@ -137,15 +137,15 @@ cards:
       type: null
       qty: 0
   - name: Cuerpo Puro
-    level: 3
+    level: 2
     type: efecto
     tags:
       - Monje
-    requirements: 'Disciplina Monástica & Instinto 4'
+    requirements: 'Disciplina Monástica & Instinto 3'
     description: >-
       _Tu disciplina interna ha purificado tu organismo, volviéndote inmune a las ponzoñas y enfermedades que afligen a los mortales._<br><br>
-      Obtienes **Ventaja (+1d4)** en todas las Tiradas de Salvación de Cuerpo contra venenos y enfermedades.<br>
-      Además, eres inmune al estado Envenenado.
+      Eres inmune al estado Envenenado y a las Enfermedades.<br>
+      Además, tienes Resistencia al daño de Veneno y Ventaja (+1d4) en Tiradas de Salvación de Cuerpo contra venenos, toxinas y efectos similares.
     uses:
       type: null
       qty: 0
@@ -158,7 +158,7 @@ cards:
     description: >-
       _Manipulas tu Ki para crear escudos de energía o para entrar en una meditación profunda que sana tus heridas._<br><br>
       Adquieres los siguientes capacidades:<br>
-      - **Escudo de Ki (Interacción, Recarga 6+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br>
+      - **Escudo de Ki (Interacción, Recarga 5+):** Centras tu energía en una barrera protectora. Ganas 1d4 + tu Instinto en Puntos de Salud temporales.<br>
       - **Meditación Sanadora (Ritual, 1 por día de descanso):** Pasas 10 minutos en una meditación ininterrumpida. Al finalizar, recuperas una cantidad de Puntos de Salud igual a 1d6 + tu Instinto.
     uses:
       type: RELOAD
@@ -349,10 +349,10 @@ cards:
     requirements: Disciplina Monástica
     description: >-
       _Dedicas tiempo a purgar las impurezas de tus aliados, limpiando su sangre de venenos y enfermedades._<br><br>
-      Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un efecto de enfermedad o veneno que afecte al objetivo.
+      Pasas 10 minutos canalizando tu ki purificador en una criatura voluntaria que tocas. Al finalizar, eliminas un efecto de Enfermedad o Veneno que afecte al objetivo.
     uses:
-      type: LONG_REST
-      qty: 1
+      type: null
+      qty: 0
   - name: Centro Inquebrantable
     level: 2
     type: efecto
@@ -418,9 +418,8 @@ cards:
     requirements: 'Disciplina Monástica & Instinto 4'
     description: >-
       _Purgas las influencias malignas y las maldiciones con un toque cargado de energía vital pura._<br><br>
-      Como Acción, puedes tocar a una criatura o un objeto para intentar purgar una influencia maligna.<br>
-      - **Criatura:** Si la criatura está bajo el estado `Encantado`, puedes realizar una Tirada Enfrentada de tu Instinto contra el atributo del encantador para romper el efecto.<br>
-      - **Objeto:** Si el objeto está maldito, puedes suprimir sus efectos negativos durante 1 hora.
+      Como Acción, tocas una criatura u objeto afectado por una Maldición, Posesión, Encantamiento u otra influencia mágica o sobrenatural similar. Realizas una Prueba de Instinto contra el atributo de lanzamiento o ND del efecto original; si no posee uno, el DJ establece la ND según su poder.
+      Si tienes éxito, un Encantamiento o Posesión termina. Una Maldición queda suprimida durante 1 hora.
     uses:
       type: RELOAD
       qty: 5
@@ -444,8 +443,10 @@ cards:
       - Monje
     requirements: 'Paso del Viento & Instinto 5'
     description: >-
-      _Te desplazas instantáneamente a través del espacio, desapareciendo de un punto para reaparecer en otro en un suspiro._<br><br>
-      Como Interacción, te teletransportas hasta una distancia igual a tu velocidad de movimiento a un espacio desocupado que puedas ver.
+      _Tu dominio del Ki trasciende el movimiento físico. Durante un instante, vacías tu presencia del mundo y reapareces donde tu voluntad ya había decidido estar._<br><br>
+      Como Interacción, te teletransportas a un espacio desocupado que puedas ver a distancia Media.<br>
+      Hasta el final de tu turno, puedes volver a utilizar este poder una vez, sin gastar Acción ni Interacción, para teletransportarte a un espacio desocupado que puedas ver hasta una distancia igual a tu Velocidad.<br>
+      Ambos desplazamientos son teleportaciones y no requieren recorrer el espacio intermedio.
     uses:
       type: RELOAD
       qty: 7

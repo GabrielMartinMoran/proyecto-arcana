@@ -122,7 +122,7 @@ cards:
     requirements: 'Mente 3 | Instinto 3 | Presencia 3'
     description: >-
       _Tu adaptación a la magia te permite mantener el control incluso en medio del caos._<br><br>
-      Obtienes un +1 a tus tiradas para mantener la concentración de un conjuro.
+      Obtienes Ventaja (+1d4) en todas tus pruebas para mantener la Concentración.
     uses:
       type: null
       qty: 0
@@ -184,7 +184,7 @@ cards:
     requirements: 'Mente 3 | Instinto 3 | Presencia 3'
     description: >-
       _Fuerzas tu capacidad mágica al límite para superar las defensas enemigas._<br><br>
-      Cuando lanzas una carta de Conjuro que obliga a un enemigo a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar el Nivel de Dificultad (ND) de esa tirada en +2. Al hacerlo, sufres una sobrecarga mágica hasta el final de tu próximo turno: tienes Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad, incluyendo las realizadas para mantener la Concentración, y el ND de cualquier carta que uses se reduce en -2.
+      Cuando lanzas una carta de Conjuro que obliga a una o más criaturas a realizar una Tirada de Salvación, puedes usar tu Interacción para aumentar en +2 el ND de la tirada de una de esas criaturas. Al hacerlo, sufres una sobrecarga mágica hasta el final de tu próximo turno: tienes Desventaja (-1d4) en tus Tiradas de Ataque y Pruebas de Habilidad, incluyendo las realizadas para mantener la Concentración, y el ND de cualquier carta que uses se reduce en -2.
     uses:
       type: RELOAD
       qty: 5

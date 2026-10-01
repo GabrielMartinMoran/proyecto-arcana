@@ -193,10 +193,10 @@ cards:
       - Pícaro
     requirements: Alquimia de Combate
     description: >-
-      _Tus venenos no solo matan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a tu merced._<br><br>
+      _Tus venenos no solo dañan; paralizan el cuerpo o llenan la mente de un terror absoluto, dejando a tus víctimas a tu merced._<br><br>
       Añades las siguientes opciones a tu _Alquimia de Combate_ (TS de Cuerpo ND 5 + Mente):<br>
       - **Neurotoxina Paralizante:** En caso de fallo, el objetivo queda Inmovilizado hasta el final de tu próximo turno.<br>
-      - **Esencia de Terror:** En caso de fallo, el objetivo queda Aturdido hasta el final de tu próximo turno.
+      - **Esencia de Terror:** En caso de fallo, el objetivo queda Asustado de ti hasta el final de tu próximo turno.
     uses:
       type: null
       qty: 0
@@ -230,8 +230,8 @@ cards:
       El DJ te revela cómo y dónde podrías encontrar a esa persona, creando una nueva pista o un mini-objetivo para el grupo.
       El contacto estará, como mínimo, dispuesto a escucharte, aunque obtener su ayuda pueda requerir persuasión, un favor o el pago adecuado.
     uses:
-      type: null
-      qty: 0
+      type: USES
+      qty: 1
   - name: Paso Veloz
     level: 3
     type: activable
@@ -271,8 +271,8 @@ cards:
     requirements: 'Asesinar & Instinto 3'
     description: >-
       _Estudias a tu presa con la frialdad de un depredador, identificando el punto exacto donde la vida se escapa con un solo toque._<br><br>
-      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.
-      La próxima vez que impactes a esa criatura con tu habilidad Asesinar, el daño de tu Ataque Furtivo se maximiza (cada dado cuenta como su valor máximo).
+      Como Acción, puedes estudiar a una criatura a distancia Larga que no sea consciente de ti. Realiza una prueba de Instinto (Percepción). La ND de esta prueba es igual a 5 + la puntuación de Cuerpo del objetivo. Si tienes éxito, identificas un punto vital.<br>
+      Al usar _Asesinar_ contra el punto vital estudiado, los dados de daño base del arma y de tu _Ataque Furtivo_ que normalmente volverías a tirar como parte del golpe crítico también se consideran en su valor máximo.
     uses:
       type: RELOAD
       qty: 5
