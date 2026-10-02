@@ -266,9 +266,9 @@ describe('CardsTab', () => {
 				props: { character, readonly: false, onChange },
 			});
 
-			// ManageCardsView shows Controles section
+			// ManageCardsView shows Controles section and the sectioned collection
 			expect(screen.getByText('Ranuras de Cartas Activas')).toBeInTheDocument();
-			expect(screen.getByText(/Colección Completa/)).toBeInTheDocument();
+			expect(screen.getByText(/Cartas Activables/)).toBeInTheDocument();
 		});
 
 		it('switches back to available view when clicking Disponibles', async () => {

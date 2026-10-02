@@ -103,9 +103,9 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tu suerte te permite esquivar golpes que parecían certeros._<br><br> Como Reacción, cuando un enemigo te impacta
-      con un ataque, puedes gastar cualquier cantidad de tus Puntos de Suerte. La tirada de ataque del enemigo sufre una
-      penalización de -1 por cada Punto de Suerte que hayas gastado, lo que podría hacer que el ataque falle.
+      _Tu suerte te permite esquivar golpes que parecían certeros._<br><br> Cuando un enemigo te impacta con un ataque,
+      puedes usar tu Reacción y gastar 1 Punto de Suerte. Tira 1d4 y resta el resultado de la tirada de ataque del
+      enemigo, pudiendo hacer que falle.
     slug: reflejos-afortunados
   - id: d648ec2478d5026c1a9c0c842141dbfb131ec20a
     name: Conjuración Elevada
@@ -235,3 +235,35 @@ cards:
       de Persuasión, Engaño o Intimidación, el objetivo nunca reacciona con violencia inmediata ni hostilidad abierta
       basándose solo en tus palabras; simplemente se mostrará escéptico, indiferente o se negará a colaborar.
     slug: compostura-inquebrantable
+  - id: c2dc592b13466e4af28440b4329773e58d309d8e
+    name: Reenfoque Eficiente
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Has aprendido a recuperar tu concentración, aliento y preparación con una eficiencia excepcional, aprovechando
+      cada instante de calma._<br><br> Cuando realizas un Reenfoque, puedes reenfocar hasta dos cartas
+      simultáneamente.<br> El tiempo necesario es igual al mayor tiempo de Reenfoque entre las cartas elegidas.
+    slug: reenfoque-eficiente
+  - id: 9ee70dc625aaf1e13ad8a3186910f19f617c4ec1
+    name: Sangre Fría
+    level: 2
+    type: efecto
+    tags:
+      - Dote
+      - Reacción
+    requirements: null
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Incluso cuando el esfuerzo amenaza con quebrar tu concentración, sabes contener el impulso y recuperar el control
+      antes de que sea demasiado tarde._<br><br> Cuando obtienes un 1 natural en una tirada de Recarga y una carta fuera
+      a quedar Sobrecargada, puedes usar tu Reacción y gastar 1 Punto de Suerte para repetir esa tirada.<br> Debes usar
+      el nuevo resultado.<br> Solo puedes utilizar este efecto una vez por ronda.
+    slug: sangre-fria

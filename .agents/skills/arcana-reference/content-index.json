@@ -4519,8 +4519,8 @@
         "type": "efecto",
         "requirements": "Mente 2"
       },
-      "search": "_Tienes una facilidad asombrosa para desentrañar la sintaxis y los acentos de culturas lejanas._<br><br> Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, adquieres ventaja en pruebas para aprender otros idiomas.",
-      "hash": "8a3c2bd071b5efd641d7cf55c1efb8d8b562783a"
+      "search": "_Tienes una facilidad asombrosa para desentrañar la sintaxis, los acentos y los patrones de culturas lejanas._<br><br> Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, obtienes Ventaja (+1d4) en las pruebas para aprender otros idiomas.<br> Cuando escuchas o lees un idioma que no conoces, puedes identificar qué idioma es y comprender de forma aproximada el tema general, tono o intención de la comunicación a partir de su estructura y contexto. Esto no te permite comprender información específica, traducir el mensaje ni descifrar códigos o lenguajes secretos.",
+      "hash": "656dd9e40f943b9ac57f6472a0611edb65277b03"
     },
     {
       "kind": "card",
@@ -6598,6 +6598,27 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Reenfoque Eficiente",
+      "id": "c2dc592b13466e4af28440b4329773e58d309d8e",
+      "slug": "reenfoque-eficiente",
+      "aliases": [
+        "reenfoque eficiente"
+      ],
+      "tags": [
+        "Dote"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto"
+      },
+      "search": "_Has aprendido a recuperar tu concentración, aliento y preparación con una eficiencia excepcional, aprovechando cada instante de calma._<br><br> Cuando realizas un Reenfoque, puedes reenfocar hasta dos cartas simultáneamente.<br> El tiempo necesario es igual al mayor tiempo de Reenfoque entre las cartas elegidas.",
+      "hash": "dbafbbf68d52dbcf8a5cb309b1b1c788b5fe290b"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Reflejos Afortunados",
       "id": "6a215e1c470fad53dfd174d8a45d27c8605e68db",
       "slug": "reflejos-afortunados",
@@ -6616,8 +6637,8 @@
         "type": "efecto",
         "requirements": "Reflejos 3"
       },
-      "search": "_Tu suerte te permite esquivar golpes que parecían certeros._<br><br> Como Reacción, cuando un enemigo te impacta con un ataque, puedes gastar cualquier cantidad de tus Puntos de Suerte. La tirada de ataque del enemigo sufre una penalización de -1 por cada Punto de Suerte que hayas gastado, lo que podría hacer que el ataque falle.",
-      "hash": "5acad85089f393536504bafca12e647ff6419c05"
+      "search": "_Tu suerte te permite esquivar golpes que parecían certeros._<br><br> Cuando un enemigo te impacta con un ataque, puedes usar tu Reacción y gastar 1 Punto de Suerte. Tira 1d4 y resta el resultado de la tirada de ataque del enemigo, pudiendo hacer que falle.",
+      "hash": "b19180fe8c54ef52de4bbf3943f5111f7cb669b0"
     },
     {
       "kind": "card",
@@ -7044,6 +7065,28 @@
       },
       "search": "_La esencia sobrenatural que corre por tus venas ha comenzado a manifestarse más allá de tu magia. Tu cuerpo, tu mente y los conjuros que canalizas reflejan cada vez con mayor intensidad la verdadera naturaleza de tu herencia._<br><br> Obtienes el siguiente beneficio según tu _Daño de Herencia_:<br> - **Ácido — Corrosión Arcana:** Cuando infliges tu _Daño de Herencia_, ignoras una cantidad de Mitigación Mágica del objetivo igual a la mitad de tu Presencia (redondeado hacia abajo).<br> - **Eléctrico — Descarga Encadenada:** Una vez por turno, cuando infliges tu _Daño de Herencia_, puedes elegir una de las criaturas dañadas como origen de una descarga eléctrica. Desde ella, la descarga puede saltar a otra criatura situada a 3 metros o menos, y continuar saltando desde cada nueva criatura alcanzada hacia otra criatura situada a 3 metros o menos, hasta realizar un máximo de saltos igual a tu Presencia. Cada criatura alcanzada por un salto recibe 1d4 de daño Eléctrico. Una misma criatura no puede ser alcanzada más de una vez por esta descarga.<br> - **Frío — Frío Entumecedor:** Cuando una criatura recibe tu _Daño de Herencia_, su Velocidad se reduce en una cantidad de metros igual a la mitad de tu Presencia (redondeado hacia arriba) hasta el inicio de tu próximo turno. Varias aplicaciones de este efecto no se acumulan.<br> - **Fuego — Combustión Sobrenatural:** Una vez por turno, cuando infliges tu _Daño de Herencia_ mediante una carta con la etiqueta _Conjuro_, añades 1d4 de daño de Fuego a su tirada de daño.<br> - **Fuerza — Campo Inercial:** Cuando utilizas una carta con la etiqueta _Conjuro_ que inflige tu _Daño de Herencia_, la energía residual se condensa alrededor de tu cuerpo. Hasta el inicio de tu próximo turno, obtienes +1 a tu Mitigación Física y Mágica. Si tu Presencia es 5 o superior, este bono aumenta a +2.<br> - **Necrótico — Marca de Extinción:** Cuando infliges tu _Daño de Herencia_ a una criatura hostil, esta queda marcada hasta el inicio de tu próximo turno. Si una criatura marcada es reducida a 0 Puntos de Salud mientras permanece marcada, recuperas una cantidad de Puntos de Salud igual a la mitad de tu Presencia (redondeado hacia abajo).<br> - **Psíquico — Mente Sin Fronteras:** Puedes comunicarte telepáticamente de forma bidireccional con criaturas que puedas percibir o que sepas que se encuentren a distancia Media. Esta comunicación transmite directamente pensamientos y conceptos, por lo que no requiere compartir una lengua. Si ya posees telepatía por otra fuente, su alcance aumenta en un rango.<br> - **Radiante — Marca Luminosa:** Cuando una criatura recibe tu _Daño de Herencia_, queda envuelta en un resplandor sobrenatural hasta el final de tu próximo turno. Mientras permanezca iluminada, no puede beneficiarse de Invisibilidad ni Esconderse, y la siguiente tirada de ataque realizada contra ella obtiene Ventaja (+1d4). La Ventaja se consume después de esa tirada, aunque el resplandor permanece hasta finalizar su duración.<br> - **Veneno — Metabolismo Tóxico:** Eres inmune al estado Envenenado. Además, cuando una criatura recibe tu _Daño de Herencia_ mediante una carta con la etiqueta _Conjuro_, queda intoxicada hasta el inicio de su próximo turno. Al inicio de ese turno, recibe 1d6 de daño de Veneno. Una criatura no puede tener más de una instancia de este efecto al mismo tiempo.",
       "hash": "086ceb247f84406cf4c1456a526073ecfaa3277c"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Sangre Fría",
+      "id": "9ee70dc625aaf1e13ad8a3186910f19f617c4ec1",
+      "slug": "sangre-fria",
+      "aliases": [
+        "sangre fria"
+      ],
+      "tags": [
+        "Dote",
+        "Reacción"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "efecto"
+      },
+      "search": "_Incluso cuando el esfuerzo amenaza con quebrar tu concentración, sabes contener el impulso y recuperar el control antes de que sea demasiado tarde._<br><br> Cuando obtienes un 1 natural en una tirada de Recarga y una carta fuera a quedar Sobrecargada, puedes usar tu Reacción y gastar 1 Punto de Suerte para repetir esa tirada.<br> Debes usar el nuevo resultado.<br> Solo puedes utilizar este efecto una vez por ronda.",
+      "hash": "fa8fd282d59a8be4fb89f00b8f69c52138ab3d00"
     },
     {
       "kind": "card",

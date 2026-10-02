@@ -512,14 +512,14 @@
     {
       "path": "references/cartas-de-habilidades/dote/nivel-1.yml",
       "kind": "file",
-      "size": 4003,
-      "sha1": "4cab98d0b8403c628040d135db44ee316140d8d4"
+      "size": 4378,
+      "sha1": "c2fcf7f3a99e82952095ae949dc1d227a3cfe23f"
     },
     {
       "path": "references/cartas-de-habilidades/dote/nivel-2.yml",
       "kind": "file",
-      "size": 9617,
-      "sha1": "01f8764b1cb9f55b2a49b1fef1b1c0d20098524e"
+      "size": 10815,
+      "sha1": "b14ba551c67dde50e80b15039789044d765f25a6"
     },
     {
       "path": "references/cartas-de-habilidades/linaje",
@@ -554,8 +554,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 312924,
-      "sha1": "4f4ed5860b50035d7a46d2779a0410b5d1c52127"
+      "size": 314377,
+      "sha1": "041a681d0f6cbc1e88e1f14a9a6e9e1264780e39"
     },
     {
       "path": "references/datasets/magical-items.yml",

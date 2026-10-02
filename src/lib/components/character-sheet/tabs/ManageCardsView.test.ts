@@ -114,30 +114,6 @@ describe('ManageCardsView', () => {
 		).not.toBeInTheDocument();
 	});
 
-	it('shows Colección Completa with correct count of all characterCards', () => {
-		const character = buildCharacter();
-		const cards: Card[] = [buildCard('card-1', 'Fire Bolt')];
-		const characterCards: CharacterCard[] = [buildCharacterCard('card-1')];
-
-		render(ManageCardsView, {
-			props: {
-				cards,
-				characterCards,
-				readonly: true,
-				character,
-				onChange,
-				onEditCard,
-				onCorruptedCardsChange,
-				onAddAbilityClick,
-				onAddItemClick,
-				onBuyActiveSlot,
-			},
-		});
-
-		expect(screen.getByText('Colección Completa (1)')).toBeInTheDocument();
-		expect(screen.getByText('Fire Bolt')).toBeInTheDocument();
-	});
-
 	it('shows corrupted cards section when corrupted cards exist and not readonly', () => {
 		const character = buildCharacter();
 		const corruptedCard = buildCharacterCard('missing-card');
@@ -184,6 +160,255 @@ describe('ManageCardsView', () => {
 		});
 
 		expect(screen.queryByText('Cartas Corruptas')).not.toBeInTheDocument();
+	});
+
+	describe('sectioned collection', () => {
+		const renderManage = (cards: Card[], characterCards: CharacterCard[], readonly = false) =>
+			render(ManageCardsView, {
+				props: {
+					cards,
+					characterCards,
+					readonly,
+					character: buildCharacter(),
+					onChange,
+					onEditCard,
+					onCorruptedCardsChange,
+					onAddAbilityClick,
+					onAddItemClick,
+					onBuyActiveSlot,
+				},
+			});
+
+		const getSection = (title: string): HTMLElement => {
+			const heading = screen.getByRole('heading', { level: 2, name: title });
+			const section = heading.closest('div');
+			if (!section) throw new Error(`No section container found for ${title}`);
+			return section as HTMLElement;
+		};
+
+		const sectionTitles = (): (string | null)[] =>
+			screen.getAllByRole('heading', { level: 2 }).map((heading) => heading.textContent);
+
+		it('FEAT-manage-cards-sections @sections — shows owned activable cards above effect cards in their own sections', () => {
+			const activable = buildCard('disciplina', 'Disciplina Monástica', 'activable');
+			const effect = buildCard('herencia', 'Sangre Mágica', 'efecto');
+
+			renderManage(
+				[activable, effect],
+				[buildCharacterCard('disciplina'), buildCharacterCard('herencia')],
+			);
+
+			expect(screen.getByText('Cartas Activables (1)')).toBeInTheDocument();
+			expect(screen.getByText('Cartas de Efecto (1)')).toBeInTheDocument();
+			expect(screen.queryByText(/Colección Completa/)).not.toBeInTheDocument();
+
+			const activables = getSection('Cartas Activables (1)');
+			const effects = getSection('Cartas de Efecto (1)');
+			expect(within(activables).getByText('Disciplina Monástica')).toBeInTheDocument();
+			expect(within(effects).getByText('Sangre Mágica')).toBeInTheDocument();
+			// No card is duplicated across type sections.
+			expect(within(activables).queryByText('Sangre Mágica')).not.toBeInTheDocument();
+			expect(within(effects).queryByText('Disciplina Monástica')).not.toBeInTheDocument();
+
+			const titles = sectionTitles();
+			expect(titles.indexOf('Cartas Activables (1)')).toBeLessThan(
+				titles.indexOf('Cartas de Efecto (1)'),
+			);
+		});
+
+		it('FEAT-manage-cards-sections @sections @consumables — renders owned consumables after effects and omits the section when there are none', () => {
+			const activable = buildCard('disciplina', 'Disciplina Monástica', 'activable');
+			const effect = buildCard('herencia', 'Sangre Mágica', 'efecto');
+			const consumable = buildCard('pocion', 'Poción de Curación Menor', 'consumible');
+
+			renderManage(
+				[activable, effect, consumable],
+				[
+					buildCharacterCard('disciplina'),
+					buildCharacterCard('herencia'),
+					buildCharacterCard('pocion'),
+				],
+			);
+
+			expect(sectionTitles()).toEqual([
+				'Cartas Activables (1)',
+				'Cartas de Efecto (1)',
+				'Consumibles (1)',
+			]);
+			const effects = getSection('Cartas de Efecto (1)');
+			const consumables = getSection('Consumibles (1)');
+			expect(within(consumables).getByText('Poción de Curación Menor')).toBeInTheDocument();
+			expect(within(effects).queryByText('Poción de Curación Menor')).not.toBeInTheDocument();
+		});
+
+		it('FEAT-manage-cards-sections @sections — keeps the corrupted section after the type sections', () => {
+			const activable = buildCard('disciplina', 'Disciplina Monástica', 'activable');
+			const corrupted = buildCharacterCard('missing-card');
+
+			render(ManageCardsView, {
+				props: {
+					cards: [activable],
+					characterCards: [buildCharacterCard('disciplina')],
+					readonly: false,
+					character: buildCharacter(),
+					onChange,
+					onEditCard,
+					onCorruptedCardsChange,
+					onAddAbilityClick,
+					onAddItemClick,
+					onBuyActiveSlot,
+					corruptedCards: [corrupted],
+				},
+			});
+
+			expect(sectionTitles()).toEqual([
+				'Cartas Activables (1)',
+				'Cartas de Efecto (0)',
+				'Cartas Corruptas (1)',
+			]);
+		});
+
+		it('FEAT-manage-cards-sections @sections @activation — activates an owned activable card from its section', async () => {
+			renderManage(
+				[buildCard('disciplina', 'Disciplina Monástica', 'activable')],
+				[buildCharacterCard('disciplina')],
+			);
+
+			const activables = getSection('Cartas Activables (1)');
+			await fireEvent.click(within(activables).getByRole('button', { name: 'Activar' }));
+
+			expect(onChange).toHaveBeenCalledWith([
+				expect.objectContaining({ id: 'disciplina', isActive: true }),
+			]);
+		});
+
+		it('FEAT-manage-cards-sections @sections @activation — deactivates an active activable card from its section', async () => {
+			renderManage(
+				[buildCard('disciplina', 'Disciplina Monástica', 'activable')],
+				[buildCharacterCard('disciplina', { isActive: true })],
+			);
+
+			const activables = getSection('Cartas Activables (1)');
+			await fireEvent.click(within(activables).getByRole('button', { name: 'Desactivar' }));
+
+			expect(onChange).toHaveBeenCalledWith([
+				expect.objectContaining({ id: 'disciplina', isActive: false }),
+			]);
+		});
+
+		it('FEAT-manage-cards-sections @sections — offers no activation controls for effect or consumable cards', () => {
+			renderManage(
+				[
+					buildCard('herencia', 'Sangre Mágica', 'efecto'),
+					buildCard('pocion', 'Poción de Curación Menor', 'consumible'),
+				],
+				[buildCharacterCard('herencia'), buildCharacterCard('pocion')],
+			);
+
+			const effects = getSection('Cartas de Efecto (1)');
+			expect(within(effects).queryByRole('button', { name: 'Activar' })).not.toBeInTheDocument();
+			expect(within(effects).queryByRole('button', { name: 'Desactivar' })).not.toBeInTheDocument();
+
+			const consumables = getSection('Consumibles (1)');
+			expect(
+				within(consumables).queryByRole('button', { name: 'Activar' }),
+			).not.toBeInTheDocument();
+			expect(
+				within(consumables).queryByRole('button', { name: 'Desactivar' }),
+			).not.toBeInTheDocument();
+		});
+
+		it('FEAT-manage-cards-sections @sections @association — resolves a cross-type parent from the full catalog without a pending link badge', () => {
+			const child: Card = {
+				...buildCard('artes', 'Artes Marciales', 'activable'),
+				requirements: 'Herencia Sobrenatural',
+			};
+			const parent = buildCard('herencia', 'Herencia Sobrenatural', 'efecto');
+
+			renderManage(
+				[child, parent],
+				[buildCharacterCard('artes', { grantedBy: 'herencia' }), buildCharacterCard('herencia')],
+			);
+
+			const activables = getSection('Cartas Activables (1)');
+			expect(within(activables).getByText('🔗 Herencia Sobrenatural')).toBeInTheDocument();
+			expect(screen.queryByText('🔗 Vinculación pendiente')).not.toBeInTheDocument();
+			expect(screen.queryByText('Vinculación pendiente')).not.toBeInTheDocument();
+
+			// The effect parent renders in its own section and never shows the
+			// cross-type link badge, which belongs to the activable child.
+			const effects = getSection('Cartas de Efecto (1)');
+			expect(within(effects).getByText('Herencia Sobrenatural')).toBeInTheDocument();
+			expect(within(effects).queryByText('🔗 Herencia Sobrenatural')).not.toBeInTheDocument();
+		});
+
+		it('FEAT-manage-cards-sections @sections — counts only the owned cards displayed in each section', () => {
+			const unownedEffect = buildCard('unowned', 'Efecto Ajeno', 'efecto');
+
+			renderManage(
+				[
+					buildCard('disciplina', 'Disciplina Monástica', 'activable'),
+					buildCard('artes', 'Artes Marciales', 'activable'),
+					buildCard('herencia', 'Sangre Mágica', 'efecto'),
+					unownedEffect,
+				],
+				[
+					buildCharacterCard('disciplina'),
+					buildCharacterCard('artes'),
+					buildCharacterCard('herencia'),
+				],
+			);
+
+			expect(screen.getByText('Cartas Activables (2)')).toBeInTheDocument();
+			expect(screen.getByText('Cartas de Efecto (1)')).toBeInTheDocument();
+			expect(screen.queryByText('Efecto Ajeno')).not.toBeInTheDocument();
+		});
+
+		it('FEAT-manage-cards-sections @sections — renders zero counts with explanatory empty states', () => {
+			renderManage([], []);
+
+			expect(screen.getByText('Cartas Activables (0)')).toBeInTheDocument();
+			expect(screen.getByText('Cartas de Efecto (0)')).toBeInTheDocument();
+			expect(screen.queryByText(/Consumibles/)).not.toBeInTheDocument();
+			expect(
+				within(getSection('Cartas Activables (0)')).getByText(/no tienes cartas activables/i),
+			).toBeInTheDocument();
+			expect(
+				within(getSection('Cartas de Efecto (0)')).getByText(/no tienes cartas de efecto/i),
+			).toBeInTheDocument();
+		});
+
+		it('FEAT-manage-cards-sections @sections — explains an empty Efecto section while keeping the owned activables', () => {
+			renderManage(
+				[buildCard('disciplina', 'Disciplina Monástica', 'activable')],
+				[buildCharacterCard('disciplina')],
+			);
+
+			expect(screen.getByText('Cartas Activables (1)')).toBeInTheDocument();
+			expect(screen.getByText('Cartas de Efecto (0)')).toBeInTheDocument();
+			expect(
+				within(getSection('Cartas de Efecto (0)')).getByText(/no tienes cartas de efecto/i),
+			).toBeInTheDocument();
+		});
+
+		it('FEAT-manage-cards-sections @sections @readonly — keeps the sections visible without activation controls in readonly', () => {
+			renderManage(
+				[buildCard('disciplina', 'Disciplina Monástica', 'activable')],
+				[buildCharacterCard('disciplina')],
+				true,
+			);
+
+			expect(screen.getByText('Cartas Activables (1)')).toBeInTheDocument();
+			expect(screen.getByText('Cartas de Efecto (0)')).toBeInTheDocument();
+
+			const activables = getSection('Cartas Activables (1)');
+			expect(within(activables).getByText('Disciplina Monástica')).toBeInTheDocument();
+			expect(within(activables).queryByRole('button', { name: 'Activar' })).not.toBeInTheDocument();
+			expect(
+				within(activables).queryByRole('button', { name: 'Desactivar' }),
+			).not.toBeInTheDocument();
+			expect(screen.queryByRole('button', { name: 'Quitar' })).not.toBeInTheDocument();
+		});
 	});
 
 	it('calls onAddAbilityClick when add ability button is clicked', async () => {
@@ -301,7 +526,7 @@ describe('ManageCardsView', () => {
 	});
 
 	describe('inline roll context', () => {
-		it('FEAT-card-inline-dice @character-sheet — forwards the roll context to the Colección Completa CardsList', () => {
+		it('FEAT-card-inline-dice @character-sheet — forwards the roll context to the Cartas Activables CardsList', () => {
 			const character = buildCharacter();
 			const cards: Card[] = [
 				{ ...buildCard('card-1', 'Fire Bolt'), description: 'Inflige 1d6 + Cuerpo' },
@@ -648,7 +873,7 @@ describe('ManageCardsView', () => {
 			});
 		};
 
-		it('FEAT-card-uses-formula @character-sheet — forwards the formula context to the Colección Completa list', () => {
+		it('FEAT-card-uses-formula @character-sheet — forwards the formula context to the Cartas de Efecto list', () => {
 			renderManageView(buildContext({ presencia: 4 }));
 
 			expect(screen.getByText('Usos: 4')).toBeInTheDocument();

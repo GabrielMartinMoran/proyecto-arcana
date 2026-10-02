@@ -72,9 +72,12 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tienes una facilidad asombrosa para desentrañar la sintaxis y los acentos de culturas lejanas._<br><br> Aprendes
-      a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, adquieres ventaja en pruebas para
-      aprender otros idiomas.
+      _Tienes una facilidad asombrosa para desentrañar la sintaxis, los acentos y los patrones de culturas
+      lejanas._<br><br> Aprendes a hablar, leer y escribir dos idiomas adicionales de tu elección. Además, obtienes
+      Ventaja (+1d4) en las pruebas para aprender otros idiomas.<br> Cuando escuchas o lees un idioma que no conoces,
+      puedes identificar qué idioma es y comprender de forma aproximada el tema general, tono o intención de la
+      comunicación a partir de su estructura y contexto. Esto no te permite comprender información específica, traducir
+      el mensaje ni descifrar códigos o lenguajes secretos.
     slug: linguista
   - id: afdb6ca3f65924f9b0df2f5cfd6fbbc1218e5337
     name: Peleador Callejero

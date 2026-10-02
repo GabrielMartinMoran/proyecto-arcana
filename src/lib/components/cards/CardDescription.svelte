@@ -18,7 +18,8 @@
 	};
 
 	type CardDescriptionPart =
-		CardInlineDiceFormulaPart | Extract<CardInlineDifficultyPart, { type: 'difficulty' }>;
+		| CardInlineDiceFormulaPart
+		| Extract<CardInlineDifficultyPart, { type: 'difficulty' }>;
 
 	type CardFormulaPart = Extract<CardInlineDiceFormulaPart, { type: 'formula' }>;
 

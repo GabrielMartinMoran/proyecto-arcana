@@ -43,6 +43,17 @@
 
 	let associationChild: CharacterCard | null = $state(null);
 
+	// Owned-card predicate shared by the type sections: a card is shown when
+	// the character owns it, and each header counts only the cards it displays.
+	const owned = (card: Card): boolean =>
+		characterCards.some((characterCard) => characterCard.id === card.id);
+
+	let activableCards = $derived(cards.filter((card) => card.type === 'activable' && owned(card)));
+
+	let effectCards = $derived(cards.filter((card) => card.type === 'efecto' && owned(card)));
+
+	let consumableCards = $derived(cards.filter((card) => card.type === 'consumible' && owned(card)));
+
 	const openCardAssociation = (cardId: string) => {
 		associationChild = characterCards.find((card) => card.id === cardId) ?? null;
 	};
@@ -103,9 +114,9 @@
 	</Container>
 {/if}
 
-<Container title={`Colección Completa (${characterCards.length})`}>
+{#snippet ownedCardsCollection(ownedCards: Card[])}
 	<CardsList
-		cards={cards.filter((x) => characterCards.some((y) => y.id === x.id))}
+		cards={ownedCards}
 		{readonly}
 		{characterCards}
 		listMode="collection"
@@ -113,9 +124,32 @@
 		{onEditCard}
 		{rollContext}
 		{formulaContext}
+		allCards={cards}
 		onManageAssociation={(card) => openCardAssociation(card.id)}
 	/>
+{/snippet}
+
+<Container title={`Cartas Activables (${activableCards.length})`}>
+	{#if activableCards.length > 0}
+		{@render ownedCardsCollection(activableCards)}
+	{:else}
+		<p class="empty-message">No tienes cartas activables en tu colección.</p>
+	{/if}
 </Container>
+
+<Container title={`Cartas de Efecto (${effectCards.length})`}>
+	{#if effectCards.length > 0}
+		{@render ownedCardsCollection(effectCards)}
+	{:else}
+		<p class="empty-message">No tienes cartas de efecto en tu colección.</p>
+	{/if}
+</Container>
+
+{#if consumableCards.length > 0}
+	<Container title={`Consumibles (${consumableCards.length})`}>
+		{@render ownedCardsCollection(consumableCards)}
+	</Container>
+{/if}
 
 {#if !readonly && corruptedCards.length > 0}
 	<Container title={`Cartas Corruptas (${corruptedCards.length})`}>
@@ -157,6 +191,13 @@
 />
 
 <style>
+	.empty-message {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		text-align: center;
+		padding: var(--spacing-md);
+	}
+
 	.slot-input-row {
 		display: flex;
 		align-items: center;
