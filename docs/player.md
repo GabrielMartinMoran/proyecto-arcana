@@ -384,7 +384,9 @@ Algunas cartas poseen la etiqueta **Sostenida**. Cuando utilizas una de estas ca
 
 Puedes finalizar voluntariamente un efecto Sostenido que hayas creado. Cuando el efecto termina, ya sea de esta forma, porque se agota su duración o por cualquier otra causa, la carta deja de estar bloqueada y puede volver a recuperarse normalmente.
 
-Los efectos que requieren **Concentración** se consideran también **Sostenidos** mientras permanezcan activos. Por esta razón, una carta con la etiqueta Concentración no necesita poseer también la etiqueta Sostenida.
+Un efecto Sostenido **no requiere por sí mismo que permanezcas consciente ni que mantengas una concentración activa**. Quedar Aturdido, Dormido o Inconsciente no termina automáticamente un efecto Sostenido, salvo que la propia carta indique lo contrario.
+
+Los efectos que requieren **Concentración** se consideran también Sostenidos mientras permanezcan activos. Por esta razón, una carta con la etiqueta Concentración no necesita poseer también la etiqueta Sostenida y sigue además todas las reglas específicas de Concentración.
 
 ### Recarga en Combate (La Adrenalina)
 
@@ -713,13 +715,14 @@ Los muros, árboles, criaturas y otros obstáculos pueden ofrecer cobertura dura
 
 Algunos conjuros y habilidades requieren **Concentración** para mantener su efecto activo, lo cual se indica con una etiqueta en la carta.
 
-- Puedes mantener la concentración en un solo efecto a la vez. Si lanzas un nuevo conjuro que requiere concentración, el efecto del anterior termina inmediatamente.
-- Si recibes daño mientras te concentras, debes realizar una **Prueba de Atributo** usando el atributo con el que lanzaste el conjuro.
+- Puedes mantener la concentración en un solo efecto a la vez. Si utilizas una nueva carta que requiere Concentración, el efecto anterior termina inmediatamente.
+- Si recibes daño mientras te concentras, debes realizar una **Prueba de Atributo** usando el atributo con el que utilizaste la carta.
 - El Nivel de Dificultad de esta tirada es **ND = 5 + Nivel de la Carta**.
-- Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
-- Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
-- En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
-- **Efecto Sostenido:** Todo efecto mantenido mediante Concentración se considera **Sostenido** mientras permanezca activo. Por lo tanto, si la carta está agotada, no puede recuperar su uso hasta que el efecto termine.
+- Si fallas la tirada, la Concentración se rompe y el efecto termina.
+- Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener Ventaja (+1d4) en esta tirada.
+- Si quedas **Aturdido** o **Inconsciente**, pierdes inmediatamente cualquier Concentración que estés manteniendo.
+- Puedes terminar voluntariamente tu Concentración en cualquier momento.
+- Todo efecto mantenido mediante Concentración se considera también **Sostenido**. Por lo tanto, mientras permanezca activo, su carta no puede recuperar su uso mediante Adrenalina, Reenfoque ni Recarga con Suerte.
 
 ## Tiradas de Salvación
 
@@ -800,17 +803,17 @@ Las penalizaciones de estos grados **no se acumulan entre sí**. Por ejemplo, un
 
 ## Otras Condiciones
 
-- **Asustado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y pruebas de habilidad mientras la fuente del miedo esta en tu rango de visión.
-- **Aturdido:** No puedes realizar **Acciones** ni **Reacciones**. Los ataques contra ti obtienen **Ventaja (+1d4)**.
+- **Asustado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y pruebas de habilidad mientras la fuente del miedo está en tu rango de visión.
+- **Aturdido:** No puedes realizar **Acciones** ni **Reacciones**. Los ataques contra ti obtienen **Ventaja (+1d4)**. Si estás manteniendo **Concentración**, la pierdes inmediatamente.
 - **Cegado:** Sufres **Desventaja (-1d4)** en tiradas de ataque y fallas las pruebas que dependan de la vista.
-- **Derribado:** Estás tumbado en el suelo. Tus ataques tienen **Desventaja**. Los ataques cuerpo a cuerpo contra ti tienen **Ventaja** y los ataques a distancia contra ti tienen **Desventaja**. Levantarse consume la mitad de tu movimiento.
+- **Derribado:** Estás tumbado en el suelo. Tus ataques tienen **Desventaja (-1d4)**. Los ataques cuerpo a cuerpo contra ti tienen **Ventaja (+1d4)** y los ataques a distancia contra ti tienen **Desventaja (-1d4)**. Levantarte consume la mitad de tu Movimiento.
 - **Dormido:** Estás **Inconsciente**. Despiertas si recibes daño o si alguien usa una Acción para despertarte.
 - **Encantado:** Consideras a la fuente un amigo. Sufres **Desventaja (-1d4)** en tiradas que le perjudiquen.
-- **Ensordecido:** Sufres **Desventaja (-1d4)** a pruebas que dependan del oído.
+- **Ensordecido:** Sufres **Desventaja (-1d4)** en pruebas que dependan del oído.
 - **Envenenado:** Sufres **Desventaja (-1d4)** en todas tus Tiradas de Ataque y Pruebas de Habilidad.
 - **Inconsciente:** No puedes moverte ni hablar. Sueltas lo que sostengas. Los ataques contra ti obtienen **Ventaja (+1d4)**.
 - **Inmovilizado:** No puedes usar tu **Movimiento**.
-- **Moribundo:** Estás **Inconsciente** y con 0 puntos de salud. Los ataques contra ti obtienen **Ventaja (+1d4)**. No puedes hacer tiradas para recargar cartas.
+- **Moribundo:** Estás **Inconsciente** y tienes 0 Puntos de Salud. Los ataques contra ti obtienen **Ventaja (+1d4)**. No puedes realizar tiradas para recargar cartas.
 
 # 9. Descanso y Recuperación
 
