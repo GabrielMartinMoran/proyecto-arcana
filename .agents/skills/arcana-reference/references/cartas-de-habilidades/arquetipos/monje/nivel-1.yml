@@ -115,3 +115,21 @@ cards:
       estabiliza automáticamente.<br> Si tú o el objetivo gastan 1 Punto de Suerte, la criatura recupera 1 Punto de
       Salud en su lugar.
     slug: chispa-de-vida
+  - id: be4b923e41fc4348132a436ecd415dc69d4277b4
+    name: Percepción Empática
+    level: 1
+    type: efecto
+    tags:
+      - Monje
+    requirements: Disciplina Monástica & Instinto 2
+    uses:
+      type: null
+      qty: 0
+    description: >-
+      _Estás en sintonía con las emociones del mundo, percibiendo las alteraciones que dejan en el Ki de cada
+      criatura._<br><br> Obtienes Ventaja (+1d4) en pruebas de Perspicacia.<br> Además, con solo observar o escuchar
+      hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial, como miedo, ira,
+      alegría, tristeza o nerviosismo, sin necesidad de realizar una prueba.<br> Si esas emociones están siendo
+      alteradas o impuestas por una influencia mágica o sobrenatural, percibes que existe algo antinatural en ellas,
+      aunque no conoces automáticamente la naturaleza ni el origen del efecto.
+    slug: percepcion-empatica

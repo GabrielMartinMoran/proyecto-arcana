@@ -1958,19 +1958,19 @@ cards:
       type: RELOAD
       qty: 5
   - name: Memoria Muscular
-    level: 4
+    level: 3
     type: efecto
     tags:
       - Céfiro
-    requirements: Sintonía Fluida & Reflejos 5
+    requirements: Sintonía Fluida & Reflejos 4
     description: >-
-      _Tu cuerpo reacciona antes que tu mente; cada golpe que recibes te enseña
-      cómo evitar el siguiente con una fluidez instintiva._<br><br> Obtienes
-      Ventaja (+1d4) en todas tus Tiradas de Salvación de Reflejos.<br> Además,
-      cada vez que un enemigo te impacta con un ataque, obtienes un +1
-      acumulativo a tu Esquiva exclusivamente contra los próximos ataques de ese
-      mismo enemigo.<br> Este bonificador se mantiene hasta el inicio de tu
-      próximo turno.
+      _Tu cuerpo aprende el ritmo de tus adversarios incluso antes de que tu
+      mente lo procese por completo. Cada movimiento observado te vuelve más
+      difícil de alcanzar con el siguiente._<br> Cada vez que una criatura
+      realiza un ataque contra ti, después de resolverlo obtienes un +1
+      acumulativo a tu Esquiva contra los siguientes ataques de esa misma
+      criatura, hasta un máximo de +3.<br> Este bonificador dura hasta el inicio
+      de tu próximo turno.
     uses:
       type: null
       qty: 0
@@ -2756,7 +2756,7 @@ cards:
       _Tu control sobre el flujo de la magia es tan absoluto que reciclar la
       energía de tus conjuros se vuelve un acto natural._<br><br> Al final de tu
       turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes
-      elegir un conjuro de Arcanista de Nivel 2 o inferior que tengas agotado.
+      elegir un conjuro de Arcanista de Nivel 3 o inferior que tengas agotado.
       Tira 2d8 para su Recarga y utiliza el resultado más alto.
     uses:
       type: null
@@ -6461,18 +6461,21 @@ cards:
       type: null
       qty: 0
   - name: Percepción Empática
-    level: 2
+    level: 1
     type: efecto
     tags:
       - Monje
-    requirements: Disciplina Monástica & Instinto 3
+    requirements: Disciplina Monástica & Instinto 2
     description: >-
-      _Estás en sintonía con las emociones del mundo, leyendo los corazones de
-      los demás como si fueran libros abiertos._<br><br> Obtienes Ventaja (+1d4)
-      en todas las pruebas de Perspicacia.<br> Además, con solo observar o
+      _Estás en sintonía con las emociones del mundo, percibiendo las
+      alteraciones que dejan en el Ki de cada criatura._<br><br> Obtienes
+      Ventaja (+1d4) en pruebas de Perspicacia.<br> Además, con solo observar o
       escuchar hablar a una criatura durante unos instantes, puedes percibir su
-      estado emocional superficial (por ejemplo: si está nerviosa, genuinamente
-      alegre, o si oculta un gran miedo).
+      estado emocional superficial, como miedo, ira, alegría, tristeza o
+      nerviosismo, sin necesidad de realizar una prueba.<br> Si esas emociones
+      están siendo alteradas o impuestas por una influencia mágica o
+      sobrenatural, percibes que existe algo antinatural en ellas, aunque no
+      conoces automáticamente la naturaleza ni el origen del efecto.
     uses:
       type: null
       qty: 0

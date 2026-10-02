@@ -29,7 +29,7 @@ cards:
     description: >-
       _Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto
       natural._<br><br> Al final de tu turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes elegir
-      un conjuro de Arcanista de Nivel 2 o inferior que tengas agotado. Tira 2d8 para su Recarga y utiliza el resultado
+      un conjuro de Arcanista de Nivel 3 o inferior que tengas agotado. Tira 2d8 para su Recarga y utiliza el resultado
       más alto.
     slug: maestria-arcana
   - id: c66e21de47f990391825dad62eecb51918ad614b

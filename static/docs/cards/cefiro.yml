@@ -59,16 +59,15 @@ cards:
       type: RELOAD
       qty: 5
   - name: Memoria Muscular
-    level: 4
+    level: 3
     type: efecto
     tags:
       - Céfiro
-    requirements: 'Sintonía Fluida & Reflejos 5'
+    requirements: 'Sintonía Fluida & Reflejos 4'
     description: >-
-      _Tu cuerpo reacciona antes que tu mente; cada golpe que recibes te enseña cómo evitar el siguiente con una fluidez instintiva._<br><br>
-      Obtienes Ventaja (+1d4) en todas tus Tiradas de Salvación de Reflejos.<br>
-      Además, cada vez que un enemigo te impacta con un ataque, obtienes un +1 acumulativo a tu Esquiva exclusivamente contra los próximos ataques de ese mismo enemigo.<br>
-      Este bonificador se mantiene hasta el inicio de tu próximo turno.
+      _Tu cuerpo aprende el ritmo de tus adversarios incluso antes de que tu mente lo procese por completo. Cada movimiento observado te vuelve más difícil de alcanzar con el siguiente._<br>
+      Cada vez que una criatura realiza un ataque contra ti, después de resolverlo obtienes un +1 acumulativo a tu Esquiva contra los siguientes ataques de esa misma criatura, hasta un máximo de +3.<br>
+      Este bonificador dura hasta el inicio de tu próximo turno.
     uses:
       type: null
       qty: 0

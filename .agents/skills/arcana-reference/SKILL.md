@@ -168,7 +168,6 @@ ni el score.
 - [Céfiro — Nivel 1](references/cartas-de-habilidades/arquetipos/cefiro/nivel-1.yml)
 - [Céfiro — Nivel 2](references/cartas-de-habilidades/arquetipos/cefiro/nivel-2.yml)
 - [Céfiro — Nivel 3](references/cartas-de-habilidades/arquetipos/cefiro/nivel-3.yml)
-- [Céfiro — Nivel 4](references/cartas-de-habilidades/arquetipos/cefiro/nivel-4.yml)
 - [Céfiro — Nivel 5](references/cartas-de-habilidades/arquetipos/cefiro/nivel-5.yml)
 - [Arcanista — Nivel 1](references/cartas-de-habilidades/arcanista/nivel-1.yml)
 - [Arcanista — Nivel 2](references/cartas-de-habilidades/arcanista/nivel-2.yml)

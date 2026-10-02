@@ -135,22 +135,6 @@ cards:
       crítico, despiertas del estado Inconsciente recuperando Puntos de Salud iguales a tu puntuación de Instinto (en
       lugar de solo 1).
     slug: fortaleza-interior
-  - id: be4b923e41fc4348132a436ecd415dc69d4277b4
-    name: Percepción Empática
-    level: 2
-    type: efecto
-    tags:
-      - Monje
-    requirements: Disciplina Monástica & Instinto 3
-    uses:
-      type: null
-      qty: 0
-    description: >-
-      _Estás en sintonía con las emociones del mundo, leyendo los corazones de los demás como si fueran libros
-      abiertos._<br><br> Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia.<br> Además, con solo observar o
-      escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por
-      ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
-    slug: percepcion-empatica
   - id: 1a2eece706b7d0c6f5813356c678a0ff012943b9
     name: Lenguaje del Espíritu
     level: 2

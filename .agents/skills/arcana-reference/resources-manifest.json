@@ -77,7 +77,7 @@
       "path": "references/cartas-de-habilidades/arcanista/nivel-5.yml",
       "kind": "file",
       "size": 6868,
-      "sha1": "248facce281188beac80c54857cf41088ac6ef8e"
+      "sha1": "19f2c336ecfd184f97432e8603f6685e77406be9"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos",
@@ -188,14 +188,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-3.yml",
       "kind": "file",
-      "size": 823,
-      "sha1": "e32c9281c106d0642e979387d51536fed6017d26"
-    },
-    {
-      "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-4.yml",
-      "kind": "file",
-      "size": 748,
-      "sha1": "72ef6f0dd843914358c7338f4e4a4108ccb00f4a"
+      "size": 1560,
+      "sha1": "580d37e6e6ad72a4523812562a844721c9934795"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-5.yml",
@@ -370,14 +364,14 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
       "kind": "file",
-      "size": 5113,
-      "sha1": "f4193fabf6ed6cf0d53747f85cce27a378f8c1aa"
+      "size": 6051,
+      "sha1": "f3081ae59d39b7c84ca426f592ddf65f3406164f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
       "kind": "file",
-      "size": 9990,
-      "sha1": "c75094702a39268c7eb25415b23207c95337c8bd"
+      "size": 9282,
+      "sha1": "c2b7aae7478b6a5808b84c05acc44a0234674381"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-3.yml",
@@ -560,8 +554,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 312692,
-      "sha1": "4173d886b6d4962e145b1e0172673cc7b8bbe83e"
+      "size": 312924,
+      "sha1": "4f4ed5860b50035d7a46d2779a0410b5d1c52127"
     },
     {
       "path": "references/datasets/magical-items.yml",

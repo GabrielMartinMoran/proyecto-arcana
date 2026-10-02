@@ -4614,8 +4614,8 @@
         "type": "efecto",
         "requirements": "Afinidad Arcana & Atributo Arcano 6"
       },
-      "search": "_Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto natural._<br><br> Al final de tu turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes elegir un conjuro de Arcanista de Nivel 2 o inferior que tengas agotado. Tira 2d8 para su Recarga y utiliza el resultado más alto.",
-      "hash": "f4d5c12812619013f071bdb9a21970cb504d959d"
+      "search": "_Tu control sobre el flujo de la magia es tan absoluto que reciclar la energía de tus conjuros se vuelve un acto natural._<br><br> Al final de tu turno, cuando realizas tus tiradas de Recarga mediante Adrenalina, puedes elegir un conjuro de Arcanista de Nivel 3 o inferior que tengas agotado. Tira 2d8 para su Recarga y utiliza el resultado más alto.",
+      "hash": "d078c235ad390e1111e29985ae3848d91340f10e"
     },
     {
       "kind": "card",
@@ -5043,16 +5043,16 @@
       "tags": [
         "Céfiro"
       ],
-      "level": 4,
-      "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-4.yml",
+      "level": 3,
+      "path": "references/cartas-de-habilidades/arquetipos/cefiro/nivel-3.yml",
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Sintonía Fluida & Reflejos 5"
+        "requirements": "Sintonía Fluida & Reflejos 4"
       },
-      "search": "_Tu cuerpo reacciona antes que tu mente; cada golpe que recibes te enseña cómo evitar el siguiente con una fluidez instintiva._<br><br> Obtienes Ventaja (+1d4) en todas tus Tiradas de Salvación de Reflejos.<br> Además, cada vez que un enemigo te impacta con un ataque, obtienes un +1 acumulativo a tu Esquiva exclusivamente contra los próximos ataques de ese mismo enemigo.<br> Este bonificador se mantiene hasta el inicio de tu próximo turno.",
-      "hash": "7cf922f5281cda090b5a2bb71088256cd3e01019"
+      "search": "_Tu cuerpo aprende el ritmo de tus adversarios incluso antes de que tu mente lo procese por completo. Cada movimiento observado te vuelve más difícil de alcanzar con el siguiente._<br> Cada vez que una criatura realiza un ataque contra ti, después de resolverlo obtienes un +1 acumulativo a tu Esquiva contra los siguientes ataques de esa misma criatura, hasta un máximo de +3.<br> Este bonificador dura hasta el inicio de tu próximo turno.",
+      "hash": "ebe4feb9e2946a0552351ec0677f4c5b0b06c94b"
     },
     {
       "kind": "card",
@@ -6094,16 +6094,16 @@
       "tags": [
         "Monje"
       ],
-      "level": 2,
-      "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-2.yml",
+      "level": 1,
+      "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-1.yml",
       "source": "cards.yml",
       "structured": {
         "cardType": "ability",
         "type": "efecto",
-        "requirements": "Disciplina Monástica & Instinto 3"
+        "requirements": "Disciplina Monástica & Instinto 2"
       },
-      "search": "_Estás en sintonía con las emociones del mundo, leyendo los corazones de los demás como si fueran libros abiertos._<br><br> Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia.<br> Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).",
-      "hash": "70c2dc3e01f60237357d4fcbcba2208fcb58d0fb"
+      "search": "_Estás en sintonía con las emociones del mundo, percibiendo las alteraciones que dejan en el Ki de cada criatura._<br><br> Obtienes Ventaja (+1d4) en pruebas de Perspicacia.<br> Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial, como miedo, ira, alegría, tristeza o nerviosismo, sin necesidad de realizar una prueba.<br> Si esas emociones están siendo alteradas o impuestas por una influencia mágica o sobrenatural, percibes que existe algo antinatural en ellas, aunque no conoces automáticamente la naturaleza ni el origen del efecto.",
+      "hash": "5bac26fe9d7355154d8081cfffefec6c44705c1b"
     },
     {
       "kind": "card",

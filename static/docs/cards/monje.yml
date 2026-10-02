@@ -317,15 +317,16 @@ cards:
       type: null
       qty: 0
   - name: Percepción Empática
-    level: 2
+    level: 1
     type: efecto
     tags:
       - Monje
-    requirements: 'Disciplina Monástica & Instinto 3'
+    requirements: 'Disciplina Monástica & Instinto 2'
     description: >-
-      _Estás en sintonía con las emociones del mundo, leyendo los corazones de los demás como si fueran libros abiertos._<br><br>
-      Obtienes Ventaja (+1d4) en todas las pruebas de Perspicacia.<br>
-      Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial (por ejemplo: si está nerviosa, genuinamente alegre, o si oculta un gran miedo).
+      _Estás en sintonía con las emociones del mundo, percibiendo las alteraciones que dejan en el Ki de cada criatura._<br><br>
+      Obtienes Ventaja (+1d4) en pruebas de Perspicacia.<br>
+      Además, con solo observar o escuchar hablar a una criatura durante unos instantes, puedes percibir su estado emocional superficial, como miedo, ira, alegría, tristeza o nerviosismo, sin necesidad de realizar una prueba.<br>
+      Si esas emociones están siendo alteradas o impuestas por una influencia mágica o sobrenatural, percibes que existe algo antinatural en ellas, aunque no conoces automáticamente la naturaleza ni el origen del efecto.
     uses:
       type: null
       qty: 0
