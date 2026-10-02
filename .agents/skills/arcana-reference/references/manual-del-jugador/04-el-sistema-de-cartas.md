@@ -110,7 +110,9 @@ Algunas cartas poseen la etiqueta **Sostenida**. Cuando utilizas una de estas ca
 
 Puedes finalizar voluntariamente un efecto Sostenido que hayas creado. Cuando el efecto termina, ya sea de esta forma, porque se agota su duración o por cualquier otra causa, la carta deja de estar bloqueada y puede volver a recuperarse normalmente.
 
-Los efectos que requieren **Concentración** se consideran también **Sostenidos** mientras permanezcan activos. Por esta razón, una carta con la etiqueta Concentración no necesita poseer también la etiqueta Sostenida.
+Un efecto Sostenido **no requiere por sí mismo que permanezcas consciente ni que mantengas una concentración activa**. Quedar Aturdido, Dormido o Inconsciente no termina automáticamente un efecto Sostenido, salvo que la propia carta indique lo contrario.
+
+Los efectos que requieren **Concentración** se consideran también Sostenidos mientras permanezcan activos. Por esta razón, una carta con la etiqueta Concentración no necesita poseer también la etiqueta Sostenida y sigue además todas las reglas específicas de Concentración.
 
 ### Recarga en Combate (La Adrenalina)
 

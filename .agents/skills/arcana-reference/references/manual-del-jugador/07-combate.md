@@ -101,13 +101,14 @@ Los muros, árboles, criaturas y otros obstáculos pueden ofrecer cobertura dura
 
 Algunos conjuros y habilidades requieren **Concentración** para mantener su efecto activo, lo cual se indica con una etiqueta en la carta.
 
-- Puedes mantener la concentración en un solo efecto a la vez. Si lanzas un nuevo conjuro que requiere concentración, el efecto del anterior termina inmediatamente.
-- Si recibes daño mientras te concentras, debes realizar una **Prueba de Atributo** usando el atributo con el que lanzaste el conjuro.
+- Puedes mantener la concentración en un solo efecto a la vez. Si utilizas una nueva carta que requiere Concentración, el efecto anterior termina inmediatamente.
+- Si recibes daño mientras te concentras, debes realizar una **Prueba de Atributo** usando el atributo con el que utilizaste la carta.
 - El Nivel de Dificultad de esta tirada es **ND = 5 + Nivel de la Carta**.
-- Si fallas la tirada, la concentración se rompe y el efecto del conjuro termina.
-- Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener **Ventaja** en esta tirada.
-- En cualquier momento, si caes Inconsciente o si decides terminarla, la concentración se rompe.
-- **Efecto Sostenido:** Todo efecto mantenido mediante Concentración se considera **Sostenido** mientras permanezca activo. Por lo tanto, si la carta está agotada, no puede recuperar su uso hasta que el efecto termine.
+- Si fallas la tirada, la Concentración se rompe y el efecto termina.
+- Puedes gastar tu **Reacción** en el momento de recibir el daño para obtener Ventaja (+1d4) en esta tirada.
+- Si quedas **Aturdido** o **Inconsciente**, pierdes inmediatamente cualquier Concentración que estés manteniendo.
+- Puedes terminar voluntariamente tu Concentración en cualquier momento.
+- Todo efecto mantenido mediante Concentración se considera también **Sostenido**. Por lo tanto, mientras permanezca activo, su carta no puede recuperar su uso mediante Adrenalina, Reenfoque ni Recarga con Suerte.
 
 ## Tiradas de Salvación
 

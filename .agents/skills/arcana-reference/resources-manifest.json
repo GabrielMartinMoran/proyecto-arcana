@@ -646,8 +646,8 @@
     {
       "path": "references/manual-del-jugador/04-el-sistema-de-cartas.md",
       "kind": "file",
-      "size": 22752,
-      "sha1": "54742cab54d630e787b0000320b1882ecacb4da3"
+      "size": 23071,
+      "sha1": "7e9f3d31317557378ed67139082aece1c478ea46"
     },
     {
       "path": "references/manual-del-jugador/05-exploracion.md",
@@ -664,14 +664,14 @@
     {
       "path": "references/manual-del-jugador/07-combate.md",
       "kind": "file",
-      "size": 15059,
-      "sha1": "212ae2e87a3d8b5b161f9308dd3bf5cf7b551f20"
+      "size": 15135,
+      "sha1": "28e3109bfe6016f25b523e43268ef68a029927c0"
     },
     {
       "path": "references/manual-del-jugador/08-estados-y-condiciones.md",
       "kind": "file",
-      "size": 3132,
-      "sha1": "1f72b69d0eb5a0364efe3bee1596f9a7ff50a279"
+      "size": 3230,
+      "sha1": "a817a6920890a85ede251af075da1aac8313f482"
     },
     {
       "path": "references/manual-del-jugador/09-descanso-y-recuperacion.md",
