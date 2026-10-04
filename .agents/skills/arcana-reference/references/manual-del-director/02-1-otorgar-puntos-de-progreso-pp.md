@@ -18,17 +18,43 @@ ARCANA es un juego que recompensa más que solo el combate. Los PP deben ser un 
 
 ## El Ritmo de la Campaña
 
-Antes de definir la cantidad exacta de puntos por sesión, es importante acordar con tu mesa qué ritmo de progresión desean tener. Para proyectar el poder del grupo y el tiempo que tomará la campaña, utilizaremos los hitos mecánicos oficiales del sistema:
+Antes de definir la cantidad exacta de puntos por sesión, es importante acordar con tu mesa qué ritmo de progresión desean tener.
 
-- **Rango 2 - Inicio (23 PP):** El paso de aventureros locales a héroes experimentados.
-- **Rango 3 - Inicio (53 PP):** La transición hacia personajes de gran poder, capaces de alterar regiones enteras.
-- **Rango 3 - Avanzado (85+ PP):** El pico de poder de la progresión normal del sistema, enfrentando amenazas legendarias.
+Los **Rangos Nominales** representan etapas generales de poder y desarrollo del grupo. No determinan qué Nivel máximo de carta puede poseer un personaje ni obligan a seguir una secuencia concreta de compras. Un personaje muy especializado puede acceder tempranamente a capacidades propias de etapas posteriores, mientras que otro más amplio puede invertir sus PP en un repertorio mayor antes de alcanzar sus poderes cumbre.
+
+| PP Promedio | Rango Nominal |
+| :---------- | :------------ |
+| **0-6**     | R1 (Inicio)   |
+| **7-13**    | R1 (Medio)    |
+| **14-22**   | R1 (Avanzado) |
+| **23-32**   | R2 (Inicio)   |
+| **33-42**   | R2 (Medio)    |
+| **43-52**   | R2 (Avanzado) |
+| **53-68**   | R3 (Inicio)   |
+| **69-84**   | R3 (Medio)    |
+| **85-114**  | R3 (Avanzado) |
+| **115-139** | R4 (Inicio)   |
+| **140-164** | R4 (Medio)    |
+| **165-189** | R4 (Avanzado) |
+| **190+**    | R5 (Épico)    |
+
+### Qué Representa Cada Rango
+
+- **Rango 1 — Aventureros:** Los personajes están definiendo sus fundamentos, adquiriendo sus primeras herramientas y descubriendo qué clase de héroes quieren ser.
+- **Rango 2 — Héroes Experimentados:** Su estilo comienza a estar claramente definido. Disponen de suficientes herramientas para afrontar amenazas serias de forma consistente.
+- **Rango 3 — Héroes de Gran Poder:** Los personajes alcanzan técnicas avanzadas, Maestrías y, en sus etapas superiores, comienzan a acceder a capacidades de Poder Cumbre.
+- **Rango 4 — Héroes Legendarios:** Los personajes combinan profundidad, amplitud y redundancia. Poseen repertorios maduros, capacidades cumbre y suficientes respuestas para enfrentarse de manera sostenida a amenazas legendarias.
+- **Rango 5 — Héroes Épicos:** Este Rango no se subdivide y no posee un límite superior de PP. A partir de este punto la cantidad de PP deja de representar de forma suficientemente precisa una escala lineal de poder. Los personajes pueden continuar adquiriendo cartas, atributos secundarios, Ranuras y nuevas respuestas, pero su crecimiento se expresa cada vez más como amplitud, resiliencia y capacidad para resolver situaciones extraordinarias. R5 representa el juego épico abierto de ARCANA.
+
+### Ritmos de Campaña
 
 Elige uno de los siguientes enfoques según el estilo de tu mesa:
 
-- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando o viajando es la norma. (Llegar a Rango 2 toma ~15-18 sesiones; a Rango 3 Avanzado, alrededor de 55+ sesiones).
-- **Ritmo Moderado / Estándar:** El equilibrio ideal para la mayoría de las mesas. Intercala exploración con combates decisivos de forma regular. (Llegar a Rango 2 toma ~8-9 sesiones; a Rango 3 Avanzado, ~28-32 sesiones).
-- **Ritmo Rápido / Épico:** Ideal para campañas cortas o mesas que juegan con poca frecuencia. El avance es acelerado y el riesgo es constante. (Llegar a Rango 2 toma ~5-6 sesiones; a Rango 3 Avanzado, ~19-23 sesiones).
+- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando, viajando o desarrollando relaciones es normal. Como referencia, R2 suele alcanzarse en unas **15-18 sesiones**, R3 Avanzado alrededor de **55-60**, R4 Inicio alrededor de **75-80** y R5 después de aproximadamente **125 o más**.
+- **Ritmo Moderado / Estándar:** El equilibrio recomendado para la mayoría de las mesas. Alterna exploración, desarrollo narrativo y conflictos importantes con regularidad. Como referencia, R2 suele alcanzarse alrededor de la **sesión 8**, R3 Avanzado alrededor de **28-30**, R4 Inicio alrededor de **38-40** y R5 alrededor de **60-65**.
+- **Ritmo Rápido / Épico:** Ideal para campañas cortas, mesas que juegan con poca frecuencia o historias donde los personajes deben crecer rápidamente. Como referencia, R2 suele alcanzarse en **5-6 sesiones**, R3 Avanzado alrededor de **20-21**, R4 Inicio alrededor de **27-30** y R5 alrededor de **45-47**.
+
+Estas cifras son aproximadas. Una campaña con muchas sesiones de transición avanzará más despacio que otra donde cada sesión culmina en grandes objetivos, incluso utilizando el mismo ritmo.
 
 ## ¿Cuántos PP Otorgar? (Una Guía Flexible)
 
@@ -36,9 +62,11 @@ En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupu
 
 - **Sesión de Progreso / Transición:** El grupo interactuó con PNJs, viajó, resolvió conflictos menores o avanzó en la trama sin grandes hitos. Fue una sesión de construcción de mundo.
   - _Ritmo Lento:_ **1 PP** | _Ritmo Moderado:_ **2 PP** | _Ritmo Rápido:_ **3 PP**
-- **Sesión Exitosa:** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo (puzzle complejo o intriga). Esta debería ser la recompensa más habitual.
+- **Sesión Exitosa:** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo. Esta debería ser la recompensa más habitual.
   - _Ritmo Lento:_ **2 PP** | _Ritmo Moderado:_ **3 PP** | _Ritmo Rápido:_ **4 PP**
-- **Sesión Memorable / Final de Arco:** Ocurrió algo verdaderamente épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o salvó a un asentamiento de la destrucción.
+- **Sesión Memorable / Final de Arco:** Ocurrió algo verdaderamente épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o alcanzó un gran hito.
   - _Ritmo Lento:_ **3 PP** | _Ritmo Moderado:_ **4 PP** | _Ritmo Rápido:_ **5 PP**
 
-**+1 PP (Bono Individual):** Independientemente del ritmo, siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
+**+1 PP (Bono Individual):** Independientemente del ritmo, siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido protagonista de un momento especialmente memorable.
+
+> **No frenes artificialmente la progresión:** Los Rangos no representan un límite que el DJ deba evitar alcanzar. En especial, entrar en R3 Avanzado o R4 no significa que los personajes hayan agotado sus posibilidades de desarrollo. ARCANA está diseñado para que los jugadores puedan seguir invirtiendo en nuevas cartas, Ranuras, atributos secundarios y herramientas situacionales durante campañas prolongadas.

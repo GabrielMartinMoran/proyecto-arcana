@@ -2,7 +2,17 @@
 
 A lo largo de sus aventuras, los personajes acumulan experiencia y aprenden de sus triunfos y fracasos. Esta evolución se representa mediante los **Puntos de Progreso (PP)**, que pueden invertir para desbloquear nuevas capacidades, ampliar su repertorio de habilidades o mejorar sus aptitudes innatas.
 
-El tiempo de descanso es el momento ideal para gastar estos puntos, representando entrenamiento, estudio o revelaciones personales. Los costes para cada mejora se detallan en las siguientes tablas.
+El tiempo de descanso es el momento ideal para gastar estos puntos, representando entrenamiento, estudio, práctica, adaptación o revelaciones personales. Los costes para cada mejora se detallan en las siguientes tablas.
+
+### Una Progresión Viva
+
+ARCANA no utiliza una secuencia obligatoria de mejoras. Un personaje puede especializarse rápidamente, ampliar su repertorio, desarrollar más de una disciplina o alternar entre estos caminos según su historia y las decisiones de su jugador.
+
+Ahorrar PP para alcanzar cuanto antes una capacidad de Nivel alto es una estrategia válida, pero tiene un coste de oportunidad: durante ese tiempo el personaje renuncia a adquirir nuevas herramientas, Ranuras, defensas, recursos situacionales y otras formas de interactuar con el mundo.
+
+La progresión habitual de un personaje combina **profundidad y amplitud**. A lo largo de una campaña es normal adquirir cartas de distintos Niveles, mejorar Atributos, añadir Ranuras y explorar capacidades que resulten útiles o interesantes aunque no conduzcan directamente hacia una carta de Nivel superior.
+
+No existe una cantidad mínima de cartas de un Nivel que debas adquirir antes de avanzar al siguiente. Los requerimientos de cada carta determinan cuándo puedes adquirirla. Esta libertad es intencional: especializarse, diversificarse o avanzar gradualmente son estilos de desarrollo diferentes, cada uno con sus propias ventajas y costes.
 
 ### Mejorar un Atributo
 

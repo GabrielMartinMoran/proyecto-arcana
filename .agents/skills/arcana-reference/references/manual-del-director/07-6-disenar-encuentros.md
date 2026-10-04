@@ -24,7 +24,11 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 | **43-52**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
 | **53-68**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
 | **69-84**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
-| **85+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
+| **85-114**  | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
+| **115-139** | R4 (Inicio)          | 5.5                | 8                   | 11                   | 15                 | Rango 4                                 |
+| **140-164** | R4 (Medio)           | 6.5                | 10                  | 14                   | 19                 | Rango 4                                 |
+| **165-189** | R4 (Avanzado)        | 8                  | 12                  | 17                   | 23                 | Rango 4 (_Considerar 1x R5_)            |
+| **190+**    | R5 (Épico)           | 10                 | 15                  | 21                   | 28                 | Rango 5 (_Considerar 1x R6_)            |
 
 _(Nota: "Rango Nominal (Ref.)" representa la escala de amenazas frente a la cual un grupo de personajes de ese nivel de progreso puede contribuir de forma sostenida y significativa en encuentros estándar. No indica el Nivel máximo de carta que un personaje puede poseer: personajes muy especializados pueden acceder antes a capacidades propias de etapas posteriores, mientras que personajes más diversificados pueden consolidar su poder de forma más gradual.)_
 
@@ -34,10 +38,10 @@ Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu 
 
 `Presupuesto Total (PA) = Redondear( (PA Base por PJ de la Tabla) x (Número de Jugadores) )`
 
-> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "85+"). Quieren dificultad **Difícil**.
+> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "85-114", R3 Avanzado). Quieren dificultad **Difícil**.
 >
-> - PA Base/PJ (Tabla v5.2): 10.5 PA
-> - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
+> - PA Base/PJ: 10.5 PA
+> - Presupuesto Total: Redondear(10.5 PA/PJ × 4 Jugadores) = **42 PA**.
 
 ## Paso 4: Construir el Encuentro — Compra de Enemigos
 
@@ -56,24 +60,41 @@ _(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para 
 
 **No hay límites estrictos sobre qué Rangos puedes usar**, pero tu elección debe estar guiada por tu criterio y los principios detallados en la siguiente **Guía Estratégica**.
 
-## Reacciones Adicionales para Jefes
+## Mejoras de Jefe
 
 Todas las criaturas disponen normalmente de **1 Reacción por ronda**.
 
-Al construir un encuentro, el DJ puede otorgar Reacciones adicionales a una criatura para representar un enemigo especialmente dominante o un jefe capaz de mantenerse activo frente a varios adversarios.
+Al construir un encuentro, el DJ puede adquirir **Mejoras de Jefe** para una criatura que deba actuar como una amenaza central capaz de sostener un enfrentamiento contra varios adversarios.
 
-Cada Reacción adicional aumenta el coste en PA de la criatura en un **25% de su coste base**, calculando todos los incrementos sobre el coste original y redondeando el resultado final hacia arriba.
+Cada Mejora de Jefe otorga:
 
-| Reacciones por Ronda |  Coste en PA |
-| -------------------- | -----------: |
-| **1**                | Coste normal |
-| **2**                |        ×1,25 |
-| **3**                |        ×1,50 |
-| **4**                |        ×1,75 |
+- **+1 Reacción por ronda**.
+- **+1 uso de Determinación de Jefe por encuentro**.
 
-Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien para jefes solitarios. Las criaturas con 4 Reacciones deberían reservarse para encuentros particularmente importantes.
+Cada Mejora aumenta el coste en PA de la criatura en un **25% de su coste base**, calculando todos los incrementos sobre el coste original y redondeando el resultado final hacia arriba.
+
+| Mejoras de Jefe | Reacciones por Ronda | Determinaciones por Encuentro |  Coste en PA |
+| :-------------- | :------------------- | :---------------------------- | -----------: |
+| **0**           | 1                    | 0                             | Coste normal |
+| **1**           | 2                    | 1                             |        ×1,25 |
+| **2**           | 3                    | 2                             |        ×1,50 |
+| **3**           | 4                    | 3                             |        ×1,75 |
+
+Como referencia, **1 o 2 Mejoras** funcionan especialmente bien para jefes habituales. Las criaturas con **3 Mejoras** deberían reservarse normalmente para enfrentamientos particularmente importantes o finales de arco.
 
 Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
+
+Las Mejoras de Jefe son una modificación del encuentro, no del bloque de estadísticas base de la criatura. Sus Reacciones adicionales y capacidades derivadas no deben incluirse al calcular los PPF o el Daño Promedio por Ronda de la criatura: su poder adicional ya está representado por el incremento de PA.
+
+### Determinación de Jefe
+
+Después de fallar una Tirada de Salvación, una criatura con usos disponibles de Determinación puede gastar **1 uso** para considerar que ha superado la tirada.
+
+Resuelve normalmente las consecuencias correspondientes a una salvación exitosa. Por ejemplo, si un efecto inflige la mitad de daño cuando se supera la Tirada de Salvación, la criatura recibe esa mitad de daño.
+
+Una criatura solo puede utilizar **1 Determinación por ronda**, independientemente de la cantidad de usos que conserve.
+
+Utilizar Determinación no requiere gastar una Reacción.
 
 ### Negación de Reacciones y Jefes
 
@@ -81,13 +102,13 @@ Los efectos que normalmente impidan a una criatura utilizar Reacciones reducen e
 
 Para una criatura normal, que dispone de una única Reacción, esto funciona normalmente y le impide utilizar Reacciones mientras dure el efecto.
 
-Una criatura que posea Reacciones adicionales conserva las restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.
+Una criatura que posea Mejoras de Jefe conserva las Reacciones restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.
 
 Múltiples efectos que impidan utilizar Reacciones no acumulan esta reducción, salvo que una regla indique expresamente lo contrario.
 
 ### Reacciones de Jefe
 
-Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
+Una criatura que posea al menos **1 Mejora de Jefe** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
 
 **Reposicionarse:** Al final del turno de otra criatura, puede usar una Reacción para moverse hasta la mitad de su Velocidad.
 
@@ -98,9 +119,21 @@ Una criatura que haya recibido al menos **una Reacción adicional** obtiene auto
 
 Todas las demás propiedades del ataque se resuelven normalmente.
 
-Estas opciones no reemplazan las Reacciones propias de la criatura. Simplemente garantizan que cualquier criatura utilizada como jefe disponga de formas básicas de aprovechar las Reacciones adicionales adquiridas.
+**Guardia Reactiva:** Cuando una criatura realiza una Tirada de Ataque contra el jefe, después de conocer el resultado pero antes de resolver el impacto y el daño, el jefe puede usar una Reacción para obtener **+2 a su Esquiva contra ese ataque**.
 
-Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas lo indique expresamente.
+Estas opciones no reemplazan las Reacciones propias de la criatura. Las Reacciones representan un recurso compartido: utilizar una para atacar, defenderse o reposicionarse significa renunciar a utilizarla para otra opción durante esa ronda.
+
+Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas indique expresamente lo contrario.
+
+### Evaluar las Reacciones de un Jefe
+
+Las Mejoras de Jefe no benefician por igual a todos los bloques de estadísticas. Antes de utilizarlas, revisa qué puede hacer realmente la criatura con sus Reacciones.
+
+Como referencia, _Ataque Rápido_ busca representar aproximadamente una fracción de la Acción ofensiva normal de una criatura. En un Asalto Múltiple compuesto por ataques similares, realizar uno de esos ataques suele cumplir naturalmente esta función.
+
+Si una criatura posee un Asalto Múltiple compuesto por ataques de potencias muy diferentes y uno de ellos representa por sí solo una proporción excepcionalmente grande de su ofensiva normal, considera limitar qué ataque puede utilizar mediante _Ataque Rápido_ o tener en cuenta esta eficiencia al evaluar el encuentro.
+
+Los mejores jefes presentan decisiones reales sobre cómo gastar sus Reacciones: ofensiva, defensa, movimiento, control o capacidades propias de su bloque. Una criatura que siempre obtiene más valor utilizando la misma Reacción probablemente necesite más variedad táctica en su diseño.
 
 ## Guía Estratégica para el DJ: Balance y Composición
 
@@ -111,7 +144,11 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
     - **Objetivo:** Intenta que la mayoría de tus encuentros (Normal, Difícil) tengan una cantidad de enemigos que esté entre el número de personajes y el doble de ese valor (por ejemplo, entre 4 y 8 criaturas para un grupo de 4 personajes). Esto suele generar el mejor equilibrio entre desafío táctico y fluidez del combate, evitando turnos excesivamente largos.
     - **Gestión del Presupuesto:** Si tu presupuesto te permite comprar muchos monstruos de bajo rango (>10-12), **considera activamente gastar _menos_ del presupuesto total** o (preferiblemente) **sustituir** grupos de enemigos de bajo Rango por **uno o dos de Rango superior** (respetando las guías sobre Rangos Superiores). El coste exponencial de R4+ te ayudará naturalmente a mantener bajo el número total de enemigos en niveles altos.
     - **Hordas Intencionales:** Si buscas una sensación de asedio, puedes usar hordas (>10 R1), pero sé consciente de que alargará el combate y la economía de acciones puede ser brutal. Resérvalo para momentos clave y considera usar monstruos R1 con _muy_ baja salud (menos PPF invertidos en PS) para acelerar su resolución.
-3.  **Economía de Acciones:** El bando con más acciones suele tener ventaja. Compensa la desventaja numérica de Jefes solitarios (R4+) asegurándote de que tengan buena Salud/Mitigación y **Rasgos Tácticos clave** (especialmente Reacciones, Control AoE o habilidades de Movilidad Superior) que les permitan impactar el combate significativamente más allá de su único turno.
+3.  **Economía de Acciones y Supervivencia de Jefes:**
+    - El bando con más acciones suele tener ventaja. Un jefe solitario puede utilizar **Mejoras de Jefe** para mantenerse activo entre los turnos de los personajes.
+    - No intentes compensar siempre la inferioridad numérica aumentando únicamente la Salud. Más Salud prolonga el combate, pero no necesariamente lo vuelve más interesante.
+    - Los jefes efectivos suelen combinar varias capas: Salud suficiente para ejecutar su estrategia, alguna defensa significativa, movilidad, respuestas frente a control y opciones de Reacción que compitan entre sí.
+    - En Rangos altos, presta especial atención a efectos capaces de eliminar turnos, impedir Reacciones o neutralizar completamente una criatura. Las Determinaciones de Jefe ofrecen una protección limitada contra una tirada decisiva, pero el grupo puede intentar forzar varias salvaciones durante la misma ronda para superar esa defensa.
 4.  **El Peligro (y Oportunidad) de Rangos Superiores:**
     - **Coste Elevado:** Incluir monstruos de Rangos superiores consume rápidamente una porción significativa del presupuesto: R3 cuesta 6 PA, R4 cuesta 10 PA, R5 cuesta 20 PA y R6 cuesta 40 PA. Este crecimiento limita naturalmente su número y posiciona a las criaturas de mayor Rango como amenazas centrales del encuentro.
     - **Advertencia Fuerte (R+2 o más):** Usar monstruos con un Rango _dos o más niveles por encima_ del Rango Nominal del grupo es **extremadamente peligroso** y debe ser una decisión **consciente, justificada narrativamente** y reservada para encuentros **Épicos** o climáticos. Realiza siempre la **Evaluación Crítica Obligatoria** antes de hacerlo:

@@ -28,7 +28,13 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 | **43-52**   | R2 (Avanzado) | 70    | 120    | 180     | 280   |
 | **53-68**   | R3 (Inicio)   | 90    | 150    | 220     | 350   |
 | **69-84**   | R3 (Medio)    | 110   | 180    | 270     | 430   |
-| **85+**     | R3 (Avanzado) | 140   | 220    | 330     | 550   |
+| **85-114**  | R3 (Avanzado) | 140   | 220    | 330     | 550   |
+| **115-139** | R4 (Inicio)   | 180   | 280    | 430     | 700   |
+| **140-164** | R4 (Medio)    | 220   | 350    | 550     | 900   |
+| **165-189** | R4 (Avanzado) | 280   | 430    | 700     | 1100  |
+| **190+**    | R5 (Épico)    | 350   | 550    | 900     | 1400  |
+
+> **Rango 5 y recompensas épicas:** R5 es una categoría abierta. Estos valores representan una referencia base y no pretenden que la riqueza continúe escalando indefinidamente junto con los PP. En campañas épicas prolongadas, las recompensas deberían depender cada vez más de la ficción: artefactos, territorios, favores, recursos extraordinarios, influencia y otros beneficios pueden ser más apropiados que continuar aumentando linealmente la cantidad de Oro.
 
 ### Paso 3: Calcular el Presupuesto Total de la Misión
 

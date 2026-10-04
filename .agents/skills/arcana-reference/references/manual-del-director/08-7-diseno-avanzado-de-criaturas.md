@@ -17,6 +17,23 @@ Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 | **Rango 5**        | 30 PPF            | Amenazas de final de campaña, avatares del apocalipsis.     |
 | **Rango 6**        | 38 PPF            | Jefes finales épicos, diseñados a medida.                   |
 
+### Intención de Diseño por Rango
+
+El presupuesto de PPF indica cuánto puede comprar una criatura, pero no garantiza por sí solo que el bloque resultante sea interesante o efectivo en mesa. A medida que aumenta el Rango, también debería aumentar la cantidad de problemas tácticos que la criatura puede plantear y resolver.
+
+| Rango  | Intención de Diseño                                                                                                                                                                                                                                                                                                                        |
+| :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **R1** | **Una idea clara.** Debe ser fácil de comprender y resolver. Puede resultar peligroso en grupo, pero individualmente suele poseer pocas herramientas.                                                                                                                                                                                      |
+| **R2** | **Un rol táctico definido.** Debería poseer al menos una herramienta que obligue a tomar una decisión distinta a simplemente intercambiar ataques.                                                                                                                                                                                         |
+| **R3** | **Amenaza autosuficiente.** Debería combinar su ofensiva con al menos otro eje relevante, como movilidad, defensa, control, apoyo o manipulación del terreno.                                                                                                                                                                              |
+| **R4** | **Amenaza legendaria.** Debería poseer respuestas frente a diferentes tipos de personajes y evitar que una única táctica trivialice completamente su función.                                                                                                                                                                              |
+| **R5** | **Amenaza de campaña.** Debería operar sobre varios ejes tácticos, tener buena resiliencia y disponer de herramientas para recuperar la iniciativa cuando el grupo consigue presionarla.                                                                                                                                                   |
+| **R6** | **Jefe final épico.** Debe estar diseñado para enfrentarse al repertorio completo de un grupo de alto nivel. No debería depender únicamente de Salud y daño: necesita mecanismos para sostener su economía de acciones, responder al control, alterar el estado del campo y obligar al grupo a adaptar su estrategia durante el encuentro. |
+
+Los Rangos altos no necesitan ser simplemente versiones más grandes de los anteriores. Una criatura con enormes cantidades de Salud pero pocas decisiones puede producir un combate largo sin producir un combate interesante.
+
+Al diseñar criaturas R4-R6, intenta que su presupuesto se traduzca en **capas de juego**: formas diferentes de atacar, sobrevivir, reposicionarse, controlar el campo o responder a las acciones de los personajes.
+
 ## Paso 2: Linaje de la Criatura
 
 Asigna a la criatura un **Linaje**, una etiqueta que representa su naturaleza fundamental y permite clasificarla mecánicamente.
@@ -125,6 +142,8 @@ Los Rasgos, condiciones y capacidades especiales que modifiquen sustancialmente 
 
 Para determinar el Daño Promedio por Ronda de una criatura, evalúa una secuencia representativa de tres rondas y divide todo el daño producido entre tres. Incluye daño persistente, bonificaciones condicionales y Reacciones ofensivas con la frecuencia con la que razonablemente puedan producirse durante esa secuencia. Redondea hacia abajo el resultado final.
 
+> **Mejoras de Jefe:** No incluyas en este cálculo los ataques, movimientos u otras Reacciones obtenidas exclusivamente mediante **Mejoras de Jefe**. Estas mejoras pertenecen al diseño del encuentro y su potencia ya se paga mediante el incremento de PA. Las Reacciones que formen parte del bloque base de la criatura sí deben considerarse cuando contribuyan regularmente a su producción ofensiva.
+
 ### Ataque y Nivel de Dificultad
 
 La columna **Ataque / ND** representa el nivel ofensivo máximo adquirido por la criatura mediante su inversión de PPF.
@@ -146,7 +165,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
 | **0 (Base)** |   4   |    6    |   +2 / 7    |                   1-2                    |             0 / 0             |               2                |
-|    **1**     |   7   |    7    |   +3 / 8    |                    3                     |             0 / 0             |               -                |
+|    **1**     |   7   |    7    |   +3 / 8    |                    3                     |             1 / 1             |               -                |
 |    **2**     |  10   |    -    |      -      |                    4                     |             1 / 1             |               3                |
 |    **3**     |  13   |    8    |   +4 / 9    |                    5                     |             2 / 1             |               -                |
 |    **4**     |  16   |    -    |      -      |                    6                     |             3 / 1             |               4                |
@@ -156,7 +175,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
 | **0 (Base)** |  15   |    7    |   +3 / 8    |                   0-4                    |             0 / 0             |               2                |
-|    **1**     |  20   |    8    |   +4 / 9    |                   5-6                    |             0 / 0             |               3                |
+|    **1**     |  20   |    8    |   +4 / 9    |                   5-6                    |             1 / 1             |               3                |
 |    **2**     |  25   |    -    |   +5 / 10   |                   7-8                    |             1 / 1             |               -                |
 |    **3**     |  30   |    9    |      -      |                   9-10                   |             2 / 1             |               4                |
 |    **4**     |  35   |    -    |   +6 / 11   |                  11-12                   |             3 / 2             |               -                |
@@ -168,7 +187,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
 | **0 (Base)** |  30   |    7    |   +4 / 9    |                   0-8                    |             0 / 0             |               3                |
-|    **1**     |  38   |    8    |   +5 / 10   |                   9-11                   |             0 / 0             |               -                |
+|    **1**     |  38   |    8    |   +5 / 10   |                   9-11                   |             1 / 1             |               -                |
 |    **2**     |  46   |    -    |   +6 / 11   |                  12-14                   |             1 / 1             |               4                |
 |    **3**     |  54   |    9    |      -      |                  15-17                   |             2 / 1             |               -                |
 |    **4**     |  62   |    -    |   +7 / 12   |                  18-20                   |             3 / 2             |               5                |
@@ -239,7 +258,30 @@ El Director de Juego (DJ) utiliza los **Puntos de Defensa (PD)** obtenidos en la
 
 Los PD representan defensas especiales que van más allá de sus valores básicos de Salud y Esquiva. Una criatura puede distribuirlos entre Mitigación, Resistencias, Inmunidades, mejoras a Tiradas de Salvación y protecciones contra estados.
 
-Para facilitar la consulta durante el diseño, las opciones se agrupan en cuatro categorías principales.
+### Filosofía de Diseño Defensivo
+
+Los Puntos de Defensa no representan simplemente "más dureza". Permiten decidir **cómo** sobrevive una criatura y qué clase de respuestas deben encontrar los personajes para derrotarla.
+
+La Salud, la Esquiva, la Mitigación, las Resistencias y las mejoras a Tiradas de Salvación protegen frente a amenazas distintas. Un bloque defensivo interesante suele combinar unas pocas herramientas coherentes con la naturaleza y el papel táctico de la criatura en lugar de intentar cubrir todas sus debilidades.
+
+| Defensa                             | Función Principal                                                                                                                                                                                                              |
+| :---------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Salud**                           | Compra tiempo para que la criatura pueda ejecutar su estrategia. Más Salud prolonga el combate, pero por sí sola no genera nuevas decisiones.                                                                                  |
+| **Esquiva**                         | Reduce la frecuencia con la que impactan los ataques. Los valores altos tienen un efecto muy fuerte sobre el d8 y deben utilizarse con cuidado.                                                                                |
+| **Mitigación Física**               | Es especialmente efectiva contra múltiples impactos físicos pequeños o medianos. Conserva una utilidad importante incluso en Rangos altos porque puede aplicarse varias veces durante una ronda.                               |
+| **Mitigación Mágica**               | Es efectiva contra daño mágico repetido o dividido en múltiples impactos, pero pierde eficiencia relativa frente a grandes instancias individuales de daño. En Rangos altos suele funcionar mejor como defensa complementaria. |
+| **Resistencia**                     | Es una herramienta importante frente a grandes cantidades de un tipo de daño específico. Debe representar una fortaleza temática, no utilizarse para cubrir indiscriminadamente todos los tipos de daño.                       |
+| **Ventaja en Tiradas de Salvación** | Protege frente a control, condiciones y poderes que pueden cambiar decisivamente el estado del combate. Su importancia aumenta junto con el Rango y el repertorio de los personajes.                                           |
+| **Inmunidad a Estados**             | Define amenazas especialmente difíciles de neutralizar mediante una táctica concreta. Debe utilizarse cuando forme parte clara de la identidad o función del bloque.                                                           |
+
+### Capas Defensivas por Rango
+
+- **R1:** Puede no poseer ninguna defensa especial. Una única Mitigación o protección temática ya es significativa.
+- **R2:** Una defensa característica suele ser suficiente.
+- **R3:** Las amenazas importantes deberían empezar a cubrir una vulnerabilidad relevante o poseer alguna protección frente a control.
+- **R4:** Es recomendable combinar los valores básicos de Salud y Esquiva con al menos una defensa especial significativa.
+- **R5:** Las amenazas centrales deberían poseer varias capas complementarias, como una protección frente a Tiradas de Salvación junto con una Resistencia, Mitigación o defensa reactiva.
+- **R6:** Un jefe final debe poder sobrevivir al repertorio completo de un grupo de alto nivel. Considera específicamente cómo responde a control, nova, posicionamiento y presión sostenida. Esto no significa volverlo inmune a todo: las defensas deberían crear decisiones y oportunidades de adaptación, no eliminar las herramientas de los personajes.
 
 ### 1. Mitigación y Protecciones de Daño
 
