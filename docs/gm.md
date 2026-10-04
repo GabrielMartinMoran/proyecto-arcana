@@ -22,17 +22,43 @@ ARCANA es un juego que recompensa más que solo el combate. Los PP deben ser un 
 
 ## El Ritmo de la Campaña
 
-Antes de definir la cantidad exacta de puntos por sesión, es importante acordar con tu mesa qué ritmo de progresión desean tener. Para proyectar el poder del grupo y el tiempo que tomará la campaña, utilizaremos los hitos mecánicos oficiales del sistema:
+Antes de definir la cantidad exacta de puntos por sesión, es importante acordar con tu mesa qué ritmo de progresión desean tener.
 
-- **Rango 2 - Inicio (23 PP):** El paso de aventureros locales a héroes experimentados.
-- **Rango 3 - Inicio (53 PP):** La transición hacia personajes de gran poder, capaces de alterar regiones enteras.
-- **Rango 3 - Avanzado (85+ PP):** El pico de poder de la progresión normal del sistema, enfrentando amenazas legendarias.
+Los **Rangos Nominales** representan etapas generales de poder y desarrollo del grupo. No determinan qué Nivel máximo de carta puede poseer un personaje ni obligan a seguir una secuencia concreta de compras. Un personaje muy especializado puede acceder tempranamente a capacidades propias de etapas posteriores, mientras que otro más amplio puede invertir sus PP en un repertorio mayor antes de alcanzar sus poderes cumbre.
+
+| PP Promedio | Rango Nominal |
+| :---------- | :------------ |
+| **0-6**     | R1 (Inicio)   |
+| **7-13**    | R1 (Medio)    |
+| **14-22**   | R1 (Avanzado) |
+| **23-32**   | R2 (Inicio)   |
+| **33-42**   | R2 (Medio)    |
+| **43-52**   | R2 (Avanzado) |
+| **53-68**   | R3 (Inicio)   |
+| **69-84**   | R3 (Medio)    |
+| **85-114**  | R3 (Avanzado) |
+| **115-139** | R4 (Inicio)   |
+| **140-164** | R4 (Medio)    |
+| **165-189** | R4 (Avanzado) |
+| **190+**    | R5 (Épico)    |
+
+### Qué Representa Cada Rango
+
+- **Rango 1 — Aventureros:** Los personajes están definiendo sus fundamentos, adquiriendo sus primeras herramientas y descubriendo qué clase de héroes quieren ser.
+- **Rango 2 — Héroes Experimentados:** Su estilo comienza a estar claramente definido. Disponen de suficientes herramientas para afrontar amenazas serias de forma consistente.
+- **Rango 3 — Héroes de Gran Poder:** Los personajes alcanzan técnicas avanzadas, Maestrías y, en sus etapas superiores, comienzan a acceder a capacidades de Poder Cumbre.
+- **Rango 4 — Héroes Legendarios:** Los personajes combinan profundidad, amplitud y redundancia. Poseen repertorios maduros, capacidades cumbre y suficientes respuestas para enfrentarse de manera sostenida a amenazas legendarias.
+- **Rango 5 — Héroes Épicos:** Este Rango no se subdivide y no posee un límite superior de PP. A partir de este punto la cantidad de PP deja de representar de forma suficientemente precisa una escala lineal de poder. Los personajes pueden continuar adquiriendo cartas, atributos secundarios, Ranuras y nuevas respuestas, pero su crecimiento se expresa cada vez más como amplitud, resiliencia y capacidad para resolver situaciones extraordinarias. R5 representa el juego épico abierto de ARCANA.
+
+### Ritmos de Campaña
 
 Elige uno de los siguientes enfoques según el estilo de tu mesa:
 
-- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando o viajando es la norma. (Llegar a Rango 2 toma ~15-18 sesiones; a Rango 3 Avanzado, alrededor de 55+ sesiones).
-- **Ritmo Moderado / Estándar:** El equilibrio ideal para la mayoría de las mesas. Intercala exploración con combates decisivos de forma regular. (Llegar a Rango 2 toma ~8-9 sesiones; a Rango 3 Avanzado, ~28-32 sesiones).
-- **Ritmo Rápido / Épico:** Ideal para campañas cortas o mesas que juegan con poca frecuencia. El avance es acelerado y el riesgo es constante. (Llegar a Rango 2 toma ~5-6 sesiones; a Rango 3 Avanzado, ~19-23 sesiones).
+- **Ritmo Lento / Narrativo:** Diseñado para campañas largas, inmersivas y ricas en detalles. Pasar varias sesiones investigando, viajando o desarrollando relaciones es normal. Como referencia, R2 suele alcanzarse en unas **15-18 sesiones**, R3 Avanzado alrededor de **55-60**, R4 Inicio alrededor de **75-80** y R5 después de aproximadamente **125 o más**.
+- **Ritmo Moderado / Estándar:** El equilibrio recomendado para la mayoría de las mesas. Alterna exploración, desarrollo narrativo y conflictos importantes con regularidad. Como referencia, R2 suele alcanzarse alrededor de la **sesión 8**, R3 Avanzado alrededor de **28-30**, R4 Inicio alrededor de **38-40** y R5 alrededor de **60-65**.
+- **Ritmo Rápido / Épico:** Ideal para campañas cortas, mesas que juegan con poca frecuencia o historias donde los personajes deben crecer rápidamente. Como referencia, R2 suele alcanzarse en **5-6 sesiones**, R3 Avanzado alrededor de **20-21**, R4 Inicio alrededor de **27-30** y R5 alrededor de **45-47**.
+
+Estas cifras son aproximadas. Una campaña con muchas sesiones de transición avanzará más despacio que otra donde cada sesión culmina en grandes objetivos, incluso utilizando el mismo ritmo.
 
 ## ¿Cuántos PP Otorgar? (Una Guía Flexible)
 
@@ -40,12 +66,14 @@ En lugar de contar la experiencia por cada enemigo derrotado, utiliza un presupu
 
 - **Sesión de Progreso / Transición:** El grupo interactuó con PNJs, viajó, resolvió conflictos menores o avanzó en la trama sin grandes hitos. Fue una sesión de construcción de mundo.
   - _Ritmo Lento:_ **1 PP** | _Ritmo Moderado:_ **2 PP** | _Ritmo Rápido:_ **3 PP**
-- **Sesión Exitosa:** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo (puzzle complejo o intriga). Esta debería ser la recompensa más habitual.
+- **Sesión Exitosa:** El grupo completó un objetivo importante, derrotó a un enemigo notable o superó un desafío significativo. Esta debería ser la recompensa más habitual.
   - _Ritmo Lento:_ **2 PP** | _Ritmo Moderado:_ **3 PP** | _Ritmo Rápido:_ **4 PP**
-- **Sesión Memorable / Final de Arco:** Ocurrió algo verdaderamente épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o salvó a un asentamiento de la destrucción.
+- **Sesión Memorable / Final de Arco:** Ocurrió algo verdaderamente épico. El grupo venció a un villano importante, tomó una decisión que cambiará el rumbo de la campaña o alcanzó un gran hito.
   - _Ritmo Lento:_ **3 PP** | _Ritmo Moderado:_ **4 PP** | _Ritmo Rápido:_ **5 PP**
 
-**+1 PP (Bono Individual):** Independientemente del ritmo, siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido el protagonista de un momento especialmente memorable.
+**+1 PP (Bono Individual):** Independientemente del ritmo, siéntete libre de otorgar 1 PP adicional a un jugador en particular que haya destacado por su creatividad, su interpretación o por haber sido protagonista de un momento especialmente memorable.
+
+> **No frenes artificialmente la progresión:** Los Rangos no representan un límite que el DJ deba evitar alcanzar. En especial, entrar en R3 Avanzado o R4 no significa que los personajes hayan agotado sus posibilidades de desarrollo. ARCANA está diseñado para que los jugadores puedan seguir invirtiendo en nuevas cartas, Ranuras, atributos secundarios y herramientas situacionales durante campañas prolongadas.
 
 # 2. El Pacto de Caos
 
@@ -98,7 +126,13 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 | **43-52**   | R2 (Avanzado) | 70    | 120    | 180     | 280   |
 | **53-68**   | R3 (Inicio)   | 90    | 150    | 220     | 350   |
 | **69-84**   | R3 (Medio)    | 110   | 180    | 270     | 430   |
-| **85+**     | R3 (Avanzado) | 140   | 220    | 330     | 550   |
+| **85-114**  | R3 (Avanzado) | 140   | 220    | 330     | 550   |
+| **115-139** | R4 (Inicio)   | 180   | 280    | 430     | 700   |
+| **140-164** | R4 (Medio)    | 220   | 350    | 550     | 900   |
+| **165-189** | R4 (Avanzado) | 280   | 430    | 700     | 1100  |
+| **190+**    | R5 (Épico)    | 350   | 550    | 900     | 1400  |
+
+> **Rango 5 y recompensas épicas:** R5 es una categoría abierta. Estos valores representan una referencia base y no pretenden que la riqueza continúe escalando indefinidamente junto con los PP. En campañas épicas prolongadas, las recompensas deberían depender cada vez más de la ficción: artefactos, territorios, favores, recursos extraordinarios, influencia y otros beneficios pueden ser más apropiados que continuar aumentando linealmente la cantidad de Oro.
 
 ### Paso 3: Calcular el Presupuesto Total de la Misión
 
@@ -321,7 +355,11 @@ Usa el `PP Promedio` calculado para encontrar la fila correspondiente en la sigu
 | **43-52**   | R2 (Avanzado)        | 3                  | 4.5                 | 6.5                  | 8.5                | Rango 2 (_Considerar 1x R3_)            |
 | **53-68**   | R3 (Inicio)          | 3.5                | 5                   | 7.5                  | 10                 | Rango 3                                 |
 | **69-84**   | R3 (Medio)           | 4                  | 6                   | 9                    | 12                 | Rango 3                                 |
-| **85+**     | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
+| **85-114**  | R3 (Avanzado)        | 5                  | 7.5                 | 10.5                 | 14                 | Rango 3 (_Considerar 1x R4_)            |
+| **115-139** | R4 (Inicio)          | 5.5                | 8                   | 11                   | 15                 | Rango 4                                 |
+| **140-164** | R4 (Medio)           | 6.5                | 10                  | 14                   | 19                 | Rango 4                                 |
+| **165-189** | R4 (Avanzado)        | 8                  | 12                  | 17                   | 23                 | Rango 4 (_Considerar 1x R5_)            |
+| **190+**    | R5 (Épico)           | 10                 | 15                  | 21                   | 28                 | Rango 5 (_Considerar 1x R6_)            |
 
 _(Nota: "Rango Nominal (Ref.)" representa la escala de amenazas frente a la cual un grupo de personajes de ese nivel de progreso puede contribuir de forma sostenida y significativa en encuentros estándar. No indica el Nivel máximo de carta que un personaje puede poseer: personajes muy especializados pueden acceder antes a capacidades propias de etapas posteriores, mientras que personajes más diversificados pueden consolidar su poder de forma más gradual.)_
 
@@ -331,10 +369,10 @@ Multiplica el PA Base/PJ obtenido de la tabla por el número de jugadores en tu 
 
 `Presupuesto Total (PA) = Redondear( (PA Base por PJ de la Tabla) x (Número de Jugadores) )`
 
-> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "85+"). Quieren dificultad **Difícil**.
+> **Ejemplo:** Grupo de **4 Jugadores** con **PP Promedio de 95** (fila "85-114", R3 Avanzado). Quieren dificultad **Difícil**.
 >
-> - PA Base/PJ (Tabla v5.2): 10.5 PA
-> - Presupuesto Total: Redondear(10.5 PA/PJ x 4 Jugadores) = **42 PA**.
+> - PA Base/PJ: 10.5 PA
+> - Presupuesto Total: Redondear(10.5 PA/PJ × 4 Jugadores) = **42 PA**.
 
 ## Paso 4: Construir el Encuentro — Compra de Enemigos
 
@@ -353,24 +391,41 @@ _(Como DJ podrias querer crear criaturas legendarias de rangos más altos. Para 
 
 **No hay límites estrictos sobre qué Rangos puedes usar**, pero tu elección debe estar guiada por tu criterio y los principios detallados en la siguiente **Guía Estratégica**.
 
-## Reacciones Adicionales para Jefes
+## Mejoras de Jefe
 
 Todas las criaturas disponen normalmente de **1 Reacción por ronda**.
 
-Al construir un encuentro, el DJ puede otorgar Reacciones adicionales a una criatura para representar un enemigo especialmente dominante o un jefe capaz de mantenerse activo frente a varios adversarios.
+Al construir un encuentro, el DJ puede adquirir **Mejoras de Jefe** para una criatura que deba actuar como una amenaza central capaz de sostener un enfrentamiento contra varios adversarios.
 
-Cada Reacción adicional aumenta el coste en PA de la criatura en un **25% de su coste base**, calculando todos los incrementos sobre el coste original y redondeando el resultado final hacia arriba.
+Cada Mejora de Jefe otorga:
 
-| Reacciones por Ronda |  Coste en PA |
-| -------------------- | -----------: |
-| **1**                | Coste normal |
-| **2**                |        ×1,25 |
-| **3**                |        ×1,50 |
-| **4**                |        ×1,75 |
+- **+1 Reacción por ronda**.
+- **+1 uso de Determinación de Jefe por encuentro**.
 
-Como referencia, **2 o 3 Reacciones por ronda** funcionan especialmente bien para jefes solitarios. Las criaturas con 4 Reacciones deberían reservarse para encuentros particularmente importantes.
+Cada Mejora aumenta el coste en PA de la criatura en un **25% de su coste base**, calculando todos los incrementos sobre el coste original y redondeando el resultado final hacia arriba.
+
+| Mejoras de Jefe | Reacciones por Ronda | Determinaciones por Encuentro |  Coste en PA |
+| :-------------- | :------------------- | :---------------------------- | -----------: |
+| **0**           | 1                    | 0                             | Coste normal |
+| **1**           | 2                    | 1                             |        ×1,25 |
+| **2**           | 3                    | 2                             |        ×1,50 |
+| **3**           | 4                    | 3                             |        ×1,75 |
+
+Como referencia, **1 o 2 Mejoras** funcionan especialmente bien para jefes habituales. Las criaturas con **3 Mejoras** deberían reservarse normalmente para enfrentamientos particularmente importantes o finales de arco.
 
 Una criatura no puede utilizar más de **una Reacción ante el mismo desencadenante**.
+
+Las Mejoras de Jefe son una modificación del encuentro, no del bloque de estadísticas base de la criatura. Sus Reacciones adicionales y capacidades derivadas no deben incluirse al calcular los PPF o el Daño Promedio por Ronda de la criatura: su poder adicional ya está representado por el incremento de PA.
+
+### Determinación de Jefe
+
+Después de fallar una Tirada de Salvación, una criatura con usos disponibles de Determinación puede gastar **1 uso** para considerar que ha superado la tirada.
+
+Resuelve normalmente las consecuencias correspondientes a una salvación exitosa. Por ejemplo, si un efecto inflige la mitad de daño cuando se supera la Tirada de Salvación, la criatura recibe esa mitad de daño.
+
+Una criatura solo puede utilizar **1 Determinación por ronda**, independientemente de la cantidad de usos que conserve.
+
+Utilizar Determinación no requiere gastar una Reacción.
 
 ### Negación de Reacciones y Jefes
 
@@ -378,13 +433,13 @@ Los efectos que normalmente impidan a una criatura utilizar Reacciones reducen e
 
 Para una criatura normal, que dispone de una única Reacción, esto funciona normalmente y le impide utilizar Reacciones mientras dure el efecto.
 
-Una criatura que posea Reacciones adicionales conserva las restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.
+Una criatura que posea Mejoras de Jefe conserva las Reacciones restantes y puede utilizarlas normalmente, incluyendo sus Reacciones propias y las opciones de Reacción de Jefe.
 
 Múltiples efectos que impidan utilizar Reacciones no acumulan esta reducción, salvo que una regla indique expresamente lo contrario.
 
 ### Reacciones de Jefe
 
-Una criatura que haya recibido al menos **una Reacción adicional** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
+Una criatura que posea al menos **1 Mejora de Jefe** obtiene automáticamente las siguientes opciones de Reacción, además de cualquier Reacción especial indicada en su bloque de estadísticas.
 
 **Reposicionarse:** Al final del turno de otra criatura, puede usar una Reacción para moverse hasta la mitad de su Velocidad.
 
@@ -395,9 +450,21 @@ Una criatura que haya recibido al menos **una Reacción adicional** obtiene auto
 
 Todas las demás propiedades del ataque se resuelven normalmente.
 
-Estas opciones no reemplazan las Reacciones propias de la criatura. Simplemente garantizan que cualquier criatura utilizada como jefe disponga de formas básicas de aprovechar las Reacciones adicionales adquiridas.
+**Guardia Reactiva:** Cuando una criatura realiza una Tirada de Ataque contra el jefe, después de conocer el resultado pero antes de resolver el impacto y el daño, el jefe puede usar una Reacción para obtener **+2 a su Esquiva contra ese ataque**.
 
-Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas lo indique expresamente.
+Estas opciones no reemplazan las Reacciones propias de la criatura. Las Reacciones representan un recurso compartido: utilizar una para atacar, defenderse o reposicionarse significa renunciar a utilizarla para otra opción durante esa ronda.
+
+Las Reacciones adicionales no permiten utilizar Acciones, Interacciones o capacidades especiales como Reacción salvo que una regla del bloque de estadísticas indique expresamente lo contrario.
+
+### Evaluar las Reacciones de un Jefe
+
+Las Mejoras de Jefe no benefician por igual a todos los bloques de estadísticas. Antes de utilizarlas, revisa qué puede hacer realmente la criatura con sus Reacciones.
+
+Como referencia, _Ataque Rápido_ busca representar aproximadamente una fracción de la Acción ofensiva normal de una criatura. En un Asalto Múltiple compuesto por ataques similares, realizar uno de esos ataques suele cumplir naturalmente esta función.
+
+Si una criatura posee un Asalto Múltiple compuesto por ataques de potencias muy diferentes y uno de ellos representa por sí solo una proporción excepcionalmente grande de su ofensiva normal, considera limitar qué ataque puede utilizar mediante _Ataque Rápido_ o tener en cuenta esta eficiencia al evaluar el encuentro.
+
+Los mejores jefes presentan decisiones reales sobre cómo gastar sus Reacciones: ofensiva, defensa, movimiento, control o capacidades propias de su bloque. Una criatura que siempre obtiene más valor utilizando la misma Reacción probablemente necesite más variedad táctica en su diseño.
 
 ## Guía Estratégica para el DJ: Balance y Composición
 
@@ -408,7 +475,11 @@ El presupuesto de PA es tu herramienta principal, pero **tu criterio es la clave
     - **Objetivo:** Intenta que la mayoría de tus encuentros (Normal, Difícil) tengan una cantidad de enemigos que esté entre el número de personajes y el doble de ese valor (por ejemplo, entre 4 y 8 criaturas para un grupo de 4 personajes). Esto suele generar el mejor equilibrio entre desafío táctico y fluidez del combate, evitando turnos excesivamente largos.
     - **Gestión del Presupuesto:** Si tu presupuesto te permite comprar muchos monstruos de bajo rango (>10-12), **considera activamente gastar _menos_ del presupuesto total** o (preferiblemente) **sustituir** grupos de enemigos de bajo Rango por **uno o dos de Rango superior** (respetando las guías sobre Rangos Superiores). El coste exponencial de R4+ te ayudará naturalmente a mantener bajo el número total de enemigos en niveles altos.
     - **Hordas Intencionales:** Si buscas una sensación de asedio, puedes usar hordas (>10 R1), pero sé consciente de que alargará el combate y la economía de acciones puede ser brutal. Resérvalo para momentos clave y considera usar monstruos R1 con _muy_ baja salud (menos PPF invertidos en PS) para acelerar su resolución.
-3.  **Economía de Acciones:** El bando con más acciones suele tener ventaja. Compensa la desventaja numérica de Jefes solitarios (R4+) asegurándote de que tengan buena Salud/Mitigación y **Rasgos Tácticos clave** (especialmente Reacciones, Control AoE o habilidades de Movilidad Superior) que les permitan impactar el combate significativamente más allá de su único turno.
+3.  **Economía de Acciones y Supervivencia de Jefes:**
+    - El bando con más acciones suele tener ventaja. Un jefe solitario puede utilizar **Mejoras de Jefe** para mantenerse activo entre los turnos de los personajes.
+    - No intentes compensar siempre la inferioridad numérica aumentando únicamente la Salud. Más Salud prolonga el combate, pero no necesariamente lo vuelve más interesante.
+    - Los jefes efectivos suelen combinar varias capas: Salud suficiente para ejecutar su estrategia, alguna defensa significativa, movilidad, respuestas frente a control y opciones de Reacción que compitan entre sí.
+    - En Rangos altos, presta especial atención a efectos capaces de eliminar turnos, impedir Reacciones o neutralizar completamente una criatura. Las Determinaciones de Jefe ofrecen una protección limitada contra una tirada decisiva, pero el grupo puede intentar forzar varias salvaciones durante la misma ronda para superar esa defensa.
 4.  **El Peligro (y Oportunidad) de Rangos Superiores:**
     - **Coste Elevado:** Incluir monstruos de Rangos superiores consume rápidamente una porción significativa del presupuesto: R3 cuesta 6 PA, R4 cuesta 10 PA, R5 cuesta 20 PA y R6 cuesta 40 PA. Este crecimiento limita naturalmente su número y posiciona a las criaturas de mayor Rango como amenazas centrales del encuentro.
     - **Advertencia Fuerte (R+2 o más):** Usar monstruos con un Rango _dos o más niveles por encima_ del Rango Nominal del grupo es **extremadamente peligroso** y debe ser una decisión **consciente, justificada narrativamente** y reservada para encuentros **Épicos** o climáticos. Realiza siempre la **Evaluación Crítica Obligatoria** antes de hacerlo:
@@ -465,6 +536,23 @@ Asigna un Rango (1 a 6) y obtén el Presupuesto de PPF.
 | **Rango 4**        | 23 PPF            | Jefes de arco argumental, monstruos legendarios menores.    |
 | **Rango 5**        | 30 PPF            | Amenazas de final de campaña, avatares del apocalipsis.     |
 | **Rango 6**        | 38 PPF            | Jefes finales épicos, diseñados a medida.                   |
+
+### Intención de Diseño por Rango
+
+El presupuesto de PPF indica cuánto puede comprar una criatura, pero no garantiza por sí solo que el bloque resultante sea interesante o efectivo en mesa. A medida que aumenta el Rango, también debería aumentar la cantidad de problemas tácticos que la criatura puede plantear y resolver.
+
+| Rango  | Intención de Diseño                                                                                                                                                                                                                                                                                                                        |
+| :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **R1** | **Una idea clara.** Debe ser fácil de comprender y resolver. Puede resultar peligroso en grupo, pero individualmente suele poseer pocas herramientas.                                                                                                                                                                                      |
+| **R2** | **Un rol táctico definido.** Debería poseer al menos una herramienta que obligue a tomar una decisión distinta a simplemente intercambiar ataques.                                                                                                                                                                                         |
+| **R3** | **Amenaza autosuficiente.** Debería combinar su ofensiva con al menos otro eje relevante, como movilidad, defensa, control, apoyo o manipulación del terreno.                                                                                                                                                                              |
+| **R4** | **Amenaza legendaria.** Debería poseer respuestas frente a diferentes tipos de personajes y evitar que una única táctica trivialice completamente su función.                                                                                                                                                                              |
+| **R5** | **Amenaza de campaña.** Debería operar sobre varios ejes tácticos, tener buena resiliencia y disponer de herramientas para recuperar la iniciativa cuando el grupo consigue presionarla.                                                                                                                                                   |
+| **R6** | **Jefe final épico.** Debe estar diseñado para enfrentarse al repertorio completo de un grupo de alto nivel. No debería depender únicamente de Salud y daño: necesita mecanismos para sostener su economía de acciones, responder al control, alterar el estado del campo y obligar al grupo a adaptar su estrategia durante el encuentro. |
+
+Los Rangos altos no necesitan ser simplemente versiones más grandes de los anteriores. Una criatura con enormes cantidades de Salud pero pocas decisiones puede producir un combate largo sin producir un combate interesante.
+
+Al diseñar criaturas R4-R6, intenta que su presupuesto se traduzca en **capas de juego**: formas diferentes de atacar, sobrevivir, reposicionarse, controlar el campo o responder a las acciones de los personajes.
 
 ## Paso 2: Linaje de la Criatura
 
@@ -574,6 +662,8 @@ Los Rasgos, condiciones y capacidades especiales que modifiquen sustancialmente 
 
 Para determinar el Daño Promedio por Ronda de una criatura, evalúa una secuencia representativa de tres rondas y divide todo el daño producido entre tres. Incluye daño persistente, bonificaciones condicionales y Reacciones ofensivas con la frecuencia con la que razonablemente puedan producirse durante esa secuencia. Redondea hacia abajo el resultado final.
 
+> **Mejoras de Jefe:** No incluyas en este cálculo los ataques, movimientos u otras Reacciones obtenidas exclusivamente mediante **Mejoras de Jefe**. Estas mejoras pertenecen al diseño del encuentro y su potencia ya se paga mediante el incremento de PA. Las Reacciones que formen parte del bloque base de la criatura sí deben considerarse cuando contribuyan regularmente a su producción ofensiva.
+
 ### Ataque y Nivel de Dificultad
 
 La columna **Ataque / ND** representa el nivel ofensivo máximo adquirido por la criatura mediante su inversión de PPF.
@@ -595,7 +685,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
 | **0 (Base)** |   4   |    6    |   +2 / 7    |                   1-2                    |             0 / 0             |               2                |
-|    **1**     |   7   |    7    |   +3 / 8    |                    3                     |             0 / 0             |               -                |
+|    **1**     |   7   |    7    |   +3 / 8    |                    3                     |             1 / 1             |               -                |
 |    **2**     |  10   |    -    |      -      |                    4                     |             1 / 1             |               3                |
 |    **3**     |  13   |    8    |   +4 / 9    |                    5                     |             2 / 1             |               -                |
 |    **4**     |  16   |    -    |      -      |                    6                     |             3 / 1             |               4                |
@@ -605,7 +695,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
 | **0 (Base)** |  15   |    7    |   +3 / 8    |                   0-4                    |             0 / 0             |               2                |
-|    **1**     |  20   |    8    |   +4 / 9    |                   5-6                    |             0 / 0             |               3                |
+|    **1**     |  20   |    8    |   +4 / 9    |                   5-6                    |             1 / 1             |               3                |
 |    **2**     |  25   |    -    |   +5 / 10   |                   7-8                    |             1 / 1             |               -                |
 |    **3**     |  30   |    9    |      -      |                   9-10                   |             2 / 1             |               4                |
 |    **4**     |  35   |    -    |   +6 / 11   |                  11-12                   |             3 / 2             |               -                |
@@ -617,7 +707,7 @@ Los valores adquiridos mediante la tabla representan el techo ofensivo estándar
 | Coste (PPF)  | Salud | Esquiva | Ataque / ND | Daño Prom. (ST) (Redondeado hacia abajo) | Puntos de Defensa (PD) / Tope | Habilidades (con Ventaja +1d4) |
 | :----------: | :---: | :-----: | :---------: | :--------------------------------------: | :---------------------------: | :----------------------------: |
 | **0 (Base)** |  30   |    7    |   +4 / 9    |                   0-8                    |             0 / 0             |               3                |
-|    **1**     |  38   |    8    |   +5 / 10   |                   9-11                   |             0 / 0             |               -                |
+|    **1**     |  38   |    8    |   +5 / 10   |                   9-11                   |             1 / 1             |               -                |
 |    **2**     |  46   |    -    |   +6 / 11   |                  12-14                   |             1 / 1             |               4                |
 |    **3**     |  54   |    9    |      -      |                  15-17                   |             2 / 1             |               -                |
 |    **4**     |  62   |    -    |   +7 / 12   |                  18-20                   |             3 / 2             |               5                |
@@ -688,7 +778,30 @@ El Director de Juego (DJ) utiliza los **Puntos de Defensa (PD)** obtenidos en la
 
 Los PD representan defensas especiales que van más allá de sus valores básicos de Salud y Esquiva. Una criatura puede distribuirlos entre Mitigación, Resistencias, Inmunidades, mejoras a Tiradas de Salvación y protecciones contra estados.
 
-Para facilitar la consulta durante el diseño, las opciones se agrupan en cuatro categorías principales.
+### Filosofía de Diseño Defensivo
+
+Los Puntos de Defensa no representan simplemente "más dureza". Permiten decidir **cómo** sobrevive una criatura y qué clase de respuestas deben encontrar los personajes para derrotarla.
+
+La Salud, la Esquiva, la Mitigación, las Resistencias y las mejoras a Tiradas de Salvación protegen frente a amenazas distintas. Un bloque defensivo interesante suele combinar unas pocas herramientas coherentes con la naturaleza y el papel táctico de la criatura en lugar de intentar cubrir todas sus debilidades.
+
+| Defensa                             | Función Principal                                                                                                                                                                                                              |
+| :---------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Salud**                           | Compra tiempo para que la criatura pueda ejecutar su estrategia. Más Salud prolonga el combate, pero por sí sola no genera nuevas decisiones.                                                                                  |
+| **Esquiva**                         | Reduce la frecuencia con la que impactan los ataques. Los valores altos tienen un efecto muy fuerte sobre el d8 y deben utilizarse con cuidado.                                                                                |
+| **Mitigación Física**               | Es especialmente efectiva contra múltiples impactos físicos pequeños o medianos. Conserva una utilidad importante incluso en Rangos altos porque puede aplicarse varias veces durante una ronda.                               |
+| **Mitigación Mágica**               | Es efectiva contra daño mágico repetido o dividido en múltiples impactos, pero pierde eficiencia relativa frente a grandes instancias individuales de daño. En Rangos altos suele funcionar mejor como defensa complementaria. |
+| **Resistencia**                     | Es una herramienta importante frente a grandes cantidades de un tipo de daño específico. Debe representar una fortaleza temática, no utilizarse para cubrir indiscriminadamente todos los tipos de daño.                       |
+| **Ventaja en Tiradas de Salvación** | Protege frente a control, condiciones y poderes que pueden cambiar decisivamente el estado del combate. Su importancia aumenta junto con el Rango y el repertorio de los personajes.                                           |
+| **Inmunidad a Estados**             | Define amenazas especialmente difíciles de neutralizar mediante una táctica concreta. Debe utilizarse cuando forme parte clara de la identidad o función del bloque.                                                           |
+
+### Capas Defensivas por Rango
+
+- **R1:** Puede no poseer ninguna defensa especial. Una única Mitigación o protección temática ya es significativa.
+- **R2:** Una defensa característica suele ser suficiente.
+- **R3:** Las amenazas importantes deberían empezar a cubrir una vulnerabilidad relevante o poseer alguna protección frente a control.
+- **R4:** Es recomendable combinar los valores básicos de Salud y Esquiva con al menos una defensa especial significativa.
+- **R5:** Las amenazas centrales deberían poseer varias capas complementarias, como una protección frente a Tiradas de Salvación junto con una Resistencia, Mitigación o defensa reactiva.
+- **R6:** Un jefe final debe poder sobrevivir al repertorio completo de un grupo de alto nivel. Considera específicamente cómo responde a control, nova, posicionamiento y presión sostenida. Esto no significa volverlo inmune a todo: las defensas deberían crear decisiones y oportunidades de adaptación, no eliminar las herramientas de los personajes.
 
 ### 1. Mitigación y Protecciones de Daño
 
