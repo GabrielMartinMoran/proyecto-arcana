@@ -18,7 +18,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 30
+- **Salud Máxima:** 35
 - **Esquiva:** 8
 - **Mitigación Física:** 1
 - **Mitigación Mágica:** 0
@@ -57,7 +57,7 @@
 - **Presencia:** 3
 
 ## Estadísticas
-- **Salud Máxima:** 25
+- **Salud Máxima:** 30
 - **Esquiva:** 8
 - **Mitigación Física:** 1 (Cuero)
 - **Mitigación Mágica:** 0
@@ -136,7 +136,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 30
+- **Salud Máxima:** 35
 - **Esquiva:** 8
 - **Mitigación Física:** 1 (exoesqueleto)
 - **Mitigación Mágica:** 0
@@ -174,7 +174,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 45
+- **Salud Máxima:** 40
 - **Esquiva:** 7
 - **Mitigación Física:** 1 (natural)
 - **Mitigación Mágica:** 0
@@ -182,7 +182,7 @@
 - **Iniciativa:** 2
 
 ## Ataques
-- **Garra:** +5 para golpear. Daño: 1d6 Cortante
+- **Garra:** +6 para golpear. Daño: 1d6 Cortante
 
 ## Rasgos
 - **Habilidades con Ventaja:** Percepción, Supervivencia
@@ -210,7 +210,7 @@
 - **Presencia:** 2
 
 ## Estadísticas
-- **Salud Máxima:** 35
+- **Salud Máxima:** 30
 - **Esquiva:** 8
 - **Mitigación Física:** 1 (Pieles y madera)
 - **Mitigación Mágica:** 0
@@ -218,8 +218,8 @@
 - **Iniciativa:** 3
 
 ## Ataques
-- **Lanza:** +5 para golpear. Daño: 1d6 Perforante
-- **Jabalina:** +5 para golpear. Daño: 1d4 Perforante (Arrojadiza (Cercana))
+- **Lanza:** +6 para golpear. Daño: 1d6 Perforante
+- **Jabalina:** +6 para golpear. Daño: 1d4 Perforante (Arrojadiza (Cercana))
 
 ## Rasgos
 - **Habilidades con Ventaja:** Supervivencia, Percepción
@@ -295,8 +295,8 @@
 - **Iniciativa:** 3
 
 ## Ataques
-- **Maza:** +4 para golpear. Daño: 1d6 Contundente
-- **Ballesta ligera:** +4 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Ignorada por Asalto Múltiple))
+- **Maza:** +5 para golpear. Daño: 1d6 Contundente
+- **Ballesta ligera:** +5 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Ignorada por Asalto Múltiple))
 
 ## Rasgos
 - **Habilidades con Ventaja:** Intimidación, Atletismo
@@ -332,7 +332,7 @@
 - **Iniciativa:** 3
 
 ## Ataques
-- **Estoque:** +4 para golpear. Daño: 1d8 Perforante
+- **Estoque:** +5 para golpear. Daño: 1d8 Perforante
 
 ## Rasgos
 - **Habilidades con Ventaja:** Pilotaje, Intimidación
@@ -527,7 +527,7 @@
 - **Presencia:** 4
 
 ## Estadísticas
-- **Salud Máxima:** 30
+- **Salud Máxima:** 25
 - **Esquiva:** 9
 - **Mitigación Física:** 1 (Cuerpo modelable)
 - **Mitigación Mágica:** 0
@@ -535,8 +535,8 @@
 - **Iniciativa:** 3
 
 ## Ataques
-- **Extremidad Cortante:** +5 para golpear. Daño: 1d4+1 Cortante (Una de sus extremidades toma la forma de una hoja afilada.)
-- **Extremidad Perforante:** +5 para golpear. Daño: 1d6 Perforante (Una de sus extremidades toma la forma de una punta aguda.)
+- **Extremidad Cortante:** +6 para golpear. Daño: 1d4+1 Cortante (Una de sus extremidades toma la forma de una hoja afilada.)
+- **Extremidad Perforante:** +6 para golpear. Daño: 1d6 Perforante (Una de sus extremidades toma la forma de una punta aguda.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Engaño, Perspicacia

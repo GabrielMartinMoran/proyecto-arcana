@@ -9,7 +9,7 @@ creatures:
       instinct: 5
       presence: 4
     stats:
-      maxHealth: 30
+      maxHealth: 25
       evasion:
         value: 9
         note: null
@@ -26,11 +26,11 @@ creatures:
       - Común
     attacks:
       - name: Extremidad Cortante
-        bonus: 5
+        bonus: 6
         damage: 1d4+1 Cortante
         note: Una de sus extremidades toma la forma de una hoja afilada.
       - name: Extremidad Perforante
-        bonus: 5
+        bonus: 6
         damage: 1d6 Perforante
         note: Una de sus extremidades toma la forma de una punta aguda.
     traits:

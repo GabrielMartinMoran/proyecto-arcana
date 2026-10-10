@@ -9,7 +9,7 @@ creatures:
       instinct: 4
       presence: 2
     stats:
-      maxHealth: 46
+      maxHealth: 38
       evasion:
         value: 8
         note: null
@@ -26,11 +26,11 @@ creatures:
       - Común
     attacks:
       - name: Garras de la Luna
-        bonus: 6
+        bonus: 7
         damage: 1d8+3 Cortante
         note: null
       - name: Mordisco de Caza
-        bonus: 6
+        bonus: 7
         damage: 2d6+3 Perforante
         note: null
     traits:

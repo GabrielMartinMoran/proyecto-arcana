@@ -57,7 +57,7 @@
 - **Presencia:** 2
 
 ## Estadísticas
-- **Salud Máxima:** 10
+- **Salud Máxima:** 7
 - **Esquiva:** 6
 - **Mitigación Física:** 1 (Retazos de metal)
 - **Mitigación Mágica:** 0
@@ -65,8 +65,8 @@
 - **Iniciativa:** 2
 
 ## Ataques
-- **Cimitarra Mellada:** +3 para golpear. Daño: 1d6 Cortante
-- **Ballesta Ligera Robada:** +3 para golpear. Daño: 1d6 Perforante (Alcance Media. Requiere Interacción para recargar.)
+- **Cimitarra Mellada:** +4 para golpear. Daño: 1d6 Cortante
+- **Ballesta Ligera Robada:** +4 para golpear. Daño: 1d6 Perforante (Alcance Media. Requiere Interacción para recargar.)
 
 ## Rasgos
 - **Habilidades con Ventaja:** Intimidación, Perspicacia
@@ -140,7 +140,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 10
+- **Salud Máxima:** 7
 - **Esquiva:** 7
 - **Mitigación Física:** 1 (Cuero)
 - **Mitigación Mágica:** 0
@@ -148,8 +148,8 @@
 - **Iniciativa:** 2
 
 ## Ataques
-- **Espada corta:** +3 para golpear. Daño: 1d6 Cortante
-- **Ballesta Ligera:** +3 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Interacción))
+- **Espada corta:** +4 para golpear. Daño: 1d6 Cortante
+- **Ballesta Ligera:** +4 para golpear. Daño: 1d6 Perforante (Alcance Largo, Recarga (Interacción))
 
 ## Rasgos
 - **Habilidades con Ventaja:** Intimidación, Sigilo
@@ -679,7 +679,7 @@
 - **Presencia:** 0
 
 ## Estadísticas
-- **Salud Máxima:** 10
+- **Salud Máxima:** 7
 - **Esquiva:** 6
 - **Mitigación Física:** 1 (Placas de metal)
 - **Mitigación Mágica:** 0
@@ -687,7 +687,7 @@
 - **Iniciativa:** 1
 
 ## Ataques
-- **Espada:** +3 para golpear. Daño: 1d6 Cortante
+- **Espada:** +4 para golpear. Daño: 1d6 Cortante
 
 ## Rasgos
 - **Habilidades con Ventaja:** Atletismo, Percepción

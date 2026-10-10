@@ -9,7 +9,7 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 45
+      maxHealth: 40
       evasion:
         value: 7
         note: null
@@ -25,7 +25,7 @@ creatures:
     languages: []
     attacks:
       - name: Garra
-        bonus: 5
+        bonus: 6
         damage: 1d6 Cortante
         note: null
     traits:

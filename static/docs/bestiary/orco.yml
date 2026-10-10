@@ -9,7 +9,7 @@ creatures:
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 30
+      maxHealth: 35
       evasion:
         value: 8
         note: null

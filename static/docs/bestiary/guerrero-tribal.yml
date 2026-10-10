@@ -9,7 +9,7 @@ creatures:
       instinct: 3
       presence: 2
     stats:
-      maxHealth: 35
+      maxHealth: 30
       evasion:
         value: 8
         note: null
@@ -26,11 +26,11 @@ creatures:
       - Común
     attacks:
       - name: Lanza
-        bonus: 5
+        bonus: 6
         damage: 1d6 Perforante
         note: null
       - name: Jabalina
-        bonus: 5
+        bonus: 6
         damage: 1d4 Perforante
         note: Arrojadiza (Cercana)
     traits:

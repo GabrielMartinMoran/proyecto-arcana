@@ -222,7 +222,7 @@
 
 ## Estadísticas
 - **Salud Máxima:** 54
-- **Esquiva:** 7
+- **Esquiva:** 8
 - **Mitigación Física:** 1
 - **Mitigación Mágica:** 0
 - **Velocidad:** 10 (Camina sobre el agua)
@@ -259,7 +259,7 @@
 - **Presencia:** 1
 
 ## Estadísticas
-- **Salud Máxima:** 30
+- **Salud Máxima:** 38
 - **Esquiva:** 10
 - **Mitigación Física:** 0
 - **Mitigación Mágica:** 0
@@ -550,7 +550,7 @@
 - **Presencia:** 2
 
 ## Estadísticas
-- **Salud Máxima:** 46
+- **Salud Máxima:** 38
 - **Esquiva:** 8
 - **Mitigación Física:** 1 (Cuerpo resistente)
 - **Mitigación Mágica:** 0
@@ -558,8 +558,8 @@
 - **Iniciativa:** 4
 
 ## Ataques
-- **Garras de la Luna:** +6 para golpear. Daño: 1d8+3 Cortante
-- **Mordisco de Caza:** +6 para golpear. Daño: 2d6+3 Perforante
+- **Garras de la Luna:** +7 para golpear. Daño: 1d8+3 Cortante
+- **Mordisco de Caza:** +7 para golpear. Daño: 2d6+3 Perforante
 
 ## Rasgos
 - **Habilidades con Ventaja:** Atletismo, Percepción, Supervivencia

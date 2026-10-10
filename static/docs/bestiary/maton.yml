@@ -26,11 +26,11 @@ creatures:
       - Común
     attacks:
       - name: Maza
-        bonus: 4
+        bonus: 5
         damage: 1d6 Contundente
         note: null
       - name: Ballesta ligera
-        bonus: 4
+        bonus: 5
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
     traits:

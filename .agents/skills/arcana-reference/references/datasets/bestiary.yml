@@ -66,7 +66,7 @@ creatures:
       instinct: 2
       presence: 2
     stats:
-      maxHealth: 10
+      maxHealth: 7
       evasion:
         value: 6
         note: null
@@ -84,11 +84,11 @@ creatures:
       - Común (jerga)
     attacks:
       - name: Cimitarra Mellada
-        bonus: 3
+        bonus: 4
         damage: 1d6 Cortante
         note: null
       - name: Ballesta Ligera Robada
-        bonus: 3
+        bonus: 4
         damage: 1d6 Perforante
         note: Alcance Media. Requiere Interacción para recargar.
     traits:
@@ -186,7 +186,7 @@ creatures:
       instinct: 1
       presence: 1
     stats:
-      maxHealth: 10
+      maxHealth: 7
       evasion:
         value: 7
         note: null
@@ -203,11 +203,11 @@ creatures:
       - Común (jerga rudimentaria)
     attacks:
       - name: Espada corta
-        bonus: 3
+        bonus: 4
         damage: 1d6 Cortante
         note: null
       - name: Ballesta Ligera
-        bonus: 3
+        bonus: 4
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Interacción)
     traits:
@@ -468,7 +468,7 @@ creatures:
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 30
+      maxHealth: 35
       evasion:
         value: 8
         note: null
@@ -521,7 +521,7 @@ creatures:
       instinct: 2
       presence: 3
     stats:
-      maxHealth: 25
+      maxHealth: 30
       evasion:
         value: 8
         note: null
@@ -635,7 +635,7 @@ creatures:
       instinct: 2
       presence: 1
     stats:
-      maxHealth: 30
+      maxHealth: 35
       evasion:
         value: 8
         note: null
@@ -689,7 +689,7 @@ creatures:
       instinct: 3
       presence: 1
     stats:
-      maxHealth: 45
+      maxHealth: 40
       evasion:
         value: 7
         note: null
@@ -705,7 +705,7 @@ creatures:
     languages: []
     attacks:
       - name: Garra
-        bonus: 5
+        bonus: 6
         damage: 1d6 Cortante
         note: null
     traits:
@@ -784,7 +784,7 @@ creatures:
       instinct: 3
       presence: 2
     stats:
-      maxHealth: 35
+      maxHealth: 30
       evasion:
         value: 8
         note: null
@@ -801,11 +801,11 @@ creatures:
       - Común
     attacks:
       - name: Lanza
-        bonus: 5
+        bonus: 6
         damage: 1d6 Perforante
         note: null
       - name: Jabalina
-        bonus: 5
+        bonus: 6
         damage: 1d4 Perforante
         note: Arrojadiza (Cercana)
     traits:
@@ -910,11 +910,11 @@ creatures:
       - Común
     attacks:
       - name: Maza
-        bonus: 4
+        bonus: 5
         damage: 1d6 Contundente
         note: null
       - name: Ballesta ligera
-        bonus: 4
+        bonus: 5
         damage: 1d6 Perforante
         note: Alcance Largo, Recarga (Ignorada por Asalto Múltiple)
     traits:
@@ -1262,7 +1262,7 @@ creatures:
     stats:
       maxHealth: 54
       evasion:
-        value: 7
+        value: 8
         note: null
       physicalMitigation:
         value: 1
@@ -1319,7 +1319,7 @@ creatures:
       instinct: 6
       presence: 1
     stats:
-      maxHealth: 30
+      maxHealth: 38
       evasion:
         value: 10
         note: null
@@ -2541,7 +2541,7 @@ creatures:
       - Común
     attacks:
       - name: Estoque
-        bonus: 4
+        bonus: 5
         damage: 1d8 Perforante
         note: null
     traits:
@@ -2691,7 +2691,7 @@ creatures:
       instinct: 2
       presence: 0
     stats:
-      maxHealth: 10
+      maxHealth: 7
       evasion:
         value: 6
         note: null
@@ -2707,7 +2707,7 @@ creatures:
     languages: []
     attacks:
       - name: Espada
-        bonus: 3
+        bonus: 4
         damage: 1d6 Cortante
         note: null
     traits:
@@ -3352,7 +3352,7 @@ creatures:
       instinct: 5
       presence: 4
     stats:
-      maxHealth: 30
+      maxHealth: 25
       evasion:
         value: 9
         note: null
@@ -3369,11 +3369,11 @@ creatures:
       - Común
     attacks:
       - name: Extremidad Cortante
-        bonus: 5
+        bonus: 6
         damage: 1d4+1 Cortante
         note: Una de sus extremidades toma la forma de una hoja afilada.
       - name: Extremidad Perforante
-        bonus: 5
+        bonus: 6
         damage: 1d6 Perforante
         note: Una de sus extremidades toma la forma de una punta aguda.
     traits:
@@ -3674,7 +3674,7 @@ creatures:
       instinct: 4
       presence: 2
     stats:
-      maxHealth: 46
+      maxHealth: 38
       evasion:
         value: 8
         note: null
@@ -3691,11 +3691,11 @@ creatures:
       - Común
     attacks:
       - name: Garras de la Luna
-        bonus: 6
+        bonus: 7
         damage: 1d8+3 Cortante
         note: null
       - name: Mordisco de Caza
-        bonus: 6
+        bonus: 7
         damage: 2d6+3 Perforante
         note: null
     traits:

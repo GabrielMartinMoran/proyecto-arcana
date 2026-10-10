@@ -8,20 +8,20 @@
     {
       "path": "references/bestiario/rango-1.md",
       "kind": "file",
-      "size": 22254,
-      "sha1": "6db6d5d03ea32784da54b0b80ae288fb71db6261"
+      "size": 22251,
+      "sha1": "1b93448ce8ff51c8f5eedb80372a584261e59695"
     },
     {
       "path": "references/bestiario/rango-2.md",
       "kind": "file",
       "size": 21995,
-      "sha1": "0862e5fc5d73901436ef36dfb7d59bb16e3ee522"
+      "sha1": "72bf37528c21d0eaa5d0cf63a96ba21ff73882c2"
     },
     {
       "path": "references/bestiario/rango-3.md",
       "kind": "file",
       "size": 21805,
-      "sha1": "c10ea517dc62b246b277834ce57982a9e5f2bb75"
+      "sha1": "3a69d55ea7a783d1d760ee28e1fce0a00939a64f"
     },
     {
       "path": "references/bestiario/rango-4.md",
@@ -548,8 +548,8 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 132727,
-      "sha1": "87a50e1964cb9f01e8449b419f169730fb597d0e"
+      "size": 132724,
+      "sha1": "5be8336a4343a7df01e22ac9050996765b978100"
     },
     {
       "path": "references/datasets/cards.yml",
