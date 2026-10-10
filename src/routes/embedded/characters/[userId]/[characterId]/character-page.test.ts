@@ -199,7 +199,7 @@ describe('Embedded character Foundry health precedence', () => {
 
 		expect(await screen.findByTestId('character-health')).toHaveTextContent('7/12');
 		const update = await findUpdateActorPayload(postMessageSpy);
-		expect(update.hp).toEqual({ value: 7, max: 12 });
+		expect(update.hp).toEqual({ value: 7, max: 12, temp: 0 });
 		expect(update.hp).not.toEqual({ value: 10, max: 11 });
 		expect(update).toMatchObject({
 			name: 'Test Character',
@@ -224,7 +224,7 @@ describe('Embedded character Foundry health precedence', () => {
 
 		expect(await screen.findByTestId('character-health')).toHaveTextContent('3/9');
 		const update = await findUpdateActorPayload(postMessageSpy);
-		expect(update.hp).toEqual({ value: 3, max: 9 });
+		expect(update.hp).toEqual({ value: 3, max: 9, temp: 0 });
 	});
 
 	it('FEAT foundry-character-startup-sync — invalid zero over zero startup health is ignored for a fresh actor', async () => {
@@ -243,7 +243,7 @@ describe('Embedded character Foundry health precedence', () => {
 
 		expect(await screen.findByTestId('character-health')).toHaveTextContent('10/11');
 		const update = await findUpdateActorPayload(postMessageSpy);
-		expect(update.hp).toEqual({ value: 10, max: 11 });
+		expect(update.hp).toEqual({ value: 10, max: 11, temp: 0 });
 		expect(update.hp?.max).toBeGreaterThan(0);
 	});
 
@@ -331,7 +331,128 @@ describe('Embedded character Foundry health precedence', () => {
 		await fireEvent.click(screen.getByTestId('edit-current-hp'));
 
 		await waitFor(() => expect(postMessageSpy).toHaveBeenCalledTimes(1));
-		expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 4, max: 12 });
+		expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 4, max: 12, temp: 0 });
+	});
+
+	it('FEAT temp-hp-damage-absorption — opening the sheet hydrates Foundry temporary HP without echoing stale web temp', async () => {
+		mockPageStore.set({
+			params: { userId: 'user-1', characterId: 'char-1' },
+			url: new URL(
+				'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&startHp=7&startMax=12&startTemp=2',
+			),
+		});
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10, tempHP: 4 })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+
+		expect(await screen.findByTestId('character-temp-hp')).toHaveTextContent('2');
+		const update = await findUpdateActorPayload(postMessageSpy);
+		expect(update.hp).toEqual({ value: 7, max: 12, temp: 2 });
+		expect(update.hp).not.toEqual(expect.objectContaining({ temp: 4 }));
+	});
+
+	it('FEAT temp-hp-damage-absorption — Foundry temporary HP updates the embedded sheet without echo', async () => {
+		mockPageStore.set({
+			params: { userId: 'user-1', characterId: 'char-1' },
+			url: new URL(
+				'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123',
+			),
+		});
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10, tempHP: 4 })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+		expect(await screen.findByTestId('character-temp-hp')).toHaveTextContent('4');
+		postMessageSpy.mockClear();
+
+		window.dispatchEvent(
+			new MessageEvent('message', {
+				data: {
+					type: 'FOUNDRY_HEALTH_UPDATE',
+					payload: { hp: { value: 10, max: 12, temp: 1 } },
+				},
+			}),
+		);
+
+		expect(await screen.findByTestId('character-temp-hp')).toHaveTextContent('1');
+		expect(postMessageSpy).not.toHaveBeenCalled();
+	});
+
+	it('FEAT temp-hp-damage-absorption — user temporary HP edits still sync to Foundry', async () => {
+		mockPageStore.set({
+			params: { userId: 'user-1', characterId: 'char-1' },
+			url: new URL(
+				'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123',
+			),
+		});
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10 })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+		expect(await screen.findByTestId('character-temp-hp')).toHaveTextContent('0');
+		postMessageSpy.mockClear();
+
+		await fireEvent.click(screen.getByTestId('edit-temp-hp'));
+
+		await waitFor(() => expect(postMessageSpy).toHaveBeenCalledTimes(1));
+		expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 10, max: 11, temp: 6 });
+	});
+
+	it('FEAT token-border-color-selection — FOUNDRY_TOKEN_COLOR_UPDATE re-syncs the token with the live color', async () => {
+		mockPageStore.set({
+			params: { userId: 'user-1', characterId: 'char-1' },
+			url: new URL(
+				'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123',
+			),
+		});
+		firebaseMock.listenCharactersByIds.mockImplementation((_ids, callback) => {
+			callback([createCharacterRaw({ currentHP: 10, img: 'https://example.com/token.png' })]);
+			return vi.fn();
+		});
+
+		render(CharacterPage);
+		expect(await screen.findByTestId('character-health')).toHaveTextContent('10/11');
+
+		const { createCircularToken } = await import('$lib/utils/token-cutter');
+		await waitFor(() => {
+			expect(createCircularToken).toHaveBeenCalledWith(
+				'https://example.com/token.png',
+				256,
+				8,
+				'#000000',
+				0,
+				0,
+			);
+		});
+
+		vi.mocked(createCircularToken).mockClear();
+		postMessageSpy.mockClear();
+
+		window.dispatchEvent(
+			new MessageEvent('message', {
+				data: { type: 'FOUNDRY_TOKEN_COLOR_UPDATE', color: '#d35400' },
+			}),
+		);
+
+		await waitFor(() => {
+			expect(createCircularToken).toHaveBeenCalledWith(
+				'https://example.com/token.png',
+				256,
+				8,
+				'#d35400',
+				0,
+				0,
+			);
+		});
+		const update = postMessageSpy.mock.calls.find(([message]) => message?.type === 'UPDATE_ACTOR');
+		expect(update?.[0].payload.imageUrl).toBe('mock-token-url');
 	});
 });
 
@@ -357,11 +478,13 @@ const createDeferred = () => {
 
 function createCharacterRaw({
 	currentHP,
+	tempHP = 0,
 	body = 2,
 	img = null,
 	attackName = 'Old Strike',
 }: {
 	currentHP: number;
+	tempHP?: number;
 	body?: number;
 	img?: string | null;
 	attackName?: string;
@@ -376,7 +499,7 @@ function createCharacterRaw({
 		equipment: [],
 		modifiers: [],
 		currentHP,
-		tempHP: 0,
+		tempHP,
 		currentLuck: 0,
 		img,
 		party: { partyId: null, ownerId: null },

@@ -96,6 +96,16 @@ describe('ArcanaSheetV2', () => {
 			expect(context.iframeUrl).toContain('uuid=Actor.abc123');
 			expect(context.iframeUrl).toContain('startHp=25');
 			expect(context.iframeUrl).toContain('startMax=50');
+			expect(context.iframeUrl).toContain('startTemp=0');
+		});
+
+		it('FEAT temp-hp-damage-absorption — context health includes temporary HP and the iframe URL carries it', async () => {
+			mockActor.system.health = { value: 25, max: 50, temp: 3 };
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.health).toEqual({ value: 25, max: 50, temp: 3 });
+			expect(context.iframeUrl).toContain('startTemp=3');
 		});
 
 		it('should set isBestiary false for character URLs', async () => {
@@ -124,7 +134,7 @@ describe('ArcanaSheetV2', () => {
 			});
 			const context = await (sheet as any)._prepareContext({});
 			expect(context.localNotes).toBe('Some notes');
-			expect(context.health).toEqual({ value: 25, max: 50 });
+			expect(context.health).toEqual({ value: 25, max: 50, temp: 0 });
 		});
 
 		it('should return null iframeUrl when no sheetUrl is configured', async () => {
@@ -156,6 +166,67 @@ describe('ArcanaSheetV2', () => {
 			expect(context.iframeUrl).toContain('tokenOffsetY=0');
 		});
 
+		it('should include the configured token border color in iframeUrl', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana') {
+					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
+					if (key === 'tokenBorderColor') return 'green';
+				}
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('borderColor=%2327a241');
+		});
+
+		it('should resolve a legacy silver stored color to the gray hex in iframeUrl', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana') {
+					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
+					if (key === 'tokenBorderColor') return 'silver';
+				}
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('borderColor=%239aa0a6');
+		});
+
+		it('should include the black default border color for character URLs without a flag', async () => {
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('borderColor=%23000000');
+		});
+
+		it('should include the red default border color for bestiary URLs without a flag', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana' && key === 'sheetUrl') {
+					return 'https://app.arcana.com/bestiary/npc1';
+				}
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('borderColor=%23990000');
+		});
+
+		it('should fall back to the type default when the stored border color is invalid', async () => {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope === 'arcana') {
+					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
+					if (key === 'tokenBorderColor') return 'magenta';
+				}
+				return undefined;
+			});
+
+			const context = await (sheet as any)._prepareContext({});
+
+			expect(context.iframeUrl).toContain('borderColor=%23000000');
+		});
+
 		it('FEAT foundry-health-precedence — token actor startup iframe URL uses synthetic token actor HP', async () => {
 			mockActor.uuid = 'Scene.scene-1.Token.token-1';
 			mockActor.isToken = true;
@@ -166,7 +237,7 @@ describe('ArcanaSheetV2', () => {
 			expect(context.iframeUrl).toContain('uuid=Scene.scene-1.Token.token-1');
 			expect(context.iframeUrl).toContain('startHp=3');
 			expect(context.iframeUrl).toContain('startMax=9');
-			expect(context.health).toEqual({ value: 3, max: 9 });
+			expect(context.health).toEqual({ value: 3, max: 9, temp: 0 });
 		});
 
 		it('FEAT npc-ability-controls-grouped-on-bestiary-sheet — prepares grouped NPC ability controls for bestiary actors', async () => {
@@ -295,6 +366,19 @@ describe('ArcanaSheetV2', () => {
 			expect(display?.textContent).not.toBe('{{current}}/{{max}}');
 		});
 
+		it('FEAT temp-hp-damage-absorption — template exposes a temporary HP input for the bestiary bar', () => {
+			const fragment = renderTemplateFragment();
+			const tempInput = fragment.querySelector<HTMLInputElement>(
+				'input[name="system.health.temp"]',
+			);
+
+			expect(tempInput).not.toBeNull();
+			expect(tempInput?.getAttribute('value')).toBe('{{health.temp}}');
+			expect(tempInput?.getAttribute('min')).toBe('0');
+			expect(tempInput?.getAttribute('type')).toBe('number');
+			expect(tempInput?.parentElement?.textContent).toContain('🖤');
+		});
+
 		it('should preserve existing iframe when not forceReload', () => {
 			// GIVEN an already rendered element with an iframe
 			const existingIframe = document.createElement('iframe');
@@ -387,6 +471,52 @@ describe('ArcanaSheetV2', () => {
 			await new Promise((r) => setTimeout(r, 0));
 
 			expect(mockActor.update).not.toHaveBeenCalled();
+		});
+
+		it('FEAT temp-hp-damage-absorption — temporary HP input persists a numeric value with min 0', async () => {
+			const input = document.createElement('input');
+			input.name = 'system.health.temp';
+			input.value = '4';
+			const container = document.createElement('div');
+			container.appendChild(input);
+			(sheet as any).element = container;
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+
+			(sheet as any)._onRender({}, {});
+			input.dispatchEvent(new Event('change'));
+			await new Promise((r) => setTimeout(r, 0));
+
+			expect(mockActor.update).toHaveBeenCalledWith({ 'system.health.temp': 4 }, { render: false });
+		});
+
+		it('FEAT temp-hp-damage-absorption — temporary HP input clamps negative and invalid values at 0', async () => {
+			const input = document.createElement('input');
+			input.name = 'system.health.temp';
+			const container = document.createElement('div');
+			container.appendChild(input);
+			(sheet as any).element = container;
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+
+			(sheet as any)._onRender({}, {});
+
+			input.value = '-3';
+			input.dispatchEvent(new Event('change'));
+			await new Promise((r) => setTimeout(r, 0));
+
+			input.value = 'not-a-number';
+			input.dispatchEvent(new Event('change'));
+			await new Promise((r) => setTimeout(r, 0));
+
+			expect(mockActor.update).toHaveBeenNthCalledWith(
+				1,
+				{ 'system.health.temp': 0 },
+				{ render: false },
+			);
+			expect(mockActor.update).toHaveBeenNthCalledWith(
+				2,
+				{ 'system.health.temp': 0 },
+				{ render: false },
+			);
 		});
 
 		it('FEAT npc-ability-controls-update-without-iframe-reload — ability controls refresh after Usar without replacing the iframe', async () => {
@@ -496,6 +626,7 @@ describe('ArcanaSheetV2', () => {
 
 	describe('render', () => {
 		it('FEAT foundry-health-precedence — cached iframe receives current Foundry health without force reload', async () => {
+			mockActor.system.health = { value: 25, max: 50, temp: 3 };
 			const postMessage = vi.fn();
 			const existingIframe = document.createElement('iframe');
 			Object.defineProperty(existingIframe, 'contentWindow', {
@@ -517,7 +648,7 @@ describe('ArcanaSheetV2', () => {
 			expect(postMessage).toHaveBeenCalledWith(
 				{
 					type: 'FOUNDRY_HEALTH_UPDATE',
-					payload: { hp: { value: 25, max: 50 } },
+					payload: { hp: { value: 25, max: 50, temp: 3 } },
 				},
 				'*',
 			);
@@ -546,6 +677,38 @@ describe('ArcanaSheetV2', () => {
 			expect(superRender).not.toHaveBeenCalled();
 			expect(result).toBe(sheet);
 			expect(titleEl.textContent).toBe(mockActor.name);
+
+			superRender.mockRestore();
+		});
+
+		it('FEAT temp-hp-damage-absorption — cached render refreshes bestiary health inputs after native damage', async () => {
+			const valueInput = document.createElement('input');
+			valueInput.name = 'system.health.value';
+			valueInput.value = '10';
+			const maxInput = document.createElement('input');
+			maxInput.name = 'system.health.max';
+			maxInput.value = '12';
+			const tempInput = document.createElement('input');
+			tempInput.name = 'system.health.temp';
+			tempInput.value = '4';
+			const existingIframe = document.createElement('iframe');
+			const container = document.createElement('div');
+			const titleEl = document.createElement('span');
+			titleEl.className = 'window-title';
+			container.append(valueInput, maxInput, tempInput, existingIframe, titleEl);
+			(sheet as any).element = container;
+
+			mockActor.system.health = { value: 7, max: 12, temp: 1 };
+
+			const baseProto = Object.getPrototypeOf(Object.getPrototypeOf(ArcanaSheetV2.prototype));
+			const superRender = vi.spyOn(baseProto, 'render').mockResolvedValue(sheet);
+
+			await sheet.render({});
+
+			expect(superRender).not.toHaveBeenCalled();
+			expect(valueInput.value).toBe('7');
+			expect(maxInput.value).toBe('12');
+			expect(tempInput.value).toBe('1');
 
 			superRender.mockRestore();
 		});
@@ -750,6 +913,211 @@ describe('ArcanaSheetV2', () => {
 			expect(currentInput?.value).toBe('1');
 			expect(display?.textContent).toBe('/3');
 			expect(display?.textContent).not.toBe('1/3');
+		});
+	});
+
+	describe('detach support', () => {
+		function createRenderedElement(): {
+			container: HTMLElement;
+			iframe: HTMLIFrameElement;
+			titleEl: HTMLElement;
+		} {
+			const iframe = document.createElement('iframe');
+			const titleEl = document.createElement('span');
+			titleEl.className = 'window-title';
+			const container = document.createElement('div');
+			container.append(iframe, titleEl);
+			(sheet as any).element = container;
+			return { container, iframe, titleEl };
+		}
+
+		function spyOnBaseRender() {
+			const baseProto = Object.getPrototypeOf(Object.getPrototypeOf(ArcanaSheetV2.prototype));
+			return vi.spyOn(baseProto, 'render').mockResolvedValue(sheet);
+		}
+
+		function createDetachedElement(): { detachedDocument: Document; container: HTMLElement } {
+			const detachedDocument = document.implementation.createHTMLDocument('detached');
+			const container = detachedDocument.createElement('div');
+			detachedDocument.body.append(container);
+			(sheet as any).element = container;
+			return { detachedDocument, container };
+		}
+
+		it('FEAT foundry-sheet-detach — detaching calls super.render with the detached window option and preserves the iframe', async () => {
+			const { container, iframe } = createRenderedElement();
+			const superRender = spyOnBaseRender();
+
+			await sheet.render({ window: { detached: true } });
+
+			expect(superRender).toHaveBeenCalledWith(
+				expect.objectContaining({ window: { detached: true } }),
+			);
+			expect(container.querySelector('iframe')).toBe(iframe);
+
+			superRender.mockRestore();
+		});
+
+		it('FEAT foundry-sheet-detach — re-attaching calls super.render with detached false and preserves the iframe', async () => {
+			const { container, iframe } = createRenderedElement();
+			const superRender = spyOnBaseRender();
+
+			await sheet.render({ window: { detached: false } });
+
+			expect(superRender).toHaveBeenCalledWith(
+				expect.objectContaining({ window: { detached: false } }),
+			);
+			expect(container.querySelector('iframe')).toBe(iframe);
+
+			superRender.mockRestore();
+		});
+
+		it('FEAT foundry-sheet-detach — _onDetach re-attaches drag pointer events on the detached window', () => {
+			const detachedDocument = document.implementation.createHTMLDocument('detached');
+			const mouseUpCallbacks: Array<() => void> = [];
+			const detachedWindow = {
+				addEventListener: vi.fn((type: string, callback: () => void) => {
+					if (type === 'mouseup') mouseUpCallbacks.push(callback);
+				}),
+			};
+			Object.defineProperty(detachedDocument, 'defaultView', {
+				configurable: true,
+				value: detachedWindow,
+			});
+
+			const appDiv = detachedDocument.createElement('div');
+			appDiv.className = 'application';
+			const container = detachedDocument.createElement('div');
+			const iframe = detachedDocument.createElement('iframe');
+			container.appendChild(iframe);
+			appDiv.appendChild(container);
+			detachedDocument.body.appendChild(appDiv);
+			(sheet as any).element = container;
+
+			const mainWindowAddSpy = vi.spyOn(window, 'addEventListener');
+
+			(sheet as any)._onDetach(document, detachedDocument);
+
+			expect(detachedWindow.addEventListener).toHaveBeenCalledWith(
+				'mouseup',
+				expect.any(Function),
+				expect.anything(),
+			);
+
+			const header = detachedDocument.createElement('div');
+			header.className = 'window-header';
+			appDiv.appendChild(header);
+			header.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+			expect(iframe.style.pointerEvents).toBe('none');
+
+			mouseUpCallbacks.forEach((callback) => callback());
+			expect(iframe.style.pointerEvents).toBe('auto');
+			expect(mainWindowAddSpy).not.toHaveBeenCalledWith(
+				'mouseup',
+				expect.any(Function),
+				expect.anything(),
+			);
+
+			mainWindowAddSpy.mockRestore();
+		});
+
+		it('FEAT foundry-sheet-detach — _onDetach keeps the title and re-posts health to the preserved iframe', () => {
+			const postMessage = vi.fn();
+			const iframe = document.createElement('iframe');
+			Object.defineProperty(iframe, 'contentWindow', { value: { postMessage } });
+			const titleEl = document.createElement('span');
+			titleEl.className = 'window-title';
+			titleEl.textContent = 'stale title';
+			const container = document.createElement('div');
+			container.append(iframe, titleEl);
+			(sheet as any).element = container;
+			mockActor.system.health = { value: 25, max: 50, temp: 3 };
+
+			(sheet as any)._onDetach(document, document);
+
+			expect(titleEl.textContent).toBe(mockActor.name);
+			expect(postMessage).toHaveBeenCalledWith(
+				{
+					type: 'FOUNDRY_HEALTH_UPDATE',
+					payload: { hp: { value: 25, max: 50, temp: 3 } },
+				},
+				'*',
+			);
+		});
+
+		it('FEAT foundry-sheet-detach — _onAttach re-wires drag pointer events to the main window without leaking listeners', () => {
+			const appDiv = document.createElement('div');
+			appDiv.className = 'application';
+			const container = document.createElement('div');
+			const iframe = document.createElement('iframe');
+			container.appendChild(iframe);
+			appDiv.appendChild(container);
+			(sheet as any).element = container;
+
+			(sheet as any)._onDetach(document, document);
+
+			const abortSpy = vi.spyOn(AbortController.prototype, 'abort');
+			(sheet as any)._onAttach(document, document);
+
+			expect(abortSpy).toHaveBeenCalledTimes(1);
+
+			const header = document.createElement('div');
+			header.className = 'window-header';
+			appDiv.appendChild(header);
+			header.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+			expect(iframe.style.pointerEvents).toBe('none');
+
+			window.dispatchEvent(new MouseEvent('mouseup'));
+			expect(iframe.style.pointerEvents).toBe('auto');
+
+			abortSpy.mockRestore();
+		});
+
+		it('FEAT foundry-sheet-detach — _onDetach exposes the actor name as the detached document title', () => {
+			const { detachedDocument } = createDetachedElement();
+
+			(sheet as any)._onDetach(document, detachedDocument);
+
+			expect(detachedDocument.title).toBe(mockActor.name);
+		});
+
+		it('FEAT foundry-sheet-detach — _onDetach adds a floating re-attach button owned by the detached document', () => {
+			const { detachedDocument, container } = createDetachedElement();
+			const attachWindow = vi.fn();
+			(sheet as any).attachWindow = attachWindow;
+
+			(sheet as any)._onDetach(document, detachedDocument);
+
+			const button = container.querySelector<HTMLButtonElement>('button.arcana-detach-return');
+			expect(button).not.toBeNull();
+			expect(button?.ownerDocument).toBe(detachedDocument);
+			expect(button?.getAttribute('type')).toBe('button');
+			expect(button?.getAttribute('aria-label')).toBe('Volver a Foundry');
+			expect(button?.querySelector('i.fas.fa-thumbtack')).not.toBeNull();
+
+			button?.click();
+
+			expect(attachWindow).toHaveBeenCalledTimes(1);
+		});
+
+		it('FEAT foundry-sheet-detach — the re-attach button click is safe when attachWindow is unavailable', () => {
+			const { detachedDocument, container } = createDetachedElement();
+
+			(sheet as any)._onDetach(document, detachedDocument);
+
+			const button = container.querySelector<HTMLButtonElement>('button.arcana-detach-return');
+			expect(() => button?.click()).not.toThrow();
+		});
+
+		it('FEAT foundry-sheet-detach — _onAttach removes the floating re-attach button', () => {
+			const { detachedDocument, container } = createDetachedElement();
+
+			(sheet as any)._onDetach(document, detachedDocument);
+			expect(container.querySelector('.arcana-detach-return')).not.toBeNull();
+
+			(sheet as any)._onAttach(detachedDocument, document);
+
+			expect(container.querySelector('.arcana-detach-return')).toBeNull();
 		});
 	});
 
@@ -1127,6 +1495,571 @@ describe('ArcanaSheetV2', () => {
 			>;
 			expect(tokenUpdateCall).not.toHaveProperty('texture.anchorX');
 			expect(tokenUpdateCall).not.toHaveProperty('texture.anchorY');
+		});
+
+		it('should force reload the iframe when token offsets change and the URL is unchanged', async () => {
+			// GIVEN the sheet is open with an iframe and stored offsets at zero
+			const existingIframe = document.createElement('iframe');
+			const titleEl = document.createElement('span');
+			titleEl.className = 'window-title';
+			const container = document.createElement('div');
+			container.append(existingIframe, titleEl);
+			(sheet as any).element = container;
+
+			const baseProto = Object.getPrototypeOf(Object.getPrototypeOf(ArcanaSheetV2.prototype));
+			const superRender = vi.spyOn(baseProto, 'render').mockResolvedValue(sheet);
+
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") {
+						return { val: (): string => 'https://app.arcana.com/embedded/characters/abc123' };
+					}
+					if (selector === "input[name='actorLink']") return { is: (): boolean => false };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					if (selector === "input[name='tokenOffsetX']") return { val: (): string => '25' };
+					if (selector === "input[name='tokenOffsetY']") return { val: (): string => '-10' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			// WHEN saving with changed offsets but the same URL
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			// THEN the iframe is force reloaded so the new offsets reach the URL
+			expect(superRender).toHaveBeenCalledWith(
+				expect.objectContaining({ force: true, forceReload: true }),
+			);
+
+			superRender.mockRestore();
+		});
+
+		it('should not force reload the iframe when token offsets and the URL are unchanged', async () => {
+			// GIVEN the sheet is open with an iframe and stored offsets at zero
+			const existingIframe = document.createElement('iframe');
+			const titleEl = document.createElement('span');
+			titleEl.className = 'window-title';
+			const container = document.createElement('div');
+			container.append(existingIframe, titleEl);
+			(sheet as any).element = container;
+
+			const baseProto = Object.getPrototypeOf(Object.getPrototypeOf(ArcanaSheetV2.prototype));
+			const superRender = vi.spyOn(baseProto, 'render').mockResolvedValue(sheet);
+
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+
+			const mockHtml = {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") {
+						return { val: (): string => 'https://app.arcana.com/embedded/characters/abc123' };
+					}
+					if (selector === "input[name='actorLink']") return { is: (): boolean => false };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					if (selector === "input[name='tokenOffsetX']") return { val: (): string => '0' };
+					if (selector === "input[name='tokenOffsetY']") return { val: (): string => '0' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+
+			// WHEN saving without any change
+			await dialogConstructorArgs.buttons.save.callback(mockHtml);
+
+			// THEN the existing iframe is preserved without forcing a reload
+			expect(superRender).not.toHaveBeenCalled();
+
+			superRender.mockRestore();
+		});
+	});
+
+	describe('#configureSheet token border color', () => {
+		const characterSheetUrl = 'https://app.arcana.com/embedded/characters/abc123';
+		const palette = [
+			['black', '#000000', 'Negro'],
+			['red', '#990000', 'Rojo'],
+			['green', '#27a241', 'Verde'],
+			['yellow', '#e6b800', 'Amarillo'],
+			['orange', '#d35400', 'Naranja'],
+			['gray', '#9aa0a6', 'Gris'],
+			['lightblue', '#2b89fb', 'Celeste'],
+			['purple', '#7800ff', 'Púrpura'],
+		] as const;
+		let dialogConstructorArgs: any;
+
+		function colorOptionBlock(content: string, id: string): string {
+			const start = content.indexOf(`data-color-id="${id}"`);
+			const end = content.indexOf('</label>', start);
+			return content.slice(start, end);
+		}
+
+		function configureStoredColor(tokenBorderColor: unknown): void {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return characterSheetUrl;
+				if (key === 'tokenBorderColor') return tokenBorderColor;
+				return undefined;
+			});
+		}
+
+		function attachIframeToSheet(): { postMessage: ReturnType<typeof vi.fn> } {
+			const postMessage = vi.fn();
+			const iframe = document.createElement('iframe');
+			Object.defineProperty(iframe, 'contentWindow', { value: { postMessage } });
+			const container = document.createElement('div');
+			container.appendChild(iframe);
+			(sheet as any).element = container;
+			return { postMessage };
+		}
+
+		function openDialog(): any {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+			return dialogConstructorArgs;
+		}
+
+		function createMockHtml(selectedColorId: string): any {
+			return {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => characterSheetUrl };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => false };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					if (selector === "input[name='tokenBorderColor']:checked") {
+						return { val: (): string => selectedColorId };
+					}
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+		}
+
+		async function saveDialog(selectedColorId: string): Promise<void> {
+			await dialogConstructorArgs.buttons.save.callback(createMockHtml(selectedColorId));
+		}
+
+		function findColorMessages(postMessage: ReturnType<typeof vi.fn>): any[] {
+			return postMessage.mock.calls
+				.map(([message]) => message)
+				.filter((message) => message?.type === 'FOUNDRY_TOKEN_COLOR_UPDATE');
+		}
+
+		beforeEach(() => {
+			mockActor.system.nightVision = 'none';
+			mockActor.prototypeToken = { actorLink: false };
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+			mockActor.setFlag = vi.fn().mockResolvedValue(undefined);
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([]);
+
+			vi.stubGlobal('CONFIG', {
+				Canvas: {
+					visionModes: {
+						darkvision: {
+							vision: {
+								defaults: {
+									saturation: -1.0,
+									brightness: 0.25,
+									contrast: 0.25,
+									attenuation: 0.1,
+									color: '#9edcff',
+								},
+							},
+						},
+						basic: {
+							vision: {
+								defaults: {
+									saturation: 0,
+									brightness: 0,
+									contrast: 0,
+									attenuation: 0.5,
+									color: null,
+								},
+							},
+						},
+					},
+				},
+			});
+
+			vi.stubGlobal(
+				'Dialog',
+				class MockDialog {
+					constructor(args: any) {
+						dialogConstructorArgs = args;
+					}
+					render(_state: boolean) {}
+				},
+			);
+		});
+
+		afterEach(() => {
+			vi.unstubAllGlobals();
+		});
+
+		it('shows the eight border colors visually with the current one highlighted', () => {
+			configureStoredColor('green');
+
+			const content = openDialog().content as string;
+
+			expect(content.match(/data-color-id=/g)).toHaveLength(8);
+			for (const [id, hex, label] of palette) {
+				expect(content).toContain(`data-color-id="${id}"`);
+				expect(content).toContain(`value="${id}"`);
+				expect(content).toContain(hex);
+				expect(content).toContain(label);
+			}
+
+			const selectedBlock = colorOptionBlock(content, 'green');
+			expect(selectedBlock).toContain('data-selected="true"');
+			expect(selectedBlock).toContain('checked');
+			expect(colorOptionBlock(content, 'black')).toContain('data-selected="false"');
+
+			// Every swatch shares the same transparent base style: the injected
+			// :has(input:checked) rule is the single visual source of selection, so
+			// clicking another radio cannot leave a second baked highlight behind.
+			const baseOptionStyle = 'border: 2px solid transparent; background: transparent';
+			for (const [id] of palette) {
+				const block = colorOptionBlock(content, id);
+				expect(block).toContain(baseOptionStyle);
+				expect(block).not.toContain('rgba(255,255,255');
+				expect(block).toContain(`data-selected="${id === 'green'}"`);
+				expect(block.includes('checked')).toBe(id === 'green');
+			}
+
+			expect(content).toContain('.token-color-option:has(input:checked)');
+			expect(content).toContain('border-color: rgba(255,255,255,0.85) !important');
+			expect(content).toContain('background: rgba(255,255,255,0.12) !important');
+		});
+
+		it('highlights the gray option when the stored flag is the legacy silver id', () => {
+			configureStoredColor('silver');
+
+			const content = openDialog().content as string;
+
+			expect(colorOptionBlock(content, 'gray')).toContain('data-selected="true"');
+			expect(colorOptionBlock(content, 'gray')).toContain('checked');
+		});
+
+		it('persists the chosen color flag per actor on save', async () => {
+			configureStoredColor('black');
+			openDialog();
+
+			await saveDialog('green');
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'tokenBorderColor', 'green');
+		});
+
+		it('posts FOUNDRY_TOKEN_COLOR_UPDATE with the resolved hex when the color changed', async () => {
+			configureStoredColor('black');
+			const { postMessage } = attachIframeToSheet();
+			openDialog();
+
+			await saveDialog('orange');
+
+			expect(findColorMessages(postMessage)).toEqual([
+				{ type: 'FOUNDRY_TOKEN_COLOR_UPDATE', color: '#d35400' },
+			]);
+		});
+
+		it('does not emit the color message when the saved color did not change', async () => {
+			configureStoredColor('red');
+			const { postMessage } = attachIframeToSheet();
+			openDialog();
+
+			await saveDialog('red');
+
+			expect(findColorMessages(postMessage)).toHaveLength(0);
+		});
+
+		it('does not emit the color message when there is no iframe', async () => {
+			configureStoredColor('black');
+			openDialog();
+
+			await saveDialog('orange');
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'tokenBorderColor', 'orange');
+		});
+
+		it('does not force reload the iframe when the color changes and the URL is unchanged', async () => {
+			configureStoredColor('black');
+			attachIframeToSheet();
+			const baseProto = Object.getPrototypeOf(Object.getPrototypeOf(ArcanaSheetV2.prototype));
+			const superRender = vi.spyOn(baseProto, 'render').mockResolvedValue(sheet);
+			openDialog();
+
+			await saveDialog('gray');
+
+			expect(superRender).not.toHaveBeenCalled();
+
+			superRender.mockRestore();
+		});
+
+		it('falls back to the character default when the stored flag is invalid', async () => {
+			configureStoredColor('magenta');
+
+			const content = openDialog().content as string;
+
+			expect(colorOptionBlock(content, 'black')).toContain('data-selected="true"');
+
+			await saveDialog('');
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'tokenBorderColor', 'black');
+		});
+	});
+
+	describe('#configureSheet creature size', () => {
+		const characterSheetUrl = 'https://app.arcana.com/embedded/characters/abc123';
+		let dialogConstructorArgs: any;
+
+		function configureStoredSize(
+			creatureSize: unknown,
+			tokenSize?: { width: number; height: number },
+		): void {
+			mockActor.getFlag = vi.fn((scope: string, key: string) => {
+				if (scope !== 'arcana') return undefined;
+				if (key === 'sheetUrl') return characterSheetUrl;
+				if (key === 'creatureSize') return creatureSize;
+				return undefined;
+			});
+			mockActor.prototypeToken = { actorLink: false, ...tokenSize };
+		}
+
+		function openDialog(): any {
+			const handler = (ArcanaSheetV2 as any).DEFAULT_OPTIONS.actions.configureSheet;
+			handler.call(sheet, new PointerEvent('click'), document.createElement('button'));
+			return dialogConstructorArgs;
+		}
+
+		function selectBlock(content: string, name: string): string {
+			const start = content.indexOf(`name="${name}"`);
+			const end = content.indexOf('</select>', start);
+			return content.slice(start, end);
+		}
+
+		function variantGroupTag(content: string): string {
+			const start = content.indexOf('<div class="form-group" data-creature-size-variant');
+			const end = content.indexOf('>', start);
+			return content.slice(start, end);
+		}
+
+		function createMockHtml(category: string, variant = '3'): any {
+			return {
+				find: vi.fn((selector: string) => {
+					if (selector === "input[name='url']") return { val: (): string => characterSheetUrl };
+					if (selector === "input[name='actorLink']") return { is: (): boolean => false };
+					if (selector === "select[name='nightVision']") return { val: (): string => 'none' };
+					if (selector === "select[name='creatureSizeCategory']") {
+						return { val: (): string => category };
+					}
+					if (selector === "select[name='creatureSizeVariant']") {
+						return { val: (): string => variant };
+					}
+					if (selector === "input[name='tokenOffsetX']") return { val: (): string => '0' };
+					if (selector === "input[name='tokenOffsetY']") return { val: (): string => '0' };
+					return { val: (): string => '', is: (): boolean => false };
+				}),
+			};
+		}
+
+		async function saveDialog(category: string, variant?: string): Promise<void> {
+			await dialogConstructorArgs.buttons.save.callback(createMockHtml(category, variant));
+		}
+
+		beforeEach(() => {
+			mockActor.system.nightVision = 'none';
+			mockActor.prototypeToken = { actorLink: false };
+			mockActor.update = vi.fn().mockResolvedValue(undefined);
+			mockActor.setFlag = vi.fn().mockResolvedValue(undefined);
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([]);
+
+			vi.stubGlobal('CONFIG', {
+				Canvas: {
+					visionModes: {
+						darkvision: {
+							vision: {
+								defaults: {
+									saturation: -1.0,
+									brightness: 0.25,
+									contrast: 0.25,
+									attenuation: 0.1,
+									color: '#9edcff',
+								},
+							},
+						},
+						basic: {
+							vision: {
+								defaults: {
+									saturation: 0,
+									brightness: 0,
+									contrast: 0,
+									attenuation: 0.5,
+									color: null,
+								},
+							},
+						},
+					},
+				},
+			});
+
+			vi.stubGlobal(
+				'Dialog',
+				class MockDialog {
+					constructor(args: any) {
+						dialogConstructorArgs = args;
+					}
+					render(_state: boolean) {}
+				},
+			);
+
+			configureStoredSize(undefined);
+		});
+
+		afterEach(() => {
+			vi.unstubAllGlobals();
+		});
+
+		it('offers the five canonical categories plus the neutral option', () => {
+			const content = openDialog().content as string;
+			const categoryBlock = selectBlock(content, 'creatureSizeCategory');
+
+			expect(categoryBlock.match(/<option /g)).toHaveLength(6);
+			expect(categoryBlock).toContain('value=""');
+			expect(categoryBlock).toContain('— Sin configurar —');
+			expect(categoryBlock).toContain('>Diminuto</option>');
+			expect(categoryBlock).toContain('>Pequeño</option>');
+			expect(categoryBlock).toContain('>Mediano</option>');
+			expect(categoryBlock).toContain('>Grande</option>');
+			expect(categoryBlock).toContain('>Inmenso</option>');
+		});
+
+		it('renders the three largest-size variants and reveals them only for Inmenso', () => {
+			configureStoredSize('grande');
+			let content = openDialog().content as string;
+			const variantBlock = selectBlock(content, 'creatureSizeVariant');
+
+			expect(variantBlock.match(/<option /g)).toHaveLength(3);
+			expect(variantBlock).toContain('Inmenso 3×3 (estándar)');
+			expect(variantBlock).toContain('Inmenso 4×4 (mayor)');
+			expect(variantBlock).toContain('Inmenso 5×5 (colosal)');
+			expect(content).toContain('class="creature-size-group"');
+			expect(content).toContain(
+				"this.closest('.creature-size-group').querySelector('[data-creature-size-variant]').style.display = this.value === 'inmenso' ? '' : 'none'",
+			);
+			expect(variantGroupTag(content)).toContain('display: none');
+
+			configureStoredSize('inmenso-4');
+			content = openDialog().content as string;
+			expect(variantGroupTag(content)).not.toContain('display: none');
+			expect(selectBlock(content, 'creatureSizeVariant')).toContain('value="4" selected');
+		});
+
+		it('preselects the stored size flag over the prototype token dimensions', () => {
+			configureStoredSize('grande', { width: 4, height: 4 });
+
+			const content = openDialog().content as string;
+
+			expect(selectBlock(content, 'creatureSizeCategory')).toContain('value="grande" selected');
+		});
+
+		it('infers a unique size from the prototype token dimensions when there is no flag', () => {
+			configureStoredSize(undefined, { width: 0.5, height: 0.5 });
+
+			const content = openDialog().content as string;
+
+			expect(selectBlock(content, 'creatureSizeCategory')).toContain('value="diminuto" selected');
+		});
+
+		it('preselects the largest variant inferred from the prototype token dimensions', () => {
+			configureStoredSize(undefined, { width: 4, height: 4 });
+
+			const content = openDialog().content as string;
+
+			expect(selectBlock(content, 'creatureSizeCategory')).toContain('value="inmenso" selected');
+			expect(selectBlock(content, 'creatureSizeVariant')).toContain('value="4" selected');
+			expect(variantGroupTag(content)).not.toContain('display: none');
+		});
+
+		it('stays neutral when the prototype dimensions match more than one size', () => {
+			configureStoredSize(undefined, { width: 1, height: 1 });
+
+			const content = openDialog().content as string;
+
+			expect(selectBlock(content, 'creatureSizeCategory')).toContain('value="" selected');
+		});
+
+		it('falls back to inference when the stored flag is not a canonical id', () => {
+			configureStoredSize('enorme', { width: 2, height: 2 });
+
+			const content = openDialog().content as string;
+
+			expect(selectBlock(content, 'creatureSizeCategory')).toContain('value="grande" selected');
+		});
+
+		it.each([
+			['diminuto', 0.5],
+			['pequeno', 1],
+			['mediano', 1],
+			['grande', 2],
+			['inmenso', 3],
+		])(
+			'applies the %s footprint to the prototype and placed tokens',
+			async (category, footprint) => {
+				const mockTokenDoc = { update: vi.fn().mockResolvedValue(undefined) };
+				mockActor.getActiveTokens = vi.fn().mockReturnValue([{ document: mockTokenDoc }]);
+				openDialog();
+
+				await saveDialog(category);
+
+				expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'creatureSize', category);
+				expect(mockActor.update).toHaveBeenCalledWith(
+					expect.objectContaining({
+						'prototypeToken.width': footprint,
+						'prototypeToken.height': footprint,
+					}),
+				);
+				expect(mockTokenDoc.update).toHaveBeenCalledWith(
+					expect.objectContaining({ width: footprint, height: footprint }),
+				);
+			},
+		);
+
+		it.each([
+			['3', 'inmenso', 3],
+			['4', 'inmenso-4', 4],
+			['5', 'inmenso-5', 5],
+		])('persists the largest-size variant %s as %s', async (variant, expectedId, footprint) => {
+			openDialog();
+
+			await saveDialog('inmenso', variant);
+
+			expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'creatureSize', expectedId);
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'prototypeToken.width': footprint,
+					'prototypeToken.height': footprint,
+				}),
+			);
+		});
+
+		it('leaves flags and token dimensions untouched with the neutral selection', async () => {
+			const mockTokenDoc = { update: vi.fn().mockResolvedValue(undefined) };
+			mockActor.getActiveTokens = vi.fn().mockReturnValue([{ document: mockTokenDoc }]);
+			openDialog();
+
+			await saveDialog('');
+
+			expect(mockActor.setFlag).not.toHaveBeenCalledWith(
+				'arcana',
+				'creatureSize',
+				expect.anything(),
+			);
+			const updateCall = vi.mocked(mockActor.update).mock.calls[0][0] as Record<string, unknown>;
+			expect(updateCall).not.toHaveProperty('prototypeToken.width');
+			expect(updateCall).not.toHaveProperty('prototypeToken.height');
+			const tokenUpdateCall = vi.mocked(mockTokenDoc.update).mock.calls[0][0] as Record<
+				string,
+				unknown
+			>;
+			expect(tokenUpdateCall).not.toHaveProperty('width');
+			expect(tokenUpdateCall).not.toHaveProperty('height');
 		});
 	});
 });

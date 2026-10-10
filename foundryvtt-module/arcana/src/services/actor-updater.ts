@@ -210,7 +210,7 @@ export class ActorUpdater {
 	 */
 	private buildHPUpdate(
 		actor: ArcanaActor,
-		hp: { value: number; max: number },
+		hp: { value: number; max: number; temp?: number },
 		isCharacter: boolean,
 	): Record<string, any> | null {
 		const changes: Record<string, any> = {};
@@ -229,6 +229,12 @@ export class ActorUpdater {
 				}
 				hasChanges = true;
 			}
+
+			const newTemp = this.resolveTempUpdate(actor, hp.temp);
+			if (newTemp !== null) {
+				changes['system.health.temp'] = newTemp;
+				hasChanges = true;
+			}
 		} else {
 			// For characters, update both value and max
 			const oldVal = safeNum(foundry.utils.getProperty(actor, 'system.health.value'));
@@ -244,9 +250,27 @@ export class ActorUpdater {
 				changes['system.health.max'] = newMax;
 				hasChanges = true;
 			}
+
+			const newTemp = this.resolveTempUpdate(actor, hp.temp);
+			if (newTemp !== null) {
+				changes['system.health.temp'] = newTemp;
+				hasChanges = true;
+			}
 		}
 
 		return hasChanges ? changes : null;
+	}
+
+	/**
+	 * Resolve the temporary HP value to synchronize.
+	 * Returns null when the payload does not include temp or it already matches
+	 * the actor state. Temporary HP is a non-negative pool.
+	 */
+	private resolveTempUpdate(actor: ArcanaActor, temp: number | undefined): number | null {
+		if (temp === undefined) return null;
+		const oldTemp = safeNum(foundry.utils.getProperty(actor, 'system.health.temp'));
+		const newTemp = Number.isFinite(temp) ? Math.max(0, temp) : 0;
+		return newTemp === oldTemp ? null : newTemp;
 	}
 
 	/**
@@ -318,6 +342,16 @@ export class ActorUpdater {
 			if (actor.isToken && actor.baseActor) {
 				actor.baseActor.update({
 					'system.health.value': changes['system.health.value'],
+				});
+			}
+		}
+
+		if (Object.hasOwn(changes, 'system.health.temp')) {
+			const tempInput = html.querySelector<HTMLInputElement>("input[name='system.health.temp']");
+			if (tempInput) tempInput.value = String(changes['system.health.temp']);
+			if (actor.isToken && actor.baseActor) {
+				actor.baseActor.update({
+					'system.health.temp': changes['system.health.temp'],
 				});
 			}
 		}

@@ -29,19 +29,48 @@ export async function routeMessage(
 	}
 }
 
+/** Handler signature for web-to-module messages. */
+export type MessageHandler = (event: MessageEvent<MessageData>) => Promise<void>;
+
 /**
- * Message listener setup following Dependency Injection and Single Responsibility
+ * Build a message handler with its own RollHandler/ActorUpdater instances.
+ * Keeps the routing logic in one place for every registration target.
  */
-export function setupMessageListener(): void {
+function createMessageHandler(): MessageHandler {
 	const rollHandler = new RollHandler();
 	const actorUpdater = new ActorUpdater();
 
-	window.addEventListener('message', async (event: MessageEvent<MessageData>) => {
+	return async (event) => {
 		const data = event.data;
 		if (!data) return;
 
 		console.log('[Arcana] Received message:', data.type, 'from', event.origin);
 
 		await routeMessage(data, rollHandler, actorUpdater);
-	});
+	};
+}
+
+/**
+ * Register the Arcana message handler on a target window and return a cleanup
+ * function that removes exactly that listener. Detached windows are wired and
+ * unwired through this API so a message is never processed twice.
+ */
+export function registerMessageListener(
+	target: Window,
+	handler: MessageHandler = createMessageHandler(),
+): () => void {
+	const listener = (event: Event): void => void handler(event as MessageEvent<MessageData>);
+
+	target.addEventListener('message', listener);
+
+	return () => target.removeEventListener('message', listener);
+}
+
+/**
+ * Message listener setup following Dependency Injection and Single Responsibility.
+ * Registers on the main workspace window; detached windows are handled by
+ * setupDetachedWindow.
+ */
+export function setupMessageListener(): () => void {
+	return registerMessageListener(window);
 }

@@ -52,6 +52,18 @@ describe('foundryParams', () => {
 			expect(params.startMax).toBe('10');
 		});
 
+		it('FEAT temp-hp-damage-absorption — reads startTemp from query string', () => {
+			mockPage.set({
+				url: new URL(
+					'http://localhost/?mode=foundry&uuid=Actor.123&startHp=8&startMax=10&startTemp=3',
+				),
+			});
+
+			const params = get(foundryParams);
+
+			expect(params.startTemp).toBe('3');
+		});
+
 		it('reads tokenOffsetX and tokenOffsetY from query string', () => {
 			mockPage.set({
 				url: new URL(
@@ -74,6 +86,41 @@ describe('foundryParams', () => {
 
 			expect(params.tokenOffsetX).toBe(0);
 			expect(params.tokenOffsetY).toBe(0);
+		});
+
+		it('reads a valid borderColor param', () => {
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&borderColor=%23d35400',
+				),
+			});
+
+			const params = get(foundryParams);
+
+			expect(params.borderColor).toBe('#d35400');
+		});
+
+		it('returns a null borderColor when missing or invalid', () => {
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123',
+				),
+			});
+			expect(get(foundryParams).borderColor).toBeNull();
+
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&borderColor=purple',
+				),
+			});
+			expect(get(foundryParams).borderColor).toBeNull();
+
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&borderColor=%23ggg000',
+				),
+			});
+			expect(get(foundryParams).borderColor).toBeNull();
 		});
 
 		it('returns isFoundry false when mode is missing', () => {
@@ -251,6 +298,55 @@ describe('useFoundryVTTService', () => {
 			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#990000', -30, 20);
 		});
 
+		it('FEAT token-border-color-selection — uses the borderColor param for the creature border', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			vi.mocked(createCircularToken).mockClear();
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/npc?mode=foundry&uuid=Actor.123&borderColor=%23d35400',
+				),
+			});
+
+			const creature = createTestCreature({ img: 'creature.png' });
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature);
+
+			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#d35400', 0, 0);
+		});
+
+		it('FEAT token-border-color-selection — falls back to red for an invalid borderColor and lets a live override win', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			vi.mocked(createCircularToken).mockClear();
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/bestiary/goblin?mode=foundry&uuid=Actor.123&borderColor=not-a-color',
+				),
+			});
+
+			const creature = createTestCreature({ img: 'creature.png' });
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature);
+			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#990000', 0, 0);
+
+			vi.mocked(createCircularToken).mockClear();
+			await syncCreatureState(creature, '#1b7a2f');
+			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#1b7a2f', 0, 0);
+		});
+
+		it('FEAT token-border-color-selection — ignores an invalid live override and keeps the route default', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			vi.mocked(createCircularToken).mockClear();
+			mockPage.set({
+				url: new URL('http://localhost/embedded/npc?mode=foundry&uuid=Actor.123'),
+			});
+
+			const creature = createTestCreature({ img: 'creature.png' });
+			const { syncCreatureState } = useFoundryVTTService();
+			await syncCreatureState(creature, 'javascript:alert(1)');
+
+			expect(createCircularToken).toHaveBeenCalledWith('creature.png', 256, 8, '#990000', 0, 0);
+		});
+
 		it('FEAT npc-ability-usage-metadata-sync — sync sends only explicit valid uses declarations', async () => {
 			mockPage.set({
 				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
@@ -385,6 +481,41 @@ describe('useFoundryVTTService', () => {
 			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 0, 0);
 		});
 
+		it('FEAT token-border-color-selection — uses the borderColor param for the character border', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			vi.mocked(createCircularToken).mockClear();
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&borderColor=%239aa0a6',
+				),
+			});
+
+			const character = createTestCharacter();
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+
+			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#9aa0a6', 0, 0);
+		});
+
+		it('FEAT token-border-color-selection — falls back to black for an invalid borderColor and lets a live override win', async () => {
+			const { createCircularToken } = await import('$lib/utils/token-cutter');
+			vi.mocked(createCircularToken).mockClear();
+			mockPage.set({
+				url: new URL(
+					'http://localhost/embedded/characters/user-1/char-1?mode=foundry&uuid=Actor.123&borderColor=purple',
+				),
+			});
+
+			const character = createTestCharacter();
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 0, 0);
+
+			vi.mocked(createCircularToken).mockClear();
+			await syncCharacterState(character, '#e6b800');
+			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#e6b800', 0, 0);
+		});
+
 		it('FEAT foundry-v14-health-sync — sends zero current health to Foundry', async () => {
 			mockPage.set({
 				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
@@ -395,7 +526,33 @@ describe('useFoundryVTTService', () => {
 			await syncCharacterState(character);
 
 			expect(postMessageSpy).toHaveBeenCalledTimes(1);
-			expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 0, max: 12 });
+			expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 0, max: 12, temp: 0 });
+		});
+
+		it('FEAT temp-hp-damage-absorption — character temporary HP is sent to Foundry', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const character = createTestCharacter({ tempHP: 6, img: null });
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(character);
+
+			expect(postMessageSpy).toHaveBeenCalledTimes(1);
+			expect(postMessageSpy.mock.calls[0][0].payload.hp).toEqual({ value: 50, max: 100, temp: 6 });
+		});
+
+		it('FEAT temp-hp-damage-absorption — temporary HP defaults to 0 when missing or invalid', async () => {
+			mockPage.set({
+				url: new URL('http://localhost/?mode=foundry&uuid=Actor.123'),
+			});
+
+			const { syncCharacterState } = useFoundryVTTService();
+			await syncCharacterState(createTestCharacter({ tempHP: undefined, img: null }));
+			expect(postMessageSpy.mock.calls[0][0].payload.hp.temp).toBe(0);
+
+			await syncCharacterState(createTestCharacter({ tempHP: NaN, img: null }));
+			expect(postMessageSpy.mock.calls[1][0].payload.hp.temp).toBe(0);
 		});
 	});
 
@@ -423,6 +580,35 @@ describe('useFoundryVTTService', () => {
 			expect(updated.maxHP).toBe(9);
 		});
 
+		it('FEAT temp-hp-damage-absorption — applies Foundry temporary HP with the same authority as current health', () => {
+			const { applyFoundryHealthToCharacter } = useFoundryVTTService();
+			const character = createCharacterInstance({ currentHP: 10, body: 2 });
+
+			const updated = applyFoundryHealthToCharacter(character, { value: 5, max: 9, temp: 3 });
+
+			expect(updated.currentHP).toBe(5);
+			expect(updated.tempHP).toBe(3);
+		});
+
+		it('FEAT temp-hp-damage-absorption — clamps negative Foundry temporary HP at 0', () => {
+			const { applyFoundryHealthToCharacter } = useFoundryVTTService();
+			const character = createCharacterInstance({ currentHP: 10, body: 2 });
+
+			const updated = applyFoundryHealthToCharacter(character, { value: 5, max: 9, temp: -2 });
+
+			expect(updated.tempHP).toBe(0);
+		});
+
+		it('FEAT temp-hp-damage-absorption — keeps the current temporary HP when the message has none', () => {
+			const { applyFoundryHealthToCharacter } = useFoundryVTTService();
+			const character = createCharacterInstance({ currentHP: 10, body: 2 });
+			character.tempHP = 4;
+
+			const updated = applyFoundryHealthToCharacter(character, { value: 5, max: 9 });
+
+			expect(updated.tempHP).toBe(4);
+		});
+
 		it('FEAT foundry-health-precedence — receives typed Foundry health messages without forcing iframe reload', () => {
 			const { subscribeToFoundryHealthUpdates } = useFoundryVTTService();
 			const onHealth = vi.fn();
@@ -432,24 +618,72 @@ describe('useFoundryVTTService', () => {
 				new MessageEvent('message', {
 					data: {
 						type: 'FOUNDRY_HEALTH_UPDATE',
-						payload: { hp: { value: 6, max: 12 } },
+						payload: { hp: { value: 6, max: 12, temp: 2 } },
 					},
 				}),
 			);
 
-			expect(onHealth).toHaveBeenCalledWith({ value: 6, max: 12 });
+			expect(onHealth).toHaveBeenCalledWith({ value: 6, max: 12, temp: 2 });
 
 			unsubscribe();
 			window.dispatchEvent(
 				new MessageEvent('message', {
 					data: {
 						type: 'FOUNDRY_HEALTH_UPDATE',
-						payload: { hp: { value: 4, max: 12 } },
+						payload: { hp: { value: 4, max: 12, temp: 1 } },
 					},
 				}),
 			);
 
 			expect(onHealth).toHaveBeenCalledTimes(1);
+		});
+	});
+
+	describe('Foundry-originated token color updates', () => {
+		it('forwards valid FOUNDRY_TOKEN_COLOR_UPDATE hex colors', () => {
+			const { subscribeToFoundryTokenColorUpdates } = useFoundryVTTService();
+			const onColor = vi.fn();
+
+			const unsubscribe = subscribeToFoundryTokenColorUpdates(onColor);
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: { type: 'FOUNDRY_TOKEN_COLOR_UPDATE', color: '#d35400' },
+				}),
+			);
+
+			expect(onColor).toHaveBeenCalledWith('#d35400');
+
+			unsubscribe();
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: { type: 'FOUNDRY_TOKEN_COLOR_UPDATE', color: '#1b7a2f' },
+				}),
+			);
+
+			expect(onColor).toHaveBeenCalledTimes(1);
+		});
+
+		it('ignores unrelated messages and payloads with an invalid color', () => {
+			const { subscribeToFoundryTokenColorUpdates } = useFoundryVTTService();
+			const onColor = vi.fn();
+			const unsubscribe = subscribeToFoundryTokenColorUpdates(onColor);
+
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: { type: 'FOUNDRY_HEALTH_UPDATE', payload: { hp: { value: 1, max: 2 } } },
+				}),
+			);
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: { type: 'FOUNDRY_TOKEN_COLOR_UPDATE', color: 'purple' },
+				}),
+			);
+			window.dispatchEvent(
+				new MessageEvent('message', { data: { type: 'FOUNDRY_TOKEN_COLOR_UPDATE' } }),
+			);
+
+			expect(onColor).not.toHaveBeenCalled();
+			unsubscribe();
 		});
 	});
 });

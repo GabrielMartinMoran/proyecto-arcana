@@ -3,6 +3,8 @@
  * These functions have no side effects and no dependencies on Foundry globals.
  */
 
+import { resolveDefaultTokenColorId, resolveTokenColorHex } from '../constants/token-colors';
+
 export interface SheetUrlParams {
 	sheetUrl: string | null;
 	baseUrl: string;
@@ -10,9 +12,11 @@ export interface SheetUrlParams {
 		uuid: string | null;
 		id: string;
 		name: string;
-		system: { health?: { value: number; max: number } };
+		type?: string;
+		system: { health?: { value: number; max: number; temp?: number } };
 	};
 	localNotes: string | null;
+	tokenBorderColor?: string;
 	tokenOffsetX?: number;
 	tokenOffsetY?: number;
 }
@@ -21,7 +25,7 @@ export interface SheetUrlResult {
 	iframeUrl: string | null;
 	isBestiary: boolean;
 	localNotes: string;
-	health: { value: number; max: number };
+	health: { value: number; max: number; temp: number };
 }
 
 export interface TokenSettings {
@@ -57,7 +61,7 @@ export function buildSheetUrl(params: SheetUrlParams): SheetUrlResult {
 		iframeUrl: null,
 		isBestiary: false,
 		localNotes: '',
-		health: { value: 0, max: 0 },
+		health: { value: 0, max: 0, temp: 0 },
 	};
 
 	if (urlWeb) {
@@ -66,7 +70,12 @@ export function buildSheetUrl(params: SheetUrlParams): SheetUrlResult {
 			urlWeb = urlWeb.replace('/characters/shared/', '/embedded/characters/');
 		}
 
-		result.health = actor.system.health || { value: 0, max: 0 };
+		const health = actor.system.health;
+		result.health = {
+			value: health?.value ?? 0,
+			max: health?.max ?? 0,
+			temp: health?.temp ?? 0,
+		};
 
 		// Detect bestiary/NPC mode
 		const isNpc = urlWeb.includes('/npc');
@@ -77,11 +86,18 @@ export function buildSheetUrl(params: SheetUrlParams): SheetUrlResult {
 
 		const targetId = actor.uuid || actor.id;
 
+		const defaultColorId = resolveDefaultTokenColorId(actor.type, result.isBestiary);
+
 		const url = new URL(urlWeb);
 		url.searchParams.set('mode', 'foundry');
 		url.searchParams.set('uuid', targetId);
 		url.searchParams.set('startHp', String(result.health.value));
 		url.searchParams.set('startMax', String(result.health.max));
+		url.searchParams.set('startTemp', String(result.health.temp));
+		url.searchParams.set(
+			'borderColor',
+			resolveTokenColorHex(params.tokenBorderColor, defaultColorId),
+		);
 		if (isNpc) url.searchParams.set('readonly', '1');
 		if (params.tokenOffsetX !== undefined)
 			url.searchParams.set('tokenOffsetX', String(params.tokenOffsetX));

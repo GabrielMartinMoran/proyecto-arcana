@@ -1,5 +1,6 @@
 import { init } from './src/hooks/init';
 import { renderTokenHUD } from './src/hooks/render-token-hud';
+import { setupDetachedWindow } from './src/hooks/setup-detached-window';
 import { setupEscInterceptor } from './src/hooks/setup-esc-interceptor';
 import { setupMessageListener } from './src/listeners/message-listener';
 
@@ -10,3 +11,4 @@ Hooks.on('renderTokenHUD', renderTokenHUD);
 Hooks.once('ready', setupEscInterceptor);
 
 setupMessageListener();
+setupDetachedWindow();

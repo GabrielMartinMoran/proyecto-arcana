@@ -19,11 +19,13 @@ describe('buildSheetUrl', () => {
 				uuid: hasUuid ? overrides.uuid : 'Actor.abc123',
 				id: overrides.id ?? 'actor-123',
 				name: overrides.name ?? 'Test Actor',
+				type: overrides.actorType,
 				system: {
 					health: hasHealth ? overrides.health : { value: 50, max: 100 },
 				},
 			},
 			localNotes: overrides.localNotes ?? null,
+			tokenBorderColor: overrides.tokenBorderColor,
 			tokenOffsetX: overrides.tokenOffsetX,
 			tokenOffsetY: overrides.tokenOffsetY,
 		};
@@ -39,10 +41,54 @@ describe('buildSheetUrl', () => {
 			const result = buildSheetUrl(params);
 
 			expect(result.iframeUrl).toBe(
-				'https://app.arcana.com/embedded/characters/char1?mode=foundry&uuid=Actor.abc123&startHp=30&startMax=60',
+				'https://app.arcana.com/embedded/characters/char1?mode=foundry&uuid=Actor.abc123&startHp=30&startMax=60&startTemp=0&borderColor=%23000000',
 			);
 			expect(result.isBestiary).toBe(false);
-			expect(result.health).toEqual({ value: 30, max: 60 });
+			expect(result.health).toEqual({ value: 30, max: 60, temp: 0 });
+		});
+	});
+
+	describe('temporary HP param', () => {
+		it('FEAT temp-hp-damage-absorption — includes startTemp for character URLs', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				health: { value: 30, max: 60, temp: 4 },
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(new URL(result.iframeUrl!).searchParams.get('startTemp')).toBe('4');
+			expect(result.health.temp).toBe(4);
+		});
+
+		it('FEAT temp-hp-damage-absorption — includes startTemp for NPC and bestiary URLs', () => {
+			const npc = buildSheetUrl(
+				createMockParams({
+					sheetUrl: 'https://app.arcana.com/npc/goblin',
+					health: { value: 8, max: 10, temp: 3 },
+				}),
+			);
+			const bestiary = buildSheetUrl(
+				createMockParams({
+					sheetUrl: 'https://app.arcana.com/bestiary/goblin',
+					health: { value: 8, max: 10, temp: 3 },
+				}),
+			);
+
+			expect(new URL(npc.iframeUrl!).searchParams.get('startTemp')).toBe('3');
+			expect(new URL(bestiary.iframeUrl!).searchParams.get('startTemp')).toBe('3');
+		});
+
+		it('FEAT temp-hp-damage-absorption — defaults startTemp to 0 when the actor has no temporary HP', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				health: { value: 30, max: 60 },
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(new URL(result.iframeUrl!).searchParams.get('startTemp')).toBe('0');
+			expect(result.health.temp).toBe(0);
 		});
 	});
 
@@ -179,9 +225,10 @@ describe('buildSheetUrl', () => {
 
 			const result = buildSheetUrl(params);
 
-			expect(result.health).toEqual({ value: 0, max: 0 });
+			expect(result.health).toEqual({ value: 0, max: 0, temp: 0 });
 			expect(result.iframeUrl).toContain('startHp=0');
 			expect(result.iframeUrl).toContain('startMax=0');
+			expect(result.iframeUrl).toContain('startTemp=0');
 		});
 
 		it('should use correct separator when URL already has query params', () => {
@@ -221,6 +268,92 @@ describe('buildSheetUrl', () => {
 		});
 	});
 
+	describe('token border color param', () => {
+		const palette = [
+			['black', '#000000'],
+			['red', '#990000'],
+			['green', '#27a241'],
+			['yellow', '#e6b800'],
+			['orange', '#d35400'],
+			['gray', '#9aa0a6'],
+			['lightblue', '#2b89fb'],
+			['purple', '#7800ff'],
+		] as const;
+
+		it('includes the black default for character URLs when no color is configured', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(new URL(result.iframeUrl!).searchParams.get('borderColor')).toBe('#000000');
+		});
+
+		it('includes the red default for NPC and bestiary URLs when no color is configured', () => {
+			const npc = buildSheetUrl(
+				createMockParams({ sheetUrl: 'https://app.arcana.com/npc/goblin' }),
+			);
+			const bestiary = buildSheetUrl(
+				createMockParams({ sheetUrl: 'https://app.arcana.com/bestiary/goblin' }),
+			);
+
+			expect(new URL(npc.iframeUrl!).searchParams.get('borderColor')).toBe('#990000');
+			expect(new URL(bestiary.iframeUrl!).searchParams.get('borderColor')).toBe('#990000');
+		});
+
+		it.each(palette)('encodes the configured %s color as its resolved hex', (id, hex) => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				tokenBorderColor: id,
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(new URL(result.iframeUrl!).searchParams.get('borderColor')).toBe(hex);
+		});
+
+		it('resolves the legacy silver id to the gray hex', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				tokenBorderColor: 'silver',
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(new URL(result.iframeUrl!).searchParams.get('borderColor')).toBe('#9aa0a6');
+		});
+
+		it('falls back to the actor default when the stored color is invalid', () => {
+			const character = buildSheetUrl(
+				createMockParams({
+					sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+					tokenBorderColor: 'magenta',
+				}),
+			);
+			const npc = buildSheetUrl(
+				createMockParams({
+					sheetUrl: 'https://app.arcana.com/npc/goblin',
+					tokenBorderColor: 'magenta',
+				}),
+			);
+
+			expect(new URL(character.iframeUrl!).searchParams.get('borderColor')).toBe('#000000');
+			expect(new URL(npc.iframeUrl!).searchParams.get('borderColor')).toBe('#990000');
+		});
+
+		it('prefers the actor type default over the bestiary route fallback', () => {
+			const params = createMockParams({
+				sheetUrl: 'https://app.arcana.com/bestiary/goblin',
+				actorType: 'character',
+			});
+
+			const result = buildSheetUrl(params);
+
+			expect(new URL(result.iframeUrl!).searchParams.get('borderColor')).toBe('#000000');
+		});
+	});
+
 	describe('hash fragment handling', () => {
 		it('should place query params before hash for custom NPC URL', () => {
 			const params = createMockParams({
@@ -257,7 +390,7 @@ describe('buildSheetUrl', () => {
 			const url = result.iframeUrl!;
 
 			expect(url).toBe(
-				'https://app.arcana.com/bestiary/goblin?mode=foundry&uuid=Actor.123&startHp=8&startMax=8',
+				'https://app.arcana.com/bestiary/goblin?mode=foundry&uuid=Actor.123&startHp=8&startMax=8&startTemp=0&borderColor=%23990000',
 			);
 			expect(url).not.toContain('#');
 		});

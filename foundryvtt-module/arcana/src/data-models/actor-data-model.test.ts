@@ -96,6 +96,14 @@ describe('CharacterData', () => {
 			expect(schema.health.fields.max.options.min).toBe(0);
 		});
 
+		it('FEAT temp-hp-damage-absorption — character health schema stores temporary HP defaulting to 0', () => {
+			const schema = CharacterData.defineSchema();
+
+			expect(schema.health.fields).toHaveProperty('temp');
+			expect(schema.health.fields.temp.options.initial).toBe(0);
+			expect(schema.health.fields.temp.options.min).toBe(0);
+		});
+
 		it('should define nightVision string field with initial "none"', () => {
 			const schema = CharacterData.defineSchema();
 
@@ -133,6 +141,14 @@ describe('CharacterData', () => {
 
 			expect(schema).toHaveProperty('nightVision');
 			expect(schema.nightVision.options.initial).toBe('none');
+		});
+
+		it('FEAT temp-hp-damage-absorption — NPC health schema stores temporary HP defaulting to 0', () => {
+			const schema = NPCData.defineSchema();
+
+			expect(schema.health.fields).toHaveProperty('temp');
+			expect(schema.health.fields.temp.options.initial).toBe(0);
+			expect(schema.health.fields.temp.options.min).toBe(0);
 		});
 	});
 });

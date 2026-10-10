@@ -4,7 +4,7 @@
 	import { useCreaturesService } from '$lib/services/creatures-service';
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { get } from 'svelte/store';
 	import type { Creature } from '$lib/types/creature';
 	import '../../../../app.css';
@@ -13,7 +13,8 @@
 	// Services
 	const { loadCreatures, creatures } = useCreaturesService();
 
-	const { isInsideFoundry, syncCreatureState } = useFoundryVTTService();
+	const { isInsideFoundry, syncCreatureState, subscribeToFoundryTokenColorUpdates } =
+		useFoundryVTTService();
 
 	// Initialize dice service so the statblock's roll buttons / modal can work
 	useDiceRollerService();
@@ -30,6 +31,13 @@
 			syncCreatureState(creature);
 		}
 	};
+
+	const unsubscribeFoundryColor = subscribeToFoundryTokenColorUpdates((color) => {
+		if (!creature) return;
+		syncCreatureState(creature, color);
+	});
+
+	onDestroy(() => unsubscribeFoundryColor());
 
 	onMount(async () => {
 		// Obtain route param client-side

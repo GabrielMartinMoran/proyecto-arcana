@@ -30,6 +30,16 @@ function copyStaticFiles() {
 	fs.copyFileSync('system.json', 'dist/system.json');
 	console.log('📄 Copied system.json to dist/');
 
+	// Copy custom assets (status effect icons and future static content)
+	if (fs.existsSync('assets')) {
+		fs.cpSync('assets', 'dist/assets', { recursive: true });
+		console.log('📄 Copied assets/ to dist/');
+	}
+
+	// Copy third-party asset credits
+	fs.copyFileSync('CREDITS.md', 'dist/CREDITS.md');
+	console.log('📄 Copied CREDITS.md to dist/');
+
 	// Copy main.js to root (for direct module loading)
 	fs.copyFileSync('dist/main.js', 'main.js');
 	console.log('📄 Copied main.js to root/');

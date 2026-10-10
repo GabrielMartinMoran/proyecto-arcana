@@ -6,6 +6,11 @@
 		onChange(character);
 	}
 
+	function editTempHP(): void {
+		character.tempHP = 6;
+		onChange(character);
+	}
+
 	function updateAttackName(name: string): void {
 		const attacks = [...(character.attacks ?? [])];
 		attacks[0] = { ...(attacks[0] ?? {}), name };
@@ -14,6 +19,7 @@
 </script>
 
 <div data-testid="character-health">{character.currentHP}/{character.maxHP}</div>
+<div data-testid="character-temp-hp">{character.tempHP}</div>
 <input
 	data-testid="attack-name-input"
 	aria-label="Attack name"
@@ -21,3 +27,4 @@
 	oninput={(event) => updateAttackName(event.currentTarget.value)}
 />
 <button type="button" data-testid="edit-current-hp" onclick={editCurrentHP}>Edit HP</button>
+<button type="button" data-testid="edit-temp-hp" onclick={editTempHP}>Edit Temp HP</button>

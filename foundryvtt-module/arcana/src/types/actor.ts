@@ -5,6 +5,7 @@
 export interface HealthData {
 	value: number;
 	max: number;
+	temp?: number;
 }
 
 export interface ActorSystemData {
@@ -18,8 +19,10 @@ export interface ArcanaFlags {
 	sheetUrl?: string;
 	localNotes?: string;
 	imgSource?: string;
+	tokenBorderColor?: string;
 	tokenOffsetX?: number;
 	tokenOffsetY?: number;
+	creatureSize?: string;
 }
 
 export interface ActorFlags {
@@ -40,6 +43,8 @@ export interface ArcanaActor {
 		bar2: { attribute: string | null };
 		sight: { enabled: boolean; visionMode?: string; range?: number | null };
 		name: string;
+		width?: number;
+		height?: number;
 		texture: { src: string };
 	};
 	token?: any;
@@ -72,6 +77,7 @@ export interface UpdatePayload {
 	hp?: {
 		value: number;
 		max: number;
+		temp?: number;
 	};
 	initiative?: number;
 	npcAbilityDefinitions?: import('../services/npc-ability-usage').NpcAbilityDefinition[];

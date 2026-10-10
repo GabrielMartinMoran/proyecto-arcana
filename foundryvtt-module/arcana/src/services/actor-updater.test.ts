@@ -611,6 +611,108 @@ describe('ActorUpdater', () => {
 			});
 			expect(updateCall).not.toHaveProperty('system.health.value');
 		});
+
+		it('FEAT temp-hp-damage-absorption — characters synchronize temporary HP and redraw token bars', async () => {
+			const drawBars = vi.fn();
+			const tokenDocument = { object: { drawBars } };
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				health: { value: 30, max: 50, temp: 0 },
+			});
+			mockActor.getActiveTokens = vi.fn((_linked?: boolean, document?: boolean) =>
+				document ? [tokenDocument] : [{ document: tokenDocument }],
+			);
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						if (path === 'system.health.temp') return obj.system?.health?.temp;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 40, max: 60, temp: 6 } },
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({
+					'system.health.value': 40,
+					'system.health.max': 60,
+					'system.health.temp': 6,
+				}),
+				{ render: false },
+			);
+			expect(drawBars).toHaveBeenCalledOnce();
+		});
+
+		it('FEAT temp-hp-damage-absorption — temporary HP is clamped at zero when synchronized', async () => {
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/characters/char1',
+				health: { value: 30, max: 50, temp: 3 },
+			});
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						if (path === 'system.health.temp') return obj.system?.health?.temp;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 30, max: 50, temp: -4 } },
+			});
+
+			expect(mockActor.update).toHaveBeenCalledWith(
+				expect.objectContaining({ 'system.health.temp': 0 }),
+				{ render: false },
+			);
+		});
+
+		it('FEAT temp-hp-damage-absorption — NPCs accept temporary HP only when the payload includes it', async () => {
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/bestiary/npc1',
+				health: { value: 50, max: 100, temp: 0 },
+			});
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						if (path === 'system.health.temp') return obj.system?.health?.temp;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 80, max: 150, temp: 5 } },
+			});
+
+			const updateCall = vi.mocked(mockActor.update).mock.calls[0][0] as Record<string, any>;
+			expect(updateCall).toMatchObject({
+				'system.health.max': 150,
+				'system.health.temp': 5,
+			});
+			expect(updateCall).not.toHaveProperty('system.health.value');
+		});
 	});
 
 	describe('image updates', () => {
@@ -931,6 +1033,40 @@ describe('ActorUpdater', () => {
 			// THEN max DOM input should be updated (NPC does not update value unless clamped)
 			expect(maxInput.value).toBe('80');
 			expect(valueInput.value).toBe('');
+			expect(mockActor.render).toHaveBeenCalled();
+		});
+
+		it('FEAT temp-hp-damage-absorption — rendered NPC temporary HP input follows the synchronized value', async () => {
+			const tempInput = document.createElement('input');
+			tempInput.name = 'system.health.temp';
+			const container = document.createElement('div');
+			container.appendChild(tempInput);
+
+			const mockActor = createMockActor({
+				sheetUrl: 'https://app.arcana.com/embedded/bestiary/npc1',
+				health: { value: 50, max: 100, temp: 0 },
+			});
+			mockActor.sheet = { rendered: true, element: container, render: vi.fn() };
+
+			vi.mocked(game.actors.get).mockReturnValue(mockActor);
+			vi.stubGlobal('foundry', {
+				utils: {
+					getProperty: vi.fn((obj: any, path: string) => {
+						if (path === 'system.health.value') return obj.system?.health?.value;
+						if (path === 'system.health.max') return obj.system?.health?.max;
+						if (path === 'system.health.temp') return obj.system?.health?.temp;
+						return undefined;
+					}),
+				},
+			});
+
+			await actorUpdater.handleUpdateActor({
+				type: MESSAGE_TYPES.UPDATE_ACTOR,
+				actorId: 'actor-123',
+				payload: { hp: { value: 50, max: 100, temp: 2 } },
+			});
+
+			expect(tempInput.value).toBe('2');
 			expect(mockActor.render).toHaveBeenCalled();
 		});
 

@@ -30,6 +30,7 @@
 		foundryParams,
 		isInsideFoundry,
 		subscribeToFoundryHealthUpdates,
+		subscribeToFoundryTokenColorUpdates,
 		syncCharacterState,
 	} = useFoundryVTTService();
 
@@ -40,6 +41,7 @@
 	let character = $state<Character | undefined>(undefined);
 	let unsubscribeShared: (() => void) | null = null;
 	let unsubscribeFoundryHealth: (() => void) | null = null;
+	let unsubscribeFoundryColor: (() => void) | null = null;
 	let hasAppliedStartupFoundryHealth = false;
 	const embeddedCharacterSync = createCharacterSyncCoordinator<Character>({
 		debounceMs: EMBEDDED_SAVE_DEBOUNCE_MS,
@@ -145,7 +147,7 @@
 		}
 	}
 
-	function getValidStartupFoundryHealth(): { value: number; max: number } | null {
+	function getValidStartupFoundryHealth(): { value: number; max: number; temp: number } | null {
 		const params = get(foundryParams);
 		if (params.startHp === null || params.startMax === null) return null;
 
@@ -153,7 +155,8 @@
 		const max = Number(params.startMax);
 		if (!Number.isFinite(value) || !Number.isFinite(max) || max <= 0) return null;
 
-		return { value, max };
+		const temp = Number(params.startTemp);
+		return { value, max, temp: Number.isFinite(temp) ? Math.max(0, temp) : 0 };
 	}
 
 	function applyStartupFoundryHealth(ch: Character): { character: Character; hydrated: boolean } {
@@ -204,6 +207,11 @@
 		unsubscribeFoundryHealth = subscribeToFoundryHealthUpdates((hp) => {
 			if (!character) return;
 			character = applyFoundryHealthToCharacter(character, hp);
+		});
+
+		unsubscribeFoundryColor = subscribeToFoundryTokenColorUpdates((color) => {
+			if (!character) return;
+			syncCharacterState(character, color);
 		});
 
 		if (!userId || !characterId) {
@@ -316,6 +324,10 @@
 		if (unsubscribeFoundryHealth) {
 			unsubscribeFoundryHealth();
 			unsubscribeFoundryHealth = null;
+		}
+		if (unsubscribeFoundryColor) {
+			unsubscribeFoundryColor();
+			unsubscribeFoundryColor = null;
 		}
 		if (unsubscribeShared) {
 			try {

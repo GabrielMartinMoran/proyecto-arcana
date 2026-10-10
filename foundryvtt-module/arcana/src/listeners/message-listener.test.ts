@@ -5,10 +5,10 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ActorUpdater } from '../services/actor-updater';
-import type { RollHandler } from '../services/roll-handler';
+import { RollHandler } from '../services/roll-handler';
 import type { MessageData, PrecalculatedRollData, UpdateActorData } from '../types/messages';
 import { MESSAGE_TYPES } from '../types/messages';
-import { routeMessage } from './message-listener';
+import { registerMessageListener, routeMessage, setupMessageListener } from './message-listener';
 
 describe('routeMessage', () => {
 	let mockRollHandler: RollHandler;
@@ -74,5 +74,59 @@ describe('routeMessage', () => {
 			expect(mockRollHandler.handlePrecalculatedRoll).not.toHaveBeenCalled();
 			expect(mockActorUpdater.handleUpdateActor).not.toHaveBeenCalled();
 		});
+	});
+});
+
+describe('registerMessageListener', () => {
+	it('FEAT foundry-sheet-detach — registers a message listener on the target window and removes it on cleanup', () => {
+		const target = new EventTarget();
+		const handler = vi.fn().mockResolvedValue(undefined);
+
+		const removeListener = registerMessageListener(target as unknown as Window, handler);
+
+		target.dispatchEvent(new MessageEvent('message', { data: { type: 'PRECALCULATED_ROLL' } }));
+		expect(handler).toHaveBeenCalledTimes(1);
+
+		removeListener();
+		target.dispatchEvent(new MessageEvent('message', { data: { type: 'PRECALCULATED_ROLL' } }));
+		expect(handler).toHaveBeenCalledTimes(1);
+	});
+
+	it('FEAT foundry-sheet-detach — defaults to the Arcana routing handler', async () => {
+		const target = new EventTarget();
+		const rollHandlerSpy = vi
+			.spyOn(RollHandler.prototype, 'handlePrecalculatedRoll')
+			.mockResolvedValue(undefined);
+
+		const removeListener = registerMessageListener(target as unknown as Window);
+
+		target.dispatchEvent(new MessageEvent('message', { data: null }));
+		await new Promise((resolve) => setTimeout(resolve, 0));
+		expect(rollHandlerSpy).not.toHaveBeenCalled();
+
+		target.dispatchEvent(
+			new MessageEvent('message', {
+				data: { type: MESSAGE_TYPES.PRECALCULATED_ROLL, formula: '1d6', results: [3] },
+			}),
+		);
+		await new Promise((resolve) => setTimeout(resolve, 0));
+		expect(rollHandlerSpy).toHaveBeenCalledTimes(1);
+
+		removeListener();
+		rollHandlerSpy.mockRestore();
+	});
+
+	it('FEAT foundry-sheet-detach — setupMessageListener registers and cleans up on the main workspace window', () => {
+		const addSpy = vi.spyOn(window, 'addEventListener');
+		const removeSpy = vi.spyOn(window, 'removeEventListener');
+
+		const removeListener = setupMessageListener();
+		expect(addSpy).toHaveBeenCalledWith('message', expect.any(Function));
+
+		removeListener();
+		expect(removeSpy).toHaveBeenCalledWith('message', expect.any(Function));
+
+		addSpy.mockRestore();
+		removeSpy.mockRestore();
 	});
 });

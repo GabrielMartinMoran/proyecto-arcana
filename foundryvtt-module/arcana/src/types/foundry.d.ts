@@ -19,6 +19,7 @@ declare global {
 		health?: {
 			value: number;
 			max: number;
+			temp?: number;
 		};
 		initiative?: number;
 		nightVision?: string;
@@ -33,6 +34,7 @@ declare global {
 				sheetUrl?: string;
 				localNotes?: string;
 				imgSource?: string;
+				tokenBorderColor?: string;
 				tokenOffsetX?: number;
 				tokenOffsetY?: number;
 			};

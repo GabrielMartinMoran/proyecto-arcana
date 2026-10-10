@@ -71,6 +71,7 @@ img: null
 
 	let parseTimeout: ReturnType<typeof setTimeout> | null = null;
 	let urlUpdateTimeout: ReturnType<typeof setTimeout> | null = null;
+	let unsubscribeFoundryColor: (() => void) | null = null;
 
 	// UI state
 	let activeTab: 'yaml' | 'sheet' | 'mixed' = $state('mixed');
@@ -81,7 +82,8 @@ img: null
 	let importModalOpen = $state(false);
 	let editorKey = $state(0);
 
-	const { isInsideFoundry, syncCreatureState } = useFoundryVTTService();
+	const { isInsideFoundry, syncCreatureState, subscribeToFoundryTokenColorUpdates } =
+		useFoundryVTTService();
 
 	const setCreature = (cr: Creature) => {
 		creature = cr;
@@ -152,6 +154,11 @@ img: null
 	});
 
 	onMount(() => {
+		unsubscribeFoundryColor = subscribeToFoundryTokenColorUpdates((color) => {
+			if (!creature) return;
+			syncCreatureState(creature, color);
+		});
+
 		tryParseAndSetCreature(yamlText);
 		if (readonlyMode) {
 			activeTab = 'sheet';
@@ -166,7 +173,13 @@ img: null
 		};
 
 		window.addEventListener('hashchange', handleHashChange);
-		return () => window.removeEventListener('hashchange', handleHashChange);
+		return () => {
+			window.removeEventListener('hashchange', handleHashChange);
+			if (unsubscribeFoundryColor) {
+				unsubscribeFoundryColor();
+				unsubscribeFoundryColor = null;
+			}
+		};
 	});
 
 	function handleImport(importedYaml: string) {

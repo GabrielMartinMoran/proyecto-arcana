@@ -18,6 +18,7 @@ export interface CharacterState {
 	hp?: {
 		value: number;
 		max: number;
+		temp?: number;
 	};
 	initiative?: number;
 	npcAbilityDefinitions?: NpcAbilityDefinition[];
@@ -43,9 +44,26 @@ export interface FoundryHealthUpdateMessage {
 		hp: {
 			value: number;
 			max: number;
+			temp: number;
 		};
 	};
 }
+
+export interface FoundryTokenColorUpdateMessage {
+	type: 'FOUNDRY_TOKEN_COLOR_UPDATE';
+	color: string;
+}
+
+const HEX_COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
+const DEFAULT_CHARACTER_BORDER_COLOR = '#000000';
+const DEFAULT_NPC_BORDER_COLOR = '#990000';
+
+const parseBorderColor = (value: string | null | undefined): string | null =>
+	typeof value === 'string' && HEX_COLOR_PATTERN.test(value) ? value : null;
+
+/** Normalize an optional numeric pool (temporary HP) to a non-negative number. */
+const toNonNegativeNumber = (value: number | null | undefined): number =>
+	typeof value === 'number' && Number.isFinite(value) ? Math.max(0, value) : 0;
 
 // --- 2. STORES (Lectura de URL) ---
 
@@ -61,8 +79,11 @@ export const foundryParams = derived(page, ($page) => {
 		// Parámetros de inicialización (por si los necesitas en el UI para setear la barra inicial)
 		startHp: getParam('startHp'),
 		startMax: getParam('startMax'),
+		startTemp: getParam('startTemp'),
 		// Detectamos si estamos dentro de Foundry
 		isFoundry: getParam('mode') === 'foundry',
+		// Color del borde del token (hex validado; cada ruta aplica su default)
+		borderColor: parseBorderColor(getParam('borderColor')),
 		// Offset del token para ajustar el recorte circular
 		tokenOffsetX: Number(getParam('tokenOffsetX') ?? 0),
 		tokenOffsetY: Number(getParam('tokenOffsetY') ?? 0),
@@ -143,10 +164,13 @@ export const useFoundryVTTService = () => {
 
 	const applyFoundryHealthToCharacter = (
 		character: Character,
-		hp: { value: number; max: number },
+		hp: { value: number; max: number; temp?: number },
 	): Character => {
 		const updated = character.copy();
 		updated.currentHP = hp.value;
+		if (typeof hp.temp === 'number' && Number.isFinite(hp.temp)) {
+			updated.tempHP = Math.max(0, hp.temp);
+		}
 		Object.defineProperty(updated, 'foundryMaxHPOverride', {
 			configurable: true,
 			enumerable: false,
@@ -157,7 +181,7 @@ export const useFoundryVTTService = () => {
 	};
 
 	const subscribeToFoundryHealthUpdates = (
-		onHealth: (hp: { value: number; max: number }) => void,
+		onHealth: (hp: { value: number; max: number; temp?: number }) => void,
 	): (() => void) => {
 		if (!browser) return () => {};
 
@@ -165,7 +189,21 @@ export const useFoundryVTTService = () => {
 			if (event.data?.type !== 'FOUNDRY_HEALTH_UPDATE') return;
 			const hp = event.data.payload?.hp;
 			if (!hp) return;
-			onHealth({ value: hp.value, max: hp.max });
+			onHealth({ value: hp.value, max: hp.max, temp: hp.temp });
+		};
+
+		window.addEventListener('message', listener as EventListener);
+		return () => window.removeEventListener('message', listener as EventListener);
+	};
+
+	const subscribeToFoundryTokenColorUpdates = (onColor: (color: string) => void): (() => void) => {
+		if (!browser) return () => {};
+
+		const listener = (event: MessageEvent<FoundryTokenColorUpdateMessage>) => {
+			if (event.data?.type !== 'FOUNDRY_TOKEN_COLOR_UPDATE') return;
+			const color = parseBorderColor(event.data.color);
+			if (!color) return;
+			onColor(color);
 		};
 
 		window.addEventListener('message', listener as EventListener);
@@ -173,7 +211,7 @@ export const useFoundryVTTService = () => {
 	};
 
 	// --- SINCRONIZACIÓN DE PERSONAJE ---
-	const syncCharacterState = async (character: Character) => {
+	const syncCharacterState = async (character: Character, borderColorOverride?: string) => {
 		const params = get(foundryParams);
 
 		// 1. Si NO estamos en Foundry, abortamos silenciosamente (Fix para tus errores de consola)
@@ -185,6 +223,9 @@ export const useFoundryVTTService = () => {
 			return;
 		}
 
+		const borderColor =
+			parseBorderColor(borderColorOverride) ?? params.borderColor ?? DEFAULT_CHARACTER_BORDER_COLOR;
+
 		let imageUrl: string | undefined;
 		try {
 			// Procesamos el token solo si hay imagen
@@ -193,7 +234,7 @@ export const useFoundryVTTService = () => {
 					character.img,
 					256,
 					8,
-					'#000000',
+					borderColor,
 					params.tokenOffsetX,
 					params.tokenOffsetY,
 				);
@@ -211,6 +252,7 @@ export const useFoundryVTTService = () => {
 			hp: {
 				value: character.currentHP,
 				max: character.maxHP,
+				temp: toNonNegativeNumber(character.tempHP),
 			},
 			initiative: character.initiative,
 		};
@@ -227,7 +269,7 @@ export const useFoundryVTTService = () => {
 	};
 
 	// --- SINCRONIZACIÓN DE CRIATURA (BESTIARIO) ---
-	const syncCreatureState = async (creature: Creature) => {
+	const syncCreatureState = async (creature: Creature, borderColorOverride?: string) => {
 		const params = get(foundryParams);
 
 		if (!params.isFoundry) return;
@@ -237,6 +279,9 @@ export const useFoundryVTTService = () => {
 			return;
 		}
 
+		const borderColor =
+			parseBorderColor(borderColorOverride) ?? params.borderColor ?? DEFAULT_NPC_BORDER_COLOR;
+
 		let imageUrl: string | undefined;
 		try {
 			if (creature.img) {
@@ -244,7 +289,7 @@ export const useFoundryVTTService = () => {
 					creature.img,
 					256,
 					8,
-					'#990000',
+					borderColor,
 					params.tokenOffsetX,
 					params.tokenOffsetY,
 				);
@@ -284,6 +329,7 @@ export const useFoundryVTTService = () => {
 		broadcastRollResult,
 		isInsideFoundry,
 		subscribeToFoundryHealthUpdates,
+		subscribeToFoundryTokenColorUpdates,
 		syncCharacterState,
 		syncCreatureState,
 		foundryParams, // Exportamos por si necesitas leer 'startHp' en el componente

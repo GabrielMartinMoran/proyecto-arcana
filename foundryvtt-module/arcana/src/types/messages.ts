@@ -6,6 +6,7 @@ export const MESSAGE_TYPES = {
 	PRECALCULATED_ROLL: 'PRECALCULATED_ROLL',
 	UPDATE_ACTOR: 'UPDATE_ACTOR',
 	FOUNDRY_HEALTH_UPDATE: 'FOUNDRY_HEALTH_UPDATE',
+	FOUNDRY_TOKEN_COLOR_UPDATE: 'FOUNDRY_TOKEN_COLOR_UPDATE',
 } as const;
 
 export type MessageType = (typeof MESSAGE_TYPES)[keyof typeof MESSAGE_TYPES];
@@ -34,6 +35,7 @@ export interface UpdateActorData {
 		hp?: {
 			value: number;
 			max: number;
+			temp?: number;
 		};
 		initiative?: number;
 		npcAbilityDefinitions?: import('../services/npc-ability-usage').NpcAbilityDefinition[];
@@ -46,8 +48,18 @@ export interface FoundryHealthUpdateData {
 		hp: {
 			value: number;
 			max: number;
+			temp: number;
 		};
 	};
 }
 
-export type MessageData = PrecalculatedRollData | UpdateActorData | FoundryHealthUpdateData;
+export interface FoundryTokenColorUpdateData {
+	type: typeof MESSAGE_TYPES.FOUNDRY_TOKEN_COLOR_UPDATE;
+	color: string;
+}
+
+export type MessageData =
+	| PrecalculatedRollData
+	| UpdateActorData
+	| FoundryHealthUpdateData
+	| FoundryTokenColorUpdateData;

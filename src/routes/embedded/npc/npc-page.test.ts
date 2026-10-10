@@ -32,6 +32,10 @@ vi.mock('$app/environment', () => ({
 	browser: true,
 }));
 
+vi.mock('$lib/utils/token-cutter', () => ({
+	createCircularToken: vi.fn().mockResolvedValue('mock-token-url'),
+}));
+
 vi.mock(
 	'$lib/components/ui/CodeEditor.svelte',
 	async () => await import('./__mocks__/CodeEditor.svelte'),
@@ -338,5 +342,59 @@ describe('NpcPage single source of truth (yamlText)', () => {
 		await new Promise((r) => setTimeout(r, 600));
 
 		expect(document.body.textContent).toContain('50% more damage');
+	});
+
+	it('FEAT token-border-color-selection — FOUNDRY_TOKEN_COLOR_UPDATE re-syncs the creature with the live color', async () => {
+		const postMessageSpy = vi.fn();
+		vi.stubGlobal('parent', { postMessage: postMessageSpy });
+		const foundryUrl = 'http://localhost/embedded/npc?mode=foundry&uuid=Actor.123';
+		mockPageStore.set({ url: new URL(foundryUrl) });
+		mutableMockPage.url = new URL(foundryUrl);
+		const yamlWithImg =
+			'name: Goblin\ntier: 1\nlineage: Goblinoide\nsize: Mediano\nattributes:\n  body: 2\n  reflexes: 3\n  mind: 1\n  instinct: 2\n  presence: 1\nstats:\n  maxHealth: 8\n  evasion:\n    value: 1\n    note: null\n  physicalMitigation:\n    value: 0\n    note: null\n  magicalMitigation:\n    value: 0\n    note: null\n  speed:\n    value: 6\n    note: null\nlanguages: []\nattacks: []\ntraits: []\nactions: []\nreactions: []\ninteractions: []\nbehavior: test\nimg: https://example.com/goblin.png';
+		window.location.hash = '#yaml=' + encodeURIComponent(yamlWithImg);
+		window.dispatchEvent(new HashChangeEvent('hashchange'));
+
+		const { createCircularToken } = await import('$lib/utils/token-cutter');
+
+		render(NpcPage);
+		await tick();
+		await new Promise((r) => setTimeout(r, 100));
+
+		await vi.waitFor(() => {
+			expect(createCircularToken).toHaveBeenCalledWith(
+				'https://example.com/goblin.png',
+				256,
+				8,
+				'#990000',
+				0,
+				0,
+			);
+		});
+
+		vi.mocked(createCircularToken).mockClear();
+		postMessageSpy.mockClear();
+
+		window.dispatchEvent(
+			new MessageEvent('message', {
+				data: { type: 'FOUNDRY_TOKEN_COLOR_UPDATE', color: '#d35400' },
+			}),
+		);
+
+		await vi.waitFor(() => {
+			expect(createCircularToken).toHaveBeenCalledWith(
+				'https://example.com/goblin.png',
+				256,
+				8,
+				'#d35400',
+				0,
+				0,
+			);
+		});
+		expect(postMessageSpy.mock.calls.some(([message]) => message?.type === 'UPDATE_ACTOR')).toBe(
+			true,
+		);
+
+		vi.unstubAllGlobals();
 	});
 });
