@@ -1504,7 +1504,7 @@ creatures:
       criatura en su territorio como una amenaza o una comida. No tiene tácticas
       complejas; carga contra el enemigo más grande o ruidoso y lo desgarra con
       una violencia abrumadora hasta que deja de moverse.
-    img: null
+    img: https://i.imgur.com/LYSp6mu.png
     size: Grande
   - name: Mimeto
     lineage: Monstruosidad
