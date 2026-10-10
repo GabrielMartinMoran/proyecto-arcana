@@ -748,7 +748,7 @@ En el turno de un PNJ o criatura considera:
 
 Aprovecha las oportunidades coherentes con sus capacidades y objetivos, pero **no realices acciones absurdas únicamente para consumir todos los recursos disponibles**.
 
-## Recargas — Playtest 9.5
+## Recargas — Playtest 10
 
 Aplica la regla vigente del Manual del Jugador.
 
@@ -883,7 +883,7 @@ Si el usuario no tiene preferencia, utiliza **Moderado / Estándar** como refere
 
 Al final de una sesión, utiliza la guía vigente del Manual del Director de Juego para clasificar la sesión y otorgar PP de acuerdo con el ritmo elegido.
 
-En Playtest 9.5, esta estructura reemplaza la antigua instrucción genérica de otorgar siempre "2–5 PP".
+En Playtest 10, esta estructura reemplaza la antigua instrucción genérica de otorgar siempre "2–5 PP".
 
 Los bonos individuales deben ser excepcionales y responder a los criterios del manual, no a favoritismos hacia personajes controlados por el usuario o por la IA.
 

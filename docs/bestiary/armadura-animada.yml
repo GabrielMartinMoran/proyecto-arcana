@@ -9,7 +9,7 @@ creatures:
       instinct: 2
       presence: 0
     stats:
-      maxHealth: 10
+      maxHealth: 7
       evasion:
         value: 6
         note: null
@@ -25,7 +25,7 @@ creatures:
     languages: []
     attacks:
       - name: Espada
-        bonus: 3
+        bonus: 4
         damage: 1d6 Cortante
         note: null
     traits:
