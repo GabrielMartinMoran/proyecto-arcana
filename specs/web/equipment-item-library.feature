@@ -18,9 +18,9 @@ Feature: Equipment item library - Add items from predefined catalog
   @open-library-modal
   Scenario: Open item library modal
     GIVEN the character sheet equipment section is displayed
-    WHEN the user clicks "Agregar de librería" button
+    WHEN the user clicks "Agregar de biblioteca" button
     THEN the item library modal opens
-    AND the modal title is "Agregar item de librería"
+    AND the modal title is "Biblioteca de Objetos"
     AND items are grouped by category tabs: Armas, Armaduras, Equipo, Servicios
 
   @filter-weapons

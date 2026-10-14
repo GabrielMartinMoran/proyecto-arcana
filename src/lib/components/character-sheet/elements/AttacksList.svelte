@@ -1,6 +1,7 @@
 <script lang="ts">
 	import InputField from '$lib/components/ui/InputField.svelte';
-	import type { Attack } from '$lib/types/character';
+	import type { Attack, AttackDraft, Character } from '$lib/types/character';
+	import AttackLibraryModal from './AttackLibraryModal.svelte';
 
 	type Props = {
 		attacks: Attack[];
@@ -8,16 +9,20 @@
 		onChange: (attack: Attack[]) => void;
 		onAttackRoll: (attack: Attack) => void;
 		onDamageRoll: (attack: Attack) => void;
+		character: Character;
 	};
 
-	let { attacks, readonly, onChange, onAttackRoll, onDamageRoll }: Props = $props();
+	let { attacks, readonly, onChange, onAttackRoll, onDamageRoll, character }: Props = $props();
+
+	let libraryOpened = $state(false);
+
+	const handleAddAttacks = (drafts: AttackDraft[]) => {
+		attacks = [...attacks, ...drafts.map((draft) => ({ id: crypto.randomUUID(), ...draft }))];
+		onChange(attacks);
+	};
 
 	const addAttack = () => {
-		attacks = [
-			...attacks,
-			{ id: crypto.randomUUID(), name: '', atkFormula: '', dmgFormula: '', notes: '' },
-		];
-		onChange(attacks);
+		handleAddAttacks([{ name: '', atkFormula: '', dmgFormula: '', notes: '' }]);
 	};
 
 	const removeAttack = (attack: Attack) => {
@@ -30,7 +35,12 @@
 	<div class="header">
 		<label>⚔️ Ataques</label>
 		{#if !readonly}
-			<button onclick={addAttack} title="Agregar Ataque">➕</button>
+			<div class="header-actions">
+				<button onclick={addAttack} title="Agregar Ataque">➕</button>
+				<button onclick={() => (libraryOpened = true)} title="Agregar de biblioteca"
+					>📚 Agregar de biblioteca</button
+				>
+			</div>
 		{/if}
 	</div>
 	<div class="content">
@@ -103,6 +113,15 @@
 	</div>
 </div>
 
+{#if libraryOpened}
+	<AttackLibraryModal
+		opened={true}
+		{character}
+		onClose={() => (libraryOpened = false)}
+		onAddAttacks={handleAddAttacks}
+	/>
+{/if}
+
 <style>
 	.attack-list {
 		display: flex;
@@ -115,6 +134,13 @@
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
+
+			.header-actions {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: var(--spacing-sm);
+			}
 		}
 
 		.content {
@@ -154,5 +180,18 @@
 				}
 			}
 		}
+	}
+
+	.header-actions button {
+		padding: var(--spacing-xs) var(--spacing-sm);
+		background-color: var(--secondary-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		cursor: pointer;
+		font-size: 0.8rem;
+	}
+
+	.header-actions button:hover {
+		background-color: var(--primary-bg);
 	}
 </style>

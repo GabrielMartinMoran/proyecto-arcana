@@ -19,6 +19,7 @@ export const createCharacter = () => {
 		equipment: [],
 		modifiers: [],
 		skills: generateDefaultSkills(),
+		hasInitiativeAdvantage: false,
 		currentHP: 0,
 		tempHP: 0,
 		currentLuck: CONFIG.STARTING_LUCK,

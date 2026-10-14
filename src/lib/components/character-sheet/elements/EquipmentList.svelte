@@ -167,8 +167,8 @@
 				<button onclick={addBlankItem} title="Agregar item en blanco"
 					>➕ Agregar item en blanco</button
 				>
-				<button onclick={openLibraryModal} title="Agregar de librería"
-					>📚 Agregar de librería</button
+				<button onclick={openLibraryModal} title="Agregar de biblioteca"
+					>📚 Agregar de biblioteca</button
 				>
 			</div>
 		{/if}

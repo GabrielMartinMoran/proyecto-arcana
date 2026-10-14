@@ -206,6 +206,27 @@
 		/>
 	</div>
 </Container>
+<Container title="Iniciativa">
+	<div class="initiative">
+		<label class="initiative-advantage">
+			<input
+				type="checkbox"
+				checked={character.hasInitiativeAdvantage}
+				onchange={(e) => {
+					character.hasInitiativeAdvantage = e.currentTarget.checked;
+					onChange(character);
+				}}
+			/>
+			<span>Ventaja en iniciativa</span>
+		</label>
+		<small class="hint">
+			<em
+				>Al activarlo, tus tiradas de Iniciativa se abrirán con "Ventaja" preseleccionada. Puedes
+				cambiarla en cada tirada.</em
+			>
+		</small>
+	</div>
+</Container>
 <Container title="Habilidades">
 	<div class="skills">
 		<SkillsList
@@ -259,9 +280,29 @@
 	}
 
 	.general,
-	.skills {
+	.skills,
+	.initiative {
 		display: flex;
 		flex-direction: column;
+	}
+
+	.initiative {
+		.initiative-advantage {
+			display: flex;
+			align-items: center;
+			gap: var(--spacing-sm);
+			cursor: pointer;
+
+			input[type='checkbox'] {
+				width: 20px;
+				height: 20px;
+				cursor: pointer;
+			}
+		}
+
+		.hint {
+			margin-top: var(--spacing-md);
+		}
 	}
 
 	.modifiers {

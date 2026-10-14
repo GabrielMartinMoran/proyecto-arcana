@@ -20,7 +20,10 @@
 
 	let { rollExpression, rollModal } = useDiceRollerService();
 
-	const onAttributeDiceRoll = (attributeName: string) => {
+	const onAttributeDiceRoll = (
+		attributeName: string,
+		rollType: 'normal' | 'advantage' = 'normal',
+	) => {
 		rollModal.openRollModal({
 			expression: `1d8e+${attributeName}`,
 			variables: {
@@ -32,6 +35,7 @@
 				iniciativa: character.initiative,
 			},
 			title: `${character.name}: ${capitalize(attributeName)}`,
+			rollType,
 		});
 	};
 
@@ -215,7 +219,11 @@
 			button={{
 				icon: '🎲',
 				title: 'Tirar iniciativa',
-				onClick: () => onAttributeDiceRoll('iniciativa'),
+				onClick: () =>
+					onAttributeDiceRoll(
+						'iniciativa',
+						character.hasInitiativeAdvantage ? 'advantage' : 'normal',
+					),
 			}}
 		/>
 	</div>
@@ -254,6 +262,7 @@
 	<div class="info">
 		<AttacksList
 			attacks={character.attacks}
+			{character}
 			{readonly}
 			onChange={(attacks) => {
 				character.attacks = attacks;

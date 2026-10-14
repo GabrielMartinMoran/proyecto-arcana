@@ -63,6 +63,7 @@ export class Character {
 		this.version = props.version;
 		this.skills = props.skills ?? [];
 		this.customCards = props.customCards ?? [];
+		this.hasInitiativeAdvantage = props.hasInitiativeAdvantage ?? false;
 	}
 
 	protected calculateAttrModifiers(attr: string, baseValue: number) {
@@ -160,6 +161,8 @@ export class Character {
 
 	skills: Skill[];
 
+	hasInitiativeAdvantage: boolean;
+
 	copy() {
 		return new Character({ ...this });
 	}
@@ -234,3 +237,5 @@ export interface Attack {
 	dmgFormula: string;
 	notes: string;
 }
+
+export type AttackDraft = Omit<Attack, 'id'>;
