@@ -11,11 +11,14 @@ cards:
       qty: 1
     description: >-
       _Eres la extensión terrenal absoluta de tu señor extraplanar, marcando a múltiples enemigos con la fatalidad
-      absoluta._<br><br> Una vez por día de descanso, como Acción, abres un conducto directo hacia el dominio de tu
-      patrón.<br> Tu _Descarga Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu
-      puntuación de Presencia a distancia Larga, realizando una tirada de ataque individual para cada uno.<br> Además,
-      los objetivos que resulten impactados quedan marcados por la fatalidad: la próxima vez que fallen una Tirada de
-      Salvación o reciban un ataque antes del final de tu próximo turno, sufrirán el máximo daño posible de ese efecto.
+      absoluta._<br><br> Como Acción, abres un conducto directo hacia el dominio de tu patrón.<br> Tu _Descarga
+      Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu puntuación de Presencia a
+      distancia Larga, realizando una tirada de ataque individual para cada uno.<br> Los objetivos impactados quedan
+      marcados por la fatalidad hasta el final de tu próximo turno.<br> La próxima vez que un objetivo marcado falle una
+      Tirada de Salvación contra un efecto que inflija daño o sea impactado por un ataque, sufrirá el máximo daño
+      posible de ese efecto o impacto, consumiendo su marca.<br> La maximización incluye todos los dados de daño
+      aplicables, incluidos aquellos añadidos o duplicados por otras cartas. Cada marca se consume de manera
+      independiente y solo maximiza el daño del efecto o impacto que la consume.
     slug: consumacion-del-pacto
   - id: c9e46453cbacf0254d2d14d41e6a92e5c31dcfcb
     name: Tajo de Aniquilación
@@ -30,9 +33,12 @@ cards:
     description: >-
       _Un golpe devastador que desgarra la mismísima esencia del enemigo, ignorando sus defensas._<br><br> Como Acción,
       realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la
-      Mitigación Mágica y Física del objetivo. Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño
-      adicional (del mismo tipo de tu _Descarga Sobrenatural_).<br> Además, la energía profana sella sus heridas
-      temporalmente: el objetivo no puede recuperar Puntos de Salud de ninguna forma hasta el final de tu próximo turno.
+      Mitigación Mágica y Física del objetivo.<br> Si impactas, el objetivo sufre el daño normal del arma más 8d8 de
+      daño adicional (del mismo tipo de tu _Descarga Sobrenatural_). Además, sufre los siguientes efectos:<br> -
+      **Heridas Selladas:** La energía profana sella sus heridas temporalmente. El objetivo no puede recuperar Puntos de
+      Salud de ninguna forma hasta el final de tu próximo turno.<br> - **Marca de Aniquilación:** El objetivo queda
+      marcado por tu patrón durante 1 minuto. Mientras permanezca marcado, todas tus tiradas de ataque contra él
+      obtienen Ventaja (+1d4).
     slug: tajo-de-aniquilacion
   - id: 377f80de418a3ed79c26aedd9c41862d42260071
     name: Palabra del Más Allá
@@ -64,8 +70,10 @@ cards:
       qty: 1
     description: >-
       _Canalizas el poder crudo de tu Patrón hacia tu familiar, convirtiéndolo en un gigante aterrador._<br><br> Como
-      Interacción, incrementas el poder de tu familiar durante 1 minuto.<br> El familiar aumenta a tamaño Grande y el
-      daño de su Detonación sube a 5d8.<br> - **Canalizador Autónomo:** Mientras este efecto dure, una vez por turno,
-      cuando usas tu Acción para lanzar un conjuro, tu familiar puede desatar de forma simultánea e independiente una
-      _Descarga Sobrenatural_ desde su posición hacia un objetivo válido, usando tu Presencia para la tirada de ataque.
+      Interacción, incrementas el poder de tu familiar durante 1 minuto.<br> El familiar aumenta a tamaño Grande,
+      obtiene una cantidad de Puntos de Salud temporales igual a tres veces tu Presencia y el daño de su Detonación sube
+      a 5d8. Los Puntos de Salud temporales otorgados por esta carta desaparecen cuando termina el efecto.<br> -
+      **Canalizador Autónomo:** Mientras este efecto dure, una vez por turno, cuando usas tu Acción para lanzar un
+      conjuro, tu familiar puede desatar de forma simultánea e independiente una _Descarga Sobrenatural_ desde su
+      posición hacia un objetivo válido, usando tu Presencia para la tirada de ataque.
     slug: avatar-del-patron

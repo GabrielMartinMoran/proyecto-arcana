@@ -120,8 +120,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-5.yml",
       "kind": "file",
-      "size": 2797,
-      "sha1": "bb46592807fb651e46c39502e0e8d72aa48086f0"
+      "size": 2835,
+      "sha1": "a1cd8493a0091e8fe027d3e468f3d26fe75e1e4f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo",
@@ -160,8 +160,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/brujo/nivel-5.yml",
       "kind": "file",
-      "size": 3759,
-      "sha1": "b0ab83e32ff732dd167feb6b007752651ee41e9a"
+      "size": 4509,
+      "sha1": "c4548551b029d18c01827faed4560efd902fdcb9"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/cefiro",
@@ -268,8 +268,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-5.yml",
       "kind": "file",
-      "size": 3580,
-      "sha1": "dcc65b3aaee5bbfc904f88aa9ea6a5bd95cb3ec6"
+      "size": 3581,
+      "sha1": "ba8abf9e3ce9870dee11d729e25e0a222783a95f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/hechicero",
@@ -348,8 +348,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/mago/nivel-5.yml",
       "kind": "file",
-      "size": 865,
-      "sha1": "15d1832e04c548517e3aa260dd9fc06e6d13d0ee"
+      "size": 940,
+      "sha1": "d4e67a9cefb60dbfd07fef74afb9235c7a2bad02"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje",
@@ -388,8 +388,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/monje/nivel-5.yml",
       "kind": "file",
-      "size": 1888,
-      "sha1": "dcb8d034c7337d26f2c83f616d4d3a9909e46396"
+      "size": 2371,
+      "sha1": "da05d19dd4ea025402d86063cc7316b3adf0c325"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/picaro",
@@ -468,8 +468,8 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/sacerdote/nivel-5.yml",
       "kind": "file",
-      "size": 1489,
-      "sha1": "703cf12bf4ff02c474f915adef31bf779631f986"
+      "size": 1746,
+      "sha1": "ee3e4edbeec42baaba58e3aa7058be31e731dabe"
     },
     {
       "path": "references/cartas-de-habilidades/combatiente",
@@ -554,8 +554,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 314377,
-      "sha1": "041a681d0f6cbc1e88e1f14a9a6e9e1264780e39"
+      "size": 316029,
+      "sha1": "2508c67b26b15ba2d8a947a28f2cef2012b977e4"
     },
     {
       "path": "references/datasets/magical-items.yml",

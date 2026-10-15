@@ -29,9 +29,13 @@ cards:
       qty: 1
     description: >-
       _Desatas todo tu potencial oculto, envolviéndote en un aura de Ki crepitante que te otorga un poder
-      legendario._<br><br> Como Acción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante
-      durante 1 minuto.<br> Mientras dure el aspecto, ganas los siguientes beneficios:<br> - Tus ataques desarmados
-      infligen 1d8 de daño base y todo el daño se considera de Fuerza.<br> - Ganas una Reacción adicional en cada turno,
-      que solo puede usarse para tus cartas de Reacción de Monje.<br> - Obtienes una velocidad de vuelo igual a tu
-      velocidad normal.
+      legendario._<br><br> Como Interacción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante
+      durante 1 minuto.<br> Mientras dure el aspecto, ganas los siguientes beneficios:<br> - **Puños del Dragón:** El
+      dado base de daño de tus ataques desarmados pasa a ser 1d8 y todo su daño se considera de Fuerza. Este dado
+      reemplaza cualquier modificación al dado base de tus ataques desarmados, incluida la reducción a 1d4 de _Castigo
+      de la Tormenta_, sin eliminar los ataques adicionales que otros efectos te concedan. Si tienes una _Forma del Ki
+      Elemental_ activa, conservas su Resistencia, pero tus ataques desarmados infligen daño de Fuerza en lugar del tipo
+      elemental.<br> - **Reflejos Sobrenaturales:** Ganas una Reacción adicional en cada turno, que solo puede usarse
+      para tus cartas de Reacción de Monje.<br> - **Vuelo Energético:** Obtienes una velocidad de vuelo igual a tu
+      Velocidad normal.
     slug: aspecto-del-dragon-energetico

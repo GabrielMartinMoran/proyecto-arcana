@@ -13,9 +13,9 @@ cards:
       qty: 1
     description: >-
       _En el momento de mayor desesperación, los cielos intervienen directamente, negando la muerte misma._<br><br> Como
-      Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría
-      instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo
-      daño hasta el inicio de tu próximo turno.
+      Reacción, cuando tú o un aliado que puedas ver a distancia Cercana vaya a ser reducido a 0 Puntos de Salud o a
+      sufrir un efecto que lo mataría instantáneamente, puedes hacer que el objetivo quede con 1 Punto de Salud en su
+      lugar.<br> Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.
     slug: gracia-salvadora
   - id: a99b0b9e0c57c4773946958a5ad7737d77ea651d
     name: Juicio Celestial
@@ -30,7 +30,9 @@ cards:
       qty: 8
     description: >-
       _Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la voluntad y colapsa los sentidos de tus
-      enemigos._<br><br> Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura
-      hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos
-      (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno).
+      enemigos._<br><br> Como Acción, pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda
+      criatura hostil en el área debe superar una TS de Instinto (ND 5 + Instinto).<br> Si falla, queda Aturdida, Cegada
+      y Ensordecida.<br> - **Aturdido:** Permanece hasta el final del próximo turno del objetivo.<br> - **Cegado y
+      Ensordecido:** Permanecen durante 1 minuto.<br> El objetivo puede repetir la TS de Instinto al final de cada uno
+      de sus turnos, terminando los estados Cegado y Ensordecido si tiene éxito.
     slug: juicio-celestial

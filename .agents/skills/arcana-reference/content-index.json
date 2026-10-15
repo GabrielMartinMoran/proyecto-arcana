@@ -650,8 +650,8 @@
         "requirements": "Mente Adamantina & Instinto 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Desatas todo tu potencial oculto, envolviéndote en un aura de Ki crepitante que te otorga un poder legendario._<br><br> Como Acción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante durante 1 minuto.<br> Mientras dure el aspecto, ganas los siguientes beneficios:<br> - Tus ataques desarmados infligen 1d8 de daño base y todo el daño se considera de Fuerza.<br> - Ganas una Reacción adicional en cada turno, que solo puede usarse para tus cartas de Reacción de Monje.<br> - Obtienes una velocidad de vuelo igual a tu velocidad normal.",
-      "hash": "128dcf7b6becb5b994ab0989c6a8a6e6a60d0a8e"
+      "search": "_Desatas todo tu potencial oculto, envolviéndote en un aura de Ki crepitante que te otorga un poder legendario._<br><br> Como Interacción, desatas todo tu Ki latente, envolviéndote en un aura de energía crepitante durante 1 minuto.<br> Mientras dure el aspecto, ganas los siguientes beneficios:<br> - **Puños del Dragón:** El dado base de daño de tus ataques desarmados pasa a ser 1d8 y todo su daño se considera de Fuerza. Este dado reemplaza cualquier modificación al dado base de tus ataques desarmados, incluida la reducción a 1d4 de _Castigo de la Tormenta_, sin eliminar los ataques adicionales que otros efectos te concedan. Si tienes una _Forma del Ki Elemental_ activa, conservas su Resistencia, pero tus ataques desarmados infligen daño de Fuerza en lugar del tipo elemental.<br> - **Reflejos Sobrenaturales:** Ganas una Reacción adicional en cada turno, que solo puede usarse para tus cartas de Reacción de Monje.<br> - **Vuelo Energético:** Obtienes una velocidad de vuelo igual a tu Velocidad normal.",
+      "hash": "9db8c7bd9b0db48a858be76aedbbb2268600b29c"
     },
     {
       "kind": "card",
@@ -905,8 +905,8 @@
         "requirements": "Entidad Desatada & Presencia 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Canalizas el poder crudo de tu Patrón hacia tu familiar, convirtiéndolo en un gigante aterrador._<br><br> Como Interacción, incrementas el poder de tu familiar durante 1 minuto.<br> El familiar aumenta a tamaño Grande y el daño de su Detonación sube a 5d8.<br> - **Canalizador Autónomo:** Mientras este efecto dure, una vez por turno, cuando usas tu Acción para lanzar un conjuro, tu familiar puede desatar de forma simultánea e independiente una _Descarga Sobrenatural_ desde su posición hacia un objetivo válido, usando tu Presencia para la tirada de ataque.",
-      "hash": "c9625cf3a84f95d1a379ed10bc9a6b356cb076bf"
+      "search": "_Canalizas el poder crudo de tu Patrón hacia tu familiar, convirtiéndolo en un gigante aterrador._<br><br> Como Interacción, incrementas el poder de tu familiar durante 1 minuto.<br> El familiar aumenta a tamaño Grande, obtiene una cantidad de Puntos de Salud temporales igual a tres veces tu Presencia y el daño de su Detonación sube a 5d8. Los Puntos de Salud temporales otorgados por esta carta desaparecen cuando termina el efecto.<br> - **Canalizador Autónomo:** Mientras este efecto dure, una vez por turno, cuando usas tu Acción para lanzar un conjuro, tu familiar puede desatar de forma simultánea e independiente una _Descarga Sobrenatural_ desde su posición hacia un objetivo válido, usando tu Presencia para la tirada de ataque.",
+      "hash": "5dd00e25ced08618441f30f2d26e42468e33ed35"
     },
     {
       "kind": "card",
@@ -1301,8 +1301,7 @@
       ],
       "tags": [
         "Bardo",
-        "Conjuro",
-        "Ritual"
+        "Conjuro"
       ],
       "level": 5,
       "path": "references/cartas-de-habilidades/arquetipos/bardo/nivel-5.yml",
@@ -1313,8 +1312,8 @@
         "requirements": "Don del Elocuente & Presencia 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Tu música es tan perfecta que trasciende la simple ilusión, solidificando la materia a partir del mismísimo silencio._<br><br> Tras 10 minutos de interpretación ininterrumpida, tejes una ilusión semi-real y duradera a partir de la música. Eliges uno de los siguientes efectos:<br> - **Crear Materia:** Creas un objeto no mágico que puede ocupar hasta un cubo de 10 metros de lado (como una casa pequeña o un puente de piedra). El objeto se ve y se siente real ante una inspección superficial. Sin embargo, puede ser identificado como una creación mágica mediante efectos de Visión Verdadera o realizando una inspección física exhaustiva superando una Prueba de Percepción vs (ND 5 + Presencia). El objeto es sólido y su duración se mantiene hasta ser disipado.<br> - **Reescribir Memoria:** Alteras permanentemente la memoria de una criatura sobre un evento específico. Si el objetivo no es voluntario, debe superar una Tirada de Salvación de Instinto (ND 5 + Presencia) para evitar el efecto.",
-      "hash": "3e5ae1a665962ba07be47411eefbf86cab4d9804"
+      "search": "_Tu música es tan perfecta que trasciende la simple ilusión, solidificando la materia a partir del mismísimo silencio._<br><br> Tras 10 minutos de interpretación ininterrumpida, tejes una ilusión semi-real y duradera a partir de la música. Eliges uno de los siguientes efectos:<br> - **Crear Materia:** Creas un objeto no mágico que puede ocupar hasta un cubo de 10 metros de lado (como una casa pequeña o un puente de piedra). El objeto se ve y se siente real ante una inspección superficial. Sin embargo, puede ser identificado como una creación mágica mediante efectos de Visión Verdadera o realizando una inspección física exhaustiva superando una Prueba de Percepción (ND 5 + Presencia). El objeto es sólido y su duración se mantiene hasta ser disipado. Puedes mantener múltiples creaciones simultáneamente.<br> - **Reescribir Memoria:** Alteras permanentemente la memoria de una criatura sobre un evento específico. Si el objetivo no es voluntario, debe superar una Tirada de Salvación de Instinto (ND 5 + Presencia) para evitar el efecto.",
+      "hash": "8b48cd48a13106d7079338672633ebbcb5d0c2a1"
     },
     {
       "kind": "card",
@@ -1800,8 +1799,8 @@
         "requirements": "Pacto Supremo & Presencia 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Eres la extensión terrenal absoluta de tu señor extraplanar, marcando a múltiples enemigos con la fatalidad absoluta._<br><br> Una vez por día de descanso, como Acción, abres un conducto directo hacia el dominio de tu patrón.<br> Tu _Descarga Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu puntuación de Presencia a distancia Larga, realizando una tirada de ataque individual para cada uno.<br> Además, los objetivos que resulten impactados quedan marcados por la fatalidad: la próxima vez que fallen una Tirada de Salvación o reciban un ataque antes del final de tu próximo turno, sufrirán el máximo daño posible de ese efecto.",
-      "hash": "691a0c2771f1ca1242591085893e43eeac9ea2ac"
+      "search": "_Eres la extensión terrenal absoluta de tu señor extraplanar, marcando a múltiples enemigos con la fatalidad absoluta._<br><br> Como Acción, abres un conducto directo hacia el dominio de tu patrón.<br> Tu _Descarga Sobrenatural_ se dispara simultáneamente contra hasta un número de enemigos igual a tu puntuación de Presencia a distancia Larga, realizando una tirada de ataque individual para cada uno.<br> Los objetivos impactados quedan marcados por la fatalidad hasta el final de tu próximo turno.<br> La próxima vez que un objetivo marcado falle una Tirada de Salvación contra un efecto que inflija daño o sea impactado por un ataque, sufrirá el máximo daño posible de ese efecto o impacto, consumiendo su marca.<br> La maximización incluye todos los dados de daño aplicables, incluidos aquellos añadidos o duplicados por otras cartas. Cada marca se consume de manera independiente y solo maximiza el daño del efecto o impacto que la consume.",
+      "hash": "ef00fbe36283396efea3942c690e51ba4a596ef5"
     },
     {
       "kind": "card",
@@ -3322,8 +3321,8 @@
         "requirements": "Estudios Mágicos & Mente 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Has descifrado el código fuente de la realidad; con un solo gesto, alteras la urdimbre sin esfuerzo aparente._<br><br> Una vez por día de descanso, puedes usar tu Acción para alterar la Urdimbre a tu conveniencia.<br> Eliges cualquier carta de Conjuro de Arcanista que poseas en tu Colección (incluso si no está equipada en tus Ranuras de Cartas Activas) y la lanzas instantáneamente. Este lanzamiento magistral no requiere componentes verbales ni somáticos, no gasta su uso de Recarga, y maximiza una de las tiradas de dados de la carta.",
-      "hash": "2ae5c36ef3b304d7d8b18e8eb10bf35dc46f49e3"
+      "search": "_Has descifrado el código fuente de la realidad; con un solo gesto, alteras la urdimbre sin esfuerzo aparente._<br><br> Como Acción, eliges cualquier carta de _Conjuro_ de _Arcanista_ que poseas en tu Colección, incluso si no está equipada en tus Ranuras de Cartas Activas, y la lanzas instantáneamente.<br> Este lanzamiento magistral no requiere componentes verbales ni somáticos, no consume ningún uso de la carta elegida y maximiza una de las tiradas de dados de la carta.<br> El conjuro continúa respetando sus demás reglas, incluyendo Concentración, duración y efectos Sostenidos cuando corresponda.",
+      "hash": "3949e406f973aac4d7518b9a4c6002ad20aba238"
     },
     {
       "kind": "card",
@@ -3766,8 +3765,8 @@
         "requirements": "Fe Inspiradora & Instinto 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_En el momento de mayor desesperación, los cielos intervienen directamente, negando la muerte misma._<br><br> Como Reacción, cuando tú o un aliado vais a ser reducidos a 0 Puntos de Salud o a sufrir un efecto que os mataría instantáneamente, podéis elegir quedar con 1 Punto de Salud en su lugar. Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.",
-      "hash": "c6d434b4b367c7726e21370ca1c94b3876aca69c"
+      "search": "_En el momento de mayor desesperación, los cielos intervienen directamente, negando la muerte misma._<br><br> Como Reacción, cuando tú o un aliado que puedas ver a distancia Cercana vaya a ser reducido a 0 Puntos de Salud o a sufrir un efecto que lo mataría instantáneamente, puedes hacer que el objetivo quede con 1 Punto de Salud en su lugar.<br> Además, el objetivo gana inmunidad a todo daño hasta el inicio de tu próximo turno.",
+      "hash": "fef3333f9617a17cc0f4cbd1bc68ed26eee6cb89"
     },
     {
       "kind": "card",
@@ -4307,8 +4306,8 @@
         "requirements": "Fe Inspiradora & Instinto 6",
         "uses": "RELOAD:8"
       },
-      "search": "_Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la voluntad y colapsa los sentidos de tus enemigos._<br><br> Pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 7+Instinto). Si falla, sufre uno de los siguientes efectos (a tu elección): Cegado, Ensordecido o Aturdido durante 1 minuto (puede repetir la TS al final de cada turno).",
-      "hash": "eb8ff159c20c7ee9f48fa70782c8e436dcc3b318"
+      "search": "_Pronuncias el veredicto de tu dios, un eco ensordecedor que quiebra la voluntad y colapsa los sentidos de tus enemigos._<br><br> Como Acción, pronuncias una palabra de poder divino que resuena en un radio de 10 metros. Toda criatura hostil en el área debe superar una TS de Instinto (ND 5 + Instinto).<br> Si falla, queda Aturdida, Cegada y Ensordecida.<br> - **Aturdido:** Permanece hasta el final del próximo turno del objetivo.<br> - **Cegado y Ensordecido:** Permanecen durante 1 minuto.<br> El objetivo puede repetir la TS de Instinto al final de cada uno de sus turnos, terminando los estados Cegado y Ensordecido si tiene éxito.",
+      "hash": "2109abb63e72037d5af4a35ba6021873b6bde1e8"
     },
     {
       "kind": "card",
@@ -5189,8 +5188,8 @@
         "type": "efecto",
         "requirements": "Forma Salvaje Mayor & Instinto 6"
       },
-      "search": "_Ya no eres un prisionero de tu propia carne; fluyes entre formas titánicas y conjuros elementales con una facilidad aterradora._<br><br> Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br> - **Mente Dual:** Puedes mantener la concentración en _Forma Salvaje_ y en otro conjuro de Druida simultáneamente (las TS para mantenerla se realizan por separado para cada habilidad).<br> - **Sintonía Natural:** Puedes realizar un ritual de meditación de 10 minutos. Al finalizarlo, recuperas todos los usos gastados de tu _Forma Salvaje_.<br> - **Avatar Titánico:** Cuando usas tu _Forma Salvaje_, puedes transformarte en bestias de tamaño Enorme.<br> - **Ferocidad Imparable:** Tus ataques en _Forma Salvaje_ ignoran una cantidad de puntos de Mitigación Física igual a tu puntuación de Instinto.",
-      "hash": "26906668430bc90b703092de8cd8636dfbd48d9e"
+      "search": "_Ya no eres un prisionero de tu propia carne; fluyes entre formas titánicas y conjuros elementales con una facilidad aterradora._<br><br> Tu dominio de la metamorfosis es absoluto. Ganas los siguientes beneficios:<br> - **Mente Dual:** Puedes mantener la concentración en _Forma Salvaje_ y en otro conjuro de Druida simultáneamente (las TS para mantenerla se realizan por separado para cada habilidad).<br> - **Sintonía Natural:** Puedes realizar un ritual de meditación de 10 minutos. Al finalizarlo, recuperas todos los usos gastados de tu _Forma Salvaje_.<br> - **Avatar Titánico:** Cuando usas tu _Forma Salvaje_, puedes transformarte en bestias de tamaño Inmenso.<br> - **Ferocidad Imparable:** Tus ataques en _Forma Salvaje_ ignoran una cantidad de puntos de Mitigación Física igual a tu puntuación de Instinto.",
+      "hash": "052daedcdea9a861a469ca5d101c05713c28aff5"
     },
     {
       "kind": "card",
@@ -7601,8 +7600,8 @@
         "requirements": "Danza Sobrenatural & Presencia 6",
         "uses": "LONG_REST:1"
       },
-      "search": "_Un golpe devastador que desgarra la mismísima esencia del enemigo, ignorando sus defensas._<br><br> Como Acción, realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la Mitigación Mágica y Física del objetivo. Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño adicional (del mismo tipo de tu _Descarga Sobrenatural_).<br> Además, la energía profana sella sus heridas temporalmente: el objetivo no puede recuperar Puntos de Salud de ninguna forma hasta el final de tu próximo turno.",
-      "hash": "3c7d0dafb40e153a8f32b6b46493c328d1145a6d"
+      "search": "_Un golpe devastador que desgarra la mismísima esencia del enemigo, ignorando sus defensas._<br><br> Como Acción, realizas un único y devastador ataque cuerpo a cuerpo con tu _Arma del Pacto_. Este golpe ignora toda la Mitigación Mágica y Física del objetivo.<br> Si impactas, el objetivo sufre el daño normal del arma más 8d8 de daño adicional (del mismo tipo de tu _Descarga Sobrenatural_). Además, sufre los siguientes efectos:<br> - **Heridas Selladas:** La energía profana sella sus heridas temporalmente. El objetivo no puede recuperar Puntos de Salud de ninguna forma hasta el final de tu próximo turno.<br> - **Marca de Aniquilación:** El objetivo queda marcado por tu patrón durante 1 minuto. Mientras permanezca marcado, todas tus tiradas de ataque contra él obtienen Ventaja (+1d4).",
+      "hash": "21252145668a4f0543e8723bb317e213a4bbd912"
     },
     {
       "kind": "card",
