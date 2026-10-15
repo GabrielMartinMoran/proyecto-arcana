@@ -183,8 +183,8 @@
         "type": "efecto",
         "requirements": "Estudios Mágicos | Pacto Supremo | Herencia Sobrenatural"
       },
-      "search": "_La magia no es un misterio para ti, sino una herramienta, un pacto o un derecho de nacimiento. Al sintonizarte con las corrientes de poder que recorren el mundo, eres capaz de manifestar lo imposible._<br><br> Tienes acceso a la lista de cartas de _Arcanista_ y usas tu Atributo Arcano para los requerimientos y efectos de estas.",
-      "hash": "6536c49581e978c34e4c2b83f0abafe9f947306c"
+      "search": "_La magia no es un misterio para ti, sino una herramienta, un pacto o un derecho de nacimiento. Al sintonizarte con las corrientes de poder que recorren el mundo, eres capaz de manifestar lo imposible._<br><br> Tienes acceso a la lista de cartas de _Arcanista_ y usas tu Atributo Arcano para los requerimientos y efectos de estas.<br> **Disciplinas Arcanas:** Todas las cartas pertenecientes a un arquetipo que otorgue _Afinidad Arcana_ se consideran también cartas de _Arcanista_, conservando sus demás etiquetas. Esta clasificación es permanente y no depende de qué Beneficio de Arquetipo esté activo.",
+      "hash": "55911cd576c991adf5b0cf33b109657e688688c7"
     },
     {
       "kind": "card",

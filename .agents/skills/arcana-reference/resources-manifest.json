@@ -52,8 +52,8 @@
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-1.yml",
       "kind": "file",
-      "size": 8966,
-      "sha1": "080252f345a2af079f553ce3bbf7b0c44d6d2098"
+      "size": 9262,
+      "sha1": "ccca9d9cb9615d006db55696f6bebfab9a87047f"
     },
     {
       "path": "references/cartas-de-habilidades/arcanista/nivel-2.yml",
@@ -554,8 +554,8 @@
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 316029,
-      "sha1": "2508c67b26b15ba2d8a947a28f2cef2012b977e4"
+      "size": 316331,
+      "sha1": "9ecb9e7b8d9d3cd301005a85906ebc8d1e2bd758"
     },
     {
       "path": "references/datasets/magical-items.yml",
