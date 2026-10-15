@@ -111,8 +111,9 @@ cards:
     requirements: 'Estudios Mágicos & Mente 6'
     description: >-
       _Has descifrado el código fuente de la realidad; con un solo gesto, alteras la urdimbre sin esfuerzo aparente._<br><br>
-      Una vez por día de descanso, puedes usar tu Acción para alterar la Urdimbre a tu conveniencia.<br>
-      Eliges cualquier carta de Conjuro de Arcanista que poseas en tu Colección (incluso si no está equipada en tus Ranuras de Cartas Activas) y la lanzas instantáneamente. Este lanzamiento magistral no requiere componentes verbales ni somáticos, no gasta su uso de Recarga, y maximiza una de las tiradas de dados de la carta.
+      Como Acción, eliges cualquier carta de _Conjuro_ de _Arcanista_ que poseas en tu Colección, incluso si no está equipada en tus Ranuras de Cartas Activas, y la lanzas instantáneamente.<br>
+      Este lanzamiento magistral no requiere componentes verbales ni somáticos, no consume ningún uso de la carta elegida y maximiza una de las tiradas de dados de la carta.<br>
+      El conjuro continúa respetando sus demás reglas, incluyendo Concentración, duración y efectos Sostenidos cuando corresponda.
     uses:
       type: LONG_REST
       qty: 1
