@@ -164,11 +164,9 @@
 		<label>🎒 Equipo</label>
 		{#if !readonly}
 			<div class="header-buttons">
-				<button onclick={addBlankItem} title="Agregar item en blanco"
-					>➕ Agregar item en blanco</button
-				>
-				<button onclick={openLibraryModal} title="Agregar de biblioteca"
-					>📚 Agregar de biblioteca</button
+				<button onclick={addBlankItem} title="Nuevo item">➕ Nuevo item</button>
+				<button onclick={openLibraryModal} title="Importar de biblioteca"
+					>📚 Importar de biblioteca</button
 				>
 			</div>
 		{/if}

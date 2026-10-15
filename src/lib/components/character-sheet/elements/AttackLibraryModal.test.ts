@@ -121,6 +121,9 @@ const renderModal = (
 	return { onClose, onAddAttacks };
 };
 
+const getCategorySelect = (): HTMLSelectElement =>
+	screen.getByRole('combobox') as HTMLSelectElement;
+
 const getAddButton = (entryName: string): HTMLButtonElement => {
 	const row = screen.getByText(entryName).closest('.attack-library-item');
 	expect(row).not.toBeNull();
@@ -142,44 +145,58 @@ describe('AttackLibraryModal', () => {
 		mocks.loadSpellEntries.mockResolvedValue(spellEntries);
 	});
 
-	it('FEAT-attack-library @modal-open @tabs — shows the title, both tabs and the weapons tab by default', async () => {
+	it('FEAT-attack-library @modal-open @category-select — shows the title, the type select defaulting to "Todos los ataques", and entries from both groups', async () => {
 		const character = buildCharacter();
 		renderModal({ character });
 
 		expect(screen.getByText('Biblioteca de Ataques')).toBeInTheDocument();
-		expect(screen.getByRole('button', { name: 'Armas' })).toHaveClass('active');
-		expect(screen.getByRole('button', { name: 'Conjuros' })).not.toHaveClass('active');
+
+		const select = getCategorySelect();
+		expect(select).toHaveValue('');
+		expect(screen.getByRole('option', { name: 'Todos los ataques' })).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'Armas' })).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'Conjuros' })).toBeInTheDocument();
 
 		expect(await screen.findByText('Daga')).toBeInTheDocument();
+		expect(screen.getByText('Llama Sagrada')).toBeInTheDocument();
 		expect(
 			screen.getByText(
 				'ATQ: 1d8e+reflejos · DMG: 1d4 · Perforante · Precisa, Arrojadiza (Cercana)',
 			),
 		).toBeInTheDocument();
-		expect(screen.queryByText('Llama Sagrada')).not.toBeInTheDocument();
-		expect(screen.getByText(/3 entradas/)).toBeInTheDocument();
+		expect(screen.getByText(/5 entradas/)).toBeInTheDocument();
 
 		expect(mocks.loadWeaponEntries).toHaveBeenCalledTimes(1);
 		expect(mocks.loadSpellEntries).toHaveBeenCalledWith(character);
 	});
 
-	it('FEAT-attack-library @tabs — switches to the Conjuros tab and lists spell entries', async () => {
+	it('FEAT-attack-library @category-select — selecting "Armas" and "Conjuros" filters the list and updates the counter', async () => {
 		renderModal();
 
 		await screen.findByText('Daga');
-		await fireEvent.click(screen.getByRole('button', { name: 'Conjuros' }));
+		const select = getCategorySelect();
 
-		expect(await screen.findByText('Llama Sagrada')).toBeInTheDocument();
+		await fireEvent.change(select, { target: { value: 'weapons' } });
+
+		expect(screen.getByText('Daga')).toBeInTheDocument();
+		expect(screen.getByText('Maza')).toBeInTheDocument();
+		expect(screen.getByText('Arco corto')).toBeInTheDocument();
+		expect(screen.queryByText('Llama Sagrada')).not.toBeInTheDocument();
+		expect(screen.getByText(/3 entradas/)).toBeInTheDocument();
+
+		await fireEvent.change(select, { target: { value: 'spells' } });
+
+		expect(screen.getByText('Llama Sagrada')).toBeInTheDocument();
+		expect(screen.getByText('Descarga Elemental')).toBeInTheDocument();
 		expect(screen.queryByText('Daga')).not.toBeInTheDocument();
-		expect(screen.getByRole('button', { name: 'Conjuros' })).toHaveClass('active');
-		expect(screen.getByRole('button', { name: 'Armas' })).not.toHaveClass('active');
 		expect(screen.getByText(/2 entradas/)).toBeInTheDocument();
 	});
 
-	it('FEAT-attack-library @search — filters the active tab by name case-insensitively', async () => {
+	it('FEAT-attack-library @search — filters the selected group by name case-insensitively', async () => {
 		renderModal();
 
 		await screen.findByText('Daga');
+		await fireEvent.change(getCategorySelect(), { target: { value: 'weapons' } });
 		await fireEvent.input(screen.getByPlaceholderText('Buscar por nombre...'), {
 			target: { value: 'DAGA' },
 		});
@@ -190,10 +207,11 @@ describe('AttackLibraryModal', () => {
 		expect(screen.getByText(/1 entrada/)).toBeInTheDocument();
 	});
 
-	it('FEAT-attack-library @weapon-melee — adds the exact draft and keeps the modal open', async () => {
+	it('FEAT-attack-library @weapon-finesse — adds the exact draft and keeps the modal open', async () => {
 		const { onAddAttacks, onClose } = renderModal();
 
 		await screen.findByText('Daga');
+		await fireEvent.change(getCategorySelect(), { target: { value: 'weapons' } });
 		await fireEvent.click(getAddButton('Daga'));
 
 		expect(onAddAttacks).toHaveBeenCalledExactlyOnceWith([
@@ -212,7 +230,8 @@ describe('AttackLibraryModal', () => {
 	it('FEAT-attack-library @spell-blocked-alias — disables the blocked entry with the exact tooltip and does not add it', async () => {
 		const { onAddAttacks } = renderModal();
 
-		await fireEvent.click(screen.getByRole('button', { name: 'Conjuros' }));
+		await screen.findByText('Daga');
+		await fireEvent.change(getCategorySelect(), { target: { value: 'spells' } });
 		await screen.findByText('Descarga Elemental');
 
 		expect(screen.getByText('ATQ: — · DMG: 1d8 · Conjuro · tipo elegido')).toBeInTheDocument();
@@ -238,7 +257,7 @@ describe('AttackLibraryModal', () => {
 		expect(screen.getByText(/0 entradas/)).toBeInTheDocument();
 	});
 
-	it('shows the empty state after loading when the active tab has no entries', async () => {
+	it('shows the empty state after loading when no entry is available', async () => {
 		mocks.loadWeaponEntries.mockResolvedValue([]);
 		mocks.loadSpellEntries.mockResolvedValue([]);
 

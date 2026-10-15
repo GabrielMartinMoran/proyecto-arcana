@@ -36,9 +36,9 @@
 		<label>⚔️ Ataques</label>
 		{#if !readonly}
 			<div class="header-actions">
-				<button onclick={addAttack} title="Agregar Ataque">➕</button>
-				<button onclick={() => (libraryOpened = true)} title="Agregar de biblioteca"
-					>📚 Agregar de biblioteca</button
+				<button onclick={addAttack} title="Nuevo ataque">➕ Nuevo ataque</button>
+				<button onclick={() => (libraryOpened = true)} title="Importar de biblioteca"
+					>📚 Importar de biblioteca</button
 				>
 			</div>
 		{/if}

@@ -10,7 +10,7 @@ Feature: Equipment item library - Add items from predefined catalog
   @add-blank-item
   Scenario: Add blank item to equipment
     GIVEN the character sheet equipment section is displayed
-    WHEN the user clicks "Agregar item en blanco" button
+    WHEN the user clicks "Nuevo item" button
     THEN a new empty item row is added with quantity=1, name="", notes=""
     AND the new item is selected for editing
     AND the equipment list shows exactly 1 item
@@ -18,7 +18,7 @@ Feature: Equipment item library - Add items from predefined catalog
   @open-library-modal
   Scenario: Open item library modal
     GIVEN the character sheet equipment section is displayed
-    WHEN the user clicks "Agregar de biblioteca" button
+    WHEN the user clicks "Importar de biblioteca" button
     THEN the item library modal opens
     AND the modal title is "Biblioteca de Objetos"
     AND items are grouped by category tabs: Armas, Armaduras, Equipo, Servicios

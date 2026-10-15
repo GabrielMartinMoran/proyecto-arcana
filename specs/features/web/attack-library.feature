@@ -8,27 +8,28 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   @modal-open
   Scenario: Abrir la biblioteca de ataques
     Given the character sheet attacks section is displayed
-    When the user clicks "Agregar de biblioteca"
+    When the user clicks "Importar de biblioteca"
     Then the attack library modal opens
     And the modal title is "Biblioteca de Ataques"
 
-  @tabs
-  Scenario: Mostrar las pestañas de armas y conjuros
+  @category-select
+  Scenario: Mostrar el selector de tipo de ataque
     Given the attack library modal is open
-    Then the "Armas" tab is selected by default
-    And the modal shows the "Conjuros" tab
+    Then the type selector is a dropdown
+    And the "Todos los ataques" option is selected by default
+    And the selector offers the options "Armas" and "Conjuros"
 
   @search
   Scenario: Buscar entradas por nombre
     Given the attack library modal is open
-    And the "Armas" tab is selected
+    And the user selects "Armas" in the type selector
     When the user types "daga" in the search field
     Then only entries containing "daga" (case insensitive) are displayed
 
   @weapon-melee
   Scenario: Importar el ataque de un arma cuerpo a cuerpo
     Given the attack library modal is open
-    And the "Armas" tab is selected
+    And the user selects "Armas" in the type selector
     When the user clicks "Agregar" on "Maza"
     Then a new attack "Maza" is added with atkFormula "1d8e+cuerpo"
     And the attack dmgFormula is "1d6"
@@ -37,7 +38,7 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   @weapon-finesse
   Scenario: Importar el ataque de un arma precisa
     Given the attack library modal is open
-    And the "Armas" tab is selected
+    And the user selects "Armas" in the type selector
     When the user clicks "Agregar" on "Daga"
     Then a new attack "Daga" is added with atkFormula "1d8e+reflejos"
     And the attack dmgFormula is "1d4"
@@ -46,7 +47,7 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   @weapon-ranged
   Scenario: Importar el ataque de un arma a distancia
     Given the attack library modal is open
-    And the "Armas" tab is selected
+    And the user selects "Armas" in the type selector
     When the user clicks "Agregar" on "Arco corto"
     Then a new attack "Arco corto" is added with atkFormula "1d8e+reflejos"
     And the attack dmgFormula is "1d6"
@@ -55,7 +56,7 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   @weapon-versatile
   Scenario: Importar un arma versátil crea dos filas de ataque
     Given the attack library modal is open
-    And the "Armas" tab is selected
+    And the user selects "Armas" in the type selector
     When the user clicks "Agregar" on "Espada larga (1 mano)"
     And the user clicks "Agregar" on "Espada larga (2 manos)"
     Then the attacks include "Espada larga (1 mano)" with dmgFormula "1d8"
@@ -64,7 +65,7 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   @spell-import
   Scenario: Importar el ataque de un conjuro
     Given the attack library modal is open
-    And the "Conjuros" tab is selected
+    And the user selects "Conjuros" in the type selector
     When the user clicks "Agregar" on "Llama Sagrada"
     Then a new attack "Llama Sagrada" is added with atkFormula "1d8e+instinto"
     And the attack dmgFormula is "1d6"
@@ -74,7 +75,7 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   Scenario: Resolver el alias del atributo arcano al importar
     Given the character owns the card "Estudios Mágicos"
     And the attack library modal is open
-    And the "Conjuros" tab is selected
+    And the user selects "Conjuros" in the type selector
     When the user clicks "Agregar" on "Descarga Elemental"
     Then the added attack atkFormula is "1d8e+mente"
 
@@ -82,7 +83,7 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   Scenario: Bloquear la importación si el atributo arcano no se puede resolver
     Given the character does not own any arcane attribute substitution card
     And the attack library modal is open
-    And the "Conjuros" tab is selected
+    And the user selects "Conjuros" in the type selector
     Then the "Agregar" button on "Descarga Elemental" is disabled
     And a tooltip shows the disabled reason
 
@@ -90,13 +91,13 @@ Feature: attack library - Ataques precargados para la hoja de personaje
   Scenario: Ocultar el botón de biblioteca en modo lectura
     Given the character sheet is open in read-only mode
     And the character sheet attacks section is displayed
-    Then the "Agregar de biblioteca" button is not displayed
-    And the "Agregar Ataque" button is not displayed
+    Then the "Importar de biblioteca" button is not displayed
+    And the "Nuevo ataque" button is not displayed
 
   @snapshot-duplicates
   Scenario: Los ataques importados son copias editables y los duplicados se permiten
     Given the attack library modal is open
-    And the "Armas" tab is selected
+    And the user selects "Armas" in the type selector
     When the user clicks "Agregar" on "Maza" twice
     Then two independent "Maza" attack rows exist
     And editing one "Maza" row does not change the other

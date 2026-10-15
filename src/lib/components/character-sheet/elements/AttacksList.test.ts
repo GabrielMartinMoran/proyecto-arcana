@@ -127,7 +127,7 @@ const renderList = (
 };
 
 const openLibraryModal = async () => {
-	await fireEvent.click(screen.getByRole('button', { name: /Agregar de biblioteca/ }));
+	await fireEvent.click(screen.getByRole('button', { name: /Importar de biblioteca/ }));
 	await screen.findByText('Maza');
 };
 
@@ -147,27 +147,29 @@ describe('AttacksList library integration', () => {
 	it('FEAT-attack-library — shows the blank-add and library buttons in edit mode', () => {
 		renderList();
 
-		expect(screen.getByTitle('Agregar Ataque')).toBeInTheDocument();
+		expect(screen.getByTitle('Nuevo ataque')).toBeInTheDocument();
 
-		const libraryButton = screen.getByRole('button', { name: /Agregar de biblioteca/ });
-		expect(libraryButton).toHaveTextContent('📚 Agregar de biblioteca');
-		expect(libraryButton).toHaveAttribute('title', 'Agregar de biblioteca');
+		const libraryButton = screen.getByRole('button', { name: /Importar de biblioteca/ });
+		expect(libraryButton).toHaveTextContent('📚 Importar de biblioteca');
+		expect(libraryButton).toHaveAttribute('title', 'Importar de biblioteca');
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
 
 	it('FEAT-attack-library @readonly — hides both add buttons in read-only mode while roll buttons remain', () => {
 		renderList({ readonly: true });
 
-		expect(screen.queryByTitle('Agregar Ataque')).not.toBeInTheDocument();
-		expect(screen.queryByRole('button', { name: /Agregar de biblioteca/ })).not.toBeInTheDocument();
+		expect(screen.queryByTitle('Nuevo ataque')).not.toBeInTheDocument();
+		expect(
+			screen.queryByRole('button', { name: /Importar de biblioteca/ }),
+		).not.toBeInTheDocument();
 		expect(screen.getAllByTitle('Tirar Ataque')).toHaveLength(3);
 		expect(screen.getAllByTitle('Tirar Daño')).toHaveLength(3);
 	});
 
-	it('appends one blank attack row with a fresh id when the "➕" button is clicked', async () => {
+	it('appends one blank attack row with a fresh id when the "➕ Nuevo ataque" button is clicked', async () => {
 		const { onChange } = renderList();
 
-		await fireEvent.click(screen.getByTitle('Agregar Ataque'));
+		await fireEvent.click(screen.getByTitle('Nuevo ataque'));
 
 		expect(onChange).toHaveBeenCalledTimes(1);
 		const updated = vi.mocked(onChange).mock.calls[0][0];
@@ -181,7 +183,7 @@ describe('AttacksList library integration', () => {
 	it('FEAT-attack-library @modal-open — opens the attack library modal from the header button', async () => {
 		renderList();
 
-		await fireEvent.click(screen.getByRole('button', { name: /Agregar de biblioteca/ }));
+		await fireEvent.click(screen.getByRole('button', { name: /Importar de biblioteca/ }));
 
 		const dialog = screen.getByRole('dialog');
 		expect(within(dialog).getByText('Biblioteca de Ataques')).toBeInTheDocument();

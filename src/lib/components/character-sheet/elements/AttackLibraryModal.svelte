@@ -7,7 +7,7 @@
 	import type { AttackDraft, Character } from '$lib/types/character';
 	import { untrack } from 'svelte';
 
-	type LibraryTab = 'weapons' | 'spells';
+	type AttackCategory = 'weapons' | 'spells';
 
 	type Props = {
 		opened: boolean;
@@ -18,19 +18,24 @@
 
 	let { opened, character, onClose, onAddAttacks }: Props = $props();
 
-	let activeTab = $state<LibraryTab>('weapons');
+	let category = $state<AttackCategory | null>(null);
 	let searchQuery = $state('');
 	let weaponEntries = $state<AttackLibraryEntry[]>([]);
 	let spellEntries = $state<AttackLibraryEntry[]>([]);
 	let loading = $state(false);
 
-	const activeEntries = $derived(activeTab === 'weapons' ? weaponEntries : spellEntries);
+	const categoryEntries = $derived.by(() => {
+		if (category === 'weapons') return weaponEntries;
+		if (category === 'spells') return spellEntries;
+
+		return [...weaponEntries, ...spellEntries];
+	});
 
 	const filteredEntries = $derived.by(() => {
 		const query = searchQuery.trim().toLowerCase();
-		if (!query) return activeEntries;
+		if (!query) return categoryEntries;
 
-		return activeEntries.filter((entry) => entry.name.toLowerCase().includes(query));
+		return categoryEntries.filter((entry) => entry.name.toLowerCase().includes(query));
 	});
 
 	const entryCountLabel = $derived(
@@ -65,8 +70,9 @@
 	const formatPreview = (entry: AttackLibraryEntry): string =>
 		`ATQ: ${entry.atkFormula ?? '—'} · DMG: ${entry.dmgFormula} · ${entry.notes}`;
 
-	const selectTab = (tab: LibraryTab) => {
-		activeTab = tab;
+	const selectCategory = (event: Event) => {
+		const value = (event.currentTarget as HTMLSelectElement).value;
+		category = value === '' ? null : (value as AttackCategory);
 	};
 
 	const handleAdd = (entry: AttackLibraryEntry) => {
@@ -92,21 +98,12 @@
 		<div class="search-box">
 			<input type="text" placeholder="Buscar por nombre..." bind:value={searchQuery} />
 		</div>
-		<div class="category-tabs">
-			<button
-				class="category-tab"
-				class:active={activeTab === 'weapons'}
-				onclick={() => selectTab('weapons')}
-			>
-				Armas
-			</button>
-			<button
-				class="category-tab"
-				class:active={activeTab === 'spells'}
-				onclick={() => selectTab('spells')}
-			>
-				Conjuros
-			</button>
+		<div class="category-container">
+			<select class="category-select" value={category ?? ''} onchange={selectCategory}>
+				<option value="">Todos los ataques</option>
+				<option value="weapons">Armas</option>
+				<option value="spells">Conjuros</option>
+			</select>
 		</div>
 	</div>
 
@@ -146,8 +143,16 @@
 <style>
 	.filters {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		flex-wrap: wrap;
 		gap: var(--spacing-sm);
+		padding: var(--spacing-md);
+		background-color: var(--secondary-bg);
+		border-radius: var(--radius-md);
+	}
+
+	.search-box {
+		width: 100%;
 	}
 
 	.search-box input {
@@ -160,33 +165,24 @@
 		font-size: 0.9rem;
 	}
 
-	.category-tabs {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: var(--spacing-xs);
+	.category-container {
+		width: 100%;
 	}
 
-	.category-tab {
-		padding: var(--spacing-xs) var(--spacing-sm);
-		background-color: var(--primary-bg);
-		color: var(--text-secondary);
+	.category-select {
+		width: 100%;
+		padding: var(--spacing-sm) var(--spacing-md);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
-		cursor: pointer;
-		font-size: 0.8rem;
-		transition: all 0.2s;
-	}
-
-	.category-tab:hover {
 		background-color: var(--secondary-bg);
 		color: var(--text-primary);
+		font-size: 0.9rem;
+		cursor: pointer;
 	}
 
-	.category-tab.active {
-		background-color: var(--color-primary);
-		color: white;
-		border-color: var(--color-primary);
+	.category-select:focus {
+		outline: none;
+		border-color: #f59e0b;
 	}
 
 	.attacks-list {
