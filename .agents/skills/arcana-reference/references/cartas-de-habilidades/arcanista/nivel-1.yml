@@ -13,9 +13,9 @@ cards:
       _La magia no es un misterio para ti, sino una herramienta, un pacto o un derecho de nacimiento. Al sintonizarte
       con las corrientes de poder que recorren el mundo, eres capaz de manifestar lo imposible._<br><br> Tienes acceso a
       la lista de cartas de _Arcanista_ y usas tu Atributo Arcano para los requerimientos y efectos de estas.<br>
-      **Disciplinas Arcanas:** Todas las cartas pertenecientes a un arquetipo que otorgue _Afinidad Arcana_ se
-      consideran también cartas de _Arcanista_, conservando sus demás etiquetas. Esta clasificación es permanente y no
-      depende de qué Beneficio de Arquetipo esté activo.
+      Además, todas las cartas pertenecientes a un arquetipo que otorgue _Afinidad Arcana_ se consideran también cartas
+      de _Arcanista_, conservando sus demás etiquetas. Esta clasificación es permanente y no depende de qué Beneficio de
+      Arquetipo esté activo.
     slug: afinidad-arcana
   - id: 44342205841c3f4555d30ee1f77e4381fbd253a7
     name: Trucos Arcanos
