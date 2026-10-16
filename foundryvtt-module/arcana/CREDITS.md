@@ -18,3 +18,15 @@ Modifications: background removed; explicit dimensions added.
 
 All other status effect icons are referenced directly from the Foundry VTT core
 icon set (`icons/svg/*`) and are not redistributed by this system.
+
+## Scene control icons
+
+The custom scene control icon shipped in `assets/icons/` comes from
+[game-icons.net](https://game-icons.net) and is licensed under
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+
+| File                       | Author | Original icon |
+| -------------------------- | ------ | ------------- |
+| `assets/icons/orbital.svg` | Lorc   | `orbital`     |
+
+Modifications: white fill on a transparent background.

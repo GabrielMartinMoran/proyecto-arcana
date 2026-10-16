@@ -26,6 +26,10 @@ function copyStaticFiles() {
 	fs.copyFileSync('template.html', 'dist/template.html');
 	console.log('📄 Copied template.html to dist/');
 
+	// Copy gm-chaos-points.html
+	fs.copyFileSync('gm-chaos-points.html', 'dist/gm-chaos-points.html');
+	console.log('📄 Copied gm-chaos-points.html to dist/');
+
 	// Copy system.json
 	fs.copyFileSync('system.json', 'dist/system.json');
 	console.log('📄 Copied system.json to dist/');

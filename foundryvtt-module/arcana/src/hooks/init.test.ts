@@ -25,6 +25,9 @@ describe('FEAT foundry-v14-health-sync — init token resources', () => {
 		vi.stubGlobal('Actors', {
 			registerSheet: vi.fn(),
 		});
+		vi.stubGlobal('game', {
+			settings: { register: vi.fn() },
+		});
 		vi.stubGlobal('Combat', class {});
 		vi.stubGlobal('Actor', class {});
 		vi.doMock('../combat/arcana-combat', () => ({ ArcanaCombat: class {} }));
@@ -95,5 +98,23 @@ describe('FEAT foundry-v14-health-sync — init token resources', () => {
 			expect(statusEffects[effect.id]).toEqual(effect);
 		}
 		expect(specialStatusEffects).toEqual(ARCANA_SPECIAL_STATUS_EFFECTS);
+	});
+
+	it('FEAT foundry-gm-chaos-points — registers the world-scoped GM Chaos Points setting', async () => {
+		const { init } = await import('./init');
+
+		init();
+
+		expect(game.settings.register).toHaveBeenCalledWith(
+			'arcana',
+			'gmChaosPoints',
+			expect.objectContaining({
+				name: 'Puntos de Caos del DJ',
+				scope: 'world',
+				config: false,
+				type: Number,
+				default: 0,
+			}),
+		);
 	});
 });

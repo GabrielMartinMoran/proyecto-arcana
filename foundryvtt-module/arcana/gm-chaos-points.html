@@ -1,0 +1,57 @@
+<div
+	class="arcana-gm-chaos-points"
+	style="display: flex; flex-direction: column; gap: 12px; padding: 12px"
+>
+	<div style="text-align: center">
+		<div style="font-size: 0.8em; text-transform: uppercase; opacity: 0.7">
+			Puntos de Caos actuales
+		</div>
+		<div
+			class="chaos-points-value"
+			data-chaos-value="{{chaosPoints}}"
+			style="font-size: 3em; font-weight: bold; line-height: 1.1"
+		>
+			{{chaosPoints}}
+		</div>
+	</div>
+
+	<div style="display: flex; gap: 8px; justify-content: center">
+		<button type="button" data-action="adjust" data-delta="-1" title="−1" style="min-width: 64px">
+			<i class="fas fa-minus" style="font-size: 1.25em"></i>
+		</button>
+		<button type="button" data-action="adjust" data-delta="1" title="+1" style="min-width: 64px">
+			<i class="fas fa-plus" style="font-size: 1.25em"></i>
+		</button>
+	</div>
+
+	<div style="display: flex; gap: 8px; align-items: center; justify-content: center">
+		<label for="arcana-chaos-set" style="opacity: 0.8">Fijar valor:</label>
+		<input
+			id="arcana-chaos-set"
+			type="number"
+			name="chaosPoints"
+			value="{{chaosPoints}}"
+			min="0"
+			step="1"
+			style="width: 70px; text-align: center"
+		/>
+		<button type="button" data-action="set">Aplicar</button>
+	</div>
+
+	<div
+		style="
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+			border-top: 1px solid rgba(0, 0, 0, 0.2);
+			padding-top: 12px;
+		"
+	>
+		<div style="font-size: 0.8em; text-transform: uppercase; opacity: 0.7; text-align: center">
+			Gastar en el Pacto de Caos
+		</div>
+		{{#each spendOptions}}
+		<button type="button" data-action="spend" data-spend="{{this.key}}">{{this.label}}</button>
+		{{/each}}
+	</div>
+</div>

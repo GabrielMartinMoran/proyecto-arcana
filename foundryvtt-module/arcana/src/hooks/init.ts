@@ -9,6 +9,7 @@ import { ArcanaActor } from '../documents/arcana-actor';
 import { ArcanaToken } from '../documents/arcana-token';
 import { ArcanaTokenDocument } from '../documents/arcana-token-document';
 import { ArcanaTokenRuler } from '../ruler/arcana-token-ruler';
+import { registerChaosPointsSetting } from '../services/chaos-points';
 import { ArcanaSheetV2 } from '../sheets/arcana-sheet-v2';
 import { ArcanaActorDirectory } from '../sidebar/actor-directory';
 
@@ -75,4 +76,7 @@ export function init(): void {
 		makeDefault: true,
 		types: ['character', 'npc'],
 	});
+
+	// Register the world-scoped GM Chaos Points setting
+	registerChaosPointsSetting();
 }

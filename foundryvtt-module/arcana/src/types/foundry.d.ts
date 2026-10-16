@@ -49,6 +49,13 @@ declare global {
 	}
 
 	/**
+	 * Arcana system settings registry for the `arcana` namespace.
+	 */
+	interface SettingConfig {
+		'arcana.gmChaosPoints': number;
+	}
+
+	/**
 	 * v14 APIs not fully covered by v13 types.
 	 */
 	namespace foundry {
@@ -59,6 +66,9 @@ declare global {
 		}
 
 		namespace applications {
+			/** v14 application registry, keyed by application id. */
+			const instances: Map<string, { close(options?: any): Promise<unknown> | unknown }>;
+
 			namespace sheets {
 				class ActorSheetV2 {
 					declare actor: Actor;
@@ -70,7 +80,14 @@ declare global {
 			}
 
 			namespace api {
-				class ApplicationV2 {}
+				class ApplicationV2 {
+					declare element: HTMLElement | null;
+					static DEFAULT_OPTIONS: Record<string, any>;
+					static PARTS: Record<string, { template: string }>;
+					render(options?: any): Promise<this>;
+					close(options?: any): Promise<this>;
+					_prepareContext(options: any): Promise<any>;
+				}
 				function HandlebarsApplicationMixin<T extends new (...args: any[]) => any>(Base: T): T;
 			}
 		}

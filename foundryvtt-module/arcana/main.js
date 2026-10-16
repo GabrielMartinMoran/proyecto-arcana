@@ -521,6 +521,55 @@ function getTurnKey() {
   return `${combat.round ?? 0}:${combat.turn ?? 0}:${combat.current?.tokenId ?? ""}`;
 }
 
+// src/services/chaos-points.ts
+var CHAOS_SPEND_COSTS = {
+  hostileReflex: 1,
+  environmentalComplication: 1,
+  secondChance: 2
+};
+var SETTING_NAMESPACE = "arcana";
+var SETTING_KEY = "gmChaosPoints";
+var SETTING_NAME = "Puntos de Caos del DJ";
+var isSettingRegistered = false;
+function normalizeChaosPoints(value) {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return 0;
+  }
+  return Math.max(0, Math.trunc(value));
+}
+function adjustChaosPoints(current, delta) {
+  const balance = normalizeChaosPoints(current);
+  const change = Number.isFinite(delta) ? Math.trunc(delta) : 0;
+  return Math.max(0, balance + change);
+}
+function canSpendChaosPoints(current, cost) {
+  return cost > 0 && cost <= normalizeChaosPoints(current);
+}
+function spendChaosPoints(current, cost) {
+  const balance = normalizeChaosPoints(current);
+  if (!canSpendChaosPoints(balance, cost)) {
+    return { ok: false, value: balance };
+  }
+  return { ok: true, value: balance - Math.trunc(cost) };
+}
+function getChaosPoints() {
+  return normalizeChaosPoints(game.settings.get(SETTING_NAMESPACE, SETTING_KEY));
+}
+async function setChaosPoints(value) {
+  await game.settings.set(SETTING_NAMESPACE, SETTING_KEY, normalizeChaosPoints(value));
+}
+function registerChaosPointsSetting() {
+  if (isSettingRegistered) return;
+  game.settings.register(SETTING_NAMESPACE, SETTING_KEY, {
+    name: SETTING_NAME,
+    scope: "world",
+    config: false,
+    type: Number,
+    default: 0
+  });
+  isSettingRegistered = true;
+}
+
 // src/config.ts
 var CONFIG2 = {
   BASE_URL: ""
@@ -1480,6 +1529,143 @@ function init() {
     makeDefault: true,
     types: ["character", "npc"]
   });
+  registerChaosPointsSetting();
+}
+
+// src/apps/gm-chaos-points.ts
+var ApplicationV2Base = foundry.applications.api.ApplicationV2;
+var MixedApplication = foundry.applications.api.HandlebarsApplicationMixin(ApplicationV2Base);
+var GM_CHAOS_POINTS_TITLE = "Puntos de Caos del DJ";
+var SPEND_LABELS = {
+  hostileReflex: "Reflejo Hostil",
+  environmentalComplication: "Complicaci\xF3n Ambiental",
+  secondChance: "Segunda Oportunidad"
+};
+function buildSpendOptions() {
+  return Object.keys(CHAOS_SPEND_COSTS).map((key) => ({
+    key,
+    label: `${SPEND_LABELS[key]} (\u2212${CHAOS_SPEND_COSTS[key]})`,
+    cost: CHAOS_SPEND_COSTS[key]
+  }));
+}
+function isGameMaster() {
+  return game?.user?.isGM === true;
+}
+var GMChaosPointsApp = class _GMChaosPointsApp extends MixedApplication {
+  static ID = "gm-chaos-points";
+  /** @override */
+  static DEFAULT_OPTIONS = {
+    ...ApplicationV2Base.DEFAULT_OPTIONS,
+    id: _GMChaosPointsApp.ID,
+    classes: ["arcana", "gm-chaos-points"],
+    tag: "form",
+    window: {
+      title: GM_CHAOS_POINTS_TITLE,
+      resizable: false
+    },
+    position: { width: 320 },
+    actions: {
+      adjust: _GMChaosPointsApp.#adjust,
+      spend: _GMChaosPointsApp.#spend,
+      set: _GMChaosPointsApp.#set
+    }
+  };
+  /** @override */
+  static PARTS = {
+    form: {
+      template: "systems/arcana/gm-chaos-points.html"
+    }
+  };
+  /** @override */
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    return { ...context, chaosPoints: getChaosPoints(), spendOptions: buildSpendOptions() };
+  }
+  /**
+   * Refuse to open the window for non-GM users. Foundry renders the shell
+   * before actions run, so the gate must live in the render entry point.
+   * @override
+   */
+  async render(options) {
+    if (!isGameMaster()) return this;
+    return super.render(options);
+  }
+  static async #adjust(_event, target) {
+    const delta = Number(target.dataset.delta ?? 0);
+    await setChaosPoints(adjustChaosPoints(getChaosPoints(), delta));
+    this.render();
+  }
+  /**
+   * Spend on a Pact of Chaos action. The domain's `spendChaosPoints` owns the
+   * balance guard: a rejected spend warns and leaves the counter untouched
+   * (nothing changed, so no re-render is needed); an accepted spend persists
+   * the new value and re-renders.
+   */
+  static async #spend(_event, target) {
+    const key = target.dataset.spend;
+    const cost = key === void 0 ? void 0 : CHAOS_SPEND_COSTS[key];
+    if (cost === void 0) return;
+    const result = spendChaosPoints(getChaosPoints(), cost);
+    if (!result.ok) {
+      ui.notifications.warn("Puntos de Caos insuficientes.");
+      return;
+    }
+    await setChaosPoints(result.value);
+    this.render();
+  }
+  static async #set(_event, target) {
+    const form = target.form ?? this.element;
+    const input = form?.querySelector('input[name="chaosPoints"]');
+    await setChaosPoints(Number(input?.value ?? 0));
+    this.render();
+  }
+};
+
+// src/hooks/render-scene-controls.ts
+var CHAOS_POINTS_TOOL_NAME = "chaosPoints";
+var CHAOS_POINTS_TOOL_TITLE = "Puntos de Caos";
+var CHAOS_POINTS_TOOL_ICON = "arcana-orbital-icon";
+var ORBITAL_ICON_STYLES_ID = "arcana-orbital-icon-styles";
+var ORBITAL_ICON_STYLES_CSS = `
+.arcana-orbital-icon { background: url("systems/arcana/assets/icons/orbital.svg") no-repeat center / 60% auto; }
+i.arcana-orbital-icon { display: block; width: 100%; height: 100%; }
+`;
+function ensureOrbitalIconStyles(doc = document) {
+  if (!doc?.head || doc.getElementById(ORBITAL_ICON_STYLES_ID)) return;
+  const style = doc.createElement("style");
+  style.id = ORBITAL_ICON_STYLES_ID;
+  style.textContent = ORBITAL_ICON_STYLES_CSS;
+  doc.head.append(style);
+}
+function resolveTokenTools(controls) {
+  if (!controls || typeof controls !== "object") return null;
+  const tokens = controls.tokens;
+  if (!tokens || typeof tokens !== "object") return null;
+  const tools = tokens.tools;
+  if (!tools || typeof tools !== "object") return null;
+  return tools;
+}
+function toggleChaosPointsWindow() {
+  const existing = foundry.applications.instances.get(GMChaosPointsApp.ID);
+  if (existing) {
+    existing.close();
+    return;
+  }
+  new GMChaosPointsApp().render({ force: true });
+}
+function onGetSceneControlButtons(controls) {
+  const tools = resolveTokenTools(controls);
+  if (!tools) return;
+  ensureOrbitalIconStyles();
+  tools[CHAOS_POINTS_TOOL_NAME] = {
+    name: CHAOS_POINTS_TOOL_NAME,
+    title: CHAOS_POINTS_TOOL_TITLE,
+    icon: CHAOS_POINTS_TOOL_ICON,
+    order: Object.keys(tools).length,
+    button: true,
+    visible: game?.user?.isGM === true,
+    onChange: toggleChaosPointsWindow
+  };
 }
 
 // src/hooks/render-token-hud.ts
@@ -2072,6 +2258,7 @@ function setupEscInterceptor() {
 // main.ts
 Hooks.once("init", init);
 Hooks.on("renderTokenHUD", renderTokenHUD);
+Hooks.on("getSceneControlButtons", onGetSceneControlButtons);
 Hooks.once("ready", setupEscInterceptor);
 setupMessageListener();
 setupDetachedWindow();
