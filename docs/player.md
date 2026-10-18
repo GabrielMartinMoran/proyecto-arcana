@@ -934,6 +934,89 @@ Añadir una nueva carta a tu **Colección** expande tu repertorio de habilidades
 | Nivel 4           | 12 PP       |
 | Nivel 5           | 17 PP       |
 
+### Desarrollo de Capacidades Originales
+
+Los grandes héroes no se limitan a aprender las técnicas y poderes de quienes los precedieron. Algunos desarrollan sus propios estilos de combate, descubren nuevas formas de canalizar la magia o manifiestan capacidades que nadie había presenciado antes.
+
+En ARCANA, las cartas disponibles representan una amplia variedad de conocimientos, poderes y disciplinas, pero **no constituyen una lista cerrada de todo aquello que un personaje puede llegar a aprender**.
+
+Con la aprobación del Director de Juego (DJ), cualquier personaje puede desarrollar una capacidad original y convertirla en una nueva carta para su Colección. Esta posibilidad está abierta a todos los personajes, independientemente de sus arquetipos o del origen de sus habilidades.
+
+#### Concebir una Nueva Capacidad
+
+Cuando quieras desarrollar una capacidad original, describe al DJ qué pretende conseguir tu personaje y cómo imaginas que podría lograrlo.
+
+No es necesario que conozcas las mecánicas exactas de la habilidad. Puedes comenzar con una idea, una experiencia vivida durante una aventura o incluso una aplicación creativa de alguna capacidad que ya poseas.
+
+El jugador y el DJ trabajarán juntos para definir una carta que represente esa idea, estableciendo su Nivel, Requerimientos, Etiquetas, Tipo, efectos y Usos según corresponda.
+
+**El poder de la nueva carta debe ser comparable al de otras cartas de su mismo Nivel**, respetando las mecánicas habituales del sistema. Las cartas existentes sirven como referencia para determinar su alcance, daño, duración, recarga y demás características.
+
+El DJ tiene la última palabra sobre las propiedades de la carta, pero debería procurar preservar la intención original del jugador, buscando una implementación equilibrada en lugar de descartar una idea únicamente porque no existe una capacidad equivalente.
+
+#### Desarrollar la Capacidad
+
+Una vez acordado el concepto de la carta, el personaje debe dedicar tiempo y esfuerzo a desarrollar la capacidad dentro de la ficción.
+
+La naturaleza de este proceso dependerá de la habilidad y del personaje:
+
+- Un combatiente podría perfeccionar una técnica mediante entrenamiento, duelos y experiencia en batalla.
+- Un arcanista podría investigar principios mágicos, experimentar con conjuros existentes o descubrir nuevas formas de manipular la Urdimbre.
+- Un sacerdote podría alcanzar una comprensión más profunda de su fe y manifestar un milagro particular.
+- Un druida podría aprender de los espíritus, las criaturas y los ciclos de la naturaleza.
+- Un hechicero podría descubrir nuevas manifestaciones de su poder innato mediante la experimentación o experiencias extraordinarias.
+
+El desarrollo puede transcurrir durante el **Tiempo Entre Aventuras**, a lo largo de varias sesiones o como consecuencia de acontecimientos significativos de la historia.
+
+**No existe un tiempo fijo de desarrollo según el Nivel de la carta.** El DJ determinará qué dedicación resulta apropiada según la complejidad de la capacidad, las circunstancias del personaje y el ritmo de la campaña.
+
+Durante este proceso, el DJ puede introducir Pruebas de Habilidad, experimentos, descubrimientos o complicaciones narrativas. Estas pruebas sirven para representar las dificultades del aprendizaje y sus posibles consecuencias, pero un fallo aislado no debería impedir definitivamente el desarrollo de una capacidad previamente aprobada.
+
+El desarrollo de una carta tampoco requiere necesariamente recursos materiales, tutores ni instalaciones especiales, salvo cuando estos tengan sentido para la capacidad que se intenta adquirir.
+
+#### De la Improvisación al Dominio
+
+Una capacidad original también puede surgir espontáneamente durante una aventura.
+
+Las **Maniobras** y **Maniobras Arcanas** permiten que los personajes experimenten con aplicaciones creativas de sus habilidades. Una maniobra particularmente ingeniosa, un descubrimiento inesperado o una técnica improvisada en un momento decisivo pueden convertirse en el punto de partida para desarrollar una nueva carta.
+
+Por ejemplo, un combatiente que consigue desequilibrar a un enemigo mediante una maniobra podría decidir perfeccionar ese movimiento hasta convertirlo en una técnica característica. Del mismo modo, un arcanista que utiliza un conjuro de forma inesperada podría investigar cómo reproducir ese efecto de manera controlada y consistente.
+
+Estas experiencias pueden justificar parte o la totalidad del desarrollo narrativo de la capacidad, a discreción del DJ.
+
+Sin embargo, **realizar una maniobra con éxito no concede automáticamente una nueva carta**. Dominar una técnica y convertirla en una capacidad permanente sigue requiriendo su aprobación y adquisición mediante las reglas habituales de progresión.
+
+#### Adquirir la Nueva Carta
+
+Una vez completado su desarrollo, el personaje puede incorporar la nueva carta a su Colección pagando el **coste normal en Puntos de Progreso correspondiente a su Nivel**.
+
+Desarrollar una capacidad original no tiene un coste adicional en PP respecto de adquirir una carta existente.
+
+Los PP se gastan únicamente cuando la capacidad está desarrollada y lista para incorporarse a la Colección. El tiempo dedicado a investigarla o entrenarla no consume PP por sí mismo.
+
+A partir de ese momento, la nueva carta funciona exactamente como cualquier otra: debe cumplir sus Requerimientos, respetar sus Etiquetas y Usos y, si es Activable, ocupar una Ranura de Carta Activa para poder utilizarse.
+
+#### Límites de las Capacidades Originales
+
+La creación de capacidades originales amplía las posibilidades de los personajes, pero no permite ignorar las reglas fundamentales de progresión.
+
+- **Coherencia:** La capacidad debe resultar apropiada para el personaje, sus conocimientos, su naturaleza o las experiencias que justifican su desarrollo.
+- **Equilibrio:** Una carta original no debería proporcionar ventajas significativamente superiores a las de otras cartas de su Nivel, ni combinar gratuitamente los beneficios de varias capacidades.
+- **Identidad:** Las nuevas cartas deben respetar las características y limitaciones de los arquetipos. Desarrollar una capacidad original no permite obtener automáticamente los beneficios exclusivos de disciplinas que el personaje no domina.
+- **Progresión:** Este procedimiento permite desarrollar cartas normales de Nivel 1 a 5. No permite crear ni adquirir cartas de Nivel 6 mediante el gasto de PP, ni sustituye las reglas especiales de las Cartas de Linaje, Arquetipo o Sinergia.
+
+Si durante el juego se descubre que una carta original provoca interacciones imprevistas o desequilibrios importantes, el jugador y el DJ pueden revisar sus propiedades para mantenerla acorde con el resto del sistema, procurando conservar su concepto e identidad.
+
+> **Nota de Juego: Tu Propio Legado**
+>
+> Desarrollar una capacidad original no pretende ser una forma de obtener más poder que otros personajes, sino una oportunidad para expresar quién es tu héroe y cómo evoluciona.
+>
+> No todas las nuevas capacidades necesitan ser revolucionarias. Una técnica de espada perfeccionada durante años, un pequeño milagro nacido de la fe o un conjuro inspirado por una experiencia personal pueden ser tan memorables como los poderes más extraordinarios.
+>
+> **Las cartas representan lo que tu personaje es capaz de hacer, pero no todas las cartas tienen que haber existido antes que él.**
+>
+> Tu personaje puede ser el primero en descubrirlas, desarrollarlas y, quizás algún día, enseñárselas a otros.
+
 # 11. Tiempo Entre Aventuras
 
 Las aventuras son momentos de alta intensidad, peligro y gloria, pero ¿qué hace tu personaje cuando el polvo se asienta? El tiempo que pasa entre una misión y la siguiente, conocido como "tiempo de descanso" o "downtime", es una oportunidad para que tu personaje crezca, entrene, investigue y se conecte con el mundo de una forma más personal.
