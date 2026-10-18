@@ -12479,6 +12479,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Adquirir la Nueva Carta",
+      "slug": "10-progresion-del-personaje-adquirir-la-nueva-carta",
+      "aliases": [
+        "adquirir la nueva carta"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "heading": "Adquirir la Nueva Carta",
+      "anchor": "adquirir-la-nueva-carta",
+      "chapter": "10. Progresión del Personaje",
+      "source": "player.md",
+      "search": "Una vez completado su desarrollo, el personaje puede incorporar la nueva carta a su Colección pagando el **coste normal en Puntos de Progreso correspondiente a su Nivel**.\n\nDesarrollar una capacidad original no tiene un coste adicional en PP respecto de adquirir una carta existente.\n\nLos PP se gastan únicamente cuando la capacidad está desarrollada y lista para incorporarse a la Colección. El tiempo dedicado a investigarla o entrenarla no consume PP por sí mismo.\n\nA partir de ese momento, la nueva carta funciona exactamente como cualquier otra: debe cumplir sus Requerimientos, respetar sus Etiquetas y Usos y, si es Activable, ocupar una Ranura de Carta Activa para poder utilizarse.",
+      "hash": "ad79e104ce2dca4a005e7590056aaf2680610fa7"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Adquirir Nueva Carta",
       "slug": "10-progresion-del-personaje-adquirir-nueva-carta",
       "aliases": [
@@ -12943,6 +12959,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "Concebir una Nueva Capacidad",
+      "slug": "10-progresion-del-personaje-concebir-una-nueva-capacidad",
+      "aliases": [
+        "concebir una nueva capacidad"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "heading": "Concebir una Nueva Capacidad",
+      "anchor": "concebir-una-nueva-capacidad",
+      "chapter": "10. Progresión del Personaje",
+      "source": "player.md",
+      "search": "Cuando quieras desarrollar una capacidad original, describe al DJ qué pretende conseguir tu personaje y cómo imaginas que podría lograrlo.\n\nNo es necesario que conozcas las mecánicas exactas de la habilidad. Puedes comenzar con una idea, una experiencia vivida durante una aventura o incluso una aplicación creativa de alguna capacidad que ya poseas.\n\nEl jugador y el DJ trabajarán juntos para definir una carta que represente esa idea, estableciendo su Nivel, Requerimientos, Etiquetas, Tipo, efectos y Usos según corresponda.\n\n**El poder de la nueva carta debe ser comparable al de otras cartas de su mismo Nivel**, respetando las mecánicas habituales del sistema. Las cartas existentes sirven como referencia para determinar su alcance, daño, duración, recarga y demás características.\n\nEl DJ tiene la última palabra sobre las propiedades de la carta, pero debería procurar preservar la intención original del jugador, buscando una implementación equilibrada en lugar de descartar una idea únicamente porque no existe una capacidad equivalente.",
+      "hash": "e0b91c2b0ad776811d13a791011f0f847d9abdf4"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Concentración",
       "slug": "07-combate-concentracion",
       "aliases": [
@@ -13135,6 +13167,22 @@
     },
     {
       "kind": "section",
+      "canonicalName": "De la Improvisación al Dominio",
+      "slug": "10-progresion-del-personaje-de-la-improvisacion-al-dominio",
+      "aliases": [
+        "de la improvisacion al dominio"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "heading": "De la Improvisación al Dominio",
+      "anchor": "de-la-improvisación-al-dominio",
+      "chapter": "10. Progresión del Personaje",
+      "source": "player.md",
+      "search": "Una capacidad original también puede surgir espontáneamente durante una aventura.\n\nLas **Maniobras** y **Maniobras Arcanas** permiten que los personajes experimenten con aplicaciones creativas de sus habilidades. Una maniobra particularmente ingeniosa, un descubrimiento inesperado o una técnica improvisada en un momento decisivo pueden convertirse en el punto de partida para desarrollar una nueva carta.\n\nPor ejemplo, un combatiente que consigue desequilibrar a un enemigo mediante una maniobra podría decidir perfeccionar ese movimiento hasta convertirlo en una técnica característica. Del mismo modo, un arcanista que utiliza un conjuro de forma inesperada podría investigar cómo reproducir ese efecto de manera controlada y consistente.\n\nEstas experiencias pueden justificar parte o la totalidad del desarrollo narrativo de la capacidad, a discreción del DJ.\n\nSin embargo, **realizar una maniobra con éxito no concede automáticamente una nueva carta**. Dominar una técnica y convertirla en una capacidad permanente sigue requiriendo su aprobación y adquisición mediante las reglas habituales de progresión.",
+      "hash": "ad5273bf398145507777ad30eaafe57a65c55130"
+    },
+    {
+      "kind": "section",
       "canonicalName": "Defensas de Daño Condicionales",
       "slug": "08-7-diseno-avanzado-de-criaturas-defensas-de-dano-condicionales",
       "aliases": [
@@ -13164,6 +13212,38 @@
       "source": "gm.md",
       "search": "Como regla general, los **Conjuros no forman árboles de progresión**.\n\nUn conjuro de mayor Nivel no debería requerir otro conjuro de menor Nivel únicamente porque pertenezcan a la misma escuela, elemento, disciplina o temática. Su Nivel y sus Requerimientos de Atributo ya representan el dominio necesario para aprenderlo.\n\nLas dependencias entre Conjuros deberían reservarse para aquellos casos en los que exista una interacción mecánica directa.\n\nPor ejemplo:\n\n- una carta que mejora explícitamente el modo _Expulsión_ de _Ritos Sagrados_ puede requerir _Ritos Sagrados_;\n- una carta que permite regresar a un _Santuario_ previamente creado puede requerir _Santuario_;\n- un conjuro de teleportación más poderoso no necesita requerir otro conjuro de teleportación menor si ambos funcionan de manera independiente.\n\nLas dependencias deben existir porque enriquecen o estructuran una progresión concreta, **no para imponer un camino de aprendizaje innecesario ni para compensar mediante requisitos un efecto cuyo balance interno ya sea problemático**.\n\n---",
       "hash": "e0852503a1086c7c22c46fe68bfe1bbaa7f5b87c"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Desarrollar la Capacidad",
+      "slug": "10-progresion-del-personaje-desarrollar-la-capacidad",
+      "aliases": [
+        "desarrollar la capacidad"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "heading": "Desarrollar la Capacidad",
+      "anchor": "desarrollar-la-capacidad",
+      "chapter": "10. Progresión del Personaje",
+      "source": "player.md",
+      "search": "Una vez acordado el concepto de la carta, el personaje debe dedicar tiempo y esfuerzo a desarrollar la capacidad dentro de la ficción.\n\nLa naturaleza de este proceso dependerá de la habilidad y del personaje:\n\n- Un combatiente podría perfeccionar una técnica mediante entrenamiento, duelos y experiencia en batalla.\n- Un arcanista podría investigar principios mágicos, experimentar con conjuros existentes o descubrir nuevas formas de manipular la Urdimbre.\n- Un sacerdote podría alcanzar una comprensión más profunda de su fe y manifestar un milagro particular.\n- Un druida podría aprender de los espíritus, las criaturas y los ciclos de la naturaleza.\n- Un hechicero podría descubrir nuevas manifestaciones de su poder innato mediante la experimentación o experiencias extraordinarias.\n\nEl desarrollo puede transcurrir durante el **Tiempo Entre Aventuras**, a lo largo de varias sesiones o como consecuencia de acontecimientos significativos de la historia.\n\n**No existe un tiempo fijo de desarrollo según el Nivel de la carta.** El DJ determinará qué dedicación resulta apropiada según la complejidad de la capacidad, las circunstancias del personaje y el ritmo de la campaña.\n\nDurante este proceso, el DJ puede introducir Pruebas de Habilidad, experimentos, descubrimientos o complicaciones narrativas. Estas pruebas sirven para representar las dificultades del aprendizaje y sus posibles consecuencias, pero un fallo aislado no debería impedir definitivamente el desarrollo de una capacidad previamente aprobada.\n\nEl desarrollo de una carta tampoco requiere necesariamente recursos materiales, tutores ni instalaciones especiales, salvo cuando estos tengan sentido para la capacidad que se intenta adquirir.",
+      "hash": "09692ae515963f2e7bd0df62c4dc2067068e5978"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Desarrollo de Capacidades Originales",
+      "slug": "10-progresion-del-personaje-desarrollo-de-capacidades-originales",
+      "aliases": [
+        "desarrollo de capacidades originales"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "heading": "Desarrollo de Capacidades Originales",
+      "anchor": "desarrollo-de-capacidades-originales",
+      "chapter": "10. Progresión del Personaje",
+      "source": "player.md",
+      "search": "Los grandes héroes no se limitan a aprender las técnicas y poderes de quienes los precedieron. Algunos desarrollan sus propios estilos de combate, descubren nuevas formas de canalizar la magia o manifiestan capacidades que nadie había presenciado antes.\n\nEn ARCANA, las cartas disponibles representan una amplia variedad de conocimientos, poderes y disciplinas, pero **no constituyen una lista cerrada de todo aquello que un personaje puede llegar a aprender**.\n\nCon la aprobación del Director de Juego (DJ), cualquier personaje puede desarrollar una capacidad original y convertirla en una nueva carta para su Colección. Esta posibilidad está abierta a todos los personajes, independientemente de sus arquetipos o del origen de sus habilidades.",
+      "hash": "774ac10f387a993cd3953722dff77c62498d137e"
     },
     {
       "kind": "section",
@@ -13884,6 +13964,22 @@
       "source": "gm.md",
       "search": "`Recarga 3+` representa normalmente el extremo más fiable para una capacidad relevante con usos limitados. Si una habilidad debería estar disponible prácticamente siempre, considera si realmente necesita Recarga o si debería funcionar mediante otra estructura.\n\n`Recarga 8+` es el límite natural del sistema. **No existe una Recarga 9+.**\n\nSi una carta continúa siendo demasiado poderosa incluso con `Recarga 8+`, debe limitarse mediante otros mecanismos: usos por Día de Descanso, condiciones más estrictas, Sostenida, Concentración, duración, requisitos narrativos o un rediseño del efecto.\n\nLas Cartas de Nivel 6 no siguen una progresión hipotética más allá de `8+`. Su propia naturaleza excepcional exige diseñar individualmente qué limita su uso.\n\n---",
       "hash": "b44bf69004ef090e96c3787e3b1521fc06503b39"
+    },
+    {
+      "kind": "section",
+      "canonicalName": "Límites de las Capacidades Originales",
+      "slug": "10-progresion-del-personaje-limites-de-las-capacidades-originales",
+      "aliases": [
+        "limites de las capacidades originales"
+      ],
+      "tags": [],
+      "path": "references/manual-del-jugador/10-progresion-del-personaje.md",
+      "heading": "Límites de las Capacidades Originales",
+      "anchor": "límites-de-las-capacidades-originales",
+      "chapter": "10. Progresión del Personaje",
+      "source": "player.md",
+      "search": "La creación de capacidades originales amplía las posibilidades de los personajes, pero no permite ignorar las reglas fundamentales de progresión.\n\n- **Coherencia:** La capacidad debe resultar apropiada para el personaje, sus conocimientos, su naturaleza o las experiencias que justifican su desarrollo.\n- **Equilibrio:** Una carta original no debería proporcionar ventajas significativamente superiores a las de otras cartas de su Nivel, ni combinar gratuitamente los beneficios de varias capacidades.\n- **Identidad:** Las nuevas cartas deben respetar las características y limitaciones de los arquetipos. Desarrollar una capacidad original no permite obtener automáticamente los beneficios exclusivos de disciplinas que el personaje no domina.\n- **Progresión:** Este procedimiento permite desarrollar cartas normales de Nivel 1 a 5. No permite crear ni adquirir cartas de Nivel 6 mediante el gasto de PP, ni sustituye las reglas especiales de las Cartas de Linaje, Arquetipo o Sinergia.\n\nSi durante el juego se descubre que una carta original provoca interacciones imprevistas o desequilibrios importantes, el jugador y el DJ pueden revisar sus propiedades para mantenerla acorde con el resto del sistema, procurando conservar su concepto e identidad.\n\n> **Nota de Juego: Tu Propio Legado**\n>\n> Desarrollar una capacidad original no pretende ser una forma de obtener más poder que otros personajes, sino una oportunidad para expresar quién es tu héroe y cómo evoluciona.\n>\n> No todas las nuevas capacidades necesitan ser revolucionarias. Una técnica de espada perfeccionada durante años, un pequeño milagro nacido de la fe o un conjuro inspirado por una experiencia personal pueden ser tan memorables como los poderes más extraordinarios.\n>\n> **Las cartas representan lo que tu personaje es capaz de hacer, pero no todas las cartas tienen que haber existido antes que él.**\n>\n> Tu personaje puede ser el primero en descubrirlas, desarrollarlas y, quizás algún día, enseñárselas a otros.",
+      "hash": "2765caa432e1d8b612cc5ceaa3b00b28ef80defb"
     },
     {
       "kind": "section",
