@@ -1,5 +1,6 @@
 import type { Creature, CreatureAction, CreatureAttack, CreatureTrait } from '$lib/types/creature';
 import type { Uses } from '$lib/types/uses';
+import { calculateCreatureInitiative } from '$lib/utils/creature-initiative';
 
 export const serializeStatblockAsMD = (creature: Creature): string => {
 	let md = ``;
@@ -28,7 +29,7 @@ export const serializeStatblockAsMD = (creature: Creature): string => {
 	md += `- **Mitigación Física:** ${creature.stats.physicalMitigation.value}${creature.stats.physicalMitigation.note ? ` (${creature.stats.physicalMitigation.note})` : ''}\n`;
 	md += `- **Mitigación Mágica:** ${creature.stats.magicalMitigation.value}${creature.stats.magicalMitigation.note ? ` (${creature.stats.magicalMitigation.note})` : ''}\n`;
 	md += `- **Velocidad:** ${creature.stats.speed.value}${creature.stats.speed.note ? ` (${creature.stats.speed.note})` : ''}\n\n`;
-	md += `- **Iniciativa:** ${creature.attributes.reflexes}\n\n`;
+	md += `- **Iniciativa:** ${calculateCreatureInitiative(creature)}\n\n`;
 
 	if (creature.attacks && creature.attacks.length > 0) {
 		md += `## Ataques\n`;
@@ -127,7 +128,7 @@ const creatureToTableRow = (creature: Creature): string => {
 		formatStat(creature.stats.physicalMitigation.value, creature.stats.physicalMitigation.note),
 		formatStat(creature.stats.magicalMitigation.value, creature.stats.magicalMitigation.note),
 		formatStat(creature.stats.speed.value, creature.stats.speed.note),
-		creature.attributes.reflexes.toString(),
+		calculateCreatureInitiative(creature).toString(),
 		creature.languages.length > 0 ? creature.languages.join(', ') : 'Ninguna',
 		creature.attacks.length > 0 ? formatAttacks(creature.attacks) : '—',
 		creature.traits.length > 0

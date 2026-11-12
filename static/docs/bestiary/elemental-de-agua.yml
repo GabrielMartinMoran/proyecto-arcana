@@ -42,5 +42,5 @@ creatures:
     interactions: []
     behavior: |
       Adaptable y asfixiante. Fluye por el campo de batalla, usando su forma líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar Marea Arrasadora para empujar a un objetivo lejos de sus aliados y luego usar Engullir para ahogarlo.
-    img: null
+    img: https://i.imgur.com/sEum1EZ.jpeg
     size: Grande

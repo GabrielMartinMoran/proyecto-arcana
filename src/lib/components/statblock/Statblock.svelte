@@ -4,6 +4,7 @@
 	import { useDiceRollerService } from '$lib/services/dice-roller-service';
 	import type { Creature, CreatureAttack } from '$lib/types/creature';
 	import { parseCreatureDamageExpression } from '$lib/utils/dice-rolling';
+	import { calculateCreatureInitiative } from '$lib/utils/creature-initiative';
 	import { capitalize } from '$lib/utils/formatting';
 	import { marked } from 'marked';
 	import { CONFIG } from '../../../config';
@@ -22,7 +23,7 @@
 			Mente: creature.attributes.mind,
 			Instinto: creature.attributes.instinct,
 			Presencia: creature.attributes.presence,
-			Iniciativa: creature.attributes.reflexes,
+			Iniciativa: calculateCreatureInitiative(creature),
 		};
 		for (const variable of Object.keys(variables)) {
 			variables[variable.toLowerCase()] = variables[variable];
@@ -157,8 +158,8 @@
 			<div class="attribute">
 				<strong>Iniciativa</strong>
 				<div class="score">
-					<span>{creature.attributes.reflexes}</span>
-					<button onclick={() => roll(`1d8e+reflejos`, 'Iniciativa')} title="Tirar"> 🎲 </button>
+					<span>{calculateCreatureInitiative(creature)}</span>
+					<button onclick={() => roll(`1d8e+iniciativa`, 'Iniciativa')} title="Tirar"> 🎲 </button>
 				</div>
 			</div>
 		</div>

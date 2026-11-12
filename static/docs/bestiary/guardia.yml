@@ -43,5 +43,5 @@ creatures:
     interactions: []
     behavior: |
       Un guardia de puesto entrenado para mantener una línea y proteger un paso. Usa la espada o la ballesta según la distancia y se repliega solo si el puesto deja de ser defendible.
-    img: null
+    img: https://i.imgur.com/sULxwRl.jpeg
     size: Mediano

@@ -59,6 +59,22 @@ describe('Statblock inline dice formula buttons', () => {
 		mocks.openRollModal.mockClear();
 	});
 
+	it('displays creature initiative from Reflexes', () => {
+		render(Statblock, { props: { creature: buildCreature() } });
+		const initiative = screen.getByText('Iniciativa').parentElement;
+		expect(initiative).toHaveTextContent('2');
+	});
+
+	it('rolls the calculated initiative', async () => {
+		render(Statblock, { props: { creature: buildCreature() } });
+		const initiative = screen.getByText('Iniciativa').parentElement;
+		await fireEvent.click(within(initiative as HTMLElement).getByRole('button'));
+
+		expect(mocks.openRollModal).toHaveBeenCalledWith(
+			expect.objectContaining({ expression: '1d8e+iniciativa' }),
+		);
+	});
+
 	it('FEAT-statblock-inline-dice @multiple-formulas — renders action formulas in prose order', () => {
 		render(Statblock, {
 			props: {

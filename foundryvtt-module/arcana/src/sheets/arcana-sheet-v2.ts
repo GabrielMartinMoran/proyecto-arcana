@@ -5,6 +5,13 @@
 
 import { CONFIG } from '../config';
 import {
+	BOSS_REACTION_COST,
+	BOSS_REACTION_OPTIONS,
+	bossUpgradeTier,
+	normalizeBossUpgrades,
+	type BossReactionOption,
+} from '../constants/boss-upgrades';
+import {
 	buildCreatureSizeId,
 	CREATURE_SIZE_CATEGORIES,
 	getCreatureSizeCategoryId,
@@ -23,6 +30,14 @@ import {
 } from '../constants/token-colors';
 import { isCharacterURL } from '../helpers/actor-urls';
 import { getNightVisionSightUpdate, NIGHT_VISION_LABELS } from '../helpers/night-vision';
+import {
+	readBossResources,
+	readBossUpgrades,
+	resetBossDetermination,
+	resetBossReactions,
+	updateBossResourceCurrent,
+	type BossResources,
+} from '../services/boss-resources';
 import {
 	buildNpcAbilityUsageGroups,
 	readUsage,
@@ -51,6 +66,12 @@ interface SheetContext {
 	health: { value: number; max: number; temp: number };
 	npcAbilityGroups: NpcAbilityUsageGroup[];
 	hasNpcAbilityUsage: boolean;
+	hasBossUpgrades: boolean;
+	bossUpgrades: number;
+	bossTier: ReturnType<typeof bossUpgradeTier>;
+	bossResources: BossResources;
+	bossReactionOptions: readonly BossReactionOption[];
+	bossReactionCost: number;
 }
 
 interface SheetRenderOptions {
@@ -144,6 +165,8 @@ export class ArcanaSheetV2 extends MixedSheet {
 		});
 
 		const npcAbilityGroups = urlResult.isBestiary ? this.#getNpcAbilityGroups() : [];
+		const bossUpgrades = readBossUpgrades(this.#actor());
+		const bossResources = readBossResources(this.#actor());
 
 		return {
 			...context,
@@ -154,6 +177,12 @@ export class ArcanaSheetV2 extends MixedSheet {
 			health: urlResult.health,
 			npcAbilityGroups,
 			hasNpcAbilityUsage: npcAbilityGroups.length > 0,
+			bossUpgrades,
+			hasBossUpgrades: urlResult.isBestiary && bossUpgrades > 0,
+			bossTier: bossUpgradeTier(bossUpgrades),
+			bossResources,
+			bossReactionOptions: BOSS_REACTION_OPTIONS,
+			bossReactionCost: BOSS_REACTION_COST,
 		};
 	}
 
@@ -197,6 +226,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 		if (existingIframe && !options?.forceReload && !isWindowTransition) {
 			if (element) {
 				this.#refreshNpcAbilityControls(element);
+				this.#refreshBossControls(element);
 				this.#refreshHealthInputs(element);
 			}
 			const titleEl = element?.querySelector('.window-title');
@@ -311,7 +341,11 @@ export class ArcanaSheetV2 extends MixedSheet {
 	 */
 	#attachBestiaryListeners(element: HTMLElement): void {
 		element.querySelectorAll('input, textarea').forEach((input: Element) => {
-			if ((input as HTMLElement).dataset.npcAbilityControl) return;
+			if (
+				(input as HTMLElement).dataset.npcAbilityControl ||
+				(input as HTMLElement).dataset.bossResource
+			)
+				return;
 			input.addEventListener('change', async (ev: Event) => {
 				const target = ev.target as HTMLInputElement | HTMLTextAreaElement;
 				const field = target.name;
@@ -321,6 +355,93 @@ export class ArcanaSheetV2 extends MixedSheet {
 			});
 		});
 		this.#attachNpcAbilityListeners(element);
+		this.#attachBossListeners(element);
+	}
+
+	#renderBossSection(): string {
+		const upgrades = readBossUpgrades(this.#actor());
+		if (upgrades === 0) return '';
+		const tier = bossUpgradeTier(upgrades);
+		const resources = readBossResources(this.#actor());
+		const options = BOSS_REACTION_OPTIONS.map(
+			(option) =>
+				`<button type="button" class="boss-action" data-boss-action="spend-reaction" data-boss-option="${option.id}" data-tooltip="${escapeHtml(option.effect)}">${escapeHtml(option.label)}</button>`,
+		).join('');
+		return `<section class="boss-controls-section">
+			<div class="boss-controls-head"><strong class="boss-controls-title">Jefe</strong><span class="boss-controls-pa">PA ×${tier.paMultiplier}</span></div>
+			${this.#renderBossPool({ key: 'reactions', label: 'Reacciones', current: resources.reactions.current, max: tier.reactions, hint: `1 base + ${upgrades} de jefe`, resetLabel: 'Nueva ronda', resetAction: 'reset-reactions', resetTooltip: 'Restaura las Reacciones al máximo. No toca la Determinación.' })}
+			${this.#renderBossPool({ key: 'determination', label: 'Determinación', current: resources.determination.current, max: tier.determinations, hint: '', resetLabel: 'Nuevo encuentro', resetAction: 'reset-determination', resetTooltip: 'Restaura la Determinación al máximo. No toca las Reacciones.' })}
+			<div class="boss-card boss-actions"><div class="boss-actions-head"><span class="boss-card-label">Reacciones de Jefe</span><small class="boss-actions-cost">Cada opción cuesta ${BOSS_REACTION_COST} Reacción</small></div><div class="boss-actions-row">${options}</div></div>
+		</section>`;
+	}
+
+	#renderBossPool(pool: {
+		key: 'reactions' | 'determination';
+		label: string;
+		current: number;
+		max: number;
+		hint: string;
+		resetLabel: string;
+		resetAction: 'reset-reactions' | 'reset-determination';
+		resetTooltip: string;
+	}): string {
+		const hint = pool.hint ? `<small class="boss-card-hint">${escapeHtml(pool.hint)}</small>` : '';
+		const minusDisabled = pool.current <= 0 ? ' disabled' : '';
+		const plusDisabled = pool.current >= pool.max ? ' disabled' : '';
+		return `<div class="boss-card" data-boss-card="${pool.key}"><div class="boss-card-head"><span class="boss-card-label">${pool.label}</span>${hint}</div><div class="boss-card-body"><div class="boss-stepper"><button type="button" data-boss-action="step" data-boss-key="${pool.key}" data-delta="-1" data-tooltip="Quitar una ${pool.label}" aria-label="Quitar una ${pool.label}"${minusDisabled}>−</button><input type="number" data-boss-resource="${pool.key}" min="0" max="${pool.max}" value="${pool.current}" aria-label="${pool.label} actuales"/><span class="boss-stepper-max" data-boss-display="${pool.key}">/${pool.max}</span><button type="button" data-boss-action="step" data-boss-key="${pool.key}" data-delta="1" data-tooltip="Añadir una ${pool.label}" aria-label="Añadir una ${pool.label}"${plusDisabled}>+</button></div><button type="button" class="boss-reset" data-boss-action="${pool.resetAction}" data-tooltip="${pool.resetTooltip}">${pool.resetLabel}</button></div></div>`;
+	}
+
+	#refreshBossControls(element: HTMLElement): void {
+		const existing = element.querySelector('.boss-controls-section');
+		const html = this.#renderBossSection();
+		if (html && existing) existing.outerHTML = html;
+		else if (html)
+			element.querySelector('.bestiary-controls')?.insertAdjacentHTML('beforeend', html);
+		else existing?.remove();
+		this.#attachBossListeners(element);
+	}
+
+	#attachBossListeners(element: HTMLElement): void {
+		const resources = readBossResources(this.#actor());
+		element.querySelectorAll<HTMLButtonElement>('[data-boss-action="step"]').forEach((button) => {
+			const key = button.dataset.bossKey as 'reactions' | 'determination';
+			const delta = Number(button.dataset.delta);
+			button.disabled =
+				delta < 0 ? resources[key].current <= 0 : resources[key].current >= resources[key].max;
+		});
+		element.querySelectorAll<HTMLInputElement>('[data-boss-resource]').forEach((input) =>
+			input.addEventListener('change', async () => {
+				await this.#setBossResource(
+					input.dataset.bossResource as 'reactions' | 'determination',
+					Number(input.value),
+				);
+			}),
+		);
+		element.querySelectorAll<HTMLElement>('[data-boss-action]').forEach((button) =>
+			button.addEventListener('click', async () => {
+				const action = button.dataset.bossAction;
+				if (action === 'reset-reactions') await resetBossReactions(this.#actor());
+				else if (action === 'reset-determination') await resetBossDetermination(this.#actor());
+				else if (action === 'spend-reaction')
+					await this.#setBossResource(
+						'reactions',
+						readBossResources(this.#actor()).reactions.current - 1,
+					);
+				else if (action === 'step') {
+					const key = button.dataset.bossKey as 'reactions' | 'determination';
+					const delta = Number(button.dataset.delta) || 0;
+					const current = readBossResources(this.#actor())[key].current;
+					await this.#setBossResource(key, current + delta);
+				}
+				this.#refreshBossControls(element);
+			}),
+		);
+	}
+
+	async #setBossResource(key: 'reactions' | 'determination', current: number): Promise<void> {
+		await updateBossResourceCurrent(this.#actor(), key, current);
+		const element = (this as any).element as HTMLElement | undefined;
+		if (element) this.#refreshBossControls(element);
 	}
 
 	/**
@@ -432,25 +553,25 @@ export class ArcanaSheetV2 extends MixedSheet {
 
 	#renderNpcAbilitySection(groups: NpcAbilityUsageGroup[]): string {
 		const groupsHtml = groups.map((group) => this.#renderNpcAbilityGroup(group)).join('');
-		return `<div class="npc-ability-usage-section npc-ability-usage-compact" style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px">${groupsHtml}</div>`;
+		return `<div class="npc-ability-usage-section npc-ability-usage-compact">${groupsHtml}</div>`;
 	}
 
 	#renderNpcAbilityGroup(group: NpcAbilityUsageGroup): string {
 		const abilitiesHtml = group.abilities
 			.map(
 				(ability) => `
-					<div class="npc-ability-row npc-ability-row-compact" data-ability-id="${escapeHtml(ability.id)}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px">
-						<span class="npc-ability-name" style="flex: 1 1 140px">${escapeHtml(ability.name)}</span>
-						<div class="npc-ability-controls-inline" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
-							<button type="button" data-npc-ability-action="use" data-ability-id="${escapeHtml(ability.id)}">Usar</button>
-							<input type="number" data-npc-ability-control="current" data-ability-id="${escapeHtml(ability.id)}" value="${ability.current}" min="0" max="${ability.max}" style="width: 44px; text-align: center" />
-							<span style="font-size: 1.1rem" data-ability-display="${escapeHtml(ability.id)}">/${ability.max}</span>
-							${ability.isRecharge ? `<button type="button" data-npc-ability-action="recharge" data-ability-id="${escapeHtml(ability.id)}">Recarga</button>` : ''}
-						</div>
+					<div class="npc-ability-row npc-ability-row-compact" data-ability-id="${escapeHtml(ability.id)}">
+						<span class="npc-ability-name">${escapeHtml(ability.name)}</span>
+						<button type="button" class="npc-ability-action npc-ability-use" data-npc-ability-action="use" data-ability-id="${escapeHtml(ability.id)}">Usar</button>
+						<span class="npc-ability-counter">
+							<input type="number" class="npc-ability-counter-input" data-npc-ability-control="current" data-ability-id="${escapeHtml(ability.id)}" value="${ability.current}" min="0" max="${ability.max}" />
+							<span class="npc-ability-counter-max" data-ability-display="${escapeHtml(ability.id)}">/${ability.max}</span>
+						</span>
+						${ability.isRecharge ? `<button type="button" class="npc-ability-action npc-ability-recharge" data-npc-ability-action="recharge" data-ability-id="${escapeHtml(ability.id)}">Recarga</button>` : ''}
 					</div>`,
 			)
 			.join('');
-		return `<section style="flex: 1 1 calc((100% - 16px) / 3); min-width: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between" class="npc-ability-group npc-ability-group-compact" data-npc-ability-group="${group.source}"><h4 style="margin: 2px 0; font-size: 1rem">${group.label}</h4>${abilitiesHtml}</section>`;
+		return `<section class="npc-ability-group npc-ability-group-compact" data-npc-ability-group="${group.source}"><h4 class="npc-ability-group-label">${group.label}</h4>${abilitiesHtml}</section>`;
 	}
 
 	#updateNpcAbilityDisplay(abilityId: string, current: number, max: number): void {
@@ -576,6 +697,7 @@ export class ArcanaSheetV2 extends MixedSheet {
 						<div class="form-group"><label>Tamaño de Criatura:</label><select name="creatureSizeCategory" onchange="this.closest('.creature-size-group').querySelector('[data-creature-size-variant]').style.display = this.value === 'inmenso' ? '' : 'none'">${renderCreatureSizeCategoryOptions(currentCreatureCategory)}</select></div>
 						<div class="form-group" data-creature-size-variant style="${isLargeCreatureCategory ? '' : 'display: none'}"><label>Variante:</label><select name="creatureSizeVariant">${renderLargeSizeVariantOptions(currentCreatureSize?.width ?? 3)}</select></div>
 					</div>
+					<div class="form-group"><label>Mejoras de Jefe:</label><input type="number" name="bossUpgrades" min="0" max="3" step="1" value="${readBossUpgrades(this.#actor())}" /></div>
 					<hr>
 					<div class="form-group"><label>Desplazamiento X:</label><input type="range" name="tokenOffsetX" min="-50" max="50" value="${tokenOffsetX}" oninput="this.nextElementSibling.textContent = this.value + '%'" /><span class="token-offset-value">${tokenOffsetX}%</span></div>
 					<div class="form-group"><label>Desplazamiento Y:</label><input type="range" name="tokenOffsetY" min="-50" max="50" value="${tokenOffsetY}" oninput="this.nextElementSibling.textContent = this.value + '%'" /><span class="token-offset-value">${tokenOffsetY}%</span></div>
@@ -600,11 +722,15 @@ export class ArcanaSheetV2 extends MixedSheet {
 							html.find("select[name='creatureSizeCategory']").val() as string,
 							html.find("select[name='creatureSizeVariant']").val() as string,
 						);
+						const newBossUpgrades = normalizeBossUpgrades(
+							html.find("input[name='bossUpgrades']").val(),
+						);
 
 						await this.actor.setFlag('arcana', 'sheetUrl', newUrl.trim());
 						await this.actor.setFlag('arcana', 'tokenOffsetX', newTokenOffsetX);
 						await this.actor.setFlag('arcana', 'tokenOffsetY', newTokenOffsetY);
 						await this.actor.setFlag('arcana', 'tokenBorderColor', newColorId);
+						await this.#actor().setFlag('arcana', 'bossUpgrades', newBossUpgrades);
 						if (newCreatureSize) {
 							// The key is declared in ArcanaFlags; like the NPC ability flags it is
 							// written through the ArcanaActor view because FlagConfig does not list it.

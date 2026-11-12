@@ -55,5 +55,5 @@ creatures:
     interactions: []
     behavior: |
       Una intermediaria feérica de nombres y deudas. Divide las prioridades del grupo, castiga las promesas rotas y abandona el combate si la deuda deja de ser ventajosa.
-    img: null
+    img: https://i.imgur.com/ZV8wnY6.jpeg
     size: Mediano

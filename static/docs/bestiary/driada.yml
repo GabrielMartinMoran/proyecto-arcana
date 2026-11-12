@@ -52,5 +52,5 @@ creatures:
     interactions: []
     behavior: |
       La custodia feérica de un pacto territorial. Protege el árbol, santuario o frontera que se le confió, separa al intruso del lugar y abandona la violencia si el pacto vuelve a respetarse.
-    img: null
+    img: https://i.imgur.com/7d3chkU.jpeg
     size: Mediano

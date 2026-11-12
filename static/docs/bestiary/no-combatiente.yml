@@ -39,5 +39,5 @@ creatures:
         uses: null
         detail: Impulsado por la pura adrenalina, el No Combatiente puede usar su Interacción para realizar la acción de Correr o Esconderse, pero única y exclusivamente si lo hace para alejarse de una fuente de violencia o peligro evidente.
     behavior: Su presencia en un encuentro es puramente circunstancial (daño colateral o rehenes). Ante el primer sonido de espadas desenvainadas, conjuros o monstruos, su única directiva es la supervivencia. Gritará pidiendo auxilio a la guardia, se lanzará cuerpo a tierra, o huirá usando Presa del Pánico para salir de la línea de visión. Solo realizará un ataque de forma desesperada si se encuentra completamente acorralado sin vías de escape, y aun así, su intención será ganar tiempo para huir, no abatir al agresor.
-    img: null
+    img: https://i.imgur.com/fiW5Izy.jpeg
     size: Mediano

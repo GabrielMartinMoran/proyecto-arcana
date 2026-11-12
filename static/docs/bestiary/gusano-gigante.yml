@@ -53,5 +53,5 @@ creatures:
     interactions: []
     behavior: |
       Un peligro de jefe que convierte el suelo en una amenaza. Desaparece bajo el terreno, divide al grupo con la amenaza de su mordida y emerge solo cuando puede aislar una presa.
-    img: null
+    img: https://i.imgur.com/IgE14Gs.jpeg
     size: Inmenso

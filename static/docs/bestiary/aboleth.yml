@@ -60,5 +60,5 @@ creatures:
     interactions: []
     behavior: |
       El arquitecto de una ruina inundada y un depredador mental que prefiere dominar el combate desde lejos. Mantiene la distancia, usa Marea de Recuerdos para dividir la atención y reserva Moldear la Mente para el personaje cuya decisión pueda cambiar el combate. Se acerca solo cuando no tiene otra opción.
-    img: null
+    img: https://i.imgur.com/K7zoG2l.jpeg
     size: Inmenso

@@ -1,4 +1,5 @@
 import { init } from './src/hooks/init';
+import { setupPauseIndicator } from './src/hooks/pause-indicator';
 import { onGetSceneControlButtons } from './src/hooks/render-scene-controls';
 import { renderTokenHUD } from './src/hooks/render-token-hud';
 import { setupDetachedWindow } from './src/hooks/setup-detached-window';
@@ -16,3 +17,4 @@ Hooks.once('ready', setupEscInterceptor);
 
 setupMessageListener();
 setupDetachedWindow();
+setupPauseIndicator();

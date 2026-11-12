@@ -36,5 +36,5 @@ creatures:
     interactions: []
     behavior: |
       Una masa translúcida que limpia corredores de ruinas sin distinguir entre basura y aventureros. Se coloca en rutas inevitables, espera a que alguien cruce su espacio y prioriza aislar a una persona sin bloquear todas las salidas.
-    img: null
+    img: https://i.imgur.com/4mdxpC8.jpeg
     size: Grande

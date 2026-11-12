@@ -244,6 +244,7 @@ describe('useFoundryVTTService', () => {
 			expect(payload.payload.name).toBe('Goblin');
 			expect(payload.payload.hp.value).toBe(8);
 			expect(payload.payload.hp.max).toBe(8);
+			expect(payload.payload.initiative).toBe(3);
 		});
 
 		it('FEAT foundry-actor-speed-synchronization — NPC speed is sent to Foundry', async () => {
@@ -451,6 +452,8 @@ describe('useFoundryVTTService', () => {
 			const character = createTestCharacter();
 			const { syncCharacterState } = useFoundryVTTService();
 			await syncCharacterState(character);
+
+			expect(postMessageSpy.mock.calls[0][0].payload.initiative).toBe(5);
 
 			expect(createCircularToken).toHaveBeenCalledWith('character.png', 256, 8, '#000000', 10, -15);
 		});

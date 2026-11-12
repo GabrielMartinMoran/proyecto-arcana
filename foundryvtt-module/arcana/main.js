@@ -575,6 +575,42 @@ var CONFIG2 = {
   BASE_URL: ""
 };
 
+// src/constants/boss-upgrades.ts
+var BOSS_UPGRADE_MIN = 0;
+var BOSS_UPGRADE_MAX = 3;
+var BOSS_UPGRADE_TIERS = [0, 1, 2, 3].map((upgrades) => ({
+  upgrades,
+  reactions: upgrades + 1,
+  determinations: upgrades,
+  paMultiplier: (4 + upgrades) / 4
+}));
+var BOSS_REACTION_COST = 1;
+var BOSS_REACTION_OPTIONS = [
+  {
+    id: "reposicionarse",
+    label: "Reposicionarse",
+    effect: "Al final del turno de otra criatura, se mueve hasta la mitad de su Velocidad."
+  },
+  {
+    id: "ataque-rapido",
+    label: "Ataque R\xE1pido",
+    effect: "Al final del turno de otra criatura, realiza un ataque sin Recarga. Si es su ataque \xFAnico, inflige la mitad del da\xF1o."
+  },
+  {
+    id: "guardia-reactiva",
+    label: "Guardia Reactiva",
+    effect: "Cuando le atacan, tras conocer el resultado: +2 a la Esquiva contra ese ataque."
+  }
+];
+function normalizeBossUpgrades(value) {
+  const parsed = typeof value === "number" || typeof value === "string" && value.trim() !== "" ? Number(value) : 0;
+  if (!Number.isFinite(parsed)) return BOSS_UPGRADE_MIN;
+  return Math.min(BOSS_UPGRADE_MAX, Math.max(BOSS_UPGRADE_MIN, Math.trunc(parsed)));
+}
+function bossUpgradeTier(value) {
+  return BOSS_UPGRADE_TIERS[normalizeBossUpgrades(value)];
+}
+
 // src/constants/creature-sizes.ts
 var CREATURE_SIZES = [
   { id: "diminuto", label: "Diminuto", width: 0.5, height: 0.5 },
@@ -743,6 +779,66 @@ function getNightVisionSightUpdate(category) {
   };
 }
 
+// src/services/boss-resources.ts
+var BOSS_UPGRADES_FLAG = "bossUpgrades";
+var BOSS_RESOURCES_FLAG = "bossResources";
+function readBossUpgrades(actor) {
+  return normalizeBossUpgrades(actor.getFlag("arcana", BOSS_UPGRADES_FLAG));
+}
+function resolveBossResourceOwner(actor) {
+  const token = actor.token;
+  const linked = Boolean(token?.actorLink || actor.prototypeToken?.actorLink);
+  if (actor.isToken && !linked && hasFlagApi(token)) return token;
+  return actor.baseActor ?? actor;
+}
+function mergeBossResources(stored, upgrades) {
+  const record = isRecord(stored) ? stored : {};
+  const tier = bossUpgradeTier(upgrades);
+  return {
+    reactions: mergeCounter(record.reactions, tier.reactions),
+    determination: mergeCounter(record.determination, tier.determinations)
+  };
+}
+function readBossResources(actor) {
+  const owner = resolveBossResourceOwner(actor);
+  return mergeBossResources(owner.getFlag("arcana", BOSS_RESOURCES_FLAG), readBossUpgrades(actor));
+}
+async function updateBossResourceCurrent(actor, key, value) {
+  const owner = resolveBossResourceOwner(actor);
+  const resources = mergeBossResources(
+    owner.getFlag("arcana", BOSS_RESOURCES_FLAG),
+    readBossUpgrades(actor)
+  );
+  resources[key].current = clamp(value, resources[key].max);
+  await owner.setFlag("arcana", BOSS_RESOURCES_FLAG, resources);
+  return resources;
+}
+async function resetBossReactions(actor) {
+  return resetResource(actor, "reactions");
+}
+async function resetBossDetermination(actor) {
+  return resetResource(actor, "determination");
+}
+async function resetResource(actor, key) {
+  const resources = readBossResources(actor);
+  return updateBossResourceCurrent(actor, key, resources[key].max);
+}
+function mergeCounter(value, max) {
+  const current = isRecord(value) && typeof value.current === "number" ? value.current : max;
+  return { current: clamp(current, max), max };
+}
+function clamp(value, max) {
+  return Math.min(max, Math.max(0, Number.isFinite(value) ? Math.trunc(value) : 0));
+}
+function isRecord(value) {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value));
+}
+function hasFlagApi(value) {
+  return Boolean(
+    value && typeof value.getFlag === "function" && typeof value.setFlag === "function"
+  );
+}
+
 // src/services/npc-ability-usage.ts
 var USAGE_FLAG = "npcAbilityUsage";
 var GROUPS = [
@@ -754,7 +850,7 @@ var GROUPS = [
 function resolveNpcAbilityUsageOwner(actor) {
   const tokenDocument = actor.token;
   const isLinkedToken = Boolean(tokenDocument?.actorLink || actor.prototypeToken?.actorLink);
-  if (actor.isToken && !isLinkedToken && hasFlagApi(tokenDocument)) {
+  if (actor.isToken && !isLinkedToken && hasFlagApi2(tokenDocument)) {
     return tokenDocument;
   }
   return actor.baseActor ?? actor;
@@ -833,7 +929,7 @@ async function sendRechargeRollMessage(actor, definition, roll, success) {
     speaker: ChatMessage.getSpeaker({ actor })
   });
 }
-function hasFlagApi(value) {
+function hasFlagApi2(value) {
   return Boolean(
     value && typeof value.getFlag === "function" && typeof value.setFlag === "function"
   );
@@ -985,6 +1081,8 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
       tokenOffsetY
     });
     const npcAbilityGroups = urlResult.isBestiary ? this.#getNpcAbilityGroups() : [];
+    const bossUpgrades = readBossUpgrades(this.#actor());
+    const bossResources = readBossResources(this.#actor());
     return {
       ...context,
       actor: this.actor,
@@ -993,7 +1091,13 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
       localNotes: urlResult.localNotes,
       health: urlResult.health,
       npcAbilityGroups,
-      hasNpcAbilityUsage: npcAbilityGroups.length > 0
+      hasNpcAbilityUsage: npcAbilityGroups.length > 0,
+      bossUpgrades,
+      hasBossUpgrades: urlResult.isBestiary && bossUpgrades > 0,
+      bossTier: bossUpgradeTier(bossUpgrades),
+      bossResources,
+      bossReactionOptions: BOSS_REACTION_OPTIONS,
+      bossReactionCost: BOSS_REACTION_COST
     };
   }
   /**
@@ -1031,6 +1135,7 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
     if (existingIframe && !options?.forceReload && !isWindowTransition) {
       if (element) {
         this.#refreshNpcAbilityControls(element);
+        this.#refreshBossControls(element);
         this.#refreshHealthInputs(element);
       }
       const titleEl = element?.querySelector(".window-title");
@@ -1123,7 +1228,8 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
    */
   #attachBestiaryListeners(element) {
     element.querySelectorAll("input, textarea").forEach((input) => {
-      if (input.dataset.npcAbilityControl) return;
+      if (input.dataset.npcAbilityControl || input.dataset.bossResource)
+        return;
       input.addEventListener("change", async (ev) => {
         const target = ev.target;
         const field = target.name;
@@ -1133,6 +1239,77 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
       });
     });
     this.#attachNpcAbilityListeners(element);
+    this.#attachBossListeners(element);
+  }
+  #renderBossSection() {
+    const upgrades = readBossUpgrades(this.#actor());
+    if (upgrades === 0) return "";
+    const tier = bossUpgradeTier(upgrades);
+    const resources = readBossResources(this.#actor());
+    const options = BOSS_REACTION_OPTIONS.map(
+      (option) => `<button type="button" class="boss-action" data-boss-action="spend-reaction" data-boss-option="${option.id}" data-tooltip="${escapeHtml(option.effect)}">${escapeHtml(option.label)}</button>`
+    ).join("");
+    return `<section class="boss-controls-section">
+			<div class="boss-controls-head"><strong class="boss-controls-title">Jefe</strong><span class="boss-controls-pa">PA \xD7${tier.paMultiplier}</span></div>
+			${this.#renderBossPool({ key: "reactions", label: "Reacciones", current: resources.reactions.current, max: tier.reactions, hint: `1 base + ${upgrades} de jefe`, resetLabel: "Nueva ronda", resetAction: "reset-reactions", resetTooltip: "Restaura las Reacciones al m\xE1ximo. No toca la Determinaci\xF3n." })}
+			${this.#renderBossPool({ key: "determination", label: "Determinaci\xF3n", current: resources.determination.current, max: tier.determinations, hint: "", resetLabel: "Nuevo encuentro", resetAction: "reset-determination", resetTooltip: "Restaura la Determinaci\xF3n al m\xE1ximo. No toca las Reacciones." })}
+			<div class="boss-card boss-actions"><div class="boss-actions-head"><span class="boss-card-label">Reacciones de Jefe</span><small class="boss-actions-cost">Cada opci\xF3n cuesta ${BOSS_REACTION_COST} Reacci\xF3n</small></div><div class="boss-actions-row">${options}</div></div>
+		</section>`;
+  }
+  #renderBossPool(pool) {
+    const hint = pool.hint ? `<small class="boss-card-hint">${escapeHtml(pool.hint)}</small>` : "";
+    const minusDisabled = pool.current <= 0 ? " disabled" : "";
+    const plusDisabled = pool.current >= pool.max ? " disabled" : "";
+    return `<div class="boss-card" data-boss-card="${pool.key}"><div class="boss-card-head"><span class="boss-card-label">${pool.label}</span>${hint}</div><div class="boss-card-body"><div class="boss-stepper"><button type="button" data-boss-action="step" data-boss-key="${pool.key}" data-delta="-1" data-tooltip="Quitar una ${pool.label}" aria-label="Quitar una ${pool.label}"${minusDisabled}>\u2212</button><input type="number" data-boss-resource="${pool.key}" min="0" max="${pool.max}" value="${pool.current}" aria-label="${pool.label} actuales"/><span class="boss-stepper-max" data-boss-display="${pool.key}">/${pool.max}</span><button type="button" data-boss-action="step" data-boss-key="${pool.key}" data-delta="1" data-tooltip="A\xF1adir una ${pool.label}" aria-label="A\xF1adir una ${pool.label}"${plusDisabled}>+</button></div><button type="button" class="boss-reset" data-boss-action="${pool.resetAction}" data-tooltip="${pool.resetTooltip}">${pool.resetLabel}</button></div></div>`;
+  }
+  #refreshBossControls(element) {
+    const existing = element.querySelector(".boss-controls-section");
+    const html = this.#renderBossSection();
+    if (html && existing) existing.outerHTML = html;
+    else if (html)
+      element.querySelector(".bestiary-controls")?.insertAdjacentHTML("beforeend", html);
+    else existing?.remove();
+    this.#attachBossListeners(element);
+  }
+  #attachBossListeners(element) {
+    const resources = readBossResources(this.#actor());
+    element.querySelectorAll('[data-boss-action="step"]').forEach((button) => {
+      const key = button.dataset.bossKey;
+      const delta = Number(button.dataset.delta);
+      button.disabled = delta < 0 ? resources[key].current <= 0 : resources[key].current >= resources[key].max;
+    });
+    element.querySelectorAll("[data-boss-resource]").forEach(
+      (input) => input.addEventListener("change", async () => {
+        await this.#setBossResource(
+          input.dataset.bossResource,
+          Number(input.value)
+        );
+      })
+    );
+    element.querySelectorAll("[data-boss-action]").forEach(
+      (button) => button.addEventListener("click", async () => {
+        const action = button.dataset.bossAction;
+        if (action === "reset-reactions") await resetBossReactions(this.#actor());
+        else if (action === "reset-determination") await resetBossDetermination(this.#actor());
+        else if (action === "spend-reaction")
+          await this.#setBossResource(
+            "reactions",
+            readBossResources(this.#actor()).reactions.current - 1
+          );
+        else if (action === "step") {
+          const key = button.dataset.bossKey;
+          const delta = Number(button.dataset.delta) || 0;
+          const current = readBossResources(this.#actor())[key].current;
+          await this.#setBossResource(key, current + delta);
+        }
+        this.#refreshBossControls(element);
+      })
+    );
+  }
+  async #setBossResource(key, current) {
+    await updateBossResourceCurrent(this.#actor(), key, current);
+    const element = this.element;
+    if (element) this.#refreshBossControls(element);
   }
   /**
    * Normalize bestiary input values before persisting them.
@@ -1231,22 +1408,22 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
   }
   #renderNpcAbilitySection(groups) {
     const groupsHtml = groups.map((group) => this.#renderNpcAbilityGroup(group)).join("");
-    return `<div class="npc-ability-usage-section npc-ability-usage-compact" style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px">${groupsHtml}</div>`;
+    return `<div class="npc-ability-usage-section npc-ability-usage-compact">${groupsHtml}</div>`;
   }
   #renderNpcAbilityGroup(group) {
     const abilitiesHtml = group.abilities.map(
       (ability) => `
-					<div class="npc-ability-row npc-ability-row-compact" data-ability-id="${escapeHtml(ability.id)}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px">
-						<span class="npc-ability-name" style="flex: 1 1 140px">${escapeHtml(ability.name)}</span>
-						<div class="npc-ability-controls-inline" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px">
-							<button type="button" data-npc-ability-action="use" data-ability-id="${escapeHtml(ability.id)}">Usar</button>
-							<input type="number" data-npc-ability-control="current" data-ability-id="${escapeHtml(ability.id)}" value="${ability.current}" min="0" max="${ability.max}" style="width: 44px; text-align: center" />
-							<span style="font-size: 1.1rem" data-ability-display="${escapeHtml(ability.id)}">/${ability.max}</span>
-							${ability.isRecharge ? `<button type="button" data-npc-ability-action="recharge" data-ability-id="${escapeHtml(ability.id)}">Recarga</button>` : ""}
-						</div>
+					<div class="npc-ability-row npc-ability-row-compact" data-ability-id="${escapeHtml(ability.id)}">
+						<span class="npc-ability-name">${escapeHtml(ability.name)}</span>
+						<button type="button" class="npc-ability-action npc-ability-use" data-npc-ability-action="use" data-ability-id="${escapeHtml(ability.id)}">Usar</button>
+						<span class="npc-ability-counter">
+							<input type="number" class="npc-ability-counter-input" data-npc-ability-control="current" data-ability-id="${escapeHtml(ability.id)}" value="${ability.current}" min="0" max="${ability.max}" />
+							<span class="npc-ability-counter-max" data-ability-display="${escapeHtml(ability.id)}">/${ability.max}</span>
+						</span>
+						${ability.isRecharge ? `<button type="button" class="npc-ability-action npc-ability-recharge" data-npc-ability-action="recharge" data-ability-id="${escapeHtml(ability.id)}">Recarga</button>` : ""}
 					</div>`
     ).join("");
-    return `<section style="flex: 1 1 calc((100% - 16px) / 3); min-width: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between" class="npc-ability-group npc-ability-group-compact" data-npc-ability-group="${group.source}"><h4 style="margin: 2px 0; font-size: 1rem">${group.label}</h4>${abilitiesHtml}</section>`;
+    return `<section class="npc-ability-group npc-ability-group-compact" data-npc-ability-group="${group.source}"><h4 class="npc-ability-group-label">${group.label}</h4>${abilitiesHtml}</section>`;
   }
   #updateNpcAbilityDisplay(abilityId, current, max) {
     const element = this.element;
@@ -1352,6 +1529,7 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
 						<div class="form-group"><label>Tama\xF1o de Criatura:</label><select name="creatureSizeCategory" onchange="this.closest('.creature-size-group').querySelector('[data-creature-size-variant]').style.display = this.value === 'inmenso' ? '' : 'none'">${renderCreatureSizeCategoryOptions(currentCreatureCategory)}</select></div>
 						<div class="form-group" data-creature-size-variant style="${isLargeCreatureCategory ? "" : "display: none"}"><label>Variante:</label><select name="creatureSizeVariant">${renderLargeSizeVariantOptions(currentCreatureSize?.width ?? 3)}</select></div>
 					</div>
+					<div class="form-group"><label>Mejoras de Jefe:</label><input type="number" name="bossUpgrades" min="0" max="3" step="1" value="${readBossUpgrades(this.#actor())}" /></div>
 					<hr>
 					<div class="form-group"><label>Desplazamiento X:</label><input type="range" name="tokenOffsetX" min="-50" max="50" value="${tokenOffsetX}" oninput="this.nextElementSibling.textContent = this.value + '%'" /><span class="token-offset-value">${tokenOffsetX}%</span></div>
 					<div class="form-group"><label>Desplazamiento Y:</label><input type="range" name="tokenOffsetY" min="-50" max="50" value="${tokenOffsetY}" oninput="this.nextElementSibling.textContent = this.value + '%'" /><span class="token-offset-value">${tokenOffsetY}%</span></div>
@@ -1376,10 +1554,14 @@ var ArcanaSheetV2 = class _ArcanaSheetV2 extends MixedSheet {
               html.find("select[name='creatureSizeCategory']").val(),
               html.find("select[name='creatureSizeVariant']").val()
             );
+            const newBossUpgrades = normalizeBossUpgrades(
+              html.find("input[name='bossUpgrades']").val()
+            );
             await this.actor.setFlag("arcana", "sheetUrl", newUrl.trim());
             await this.actor.setFlag("arcana", "tokenOffsetX", newTokenOffsetX);
             await this.actor.setFlag("arcana", "tokenOffsetY", newTokenOffsetY);
             await this.actor.setFlag("arcana", "tokenBorderColor", newColorId);
+            await this.#actor().setFlag("arcana", "bossUpgrades", newBossUpgrades);
             if (newCreatureSize) {
               await this.#actor().setFlag("arcana", "creatureSize", newCreatureSize.id);
             }
@@ -1530,6 +1712,81 @@ function init() {
     types: ["character", "npc"]
   });
   registerChaosPointsSetting();
+}
+
+// src/hooks/pause-indicator.ts
+var PAUSE_STYLES_ID = "arcana-pause-styles";
+var PAUSE_GLYPH = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='5' y='4' width='4.5' height='16' rx='1.6'/%3E%3Crect x='14.5' y='4' width='4.5' height='16' rx='1.6'/%3E%3C/svg%3E")`;
+var PAUSE_STYLES_CSS = `
+#pause {
+	--arcana-pause-glyph: ${PAUSE_GLYPH};
+	top: auto;
+	left: 50%;
+	right: auto;
+	bottom: 108px;
+	transform: translateX(-50%);
+	flex-direction: row;
+	width: fit-content;
+	height: auto;
+	min-width: 0;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 12px;
+	border: 1px solid rgba(255, 255, 255, .14);
+	border-radius: 4px;
+	background: rgba(0, 0, 0, .55);
+	box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+	color: #e8e4d8;
+	text-shadow: none;
+	pointer-events: none;
+	z-index: 100;
+}
+
+#pause.paused {
+	animation: none;
+}
+
+#pause::before {
+	content: "";
+	flex: none;
+	width: 11px;
+	height: 13px;
+	background: currentColor;
+	-webkit-mask: var(--arcana-pause-glyph) center / contain no-repeat;
+	mask: var(--arcana-pause-glyph) center / contain no-repeat;
+}
+
+#pause img {
+	display: none;
+}
+
+#pause figcaption {
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: inherit;
+	white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#pause.paused {
+		animation: none;
+	}
+}
+`;
+function ensurePauseStyles(doc = document) {
+  if (!doc?.head || doc.getElementById(PAUSE_STYLES_ID)) return;
+  const style = doc.createElement("style");
+  style.id = PAUSE_STYLES_ID;
+  style.textContent = PAUSE_STYLES_CSS;
+  doc.head.append(style);
+}
+function setupPauseIndicator(doc = document) {
+  ensurePauseStyles(doc);
 }
 
 // src/apps/gm-chaos-points.ts
@@ -2262,4 +2519,5 @@ Hooks.on("getSceneControlButtons", onGetSceneControlButtons);
 Hooks.once("ready", setupEscInterceptor);
 setupMessageListener();
 setupDetachedWindow();
+setupPauseIndicator();
 //# sourceMappingURL=main.js.map

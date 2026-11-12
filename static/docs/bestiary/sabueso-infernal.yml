@@ -50,5 +50,5 @@ creatures:
     interactions: []
     behavior: |
       Un cazador infernal que solo busca su mejor rendimiento dentro de una jauría. Rodea a la presa junto a otros sabuesos, reserva el soplo para grupos concentrados y abandona el territorio si pierde la ventaja numérica.
-    img: null
+    img: https://i.imgur.com/8H204P2.jpeg
     size: Mediano

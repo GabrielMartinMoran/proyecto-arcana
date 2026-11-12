@@ -5,6 +5,7 @@ import type { Creature } from '$lib/types/creature';
 import type { DiceRoll } from '$lib/types/dice-roll';
 import type { NpcAbilityDefinition } from '$lib/utils/foundry-npc-abilities';
 import { buildNpcAbilityDefinitions } from '$lib/utils/foundry-npc-abilities';
+import { calculateCreatureInitiative } from '$lib/utils/creature-initiative';
 import { createCircularToken } from '$lib/utils/token-cutter';
 import { derived, get } from 'svelte/store';
 
@@ -301,6 +302,7 @@ export const useFoundryVTTService = () => {
 
 		const state: CharacterState = {
 			name: creature.name,
+			initiative: calculateCreatureInitiative(creature),
 			imageUrl: imageUrl,
 			imageSource: creature.img ?? undefined,
 			speed: creature.stats.speed.value,

@@ -14,121 +14,578 @@
 		class="bestiary-controls"
 		style="padding: 5px 8px; border-bottom: 2px groove #444; flex: 0 0 auto"
 	>
-		<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px">
-			<div style="display: flex; align-items: center; gap: 3px" title="Vida Local del Token">
-				<i class="fas fa-heart" style="color: #ff4444; text-shadow: 1px 1px 2px black"></i>
+		<div class="token-health-row">
+			<div class="token-health" title="Vida Local del Token">
+				<i class="fas fa-heart token-health-icon"></i>
 				<input
 					type="number"
+					class="token-health-input"
 					name="system.health.value"
 					value="{{health.value}}"
 					placeholder="Cur"
-					style="width: 50px; text-align: center; height: 24px"
 				/>
-				<span style="font-weight: bold; opacity: 0.7">/</span>
+				<span class="token-health-sep">/</span>
 				<input
 					type="number"
+					class="token-health-input"
 					name="system.health.max"
 					value="{{health.max}}"
 					placeholder="Max"
-					style="width: 50px; text-align: center; height: 24px"
 				/>
-				<span title="Vida Temporal" style="text-shadow: 1px 1px 2px black">🖤</span>
+				<span class="token-health-temp-icon" title="Vida Temporal">🖤</span>
 				<input
 					type="number"
+					class="token-health-input"
 					name="system.health.temp"
 					value="{{health.temp}}"
 					placeholder="Temp"
 					min="0"
 					title="Vida Temporal"
-					style="width: 50px; text-align: center; height: 24px"
 				/>
 			</div>
 
-			<div
-				style="
-					flex-grow: 1;
-					text-align: center;
-					font-weight: bold;
-					font-family: var(--font-primary);
-					opacity: 0.8;
-					text-transform: uppercase;
-					font-size: 0.8em;
-				"
-			>
-				Estado del Token
-			</div>
+			<div class="token-health-label">Estado del Token</div>
 		</div>
 
-		<div style="display: flex; gap: 5px; align-items: flex-start">
-			<i
-				class="fas fa-sticky-note"
-				style="color: #ebc857; margin-top: 5px; text-shadow: 1px 1px 2px black"
-				title="Notas Locales"
-			></i>
+		<div class="combat-notes">
+			<i class="fas fa-sticky-note combat-notes-icon" title="Notas Locales"></i>
 			<textarea
+				class="combat-notes-input"
 				name="flags.arcana.localNotes"
 				rows="2"
 				placeholder="Notas de combate (Estados, Loot, etc)..."
-				style="flex-grow: 1; resize: vertical; min-height: 30px; font-size: 0.9em; padding: 4px"
 			>
 {{localNotes}}</textarea
 			>
 		</div>
 
+		<style>
+			.bestiary-controls {
+				--arcana-control-h: 24px;
+				--arcana-radius: 6px;
+				--arcana-border: 1px solid rgba(255, 255, 255, 0.14);
+				--arcana-surface: rgba(255, 255, 255, 0.05);
+				--arcana-surface-hover: rgba(255, 255, 255, 0.12);
+				--arcana-muted: rgba(255, 255, 255, 0.6);
+				--arcana-gap: 8px;
+				--arcana-font-sm: 0.75rem;
+				--arcana-font-xs: 0.68rem;
+			}
+			.bestiary-controls button,
+			.bestiary-controls input[type='number'],
+			.bestiary-controls textarea {
+				box-sizing: border-box;
+				font: inherit;
+				color: inherit;
+			}
+			.bestiary-controls button {
+				min-height: var(--arcana-control-h);
+				padding: 2px 9px;
+				border: var(--arcana-border);
+				border-radius: var(--arcana-radius);
+				background: var(--arcana-surface);
+				font-size: var(--arcana-font-sm);
+				line-height: 1;
+				cursor: pointer;
+				transition:
+					background 0.15s ease,
+					border-color 0.15s ease,
+					transform 0.1s ease;
+			}
+			.bestiary-controls button:hover {
+				background: var(--arcana-surface-hover);
+			}
+			.bestiary-controls button:active {
+				transform: translateY(1px);
+			}
+			.bestiary-controls button:focus-visible {
+				outline: 2px solid rgba(255, 255, 255, 0.6);
+				outline-offset: 1px;
+			}
+			.bestiary-controls button:disabled {
+				opacity: 0.4;
+				cursor: not-allowed;
+			}
+			.bestiary-controls input[type='number'] {
+				height: var(--arcana-control-h);
+				padding: 0 4px;
+				border: var(--arcana-border);
+				border-radius: var(--arcana-radius);
+				background: rgba(0, 0, 0, 0.18);
+				font-size: var(--arcana-font-sm);
+				text-align: center;
+			}
+			.bestiary-controls .token-health-row {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 5px;
+			}
+			.bestiary-controls .token-health {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+			.bestiary-controls .token-health-icon {
+				color: #ff4444;
+				text-shadow: 1px 1px 2px black;
+			}
+			.bestiary-controls .token-health-input {
+				width: 46px;
+				font-weight: 700;
+			}
+			.bestiary-controls .token-health-sep {
+				font-weight: 700;
+				opacity: 0.7;
+			}
+			.bestiary-controls .token-health-temp-icon {
+				text-shadow: 1px 1px 2px black;
+			}
+			.bestiary-controls .token-health-label {
+				flex: 1;
+				text-align: center;
+				font-weight: bold;
+				font-family: var(--font-primary);
+				opacity: 0.65;
+				text-transform: uppercase;
+				font-size: var(--arcana-font-xs);
+				letter-spacing: 0.12em;
+			}
+			.bestiary-controls .combat-notes {
+				display: flex;
+				align-items: flex-start;
+				gap: 6px;
+			}
+			.bestiary-controls .combat-notes-icon {
+				color: #ebc857;
+				margin-top: 5px;
+				text-shadow: 1px 1px 2px black;
+			}
+			.bestiary-controls .combat-notes-input {
+				flex: 1;
+				min-height: 34px;
+				padding: 6px 8px;
+				border: var(--arcana-border);
+				border-radius: var(--arcana-radius);
+				background: rgba(0, 0, 0, 0.18);
+				font-size: 0.82rem;
+				resize: vertical;
+			}
+			.bestiary-controls .combat-notes-input:focus {
+				border-color: rgba(255, 255, 255, 0.4);
+				outline: none;
+			}
+			.bestiary-controls .npc-ability-usage-section {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 10px;
+				margin-top: 8px;
+			}
+			.bestiary-controls .npc-ability-group {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+				min-width: 0;
+				box-sizing: border-box;
+			}
+			.bestiary-controls .npc-ability-group-label {
+				margin: 0;
+				padding-bottom: 3px;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+				font-size: var(--arcana-font-xs);
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				opacity: 0.78;
+			}
+			.bestiary-controls .npc-ability-row {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto auto auto;
+				align-items: center;
+				gap: 6px;
+				padding: 2px 0;
+			}
+			.bestiary-controls .npc-ability-name {
+				font-size: 0.8rem;
+				min-width: 0;
+			}
+			.bestiary-controls .npc-ability-counter {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				height: var(--arcana-control-h);
+				padding: 0 5px;
+				border: var(--arcana-border);
+				border-radius: var(--arcana-radius);
+				background: rgba(0, 0, 0, 0.18);
+			}
+			.bestiary-controls .npc-ability-counter input {
+				width: 2ch;
+				height: 100%;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+				background: transparent;
+				text-align: right;
+				font-size: var(--arcana-font-sm);
+				font-weight: 700;
+				font-variant-numeric: tabular-nums;
+				appearance: textfield;
+				-moz-appearance: textfield;
+			}
+			.bestiary-controls .npc-ability-counter input::-webkit-inner-spin-button,
+			.bestiary-controls .npc-ability-counter input::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			/* Fallback for browsers without field-sizing: the value input reserves
+			   two digit slots and hugs its right edge, so the unused slot falls
+			   before the number, and the suffix carries the same space on the
+			   other side. The pair only stays centred while both use one digit. */
+			.bestiary-controls .npc-ability-counter-max {
+				margin-right: 1ch;
+				font-size: var(--arcana-font-sm);
+				font-weight: 700;
+				opacity: 0.7;
+			}
+			.bestiary-controls .npc-ability-action {
+				min-height: var(--arcana-control-h);
+			}
+			.bestiary-controls .npc-ability-use {
+				background: rgba(255, 255, 255, 0.1);
+			}
+			.bestiary-controls .npc-ability-recharge {
+				font-size: 0.72rem;
+			}
+			.boss-controls-section {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				align-items: stretch;
+				margin-top: 8px;
+			}
+			.boss-controls-section .boss-controls-head {
+				flex: 1 1 100%;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.boss-controls-section .boss-controls-title {
+				font-size: 0.82rem;
+			}
+			.boss-controls-section .boss-controls-pa {
+				padding: 2px 7px;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.1);
+				font-size: 0.72rem;
+				font-weight: 700;
+			}
+			.boss-controls-section .boss-card {
+				flex: 1 1 260px;
+				min-width: 240px;
+				box-sizing: border-box;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 8px;
+				background: rgba(255, 255, 255, 0.035);
+				padding: 6px 10px 8px;
+			}
+			.boss-controls-section .boss-card-head,
+			.boss-controls-section .boss-actions-head {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 8px;
+				margin-bottom: 6px;
+			}
+			.boss-controls-section .boss-card-label {
+				text-transform: uppercase;
+				font-size: 0.68rem;
+				letter-spacing: 0.08em;
+				opacity: 0.78;
+			}
+			.boss-controls-section .boss-card-hint,
+			.boss-controls-section .boss-actions-cost {
+				font-size: 0.66rem;
+				opacity: 0.55;
+			}
+			.boss-controls-section .boss-card-body {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 8px;
+			}
+			.boss-controls-section .boss-stepper {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				height: 24px;
+				border: var(--arcana-border);
+				border-radius: var(--arcana-radius);
+				background: rgba(0, 0, 0, 0.18);
+				overflow: hidden;
+			}
+			.boss-controls-section .boss-stepper button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 22px;
+				height: 100%;
+				min-height: 0;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+				background: transparent;
+				font-weight: 700;
+			}
+			.boss-controls-section .boss-stepper button:hover {
+				background: rgba(255, 255, 255, 0.14);
+			}
+			.boss-controls-section .boss-stepper input {
+				width: 2ch;
+				height: 100%;
+				padding: 0;
+				border: 0;
+				border-radius: 0;
+				background: transparent;
+				text-align: right;
+				font-size: 0.95rem;
+				font-weight: 700;
+				font-variant-numeric: tabular-nums;
+			}
+			.boss-controls-section .boss-stepper input::-webkit-inner-spin-button,
+			.boss-controls-section .boss-stepper input::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			.boss-controls-section .boss-stepper input {
+				appearance: textfield;
+				-moz-appearance: textfield;
+			}
+			.boss-controls-section .boss-stepper-max {
+				padding: 0;
+				/* Fallback balance, same as the ability counter: the input's unused digit slot. */
+				margin-right: 1ch;
+				font-size: 0.95rem;
+				font-weight: 700;
+				opacity: 0.7;
+			}
+			.boss-controls-section .boss-reset {
+				padding: 3px 8px;
+				font-size: 0.7rem;
+				opacity: 0.78;
+			}
+			.boss-controls-section .boss-actions {
+				flex: 1 1 100%;
+			}
+			.boss-controls-section .boss-actions-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 6px;
+			}
+			.boss-controls-section .boss-action {
+				padding: 4px 10px;
+				border: 1px solid rgba(255, 255, 255, 0.16);
+				border-radius: 6px;
+				background: rgba(255, 255, 255, 0.06);
+				font-size: 0.78rem;
+				transition:
+					background 0.15s ease,
+					transform 0.15s ease;
+			}
+			.boss-controls-section .boss-action:hover {
+				background: rgba(255, 255, 255, 0.14);
+			}
+			.boss-controls-section button:active {
+				transform: translateY(1px);
+			}
+			.boss-controls-section button:focus-visible {
+				outline: 2px solid rgba(255, 255, 255, 0.8);
+				outline-offset: 2px;
+			}
+			.boss-controls-section button:disabled {
+				opacity: 0.4;
+				cursor: not-allowed;
+			}
+			/* Progressive enhancement over the fixed-slot rules above: with
+			   field-sizing the value input shrinks to its own digits, so the pair
+			   centres the same with one or two digits and the suffix needs no
+			   balancing slot. Browsers without support keep the fallback. */
+			@supports (field-sizing: content) {
+				.bestiary-controls .npc-ability-counter input,
+				.boss-controls-section .boss-stepper input {
+					field-sizing: content;
+					width: auto;
+					min-width: 1ch;
+					max-width: 3ch;
+				}
+				.bestiary-controls .npc-ability-counter-max,
+				.boss-controls-section .boss-stepper-max {
+					margin-right: 0;
+				}
+			}
+		</style>
+
 		{{#if hasNpcAbilityUsage}}
-		<div
-			class="npc-ability-usage-section npc-ability-usage-compact"
-			style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px"
-		>
+		<div class="npc-ability-usage-section npc-ability-usage-compact">
 			{{#each npcAbilityGroups}}
 			<section
-				style="
-					flex: 1 1 calc((100% - 16px) / 3);
-					min-width: 220px;
-					box-sizing: border-box;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-				"
 				class="npc-ability-group npc-ability-group-compact"
 				data-npc-ability-group="{{source}}"
 			>
-				<h4 style="margin: 2px 0; font-size: 1rem">{{label}}</h4>
+				<h4 class="npc-ability-group-label">{{label}}</h4>
 				{{#each abilities}}
-				<div
-					class="npc-ability-row npc-ability-row-compact"
-					data-ability-id="{{id}}"
-					style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px"
-				>
-					<span class="npc-ability-name" style="flex: 1 1 140px">{{name}}</span>
-					<div
-						class="npc-ability-controls-inline"
-						style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px"
+				<div class="npc-ability-row npc-ability-row-compact" data-ability-id="{{id}}">
+					<span class="npc-ability-name">{{name}}</span>
+					<button
+						type="button"
+						class="npc-ability-action npc-ability-use"
+						data-npc-ability-action="use"
+						data-ability-id="{{id}}"
 					>
-						<button type="button" data-npc-ability-action="use" data-ability-id="{{id}}">
-							Usar
-						</button>
+						Usar
+					</button>
+					<span class="npc-ability-counter">
 						<input
 							type="number"
+							class="npc-ability-counter-input"
 							data-npc-ability-control="current"
 							data-ability-id="{{id}}"
 							value="{{current}}"
 							min="0"
 							max="{{max}}"
-							style="width: 44px; text-align: center"
 						/>
-						<span style="font-size: 1.1rem" data-ability-display="{{id}}">/{{max}}</span>
-						{{#if isRecharge}}
-						<button type="button" data-npc-ability-action="recharge" data-ability-id="{{id}}">
-							Recarga
-						</button>
-						{{/if}}
-					</div>
+						<span class="npc-ability-counter-max" data-ability-display="{{id}}">/{{max}}</span>
+					</span>
+					{{#if isRecharge}}
+					<button
+						type="button"
+						class="npc-ability-action npc-ability-recharge"
+						data-npc-ability-action="recharge"
+						data-ability-id="{{id}}"
+					>
+						Recarga
+					</button>
+					{{/if}}
 				</div>
 				{{/each}}
 			</section>
 			{{/each}}
 		</div>
+
+		{{/if}} {{#if hasBossUpgrades}}
+		<section class="boss-controls-section">
+			<div class="boss-controls-head">
+				<strong class="boss-controls-title">Jefe</strong
+				><span class="boss-controls-pa">PA ×{{bossTier.paMultiplier}}</span>
+			</div>
+			<div class="boss-card" data-boss-card="reactions">
+				<div class="boss-card-head">
+					<span class="boss-card-label">Reacciones</span
+					><small class="boss-card-hint">1 base + {{bossUpgrades}} de jefe</small>
+				</div>
+				<div class="boss-card-body">
+					<div class="boss-stepper">
+						<button
+							type="button"
+							data-boss-action="step"
+							data-boss-key="reactions"
+							data-delta="-1"
+							data-tooltip="Quitar una Reacción"
+							aria-label="Quitar una Reacción"
+						>
+							−</button
+						><input
+							type="number"
+							data-boss-resource="reactions"
+							min="0"
+							max="{{bossTier.reactions}}"
+							value="{{bossResources.reactions.current}}"
+							aria-label="Reacciones actuales"
+						/><span class="boss-stepper-max" data-boss-display="reactions"
+							>/{{bossTier.reactions}}</span
+						><button
+							type="button"
+							data-boss-action="step"
+							data-boss-key="reactions"
+							data-delta="1"
+							data-tooltip="Añadir una Reacción"
+							aria-label="Añadir una Reacción"
+						>
+							+
+						</button>
+					</div>
+					<button
+						type="button"
+						class="boss-reset"
+						data-boss-action="reset-reactions"
+						data-tooltip="Restaura las Reacciones al máximo. No toca la Determinación."
+					>
+						Nueva ronda
+					</button>
+				</div>
+			</div>
+			<div class="boss-card" data-boss-card="determination">
+				<div class="boss-card-head"><span class="boss-card-label">Determinación</span></div>
+				<div class="boss-card-body">
+					<div class="boss-stepper">
+						<button
+							type="button"
+							data-boss-action="step"
+							data-boss-key="determination"
+							data-delta="-1"
+							data-tooltip="Quitar una Determinación"
+							aria-label="Quitar una Determinación"
+						>
+							−</button
+						><input
+							type="number"
+							data-boss-resource="determination"
+							min="0"
+							max="{{bossTier.determinations}}"
+							value="{{bossResources.determination.current}}"
+							aria-label="Determinación actuales"
+						/><span class="boss-stepper-max" data-boss-display="determination"
+							>/{{bossTier.determinations}}</span
+						><button
+							type="button"
+							data-boss-action="step"
+							data-boss-key="determination"
+							data-delta="1"
+							data-tooltip="Añadir una Determinación"
+							aria-label="Añadir una Determinación"
+						>
+							+
+						</button>
+					</div>
+					<button
+						type="button"
+						class="boss-reset"
+						data-boss-action="reset-determination"
+						data-tooltip="Restaura la Determinación al máximo. No toca las Reacciones."
+					>
+						Nuevo encuentro
+					</button>
+				</div>
+			</div>
+			<div class="boss-card boss-actions">
+				<div class="boss-actions-head">
+					<span class="boss-card-label">Reacciones de Jefe</span
+					><small class="boss-actions-cost">Cada opción cuesta {{bossReactionCost}} Reacción</small>
+				</div>
+				<div class="boss-actions-row">
+					{{#each bossReactionOptions}}<button
+						type="button"
+						class="boss-action"
+						data-boss-action="spend-reaction"
+						data-boss-option="{{id}}"
+						data-tooltip="{{effect}}"
+					>
+						{{label}}</button
+					>{{/each}}
+				</div>
+			</div>
+		</section>
 		{{/if}}
 	</div>
 	{{/if}} {{#if iframeUrl}}

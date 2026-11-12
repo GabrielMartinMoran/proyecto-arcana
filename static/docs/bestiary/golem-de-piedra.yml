@@ -42,5 +42,5 @@ creatures:
     interactions: []
     behavior: |
       Un guardián autómata sin emociones, programado para proteger un lugar o un objeto. Avanza lenta e inexorablemente, aplastando cualquier obstáculo en su camino. Su falta de emociones hace que siga sus órdenes sin considerar amenazas, súplicas o argumentos. Su única directiva es destruir a los intrusos.
-    img: null
+    img: https://i.imgur.com/RDC6aC2.jpeg
     size: Grande

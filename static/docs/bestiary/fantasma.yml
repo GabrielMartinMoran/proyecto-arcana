@@ -52,5 +52,5 @@ creatures:
         detail: El fantasma atraviesa una barrera sólida y aparece en un espacio visible a distancia Cercana. No puede terminar dentro de un objeto.
     behavior: |
       Una entidad de un recuerdo incompleto que interrumpe la sincronización del grupo. Repite una escena del pasado, aparece para separar a los personajes y desaparece antes de quedar rodeado.
-    img: null
+    img: https://i.imgur.com/pXOeZeH.jpeg
     size: Mediano

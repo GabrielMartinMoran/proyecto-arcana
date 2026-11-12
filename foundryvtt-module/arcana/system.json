@@ -13,6 +13,10 @@
 		}
 	],
 	"description": "Sistema de juego Arcana RPG para FoundryVTT",
+	"languages": [
+		{ "lang": "en", "name": "English", "path": "lang/en.json" },
+		{ "lang": "es", "name": "Español", "path": "lang/es.json" }
+	],
 	"esmodules": ["main.js"],
 	"url": "",
 	"manifest": "",

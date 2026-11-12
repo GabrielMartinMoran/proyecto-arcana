@@ -44,6 +44,12 @@ function copyStaticFiles() {
 	fs.copyFileSync('CREDITS.md', 'dist/CREDITS.md');
 	console.log('📄 Copied CREDITS.md to dist/');
 
+	// Copy module language files (loaded from the manifest `languages` entry)
+	if (fs.existsSync('lang')) {
+		fs.cpSync('lang', 'dist/lang', { recursive: true });
+		console.log('📄 Copied lang/ to dist/');
+	}
+
 	// Copy main.js to root (for direct module loading)
 	fs.copyFileSync('dist/main.js', 'main.js');
 	console.log('📄 Copied main.js to root/');

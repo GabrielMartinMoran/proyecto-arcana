@@ -47,5 +47,5 @@ creatures:
     interactions: []
     behavior: |
       Una tempestad esquiva y arrogante. Permanece en el aire, fuera del alcance de los combatientes terrestres, hostigándolos con ráfagas de viento. Disfruta de su superioridad, empujando y derribando a sus enemigos desde una distancia segura. No aterrizará a menos que se vea forzado.
-    img: null
+    img: https://i.imgur.com/ic7oAkJ.jpeg
     size: Grande

@@ -49,5 +49,5 @@ creatures:
     interactions: []
     behavior: |
       Una frontera forestal móvil que reconfigura objetivos, rutas y cobertura. Expulsa, separa y bloquea accesos antes de buscar matar. Si el objetivo del grupo no amenaza al bosque, prefiere negociar.
-    img: null
+    img: https://i.imgur.com/JDECJZF.jpeg
     size: Grande

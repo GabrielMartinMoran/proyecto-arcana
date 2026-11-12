@@ -49,5 +49,5 @@ creatures:
         detail: Una criatura a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 9) o tener Desventaja en su próximo ataque.
     behavior: |
       Un falso faro que atrae a los viajeros hacia rutas contradictorias. Se mantiene fuera del alcance inmediato, atrae a la persona más curiosa y huye cuando pierde la oscuridad o la cobertura.
-    img: null
+    img: https://i.imgur.com/UW7MRIe.jpeg
     size: Diminuto

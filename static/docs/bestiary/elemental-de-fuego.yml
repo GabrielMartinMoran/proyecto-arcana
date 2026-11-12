@@ -43,5 +43,5 @@ creatures:
     interactions: []
     behavior: |
       El caos y la destrucción encarnados. Se mueve de forma errática y constante, buscando consumir todo lo que pueda arder. Su objetivo no es matar a un enemigo, sino prender fuego a tantos como sea posible, convirtiendo el campo de batalla en una pira.
-    img: null
+    img: https://i.imgur.com/iocpIr7.jpeg
     size: Grande

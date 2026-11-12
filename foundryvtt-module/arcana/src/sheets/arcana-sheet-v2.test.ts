@@ -56,11 +56,44 @@ function renderTemplateFragment(): HTMLElement {
 	return fragment;
 }
 
-function inlineStyle(element: Element | null): string {
-	return element?.getAttribute('style')?.replace(/\s+/g, ' ').trim() ?? '';
+/** Tag + classes of a row's direct children, used to compare template and refresh markup. */
+function controlShape(row: Element | null): string[] {
+	if (!row) return [];
+	return Array.from(row.children).map(
+		(child) => `${child.tagName.toLowerCase()}.${child.className}`,
+	);
+}
+
+/** Text of the first CSS rule whose selector list contains `selector`, up to its closing brace. */
+function cssRule(css: string, selector: string): string {
+	const start = css.indexOf(selector);
+	if (start < 0) return '';
+	const open = css.indexOf('{', start);
+	if (open < 0) return '';
+	const close = css.indexOf('}', open);
+	return css.slice(start, close + 1);
+}
+
+/** Text of the `@supports (field-sizing: content)` block, or '' when the template has none. */
+function fieldSizingSupportBlock(template: string): string {
+	const start = template.indexOf('@supports (field-sizing: content)');
+	if (start < 0) return '';
+	const end = template.indexOf('</style>', start);
+	return template.slice(start, end < 0 ? undefined : end);
 }
 
 describe('ArcanaSheetV2', () => {
+	it('renders the sheet template as a single part root with boss styles inside', () => {
+		const template = document.createElement('template');
+		template.innerHTML = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+		const roots = Array.from(template.content.children);
+
+		expect(roots).toHaveLength(1);
+		expect(roots[0].tagName).toBe('DIV');
+		expect(roots[0].classList.contains('arcana-sheet')).toBe(true);
+		expect(roots[0].querySelector('style')).not.toBeNull();
+	});
+
 	let sheet: InstanceType<typeof ArcanaSheetV2>;
 	let mockActor: any;
 
@@ -76,6 +109,7 @@ describe('ArcanaSheetV2', () => {
 				if (scope === 'arcana') {
 					if (key === 'sheetUrl') return 'https://app.arcana.com/embedded/characters/abc123';
 					if (key === 'localNotes') return 'Some notes';
+					if (key === 'bossUpgrades') return 1;
 				}
 				return undefined;
 			}),
@@ -324,34 +358,146 @@ describe('ArcanaSheetV2', () => {
 	});
 
 	describe('_onRender', () => {
-		it('FEAT npc-ability-controls-compact-layout — initial template uses compact inline flex classes and Usar action', () => {
+		it('FEAT npc-ability-controls-compact-layout — initial template uses the grid classes and Usar action', () => {
 			const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
 
 			expect(template).toContain('class="npc-ability-usage-section npc-ability-usage-compact"');
 			expect(template).toContain('class="npc-ability-group npc-ability-group-compact"');
 			expect(template).toContain('class="npc-ability-row npc-ability-row-compact"');
 			expect(template).toContain('class="npc-ability-name"');
-			expect(template).toContain('class="npc-ability-controls-inline"');
+			expect(template).toContain('class="npc-ability-counter"');
+			expect(template).toContain('class="npc-ability-action npc-ability-use"');
+			expect(template).toContain('class="npc-ability-action npc-ability-recharge"');
 			expect(template).toContain('data-npc-ability-action="use"');
 			expect(template).toContain('Usar');
 			expect(template).not.toContain('data-npc-ability-action="decrement"');
 		});
 
-		it('FEAT npc-ability-controls-compact-layout — initial template groups wrap as flex columns with min-width fallback', () => {
+		it('FEAT npc-ability-controls-compact-layout — initial template lays out groups and rows with the scoped grid', () => {
+			const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
 			const fragment = renderTemplateFragment();
-			const sectionStyle = inlineStyle(fragment.querySelector('.npc-ability-usage-section'));
-			const groupStyle = inlineStyle(fragment.querySelector('.npc-ability-group'));
+			const section = fragment.querySelector('.npc-ability-usage-section');
+			const group = fragment.querySelector('.npc-ability-group');
+			const row = fragment.querySelector('.npc-ability-row');
 
-			expect(sectionStyle).toContain('display: flex');
-			expect(sectionStyle).toContain('flex-wrap: wrap');
-			expect(sectionStyle).toContain('align-items: flex-start');
-			expect(sectionStyle).toContain('gap: 8px');
-			expect(sectionStyle).not.toContain('display: grid');
-			expect(groupStyle).toContain('flex: 1 1 calc((100% - 16px) / 3)');
-			expect(groupStyle).toContain('min-width: 220px');
-			expect(groupStyle).toContain('box-sizing: border-box');
-			expect(groupStyle).toContain('display: flex');
-			expect(groupStyle).toContain('flex-direction: column');
+			expect(template).toContain('grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))');
+			expect(template).toContain('grid-template-columns: minmax(0, 1fr) auto auto auto');
+			expect(template).not.toContain('calc((100% - 16px) / 3)');
+			expect(section?.getAttribute('style')).toBeNull();
+			expect(group?.getAttribute('style')).toBeNull();
+			expect(row?.getAttribute('style')).toBeNull();
+			expect(controlShape(row)).toEqual([
+				'span.npc-ability-name',
+				'button.npc-ability-action npc-ability-use',
+				'span.npc-ability-counter',
+				'button.npc-ability-action npc-ability-recharge',
+			]);
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — native header controls keep their hooks without inline layout', () => {
+			const fragment = renderTemplateFragment();
+			const healthInputs = Array.from(
+				fragment.querySelectorAll<HTMLInputElement>('.token-health-input'),
+			);
+			const notes = fragment.querySelector<HTMLTextAreaElement>(
+				'textarea[name="flags.arcana.localNotes"]',
+			);
+
+			expect(healthInputs.map((input) => input.name)).toEqual([
+				'system.health.value',
+				'system.health.max',
+				'system.health.temp',
+			]);
+			expect(healthInputs[2]?.getAttribute('min')).toBe('0');
+			expect(notes).not.toBeNull();
+			expect(fragment.querySelector('.token-health-row')).not.toBeNull();
+			expect(fragment.querySelector('.combat-notes')).not.toBeNull();
+			expect(fragment.querySelector('.token-health-label')?.textContent?.trim()).toBe(
+				'Estado del Token',
+			);
+			for (const control of [
+				...healthInputs,
+				notes,
+				fragment.querySelector('.token-health-row'),
+				fragment.querySelector('.combat-notes'),
+			]) {
+				expect(control?.getAttribute('style')).toBeNull();
+			}
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — boss stepper uses a gapless single-surface rule', () => {
+			const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+			const stepperRule = cssRule(template, '.boss-controls-section .boss-stepper');
+			const inputRule = cssRule(template, '.boss-controls-section .boss-stepper input');
+			const maxRule = cssRule(template, '.boss-controls-section .boss-stepper-max');
+
+			expect(stepperRule).toContain('display: inline-flex');
+			expect(stepperRule).toContain('height: 24px');
+			expect(stepperRule).not.toContain('gap');
+			expect(stepperRule).toContain('justify-content: center');
+			// Fallback for browsers without field-sizing: two digit slots, no side
+			// padding, right aligned.
+			expect(inputRule).toContain('width: 2ch');
+			expect(inputRule).toContain('padding: 0');
+			expect(inputRule).toContain('text-align: right');
+			expect(inputRule).toContain('font-variant-numeric: tabular-nums');
+			expect(inputRule).toContain('font-size: 0.95rem');
+			expect(inputRule).toContain('font-weight: 700');
+			// Fallback balance: the suffix carries the unused digit slot.
+			expect(maxRule).toContain('margin-right: 1ch');
+			expect(maxRule).toContain('font-size: 0.95rem');
+			expect(maxRule).toContain('font-weight: 700');
+			expect(maxRule).toContain('opacity: 0.7');
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — ability counter current and max share size and center as a unit', () => {
+			const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+			const counterRule = cssRule(template, '.bestiary-controls .npc-ability-counter');
+			const inputRule = cssRule(template, '.bestiary-controls .npc-ability-counter input');
+			const maxRule = cssRule(template, '.bestiary-controls .npc-ability-counter-max');
+
+			expect(counterRule).toContain('justify-content: center');
+			// Fallback for browsers without field-sizing: two digit slots, no side
+			// padding, right aligned.
+			expect(inputRule).toContain('width: 2ch');
+			expect(inputRule).toContain('padding: 0');
+			expect(inputRule).toContain('text-align: right');
+			expect(inputRule).toContain('font-variant-numeric: tabular-nums');
+			expect(inputRule).toContain('font-size: var(--arcana-font-sm)');
+			expect(inputRule).toContain('font-weight: 700');
+			// Fallback balance: the suffix carries the unused digit slot.
+			expect(maxRule).toContain('margin-right: 1ch');
+			expect(maxRule).toContain('font-size: var(--arcana-font-sm)');
+			expect(maxRule).toContain('font-weight: 700');
+			expect(maxRule).toContain('opacity: 0.7');
+		});
+
+		it('FEAT npc-ability-controls-compact-layout — field-sizing keeps both counter pairs centred with one or two digits', () => {
+			const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+			const supports = fieldSizingSupportBlock(template);
+			const abilityInput = cssRule(supports, '.bestiary-controls .npc-ability-counter input');
+			const abilityMax = cssRule(supports, '.bestiary-controls .npc-ability-counter-max');
+			const bossInput = cssRule(supports, '.boss-controls-section .boss-stepper input');
+			const bossMax = cssRule(supports, '.boss-controls-section .boss-stepper-max');
+
+			// The input sizes to its own digits, so one or two digits centre alike;
+			// max-width keeps a runaway value from stretching the control.
+			for (const input of [abilityInput, bossInput]) {
+				expect(input).toContain('field-sizing: content');
+				expect(input).toContain('width: auto');
+				expect(input).toContain('min-width: 1ch');
+				expect(input).toContain('max-width: 3ch');
+			}
+			// With a content-sized input there is no unused slot left to balance.
+			expect(abilityMax).toContain('margin-right: 0');
+			expect(bossMax).toContain('margin-right: 0');
+			// The fallback rules must stay for browsers without field-sizing.
+			expect(cssRule(template, '.bestiary-controls .npc-ability-counter input')).toContain(
+				'width: 2ch',
+			);
+			expect(cssRule(template, '.boss-controls-section .boss-stepper input')).toContain(
+				'width: 2ch',
+			);
 		});
 
 		it('FEAT npc-ability-controls-compact-layout — initial template counter display uses current input and max suffix', () => {
@@ -807,12 +953,12 @@ describe('ArcanaSheetV2', () => {
 			expect(group?.classList.contains('npc-ability-group-compact')).toBe(true);
 			expect(row?.classList.contains('npc-ability-row-compact')).toBe(true);
 			expect(row?.querySelector('.npc-ability-name')?.textContent).toBe('Aliento');
-			expect(row?.querySelector('.npc-ability-controls-inline')).toBeTruthy();
+			expect(row?.querySelector('.npc-ability-counter')).toBeTruthy();
 			expect(row?.querySelector('[data-npc-ability-action="use"]')?.textContent).toContain('Usar');
 			expect(row?.querySelector('[data-npc-ability-action="decrement"]')).toBeNull();
 		});
 
-		it('FEAT npc-ability-controls-compact-layout — dynamic refresh preserves wrapping group-column layout and iframe', async () => {
+		it('FEAT npc-ability-controls-compact-layout — dynamic refresh emits the same grid structure and preserves the iframe', async () => {
 			mockActor.getFlag = vi.fn((scope: string, key: string) => {
 				if (scope !== 'arcana') return undefined;
 				if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
@@ -822,8 +968,9 @@ describe('ArcanaSheetV2', () => {
 							id: 'npc:actions:golpe:1',
 							name: 'Golpe',
 							source: 'actions',
-							type: 'USES',
+							type: 'RELOAD',
 							max: 3,
+							rechargeTarget: 6,
 							order: 0,
 						},
 						{
@@ -862,19 +1009,34 @@ describe('ArcanaSheetV2', () => {
 
 			await sheet.render({});
 
-			const sectionStyle = inlineStyle(container.querySelector('.npc-ability-usage-section'));
+			const section = container.querySelector('.npc-ability-usage-section');
 			const groups = Array.from(container.querySelectorAll('.npc-ability-group'));
-			expect(sectionStyle).toContain('display: flex');
-			expect(sectionStyle).toContain('flex-wrap: wrap');
-			expect(sectionStyle).toContain('align-items: flex-start');
-			expect(sectionStyle).toContain('gap: 8px');
+			const rows = Array.from(container.querySelectorAll('.npc-ability-row'));
+			expect(section?.classList.contains('npc-ability-usage-compact')).toBe(true);
+			expect(section?.getAttribute('style')).toBeNull();
 			expect(groups).toHaveLength(3);
 			for (const group of groups) {
-				expect(inlineStyle(group)).toContain('flex: 1 1 calc((100% - 16px) / 3)');
-				expect(inlineStyle(group)).toContain('min-width: 220px');
-				expect(inlineStyle(group)).toContain('box-sizing: border-box');
-				expect(inlineStyle(group)).toContain('flex-direction: column');
+				expect(group.classList.contains('npc-ability-group-compact')).toBe(true);
+				expect(group.getAttribute('style')).toBeNull();
 			}
+			expect(rows).toHaveLength(3);
+			for (const row of rows) {
+				expect(row.getAttribute('style')).toBeNull();
+			}
+			expect(controlShape(rows[0])).toEqual([
+				'span.npc-ability-name',
+				'button.npc-ability-action npc-ability-use',
+				'span.npc-ability-counter',
+				'button.npc-ability-action npc-ability-recharge',
+			]);
+			expect(controlShape(rows[1])).toEqual([
+				'span.npc-ability-name',
+				'button.npc-ability-action npc-ability-use',
+				'span.npc-ability-counter',
+			]);
+			expect(controlShape(rows[0])).toEqual(
+				controlShape(renderTemplateFragment().querySelector('.npc-ability-row')),
+			);
 			expect(container.querySelector('iframe')).toBe(existingIframe);
 		});
 
@@ -914,6 +1076,106 @@ describe('ArcanaSheetV2', () => {
 			expect(display?.textContent).toBe('/3');
 			expect(display?.textContent).not.toBe('1/3');
 		});
+	});
+
+	it('FEAT boss-upgrades — resource inputs do not enter generic actor field updates', async () => {
+		mockActor.update = vi.fn();
+		mockActor.setFlag = vi.fn(async () => undefined);
+		const host = document.createElement('div');
+		host.innerHTML =
+			'<div class="bestiary-controls"><input data-boss-resource="reactions" value="1"></div>';
+		(sheet as any).element = host;
+		(sheet as any)._onRender({}, {});
+		host.querySelector('input')?.dispatchEvent(new Event('change', { bubbles: true }));
+		await Promise.resolve();
+		expect(mockActor.update).not.toHaveBeenCalled();
+		expect(mockActor.setFlag).toHaveBeenCalledWith('arcana', 'bossResources', expect.any(Object));
+	});
+
+	it('FEAT boss-upgrades — refresh path hides controls at zero and renders shared pools and options at one', async () => {
+		const flags: Record<string, unknown> = {
+			sheetUrl: 'https://app.arcana.com/bestiary/npc1',
+			bossUpgrades: 0,
+		};
+		mockActor.getFlag = vi.fn((_scope: string, key: string) => flags[key]);
+		mockActor.setFlag = vi.fn(async (_scope: string, key: string, value: unknown) => {
+			flags[key] = value;
+		});
+		const host = document.createElement('div');
+		host.innerHTML = '<div class="bestiary-controls"></div><iframe></iframe>';
+		(sheet as any).element = host;
+		await sheet.render({});
+		expect(host.querySelector('.boss-controls-section')).toBeNull();
+		flags.bossUpgrades = 1;
+		await sheet.render({});
+		const section = host.querySelector('.boss-controls-section');
+		expect(section?.textContent).toContain('1 base + 1 de jefe');
+		expect(section?.textContent).toContain('Reposicionarse');
+		expect(section?.textContent).toContain('Ataque Rápido');
+		expect(section?.textContent).toContain('Guardia Reactiva');
+		expect(section?.textContent).toContain('PA ×1.25');
+		expect(section?.querySelector('[data-boss-display="reactions"]')?.textContent).toBe('/2');
+		expect(section?.querySelector('[data-boss-display="determination"]')?.textContent).toBe('/1');
+		const template = readFileSync(resolve(cwd(), 'template.html'), 'utf8');
+		const templateBossSection =
+			template.match(/<section class="boss-controls-section"[\s\S]*?<\/section>/)?.[0] ?? '';
+		expect(templateBossSection).toContain('data-boss-resource="reactions"');
+		expect(templateBossSection).toContain('data-boss-resource="determination"');
+		expect(templateBossSection).toContain('data-boss-action="spend-reaction"');
+		expect(templateBossSection).toContain('{{#each bossReactionOptions}}');
+	});
+
+	it('FEAT boss-upgrades — stepper persists clamped values and disables controls at pool bounds', async () => {
+		const flags: Record<string, any> = {
+			sheetUrl: 'https://app.arcana.com/bestiary/npc1',
+			bossUpgrades: 1,
+			bossResources: { reactions: { current: 2, max: 2 } },
+		};
+		mockActor.getFlag = vi.fn((_scope: string, key: string) => flags[key]);
+		mockActor.setFlag = vi.fn(async (_scope: string, key: string, value: unknown) => {
+			flags[key] = value;
+		});
+		const host = document.createElement('div');
+		host.innerHTML = '<div class="bestiary-controls"></div><iframe></iframe>';
+		(sheet as any).element = host;
+		await sheet.render({});
+
+		const section = host.querySelector('.boss-controls-section')!;
+		const decrease = section.querySelector<HTMLButtonElement>(
+			'[data-boss-action="step"][data-boss-key="reactions"][data-delta="-1"]',
+		)!;
+		expect(
+			section.querySelector<HTMLButtonElement>(
+				'[data-boss-action="step"][data-boss-key="reactions"][data-delta="1"]',
+			)?.disabled,
+		).toBe(true);
+		decrease.click();
+		await vi.waitFor(() => expect(flags.bossResources.reactions.current).toBe(1));
+		expect(flags.bossResources.reactions.current).toBe(1);
+		expect(
+			host.querySelector<HTMLButtonElement>(
+				'[data-boss-action="step"][data-boss-key="reactions"][data-delta="-1"]',
+			)?.disabled,
+		).toBe(false);
+	});
+
+	it('FEAT boss-upgrades — listener setup disables existing template steppers at pool boundaries', async () => {
+		mockActor.getFlag = vi.fn((_scope: string, key: string) => {
+			if (key === 'sheetUrl') return 'https://app.arcana.com/bestiary/npc1';
+			if (key === 'bossUpgrades') return 1;
+			if (key === 'bossResources') {
+				return { reactions: { current: 0 }, determination: { current: 1 } };
+			}
+			return undefined;
+		});
+		const container = document.createElement('div');
+		container.innerHTML = `<button data-boss-action="step" data-boss-key="reactions" data-delta="-1"></button><button data-boss-action="step" data-boss-key="reactions" data-delta="1"></button><button data-boss-action="step" data-boss-key="determination" data-delta="-1"></button><button data-boss-action="step" data-boss-key="determination" data-delta="1"></button>`;
+		(sheet as any).element = container;
+		(sheet as any)._onRender({}, {});
+		const buttons = Array.from(
+			container.querySelectorAll<HTMLButtonElement>('[data-boss-action="step"]'),
+		);
+		expect(buttons.map((button) => button.disabled)).toEqual([true, false, false, true]);
 	});
 
 	describe('detach support', () => {

@@ -54,5 +54,5 @@ creatures:
     interactions: []
     behavior: |
       Un guardián funerario que preserva una orden antigua. Fuerza al grupo a avanzar por rutas estrechas, cubre a sus aliados no-muertos y vuelve a la cámara si alguien intenta saquearla.
-    img: null
+    img: https://i.imgur.com/bDOhwiA.jpeg
     size: Mediano

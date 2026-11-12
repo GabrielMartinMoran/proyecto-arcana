@@ -57,5 +57,5 @@ creatures:
         detail: El mago usa su Interacción para teletransportarse instantáneamente a un espacio desocupado que pueda ver a distancia Cercana.
     behavior: |
       Un intelectual táctico que controla el campo de batalla desde la retaguardia. Abre el combate con una Bola de Fuego para ablandar grupos, y luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda quieto: usa Paso Brumoso para mantener la distancia y reserva su Reacción para Contraconjuro, intentando neutralizar la magia enemiga más peligrosa.
-    img: null
+    img: https://i.imgur.com/WpbszoR.jpeg
     size: Mediano

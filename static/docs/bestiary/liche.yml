@@ -70,5 +70,5 @@ creatures:
         detail: Como Reacción al final del turno de otra criatura, el Liche realiza una tirada de Recarga (1d8) para intentar recuperar el uso de uno de sus conjuros agotados.
     interactions: []
     behavior: Un archimago no-muerto de siglos de experiencia que adapta constantemente su magia a las amenazas del campo de batalla. Se mantiene fuera del alcance mediante Vuelo Arcano y utiliza su enorme repertorio de conjuros para alternar entre daño, control, defensa y utilidad. Fuera de su turno emplea Conjuro de Oportunidad para mantener la presión, responder con magia defensiva o lanzar Descargas Arcanas, y utiliza Recarga Mental cuando necesita recuperar uno de sus poderes más importantes. Cuando se utiliza como jefe, las Reacciones adicionales adquiridas al construir el encuentro convierten su versatilidad mágica en una economía de acciones extremadamente peligrosa.
-    img: null
+    img: https://i.imgur.com/NAHOUvO.jpeg
     size: Mediano

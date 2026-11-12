@@ -53,5 +53,5 @@ creatures:
           Reflejos (ND 10) o quedar Derribadas.
     behavior: |
       Un depredador sísmico que convierte el suelo en una segunda línea de aproximación. Marca un territorio, embosca desde ángulos alternos y abandona el área si las vibraciones o el fuego la vuelven insegura.
-    img: null
+    img: https://i.imgur.com/79fI0df.jpeg
     size: Grande

@@ -40,5 +40,5 @@ creatures:
     interactions: []
     behavior: |
       Un guardián autómata sin emociones, programado para proteger una puerta, un sello o un objeto. Se interpone entre la amenaza y su objetivo, no persigue fuera de su umbral y vuelve a su posición si la amenaza se retira.
-    img: null
+    img: https://i.imgur.com/MQB1h9p.jpeg
     size: Mediano

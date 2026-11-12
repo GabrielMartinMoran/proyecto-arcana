@@ -42,5 +42,5 @@ creatures:
         detail: Como Reacción cuando es objetivo de un ataque que pueda ver, obtiene un +2 temporal a su Esquiva contra ese ataque.
     interactions: []
     behavior: Se mantiene a distancia, disparando magia inestable desde la retaguardia. Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca demasiado.
-    img: null
+    img: https://i.imgur.com/QQU70B0.jpeg
     size: Mediano
