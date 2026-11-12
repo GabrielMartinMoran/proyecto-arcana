@@ -47,5 +47,5 @@ creatures:
     interactions: []
     behavior: |
       Un depredador de túneles cuya temperatura convierte la emboscada en una decisión de posicionamiento. Se sumerge, deja señales legibles y emerge bajo el personaje que rompe la formación.
-    img: null
+    img: https://i.imgur.com/1Ewzy3n.jpeg
     size: Grande

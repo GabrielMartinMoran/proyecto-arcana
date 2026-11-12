@@ -51,5 +51,5 @@ creatures:
           qty: 4
         detail: Como Interacción, otorga 2 Puntos de Salud Temporales a un aliado a distancia Cercana.
     behavior: El juglar evita ser el blanco principal. Se dedica a entorpecer la ofensiva enemiga con su música destructiva mientras da pequeños impulsos de vitalidad a sus defensores.
-    img: null
+    img: https://i.imgur.com/AHKpq4A.jpeg
     size: Mediano

@@ -41,5 +41,5 @@ creatures:
     interactions: []
     behavior: |
       Una cazadora de emboscadas paciente y alienígena. Utiliza su telaraña no solo como un arma, sino como una extensión de sus sentidos. Intentará usar su Telaraña para separar a un miembro del grupo, arrastrándolo hacia la oscuridad para inyectarle su veneno. En su guarida, es una amenaza omnipresente, moviéndose por techos y paredes con una velocidad aterradora.
-    img: null
+    img: https://i.imgur.com/uiOx8vF.jpeg
     size: Mediano

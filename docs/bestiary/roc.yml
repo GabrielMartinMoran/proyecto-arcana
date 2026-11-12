@@ -51,5 +51,5 @@ creatures:
     interactions: []
     behavior: |
       Un depredador aéreo territorial que defiende un nido o una frontera. Ataca al personaje que lleva comida u objetos brillantes y usa las corrientes para mantener rutas de escape previsibles.
-    img: null
+    img: https://i.imgur.com/Rf5CY3h.jpeg
     size: Inmenso

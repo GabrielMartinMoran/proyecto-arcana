@@ -54,5 +54,5 @@ creatures:
     interactions: []
     behavior: |
       Un depredador cruel que disfruta aterrorizando a su presa. Comienza el combate desde el aire, deleitándose en su invulnerabilidad mientras acribilla al grupo con las púas de su cola, a menudo enfocándose en el mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo esté visiblemente herido o aislado, para saborear la muerte con sus garras y fauces.
-    img: null
+    img: https://i.imgur.com/PT0Zq5X.jpeg
     size: Grande

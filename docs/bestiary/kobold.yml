@@ -49,5 +49,5 @@ creatures:
         detail: Como Interacción, el kobold libera polvo en su espacio y puede intentar Ocultarse inmediatamente. La nube no Ciega ni aplica otro estado.
     behavior: |
       Un explorador cobarde y oportunista que prepara el terreno antes de atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia una ruta preparada. Huirá si pierde la cobertura o queda solo.
-    img: null
+    img: https://i.imgur.com/ZK6HzpL.jpeg
     size: Pequeño

@@ -48,5 +48,5 @@ creatures:
     interactions: []
     behavior: |
       La personificación de la fuerza implacable. Lento, directo e indestructible. Avanza en línea recta, aplastando todo a su paso. No se reposiciona ni esquiva; simplemente soporta los golpes y devuelve un castigo sísmico.
-    img: null
+    img: https://i.imgur.com/d64Mbu3.jpeg
     size: Grande

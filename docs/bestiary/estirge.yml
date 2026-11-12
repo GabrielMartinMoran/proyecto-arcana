@@ -43,5 +43,5 @@ creatures:
         detail: Después de impactar con Aguijón, la estirge puede moverse hasta la mitad de su velocidad. Este movimiento no provoca Reacciones.
     behavior: |
       Un parásito de corrientes térmicas que hostiga desde arriba y abandona el combate cuando la presa deja de ser segura. Se abalanza sobre el personaje aislado, evita objetivos protegidos y cambia de presa si recibe daño significativo.
-    img: null
+    img: https://i.imgur.com/q9juzO5.jpeg
     size: Diminuto

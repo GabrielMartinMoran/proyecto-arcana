@@ -50,5 +50,5 @@ creatures:
     interactions: []
     behavior: |
       Un maestro de asedio que trata el escenario como una forja. Prioriza objetivos, cobertura y puertas, usa el terreno para dividir al grupo y solo persigue cuando la ruta de retirada está asegurada.
-    img: null
+    img: https://i.imgur.com/OZ2rJne.jpeg
     size: Grande

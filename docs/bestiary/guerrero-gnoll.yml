@@ -51,5 +51,5 @@ creatures:
         detail: Como Interacción, una criatura visible a distancia Cercana debe superar una Tirada de Salvación de Instinto (ND 10). Si falla, tiene Desventaja en su próximo ataque antes del final de su siguiente turno.
     behavior: |
       Un cazador de manada que rodea al objetivo aislado. Alterna hachazos y mordiscos, usa el aullido para romper el ritmo de la presa y abandona la persecución si la manada pierde la ventaja.
-    img: null
+    img: https://i.imgur.com/9HRG7DN.jpeg
     size: Mediano

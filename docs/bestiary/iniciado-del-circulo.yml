@@ -42,5 +42,5 @@ creatures:
           qty: 5
         detail: Como Interacción, el iniciado aplica un ungüento de hierbas a sí mismo o a un aliado a distancia Inmediata. El objetivo recupera 1d4 Puntos de Salud y se cura del estado Envenenado.
     behavior: Protege la naturaleza con devoción. Prefiere sanar y apoyar a sus aliados bestiales o tribales antes que luchar directamente. Gracias a su látigo, intentará arrastrar a los enemigos lejos de sus aliados heridos mientras aplica sus ungüentos de forma veloz.
-    img: null
+    img: https://i.imgur.com/u0TmLu0.jpeg
     size: Mediano

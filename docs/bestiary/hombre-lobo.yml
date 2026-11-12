@@ -52,5 +52,5 @@ creatures:
     interactions: []
     behavior: |
       Un cazador de dos naturalezas que aísla al objetivo herido. Cambia de forma según la ruta de aproximación, usa el aullido para quebrar la coordinación y abandona la cacería si el grupo vuelve a actuar unido.
-    img: null
+    img: https://i.imgur.com/RCfyxpZ.jpeg
     size: Mediano

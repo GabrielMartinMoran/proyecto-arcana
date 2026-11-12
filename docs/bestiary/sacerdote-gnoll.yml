@@ -57,5 +57,5 @@ creatures:
     interactions: []
     behavior: |
       Un oficiante de la cacería que se mantiene detrás de la manada. Marca la presa, fortalece a varios guerreros con una liturgia y sostiene al aliado que está a punto de caer.
-    img: null
+    img: https://i.imgur.com/XgUIm2c.jpeg
     size: Mediano

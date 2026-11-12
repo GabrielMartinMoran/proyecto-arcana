@@ -54,5 +54,5 @@ creatures:
         detail: Como Interacción, el cambiaformas reabsorbe un fragmento de su cuerpo que esté a distancia Inmediata. El fragmento no puede actuar ni generar efectos propios.
     behavior: |
       Un infiltrador aberrante que estudia a sus víctimas antes de adoptar su aspecto. Se mezcla con el grupo, deja que sus copias confundan la escena y ataca con extremidades convertidas en armas.
-    img: null
+    img: https://i.imgur.com/p5VgQJE.jpeg
     size: Mediano

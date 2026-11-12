@@ -41,5 +41,5 @@ creatures:
     interactions: []
     behavior: |
       Un depredador de cementerios movido por un hambre insaciable de carne viva. Caza en manadas, usando su agilidad para emboscar. Su objetivo no es matar de inmediato, sino paralizar a su presa con sus garras para poder devorarla sin que oponga resistencia. Se enfoca en el enemigo más lento o menos acorazado.
-    img: null
+    img: https://i.imgur.com/WwMoNAH.jpeg
     size: Mediano

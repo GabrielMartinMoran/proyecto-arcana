@@ -48,5 +48,5 @@ creatures:
     interactions: []
     behavior: |
       Un soldado profesional que mantiene la línea y concentra los ataques contra quien rompe la formación. Desafía al enemigo más peligroso mientras cubre al compañero expuesto.
-    img: null
+    img: https://i.imgur.com/Po0Umb6.jpeg
     size: Mediano
