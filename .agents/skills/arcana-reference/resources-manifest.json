@@ -250,20 +250,20 @@
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
       "kind": "file",
-      "size": 10915,
-      "sha1": "8b7fa3acf612e2471ce9c16261af7bdc90dfba4b"
+      "size": 12849,
+      "sha1": "f64a28c4ae88709479441a1b64be6afd41829a0f"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-3.yml",
       "kind": "file",
-      "size": 7836,
-      "sha1": "697399b82488dbaf20a1418aa0a88a581da322ba"
+      "size": 8195,
+      "sha1": "6b609730e2af50d32fa873624fc1364b6d9768f6"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-4.yml",
       "kind": "file",
-      "size": 6089,
-      "sha1": "c2346b846e9c0ffc18cc2e4534823f5f9851f8f2"
+      "size": 8270,
+      "sha1": "ffedf553ca7f058596ec62f62f71c6aee117518b"
     },
     {
       "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-5.yml",
@@ -548,14 +548,14 @@
     {
       "path": "references/datasets/bestiary.yml",
       "kind": "file",
-      "size": 132724,
-      "sha1": "5be8336a4343a7df01e22ac9050996765b978100"
+      "size": 133872,
+      "sha1": "cf1db1e50b12a4835f357f6b86b76fe708e62acb"
     },
     {
       "path": "references/datasets/cards.yml",
       "kind": "file",
-      "size": 316315,
-      "sha1": "c71ae6a56df68e7e1a295491fe5d56a2697e4f51"
+      "size": 320718,
+      "sha1": "f4c279116ea2bc66913ab4c5580c92557728c838"
     },
     {
       "path": "references/datasets/magical-items.yml",

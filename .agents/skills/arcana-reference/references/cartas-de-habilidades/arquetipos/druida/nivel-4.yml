@@ -106,3 +106,34 @@ cards:
       depende del trato previo que haya recibido y de sus nuevos intereses.<br> Una criatura solo puede ser despertada
       una vez.
     slug: despertar
+  - id: f13d528bb73f8bb0b8603eb5873f0bebecca57d1
+    name: Sendero de los Árboles
+    level: 4
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Concentración
+      - Ritual
+    requirements: Sintonía Primordial & Instinto 5
+    uses:
+      type: RELOAD
+      qty: 7
+    description: >-
+      _Los árboles forman una red ancestral de senderos invisibles. Para quienes conocen sus secretos, las distancias
+      del mundo no son más que un paso entre raíces._<br><br> Puedes utilizar este conjuro de dos maneras:<br><br>
+      **Paso Arbóreo:** Como Acción, tocas un árbol vivo lo suficientemente grande para contenerte y te fundes con su
+      tronco, reapareciendo junto a otro árbol vivo que puedas ver a distancia Larga.<br> Durante 1 minuto, o hasta
+      perder la Concentración, puedes repetir este desplazamiento una vez por turno utilizando tu Interacción, siempre
+      que estés tocando un árbol válido.<br> Este desplazamiento es una teleportación y no requiere recorrer el espacio
+      intermedio. Solo puedes transportarte a ti mismo y al equipo que lleves.<br><br> **Viaje entre Raíces (Ritual):**
+      Mediante un ritual, puedes utilizar un árbol vivo como punto de partida para viajar instantáneamente hasta otro
+      árbol con el que hayas establecido previamente un vínculo, sin importar la distancia entre ambos, siempre que se
+      encuentren en el mismo plano de existencia.<br> Puedes transportar hasta un número de criaturas voluntarias igual
+      a tu puntuación de Instinto, incluyéndote. Todas deben permanecer junto al árbol de origen durante el ritual y
+      aparecen en espacios desocupados junto al árbol de destino.<br> Para establecer un vínculo con un árbol, debes
+      tocarlo y meditar durante 10 minutos. Puedes mantener vínculos con tantos árboles como tu puntuación de Instinto.
+      Si estableces uno nuevo superando ese límite, debes abandonar uno anterior.<br> Si un árbol vinculado muere,
+      pierdes el vínculo con él.<br> Este modo no produce un efecto Sostenido ni requiere mantener la Concentración
+      después de completar el viaje.
+    slug: sendero-de-los-arboles

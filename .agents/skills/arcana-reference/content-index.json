@@ -627,8 +627,8 @@
         "requirements": "Sintonía Primordial & Instinto 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Invocas a los grandes espíritus animales para que te envuelvan en un aura espectral, otorgándote su fuerza y sentidos._<br><br> Como Acción, invocas el espíritu de una bestia primordial que te envuelve como un aura fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración. Al invocar el espíritu, eliges **dos** de los siguientes beneficios:<br> - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en todas las pruebas de **Instinto (Percepción)**.<br> - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y desarmados infligen **1d6 de daño Contundente adicional**.<br> - **Celeridad del Halcón:** Tu **Velocidad** de movimiento aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br> - **Piel del Jabalí:** Ganas Puntos de Salud temporales igual a tres veces tu puntuación de Instinto.<br>",
-      "hash": "45ea16533dbbee02b2fbaab5d78bcd487b9206de"
+      "search": "_Invocas a los grandes espíritus animales para que te envuelvan en un aura espectral, otorgándote su fuerza, agilidad y sentidos primordiales._<br><br> Como Interacción, invocas el espíritu de una bestia primordial que te envuelve como un aura fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración.<br> Al invocar el espíritu, eliges dos de los siguientes beneficios:<br> - **Ojos del Búho:** Obtienes Visión en la Oscuridad y Ventaja (+1d4) en todas las pruebas de Percepción. Además, puedes percibir la ubicación de criaturas Ocultas o Invisibles a distancia Cercana, siempre que no estén detrás de cobertura total.<br> - **Fuerza del Oso:** Obtienes Ventaja (+1d4) en las pruebas de Fuerza Bruta. Tus ataques con armas cuerpo a cuerpo, ataques desarmados y ataques de conjuro cuerpo a cuerpo de Druida infligen 1d6 de daño Contundente adicional.<br> - **Celeridad del Halcón:** Obtienes Ventaja (+1d4) en las pruebas de Acrobacias. Tu Velocidad aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br> - **Piel del Jabalí:** Obtienes Ventaja (+1d4) en las pruebas de Aguante y ganas Puntos de Salud temporales iguales a tres veces tu puntuación de Instinto.",
+      "hash": "de2404f882215d6b0832ee19c4d51d8dd0a2a164"
     },
     {
       "kind": "card",
@@ -7305,6 +7305,32 @@
     },
     {
       "kind": "card",
+      "canonicalName": "Sendero de los Árboles",
+      "id": "f13d528bb73f8bb0b8603eb5873f0bebecca57d1",
+      "slug": "sendero-de-los-arboles",
+      "aliases": [
+        "sendero de los arboles"
+      ],
+      "tags": [
+        "Concentración",
+        "Conjuro",
+        "Druida",
+        "Ritual"
+      ],
+      "level": 4,
+      "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-4.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Sintonía Primordial & Instinto 5",
+        "uses": "RELOAD:7"
+      },
+      "search": "_Los árboles forman una red ancestral de senderos invisibles. Para quienes conocen sus secretos, las distancias del mundo no son más que un paso entre raíces._<br><br> Puedes utilizar este conjuro de dos maneras:<br><br> **Paso Arbóreo:** Como Acción, tocas un árbol vivo lo suficientemente grande para contenerte y te fundes con su tronco, reapareciendo junto a otro árbol vivo que puedas ver a distancia Larga.<br> Durante 1 minuto, o hasta perder la Concentración, puedes repetir este desplazamiento una vez por turno utilizando tu Interacción, siempre que estés tocando un árbol válido.<br> Este desplazamiento es una teleportación y no requiere recorrer el espacio intermedio. Solo puedes transportarte a ti mismo y al equipo que lleves.<br><br> **Viaje entre Raíces (Ritual):** Mediante un ritual, puedes utilizar un árbol vivo como punto de partida para viajar instantáneamente hasta otro árbol con el que hayas establecido previamente un vínculo, sin importar la distancia entre ambos, siempre que se encuentren en el mismo plano de existencia.<br> Puedes transportar hasta un número de criaturas voluntarias igual a tu puntuación de Instinto, incluyéndote. Todas deben permanecer junto al árbol de origen durante el ritual y aparecen en espacios desocupados junto al árbol de destino.<br> Para establecer un vínculo con un árbol, debes tocarlo y meditar durante 10 minutos. Puedes mantener vínculos con tantos árboles como tu puntuación de Instinto. Si estableces uno nuevo superando ese límite, debes abandonar uno anterior.<br> Si un árbol vinculado muere, pierdes el vínculo con él.<br> Este modo no produce un efecto Sostenido ni requiere mantener la Concentración después de completar el viaje.",
+      "hash": "6ce0b8ed1a6e9293000a0716f8a1b8401ba7f2c2"
+    },
+    {
+      "kind": "card",
       "canonicalName": "Sentencia del Hereje",
       "id": "f7d0f07678cc25c939e98672cb40846ea3957030",
       "slug": "sentencia-del-hereje",
@@ -7483,8 +7509,8 @@
         "type": "efecto",
         "requirements": "Sintonía Primordial & Instinto 3"
       },
-      "search": "_Tus sentidos se expanden hasta fusionarse con el bioma que te rodea, volviéndote un fantasma letal entre la maleza._<br><br> Tu conexión con la naturaleza agudiza tus sentidos de forma sobrenatural. Obtienes Ventaja (+1d4) en todas las pruebas de Instinto (Percepción) para detectar peligros, criaturas ocultas o detalles sutiles en tu entorno. Además, puedes realizar un ritual de meditación durante 10 minutos para sintonizarte con un tipo de terreno natural específico en el que te encuentres. Mientras permanezcas en ese tipo de terreno, puedes moverte a través de terreno difícil natural sin penalización de movimiento y obtienes Ventaja (+1d4) en las pruebas de Sigilo. Puedes realizar este ritual de nuevo para cambiar tu sintonía.",
-      "hash": "9255c51b98e5d843d66ab850b6f5586863c67b01"
+      "search": "_Tus sentidos se expanden hasta fusionarse con el mundo natural. Cada sonido, aroma y movimiento de la vida silvestre forma parte de un lenguaje que comprendes instintivamente._<br><br> Obtienes Ventaja (+1d4) en todas las pruebas de Percepción.<br> Mientras te encuentres en un entorno natural, obtienes Ventaja (+1d4) en las pruebas de Sigilo y puedes moverte a través de terreno difícil natural sin penalización de movimiento.<br> **Sentir la Vida:** Mediante 10 minutos de meditación ininterrumpida en un entorno natural, puedes buscar una especie vegetal o animal que conozcas, o un ejemplar específico con el que hayas tenido contacto.<br> Si el objetivo se encuentra a menos de 1 kilómetro, percibes su dirección y distancia aproximada. Si buscas una especie, detectas el ejemplar más cercano.<br> Este sentido no revela el recorrido para alcanzarlo ni permite percibir a través de barreras mágicas que bloqueen la detección.",
+      "hash": "8a182ca8fe906f32ccf84ab2f686df693ed86cf6"
     },
     {
       "kind": "card",
@@ -7579,6 +7605,31 @@
       },
       "search": "_Implantas una idea en la mente de un humanoide, forzándolo a seguir tus órdenes como si fueran propias._<br><br> Como Acción, eliges a una criatura humanoide a distancia Media. Debe superar una TS de Instinto (ND 5 + Atributo Arcano). Si falla, le das una orden que pueda completar en los próximos 10 minutos (ej: \"protege este puente\").<br> La orden no puede ser obviamente dañina para si mismo. La criatura obedece lo mejor que puede mientras mantengas la concentración.",
       "hash": "2694849edb039ca954babeeebd547ae919c4a9c2"
+    },
+    {
+      "kind": "card",
+      "canonicalName": "Susurros de la Naturaleza",
+      "id": "bf114e6ae88be53b0ca5507a40ba034c41c74436",
+      "slug": "susurros-de-la-naturaleza",
+      "aliases": [
+        "susurros de la naturaleza"
+      ],
+      "tags": [
+        "Conjuro",
+        "Druida",
+        "Ritual"
+      ],
+      "level": 2,
+      "path": "references/cartas-de-habilidades/arquetipos/druida/nivel-2.yml",
+      "source": "cards.yml",
+      "structured": {
+        "cardType": "ability",
+        "type": "activable",
+        "requirements": "Sintonía Primordial & Instinto 3",
+        "uses": "RELOAD:5"
+      },
+      "search": "_El viento lleva las palabras entre las hojas, y las raíces las susurran a través de la tierra. La naturaleza encuentra a quienes deben escuchar._<br><br> Como Acción, tocas una planta viva enraizada en la tierra y transmites un mensaje de hasta 25 palabras dirigido a una criatura que conozcas y que se encuentre en tu mismo plano de existencia.<br> El mensaje viaja mágicamente a través de la naturaleza, sin necesidad de que exista una conexión física continua entre las plantas.<br> **Recepción:** Si la criatura se encuentra a menos de 3 metros de una planta viva enraizada en la tierra, recibe inmediatamente el mensaje como un susurro que solo ella puede escuchar. Reconoce que el mensaje proviene de ti.<br> **Mensaje Pendiente:** Si no se encuentra cerca de una planta apropiada, el mensaje permanece pendiente durante 24 horas. Si durante ese tiempo se aproxima a alguna planta válida, recibe el mensaje automáticamente. Pasado ese plazo, el mensaje se pierde.<br> **Respuesta:** Durante las 24 horas posteriores a recibirlo, la criatura puede responder con un mensaje de hasta 25 palabras, tocando una planta viva enraizada en la tierra. Recibes la respuesta inmediatamente si también te encuentras cerca de una planta apropiada. De lo contrario, queda pendiente durante 24 horas bajo las mismas condiciones.",
+      "hash": "82336ac992b825f4630ec23c6fd57611c9561a23"
     },
     {
       "kind": "card",

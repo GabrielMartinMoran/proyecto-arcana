@@ -53,14 +53,42 @@ cards:
       type: null
       qty: 0
     description: >-
-      _Tus sentidos se expanden hasta fusionarse con el bioma que te rodea, volviéndote un fantasma letal entre la
-      maleza._<br><br> Tu conexión con la naturaleza agudiza tus sentidos de forma sobrenatural. Obtienes Ventaja (+1d4)
-      en todas las pruebas de Instinto (Percepción) para detectar peligros, criaturas ocultas o detalles sutiles en tu
-      entorno. Además, puedes realizar un ritual de meditación durante 10 minutos para sintonizarte con un tipo de
-      terreno natural específico en el que te encuentres. Mientras permanezcas en ese tipo de terreno, puedes moverte a
-      través de terreno difícil natural sin penalización de movimiento y obtienes Ventaja (+1d4) en las pruebas de
-      Sigilo. Puedes realizar este ritual de nuevo para cambiar tu sintonía.
+      _Tus sentidos se expanden hasta fusionarse con el mundo natural. Cada sonido, aroma y movimiento de la vida
+      silvestre forma parte de un lenguaje que comprendes instintivamente._<br><br> Obtienes Ventaja (+1d4) en todas las
+      pruebas de Percepción.<br> Mientras te encuentres en un entorno natural, obtienes Ventaja (+1d4) en las pruebas de
+      Sigilo y puedes moverte a través de terreno difícil natural sin penalización de movimiento.<br> **Sentir la
+      Vida:** Mediante 10 minutos de meditación ininterrumpida en un entorno natural, puedes buscar una especie vegetal
+      o animal que conozcas, o un ejemplar específico con el que hayas tenido contacto.<br> Si el objetivo se encuentra
+      a menos de 1 kilómetro, percibes su dirección y distancia aproximada. Si buscas una especie, detectas el ejemplar
+      más cercano.<br> Este sentido no revela el recorrido para alcanzarlo ni permite percibir a través de barreras
+      mágicas que bloqueen la detección.
     slug: sintonia-con-el-entorno
+  - id: bf114e6ae88be53b0ca5507a40ba034c41c74436
+    name: Susurros de la Naturaleza
+    level: 2
+    type: activable
+    tags:
+      - Druida
+      - Conjuro
+      - Ritual
+    requirements: Sintonía Primordial & Instinto 3
+    uses:
+      type: RELOAD
+      qty: 5
+    description: >-
+      _El viento lleva las palabras entre las hojas, y las raíces las susurran a través de la tierra. La naturaleza
+      encuentra a quienes deben escuchar._<br><br> Como Acción, tocas una planta viva enraizada en la tierra y
+      transmites un mensaje de hasta 25 palabras dirigido a una criatura que conozcas y que se encuentre en tu mismo
+      plano de existencia.<br> El mensaje viaja mágicamente a través de la naturaleza, sin necesidad de que exista una
+      conexión física continua entre las plantas.<br> **Recepción:** Si la criatura se encuentra a menos de 3 metros de
+      una planta viva enraizada en la tierra, recibe inmediatamente el mensaje como un susurro que solo ella puede
+      escuchar. Reconoce que el mensaje proviene de ti.<br> **Mensaje Pendiente:** Si no se encuentra cerca de una
+      planta apropiada, el mensaje permanece pendiente durante 24 horas. Si durante ese tiempo se aproxima a alguna
+      planta válida, recibe el mensaje automáticamente. Pasado ese plazo, el mensaje se pierde.<br> **Respuesta:**
+      Durante las 24 horas posteriores a recibirlo, la criatura puede responder con un mensaje de hasta 25 palabras,
+      tocando una planta viva enraizada en la tierra. Recibes la respuesta inmediatamente si también te encuentras cerca
+      de una planta apropiada. De lo contrario, queda pendiente durante 24 horas bajo las mismas condiciones.
+    slug: susurros-de-la-naturaleza
   - id: 41b71c3f63ff052e3ace13cc04be870bcffc6423
     name: Esporas Nocivas
     level: 2

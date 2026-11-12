@@ -60,14 +60,17 @@ cards:
       type: RELOAD
       qty: 6
     description: >-
-      _Invocas a los grandes espíritus animales para que te envuelvan en un aura espectral, otorgándote su fuerza y
-      sentidos._<br><br> Como Acción, invocas el espíritu de una bestia primordial que te envuelve como un aura
-      fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración. Al invocar el espíritu, eliges **dos** de
-      los siguientes beneficios:<br> - **Ojos del Búho:** Obtienes **Visión en la Oscuridad** y **Ventaja (+1d4)** en
-      todas las pruebas de **Instinto (Percepción)**.<br> - **Fuerza del Oso:** Tus ataques con armas cuerpo a cuerpo y
-      desarmados infligen **1d6 de daño Contundente adicional**.<br> - **Celeridad del Halcón:** Tu **Velocidad** de
-      movimiento aumenta en 2 metros y obtienes una velocidad de vuelo igual a tu velocidad base.<br> - **Piel del
-      Jabalí:** Ganas Puntos de Salud temporales igual a tres veces tu puntuación de Instinto.<br>
+      _Invocas a los grandes espíritus animales para que te envuelvan en un aura espectral, otorgándote su fuerza,
+      agilidad y sentidos primordiales._<br><br> Como Interacción, invocas el espíritu de una bestia primordial que te
+      envuelve como un aura fantasmal. El efecto dura 1 minuto o hasta que pierdas la Concentración.<br> Al invocar el
+      espíritu, eliges dos de los siguientes beneficios:<br> - **Ojos del Búho:** Obtienes Visión en la Oscuridad y
+      Ventaja (+1d4) en todas las pruebas de Percepción. Además, puedes percibir la ubicación de criaturas Ocultas o
+      Invisibles a distancia Cercana, siempre que no estén detrás de cobertura total.<br> - **Fuerza del Oso:** Obtienes
+      Ventaja (+1d4) en las pruebas de Fuerza Bruta. Tus ataques con armas cuerpo a cuerpo, ataques desarmados y ataques
+      de conjuro cuerpo a cuerpo de Druida infligen 1d6 de daño Contundente adicional.<br> - **Celeridad del Halcón:**
+      Obtienes Ventaja (+1d4) en las pruebas de Acrobacias. Tu Velocidad aumenta en 2 metros y obtienes una velocidad de
+      vuelo igual a tu velocidad base.<br> - **Piel del Jabalí:** Obtienes Ventaja (+1d4) en las pruebas de Aguante y
+      ganas Puntos de Salud temporales iguales a tres veces tu puntuación de Instinto.
     slug: aspecto-de-la-bestia
   - id: 3ff60460d7fd5ad1003b469ea479f4b0be25decd
     name: Maestría Salvaje

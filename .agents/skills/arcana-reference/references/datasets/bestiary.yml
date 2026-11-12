@@ -677,7 +677,7 @@ creatures:
       oscuridad para inyectarle su veneno. En su guarida, es una amenaza
       omnipresente, moviéndose por techos y paredes con una velocidad
       aterradora.
-    img: null
+    img: https://i.imgur.com/uiOx8vF.jpeg
     size: Mediano
   - name: Oso
     lineage: Bestia
@@ -772,7 +772,7 @@ creatures:
       Un guardia de puesto entrenado para mantener una línea y proteger un paso.
       Usa la espada o la ballesta según la distancia y se repliega solo si el
       puesto deja de ser defendible.
-    img: null
+    img: https://i.imgur.com/sULxwRl.jpeg
     size: Mediano
   - name: Guerrero Tribal
     lineage: Humanoide
@@ -881,7 +881,7 @@ creatures:
       matar de inmediato, sino paralizar a su presa con sus garras para poder
       devorarla sin que oponga resistencia. Se enfoca en el enemigo más lento o
       menos acorazado.
-    img: null
+    img: https://i.imgur.com/WwMoNAH.jpeg
     size: Mediano
   - name: Matón
     lineage: Humanoide
@@ -1197,7 +1197,7 @@ creatures:
       indestructible. Avanza en línea recta, aplastando todo a su paso. No se
       reposiciona ni esquiva; simplemente soporta los golpes y devuelve un
       castigo sísmico.
-    img: null
+    img: https://i.imgur.com/d64Mbu3.jpeg
     size: Grande
   - name: Elemental de Fuego
     lineage: Elemental
@@ -1248,7 +1248,7 @@ creatures:
       constante, buscando consumir todo lo que pueda arder. Su objetivo no es
       matar a un enemigo, sino prender fuego a tantos como sea posible,
       convirtiendo el campo de batalla en una pira.
-    img: null
+    img: https://i.imgur.com/iocpIr7.jpeg
     size: Grande
   - name: Elemental de Agua
     lineage: Elemental
@@ -1307,7 +1307,7 @@ creatures:
       líquida para rodear y atrapar a sus enemigos. Su táctica principal es usar
       Marea Arrasadora para empujar a un objetivo lejos de sus aliados y luego
       usar Engullir para ahogarlo.
-    img: null
+    img: https://i.imgur.com/sEum1EZ.jpeg
     size: Grande
   - name: Elemental de Aire
     lineage: Elemental
@@ -1366,7 +1366,7 @@ creatures:
       de los combatientes terrestres, hostigándolos con ráfagas de viento.
       Disfruta de su superioridad, empujando y derribando a sus enemigos desde
       una distancia segura. No aterrizará a menos que se vea forzado.
-    img: null
+    img: https://i.imgur.com/ic7oAkJ.jpeg
     size: Grande
   - name: Mago
     lineage: Humanoide
@@ -1439,7 +1439,7 @@ creatures:
       luego elimina objetivos prioritarios con Virotes Arcanos. Nunca se queda
       quieto: usa Paso Brumoso para mantener la distancia y reserva su Reacción
       para Contraconjuro, intentando neutralizar la magia enemiga más peligrosa.
-    img: null
+    img: https://i.imgur.com/WpbszoR.jpeg
     size: Mediano
   - name: Ozo-lechuza
     lineage: Monstruosidad
@@ -1754,7 +1754,7 @@ creatures:
       mismo objetivo para maximizar el dolor. Solo descenderá cuando un enemigo
       esté visiblemente herido o aislado, para saborear la muerte con sus garras
       y fauces.
-    img: null
+    img: https://i.imgur.com/PT0Zq5X.jpeg
     size: Grande
   - name: Gólem de Piedra
     lineage: Constructo
@@ -1805,7 +1805,7 @@ creatures:
       su camino. Su falta de emociones hace que siga sus órdenes sin considerar
       amenazas, súplicas o argumentos. Su única directiva es destruir a los
       intrusos.
-    img: null
+    img: https://i.imgur.com/RDC6aC2.jpeg
     size: Grande
   - name: Basilisco
     lineage: Monstruosidad
@@ -1939,7 +1939,7 @@ creatures:
       ritmo con su Ráfaga Mental para aturdir grupos y luego se enfoca en aislar
       a una víctima, inmovilizarla con su mente y devorar su cerebro. Es
       inteligente y huirá levitando si su salud baja del 25%.
-    img: null
+    img: https://i.imgur.com/NJxfUNX.jpeg
     size: Inmenso
   - name: Dragón Adulto
     lineage: Dragón
@@ -2074,7 +2074,7 @@ creatures:
       Cuando se utiliza como jefe con Reacciones adicionales, aprovecha
       Reposicionarse para dominar el espacio aéreo y Ataque Rápido para realizar
       Mordidas o Garras individuales entre los turnos enemigos.
-    img: null
+    img: https://i.imgur.com/mUldQzb.jpeg
     size: Enorme
   - name: Liche
     lineage: No-muerto
@@ -2182,7 +2182,7 @@ creatures:
       utiliza como jefe, las Reacciones adicionales adquiridas al construir el
       encuentro convierten su versatilidad mágica en una economía de acciones
       extremadamente peligrosa.
-    img: null
+    img: https://i.imgur.com/NAHOUvO.jpeg
     size: Mediano
   - name: No Combatiente
     lineage: Humanoide
@@ -2235,7 +2235,7 @@ creatures:
       Pánico para salir de la línea de visión. Solo realizará un ataque de forma
       desesperada si se encuentra completamente acorralado sin vías de escape, y
       aun así, su intención será ganar tiempo para huir, no abatir al agresor.
-    img: null
+    img: https://i.imgur.com/fiW5Izy.jpeg
     size: Mediano
   - name: Iniciado Arcano
     lineage: Humanoide
@@ -2285,7 +2285,7 @@ creatures:
       Se mantiene a distancia, disparando magia inestable desde la retaguardia.
       Huirá inmediatamente si un combatiente cuerpo a cuerpo se le acerca
       demasiado.
-    img: null
+    img: https://i.imgur.com/QQU70B0.jpeg
     size: Mediano
   - name: Ratero de los Bajos Fondos
     lineage: Humanoide
@@ -2340,7 +2340,7 @@ creatures:
       Evita el combate justo. Su táctica consiste en esperar que sus aliados (o
       compañeros rufianes) distraigan al aventurero más acorazado para clavar su
       daga por la espalda.
-    img: null
+    img: https://i.imgur.com/PNhNPhm.jpeg
     size: Mediano
   - name: Juglar Errante
     lineage: Humanoide
@@ -2403,7 +2403,7 @@ creatures:
       El juglar evita ser el blanco principal. Se dedica a entorpecer la
       ofensiva enemiga con su música destructiva mientras da pequeños impulsos
       de vitalidad a sus defensores.
-    img: null
+    img: https://i.imgur.com/AHKpq4A.jpeg
     size: Mediano
   - name: Iniciado del Círculo
     lineage: Humanoide
@@ -2457,7 +2457,7 @@ creatures:
       bestiales o tribales antes que luchar directamente. Gracias a su látigo,
       intentará arrastrar a los enemigos lejos de sus aliados heridos mientras
       aplica sus ungüentos de forma veloz.
-    img: null
+    img: https://i.imgur.com/u0TmLu0.jpeg
     size: Mediano
   - name: Lobo de Mar
     lineage: Humanoide
@@ -2628,7 +2628,7 @@ creatures:
       Un explorador cobarde y oportunista que prepara el terreno antes de
       atacar. Separa al grupo, hostiga al objetivo aislado y se repliega hacia
       una ruta preparada. Huirá si pierde la cobertura o queda solo.
-    img: null
+    img: https://i.imgur.com/ZK6HzpL.jpeg
     size: Pequeño
   - name: Estirge
     lineage: Monstruosidad
@@ -2679,7 +2679,7 @@ creatures:
       combate cuando la presa deja de ser segura. Se abalanza sobre el personaje
       aislado, evita objetivos protegidos y cambia de presa si recibe daño
       significativo.
-    img: null
+    img: https://i.imgur.com/q9juzO5.jpeg
     size: Diminuto
   - name: Armadura Animada
     lineage: Constructo
@@ -2727,7 +2727,7 @@ creatures:
       un sello o un objeto. Se interpone entre la amenaza y su objetivo, no
       persigue fuera de su umbral y vuelve a su posición si la amenaza se
       retira.
-    img: null
+    img: https://i.imgur.com/MQB1h9p.jpeg
     size: Mediano
   - name: Cubo Gelatinoso
     lineage: Limo
@@ -2776,7 +2776,7 @@ creatures:
       basura y aventureros. Se coloca en rutas inevitables, espera a que alguien
       cruce su espacio y prioriza aislar a una persona sin bloquear todas las
       salidas.
-    img: null
+    img: https://i.imgur.com/4mdxpC8.jpeg
     size: Grande
   - name: Dríada
     lineage: Feérico
@@ -2846,7 +2846,7 @@ creatures:
       La custodia feérica de un pacto territorial. Protege el árbol, santuario o
       frontera que se le confió, separa al intruso del lugar y abandona la
       violencia si el pacto vuelve a respetarse.
-    img: null
+    img: https://i.imgur.com/7d3chkU.jpeg
     size: Mediano
   - name: Fuego Fatuo
     lineage: No-muerto
@@ -2906,7 +2906,7 @@ creatures:
       Un falso faro que atrae a los viajeros hacia rutas contradictorias. Se
       mantiene fuera del alcance inmediato, atrae a la persona más curiosa y
       huye cuando pierde la oscuridad o la cobertura.
-    img: null
+    img: https://i.imgur.com/UW7MRIe.jpeg
     size: Diminuto
   - name: Fantasma
     lineage: No-muerto
@@ -2971,7 +2971,7 @@ creatures:
       Una entidad de un recuerdo incompleto que interrumpe la sincronización del
       grupo. Repite una escena del pasado, aparece para separar a los personajes
       y desaparece antes de quedar rodeado.
-    img: null
+    img: https://i.imgur.com/pXOeZeH.jpeg
     size: Mediano
   - name: Saga
     lineage: Feérico
@@ -3049,7 +3049,7 @@ creatures:
       Una intermediaria feérica de nombres y deudas. Divide las prioridades del
       grupo, castiga las promesas rotas y abandona el combate si la deuda deja
       de ser ventajosa.
-    img: null
+    img: https://i.imgur.com/ZV8wnY6.jpeg
     size: Mediano
   - name: Bulette
     lineage: Monstruosidad
@@ -3110,7 +3110,7 @@ creatures:
       Un depredador sísmico que convierte el suelo en una segunda línea de
       aproximación. Marca un territorio, embosca desde ángulos alternos y
       abandona el área si las vibraciones o el fuego la vuelven insegura.
-    img: null
+    img: https://i.imgur.com/79fI0df.jpeg
     size: Grande
   - name: Ent
     lineage: Planta
@@ -3178,7 +3178,7 @@ creatures:
       Una frontera forestal móvil que reconfigura objetivos, rutas y cobertura.
       Expulsa, separa y bloquea accesos antes de buscar matar. Si el objetivo
       del grupo no amenaza al bosque, prefiere negociar.
-    img: null
+    img: https://i.imgur.com/JDECJZF.jpeg
     size: Grande
   - name: Gigante de Fuego
     lineage: Gigante
@@ -3245,7 +3245,7 @@ creatures:
       Un maestro de asedio que trata el escenario como una forja. Prioriza
       objetivos, cobertura y puertas, usa el terreno para dividir al grupo y
       solo persigue cuando la ruta de retirada está asegurada.
-    img: null
+    img: https://i.imgur.com/OZ2rJne.jpeg
     size: Grande
   - name: Aboleth
     lineage: Aberración
@@ -3340,7 +3340,7 @@ creatures:
       Recuerdos para dividir la atención y reserva Moldear la Mente para el
       personaje cuya decisión pueda cambiar el combate. Se acerca solo cuando no
       tiene otra opción.
-    img: null
+    img: https://i.imgur.com/K7zoG2l.jpeg
     size: Inmenso
   - name: Cambiaformas
     lineage: Aberración
@@ -3404,7 +3404,7 @@ creatures:
       Un infiltrador aberrante que estudia a sus víctimas antes de adoptar su
       aspecto. Se mezcla con el grupo, deja que sus copias confundan la escena y
       ataca con extremidades convertidas en armas.
-    img: null
+    img: https://i.imgur.com/p5VgQJE.jpeg
     size: Mediano
   - name: Guerrero Gnoll
     lineage: Monstruosidad
@@ -3467,7 +3467,7 @@ creatures:
       Un cazador de manada que rodea al objetivo aislado. Alterna hachazos y
       mordiscos, usa el aullido para romper el ritmo de la presa y abandona la
       persecución si la manada pierde la ventaja.
-    img: null
+    img: https://i.imgur.com/9HRG7DN.jpeg
     size: Mediano
   - name: Soldado
     lineage: Humanoide
@@ -3528,7 +3528,7 @@ creatures:
       Un soldado profesional que mantiene la línea y concentra los ataques
       contra quien rompe la formación. Desafía al enemigo más peligroso mientras
       cubre al compañero expuesto.
-    img: null
+    img: https://i.imgur.com/Po0Umb6.jpeg
     size: Mediano
   - name: Sacerdote Gnoll
     lineage: Monstruosidad
@@ -3598,7 +3598,7 @@ creatures:
       Un oficiante de la cacería que se mantiene detrás de la manada. Marca la
       presa, fortalece a varios guerreros con una liturgia y sostiene al aliado
       que está a punto de caer.
-    img: null
+    img: https://i.imgur.com/XgUIm2c.jpeg
     size: Mediano
   - name: Sabueso Infernal
     lineage: Infernal
@@ -3662,7 +3662,7 @@ creatures:
       jauría. Rodea a la presa junto a otros sabuesos, reserva el soplo para
       grupos concentrados y abandona el territorio si pierde la ventaja
       numérica.
-    img: null
+    img: https://i.imgur.com/8H204P2.jpeg
     size: Mediano
   - name: Hombre Lobo
     lineage: Monstruosidad
@@ -3731,7 +3731,7 @@ creatures:
       Un cazador de dos naturalezas que aísla al objetivo herido. Cambia de
       forma según la ruta de aproximación, usa el aullido para quebrar la
       coordinación y abandona la cacería si el grupo vuelve a actuar unido.
-    img: null
+    img: https://i.imgur.com/RCfyxpZ.jpeg
     size: Mediano
   - name: Momia
     lineage: No-muerto
@@ -3804,7 +3804,7 @@ creatures:
       Un guardián funerario que preserva una orden antigua. Fuerza al grupo a
       avanzar por rutas estrechas, cubre a sus aliados no-muertos y vuelve a la
       cámara si alguien intenta saquearla.
-    img: null
+    img: https://i.imgur.com/bDOhwiA.jpeg
     size: Mediano
   - name: Remorhaz
     lineage: Monstruosidad
@@ -3868,7 +3868,7 @@ creatures:
       Un depredador de túneles cuya temperatura convierte la emboscada en una
       decisión de posicionamiento. Se sumerge, deja señales legibles y emerge
       bajo el personaje que rompe la formación.
-    img: null
+    img: https://i.imgur.com/1Ewzy3n.jpeg
     size: Grande
   - name: Gusano Gigante
     lineage: Monstruosidad
@@ -3939,7 +3939,7 @@ creatures:
       Un peligro de jefe que convierte el suelo en una amenaza. Desaparece bajo
       el terreno, divide al grupo con la amenaza de su mordida y emerge solo
       cuando puede aislar una presa.
-    img: null
+    img: https://i.imgur.com/IgE14Gs.jpeg
     size: Inmenso
   - name: Roc
     lineage: Bestia
@@ -4005,7 +4005,7 @@ creatures:
       Un depredador aéreo territorial que defiende un nido o una frontera. Ataca
       al personaje que lleva comida u objetos brillantes y usa las corrientes
       para mantener rutas de escape previsibles.
-    img: null
+    img: https://i.imgur.com/Rf5CY3h.jpeg
     size: Inmenso
   - name: Contemplador
     lineage: Aberración
@@ -4191,7 +4191,7 @@ creatures:
       grupo. Cuando se utiliza como jefe con Reacciones adicionales, puede
       sacrificar alguna de esas oportunidades para reposicionarse mediante las
       Reacciones de Jefe generales.
-    img: null
+    img: https://i.imgur.com/aEFNftR.jpeg
     size: Grande
   - name: Harpía
     lineage: Monstruosidad
