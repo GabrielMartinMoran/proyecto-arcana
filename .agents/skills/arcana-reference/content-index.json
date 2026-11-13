@@ -1896,8 +1896,8 @@
         "requirements": "Sintonía Primordial & Instinto 4",
         "uses": "RELOAD:6"
       },
-      "search": "_Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana. Al final del turno de cada una de esas criaturas, recuperan 1d6 Puntos de Salud. El efecto dura un máximo de 3 rondas o hasta que pierdas la Concentración.",
-      "hash": "a200ded0a419769ad0ed89f4b393f5227a26ae53"
+      "search": "_Conjuras esporas regenerativas sobre tus aliados, haciendo que sus heridas se cierren rápidamente como capullos en primavera._<br><br> Como Acción, eliges hasta tres criaturas voluntarias a distancia Cercana, que quedan imbuidas de energía regenerativa durante 3 rondas o hasta que pierdas la Concentración.<br> Al final de cada uno de sus turnos, cada criatura afectada recupera 1d6 Puntos de Salud.",
+      "hash": "0debc7e05a604b3b90586c086c662d5aba0263ea"
     },
     {
       "kind": "card",
