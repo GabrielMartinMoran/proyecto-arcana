@@ -537,13 +537,32 @@ Tener el equipo adecuado puede marcar la diferencia entre el éxito y el fracaso
 
 ## Viajes de Larga Distancia
 
-Cuando la distancia recorrida resulta relevante, el viaje se mide en horas. Cada medio de transporte posee una **velocidad de viaje**, que indica aproximadamente cuántos kilómetros puede recorrer por hora en condiciones favorables, y una cantidad de **horas normales de avance** que puede sostener durante un día sin forzar a quienes realizan el esfuerzo.
+Cuando la distancia recorrida resulta relevante, el viaje se mide en horas. La velocidad de desplazamiento depende del ritmo elegido, del medio de transporte y de las condiciones del terreno.
+
+### Ritmos de Desplazamiento
+
+Las criaturas utilizan su atributo de **Velocidad** para determinar cuántos kilómetros pueden recorrer por hora, según el ritmo al que se desplacen.
+
+| Ritmo       | Velocidad de Viaje | Esfuerzo   |
+| :---------- | :----------------- | :--------- |
+| **Caminar** | Velocidad ÷ 2 km/h | Sostenible |
+| **Trotar**  | Velocidad en km/h  | Moderado   |
+| **Correr**  | Velocidad × 2 km/h | Intenso    |
+
+Por ejemplo, un caballo con Velocidad 20 puede caminar a 10 km/h, trotar a 20 km/h o correr a 40 km/h.
+
+Estas velocidades representan el desplazamiento aproximado en condiciones favorables, no velocidades que puedan mantenerse indefinidamente.
+
+El ritmo puede cambiarse libremente durante un viaje. Sin embargo, trotar o correr durante períodos prolongados supone un esfuerzo adicional que puede provocar Fatiga.
+
+**Velocidades Especiales:** Algunas criaturas pueden poseer formas de locomoción particulares o velocidades de viaje específicas que reemplazan estos valores, según su fisiología o sus capacidades.
+
+### Vehículos y Embarcaciones
+
+Los vehículos utilizan velocidades de viaje independientes de la Velocidad de sus ocupantes.
 
 | Medio de Viaje                | Velocidad de Viaje | Horas Normales de Avance | Distancia Diaria Aproximada |
 | :---------------------------- | :----------------- | :----------------------- | :-------------------------- |
-| A pie                         | 4 km/h             | 8 horas                  | 32 km                       |
-| Mula o burro                  | 4 km/h             | 8 horas                  | 32 km                       |
-| Caballo de monta              | 6 km/h             | 8 horas                  | 48 km                       |
 | Carreta                       | 4 km/h             | 8 horas                  | 32 km                       |
 | Carruaje ligero               | 5 km/h             | 8 horas                  | 40 km                       |
 | Bote de remos o canoa         | 4 km/h             | 8 horas                  | 32 km                       |
@@ -553,21 +572,39 @@ Cuando la distancia recorrida resulta relevante, el viaje se mide en horas. Cada
 
 _\* Una embarcación con una tripulación suficiente puede continuar navegando mientras sus integrantes se alternan en turnos de trabajo y descanso._
 
+Las velocidades de carros y carruajes ya contemplan el uso habitual de animales de tiro y no se calculan a partir de la Velocidad individual de estos.
+
 Estos valores representan condiciones razonablemente favorables. El terreno, el clima, las corrientes, el viento, el estado de los caminos y otras circunstancias pueden modificar el avance, según determine el Director de Juego.
 
 Las horas indicadas representan **horas efectivas de viaje**. El tiempo empleado en detenerse a comer, investigar un lugar, resolver un encuentro, reparar equipo o realizar otras actividades no cuenta como horas de avance.
 
+### Esfuerzo y Ritmos de Viaje
+
+Cada ritmo determina cuánto tiempo puede sostenerse el desplazamiento sin provocar un esfuerzo extraordinario.
+
+- **Caminar:** Una criatura puede caminar normalmente durante 8 horas de avance al día sin realizar pruebas adicionales.
+- **Trotar:** Una criatura puede mantener este ritmo durante 1 hora sin realizar pruebas adicionales. Cada hora adicional de trote requiere una Prueba de **Cuerpo (Aguante)**.
+- **Correr:** Una criatura puede mantener este ritmo durante 10 minutos sin realizar pruebas adicionales. Cada período adicional de 10 minutos de carrera requiere una Prueba de **Cuerpo (Aguante)**.
+
+La primera prueba por esfuerzo tiene **ND 8**, y el ND aumenta en **+1 por cada período adicional consecutivo** al mismo ritmo.
+
+Si falla una de estas pruebas, la criatura sufre **1 grado de Fatiga**.
+
+El tiempo de esfuerzo se acumula durante la jornada. Cambiar brevemente a un ritmo inferior o realizar pequeñas pausas no elimina el esfuerzo acumulado. Un descanso prolongado y suficiente permite comenzar una nueva jornada sin ese esfuerzo acumulado, aunque no elimina automáticamente los grados de Fatiga sufridos.
+
+Estas reglas representan esfuerzos prolongados. Las carreras, persecuciones y desplazamientos breves que no superen los límites indicados no requieren pruebas por el mero hecho de utilizar un ritmo elevado.
+
 ### Marcha Forzada
 
-Una criatura puede realizar hasta las **horas normales de avance** correspondientes a su forma de viaje sin realizar pruebas adicionales por el mero esfuerzo de desplazarse.
+Una criatura puede realizar hasta **8 horas normales de avance** durante una jornada de viaje por tierra sin realizar pruebas adicionales por la duración del desplazamiento.
 
-Continuar más allá de ese límite constituye una **Marcha Forzada**. Al finalizar cada hora adicional durante la que la criatura continúe realizando el esfuerzo, debe superar una Prueba de **Cuerpo (Aguante)**. La primera hora adicional tiene **ND 8**, y el ND aumenta en **+1 por cada hora adicional consecutiva**.
+Continuar más allá de ese límite constituye una **Marcha Forzada**.
 
-Por ejemplo, para una criatura que viaja a pie:
+Al finalizar cada hora adicional de avance, la criatura debe superar una Prueba de **Cuerpo (Aguante)**. La primera hora adicional tiene **ND 8**, y el ND aumenta en **+1 por cada hora adicional consecutiva**.
 
 | Horas de Viaje | Prueba de Marcha Forzada |
 | :------------- | :----------------------- |
-| 1–8 horas      | Sin prueba               |
+| 1–8 horas      | Sin prueba por duración  |
 | 9 horas        | ND 8                     |
 | 10 horas       | ND 9                     |
 | 11 horas       | ND 10                    |
@@ -575,9 +612,13 @@ Por ejemplo, para una criatura que viaja a pie:
 
 Si falla una de estas pruebas, la criatura sufre **1 grado de Fatiga**.
 
+Las pruebas de Marcha Forzada son independientes de las provocadas por trotar o correr. Una criatura que mantiene un ritmo exigente durante una jornada prolongada puede tener que superar ambas pruebas.
+
 En los viajes a pie, a caballo o mediante animales de tiro, **12 horas de avance en un mismo día** representan normalmente el límite de lo que puede sostenerse mediante esfuerzo ordinario. Superar ese límite queda reservado para circunstancias excepcionales y queda a criterio del DJ.
 
-La Marcha Forzada afecta a quienes estén realizando el esfuerzo prolongado. Un pasajero que viaja a bordo de una embarcación, carro u otro vehículo no realiza estas pruebas únicamente porque el vehículo continúe avanzando. Si se fuerza durante demasiado tiempo a una montura, animal de tiro o miembro de una tripulación, el DJ determina quién debe realizar las pruebas correspondientes.
+La Marcha Forzada afecta a quienes estén realizando el esfuerzo prolongado. Un pasajero que viaja a bordo de una embarcación, carro u otro vehículo no realiza estas pruebas únicamente porque el vehículo continúe avanzando.
+
+Si se fuerza durante demasiado tiempo a una montura, animal de tiro o miembro de una tripulación, es esa criatura quien debe resistir el esfuerzo correspondiente.
 
 # 6. Interacción Social
 
